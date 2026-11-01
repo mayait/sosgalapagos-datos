@@ -1,0 +1,18 @@
+# Sistema
+.DS_Store
+
+# Secretos y registros locales (NO publicar)
+galapagos/credenciales-locales.txt
+*.env
+.env*
+logs/
+
+# Fork local de ResponseGrid (repositorio propio)
+app/
+
+# Geodatos: descargas crudas (pesadas, regenerables y con datos personales
+# de fuentes oficiales: nombres y teléfonos de responsables). Ver geodatos/LEEME.md
+geodatos/descargas/
+geodatos/.venv/
+__pycache__/
+*.pyc

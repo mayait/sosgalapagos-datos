@@ -1,0 +1,41 @@
+{
+ "santa_cruz": {
+  "isla": "Santa Cruz",
+  "bounds": [
+   [
+    -0.8,
+    -90.56
+   ],
+   [
+    -0.42,
+    -90.15
+   ]
+  ]
+ },
+ "san_cristobal": {
+  "isla": "San Cristóbal",
+  "bounds": [
+   [
+    -0.97,
+    -89.66
+   ],
+   [
+    -0.66,
+    -89.22
+   ]
+  ]
+ },
+ "isabela_sur": {
+  "isla": "Isabela",
+  "bounds": [
+   [
+    -1.08,
+    -91.25
+   ],
+   [
+    -0.7,
+    -90.85
+   ]
+  ]
+ }
+}

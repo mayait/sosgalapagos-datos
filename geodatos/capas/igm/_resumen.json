@@ -1,0 +1,557 @@
+{
+ "acequia": {
+  "original": 8,
+  "depurado": 8,
+  "por_isla": {
+   "San Cristóbal": 7,
+   "Santa Cruz": 1
+  }
+ },
+ "acueducto": {
+  "original": 10,
+  "depurado": 10,
+  "por_isla": {
+   "San Cristóbal": 10
+  }
+ },
+ "aeropuertos": {
+  "original": 8,
+  "depurado": 8,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Santa Cruz": 6,
+   "Isabela": 1
+  }
+ },
+ "alcantarillado": {
+  "original": 1,
+  "depurado": 0,
+  "por_isla": {}
+ },
+ "antena_parabolica": {
+  "original": 21,
+  "depurado": 18,
+  "por_isla": {
+   "San Cristóbal": 17,
+   "Isabela": 1
+  }
+ },
+ "anteplaya": {
+  "original": 131,
+  "depurado": 92,
+  "por_isla": {
+   "San Cristóbal": 2,
+   "Isabela": 78,
+   "Santa Cruz": 12
+  }
+ },
+ "arboles": {
+  "original": 91,
+  "depurado": 73,
+  "por_isla": {
+   "San Cristóbal": 4,
+   "Santa Cruz": 68,
+   "Isabela": 1
+  }
+ },
+ "area_inundacion": {
+  "original": 24,
+  "depurado": 0,
+  "por_isla": {}
+ },
+ "arrecife": {
+  "original": 6,
+  "depurado": 4,
+  "por_isla": {
+   "San Cristóbal": 4
+  }
+ },
+ "cancha": {
+  "original": 33,
+  "depurado": 28,
+  "por_isla": {
+   "San Cristóbal": 11,
+   "Santa Cruz": 15,
+   "Isabela": 2
+  }
+ },
+ "cantera": {
+  "original": 7,
+  "depurado": 7,
+  "por_isla": {
+   "San Cristóbal": 3,
+   "Santa Cruz": 2,
+   "Isabela": 2
+  }
+ },
+ "caracteristicas_terreno": {
+  "original": 537,
+  "depurado": 476,
+  "por_isla": {
+   "San Cristóbal": 120,
+   "Santa Cruz": 142,
+   "Isabela": 214
+  }
+ },
+ "cementerio": {
+  "original": 8,
+  "depurado": 7,
+  "por_isla": {
+   "San Cristóbal": 2,
+   "Santa Cruz": 3,
+   "Isabela": 2
+  }
+ },
+ "central_electrica": {
+  "original": 1,
+  "depurado": 1,
+  "por_isla": {
+   "Isabela": 1
+  }
+ },
+ "cerca": {
+  "original": 328,
+  "depurado": 327,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Santa Cruz": 310,
+   "Isabela": 16
+  }
+ },
+ "cienega": {
+  "original": 2,
+  "depurado": 1,
+  "por_isla": {
+   "Isabela": 1
+  }
+ },
+ "complejo": {
+  "original": 2,
+  "depurado": 2,
+  "por_isla": {
+   "Santa Cruz": 2
+  }
+ },
+ "cultivos": {
+  "original": 14,
+  "depurado": 13,
+  "por_isla": {
+   "San Cristóbal": 4,
+   "Isabela": 8,
+   "Santa Cruz": 1
+  }
+ },
+ "desmonte": {
+  "original": 111,
+  "depurado": 105,
+  "por_isla": {
+   "San Cristóbal": 4,
+   "Santa Cruz": 79,
+   "Isabela": 22
+  }
+ },
+ "edificio_a": {
+  "original": 110,
+  "depurado": 108,
+  "por_isla": {
+   "San Cristóbal": 25,
+   "Santa Cruz": 72,
+   "Isabela": 11
+  }
+ },
+ "edificio_p": {
+  "original": 2819,
+  "depurado": 2707,
+  "por_isla": {
+   "San Cristóbal": 847,
+   "Santa Cruz": 1577,
+   "Isabela": 283
+  }
+ },
+ "estadio": {
+  "original": 4,
+  "depurado": 4,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Santa Cruz": 3
+  }
+ },
+ "estanque": {
+  "original": 4,
+  "depurado": 4,
+  "por_isla": {
+   "San Cristóbal": 3,
+   "Santa Cruz": 1
+  }
+ },
+ "evaporador_salino": {
+  "original": 1,
+  "depurado": 1,
+  "por_isla": {
+   "Santa Cruz": 1
+  }
+ },
+ "faro": {
+  "original": 6,
+  "depurado": 6,
+  "por_isla": {
+   "San Cristóbal": 4,
+   "Santa Cruz": 1,
+   "Isabela": 1
+  }
+ },
+ "grieta_a": {
+  "original": 23,
+  "depurado": 2,
+  "por_isla": {
+   "Santa Cruz": 2
+  }
+ },
+ "grieta_l": {
+  "original": 75,
+  "depurado": 10,
+  "por_isla": {
+   "San Cristóbal": 3,
+   "Santa Cruz": 7
+  }
+ },
+ "herradura_rodera": {
+  "original": 103,
+  "depurado": 93,
+  "por_isla": {
+   "San Cristóbal": 16,
+   "Santa Cruz": 35,
+   "Isabela": 42
+  }
+ },
+ "islas": {
+  "original": 228,
+  "depurado": 168,
+  "por_isla": {
+   "San Cristóbal": 9,
+   "Isabela": 132,
+   "Santa Cruz": 27
+  }
+ },
+ "lago_laguna": {
+  "original": 91,
+  "depurado": 76,
+  "por_isla": {
+   "San Cristóbal": 21,
+   "Santa Cruz": 55
+  }
+ },
+ "linea_costa": {
+  "original": 62,
+  "depurado": 18,
+  "por_isla": {
+   "Santa Cruz": 18
+  }
+ },
+ "linea_transmision_electrica": {
+  "original": 1,
+  "depurado": 1,
+  "por_isla": {
+   "San Cristóbal": 1
+  }
+ },
+ "malecon": {
+  "original": 1,
+  "depurado": 1,
+  "por_isla": {
+   "San Cristóbal": 1
+  }
+ },
+ "manantial": {
+  "original": 2,
+  "depurado": 2,
+  "por_isla": {
+   "San Cristóbal": 2
+  }
+ },
+ "matorral": {
+  "original": 2373,
+  "depurado": 601,
+  "por_isla": {
+   "San Cristóbal": 5,
+   "Isabela": 575,
+   "Santa Cruz": 21
+  }
+ },
+ "mina": {
+  "original": 6,
+  "depurado": 2,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Santa Cruz": 1
+  }
+ },
+ "muelle_a": {
+  "original": 18,
+  "depurado": 6,
+  "por_isla": {
+   "Santa Cruz": 6
+  }
+ },
+ "muelle_l": {
+  "original": 36,
+  "depurado": 11,
+  "por_isla": {
+   "San Cristóbal": 7,
+   "Santa Cruz": 2,
+   "Isabela": 2
+  }
+ },
+ "nombres_sititos": {
+  "original": 801,
+  "depurado": 260,
+  "por_isla": {
+   "San Cristóbal": 64,
+   "Santa Cruz": 94,
+   "Isabela": 102
+  }
+ },
+ "pastizal": {
+  "original": 36,
+  "depurado": 12,
+  "por_isla": {
+   "Santa Cruz": 12
+  }
+ },
+ "pista_aterrizaje": {
+  "original": 9,
+  "depurado": 3,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Santa Cruz": 1,
+   "Isabela": 1
+  }
+ },
+ "playa": {
+  "original": 117,
+  "depurado": 36,
+  "por_isla": {
+   "Santa Cruz": 36
+  }
+ },
+ "poblado": {
+  "original": 108,
+  "depurado": 36,
+  "por_isla": {
+   "San Cristóbal": 9,
+   "Santa Cruz": 23,
+   "Isabela": 4
+  }
+ },
+ "pozo": {
+  "original": 3,
+  "depurado": 1,
+  "por_isla": {
+   "Santa Cruz": 1
+  }
+ },
+ "procesamiento_residuos": {
+  "original": 18,
+  "depurado": 6,
+  "por_isla": {
+   "Santa Cruz": 6
+  }
+ },
+ "puente_l": {
+  "original": 21,
+  "depurado": 7,
+  "por_isla": {
+   "San Cristóbal": 7
+  }
+ },
+ "puente_p": {
+  "original": 3,
+  "depurado": 1,
+  "por_isla": {
+   "Santa Cruz": 1
+  }
+ },
+ "punto_acotado_p": {
+  "original": 96292,
+  "depurado": 29231,
+  "por_isla": {
+   "San Cristóbal": 2125,
+   "Santa Cruz": 8498,
+   "Isabela": 18608
+  }
+ },
+ "punto_desvanecido": {
+  "original": 266,
+  "depurado": 127,
+  "por_isla": {
+   "San Cristóbal": 3,
+   "Santa Cruz": 13,
+   "Isabela": 111
+  }
+ },
+ "rio": {
+  "original": 2800,
+  "depurado": 909,
+  "por_isla": {
+   "Santa Cruz": 138,
+   "San Cristóbal": 282,
+   "Isabela": 489
+  }
+ },
+ "roca_a": {
+  "original": 964,
+  "depurado": 304,
+  "por_isla": {
+   "San Cristóbal": 110,
+   "Santa Cruz": 72,
+   "Isabela": 122
+  }
+ },
+ "roca_p": {
+  "original": 114,
+  "depurado": 8,
+  "por_isla": {
+   "Isabela": 8
+  }
+ },
+ "ruina": {
+  "original": 2,
+  "depurado": 1,
+  "por_isla": {
+   "Santa Cruz": 1
+  }
+ },
+ "salina": {
+  "original": 30,
+  "depurado": 15,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Santa Cruz": 14
+  }
+ },
+ "sendero": {
+  "original": 688,
+  "depurado": 297,
+  "por_isla": {
+   "San Cristóbal": 157,
+   "Isabela": 68,
+   "Santa Cruz": 72
+  }
+ },
+ "sin_informacion": {
+  "original": 12,
+  "depurado": 0,
+  "por_isla": {}
+ },
+ "tanque": {
+  "original": 108,
+  "depurado": 50,
+  "por_isla": {
+   "San Cristóbal": 23,
+   "Santa Cruz": 16,
+   "Isabela": 11
+  }
+ },
+ "terreno_inundable": {
+  "original": 64,
+  "depurado": 32,
+  "por_isla": {
+   "San Cristóbal": 2,
+   "Santa Cruz": 24,
+   "Isabela": 6
+  }
+ },
+ "texto_descriptivo_l": {
+  "original": 346,
+  "depurado": 162,
+  "por_isla": {
+   "Santa Cruz": 162
+  }
+ },
+ "texto_descriptivo_p": {
+  "original": 2314,
+  "depurado": 824,
+  "por_isla": {
+   "San Cristóbal": 386,
+   "Isabela": 438
+  }
+ },
+ "torre": {
+  "original": 12,
+  "depurado": 6,
+  "por_isla": {
+   "San Cristóbal": 6
+  }
+ },
+ "torre_agua": {
+  "original": 2,
+  "depurado": 1,
+  "por_isla": {
+   "Santa Cruz": 1
+  }
+ },
+ "torre_comunicacion": {
+  "original": 40,
+  "depurado": 18,
+  "por_isla": {
+   "Isabela": 1,
+   "Santa Cruz": 17
+  }
+ },
+ "torre_control": {
+  "original": 4,
+  "depurado": 2,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Isabela": 1
+  }
+ },
+ "tunel": {
+  "original": 6,
+  "depurado": 3,
+  "por_isla": {
+   "Santa Cruz": 3
+  }
+ },
+ "vegetacion_diversa": {
+  "original": 218,
+  "depurado": 102,
+  "por_isla": {
+   "Santa Cruz": 18,
+   "Isabela": 84
+  }
+ },
+ "vertedero_basurero": {
+  "original": 8,
+  "depurado": 2,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Santa Cruz": 1
+  }
+ },
+ "via": {
+  "original": 3932,
+  "depurado": 1966,
+  "por_isla": {
+   "San Cristóbal": 739,
+   "Santa Cruz": 952,
+   "Isabela": 275
+  }
+ },
+ "vivero": {
+  "original": 12,
+  "depurado": 6,
+  "por_isla": {
+   "Santa Cruz": 6
+  }
+ },
+ "zona_urbana": {
+  "original": 18,
+  "depurado": 5,
+  "por_isla": {
+   "San Cristóbal": 1,
+   "Santa Cruz": 3,
+   "Isabela": 1
+  }
+ }
+}

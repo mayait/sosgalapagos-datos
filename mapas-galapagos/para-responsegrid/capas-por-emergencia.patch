@@ -1,0 +1,1057 @@
+diff --git a/.gitignore b/.gitignore
+index c7b5d6d..d8c3e1f 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -4,6 +4,7 @@
+ !/docs/features/
+ !/docs/deploy/
+ !/docs/DEFINITION_OF_DONE.md
++!/docs/capas-emergencia.md
+ 
+ # Secretos / entorno — nunca al repo
+ .env
+diff --git a/apps/web/src/app/globals.css b/apps/web/src/app/globals.css
+index 46731c8..6ba2151 100644
+--- a/apps/web/src/app/globals.css
++++ b/apps/web/src/app/globals.css
+@@ -71,3 +71,23 @@ body {
+   isolation: isolate;
+   z-index: 0;
+ }
++
++/* Capas cartográficas por emergencia (components/organisms/emergency-layers.tsx) */
++.rg-capas-multiply {
++  mix-blend-mode: multiply;
++}
++.leaflet-tooltip.rg-capas-rotulo {
++  background: transparent;
++  border: 0;
++  box-shadow: none;
++  color: #7c2d12;
++  font: 600 11px system-ui, sans-serif;
++  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 2px #fff;
++}
++.leaflet-tooltip.rg-capas-rotulo::before {
++  display: none;
++}
++/* Rótulos permanentes (p. ej. barrios) solo de cerca */
++.rg-capas-lejos .leaflet-tooltip.rg-capas-rotulo {
++  display: none;
++}
+diff --git a/apps/web/src/components/organisms/emergency-layers.tsx b/apps/web/src/components/organisms/emergency-layers.tsx
+new file mode 100644
+index 0000000..efd1f79
+--- /dev/null
++++ b/apps/web/src/components/organisms/emergency-layers.tsx
+@@ -0,0 +1,326 @@
++'use client';
++
++// Capas cartográficas de una emergencia (mapas base, amenazas, hidrografía, población, puntos clave…).
++//
++// Busca el manifiesto en `<NEXT_PUBLIC_CAPAS_BASE_URL | /capas>/<slug>/capas.json`. Si la emergencia no
++// tiene manifiesto, se comporta como antes: solo el mapa base de OpenStreetMap. Si lo tiene, pinta los
++// mapas base y las capas declaradas, y muestra un panel con interruptores, leyendas y botones «Ir a».
++// Formato del manifiesto: docs/capas-emergencia.md.
++
++import L from 'leaflet';
++import { useEffect, useMemo, useRef, useState, type ChangeEvent } from 'react';
++import { TileLayer, useMap } from 'react-leaflet';
++import { useLocale } from '@/i18n/locale-context';
++import { getMessages } from '@/i18n';
++import {
++  defaultVisibility,
++  escapeHtml,
++  isDrawable,
++  legendFor,
++  type LayersManifest,
++  type LegendEntry,
++  type ManifestLayer,
++} from '@/lib/map-layers/manifest';
++import { capasBaseUrl, createLayer, loadManifest, prepareMap, type LayerContext } from '@/lib/map-layers/leaflet-layers';
++
++const OSM_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
++/** Los rótulos permanentes (barrios…) se ocultan por debajo de este zoom. */
++const LABELS_MIN_ZOOM = 15;
++const OSM_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
++
++function LegendSwatch({ e }: { e: LegendEntry }) {
++  if (e.forma === 'punto') {
++    return (
++      <span
++        className="mr-1.5 inline-block h-3.5 w-3.5 rounded-full border-[1.5px] border-white text-center align-[-3px] text-[9px] font-bold leading-[11px] text-white shadow-[0_0_0_1px_rgba(0,0,0,.25)]"
++        style={{ background: e.color }}
++      >
++        {e.simbolo ?? ''}
++      </span>
++    );
++  }
++  if (e.forma === 'linea') {
++    return (
++      <span
++        className="mr-1.5 inline-block w-4 align-[3px]"
++        style={{ borderTop: `3px ${e.dash ? 'dashed' : 'solid'} ${e.color ?? '#555'}` }}
++      />
++    );
++  }
++  return <span className="mr-1.5 inline-block h-2.5 w-4 rounded-sm align-[-1px]" style={{ background: e.color }} />;
++}
++
++export function EmergencyLayers({ slug }: { slug?: string | undefined }) {
++  const map = useMap();
++  const t = getMessages(useLocale()).ui;
++  const base = useMemo(() => (slug ? capasBaseUrl(slug) : null), [slug]);
++  const [manifest, setManifest] = useState<LayersManifest | null | undefined>(slug ? undefined : null);
++  const [on, setOn] = useState<Record<string, boolean>>({});
++  const [zoom, setZoom] = useState(() => map.getZoom());
++  const [baseId, setBaseId] = useState<string | null>(null);
++  const [open, setOpen] = useState(false);
++  const [msg, setMsg] = useState<string | null>(null);
++  const ctxRef = useRef<LayerContext | null>(null);
++  const built = useRef<Record<string, L.Layer>>({});
++  const panelRef = useRef<HTMLDivElement | null>(null);
++  const fileRef = useRef<HTMLInputElement | null>(null);
++
++  // 1) Manifiesto
++  useEffect(() => {
++    if (!base) return;
++    let cancelled = false;
++    void loadManifest(base).then((m) => {
++      if (cancelled) return;
++      setManifest(m);
++      if (!m) return;
++      ctxRef.current = prepareMap(map, base);
++      setOn(defaultVisibility(m));
++      setBaseId(m.mapas_base?.find((b) => b.defecto)?.id ?? m.mapas_base?.[0]?.id ?? null);
++      setOpen(typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches);
++    });
++    return () => {
++      cancelled = true;
++    };
++  }, [base, map]);
++
++  // 2) Zoom (capas con zoom_min)
++  useEffect(() => {
++    const onZoom = () => {
++      setZoom(map.getZoom());
++      map.getContainer().classList.toggle('rg-capas-lejos', map.getZoom() < LABELS_MIN_ZOOM);
++    };
++    onZoom();
++    map.on('zoomend', onZoom);
++    return () => {
++      map.off('zoomend', onZoom);
++    };
++  }, [map]);
++
++  // 3) Mapa base del manifiesto
++  useEffect(() => {
++    const def = manifest?.mapas_base?.find((b) => b.id === baseId);
++    if (!def) return;
++    const opts: L.TileLayerOptions = { attribution: def.atribucion, maxZoom: def.maxZoom ?? 19 };
++    if (def.maxNativeZoom != null) opts.maxNativeZoom = def.maxNativeZoom;
++    const tl = L.tileLayer(def.url, opts).addTo(map);
++    tl.bringToBack();
++    return () => {
++      map.removeLayer(tl);
++    };
++  }, [manifest, baseId, map]);
++
++  // 4) Capas: se (re)añaden en el orden del manifiesto para conservar el apilado
++  useEffect(() => {
++    const ctx = ctxRef.current;
++    if (!manifest || !ctx) return;
++    let cancelled = false;
++    const all = manifest.grupos.flatMap((g) => g.capas);
++    void (async () => {
++      for (const layer of all) {
++        const want = isDrawable(layer, Boolean(on[layer.id]), zoom);
++        if (want && !built.current[layer.id]) {
++          try {
++            built.current[layer.id] = await createLayer(layer, ctx);
++          } catch (err) {
++            console.error(`[EmergencyLayers] no se pudo cargar la capa ${layer.id}:`, err);
++            continue;
++          }
++        }
++        if (cancelled) return;
++      }
++      for (const layer of all) {
++        const l = built.current[layer.id];
++        if (l && map.hasLayer(l)) map.removeLayer(l);
++      }
++      for (const layer of all) {
++        const l = built.current[layer.id];
++        if (l && isDrawable(layer, Boolean(on[layer.id]), zoom)) l.addTo(map);
++      }
++    })();
++    return () => {
++      cancelled = true;
++    };
++  }, [manifest, on, zoom, map]);
++
++  // 5) Al desmontar, quitar todo
++  useEffect(() => {
++    const layers = built.current;
++    return () => {
++      for (const l of Object.values(layers)) map.removeLayer(l);
++    };
++  }, [map]);
++
++  // 6) El panel no debe arrastrar ni hacer zoom en el mapa
++  useEffect(() => {
++    const el = panelRef.current;
++    if (!el) return;
++    L.DomEvent.disableClickPropagation(el);
++    L.DomEvent.disableScrollPropagation(el);
++  }, [manifest, open]);
++
++  const onFile = async (e: ChangeEvent<HTMLInputElement>) => {
++    const file = e.target.files?.[0];
++    e.target.value = '';
++    if (!file) return;
++    try {
++      const data = JSON.parse(await file.text()) as GeoJSON.GeoJsonObject;
++      const layer = L.geoJSON(data, {
++        style: { color: '#c2410c', weight: 2.5, fillOpacity: 0.18, dashArray: '6 6' },
++        onEachFeature: (f, l) => {
++          const rows = Object.entries((f.properties ?? {}) as Record<string, unknown>)
++            .filter(([, v]) => v != null && v !== '')
++            .map(([k, v]) => `<tr><td style="color:#6b7280;padding-right:6px">${escapeHtml(k)}</td><td>${escapeHtml(v)}</td></tr>`)
++            .join('');
++          l.bindPopup(`<table style="font-size:12px">${rows}</table>`);
++        },
++      }).addTo(map);
++      const b = layer.getBounds();
++      if (b.isValid()) map.fitBounds(b, { padding: [30, 30] });
++      setMsg(t.map_layers_upload_ok.replace('{name}', file.name));
++    } catch {
++      setMsg(t.map_layers_upload_error);
++    }
++    setTimeout(() => setMsg(null), 5000);
++  };
++
++  // Sin manifiesto (o mientras carga): mapa base de siempre.
++  if (!manifest) return <TileLayer url={OSM_URL} attribution={OSM_ATTR} />;
++
++  const toggle = (id: string) => setOn((s) => ({ ...s, [id]: !s[id] }));
++
++  return (
++    <>
++      {!open && (
++        <button
++          type="button"
++          onClick={() => setOpen(true)}
++          className="absolute right-3 top-3 z-[1000] rounded-md border border-line bg-white px-3 py-1.5 text-xs font-semibold text-ink shadow hover:bg-surface"
++        >
++          {t.map_layers_button}
++        </button>
++      )}
++      {open && (
++        <div
++          ref={panelRef}
++          className="absolute right-3 top-3 z-[1000] flex max-h-[calc(100%-1.5rem)] w-[min(20rem,calc(100%-1.5rem))] flex-col overflow-hidden rounded-xl border border-line bg-white/95 text-ink shadow-lg backdrop-blur"
++        >
++          <div className="flex items-center justify-between border-b border-line px-3 py-2">
++            <span className="text-sm font-semibold">{manifest.titulo ?? t.map_layers_title}</span>
++            <button
++              type="button"
++              onClick={() => setOpen(false)}
++              className="rounded px-2 text-lg leading-none text-muted hover:text-ink"
++              aria-label={t.map_layers_close}
++            >
++              ×
++            </button>
++          </div>
++          <div className="overflow-y-auto px-3 pb-3">
++            {manifest.islas && (
++              <div className="pt-2">
++                <div className="mb-1 text-[10.5px] font-semibold uppercase tracking-wide text-muted">{t.map_layers_goto}</div>
++                <div className="flex flex-wrap gap-1">
++                  {Object.entries(manifest.islas).map(([name, v]) => (
++                    <button
++                      key={name}
++                      type="button"
++                      onClick={() => map.fitBounds(v.bounds)}
++                      className="rounded-full border border-line bg-surface px-2 py-0.5 text-xs hover:border-ink"
++                    >
++                      {name}
++                    </button>
++                  ))}
++                </div>
++              </div>
++            )}
++            {manifest.mapas_base && manifest.mapas_base.length > 1 && (
++              <div className="pt-2">
++                <div className="mb-1 text-[10.5px] font-semibold uppercase tracking-wide text-muted">{t.map_layers_basemap}</div>
++                <div className="inline-flex overflow-hidden rounded-md border border-line">
++                  {manifest.mapas_base.map((b) => (
++                    <button
++                      key={b.id}
++                      type="button"
++                      onClick={() => setBaseId(b.id)}
++                      className={`px-2 py-1 text-xs ${b.id === baseId ? 'bg-navy text-white' : 'text-muted hover:text-ink'}`}
++                    >
++                      {b.titulo}
++                    </button>
++                  ))}
++                </div>
++              </div>
++            )}
++            {manifest.grupos.map((g) => (
++              <div key={g.id} className="border-b border-line py-2 last:border-0">
++                <div className="mb-1 text-[10.5px] font-semibold uppercase tracking-wide text-muted">{g.titulo}</div>
++                {g.capas.map((c: ManifestLayer) => {
++                  const active = Boolean(on[c.id]);
++                  const far = active && c.zoom_min != null && zoom < c.zoom_min;
++                  return (
++                    <div key={c.id} className="py-1">
++                      <button
++                        type="button"
++                        role="switch"
++                        aria-checked={active}
++                        onClick={() => toggle(c.id)}
++                        className="flex w-full items-start gap-2 text-left"
++                      >
++                        <span
++                          className={`relative mt-0.5 h-4 w-7 flex-none rounded-full transition ${active ? 'bg-navy' : 'bg-line-strong'}`}
++                        >
++                          <span
++                            className={`absolute top-0.5 h-3 w-3 rounded-full bg-white shadow transition-all ${active ? 'left-3.5' : 'left-0.5'}`}
++                          />
++                        </span>
++                        <span className="flex-1 text-[13px] leading-tight">
++                          {c.titulo}
++                          {c.fuente && <span className="block text-[10.5px] text-muted">{c.fuente}</span>}
++                        </span>
++                      </button>
++                      {far && (
++                        <div className="ml-9 mt-0.5 text-[11px] text-accent-600">
++                          {t.map_layers_zoom_hint.replace('{zoom}', String(c.zoom_min))}
++                        </div>
++                      )}
++                      {active && (
++                        <div className="ml-9 mt-1 grid gap-0.5 text-[11px] text-muted">
++                          {c.descripcion && <div className="italic">{c.descripcion}</div>}
++                          {legendFor(c).map((e, i) => (
++                            <span key={i}>
++                              <LegendSwatch e={e} />
++                              {e.texto}
++                            </span>
++                          ))}
++                        </div>
++                      )}
++                    </div>
++                  );
++                })}
++              </div>
++            ))}
++            <button
++              type="button"
++              onClick={() => fileRef.current?.click()}
++              className="mt-2 w-full rounded-md border border-dashed border-line-strong px-2 py-1.5 text-xs font-semibold text-ink hover:bg-surface"
++              title={t.map_layers_upload_hint}
++            >
++              {t.map_layers_upload}
++            </button>
++            <input
++              ref={fileRef}
++              type="file"
++              accept=".geojson,.json,application/geo+json,application/json"
++              className="hidden"
++              onChange={(e) => void onFile(e)}
++            />
++          </div>
++        </div>
++      )}
++      {msg && (
++        <div className="absolute bottom-3 left-1/2 z-[1000] -translate-x-1/2 rounded-md bg-ink/90 px-3 py-1 text-xs text-white">
++          {msg}
++        </div>
++      )}
++    </>
++  );
++}
+diff --git a/apps/web/src/components/organisms/emergency-map.tsx b/apps/web/src/components/organisms/emergency-map.tsx
+index 643708f..271bda0 100644
+--- a/apps/web/src/components/organisms/emergency-map.tsx
++++ b/apps/web/src/components/organisms/emergency-map.tsx
+@@ -5,7 +5,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
+ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+ import L from 'leaflet';
+ import 'leaflet.markercluster';
+-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
++import { MapContainer, useMap } from 'react-leaflet';
++import { EmergencyLayers } from './emergency-layers';
+ import { useEffect, useRef, useState } from 'react';
+ import { useLocale } from '@/i18n/locale-context';
+ import { getMessages } from '@/i18n';
+@@ -337,10 +338,8 @@ export default function EmergencyMap({
+         style={{ height: '100%', width: '100%' }}
+         scrollWheelZoom={false}
+       >
+-        <TileLayer
+-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+-        />
++        {/* Mapa base + capas cartográficas de la emergencia (docs/capas-emergencia.md); sin manifiesto = solo OSM */}
++        <EmergencyLayers slug={slug} />
+ 
+         {onMapReady && <MapReadyEmitter onMapReady={onMapReady} />}
+         <BoundsFitter points={points} />
+diff --git a/apps/web/src/i18n/messages/en.ts b/apps/web/src/i18n/messages/en.ts
+index 7406f2e..c015aa7 100644
+--- a/apps/web/src/i18n/messages/en.ts
++++ b/apps/web/src/i18n/messages/en.ts
+@@ -2772,6 +2772,16 @@ export const en = {
+     map_no_locations: 'No locations on the map yet.',
+     map_geolocate: 'Go to my location',
+     map_geolocate_error: 'Could not get your location',
++    map_layers_button: 'Layers',
++    map_layers_title: 'Map layers',
++    map_layers_close: 'Close layers panel',
++    map_layers_goto: 'Go to',
++    map_layers_basemap: 'Base map',
++    map_layers_zoom_hint: 'Zoom in (level {zoom}+) to see this layer.',
++    map_layers_upload: '+ Load GeoJSON layer',
++    map_layers_upload_hint: 'Show your own GeoJSON on the map (this browser only).',
++    map_layers_upload_ok: 'Layer “{name}” loaded (this browser only).',
++    map_layers_upload_error: 'Could not read the file. It must be valid GeoJSON.',
+   },
+ 
+   nav: {
+diff --git a/apps/web/src/i18n/messages/es.ts b/apps/web/src/i18n/messages/es.ts
+index 51395db..43da22c 100644
+--- a/apps/web/src/i18n/messages/es.ts
++++ b/apps/web/src/i18n/messages/es.ts
+@@ -2817,6 +2817,16 @@ export const es = {
+     map_no_locations: 'Aún no hay ubicaciones en el mapa.',
+     map_geolocate: 'Ir a mi ubicación',
+     map_geolocate_error: 'No se pudo obtener tu ubicación',
++    map_layers_button: 'Capas',
++    map_layers_title: 'Capas del mapa',
++    map_layers_close: 'Cerrar panel de capas',
++    map_layers_goto: 'Ir a',
++    map_layers_basemap: 'Mapa base',
++    map_layers_zoom_hint: 'Acércate (zoom {zoom}+) para ver esta capa.',
++    map_layers_upload: '+ Cargar capa GeoJSON',
++    map_layers_upload_hint: 'Ver un GeoJSON propio sobre el mapa (solo en este navegador).',
++    map_layers_upload_ok: 'Capa «{name}» cargada (solo en este navegador).',
++    map_layers_upload_error: 'No se pudo leer el archivo. Debe ser GeoJSON válido.',
+   },
+ 
+   nav: {
+diff --git a/apps/web/src/lib/map-layers/leaflet-layers.ts b/apps/web/src/lib/map-layers/leaflet-layers.ts
+new file mode 100644
+index 0000000..e75bf55
+--- /dev/null
++++ b/apps/web/src/lib/map-layers/leaflet-layers.ts
+@@ -0,0 +1,162 @@
++// Crea capas de Leaflet a partir del manifiesto de capas de una emergencia (ver ./manifest.ts).
++
++import L from 'leaflet';
++import {
++  classFor,
++  escapeHtml,
++  popupHtml,
++  resolveUrl,
++  styleFor,
++  type LayersManifest,
++  type ManifestLayer,
++  type Props,
++} from './manifest';
++
++export interface LayerContext {
++  /** URL base del paquete, terminada en «/» (p. ej. /capas/galapagos-2026/). */
++  base: string;
++  cache: Record<string, GeoJSON.FeatureCollection>;
++  limits?: Record<string, { bounds: L.LatLngBoundsExpression }>;
++  renderers: { areas: L.Renderer; lineas: L.Renderer; puntos: L.Renderer };
++}
++
++/** Panes en orden de apilado: raster < áreas rayadas < áreas < líneas < puntos (los marcadores de la app van en markerPane, 600). */
++const PANES: [string, number][] = [
++  ['rg-capas-fondo', 350],
++  ['rg-capas-patron', 390],
++  ['rg-capas-areas', 410],
++  ['rg-capas-lineas', 430],
++  ['rg-capas-puntos', 590],
++];
++
++export function capasBaseUrl(slug: string): string {
++  const root = process.env.NEXT_PUBLIC_CAPAS_BASE_URL ?? '/capas';
++  return `${root.replace(/\/$/, '')}/${encodeURIComponent(slug)}/`;
++}
++
++export async function loadManifest(base: string): Promise<LayersManifest | null> {
++  try {
++    const res = await fetch(resolveUrl(base, 'capas.json'), { cache: 'no-cache' });
++    if (!res.ok) return null;
++    const m = (await res.json()) as LayersManifest;
++    return Array.isArray(m?.grupos) ? m : null;
++  } catch {
++    return null;
++  }
++}
++
++export function prepareMap(map: L.Map, base: string): LayerContext {
++  for (const [name, z] of PANES) {
++    const pane = map.getPane(name) ?? map.createPane(name);
++    pane.style.zIndex = String(z);
++  }
++  map.getPane('rg-capas-fondo')!.style.pointerEvents = 'none';
++  return {
++    base,
++    cache: {},
++    renderers: {
++      areas: L.canvas({ pane: 'rg-capas-areas', padding: 0.3 }),
++      lineas: L.canvas({ pane: 'rg-capas-lineas', padding: 0.3 }),
++      puntos: L.canvas({ pane: 'rg-capas-puntos', padding: 0.3 }),
++    },
++  };
++}
++
++/** Renderer SVG con patrón de rayas; Leaflet pinta fill="url(#id)" y el navegador aplica el patrón. */
++function patternRenderer(pt: NonNullable<ManifestLayer['patron']>, pane: string): L.Renderer {
++  const r = L.svg({ pane });
++  r.on('add', () => {
++    const svg = (r as unknown as { _container?: SVGSVGElement })._container;
++    if (!svg || svg.querySelector(`#${pt.id}`)) return;
++    const s = pt.separacion ?? 8;
++    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
++    defs.innerHTML =
++      `<pattern id="${escapeHtml(pt.id)}" patternUnits="userSpaceOnUse" width="${s}" height="${s}" patternTransform="rotate(45)">` +
++      `<rect width="${s}" height="${s}" fill="${escapeHtml(pt.fondo ?? 'none')}" fill-opacity="${pt.opacidad_fondo ?? 0}"/>` +
++      `<line x1="0" y1="0" x2="0" y2="${s}" stroke="${escapeHtml(pt.color)}" stroke-width="${pt.grosor ?? 1.5}" stroke-opacity="${pt.opacidad ?? 0.6}"/></pattern>`;
++    svg.insertBefore(defs, svg.firstChild);
++  });
++  return r;
++}
++
++/** Crea la capa de Leaflet de una entrada del manifiesto (descarga el archivo la primera vez). */
++export async function createLayer(layer: ManifestLayer, ctx: LayerContext): Promise<L.Layer> {
++  if (layer.tipo === 'raster') {
++    if (!ctx.limits) {
++      const res = await fetch(resolveUrl(ctx.base, 'raster/limites.json'), { cache: 'no-cache' });
++      ctx.limits = (await res.json()) as LayerContext['limits'];
++    }
++    return L.layerGroup(
++      Object.entries(ctx.limits ?? {}).map(([region, v]) =>
++        L.imageOverlay(resolveUrl(ctx.base, `raster/${region}_${layer.raster}.png`), v.bounds, {
++          opacity: layer.opacidad ?? 0.7,
++          pane: 'rg-capas-fondo',
++          className: layer.raster === 'relieve' ? 'rg-capas-multiply' : '',
++        }),
++      ),
++    );
++  }
++  const file = layer.archivo!;
++  if (!ctx.cache[file]) {
++    const res = await fetch(resolveUrl(ctx.base, file), { cache: 'no-cache' });
++    ctx.cache[file] = (await res.json()) as GeoJSON.FeatureCollection;
++  }
++  const data = ctx.cache[file]!;
++  const filter = layer.filtro
++    ? (f: GeoJSON.Feature) => layer.filtro!.en.includes(String((f.properties as Props | null)?.[layer.filtro!.propiedad]))
++    : undefined;
++  const key = layer.tipo === 'punto' ? 'puntos' : layer.tipo === 'linea' ? 'lineas' : 'areas';
++  const pane = layer.patron ? 'rg-capas-patron' : `rg-capas-${key}`;
++  const renderer = layer.patron ? patternRenderer(layer.patron, pane) : ctx.renderers[key];
++  const group = L.layerGroup();
++  if (layer.borde) {
++    const casing: L.GeoJSONOptions = { pane, interactive: false, style: () => ({ ...layer.borde, lineCap: 'round' }) };
++    if (filter) casing.filter = filter;
++    group.addLayer(L.geoJSON(data, { ...casing, renderer } as L.GeoJSONOptions));
++  }
++  const options: L.GeoJSONOptions = {
++    pane,
++    style: (f) => ({ lineCap: 'round', lineJoin: 'round', ...styleFor(layer, f?.properties as Props) }),
++    pointToLayer: (f, latlng) => {
++      const props = (f.properties ?? {}) as Props;
++      const s = styleFor(layer, props);
++      const cls = classFor(layer, props);
++      const risk = Boolean(props['en_susc_alta_media']);
++      if (cls?.simbolo) {
++        return L.marker(latlng, {
++          pane,
++          icon: L.divIcon({
++            className: '',
++            iconSize: [19, 19],
++            html: `<div style="width:19px;height:19px;border-radius:50%;background:${escapeHtml(s.fillColor)};color:#fff;font:800 11px/15px system-ui;text-align:center;border:2px solid #fff;box-shadow:${risk ? '0 0 0 3px #1d4a9e,' : ''}0 1px 4px rgba(0,0,0,.45)">${escapeHtml(cls.simbolo)}</div>`,
++          }),
++        });
++      }
++      const opts: L.CircleMarkerOptions = {
++        pane,
++        renderer,
++        radius: s.radius ?? 5,
++        color: risk ? '#1d4a9e' : '#fff',
++        weight: risk ? 2.5 : 1.3,
++        fillOpacity: 1,
++      };
++      if (s.fillColor) opts.fillColor = s.fillColor;
++      return L.circleMarker(latlng, opts);
++    },
++    onEachFeature: (f, l) => {
++      const props = (f.properties ?? {}) as Props;
++      l.bindPopup(() => popupHtml(layer, props));
++      const r = layer.rotulo;
++      const txt = r ? props[r.propiedad] : undefined;
++      if (r && txt != null && txt !== '') {
++        l.bindTooltip(
++          escapeHtml(txt) + escapeHtml(r.sufijo ?? ''),
++          r.permanente ? { permanent: true, direction: 'center', className: 'rg-capas-rotulo' } : { sticky: true },
++        );
++      }
++    },
++  };
++  if (filter) options.filter = filter;
++  group.addLayer(L.geoJSON(data, { ...options, renderer } as L.GeoJSONOptions));
++  return group;
++}
+diff --git a/apps/web/src/lib/map-layers/manifest.test.ts b/apps/web/src/lib/map-layers/manifest.test.ts
+new file mode 100644
+index 0000000..fc12559
+--- /dev/null
++++ b/apps/web/src/lib/map-layers/manifest.test.ts
+@@ -0,0 +1,115 @@
++import { test } from 'node:test';
++import assert from 'node:assert/strict';
++import {
++  classFor,
++  styleFor,
++  legendFor,
++  popupHtml,
++  resolveUrl,
++  defaultVisibility,
++  isDrawable,
++  type ManifestLayer,
++  type LayersManifest,
++} from './manifest.ts';
++
++const susc: ManifestLayer = {
++  id: 'susc',
++  titulo: 'Susceptibilidad',
++  tipo: 'poligono',
++  estilo: { weight: 0.6, fillOpacity: 0.38 },
++  clasificar: {
++    propiedad: 'nivel',
++    valores: {
++      '1': { etiqueta: 'Baja', color: '#aaa', fillColor: '#bbb' },
++      '3': { etiqueta: 'Alta', color: '#111', fillColor: '#222', fillOpacity: 0.5 },
++    },
++    otro: { etiqueta: 'Otro', fillColor: '#999' },
++  },
++};
++
++test('classFor: valor exacto (número convertido a texto) y "otro" como respaldo', () => {
++  assert.equal(classFor(susc, { nivel: 3 })?.etiqueta, 'Alta');
++  assert.equal(classFor(susc, { nivel: '1' })?.etiqueta, 'Baja');
++  assert.equal(classFor(susc, { nivel: 7 })?.etiqueta, 'Otro');
++  assert.equal(classFor({ ...susc, clasificar: undefined }, { nivel: 3 }), null);
++});
++
++test('classFor: rangos por "hasta" inclusive', () => {
++  const pob: ManifestLayer = {
++    id: 'pob',
++    titulo: 'Población',
++    tipo: 'poligono',
++    clasificar: {
++      propiedad: 'p',
++      rangos: [
++        { hasta: 0, etiqueta: 'Sin dato' },
++        { hasta: 10, etiqueta: '1–10' },
++        { hasta: 1e9, etiqueta: '>10' },
++      ],
++    },
++  };
++  assert.equal(classFor(pob, { p: 0 })?.etiqueta, 'Sin dato');
++  assert.equal(classFor(pob, { p: 10 })?.etiqueta, '1–10');
++  assert.equal(classFor(pob, { p: 11 })?.etiqueta, '>10');
++  assert.equal(classFor(pob, {})?.etiqueta, 'Sin dato');
++});
++
++test('styleFor: mezcla base + clase sin campos de leyenda, y aplica estilo_si', () => {
++  const s = styleFor(susc, { nivel: 3 });
++  assert.deepEqual(s, { weight: 0.6, fillOpacity: 0.5, color: '#111', fillColor: '#222' });
++  const areas: ManifestLayer = {
++    ...susc,
++    estilo_si: [{ propiedad: 'estado', distinto_de: 'validada', estilo: { dashArray: '7 6' }, etiqueta: 'Por validar' }],
++  };
++  assert.equal(styleFor(areas, { nivel: 1, estado: 'por_validar' }).dashArray, '7 6');
++  assert.equal(styleFor(areas, { nivel: 1, estado: 'validada' }).dashArray, undefined);
++});
++
++test('legendFor: deriva de la clasificación y añade las reglas con etiqueta', () => {
++  const l = legendFor({ ...susc, estilo_si: [{ propiedad: 'e', igual_a: 1, estilo: { dashArray: '2 2' }, etiqueta: 'Regla' }] });
++  assert.deepEqual(
++    l.map((e) => [e.texto, e.color, e.forma]),
++    [
++      ['Baja', '#bbb', 'area'],
++      ['Alta', '#222', 'area'],
++      ['Otro', '#999', 'area'],
++      ['Regla', '#6b7280', 'linea'],
++    ],
++  );
++  const linea = legendFor({ id: 'q', titulo: 'Quebradas', tipo: 'linea', estilo: { color: '#00f', dashArray: '4 2' } });
++  assert.deepEqual(linea, [{ forma: 'linea', color: '#00f', texto: 'Quebradas', dash: '4 2' }]);
++  assert.deepEqual(legendFor({ ...susc, leyenda: [['#0f0', 'Parque']] }), [{ color: '#0f0', texto: 'Parque', forma: 'area' }]);
++});
++
++test('popupHtml: título, campos con etiqueta y escapado de HTML', () => {
++  const layer: ManifestLayer = {
++    ...susc,
++    popup: { titulo: 'nombre', titulo_defecto: 'Sin nombre', campos: { detalle: 'Detalle', ok: 'Validada', vacio: 'Vacío' } },
++  };
++  const h = popupHtml(layer, { nombre: '<b>La Cascada</b>', nivel: 3, detalle: 'Agua & lodo', ok: true, vacio: '' });
++  assert.match(h, /&lt;b&gt;La Cascada&lt;\/b&gt;/);
++  assert.match(h, /Alta · Susceptibilidad/);
++  assert.match(h, /Agua &amp; lodo/);
++  assert.match(h, /<td>Sí<\/td>/);
++  assert.doesNotMatch(h, /Vacío/);
++  assert.match(popupHtml(layer, { nivel: 1 }), /Sin nombre/);
++});
++
++test('resolveUrl: relativa a la base, salvo rutas absolutas', () => {
++  assert.equal(resolveUrl('/capas/x', 'a.geojson'), '/capas/x/a.geojson');
++  assert.equal(resolveUrl('/capas/x/', 'a.geojson'), '/capas/x/a.geojson');
++  assert.equal(resolveUrl('/capas/x/', '/otro/a.geojson'), '/otro/a.geojson');
++  assert.equal(resolveUrl('/capas/x/', 'https://cdn.example.org/a.geojson'), 'https://cdn.example.org/a.geojson');
++});
++
++test('defaultVisibility e isDrawable respetan visible y zoom_min', () => {
++  const m: LayersManifest = {
++    version: 2,
++    grupos: [{ id: 'g', titulo: 'G', capas: [{ ...susc, visible: true }, { ...susc, id: 'b', zoom_min: 15 }] }],
++  };
++  assert.deepEqual(defaultVisibility(m), { susc: true, b: false });
++  const b = m.grupos[0]!.capas[1]!;
++  assert.equal(isDrawable(b, true, 14), false);
++  assert.equal(isDrawable(b, true, 15), true);
++  assert.equal(isDrawable(b, false, 18), false);
++});
+diff --git a/apps/web/src/lib/map-layers/manifest.ts b/apps/web/src/lib/map-layers/manifest.ts
+new file mode 100644
+index 0000000..15bca9b
+--- /dev/null
++++ b/apps/web/src/lib/map-layers/manifest.ts
+@@ -0,0 +1,207 @@
++// Capas cartográficas por emergencia: formato del manifiesto (capas.json) y lógica pura de estilos.
++//
++// Una emergencia puede publicar en `<CAPAS_BASE_URL>/<slug>/capas.json` un manifiesto con mapas base,
++// grupos de capas GeoJSON/raster, estilos de Leaflet, clasificaciones y leyendas. Este módulo no importa
++// Leaflet en tiempo de ejecución (solo tipos), así que se prueba con `node --test`.
++// La parte que crea capas de Leaflet está en ./leaflet-layers.ts. Especificación: docs/capas-emergencia.md.
++
++import type { LatLngBoundsExpression, PathOptions } from 'leaflet';
++
++export type Props = Record<string, unknown>;
++
++/** Opciones de estilo de Leaflet más los campos propios de una clase de leyenda. */
++export type LayerClass = PathOptions & {
++  etiqueta?: string;
++  /** Letra o símbolo dentro del marcador (solo capas de puntos). */
++  simbolo?: string;
++  radius?: number;
++  /** Solo en `rangos`: límite superior (inclusive) del rango. */
++  hasta?: number;
++};
++
++export interface StyleRule {
++  propiedad: string;
++  igual_a?: unknown;
++  distinto_de?: unknown;
++  estilo: PathOptions;
++  etiqueta?: string;
++}
++
++export interface ManifestLayer {
++  id: string;
++  titulo: string;
++  tipo: 'poligono' | 'linea' | 'punto' | 'raster';
++  /** Ruta relativa al manifiesto, o absoluta (/… o https://…). */
++  archivo?: string;
++  /** Solo raster: PNG `raster/<region>_<raster>.png`, con límites en `raster/limites.json`. */
++  raster?: string;
++  opacidad?: number;
++  visible?: boolean;
++  /** Por debajo de este zoom la capa no se dibuja (capas pesadas). */
++  zoom_min?: number;
++  fuente?: string;
++  descripcion?: string;
++  elementos?: number;
++  estilo?: PathOptions & { radius?: number };
++  /** Línea de contorno dibujada debajo (p. ej. borde blanco de las quebradas). */
++  borde?: PathOptions;
++  filtro?: { propiedad: string; en: string[] };
++  clasificar?: { propiedad: string; valores?: Record<string, LayerClass>; otro?: LayerClass; rangos?: LayerClass[] };
++  /** Reglas que se aplican encima de la clase (p. ej. línea discontinua si no está validada). */
++  estilo_si?: StyleRule[];
++  /** Etiqueta del elemento: al pasar el ratón, o permanente (visible desde zoom 15). */
++  rotulo?: { propiedad: string; permanente?: boolean; sufijo?: string };
++  popup?: { titulo?: string; titulo_defecto?: string; sufijo_titulo?: string; campos?: Record<string, string> };
++  /** Leyenda explícita [color, texto]; si falta se deriva de `clasificar`. */
++  leyenda?: [string, string][];
++  /** Relleno rayado SVG (p. ej. Parque Nacional). La capa usa fillColor: 'url(#<id>)'. */
++  patron?: {
++    id: string;
++    color: string;
++    separacion?: number;
++    grosor?: number;
++    fondo?: string;
++    opacidad_fondo?: number;
++    opacidad?: number;
++  };
++}
++
++export interface BaseMap {
++  id: string;
++  titulo: string;
++  url: string;
++  atribucion: string;
++  maxZoom?: number;
++  maxNativeZoom?: number;
++  defecto?: boolean;
++}
++
++export interface LayerGroupDef {
++  id: string;
++  titulo: string;
++  capas: ManifestLayer[];
++}
++
++export interface LayersManifest {
++  version: number;
++  titulo?: string;
++  generado?: string;
++  mapas_base?: BaseMap[];
++  /** Encuadres rápidos (botones «Ir a»). */
++  islas?: Record<string, { bounds: LatLngBoundsExpression }>;
++  grupos: LayerGroupDef[];
++}
++
++export interface LegendEntry {
++  color?: string;
++  texto?: string;
++  forma: 'area' | 'linea' | 'punto';
++  simbolo?: string;
++  dash?: string;
++}
++
++/** Clase de leyenda que corresponde a las propiedades de un elemento (o null). */
++export function classFor(layer: ManifestLayer, props: Props | null | undefined): LayerClass | null {
++  const c = layer.clasificar;
++  if (!c) return null;
++  const v = props?.[c.propiedad];
++  if (c.rangos) return c.rangos.find((r) => (Number(v) || 0) <= (r.hasta ?? Infinity)) ?? null;
++  return c.valores?.[String(v)] ?? c.otro ?? null;
++}
++
++function matches(rule: StyleRule, props: Props | null | undefined): boolean {
++  const v = props?.[rule.propiedad];
++  if (rule.igual_a !== undefined) return v === rule.igual_a;
++  if (rule.distinto_de !== undefined) return v !== rule.distinto_de;
++  return false;
++}
++
++/** Opciones de Leaflet para un elemento: estilo base + clase + reglas. */
++export function styleFor(layer: ManifestLayer, props: Props | null | undefined): PathOptions & { radius?: number } {
++  const cls = classFor(layer, props) ?? {};
++  const k: LayerClass = { ...cls };
++  delete k.etiqueta;
++  delete k.simbolo;
++  delete k.hasta;
++  let s: PathOptions & { radius?: number } = { ...layer.estilo, ...k };
++  for (const r of layer.estilo_si ?? []) if (matches(r, props)) s = { ...s, ...r.estilo };
++  return s;
++}
++
++/** Entradas de leyenda de una capa. */
++export function legendFor(layer: ManifestLayer): LegendEntry[] {
++  if (layer.leyenda) return layer.leyenda.map(([color, texto]) => ({ color, texto, forma: 'area' }));
++  const forma: LegendEntry['forma'] = layer.tipo === 'linea' ? 'linea' : layer.tipo === 'punto' ? 'punto' : 'area';
++  const c = layer.clasificar;
++  const items: LayerClass[] = c
++    ? [...(c.rangos ?? Object.values(c.valores ?? {})), ...(c.otro ? [c.otro] : [])]
++    : [{ etiqueta: layer.titulo }];
++  const out: LegendEntry[] = items.map((it) => {
++    const s = { ...layer.estilo, ...it };
++    const color = forma === 'linea' ? s.color : (s.fillColor ?? s.color);
++    const e: LegendEntry = { forma };
++    if (color) e.color = color;
++    if (it.etiqueta) e.texto = it.etiqueta;
++    if (it.simbolo) e.simbolo = it.simbolo;
++    if (typeof s.dashArray === 'string') e.dash = s.dashArray;
++    return e;
++  });
++  for (const r of layer.estilo_si ?? []) {
++    if (!r.etiqueta) continue;
++    const e: LegendEntry = { color: '#6b7280', texto: r.etiqueta, forma: 'linea' };
++    if (typeof r.estilo.dashArray === 'string') e.dash = r.estilo.dashArray;
++    out.push(e);
++  }
++  return out;
++}
++
++export function escapeHtml(s: unknown): string {
++  return String(s ?? '').replace(
++    /[&<>"']/g,
++    (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] ?? c,
++  );
++}
++
++const NUM = new Intl.NumberFormat('es');
++
++function formatValue(v: unknown): string {
++  if (v === true) return 'Sí';
++  if (v === false) return 'No';
++  if (typeof v === 'number') return NUM.format(v);
++  return String(v);
++}
++
++/** HTML (escapado) del popup de un elemento según `layer.popup`. */
++export function popupHtml(layer: ManifestLayer, props: Props): string {
++  const p = layer.popup ?? {};
++  const cls = classFor(layer, props);
++  const raw = p.titulo ? props[p.titulo] : undefined;
++  const title = raw != null && raw !== '' ? `${String(raw)}${p.sufijo_titulo ?? ''}` : (p.titulo_defecto ?? layer.titulo);
++  const sub = cls?.etiqueta && cls.etiqueta !== title ? `${cls.etiqueta} · ` : '';
++  let h = `<div style="font-size:12.5px;min-width:180px"><div style="font-weight:650;font-size:13.5px">${escapeHtml(title)}</div>`;
++  h += `<div style="font-size:11px;color:#777;margin-bottom:6px">${escapeHtml(sub)}${escapeHtml(layer.titulo)}</div><table>`;
++  for (const [k, label] of Object.entries(p.campos ?? {})) {
++    const v = props[k];
++    if (v == null || v === '') continue;
++    h += `<tr><td style="color:#777;padding:1px 8px 1px 0;vertical-align:top">${escapeHtml(label)}</td><td>${escapeHtml(formatValue(v))}</td></tr>`;
++  }
++  return `${h}</table></div>`;
++}
++
++/** URL de un archivo del paquete: relativa a la base del manifiesto salvo que sea absoluta. */
++export function resolveUrl(base: string, file: string): string {
++  if (/^(https?:)?\//.test(file)) return file;
++  return (base.endsWith('/') ? base : `${base}/`) + file;
++}
++
++/** Estado inicial de visibilidad: { idCapa: visible }. */
++export function defaultVisibility(manifest: LayersManifest): Record<string, boolean> {
++  const out: Record<string, boolean> = {};
++  for (const g of manifest.grupos) for (const c of g.capas) out[c.id] = Boolean(c.visible);
++  return out;
++}
++
++/** ¿Se debe dibujar la capa con este zoom? */
++export function isDrawable(layer: ManifestLayer, on: boolean, zoom: number): boolean {
++  return on && !(layer.zoom_min != null && zoom < layer.zoom_min);
++}
+diff --git a/docs/capas-emergencia.md b/docs/capas-emergencia.md
+new file mode 100644
+index 0000000..5468d33
+--- /dev/null
++++ b/docs/capas-emergencia.md
+@@ -0,0 +1,108 @@
++# Capas cartográficas por emergencia (`capas.json`)
++
++Cada emergencia puede tener, además de los puntos de acopio y las necesidades, **capas cartográficas de contexto**: zonas inundables, quebradas, límites de áreas protegidas, vías, población, servicios críticos, etc. Las capas se describen en un **manifiesto** (`capas.json`) que el mapa público (`/e/<slug>`) lee al cargarse.
++
++- Si la emergencia **no** tiene manifiesto, el mapa no cambia: solo muestra OpenStreetMap.
++- Si lo tiene, el mapa pinta los mapas base y las capas declaradas, y muestra un panel **«Capas»** con interruptores, leyendas, botones «Ir a» y carga local de GeoJSON.
++
++## Dónde se publica
++
++```
++<NEXT_PUBLIC_CAPAS_BASE_URL | /capas>/<slug>/capas.json
++<NEXT_PUBLIC_CAPAS_BASE_URL | /capas>/<slug>/<archivos .geojson, raster/…>
++```
++
++- Por defecto se sirve desde `apps/web/public/capas/<slug>/`.
++- Para no meter datos pesados en el repositorio se puede usar `NEXT_PUBLIC_CAPAS_BASE_URL`, que apunta a un CDN o bucket con la misma estructura y CORS abierto.
++- Los archivos se descargan **solo cuando una capa se activa**.
++
++## Código
++
++| Archivo | Rol |
++|---|---|
++| `apps/web/src/lib/map-layers/manifest.ts` | Tipos del manifiesto y lógica pura: clase, estilo, leyenda, popup y visibilidad. Se prueba con `node --test`. |
++| `apps/web/src/lib/map-layers/manifest.test.ts` | Tests unitarios. |
++| `apps/web/src/lib/map-layers/leaflet-layers.ts` | Crea las capas de Leaflet: panes, renderer canvas, relleno rayado SVG y raster. |
++| `apps/web/src/components/organisms/emergency-layers.tsx` | Organismo React: carga el manifiesto, gestiona los mapas base, el panel y el zoom mínimo. |
++| `apps/web/src/components/organisms/emergency-map.tsx` | Sustituye su `<TileLayer>` fijo por `<EmergencyLayers slug={slug} />`. |
++
++Apilado de los panes de Leaflet, de abajo arriba:
++
++| Pane | Contenido | z-index |
++|---|---|---|
++| `rg-capas-fondo` | Raster | 350 |
++| `rg-capas-patron` | Áreas rayadas | 390 |
++| `rg-capas-areas` | Polígonos | 410 |
++| `rg-capas-lineas` | Líneas | 430 |
++| `rg-capas-puntos` | Puntos de contexto | 590 |
++| `markerPane` | Marcadores de la plataforma | 600 |
++
++Así los recursos y necesidades de ResponseGrid quedan **siempre por encima** de las capas de contexto.
++
++## Formato
++
++```jsonc
++{
++  "version": 2,
++  "titulo": "Capas de la emergencia — Galápagos",     // título del panel
++  "generado": "2026-11-01",
++  "mapas_base": [                                       // opcional; sin él se usa OSM
++    { "id": "claro", "titulo": "Claro", "url": "https://…/{z}/{y}/{x}", "atribucion": "Esri…",
++      "maxZoom": 19, "maxNativeZoom": 16, "defecto": true }
++  ],
++  "islas": {                                            // opcional: botones «Ir a»
++    "Puerto Ayora": { "bounds": [[-0.762, -90.330], [-0.722, -90.298]] }
++  },
++  "grupos": [
++    { "id": "inundacion", "titulo": "Zonas inundables", "capas": [ /* capas */ ] }
++  ]
++}
++```
++
++### Capa
++
++| Campo | Tipo | Descripción |
++|---|---|---|
++| `id` | string | Único en el manifiesto. |
++| `titulo` | string | Texto del interruptor. |
++| `tipo` | `poligono` \| `linea` \| `punto` \| `raster` | Decide el pane y la forma de la leyenda. |
++| `archivo` | string | GeoJSON (EPSG:4326). Relativo al manifiesto, o absoluto (`/…`, `https://…`). |
++| `raster` | string | Solo `raster`: dibuja `raster/<región>_<raster>.png` con los límites de `raster/limites.json` (`{"<región>": {"bounds": [[s,w],[n,e]]}}`). |
++| `opacidad` | número | Solo `raster`. |
++| `visible` | bool | Encendida al cargar. |
++| `zoom_min` | número | No se dibuja por debajo de ese zoom; el panel avisa «Acércate…». |
++| `fuente`, `descripcion` | string | Se muestran bajo el título. |
++| `elementos` | número | Informativo. |
++| `estilo` | Leaflet `PathOptions` (+ `radius`) | Estilo base. |
++| `borde` | `PathOptions` | Línea de contorno dibujada debajo (por ejemplo, el borde blanco de un río). |
++| `filtro` | `{ "propiedad", "en": [...] }` | Dibuja solo los elementos cuya propiedad está en la lista. Permite varias capas sobre un mismo archivo. |
++| `clasificar` | ver abajo | Estilo según una propiedad; alimenta la leyenda. |
++| `estilo_si` | `[{ "propiedad", "igual_a" \| "distinto_de", "estilo", "etiqueta"? }]` | Reglas que se aplican encima. Por ejemplo, línea discontinua si `estado ≠ validada`. |
++| `rotulo` | `{ "propiedad", "permanente"?, "sufijo"? }` | Etiqueta al pasar el ratón; si es `permanente`, visible desde zoom 15. |
++| `popup` | `{ "titulo", "titulo_defecto"?, "sufijo_titulo"?, "campos": { "prop": "Etiqueta" } }` | Ficha al hacer clic. Todo el texto se escapa. |
++| `leyenda` | `[[color, texto], …]` | Leyenda explícita (sustituye a la derivada). |
++| `patron` | `{ "id", "color", "separacion"?, "grosor"?, "fondo"?, "opacidad_fondo"?, "opacidad"? }` | Relleno rayado SVG. La capa usa `"fillColor": "url(#<id>)"`. |
++
++### `clasificar`
++
++```jsonc
++// por valor (se compara como texto); "otro" es el valor por defecto
++"clasificar": { "propiedad": "nivel", "valores": {
++  "3": { "etiqueta": "Alta", "color": "#173f8a", "fillColor": "#1d4a9e" } }, "otro": { … } }
++
++// por rangos numéricos ("hasta" inclusive, en orden)
++"clasificar": { "propiedad": "poblacion_estimada", "rangos": [
++  { "hasta": 10, "etiqueta": "1–10 hab.", "fillColor": "#fde68a" }, … ] }
++```
++
++Cada clase es un `PathOptions` con `etiqueta` (en la leyenda) y, en las capas de puntos, `simbolo` opcional: una letra dentro de un marcador circular, por ejemplo `+` para salud.
++
++En las capas de puntos, si un elemento tiene `en_susc_alta_media: true`, el marcador lleva un **anillo azul**: es un servicio que puede quedar afectado por la inundación.
++
++## Buenas prácticas para preparar datos
++
++- GeoJSON en **EPSG:4326** con coordenadas a 5 decimales (≈ 1 m). Simplificar las geometrías y quitar propiedades que no se muestran.
++- Recortar al área de interés y **no publicar datos personales**: nombres de afectados, teléfonos de responsables, etc.
++- Indicar `fuente` en cada capa y distinguir en `descripcion` lo **oficial** de lo **modelado**.
++- Las capas pesadas, como edificios o curvas, deben llevar `zoom_min`.
++- Como referencia: el paquete de Galápagos tiene 32 archivos y pesa 13 MB. Cada capa pesa como mucho 2,3 MB.

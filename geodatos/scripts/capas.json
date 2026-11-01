@@ -1,0 +1,1037 @@
+{
+ "version": 2,
+ "titulo": "Capas de la emergencia — Galápagos",
+ "nota": "Manifiesto de capas. Lo leen el visor de geodatos/ y el mapa de ResponseGrid. Los estilos son opciones de Leaflet (PathOptions). 'clasificar' cambia el estilo según una propiedad y alimenta la leyenda.",
+ "islas": {
+  "Santa Cruz": {
+   "bounds": [
+    [
+     -0.775,
+     -90.42
+    ],
+    [
+     -0.44,
+     -90.2
+    ]
+   ]
+  },
+  "Puerto Ayora": {
+   "bounds": [
+    [
+     -0.762,
+     -90.33
+    ],
+    [
+     -0.722,
+     -90.298
+    ]
+   ]
+  },
+  "San Cristóbal": {
+   "bounds": [
+    [
+     -0.925,
+     -89.625
+    ],
+    [
+     -0.875,
+     -89.52
+    ]
+   ]
+  },
+  "Isabela": {
+   "bounds": [
+    [
+     -0.975,
+     -91.1
+    ],
+    [
+     -0.86,
+     -90.93
+    ]
+   ]
+  }
+ },
+ "grupos": [
+  {
+   "id": "emergencia",
+   "titulo": "Emergencia en curso",
+   "capas": [
+    {
+     "id": "areas_afectadas",
+     "titulo": "Áreas afectadas (COE)",
+     "archivo": "areas_afectadas.geojson",
+     "tipo": "poligono",
+     "visible": false,
+     "fuente": "COE, ECU 911 y equipos en terreno",
+     "descripcion": "Capa operativa: se actualiza reemplazando areas_afectadas.geojson. Línea discontinua = por validar.",
+     "estilo": {
+      "weight": 2.5,
+      "fillOpacity": 0.22
+     },
+     "clasificar": {
+      "propiedad": "tipo",
+      "valores": {
+       "inundacion": {
+        "etiqueta": "Área inundada",
+        "color": "#1d4ed8",
+        "fillColor": "#2563eb"
+       },
+       "servicio": {
+        "etiqueta": "Corte de servicios",
+        "color": "#7e22ce",
+        "fillColor": "#9333ea",
+        "fillOpacity": 0.06
+       },
+       "deslave": {
+        "etiqueta": "Deslave",
+        "color": "#78350f",
+        "fillColor": "#92400e"
+       },
+       "riesgo": {
+        "etiqueta": "Riesgo inminente",
+        "color": "#b91c1c",
+        "fillColor": "#dc2626"
+       }
+      }
+     },
+     "estilo_si": [
+      {
+       "propiedad": "estado",
+       "distinto_de": "validada",
+       "estilo": {
+        "dashArray": "7 6"
+       },
+       "etiqueta": "Por validar (línea discontinua)"
+      }
+     ],
+     "popup": {
+      "titulo": "nombre",
+      "campos": {
+       "estado": "Estado",
+       "detalle": "Detalle",
+       "fecha": "Fecha",
+       "fuente": "Fuente"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "territorio",
+   "titulo": "Parque Nacional y zona agrícola",
+   "capas": [
+    {
+     "id": "parque",
+     "titulo": "Parque Nacional Galápagos",
+     "archivo": "parque_nacional.geojson",
+     "tipo": "poligono",
+     "visible": true,
+     "fuente": "Zonificación PNG 2017 (CGREG/FCD)",
+     "descripcion": "Área protegida. Todo lo rayado en verde está fuera de la zona colonizada.",
+     "estilo": {
+      "color": "#166534",
+      "weight": 0,
+      "fillOpacity": 1,
+      "fillColor": "url(#gp-rayas-parque)"
+     },
+     "patron": {
+      "id": "gp-rayas-parque",
+      "color": "#15803d",
+      "separacion": 8,
+      "grosor": 1.4,
+      "fondo": "#bbf7d0",
+      "opacidad_fondo": 0.35,
+      "opacidad": 0.55
+     },
+     "leyenda": [
+      [
+       "#86d19c",
+       "Parque Nacional (rayado verde)"
+      ]
+     ],
+     "popup": {
+      "titulo": "nombre",
+      "campos": {
+       "area_km2": "Área en esta isla (km²)",
+       "nota": "Nota",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "limite_parque",
+     "titulo": "Límite del Parque Nacional",
+     "archivo": "limite_parque.geojson",
+     "tipo": "linea",
+     "visible": true,
+     "fuente": "Zonificación PNG 2017 (CGREG/FCD)",
+     "estilo": {
+      "color": "#14532d",
+      "weight": 3.2,
+      "opacity": 1,
+      "dashArray": "12 5"
+     },
+     "borde": {
+      "color": "#ffffff",
+      "weight": 6.5,
+      "opacity": 0.85
+     },
+     "rotulo": {
+      "propiedad": "nombre"
+     },
+     "popup": {
+      "titulo": "nombre",
+      "campos": {
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "zona_agricola",
+     "titulo": "Zona agrícola (suelo rural)",
+     "archivo": "zona_agricola.geojson",
+     "tipo": "poligono",
+     "visible": true,
+     "fuente": "Zonificación PNG 2017 (CGREG/FCD)",
+     "estilo": {
+      "color": "#a16207",
+      "weight": 1.2,
+      "fillColor": "#facc15",
+      "fillOpacity": 0.1
+     },
+     "popup": {
+      "titulo": "nombre",
+      "campos": {
+       "area_km2": "Área (km²)",
+       "fuente": "Fuente"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "inundacion",
+   "titulo": "Zonas inundables",
+   "capas": [
+    {
+     "id": "susceptibilidad",
+     "titulo": "Susceptibilidad a inundación por quebradas",
+     "archivo": "susceptibilidad_inundacion.geojson",
+     "tipo": "poligono",
+     "visible": true,
+     "fuente": "Modelo HAND sobre Copernicus GLO-30 y quebradas IGM",
+     "descripcion": "Altura del terreno sobre la quebrada más cercana. Sirve para priorizar; no es una delimitación oficial. En terreno muy plano (Puerto Villamil) sobrestima.",
+     "estilo": {
+      "weight": 0.6,
+      "fillOpacity": 0.38
+     },
+     "clasificar": {
+      "propiedad": "nivel",
+      "valores": {
+       "1": {
+        "etiqueta": "Baja (≤ 5 m sobre el cauce)",
+        "color": "#7fb3e6",
+        "fillColor": "#a9cdf0"
+       },
+       "2": {
+        "etiqueta": "Media (≤ 2,5 m)",
+        "color": "#3b7fd0",
+        "fillColor": "#4f8fdb"
+       },
+       "3": {
+        "etiqueta": "Alta (≤ 1 m)",
+        "color": "#173f8a",
+        "fillColor": "#1d4a9e",
+        "fillOpacity": 0.5
+       }
+      }
+     },
+     "popup": {
+      "titulo": "susceptibilidad",
+      "campos": {
+       "descripcion": "Criterio",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "oficiales",
+     "titulo": "Zonas inundables y de riesgo oficiales",
+     "archivo": "zonas_inundables_oficiales.geojson",
+     "tipo": "poligono",
+     "visible": true,
+     "fuente": "IGM 1:25 000 y CGREG",
+     "estilo": {
+      "weight": 2,
+      "fillOpacity": 0.28
+     },
+     "clasificar": {
+      "propiedad": "tipo",
+      "valores": {
+       "Riesgo de inundación": {
+        "etiqueta": "Riesgo de inundación (CGREG)",
+        "color": "#0b3d91",
+        "fillColor": "#2563eb",
+        "dashArray": "6 4"
+       },
+       "Terreno inundable": {
+        "etiqueta": "Terreno inundable (IGM)",
+        "color": "#0e7490",
+        "fillColor": "#22d3ee"
+       },
+       "Laguna o poza": {
+        "etiqueta": "Laguna o poza (IGM)",
+        "color": "#0e7490",
+        "fillColor": "#67e8f9",
+        "fillOpacity": 0.6,
+        "weight": 1
+       },
+       "Flujos lodo y escombros (El Niño)": {
+        "etiqueta": "Flujos de lodo por El Niño (CGREG)",
+        "color": "#7c2d12",
+        "fillColor": "#b45309"
+       },
+       "Derrumbes": {
+        "etiqueta": "Derrumbes (CGREG)",
+        "color": "#713f12",
+        "fillColor": "#a16207"
+       }
+      },
+      "otro": {
+       "etiqueta": "Otros riesgos antrópicos (CGREG)",
+       "color": "#6b21a8",
+       "fillColor": "#a855f7",
+       "fillOpacity": 0.12,
+       "dashArray": "3 3",
+       "weight": 1.2
+      }
+     },
+     "popup": {
+      "titulo": "tipo",
+      "campos": {
+       "nombre": "Nombre",
+       "localidad": "Localidad",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "costa_baja",
+     "titulo": "Zonas costeras bajas (oleaje y marea)",
+     "archivo": "costa_baja.geojson",
+     "tipo": "poligono",
+     "visible": false,
+     "fuente": "Modelo sobre Copernicus GLO-30",
+     "estilo": {
+      "weight": 0.5,
+      "fillOpacity": 0.35
+     },
+     "clasificar": {
+      "propiedad": "cota_max_m",
+      "valores": {
+       "10": {
+        "etiqueta": "5–10 m",
+        "color": "#eab308",
+        "fillColor": "#fde047"
+       },
+       "5": {
+        "etiqueta": "3–5 m",
+        "color": "#ea580c",
+        "fillColor": "#fb923c"
+       },
+       "3": {
+        "etiqueta": "0–3 m",
+        "color": "#b91c1c",
+        "fillColor": "#ef4444"
+       }
+      }
+     },
+     "popup": {
+      "titulo": "clase",
+      "campos": {
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "tsunami",
+     "titulo": "Inundación por tsunami (INOCAR)",
+     "archivo": "tsunami_inundacion.geojson",
+     "tipo": "poligono",
+     "visible": false,
+     "fuente": "SNGR / INOCAR",
+     "estilo": {
+      "color": "#6d28d9",
+      "weight": 0.5,
+      "fillColor": "#8b5cf6",
+      "fillOpacity": 0.3
+     },
+     "popup": {
+      "titulo": "localidad",
+      "campos": {
+       "clase": "Clase INOCAR",
+       "fuente": "Fuente"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "hidrografia",
+   "titulo": "Quebradas y drenaje",
+   "capas": [
+    {
+     "id": "cuencas_localidad",
+     "titulo": "Cuencas completas que drenan a cada poblado",
+     "archivo": "cuencas_localidad.geojson",
+     "tipo": "poligono",
+     "visible": true,
+     "fuente": "Modelo D8 (Copernicus GLO-30 + quebradas IGM)",
+     "descripcion": "Todo el terreno cuya agua termina pasando por el poblado, desde la parte alta (aunque esté en el parque).",
+     "estilo": {
+      "color": "#0c4a6e",
+      "weight": 2.4,
+      "fillColor": "#0ea5e9",
+      "fillOpacity": 0.05
+     },
+     "leyenda": [
+      [
+       "#0c4a6e",
+       "Contorno de la cuenca de cada localidad"
+      ]
+     ],
+     "rotulo": {
+      "propiedad": "destino"
+     },
+     "popup": {
+      "titulo": "destino",
+      "sufijo_titulo": "",
+      "campos": {
+       "tipo": "Tipo",
+       "area_aguas_arriba_km2": "Área aguas arriba (km²)",
+       "area_km2": "Área total (km²)",
+       "descripcion": "Qué es",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "quebradas",
+     "titulo": "Quebradas y cauces mapeados",
+     "archivo": "quebradas.geojson",
+     "tipo": "linea",
+     "visible": true,
+     "fuente": "IGM 1:25 000 y OSM",
+     "estilo": {
+      "color": "#1849a9",
+      "weight": 2.4,
+      "opacity": 0.95
+     },
+     "borde": {
+      "color": "#ffffff",
+      "weight": 5,
+      "opacity": 0.7
+     },
+     "clasificar": {
+      "propiedad": "fuente",
+      "valores": {
+       "IGM 1:25 000": {
+        "etiqueta": "Quebrada (IGM)"
+       },
+       "OSM": {
+        "etiqueta": "Canal o drenaje (OSM)",
+        "color": "#0ea5e9",
+        "dashArray": "5 3",
+        "weight": 2
+       }
+      }
+     },
+     "rotulo": {
+      "propiedad": "nombre"
+     },
+     "popup": {
+      "titulo": "nombre",
+      "titulo_defecto": "Quebrada sin nombre",
+      "campos": {
+       "regimen": "Régimen",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "drenaje",
+     "titulo": "Cauces adicionales detectados en el relieve",
+     "archivo": "drenaje_adicional.geojson",
+     "tipo": "linea",
+     "visible": true,
+     "fuente": "Modelo sobre Copernicus GLO-30",
+     "descripcion": "Cauces que el IGM no tiene mapeados. Revisar en terreno.",
+     "estilo": {
+      "color": "#38bdf8",
+      "weight": 1.3,
+      "opacity": 0.85,
+      "dashArray": "2 3"
+     },
+     "popup": {
+      "titulo": "",
+      "titulo_defecto": "Cauce detectado en el relieve",
+      "campos": {
+       "orden": "Orden de Strahler",
+       "area_drenada_km2": "Área drenada (km²)"
+      }
+     }
+    },
+    {
+     "id": "franja",
+     "titulo": "Franja de protección de quebradas, 20 m",
+     "archivo": "franja_quebradas_20m.geojson",
+     "tipo": "poligono",
+     "visible": false,
+     "fuente": "CGREG",
+     "estilo": {
+      "color": "#0284c7",
+      "weight": 0.5,
+      "fillColor": "#7dd3fc",
+      "fillOpacity": 0.4
+     },
+     "popup": {
+      "titulo": "tipo",
+      "campos": {
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "subcuencas",
+     "titulo": "Subcuencas por punto de entrada al poblado",
+     "archivo": "cuencas_aportantes.geojson",
+     "tipo": "poligono",
+     "visible": false,
+     "fuente": "Modelo D8 (Copernicus GLO-30 + quebradas IGM)",
+     "descripcion": "Cada subcuenca es el área que entra a un poblado por un mismo cauce.",
+     "estilo": {
+      "weight": 1.2,
+      "fillOpacity": 0.12
+     },
+     "clasificar": {
+      "propiedad": "tipo",
+      "valores": {
+       "Subcuenca aportante": {
+        "etiqueta": "Subcuenca (entra por una quebrada)",
+        "color": "#0369a1",
+        "fillColor": "#38bdf8",
+        "dashArray": "6 4"
+       },
+       "Escorrentía local": {
+        "etiqueta": "Escorrentía local de laderas",
+        "color": "#64748b",
+        "fillColor": "#cbd5e1",
+        "dashArray": "2 3",
+        "fillOpacity": 0.08
+       }
+      }
+     },
+     "rotulo": {
+      "propiedad": "destino"
+     },
+     "popup": {
+      "titulo": "destino",
+      "campos": {
+       "tipo": "Tipo",
+       "quebrada": "Entra por",
+       "area_km2": "Área (km²)",
+       "area_drenada_entrada_km2": "Área drenada en la entrada (km²)",
+       "descripcion": "Qué es"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "poblacion",
+   "titulo": "Zonas pobladas",
+   "capas": [
+    {
+     "id": "limite_urbano",
+     "titulo": "Límite urbano",
+     "archivo": "limite_urbano.geojson",
+     "tipo": "poligono",
+     "visible": true,
+     "fuente": "IGM 1:25 000",
+     "estilo": {
+      "color": "#111827",
+      "weight": 2.2,
+      "fill": false,
+      "dashArray": "10 4 2 4"
+     },
+     "popup": {
+      "titulo": "nombre",
+      "campos": {
+       "categoria": "Categoría"
+      }
+     }
+    },
+    {
+     "id": "barrios",
+     "titulo": "Barrios (Santa Cruz)",
+     "archivo": "barrios.geojson",
+     "tipo": "poligono",
+     "visible": true,
+     "fuente": "CGREG",
+     "estilo": {
+      "color": "#9a3412",
+      "weight": 1,
+      "opacity": 0.7,
+      "fill": true,
+      "fillOpacity": 0
+     },
+     "rotulo": {
+      "propiedad": "nombre",
+      "permanente": true,
+      "zoom_min": 15
+     },
+     "popup": {
+      "titulo": "nombre",
+      "campos": {
+       "area_ha": "Área (ha)"
+      }
+     }
+    },
+    {
+     "id": "manzanas",
+     "titulo": "Población estimada por manzana",
+     "archivo": "manzanas_poblacion.geojson",
+     "tipo": "poligono",
+     "visible": false,
+     "fuente": "INEC MGN 2026 y viviendas SNGR",
+     "estilo": {
+      "color": "#78350f",
+      "weight": 0.4,
+      "fillOpacity": 0.6
+     },
+     "clasificar": {
+      "propiedad": "poblacion_estimada",
+      "rangos": [
+       {
+        "hasta": 0,
+        "etiqueta": "Sin dato",
+        "fillColor": "#e7e5e4",
+        "fillOpacity": 0.25
+       },
+       {
+        "hasta": 10,
+        "etiqueta": "1–10 hab.",
+        "fillColor": "#fde68a"
+       },
+       {
+        "hasta": 20,
+        "etiqueta": "10–20",
+        "fillColor": "#f59e0b"
+       },
+       {
+        "hasta": 40,
+        "etiqueta": "20–40",
+        "fillColor": "#c2410c"
+       },
+       {
+        "hasta": 1000000000.0,
+        "etiqueta": "Más de 40",
+        "fillColor": "#7f1d1d"
+       }
+      ]
+     },
+     "popup": {
+      "titulo": "",
+      "titulo_defecto": "Manzana",
+      "campos": {
+       "codigo": "Código INEC",
+       "viviendas": "Viviendas",
+       "poblacion_estimada": "Población estimada"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "vias",
+   "titulo": "Vías y evacuación",
+   "capas": [
+    {
+     "id": "vias",
+     "titulo": "Vías",
+     "archivo": "vias.geojson",
+     "tipo": "linea",
+     "visible": true,
+     "fuente": "OpenStreetMap, 31-oct-2026",
+     "estilo": {
+      "opacity": 0.95
+     },
+     "clasificar": {
+      "propiedad": "jerarquia",
+      "valores": {
+       "Principal": {
+        "etiqueta": "Principal",
+        "color": "#b42318",
+        "weight": 4
+       },
+       "Secundaria": {
+        "etiqueta": "Secundaria",
+        "color": "#e8590c",
+        "weight": 3
+       },
+       "Local": {
+        "etiqueta": "Local",
+        "color": "#a16207",
+        "weight": 1.6
+       },
+       "Camino de tierra": {
+        "etiqueta": "Camino de tierra",
+        "color": "#78716c",
+        "weight": 1.4,
+        "dashArray": "5 3"
+       }
+      }
+     },
+     "rotulo": {
+      "propiedad": "nombre"
+     },
+     "popup": {
+      "titulo": "nombre",
+      "titulo_defecto": "Vía sin nombre",
+      "campos": {
+       "jerarquia": "Jerarquía",
+       "superficie": "Superficie",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "rutas",
+     "titulo": "Rutas de evacuación por tsunami",
+     "archivo": "rutas_evacuacion_tsunami.geojson",
+     "tipo": "linea",
+     "visible": false,
+     "fuente": "SNGR",
+     "estilo": {
+      "color": "#15803d",
+      "weight": 4,
+      "opacity": 0.9
+     },
+     "clasificar": {
+      "propiedad": "tipo",
+      "valores": {
+       "Principal": {
+        "etiqueta": "Principal"
+       },
+       "Secundaria": {
+        "etiqueta": "Secundaria",
+        "weight": 2.5,
+        "dashArray": "6 3"
+       }
+      }
+     },
+     "popup": {
+      "titulo": "via",
+      "titulo_defecto": "Ruta de evacuación",
+      "campos": {
+       "tipo": "Tipo",
+       "fuente": "Fuente"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "puntos",
+   "titulo": "Puntos clave",
+   "capas": [
+    {
+     "id": "puntos_criticos",
+     "titulo": "Salud, albergues y seguridad",
+     "archivo": "puntos_clave.geojson",
+     "tipo": "punto",
+     "visible": false,
+     "fuente": "MSP, SNGR, MINEDUC, IGM y OSM",
+     "filtro": {
+      "propiedad": "categoria",
+      "en": [
+       "salud",
+       "albergue",
+       "zona_segura",
+       "sirena",
+       "educacion",
+       "emergencia"
+      ]
+     },
+     "estilo": {
+      "radius": 9
+     },
+     "clasificar": {
+      "propiedad": "categoria",
+      "valores": {
+       "salud": {
+        "etiqueta": "Salud pública, hospital o centro de salud",
+        "fillColor": "#dc2626",
+        "simbolo": "+"
+       },
+       "albergue": {
+        "etiqueta": "Albergue",
+        "fillColor": "#16a34a",
+        "simbolo": "A"
+       },
+       "zona_segura": {
+        "etiqueta": "Zona segura o punto de encuentro",
+        "fillColor": "#059669",
+        "simbolo": "S"
+       },
+       "sirena": {
+        "etiqueta": "Sirena de alerta",
+        "fillColor": "#d97706",
+        "simbolo": "!"
+       },
+       "educacion": {
+        "etiqueta": "Centro educativo",
+        "fillColor": "#7c3aed",
+        "simbolo": "E"
+       },
+       "emergencia": {
+        "etiqueta": "Policía y bomberos",
+        "fillColor": "#1d4ed8",
+        "simbolo": "P"
+       }
+      }
+     },
+     "popup": {
+      "titulo": "nombre",
+      "titulo_defecto": "Punto clave",
+      "campos": {
+       "categoria": "Categoría",
+       "subtipo": "Tipo",
+       "institucion": "Institución",
+       "nivel": "Nivel",
+       "capacidad_personas": "Capacidad (personas)",
+       "capacidad": "Capacidad",
+       "en_susc_alta_media": "En susceptibilidad alta o media",
+       "en_zona_tsunami": "En zona de tsunami",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "puntos_servicios",
+     "titulo": "Servicios: salud privada, agua, energía, transporte",
+     "archivo": "puntos_clave.geojson",
+     "tipo": "punto",
+     "visible": false,
+     "fuente": "IGM y OSM",
+     "filtro": {
+      "propiedad": "categoria",
+      "en": [
+       "salud_privada",
+       "agua",
+       "energia",
+       "transporte",
+       "telecom",
+       "gobierno"
+      ]
+     },
+     "estilo": {
+      "radius": 5
+     },
+     "clasificar": {
+      "propiedad": "categoria",
+      "valores": {
+       "salud_privada": {
+        "etiqueta": "Consultorio, laboratorio o farmacia",
+        "fillColor": "#f87171"
+       },
+       "agua": {
+        "etiqueta": "Agua (tanques, captaciones)",
+        "fillColor": "#0891b2"
+       },
+       "energia": {
+        "etiqueta": "Energía y combustible",
+        "fillColor": "#ca8a04"
+       },
+       "transporte": {
+        "etiqueta": "Muelles, aeropuertos y puentes",
+        "fillColor": "#0f766e"
+       },
+       "telecom": {
+        "etiqueta": "Telecomunicaciones",
+        "fillColor": "#64748b"
+       },
+       "gobierno": {
+        "etiqueta": "Gobierno",
+        "fillColor": "#334155"
+       }
+      }
+     },
+     "popup": {
+      "titulo": "nombre",
+      "titulo_defecto": "Servicio",
+      "campos": {
+       "categoria": "Categoría",
+       "subtipo": "Tipo",
+       "en_susc_alta_media": "En susceptibilidad alta o media",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "puntos_logistica",
+     "titulo": "Alojamiento, comercio y espacios de reunión",
+     "archivo": "puntos_clave.geojson",
+     "tipo": "punto",
+     "visible": false,
+     "zoom_min": 14,
+     "fuente": "IGM y OSM",
+     "filtro": {
+      "propiedad": "categoria",
+      "en": [
+       "alojamiento",
+       "abastecimiento",
+       "encuentro"
+      ]
+     },
+     "estilo": {
+      "radius": 4.5
+     },
+     "clasificar": {
+      "propiedad": "categoria",
+      "valores": {
+       "alojamiento": {
+        "etiqueta": "Alojamiento",
+        "fillColor": "#db2777"
+       },
+       "abastecimiento": {
+        "etiqueta": "Supermercado, ferretería o banco",
+        "fillColor": "#ea580c"
+       },
+       "encuentro": {
+        "etiqueta": "Estadio, coliseo o iglesia",
+        "fillColor": "#65a30d"
+       }
+      }
+     },
+     "popup": {
+      "titulo": "nombre",
+      "titulo_defecto": "Lugar",
+      "campos": {
+       "categoria": "Categoría",
+       "subtipo": "Tipo",
+       "fuente": "Fuente"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "relieve",
+   "titulo": "Relieve",
+   "capas": [
+    {
+     "id": "sombreado",
+     "titulo": "Relieve sombreado",
+     "tipo": "raster",
+     "raster": "relieve",
+     "visible": true,
+     "opacidad": 0.5,
+     "fuente": "Copernicus GLO-30"
+    },
+    {
+     "id": "curvas",
+     "titulo": "Curvas de nivel cada 10 m",
+     "archivo": "curvas_nivel.geojson",
+     "tipo": "linea",
+     "visible": false,
+     "zoom_min": 14,
+     "fuente": "Derivadas de Copernicus GLO-30",
+     "estilo": {
+      "color": "#92400e",
+      "weight": 0.6,
+      "opacity": 0.55
+     },
+     "clasificar": {
+      "propiedad": "maestra",
+      "valores": {
+       "true": {
+        "etiqueta": "Maestra (cada 50 m)",
+        "weight": 1.3,
+        "opacity": 0.85
+       },
+       "false": {
+        "etiqueta": "Intermedia (10 m)"
+       }
+      }
+     },
+     "rotulo": {
+      "propiedad": "elevacion_m",
+      "sufijo": " m"
+     },
+     "popup": {
+      "titulo": "elevacion_m",
+      "sufijo_titulo": " m",
+      "campos": {}
+     }
+    },
+    {
+     "id": "pendientes",
+     "titulo": "Pendientes fuertes (laderas)",
+     "tipo": "raster",
+     "raster": "pendientes",
+     "visible": false,
+     "opacidad": 0.75,
+     "fuente": "Copernicus GLO-30",
+     "leyenda": [
+      [
+       "#facc15",
+       "15–25°"
+      ],
+      [
+       "#f97316",
+       "25–35°"
+      ],
+      [
+       "#b91c1c",
+       "Más de 35°"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "mapas_base": [
+  {
+   "id": "claro",
+   "titulo": "Claro",
+   "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+   "atribucion": "Esri, HERE, Garmin, © OpenStreetMap",
+   "maxZoom": 19,
+   "maxNativeZoom": 16,
+   "defecto": true
+  },
+  {
+   "id": "calles",
+   "titulo": "Calles",
+   "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+   "atribucion": "© OpenStreetMap",
+   "maxZoom": 19
+  },
+  {
+   "id": "satelite",
+   "titulo": "Satélite",
+   "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+   "atribucion": "Esri, Maxar, Earthstar Geographics",
+   "maxZoom": 19
+  },
+  {
+   "id": "topografico",
+   "titulo": "Topográfico",
+   "url": "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+   "atribucion": "© OpenStreetMap, SRTM · © OpenTopoMap (CC-BY-SA)",
+   "maxZoom": 17
+  }
+ ]
+}

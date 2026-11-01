@@ -1,0 +1,41 @@
+{
+ "Santa Cruz": {
+  "edificios": 10350,
+  "susc_alta": 926,
+  "susc_media": 1088,
+  "susc_baja": 1472,
+  "franja_quebrada_20m": 31,
+  "zona_tsunami": 1081,
+  "costa_0_3m": 162,
+  "pob_total": 16880,
+  "pob_susc_alta_media": 3965,
+  "pob_franja_quebrada": 4,
+  "pob_zona_tsunami": 917
+ },
+ "Isabela": {
+  "edificios": 2072,
+  "susc_alta": 381,
+  "susc_media": 156,
+  "susc_baja": 102,
+  "franja_quebrada_20m": 0,
+  "zona_tsunami": 685,
+  "costa_0_3m": 80,
+  "pob_total": 3086,
+  "pob_susc_alta_media": 928,
+  "pob_franja_quebrada": 0,
+  "pob_zona_tsunami": 1064
+ },
+ "San Cristóbal": {
+  "edificios": 4579,
+  "susc_alta": 77,
+  "susc_media": 332,
+  "susc_baja": 337,
+  "franja_quebrada_20m": 172,
+  "zona_tsunami": 190,
+  "costa_0_3m": 3,
+  "pob_total": 8094,
+  "pob_susc_alta_media": 657,
+  "pob_franja_quebrada": 228,
+  "pob_zona_tsunami": 207
+ }
+}

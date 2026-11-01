@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa de emergencia Galápagos</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root{--bg:#f4f4f1;--panel:#ffffff;--ink:#1b1b19;--mut:#6b6a64;--line:#e6e5df;--acc:#0b5cad;--soft:#eef3f9;--on:#0b5cad}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--panel:#1d1d1b;--ink:#ecebe6;--mut:#a09f98;--line:#33332e;--acc:#7ab0ea;--soft:#232d38;--on:#3f86d4}}
+:root[data-theme="dark"]{--bg:#141413;--panel:#1d1d1b;--ink:#ecebe6;--mut:#a09f98;--line:#33332e;--acc:#7ab0ea;--soft:#232d38;--on:#3f86d4}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.4 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+#app{display:grid;grid-template-columns:350px 1fr;height:100vh}
+#side{background:var(--panel);border-right:1px solid var(--line);overflow:auto;display:flex;flex-direction:column}
+.head{padding:16px 16px 10px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+h1{font-size:16px;margin:0;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:12px;margin:2px 0 10px}
+.row{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:999px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+.chip:hover{border-color:var(--acc)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:8px}
+.seg button{border:0;background:transparent;color:var(--mut);font:inherit;font-size:12px;padding:4px 9px;cursor:pointer}
+.seg button.on{background:var(--on);color:#fff}
+.body{padding:4px 16px 24px}
+.grp{border-bottom:1px solid var(--line);padding:10px 0 6px}
+.grp h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 4px;font-weight:650}
+.lyr{padding:5px 0}
+.lyr .top{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sw{position:relative;flex:none;width:30px;height:17px;border-radius:999px;background:var(--line);transition:.15s}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:.15s}
+.lyr.on .sw{background:var(--on)}.lyr.on .sw::after{left:15px}
+.lyr .t{flex:1;font-size:13.5px}
+.lyr .meta{display:block;font-size:11px;color:var(--mut)}
+.lyr .leg{display:none;margin:5px 0 2px 40px;font-size:11.5px;color:var(--mut)}
+.lyr.on .leg{display:grid;grid-template-columns:1fr;gap:2px}
+.leg i{display:inline-block;width:16px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.leg i.ln{height:0;border-top:3px solid;border-radius:0;vertical-align:3px}
+.leg i.pt{width:14px;height:14px;border-radius:50%;color:#fff;font:700 9px/14px system-ui;text-align:center;font-style:normal;vertical-align:-3px;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.desc{font-size:11px;color:var(--mut);margin:3px 0 0 40px;display:none}.lyr.on .desc{display:block}
+.zoomhint{font-size:11px;color:#b45309;margin-left:40px;display:none}.lyr.on.far .zoomhint{display:block}
+details.card{margin:12px 0 0;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--bg)}
+details.card summary{cursor:pointer;font-weight:600;font-size:13px}
+.card table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}.card td{padding:2px 0;border-bottom:1px solid var(--line)}
+.card td.r{text-align:right;font-variant-numeric:tabular-nums}.card tr:last-child td{border:0}
+.note{font-size:11.5px;color:var(--mut);margin-top:12px}
+#map{height:100%;background:#dfe6ea}
+.leaflet-popup-content-wrapper{border-radius:10px}
+.leaflet-popup-content{font-size:12.5px;margin:10px 12px;min-width:180px}
+.pp-t{font-weight:650;font-size:13.5px;margin-bottom:2px}.pp-s{font-size:11px;color:#777;margin-bottom:6px}
+.pp table{border-collapse:collapse}.pp td{padding:2px 8px 2px 0;vertical-align:top}.pp td:first-child{color:#777;white-space:nowrap}
+.pin{width:19px;height:19px;border-radius:50%;color:#fff;font:800 11px/15px system-ui;text-align:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45)}
+.pin.risk{box-shadow:0 0 0 3px #1d4a9e,0 1px 4px rgba(0,0,0,.45)}
+.rot{background:transparent;border:0;box-shadow:none;color:#7c2d12;font:600 11px system-ui;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 2px #fff}
+.rot::before{display:none}
+.map-far .rot{display:none}
+#coord{position:absolute;right:8px;bottom:22px;z-index:500;background:rgba(255,255,255,.85);color:#222;padding:2px 6px;border-radius:4px;font:11px ui-monospace,monospace}
+.mix{mix-blend-mode:multiply}
+@media (max-width:760px){#app{grid-template-columns:1fr;grid-template-rows:42vh 1fr}#side{order:2;border-right:0;border-top:1px solid var(--line)}.head{position:static;padding:12px 16px}}
+</style>
+</head>
+<body>
+<div id="app">
+ <aside id="side">
+  <div class="head">
+   <h1>Mapa de emergencia: Galápagos</h1>
+   <div class="sub">Inundaciones por El Niño, oct–nov 2026. Zonas pobladas, zona agrícola, vías y cuencas que drenan a los poblados. El rayado verde marca el Parque Nacional.</div>
+   <div class="row" id="islas"></div>
+   <div class="seg" id="bases"></div>
+  </div>
+  <div class="body">
+   <div id="grupos"></div>
+   <details class="card" id="expo"><summary>Exposición estimada por isla</summary><div></div></details>
+   <div class="note">Fuentes: IGM 1:25 000, CGREG, SNGR/INOCAR, MSP, MINEDUC, INEC MGN 2026, OpenStreetMap (31-oct-2026), Google Open Buildings y Copernicus GLO-30. La susceptibilidad, la costa baja y los cauces adicionales son un <b>modelo sobre un DSM de 30 m</b>: sirven para priorizar, no son delimitaciones oficiales.</div>
+  </div>
+ </aside>
+ <div style="position:relative"><div id="map"></div><div id="coord"></div></div>
+</div>
+<script>
+const BASE_URL = '../datos/';
+
+// ═══════════ Motor de estilos del manifiesto (portable al proyecto principal) ═══════════
+/** Devuelve el bloque de clasificación que corresponde a las propiedades de un elemento. */
+function claseDe(capa, props) {
+  const c = capa.clasificar; if (!c) return null;
+  const v = props?.[c.propiedad];
+  if (c.rangos) return c.rangos.find(r => (Number(v) || 0) <= r.hasta) ?? null;
+  return c.valores?.[String(v)] ?? c.otro ?? null;
+}
+/** Opciones de Leaflet para un elemento: estilo base + clase. */
+function estiloDe(capa, props) {
+  const { etiqueta, simbolo, hasta, ...k } = claseDe(capa, props) ?? {};
+  let s = { ...capa.estilo, ...k };
+  for (const r of capa.estilo_si ?? []) {
+    const v = props?.[r.propiedad];
+    if ((r.igual_a !== undefined && v === r.igual_a) || (r.distinto_de !== undefined && v !== r.distinto_de)) s = { ...s, ...r.estilo };
+  }
+  return s;
+}
+/** Entradas de leyenda [{color, texto, forma, simbolo}]. */
+function leyendaDe(capa) {
+  if (capa.leyenda) return capa.leyenda.map(([color, texto]) => ({ color, texto, forma: 'area' }));
+  const forma = capa.tipo === 'linea' ? 'linea' : capa.tipo === 'punto' ? 'punto' : 'area';
+  const c = capa.clasificar;
+  const items = c ? [...(c.rangos ?? Object.values(c.valores ?? {})), ...(c.otro ? [c.otro] : [])] : [{ etiqueta: capa.titulo }];
+  const out = items.map(it => { const s = { ...capa.estilo, ...it };
+    return { color: forma === 'linea' ? s.color : (s.fillColor ?? s.color), texto: it.etiqueta, forma, simbolo: it.simbolo, dash: s.dashArray }; });
+  for (const r of capa.estilo_si ?? []) if (r.etiqueta) out.push({ color: '#6b7280', texto: r.etiqueta, forma: 'linea', dash: r.estilo.dashArray });
+  return out;
+}
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fmt = v => v === true ? 'Sí' : v === false ? 'No' : typeof v === 'number' ? v.toLocaleString('es') : v;
+/** HTML del popup según capa.popup. */
+function popupDe(capa, props) {
+  const p = capa.popup ?? {}; const cls = claseDe(capa, props);
+  const titulo = (p.titulo && props[p.titulo] != null && props[p.titulo] !== '' ? props[p.titulo] + (p.sufijo_titulo ?? '') : p.titulo_defecto) ?? capa.titulo;
+  let h = `<div class="pp"><div class="pp-t">${esc(titulo)}</div><div class="pp-s">${esc(cls?.etiqueta && cls.etiqueta !== titulo ? cls.etiqueta + ' · ' : '')}${esc(capa.titulo)}</div><table>`;
+  for (const [k, lab] of Object.entries(p.campos ?? {})) { const v = props[k]; if (v == null || v === '') continue; h += `<tr><td>${esc(lab)}</td><td>${esc(fmt(v))}</td></tr>`; }
+  return h + '</table></div>';
+}
+/** Renderer SVG con un patrón de rayas (para marcar el Parque Nacional). fillColor de la capa = url(#id). */
+function rendererPatron(pt, pane) {
+  const r = L.svg({ pane });
+  r.on('add', () => {
+    const svg = r._container; if (!svg || svg.querySelector('#' + pt.id)) return;
+    const s = pt.separacion ?? 8;
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    defs.innerHTML = `<pattern id="${pt.id}" patternUnits="userSpaceOnUse" width="${s}" height="${s}" patternTransform="rotate(45)">` +
+      `<rect width="${s}" height="${s}" fill="${pt.fondo ?? 'none'}" fill-opacity="${pt.opacidad_fondo ?? 0}"/>` +
+      `<line x1="0" y1="0" x2="0" y2="${s}" stroke="${pt.color}" stroke-width="${pt.grosor ?? 1.5}" stroke-opacity="${pt.opacidad ?? 0.6}"/></pattern>`;
+    svg.insertBefore(defs, svg.firstChild);
+  });
+  return r;
+}
+/** Crea la capa Leaflet de una entrada del manifiesto. */
+async function crearCapa(capa, ctx) {
+  if (capa.tipo === 'raster') {
+    const lim = ctx.limites ??= await (await fetch(BASE_URL + 'raster/limites.json', { cache: 'no-cache' })).json();
+    return L.layerGroup(Object.entries(lim).map(([k, v]) => L.imageOverlay(`${BASE_URL}raster/${k}_${capa.raster}.png`, v.bounds,
+      { opacity: capa.opacidad ?? .7, pane: 'fondo', className: capa.raster === 'relieve' ? 'mix' : '' })));
+  }
+  const gj = ctx.cache[capa.archivo] ??= await (await fetch(BASE_URL + capa.archivo, { cache: 'no-cache' })).json();
+  const filter = capa.filtro ? f => capa.filtro.en.includes(f.properties?.[capa.filtro.propiedad]) : undefined;
+  const pane = capa.patron ? 'parque' : capa.tipo === 'punto' ? 'puntos' : capa.tipo === 'linea' ? 'lineas' : 'areas';
+  const renderer = capa.patron ? rendererPatron(capa.patron, pane) : ctx.renderers[pane];
+  const grupo = L.layerGroup();
+  if (capa.borde) grupo.addLayer(L.geoJSON(gj, { filter, pane, renderer, interactive: false, style: () => ({ ...capa.borde, lineCap: 'round' }) }));
+  const main = L.geoJSON(gj, {
+    filter, pane, renderer,
+    style: f => ({ lineCap: 'round', lineJoin: 'round', ...estiloDe(capa, f.properties) }),
+    pointToLayer: (f, ll) => {
+      const s = estiloDe(capa, f.properties); const cl = claseDe(capa, f.properties);
+      if (cl?.simbolo) return L.marker(ll, { pane, icon: L.divIcon({ className: '', iconSize: [19, 19],
+        html: `<div class="pin${f.properties.en_susc_alta_media ? ' risk' : ''}" style="background:${s.fillColor}">${esc(cl.simbolo)}</div>` }) });
+      return L.circleMarker(ll, { pane, renderer, radius: s.radius ?? 5, color: f.properties.en_susc_alta_media ? '#1d4a9e' : '#fff',
+        weight: f.properties.en_susc_alta_media ? 2.5 : 1.3, fillColor: s.fillColor, fillOpacity: 1 });
+    },
+    onEachFeature: (f, l) => {
+      l.bindPopup(() => popupDe(capa, f.properties));
+      const r = capa.rotulo; const txt = r && f.properties?.[r.propiedad];
+      if (txt != null && txt !== '') l.bindTooltip(esc(txt) + (r.sufijo ?? ''), r.permanente
+        ? { permanent: true, direction: 'center', className: 'rot' } : { sticky: true });
+    },
+  });
+  grupo.addLayer(main);
+  capa._n = main.getLayers().length;
+  return grupo;
+}
+
+// ═══════════ Mapa ═══════════
+const map = L.map('map', { zoomControl: true, minZoom: 9 });
+L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
+for (const [n, z] of [['fondo', 350], ['parque', 390], ['areas', 410], ['lineas', 430], ['puntos', 620]]) map.createPane(n).style.zIndex = z;
+map.getPane('fondo').style.pointerEvents = 'none';
+const ctx = { cache: {}, renderers: { areas: L.canvas({ pane: 'areas', padding: .3 }), lineas: L.canvas({ pane: 'lineas', padding: .3 }), puntos: L.canvas({ pane: 'puntos', padding: .3 }) } };
+
+const BASES = {
+  'Claro': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, maxNativeZoom: 16, attribution: 'Esri' }),
+  'Calles': L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }),
+  'Satélite': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Esri, Maxar' }),
+  'Topográfico': L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom: 17, attribution: '© OpenTopoMap' }),
+};
+let base = BASES['Claro'].addTo(map);
+const segB = document.getElementById('bases');
+for (const k in BASES) { const b = document.createElement('button'); b.textContent = k; if (k === 'Claro') b.className = 'on';
+  b.onclick = () => { map.removeLayer(base); base = BASES[k].addTo(map); segB.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); };
+  segB.appendChild(b); }
+
+(async () => {
+  const man = await (await fetch(BASE_URL + 'capas.json', { cache: 'no-cache' })).json();
+  // Zonas de salto
+  const zi = document.getElementById('islas');
+  for (const [k, v] of Object.entries(man.islas)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = k; b.onclick = () => map.fitBounds(v.bounds); zi.appendChild(b); }
+  map.fitBounds(man.islas['Puerto Ayora'].bounds);
+
+
+  // Panel de capas
+  const cont = document.getElementById('grupos'); const filas = [];
+  for (const g of man.grupos) {
+    const sec = document.createElement('div'); sec.className = 'grp'; sec.innerHTML = `<h2>${esc(g.titulo)}</h2>`;
+    for (const capa of g.capas) {
+      const row = document.createElement('div'); row.className = 'lyr';
+      const ley = leyendaDe(capa).map(it => {
+        const ic = it.forma === 'punto' ? `<i class="pt" style="background:${it.color}">${esc(it.simbolo ?? '')}</i>`
+          : it.forma === 'linea' ? `<i class="ln" style="border-color:${it.color};${it.dash ? 'border-top-style:dashed' : ''}"></i>` : `<i style="background:${it.color}"></i>`;
+        return `<span>${ic}${esc(it.texto)}</span>`; }).join('');
+      row.innerHTML = `<div class="top"><span class="sw"></span><span class="t">${esc(capa.titulo)}<span class="meta">${esc(capa.fuente ?? '')}${capa.elementos ? ' · ' + capa.elementos.toLocaleString('es') + ' elementos' : ''}</span></span></div>
+        ${capa.descripcion ? `<div class="desc">${esc(capa.descripcion)}</div>` : ''}<div class="zoomhint">Acércate al mapa (zoom ${capa.zoom_min}+) para ver esta capa.</div><div class="leg">${ley}</div>`;
+      const st = { on: false, layer: null };
+      const sync = async () => {
+        const visible = st.on && !(capa.zoom_min && map.getZoom() < capa.zoom_min);
+        row.classList.toggle('far', st.on && !!capa.zoom_min && map.getZoom() < capa.zoom_min);
+        if (visible) { st.layer ??= await crearCapa(capa, ctx); if (!map.hasLayer(st.layer)) st.layer.addTo(map); }
+        else if (st.layer && map.hasLayer(st.layer)) map.removeLayer(st.layer);
+      };
+      row.querySelector('.top').onclick = () => { st.on = !st.on; row.classList.toggle('on', st.on); sync(); };
+      if (capa.visible) { st.on = true; row.classList.add('on'); }
+      filas.push(sync); sec.appendChild(row);
+    }
+    cont.appendChild(sec);
+  }
+  // Las capas se cargan en orden, para que el apilado coincida con el manifiesto
+  for (const s of filas) await s();
+  const zoomSync = () => { map.getContainer().classList.toggle('map-far', map.getZoom() < 15); filas.forEach(s => s()); };
+  map.on('zoomend', zoomSync); zoomSync();
+
+  // Exposición
+  const R = await (await fetch(BASE_URL + 'resumen_exposicion.json', { cache: 'no-cache' })).json();
+  const n = v => (v ?? 0).toLocaleString('es');
+  const filasE = [['Edificios', 'edificios'], ['  en susceptibilidad alta', 'susc_alta'], ['  en susceptibilidad media', 'susc_media'], ['  en franja de quebrada', 'franja_quebrada_20m'], ['  en zona de tsunami', 'zona_tsunami'],
+    ['Población estimada', 'pob_total'], ['  en susceptibilidad alta o media', 'pob_susc_alta_media'], ['  en franja de quebrada', 'pob_franja_quebrada'], ['  en zona de tsunami', 'pob_zona_tsunami']];
+  document.querySelector('#expo div').innerHTML = '<table><tr><td></td><td class="r"><b>S. Cruz</b></td><td class="r"><b>S. Crist.</b></td><td class="r"><b>Isabela</b></td></tr>' +
+    filasE.map(([l, k]) => `<tr><td>${l.startsWith('  ') ? '&nbsp;&nbsp;' + l.trim() : '<b>' + l + '</b>'}</td><td class="r">${n(R['Santa Cruz'][k])}</td><td class="r">${n(R['San Cristóbal'][k])}</td><td class="r">${n(R['Isabela'][k])}</td></tr>`).join('') + '</table>';
+})();
+map.on('mousemove', e => document.getElementById('coord').textContent = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)} · z${map.getZoom()}`);
+</script>
+</body>
+</html>
