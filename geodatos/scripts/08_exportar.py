@@ -231,11 +231,20 @@ def add_pt(g, cat, nombre, subtipo, fuente, **extra):
     if g.geom_type != "Point": g = g.representative_point()
     if not AOI.contains(g): return
     pts.append((g, dict(categoria=cat, nombre=(nombre or None), subtipo=subtipo, fuente=fuente, **extra)))
+# El registro del MSP inscribe muchos consultorios privados con el nombre del
+# profesional. Para no publicar datos personales, si el nombre no es
+# institucional se reemplaza por la tipología (p. ej. «Consultorio general»).
+INSTITUCIONAL = ("HOSPITAL", "CENTRO", "CONSULTORIO", "CLINICA", "CLÍNICA", "LABORATORIO", "DISPENSARIO", "PUESTO",
+                 "FARMACIA", "BOTICA", "POLICLINICO", "POLICLÍNICO", "UNIDAD", "SUBCENTRO", "MEDIC", "MÉDIC", "SALUD")
+def nombre_salud(p, publico):
+    nombre = (p.get("nombre") or "").upper()
+    if publico or any(k in nombre for k in INSTITUCIONAL): return (p.get("nombre") or "").title()
+    return (p.get("tipologia") or "Establecimiento de salud privado").capitalize()
 for f in load("final/salud_msp.geojson"):
     p = f["properties"]
     publico = p.get("institucion") not in ("PRIVADO", "OTROS ESTABLECIMIENTOS")
     mayor = any(t in (p.get("tipologia") or "") for t in ("HOSPITAL", "CENTRO DE SALUD", "CENTRO DE ESPECIALIDADES"))
-    add_pt(shape(f["geometry"]), "salud" if publico or mayor else "salud_privada", (p.get("nombre") or "").title(), (p.get("tipologia") or "").capitalize(), "MSP 2023",
+    add_pt(shape(f["geometry"]), "salud" if publico or mayor else "salud_privada", nombre_salud(p, publico), (p.get("tipologia") or "").capitalize(), "MSP 2023",
                                 institucion=p.get("institucion"), nivel=p.get("nivel"))
 for f in load("final/albergues_sngr.geojson"):
     p = f["properties"]; add_pt(shape(f["geometry"]), "albergue", p.get("nombre"), p.get("tipo"), "SNGR 2025",
