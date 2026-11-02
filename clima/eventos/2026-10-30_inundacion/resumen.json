@@ -1,0 +1,58 @@
+{
+ "ventana": [
+  "2026-10-29T00:00:00",
+  "2026-11-02T00:00:00"
+ ],
+ "hora": "local de Galápagos (UTC−6), según la fuente",
+ "estaciones": {
+  "Cerro Crocker": {
+   "lluvia_total_mm": 11.0,
+   "max_5min_mm": 0.4,
+   "max_1h_mm": 1.0,
+   "hora_max_1h": "2026-11-01T20:00:00",
+   "max_3h_mm": 1.4,
+   "max_6h_mm": 2.2,
+   "horas_sin_transmision": 19.5,
+   "cobertura_pct": 80,
+   "altitud_m_dem": 861
+  },
+  "Los Guayabillos": {
+   "lluvia_total_mm": 189.0,
+   "max_5min_mm": 6.4,
+   "max_1h_mm": 61.0,
+   "hora_max_1h": "2026-10-30T20:00:00",
+   "max_3h_mm": 117.2,
+   "max_6h_mm": 149.0,
+   "horas_sin_transmision": 21.3,
+   "cobertura_pct": 78,
+   "altitud_m_dem": 178
+  },
+  "Militar": {
+   "lluvia_total_mm": 2.8,
+   "max_5min_mm": 0.4,
+   "max_1h_mm": 0.8,
+   "hora_max_1h": "2026-10-30T14:00:00",
+   "max_3h_mm": 1.0,
+   "max_6h_mm": 1.6,
+   "horas_sin_transmision": 0.0,
+   "cobertura_pct": 100,
+   "altitud_m_dem": 14
+  },
+  "Santa Rosa": {
+   "lluvia_total_mm": 290.4,
+   "max_5min_mm": 9.4,
+   "max_1h_mm": 66.4,
+   "hora_max_1h": "2026-10-30T20:00:00",
+   "max_3h_mm": 131.0,
+   "max_6h_mm": 172.6,
+   "horas_sin_transmision": 21.9,
+   "cobertura_pct": 77,
+   "altitud_m_dem": 416
+  }
+ },
+ "ecmwf_ifs_9km_mm": {
+  "costa": 120.4,
+  "parte_alta": 195.9,
+  "nota": "solo cubre las horas con datos en el informe de La Cascada"
+ }
+}

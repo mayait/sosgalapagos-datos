@@ -1,0 +1,5697 @@
+{
+ "dias": {
+  "2026-04-01": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:00-06:00",
+   "registros": {}
+  },
+  "2026-04-02": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:00-06:00",
+   "registros": {}
+  },
+  "2026-04-03": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:00-06:00",
+   "registros": {}
+  },
+  "2026-04-04": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:00-06:00",
+   "registros": {}
+  },
+  "2026-04-05": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:21-06:00",
+   "registros": {}
+  },
+  "2026-04-06": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:21-06:00",
+   "registros": {}
+  },
+  "2026-04-07": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:21-06:00",
+   "registros": {}
+  },
+  "2026-04-08": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:21-06:00",
+   "registros": {}
+  },
+  "2026-04-09": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:26-06:00",
+   "registros": {}
+  },
+  "2026-04-10": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:33-06:00",
+   "registros": {}
+  },
+  "2026-04-11": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:51:33-06:00",
+   "registros": {}
+  },
+  "2026-04-12": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:07-06:00",
+   "registros": {}
+  },
+  "2026-04-13": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:07-06:00",
+   "registros": {}
+  },
+  "2026-04-14": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:07-06:00",
+   "registros": {}
+  },
+  "2026-04-15": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:07-06:00",
+   "registros": {}
+  },
+  "2026-04-16": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:07-06:00",
+   "registros": {}
+  },
+  "2026-04-17": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:07-06:00",
+   "registros": {}
+  },
+  "2026-04-18": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:08-06:00",
+   "registros": {}
+  },
+  "2026-04-19": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:19-06:00",
+   "registros": {}
+  },
+  "2026-04-20": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:25-06:00",
+   "registros": {}
+  },
+  "2026-04-21": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:27-06:00",
+   "registros": {}
+  },
+  "2026-04-22": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:27-06:00",
+   "registros": {}
+  },
+  "2026-04-23": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:50-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 1
+    },
+    "Pressure": {
+     "n_glps01": 1
+    },
+    "RAIN": {
+     "n_glps01": 1
+    },
+    "Temperature": {
+     "n_glps01": 1
+    }
+   }
+  },
+  "2026-04-24": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:50-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 101,
+     "n_glps05": 96,
+     "n_glps06": 76
+    },
+    "Pressure": {
+     "n_glps01": 101,
+     "n_glps05": 95,
+     "n_glps06": 76
+    },
+    "RAIN": {
+     "n_glps01": 101,
+     "n_glps05": 96,
+     "n_glps06": 76
+    },
+    "Temperature": {
+     "n_glps01": 101,
+     "n_glps05": 96,
+     "n_glps06": 76
+    }
+   }
+  },
+  "2026-04-25": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:52:51-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 286,
+     "n_glps05": 272,
+     "n_glps06": 220
+    },
+    "Pressure": {
+     "n_glps01": 286,
+     "n_glps05": 272,
+     "n_glps06": 220
+    },
+    "RAIN": {
+     "n_glps01": 286,
+     "n_glps05": 272,
+     "n_glps06": 220
+    },
+    "Temperature": {
+     "n_glps01": 286,
+     "n_glps05": 272,
+     "n_glps06": 220
+    }
+   }
+  },
+  "2026-04-26": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:53:06-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 287,
+     "n_glps05": 276,
+     "n_glps06": 220
+    },
+    "Pressure": {
+     "n_glps01": 287,
+     "n_glps05": 276,
+     "n_glps06": 220
+    },
+    "RAIN": {
+     "n_glps01": 287,
+     "n_glps05": 276,
+     "n_glps06": 220
+    },
+    "Temperature": {
+     "n_glps01": 287,
+     "n_glps05": 276,
+     "n_glps06": 220
+    }
+   }
+  },
+  "2026-04-27": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:53:15-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 285,
+     "n_glps05": 147,
+     "n_glps06": 123
+    },
+    "Pressure": {
+     "n_glps01": 285,
+     "n_glps05": 147,
+     "n_glps06": 123
+    },
+    "RAIN": {
+     "n_glps01": 285,
+     "n_glps05": 147,
+     "n_glps06": 123
+    },
+    "Temperature": {
+     "n_glps01": 285,
+     "n_glps05": 147,
+     "n_glps06": 123
+    }
+   }
+  },
+  "2026-04-28": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:53:15-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 284
+    },
+    "Pressure": {
+     "n_glps01": 284
+    },
+    "RAIN": {
+     "n_glps01": 284
+    },
+    "Temperature": {
+     "n_glps01": 284
+    }
+   }
+  },
+  "2026-04-29": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:53:15-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 279
+    },
+    "Pressure": {
+     "n_glps01": 279
+    },
+    "RAIN": {
+     "n_glps01": 279
+    },
+    "Temperature": {
+     "n_glps01": 279
+    }
+   }
+  },
+  "2026-04-30": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:53:31-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 287
+    },
+    "Pressure": {
+     "n_glps01": 287
+    },
+    "RAIN": {
+     "n_glps01": 287
+    },
+    "Temperature": {
+     "n_glps01": 287
+    }
+   }
+  },
+  "2026-05-01": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:53:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 288
+    },
+    "Pressure": {
+     "n_glps01": 288
+    },
+    "RAIN": {
+     "n_glps01": 288
+    },
+    "Temperature": {
+     "n_glps01": 288
+    }
+   }
+  },
+  "2026-05-02": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:53:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 288
+    },
+    "Pressure": {
+     "n_glps01": 288
+    },
+    "RAIN": {
+     "n_glps01": 288
+    },
+    "Temperature": {
+     "n_glps01": 288
+    }
+   }
+  },
+  "2026-05-03": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:53:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 288
+    },
+    "Pressure": {
+     "n_glps01": 288
+    },
+    "RAIN": {
+     "n_glps01": 288
+    },
+    "Temperature": {
+     "n_glps01": 288
+    }
+   }
+  },
+  "2026-05-04": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:01-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 116
+    },
+    "Pressure": {
+     "n_glps01": 116
+    },
+    "RAIN": {
+     "n_glps01": 116
+    },
+    "Temperature": {
+     "n_glps01": 116
+    }
+   }
+  },
+  "2026-05-05": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:01-06:00",
+   "registros": {}
+  },
+  "2026-05-06": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:01-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 93
+    },
+    "Pressure": {
+     "n_glps05": 90
+    },
+    "RAIN": {
+     "n_glps05": 93
+    },
+    "Temperature": {
+     "n_glps05": 93
+    }
+   }
+  },
+  "2026-05-07": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:06-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 289,
+     "n_glps06": 168,
+     "n_glps09": 118
+    },
+    "Pressure": {
+     "n_glps05": 289,
+     "n_glps06": 168,
+     "n_glps09": 116
+    },
+    "RAIN": {
+     "n_glps05": 289,
+     "n_glps06": 168,
+     "n_glps09": 118
+    },
+    "Temperature": {
+     "n_glps05": 289,
+     "n_glps06": 168,
+     "n_glps09": 118
+    }
+   }
+  },
+  "2026-05-08": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:21-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 93,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 248
+    },
+    "Pressure": {
+     "n_glps01": 92,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 248
+    },
+    "RAIN": {
+     "n_glps01": 93,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 248
+    },
+    "Temperature": {
+     "n_glps01": 92,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 248
+    }
+   }
+  },
+  "2026-05-09": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:21-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 252
+    },
+    "Pressure": {
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 252
+    },
+    "RAIN": {
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 252
+    },
+    "Temperature": {
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 252
+    }
+   }
+  },
+  "2026-05-10": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:25-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 250
+    },
+    "Pressure": {
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 250
+    },
+    "RAIN": {
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 250
+    },
+    "Temperature": {
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 250
+    }
+   }
+  },
+  "2026-05-11": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:30-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 286,
+     "n_glps06": 289,
+     "n_glps09": 255
+    },
+    "Pressure": {
+     "n_glps05": 286,
+     "n_glps06": 289,
+     "n_glps09": 255
+    },
+    "RAIN": {
+     "n_glps05": 286,
+     "n_glps06": 289,
+     "n_glps09": 255
+    },
+    "Temperature": {
+     "n_glps05": 286,
+     "n_glps06": 289,
+     "n_glps09": 255
+    }
+   }
+  },
+  "2026-05-12": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:40-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 264
+    },
+    "Pressure": {
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 264
+    },
+    "RAIN": {
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 264
+    },
+    "Temperature": {
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 264
+    }
+   }
+  },
+  "2026-05-13": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:45-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "Pressure": {
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "RAIN": {
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "Temperature": {
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 262
+    }
+   }
+  },
+  "2026-05-14": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:49-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 269
+    },
+    "Pressure": {
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 269
+    },
+    "RAIN": {
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 269
+    },
+    "Temperature": {
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 269
+    }
+   }
+  },
+  "2026-05-15": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:54:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "Pressure": {
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "RAIN": {
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "Temperature": {
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 262
+    }
+   }
+  },
+  "2026-05-16": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:55:05-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 264
+    },
+    "Pressure": {
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 264
+    },
+    "RAIN": {
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 264
+    },
+    "Temperature": {
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 264
+    }
+   }
+  },
+  "2026-05-17": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:55:16-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "Pressure": {
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "RAIN": {
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "Temperature": {
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 270
+    }
+   }
+  },
+  "2026-05-18": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:55:16-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 132,
+     "n_glps06": 287,
+     "n_glps09": 269
+    },
+    "Pressure": {
+     "n_glps05": 132,
+     "n_glps06": 287,
+     "n_glps09": 269
+    },
+    "RAIN": {
+     "n_glps05": 132,
+     "n_glps06": 287,
+     "n_glps09": 269
+    },
+    "Temperature": {
+     "n_glps05": 132,
+     "n_glps06": 287,
+     "n_glps09": 269
+    }
+   }
+  },
+  "2026-05-19": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:55:16-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "Pressure": {
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "RAIN": {
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "Temperature": {
+     "n_glps06": 287,
+     "n_glps09": 272
+    }
+   }
+  },
+  "2026-05-20": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:55:35-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "Pressure": {
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "RAIN": {
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "Temperature": {
+     "n_glps06": 287,
+     "n_glps09": 255
+    }
+   }
+  },
+  "2026-05-21": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:55:42-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 25,
+     "n_glps05": 90,
+     "n_glps06": 288,
+     "n_glps09": 248
+    },
+    "Pressure": {
+     "n_glps01": 25,
+     "n_glps05": 90,
+     "n_glps06": 288,
+     "n_glps09": 248
+    },
+    "RAIN": {
+     "n_glps01": 25,
+     "n_glps05": 90,
+     "n_glps06": 288,
+     "n_glps09": 248
+    },
+    "Temperature": {
+     "n_glps01": 25,
+     "n_glps05": 90,
+     "n_glps06": 288,
+     "n_glps09": 248
+    }
+   }
+  },
+  "2026-05-22": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:55:42-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 254,
+     "n_glps06": 288,
+     "n_glps09": 240
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 254,
+     "n_glps06": 288,
+     "n_glps09": 240
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 254,
+     "n_glps06": 288,
+     "n_glps09": 240
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 254,
+     "n_glps06": 288,
+     "n_glps09": 240
+    }
+   }
+  },
+  "2026-05-23": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:56:04-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 262
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 262
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 262
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 262
+    }
+   }
+  },
+  "2026-05-24": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:56:04-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 273
+    }
+   }
+  },
+  "2026-05-25": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:56:10-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-05-26": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:56:11-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    }
+   }
+  },
+  "2026-05-27": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:56:32-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 213,
+     "n_glps05": 261,
+     "n_glps06": 288,
+     "n_glps09": 241
+    },
+    "Pressure": {
+     "n_glps01": 213,
+     "n_glps05": 261,
+     "n_glps06": 288,
+     "n_glps09": 241
+    },
+    "RAIN": {
+     "n_glps01": 213,
+     "n_glps05": 261,
+     "n_glps06": 288,
+     "n_glps09": 241
+    },
+    "Temperature": {
+     "n_glps01": 213,
+     "n_glps05": 261,
+     "n_glps06": 288,
+     "n_glps09": 241
+    }
+   }
+  },
+  "2026-05-28": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:56:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 206,
+     "n_glps05": 263,
+     "n_glps06": 262,
+     "n_glps09": 245
+    },
+    "Pressure": {
+     "n_glps01": 206,
+     "n_glps05": 263,
+     "n_glps06": 262,
+     "n_glps09": 245
+    },
+    "RAIN": {
+     "n_glps01": 206,
+     "n_glps05": 263,
+     "n_glps06": 262,
+     "n_glps09": 245
+    },
+    "Temperature": {
+     "n_glps01": 206,
+     "n_glps05": 263,
+     "n_glps06": 262,
+     "n_glps09": 245
+    }
+   }
+  },
+  "2026-05-29": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:56:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 267
+    }
+   }
+  },
+  "2026-05-30": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:56:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 273
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 273
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 273
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 273
+    }
+   }
+  },
+  "2026-05-31": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:57:02-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-06-01": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:57:15-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-06-02": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:57:15-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 264
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 264
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 264
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 264
+    }
+   }
+  },
+  "2026-06-03": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:57:29-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    }
+   }
+  },
+  "2026-06-04": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:57:36-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 149
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 149
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 149
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 149
+    }
+   }
+  },
+  "2026-06-05": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:57:44-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 278,
+     "n_glps06": 288,
+     "n_glps09": 159
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 278,
+     "n_glps06": 288,
+     "n_glps09": 159
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 278,
+     "n_glps06": 288,
+     "n_glps09": 159
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 278,
+     "n_glps06": 288,
+     "n_glps09": 159
+    }
+   }
+  },
+  "2026-06-06": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:57:44-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 263
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 263
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 263
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 263
+    }
+   }
+  },
+  "2026-06-07": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:58:14-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 252
+    },
+    "Pressure": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 252
+    },
+    "RAIN": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 252
+    },
+    "Temperature": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 252
+    }
+   }
+  },
+  "2026-06-08": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:58:14-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 206,
+     "n_glps05": 206,
+     "n_glps06": 288,
+     "n_glps09": 193
+    },
+    "Pressure": {
+     "n_glps01": 206,
+     "n_glps05": 206,
+     "n_glps06": 288,
+     "n_glps09": 193
+    },
+    "RAIN": {
+     "n_glps01": 206,
+     "n_glps05": 206,
+     "n_glps06": 288,
+     "n_glps09": 193
+    },
+    "Temperature": {
+     "n_glps01": 206,
+     "n_glps05": 206,
+     "n_glps06": 288,
+     "n_glps09": 193
+    }
+   }
+  },
+  "2026-06-09": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:58:21-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 251
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 251
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 251
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 251
+    }
+   }
+  },
+  "2026-06-10": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:58:21-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 268
+    }
+   }
+  },
+  "2026-06-11": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:58:44-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 224,
+     "n_glps05": 276,
+     "n_glps06": 286,
+     "n_glps09": 259
+    },
+    "Pressure": {
+     "n_glps01": 224,
+     "n_glps05": 276,
+     "n_glps06": 286,
+     "n_glps09": 259
+    },
+    "RAIN": {
+     "n_glps01": 224,
+     "n_glps05": 276,
+     "n_glps06": 286,
+     "n_glps09": 259
+    },
+    "Temperature": {
+     "n_glps01": 224,
+     "n_glps05": 276,
+     "n_glps06": 286,
+     "n_glps09": 259
+    }
+   }
+  },
+  "2026-06-12": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:58:50-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 135,
+     "n_glps06": 287,
+     "n_glps09": 284
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 135,
+     "n_glps06": 287,
+     "n_glps09": 284
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 135,
+     "n_glps06": 287,
+     "n_glps09": 284
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 135,
+     "n_glps06": 287,
+     "n_glps09": 284
+    }
+   }
+  },
+  "2026-06-13": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:58:50-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps06": 287,
+     "n_glps09": 271
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps06": 287,
+     "n_glps09": 271
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps06": 287,
+     "n_glps09": 271
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps06": 287,
+     "n_glps09": 271
+    }
+   }
+  },
+  "2026-06-14": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:58:50-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps06": 286,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps06": 286,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps06": 286,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps06": 286,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-06-15": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:59:09-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 37,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 37,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 37,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 37,
+     "n_glps06": 289,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-06-16": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:59:18-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 272
+    }
+   }
+  },
+  "2026-06-17": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:59:18-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 194,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 239
+    },
+    "Pressure": {
+     "n_glps01": 194,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 239
+    },
+    "RAIN": {
+     "n_glps01": 194,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 239
+    },
+    "Temperature": {
+     "n_glps01": 194,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 239
+    }
+   }
+  },
+  "2026-06-18": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:59:18-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 276
+    }
+   }
+  },
+  "2026-06-19": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:59:37-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "Pressure": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    }
+   }
+  },
+  "2026-06-20": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:59:44-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 218,
+     "n_glps05": 285,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "Pressure": {
+     "n_glps01": 218,
+     "n_glps05": 285,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "RAIN": {
+     "n_glps01": 218,
+     "n_glps05": 285,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "Temperature": {
+     "n_glps01": 218,
+     "n_glps05": 285,
+     "n_glps06": 289,
+     "n_glps09": 265
+    }
+   }
+  },
+  "2026-06-21": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:59:53-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 204,
+     "n_glps05": 206,
+     "n_glps06": 281,
+     "n_glps09": 200
+    },
+    "Pressure": {
+     "n_glps01": 204,
+     "n_glps05": 206,
+     "n_glps06": 281,
+     "n_glps09": 200
+    },
+    "RAIN": {
+     "n_glps01": 204,
+     "n_glps05": 206,
+     "n_glps06": 281,
+     "n_glps09": 200
+    },
+    "Temperature": {
+     "n_glps01": 204,
+     "n_glps05": 206,
+     "n_glps06": 281,
+     "n_glps09": 200
+    }
+   }
+  },
+  "2026-06-22": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:59:59-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 226,
+     "n_glps05": 211,
+     "n_glps06": 289,
+     "n_glps09": 200
+    },
+    "Pressure": {
+     "n_glps01": 226,
+     "n_glps05": 211,
+     "n_glps06": 289,
+     "n_glps09": 200
+    },
+    "RAIN": {
+     "n_glps01": 226,
+     "n_glps05": 211,
+     "n_glps06": 289,
+     "n_glps09": 200
+    },
+    "Temperature": {
+     "n_glps01": 226,
+     "n_glps05": 211,
+     "n_glps06": 289,
+     "n_glps09": 200
+    }
+   }
+  },
+  "2026-06-23": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:00:10-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 276
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 276
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 276
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 276
+    }
+   }
+  },
+  "2026-06-24": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:00:17-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 286,
+     "n_glps06": 287,
+     "n_glps09": 274
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 286,
+     "n_glps06": 287,
+     "n_glps09": 274
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 286,
+     "n_glps06": 287,
+     "n_glps09": 274
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 286,
+     "n_glps06": 287,
+     "n_glps09": 274
+    }
+   }
+  },
+  "2026-06-25": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:00:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 235,
+     "n_glps05": 263,
+     "n_glps06": 286,
+     "n_glps09": 127
+    },
+    "Pressure": {
+     "n_glps01": 235,
+     "n_glps05": 263,
+     "n_glps06": 286,
+     "n_glps09": 127
+    },
+    "RAIN": {
+     "n_glps01": 235,
+     "n_glps05": 263,
+     "n_glps06": 286,
+     "n_glps09": 127
+    },
+    "Temperature": {
+     "n_glps01": 235,
+     "n_glps05": 263,
+     "n_glps06": 286,
+     "n_glps09": 127
+    }
+   }
+  },
+  "2026-06-26": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:00:41-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 278,
+     "n_glps09": 150
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 278,
+     "n_glps09": 150
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 278,
+     "n_glps09": 150
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 278,
+     "n_glps09": 150
+    }
+   }
+  },
+  "2026-06-27": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:00:59-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 265
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 265
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 265
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 265
+    }
+   }
+  },
+  "2026-06-28": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:00:59-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 264
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 264
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 264
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 264
+    }
+   }
+  },
+  "2026-06-29": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:01:05-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 286,
+     "n_glps06": 285,
+     "n_glps09": 265
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 286,
+     "n_glps06": 285,
+     "n_glps09": 265
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 286,
+     "n_glps06": 285,
+     "n_glps09": 265
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 286,
+     "n_glps06": 285,
+     "n_glps09": 265
+    }
+   }
+  },
+  "2026-06-30": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:01:13-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 267
+    },
+    "Pressure": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 267
+    },
+    "RAIN": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 267
+    },
+    "Temperature": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 267
+    }
+   }
+  },
+  "2026-07-01": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:01:21-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    }
+   }
+  },
+  "2026-07-02": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:01:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 283,
+     "n_glps06": 288,
+     "n_glps09": 259
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 283,
+     "n_glps06": 288,
+     "n_glps09": 259
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 283,
+     "n_glps06": 288,
+     "n_glps09": 259
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 283,
+     "n_glps06": 288,
+     "n_glps09": 259
+    }
+   }
+  },
+  "2026-07-03": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:01:35-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 261
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 261
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 261
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 261
+    }
+   }
+  },
+  "2026-07-04": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:01:51-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 235,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 262
+    },
+    "Pressure": {
+     "n_glps01": 235,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 262
+    },
+    "RAIN": {
+     "n_glps01": 235,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 262
+    },
+    "Temperature": {
+     "n_glps01": 235,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 262
+    }
+   }
+  },
+  "2026-07-05": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:02:05-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    }
+   }
+  },
+  "2026-07-06": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:02:05-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 270
+    }
+   }
+  },
+  "2026-07-07": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:02:13-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 263
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 263
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 263
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 263
+    }
+   }
+  },
+  "2026-07-08": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:02:20-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 224,
+     "n_glps05": 223,
+     "n_glps06": 288,
+     "n_glps09": 209
+    },
+    "Pressure": {
+     "n_glps01": 224,
+     "n_glps05": 223,
+     "n_glps06": 288,
+     "n_glps09": 209
+    },
+    "RAIN": {
+     "n_glps01": 224,
+     "n_glps05": 223,
+     "n_glps06": 288,
+     "n_glps09": 209
+    },
+    "Temperature": {
+     "n_glps01": 224,
+     "n_glps05": 223,
+     "n_glps06": 288,
+     "n_glps09": 209
+    }
+   }
+  },
+  "2026-07-09": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:02:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 270
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 270
+    }
+   }
+  },
+  "2026-07-10": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:02:41-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 276
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 276
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 276
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 276
+    }
+   }
+  },
+  "2026-07-11": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:02:49-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 275,
+     "n_glps09": 268
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 275,
+     "n_glps09": 268
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 275,
+     "n_glps09": 268
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 275,
+     "n_glps09": 268
+    }
+   }
+  },
+  "2026-07-12": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:02:57-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 261
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 261
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 261
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 261
+    }
+   }
+  },
+  "2026-07-13": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:03:04-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-07-14": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:03:12-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 260
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 260
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 260
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 260
+    }
+   }
+  },
+  "2026-07-15": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:03:29-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 262
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 262
+    }
+   }
+  },
+  "2026-07-16": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:03:29-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    }
+   }
+  },
+  "2026-07-17": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:03:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 258
+    }
+   }
+  },
+  "2026-07-18": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:03:42-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 265
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 265
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 265
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 265
+    }
+   }
+  },
+  "2026-07-19": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:03:58-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 266
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 266
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 266
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 266
+    }
+   }
+  },
+  "2026-07-20": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:04:11-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 255
+    }
+   }
+  },
+  "2026-07-21": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:04:11-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 265
+    },
+    "Pressure": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 265
+    },
+    "RAIN": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 265
+    },
+    "Temperature": {
+     "n_glps01": 235,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 265
+    }
+   }
+  },
+  "2026-07-22": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:04:12-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 255
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 255
+    }
+   }
+  },
+  "2026-07-23": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:04:32-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 260
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 260
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 260
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 260
+    }
+   }
+  },
+  "2026-07-24": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:04:36-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 254
+    },
+    "Pressure": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 254
+    },
+    "RAIN": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 254
+    },
+    "Temperature": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 254
+    }
+   }
+  },
+  "2026-07-25": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:04:37-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 189,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 143
+    },
+    "Pressure": {
+     "n_glps01": 189,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 143
+    },
+    "RAIN": {
+     "n_glps01": 189,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 143
+    },
+    "Temperature": {
+     "n_glps01": 189,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 143
+    }
+   }
+  },
+  "2026-07-26": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:04:45-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 286,
+     "n_glps06": 287,
+     "n_glps09": 261
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 286,
+     "n_glps06": 287,
+     "n_glps09": 261
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 286,
+     "n_glps06": 287,
+     "n_glps09": 261
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 286,
+     "n_glps06": 287,
+     "n_glps09": 261
+    }
+   }
+  },
+  "2026-07-27": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:05:06-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 256
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 256
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 256
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 256
+    }
+   }
+  },
+  "2026-07-28": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:05:06-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 116
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 116
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 116
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 116
+    }
+   }
+  },
+  "2026-07-29": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:05:12-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 154
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 154
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 154
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 154
+    }
+   }
+  },
+  "2026-07-30": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:05:20-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 281
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 281
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 281
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 281
+    }
+   }
+  },
+  "2026-07-31": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:05:31-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 270
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 270
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 270
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 270
+    }
+   }
+  },
+  "2026-08-01": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:05:40-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 274,
+     "n_glps06": 288,
+     "n_glps09": 255
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 274,
+     "n_glps06": 288,
+     "n_glps09": 255
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 274,
+     "n_glps06": 288,
+     "n_glps09": 255
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 274,
+     "n_glps06": 288,
+     "n_glps09": 255
+    }
+   }
+  },
+  "2026-08-02": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:05:47-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    }
+   }
+  },
+  "2026-08-03": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:05:55-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 267
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 267
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 267
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 267
+    }
+   }
+  },
+  "2026-08-04": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:06:00-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 277
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 277
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 277
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 277
+    }
+   }
+  },
+  "2026-08-05": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:06:17-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 266
+    },
+    "Pressure": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 266
+    },
+    "RAIN": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 266
+    },
+    "Temperature": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 266
+    }
+   }
+  },
+  "2026-08-06": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:06:24-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 271
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 271
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 271
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 271
+    }
+   }
+  },
+  "2026-08-07": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:06:32-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-08-08": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:06:32-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 265
+    }
+   }
+  },
+  "2026-08-09": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:06:53-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 270
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 270
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 270
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 270
+    }
+   }
+  },
+  "2026-08-10": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:07:00-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 280
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 280
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 280
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 280
+    }
+   }
+  },
+  "2026-08-11": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:07:00-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 277
+    }
+   }
+  },
+  "2026-08-12": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:07:09-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 258
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 258
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 258
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 258
+    }
+   }
+  },
+  "2026-08-13": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:07:24-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 273
+    }
+   }
+  },
+  "2026-08-14": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:07:29-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 267
+    }
+   }
+  },
+  "2026-08-15": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:07:38-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 249
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 249
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 249
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 249
+    }
+   }
+  },
+  "2026-08-16": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:07:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 268
+    }
+   }
+  },
+  "2026-08-17": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:08:01-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    }
+   }
+  },
+  "2026-08-18": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:08:01-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 274
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 274
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 274
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 274
+    }
+   }
+  },
+  "2026-08-19": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:08:15-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 281
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 281
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 281
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 281
+    }
+   }
+  },
+  "2026-08-20": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:08:28-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 283
+    }
+   }
+  },
+  "2026-08-21": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:08:28-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 268
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 268
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 268
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 268
+    }
+   }
+  },
+  "2026-08-22": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:08:35-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    }
+   }
+  },
+  "2026-08-23": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:08:51-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 221
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 221
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 221
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 221
+    }
+   }
+  },
+  "2026-08-24": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:09:06-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 273
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 273
+    }
+   }
+  },
+  "2026-08-25": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:09:06-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 271
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 271
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 271
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 271
+    }
+   }
+  },
+  "2026-08-26": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:09:06-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 265
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 265
+    }
+   }
+  },
+  "2026-08-27": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:09:27-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 267
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 267
+    }
+   }
+  },
+  "2026-08-28": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:09:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 273
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 273
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 273
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 273
+    }
+   }
+  },
+  "2026-08-29": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:09:35-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    }
+   }
+  },
+  "2026-08-30": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:09:42-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-08-31": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:09:56-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 277
+    }
+   }
+  },
+  "2026-09-01": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:10:03-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-09-02": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:10:17-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 285,
+     "n_glps06": 284,
+     "n_glps09": 283
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 285,
+     "n_glps06": 284,
+     "n_glps09": 283
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 285,
+     "n_glps06": 284,
+     "n_glps09": 283
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 285,
+     "n_glps06": 284,
+     "n_glps09": 283
+    }
+   }
+  },
+  "2026-09-03": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:10:18-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    }
+   }
+  },
+  "2026-09-04": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:10:25-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 285,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 285,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 285,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 285,
+     "n_glps06": 288,
+     "n_glps09": 283
+    }
+   }
+  },
+  "2026-09-05": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:10:33-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-09-06": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:10:47-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    }
+   }
+  },
+  "2026-09-07": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:10:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 284
+    }
+   }
+  },
+  "2026-09-08": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:10:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 204,
+     "n_glps05": 186,
+     "n_glps06": 289,
+     "n_glps09": 180
+    },
+    "Pressure": {
+     "n_glps01": 204,
+     "n_glps05": 186,
+     "n_glps06": 289,
+     "n_glps09": 180
+    },
+    "RAIN": {
+     "n_glps01": 204,
+     "n_glps05": 186,
+     "n_glps06": 289,
+     "n_glps09": 180
+    },
+    "Temperature": {
+     "n_glps01": 204,
+     "n_glps05": 186,
+     "n_glps06": 289,
+     "n_glps09": 180
+    }
+   }
+  },
+  "2026-09-09": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:11:08-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 270
+    }
+   }
+  },
+  "2026-09-10": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:11:28-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-09-11": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:11:28-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 260
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 260
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 260
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 260
+    }
+   }
+  },
+  "2026-09-12": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:11:28-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 222,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 222,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 222,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 222,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-09-13": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:11:41-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 276
+    }
+   }
+  },
+  "2026-09-14": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:11:48-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 282
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 282
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 282
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 282
+    }
+   }
+  },
+  "2026-09-15": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:12:03-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 289,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 289,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 289,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 289,
+     "n_glps06": 289,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-09-16": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:12:03-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 225,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "Pressure": {
+     "n_glps01": 225,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "RAIN": {
+     "n_glps01": 225,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "Temperature": {
+     "n_glps01": 225,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 284
+    }
+   }
+  },
+  "2026-09-17": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:12:19-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-09-18": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:12:19-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 282
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 282
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 282
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 282
+    }
+   }
+  },
+  "2026-09-19": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:12:33-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 282
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 282
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 282
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 282
+    }
+   }
+  },
+  "2026-09-20": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:12:33-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 272
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 272
+    }
+   }
+  },
+  "2026-09-21": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:12:47-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 225,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 281
+    },
+    "Pressure": {
+     "n_glps01": 225,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 281
+    },
+    "RAIN": {
+     "n_glps01": 225,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 281
+    },
+    "Temperature": {
+     "n_glps01": 225,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 281
+    }
+   }
+  },
+  "2026-09-22": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:12:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 225,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 225,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 225,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 225,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-09-23": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:13:08-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-09-24": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:13:15-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 217,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "Pressure": {
+     "n_glps01": 217,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "RAIN": {
+     "n_glps01": 217,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 277
+    },
+    "Temperature": {
+     "n_glps01": 217,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 277
+    }
+   }
+  },
+  "2026-09-25": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:13:16-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 281
+    },
+    "Pressure": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 281
+    },
+    "RAIN": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 281
+    },
+    "Temperature": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 281
+    }
+   }
+  },
+  "2026-09-26": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:13:29-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 257
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 257
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 257
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 285,
+     "n_glps09": 257
+    }
+   }
+  },
+  "2026-09-27": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:13:44-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 285
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 285
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 285
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 285
+    }
+   }
+  },
+  "2026-09-28": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:13:44-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 188,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 245
+    },
+    "Pressure": {
+     "n_glps01": 188,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 245
+    },
+    "RAIN": {
+     "n_glps01": 188,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 245
+    },
+    "Temperature": {
+     "n_glps01": 188,
+     "n_glps05": 287,
+     "n_glps06": 286,
+     "n_glps09": 245
+    }
+   }
+  },
+  "2026-09-29": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:13:45-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 286,
+     "n_glps06": 286,
+     "n_glps09": 281
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 286,
+     "n_glps06": 286,
+     "n_glps09": 281
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 286,
+     "n_glps06": 286,
+     "n_glps09": 281
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 286,
+     "n_glps06": 286,
+     "n_glps09": 281
+    }
+   }
+  },
+  "2026-09-30": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:13:58-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "Pressure": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "RAIN": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 275
+    },
+    "Temperature": {
+     "n_glps01": 229,
+     "n_glps05": 287,
+     "n_glps06": 288,
+     "n_glps09": 275
+    }
+   }
+  },
+  "2026-10-01": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:14:20-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 283,
+     "n_glps09": 283
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 283,
+     "n_glps09": 283
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 283,
+     "n_glps09": 283
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 289,
+     "n_glps06": 283,
+     "n_glps09": 283
+    }
+   }
+  },
+  "2026-10-02": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:14:20-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 283
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 283
+    }
+   }
+  },
+  "2026-10-03": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:14:20-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 226,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "Pressure": {
+     "n_glps01": 226,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "RAIN": {
+     "n_glps01": 226,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    },
+    "Temperature": {
+     "n_glps01": 226,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 279
+    }
+   }
+  },
+  "2026-10-04": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:14:27-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 219,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "Pressure": {
+     "n_glps01": 219,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "RAIN": {
+     "n_glps01": 219,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "Temperature": {
+     "n_glps01": 219,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 284
+    }
+   }
+  },
+  "2026-10-05": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:14:56-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 282
+    },
+    "Pressure": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 282
+    },
+    "RAIN": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 282
+    },
+    "Temperature": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 282
+    }
+   }
+  },
+  "2026-10-06": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:14:56-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-10-07": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:14:56-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 227,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "Pressure": {
+     "n_glps01": 227,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "RAIN": {
+     "n_glps01": 227,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "Temperature": {
+     "n_glps01": 227,
+     "n_glps05": 287,
+     "n_glps06": 287,
+     "n_glps09": 270
+    }
+   }
+  },
+  "2026-10-08": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:15:10-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 227,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "Pressure": {
+     "n_glps01": 227,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "RAIN": {
+     "n_glps01": 227,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "Temperature": {
+     "n_glps01": 227,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    }
+   }
+  },
+  "2026-10-09": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:15:17-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "Pressure": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "RAIN": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    },
+    "Temperature": {
+     "n_glps01": 229,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 279
+    }
+   }
+  },
+  "2026-10-10": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:15:18-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 229,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 280
+    },
+    "Pressure": {
+     "n_glps01": 229,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 280
+    },
+    "RAIN": {
+     "n_glps01": 229,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 280
+    },
+    "Temperature": {
+     "n_glps01": 229,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 280
+    }
+   }
+  },
+  "2026-10-11": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:15:33-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 280
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 280
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 280
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 280
+    }
+   }
+  },
+  "2026-10-12": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:15:40-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "Pressure": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "RAIN": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    },
+    "Temperature": {
+     "n_glps01": 231,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 280
+    }
+   }
+  },
+  "2026-10-13": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:15:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 263
+    }
+   }
+  },
+  "2026-10-14": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:15:55-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 274
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 274
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 274
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 274
+    }
+   }
+  },
+  "2026-10-15": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:16:10-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 268
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 268
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 268
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 286,
+     "n_glps09": 268
+    }
+   }
+  },
+  "2026-10-16": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:16:16-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 284,
+     "n_glps09": 269
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 284,
+     "n_glps09": 269
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 284,
+     "n_glps09": 269
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 288,
+     "n_glps06": 284,
+     "n_glps09": 269
+    }
+   }
+  },
+  "2026-10-17": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:16:23-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 22,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "Pressure": {
+     "n_glps01": 22,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "RAIN": {
+     "n_glps01": 22,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 270
+    },
+    "Temperature": {
+     "n_glps01": 22,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 270
+    }
+   }
+  },
+  "2026-10-18": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:16:23-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 262
+    },
+    "Pressure": {
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 262
+    },
+    "RAIN": {
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 262
+    },
+    "Temperature": {
+     "n_glps05": 288,
+     "n_glps06": 289,
+     "n_glps09": 262
+    }
+   }
+  },
+  "2026-10-19": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:16:34-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "Pressure": {
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "RAIN": {
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 268
+    },
+    "Temperature": {
+     "n_glps05": 288,
+     "n_glps06": 287,
+     "n_glps09": 268
+    }
+   }
+  },
+  "2026-10-20": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:16:53-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 262
+    },
+    "Pressure": {
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 262
+    },
+    "RAIN": {
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 262
+    },
+    "Temperature": {
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 262
+    }
+   }
+  },
+  "2026-10-21": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:16:53-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-10-22": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:16:54-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 280
+    },
+    "Pressure": {
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 280
+    },
+    "RAIN": {
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 280
+    },
+    "Temperature": {
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 280
+    }
+   }
+  },
+  "2026-10-23": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:17:07-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 158,
+     "n_glps05": 285,
+     "n_glps06": 260,
+     "n_glps09": 279
+    },
+    "Pressure": {
+     "n_glps01": 158,
+     "n_glps05": 285,
+     "n_glps06": 260,
+     "n_glps09": 279
+    },
+    "RAIN": {
+     "n_glps01": 158,
+     "n_glps05": 285,
+     "n_glps06": 260,
+     "n_glps09": 279
+    },
+    "Temperature": {
+     "n_glps01": 158,
+     "n_glps05": 285,
+     "n_glps06": 260,
+     "n_glps09": 279
+    }
+   }
+  },
+  "2026-10-24": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:17:11-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 277
+    },
+    "Pressure": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 277
+    },
+    "RAIN": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 277
+    },
+    "Temperature": {
+     "n_glps01": 234,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 277
+    }
+   }
+  },
+  "2026-10-25": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:17:20-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 283
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 283
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 283
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 286,
+     "n_glps09": 283
+    }
+   }
+  },
+  "2026-10-26": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:17:33-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 284
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 289,
+     "n_glps06": 288,
+     "n_glps09": 284
+    }
+   }
+  },
+  "2026-10-27": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:17:33-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-10-28": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:17:38-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 287
+    },
+    "Pressure": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 287
+    },
+    "RAIN": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 287
+    },
+    "Temperature": {
+     "n_glps01": 233,
+     "n_glps05": 288,
+     "n_glps06": 288,
+     "n_glps09": 287
+    }
+   }
+  },
+  "2026-10-29": {
+   "cerrado": true,
+   "descargado": "2026-11-02T13:17:46-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 285
+    },
+    "Pressure": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 285
+    },
+    "RAIN": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 285
+    },
+    "Temperature": {
+     "n_glps01": 227,
+     "n_glps05": 289,
+     "n_glps06": 287,
+     "n_glps09": 285
+    }
+   }
+  },
+  "2026-10-30": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:49:50-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 227,
+     "n_glps05": 255,
+     "n_glps06": 288,
+     "n_glps09": 252
+    },
+    "Pressure": {
+     "n_glps01": 227,
+     "n_glps05": 255,
+     "n_glps06": 288,
+     "n_glps09": 252
+    },
+    "RAIN": {
+     "n_glps01": 227,
+     "n_glps05": 255,
+     "n_glps06": 288,
+     "n_glps09": 252
+    },
+    "Temperature": {
+     "n_glps01": 227,
+     "n_glps05": 255,
+     "n_glps06": 288,
+     "n_glps09": 252
+    }
+   }
+  },
+  "2026-10-31": {
+   "cerrado": true,
+   "descargado": "2026-11-02T12:49:50-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 230,
+     "n_glps05": 64,
+     "n_glps06": 288,
+     "n_glps09": 60
+    },
+    "Pressure": {
+     "n_glps01": 230,
+     "n_glps05": 64,
+     "n_glps06": 288,
+     "n_glps09": 60
+    },
+    "RAIN": {
+     "n_glps01": 230,
+     "n_glps05": 64,
+     "n_glps06": 288,
+     "n_glps09": 60
+    },
+    "Temperature": {
+     "n_glps01": 230,
+     "n_glps05": 64,
+     "n_glps06": 288,
+     "n_glps09": 60
+    }
+   }
+  },
+  "2026-11-01": {
+   "cerrado": false,
+   "descargado": "2026-11-02T13:17:59-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "Pressure": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "RAIN": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 278
+    },
+    "Temperature": {
+     "n_glps01": 232,
+     "n_glps05": 287,
+     "n_glps06": 289,
+     "n_glps09": 278
+    }
+   }
+  },
+  "2026-11-02": {
+   "cerrado": false,
+   "descargado": "2026-11-02T13:18:05-06:00",
+   "registros": {
+    "Humidity": {
+     "n_glps01": 104,
+     "n_glps05": 160,
+     "n_glps06": 160,
+     "n_glps09": 149
+    },
+    "Pressure": {
+     "n_glps01": 104,
+     "n_glps05": 160,
+     "n_glps06": 160,
+     "n_glps09": 149
+    },
+    "RAIN": {
+     "n_glps01": 104,
+     "n_glps05": 160,
+     "n_glps06": 160,
+     "n_glps09": 149
+    },
+    "Temperature": {
+     "n_glps01": 104,
+     "n_glps05": 160,
+     "n_glps06": 160,
+     "n_glps09": 149
+    }
+   }
+  }
+ }
+}

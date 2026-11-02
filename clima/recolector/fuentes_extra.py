@@ -1,0 +1,212 @@
+"""Fuentes adicionales del recolector: INAMHI, mareógrafos IOC y METAR de los aeropuertos.
+
+Los endpoints se leen del entorno o de privado/fuentes.env (CLIMA_INAMHI_API, CLIMA_IOC_API,
+CLIMA_METAR_API); no se versionan.
+"""
+import datetime as dt
+import json
+import statistics
+import urllib.parse
+
+from recolector import CONTINENTE, UTC, endpoint, estacion, guardar, http_json
+
+# ---------------------------------------------------------------- INAMHI (estaciones automáticas)
+# tiempo-real-5min/{lat}/{lon}: lluvia de cada 5 min de las últimas ~6 h de la estación más cercana
+# (etiqueta = inicio del intervalo, hora continental UTC−5) y la serie de temperatura alineada.
+# historial: lluvia y temperatura horarias (etiqueta = inicio de la hora, UTC−5), 90 días.
+INAMHI_EST = {  # código: (consulta lat, lon, nombre, isla, lat, lon, altitud)
+    "M0191": (-0.745, -90.315, "Puerto Ayora (Charles Darwin)", "Santa Cruz", -0.743056, -90.3025, 6),
+    "M0221": (-0.901, -89.611, "Puerto Baquerizo Moreno", "San Cristóbal", -0.904058, -89.614308, 6),
+}
+HORARIO_SEG = 30  # las filas horarias se guardan a las HH:30:30 para no chocar con las de 5 min
+
+
+def _hora_ts(fecha, minutos):
+    return dt.datetime.fromisoformat(fecha).replace(tzinfo=CONTINENTE) + dt.timedelta(minutes=minutos)
+
+
+def fuente_inamhi(con):
+    api = endpoint("CLIMA_INAMHI_API")
+    filas, horas_5min = [], set()
+    for cod, (qlat, qlon, nom, isla, lat, lon, alt) in INAMHI_EST.items():
+        estacion(con, "inamhi", cod, nom, isla, lat, lon, alt, "INAMHI")
+        d = http_json(f"{api}/tiempo-real-5min/{qlat}/{qlon}")
+        if not d.get("ok") or "intervalo_minutos" not in d:
+            raise ValueError(f"respuesta inesperada para {cod}: {str(d)[:200]}")
+        paso, ini = d["intervalo_minutos"], d["inicio"]
+        e = next((x for x in d.get("estaciones", []) if x.get("codigo") == cod), None)
+        if e:
+            for i, v in enumerate(e.get("mm") or []):
+                if v is not None:
+                    t = _hora_ts(d["fecha"], ini + paso * i)
+                    filas.append((cod, "lluvia_mm", t, float(v)))
+                    horas_5min.add((cod, t.astimezone(UTC).strftime("%Y-%m-%dT%H")))
+        te = next((x for x in (d.get("temperatura") or {}).get("estaciones", []) if x.get("codigo") == cod), None)
+        if te:
+            for i, v in enumerate(te.get("serie") or []):
+                if v is not None:
+                    filas.append((cod, "temp_c", _hora_ts(d["fecha"], ini + paso * i), float(v)))
+    n = guardar(con, "inamhi", filas)
+    # Donde ya hay datos de 5 min, sobran las filas horarias de respaldo
+    for cod, h in horas_5min:
+        con.execute("DELETE FROM obs WHERE fuente='inamhi' AND estacion=? AND substr(ts,1,13)=? "
+                    "AND substr(ts,18,2)=?", (cod, h, f"{HORARIO_SEG:02d}"))
+    # Una vez por hora: rellenar con el historial horario las horas sin 5 min (p. ej. tras un corte)
+    if dt.datetime.now(UTC).minute < 5:
+        n += inamhi_historial(con, dias=2)
+    return n
+
+
+def inamhi_historial(con, dias=2, archivo=None):
+    """Carga el historial horario (de la API o de un JSON archivado) solo en horas sin datos de 5 min."""
+    if archivo:
+        d = json.load(open(archivo))
+    else:
+        hoy = dt.datetime.now(CONTINENTE).date()
+        q = urllib.parse.urlencode({"desde": (hoy - dt.timedelta(days=dias)).isoformat(),
+                                    "hasta": hoy.isoformat(), "tipo": "estacion"})
+        d = http_json(f"{endpoint('CLIMA_INAMHI_API')}/historial?{q}", timeout=180)
+    filas = []
+    for f in d.get("filas", []):
+        cod = f.get("codigo")
+        if cod not in INAMHI_EST:
+            continue
+        t = dt.datetime.fromisoformat(f["hora"]).replace(tzinfo=CONTINENTE) + dt.timedelta(minutes=30, seconds=HORARIO_SEG)
+        h = t.astimezone(UTC).strftime("%Y-%m-%dT%H")
+        if con.execute("SELECT 1 FROM obs WHERE fuente='inamhi' AND estacion=? AND variable='lluvia_mm' "
+                       "AND substr(ts,1,13)=? AND substr(ts,18,2)='00' LIMIT 1", (cod, h)).fetchone():
+            continue
+        if f.get("n_lluvia") and f.get("lluvia_mm") is not None:
+            filas.append((cod, "lluvia_mm", t, float(f["lluvia_mm"])))
+        if f.get("n_temp") and f.get("t_prom") is not None:
+            filas.append((cod, "temp_c", t, float(f["t_prom"])))
+    for cod, (_, _, nom, isla, lat, lon, alt) in INAMHI_EST.items():
+        estacion(con, "inamhi", cod, nom, isla, lat, lon, alt, "INAMHI")
+    return guardar(con, "inamhi", filas)
+
+
+# ---------------------------------------------------------------- Mareógrafos IOC (nivel del mar)
+IOC_EST = {"sant": ("Mareógrafo Puerto Ayora", "Santa Cruz", -0.7525, -90.3117),
+           "balt": ("Mareógrafo Baltra", "Baltra", -0.4350, -90.2833)}
+
+
+def fuente_ioc(con):
+    api = endpoint("CLIMA_IOC_API")
+    fin = dt.datetime.now(UTC)
+    ini = fin - dt.timedelta(hours=2)
+    filas = []
+    for cod, (nom, isla, lat, lon) in IOC_EST.items():
+        estacion(con, "ioc", cod, nom, isla, lat, lon, 0, "IOC")
+        q = urllib.parse.urlencode({"query": "data", "code": cod, "format": "json",
+                                    "timestart": ini.strftime("%Y-%m-%dT%H:%M:%S"),
+                                    "timestop": fin.strftime("%Y-%m-%dT%H:%M:%S")})
+        datos = http_json(f"{api}?{q}")
+        # El sensor de presión está congelado y algún radar también: se usa el radar que varía más
+        por = {}
+        for x in datos:
+            if x.get("sensor") in ("rad", "ras") and x.get("slevel") is not None:
+                por.setdefault(x["sensor"], []).append(x)
+        vivos = {s: v for s, v in por.items() if len(v) > 5 and statistics.pstdev([x["slevel"] for x in v]) > 0.002}
+        if not vivos:
+            continue
+        s = max(vivos, key=lambda k: statistics.pstdev([x["slevel"] for x in vivos[k]]))
+        filas += [(cod, "nivel_mar_m", dt.datetime.fromisoformat(x["stime"]).replace(tzinfo=UTC), float(x["slevel"]))
+                  for x in vivos[s]]
+    return guardar(con, "ioc", filas)
+
+
+# ---------------------------------------------------------------- METAR (aeropuertos)
+METAR_EST = {"SEGS": ("Aeropuerto Seymour (Baltra)", "Baltra", -0.4539, -90.2658, 51),
+             "SEST": ("Aeropuerto San Cristóbal", "San Cristóbal", -0.9100, -89.6170, 18)}
+
+
+def _codigo_lluvia(wx):
+    """0 sin lluvia, 1 llovizna o lluvia débil, 2 moderada, 3 fuerte o tormenta."""
+    wx = wx or ""
+    if not any(k in wx for k in ("RA", "DZ", "TS", "SH")):
+        return 0
+    if "+" in wx or "TS" in wx:
+        return 3
+    if "-" in wx or ("DZ" in wx and "RA" not in wx):
+        return 1
+    return 2
+
+
+def fuente_metar(con):
+    api = endpoint("CLIMA_METAR_API")
+    q = urllib.parse.urlencode({"ids": ",".join(METAR_EST), "format": "json", "hours": 3})
+    filas = []
+    for m in http_json(f"{api}?{q}"):
+        cod = m.get("icaoId")
+        if cod not in METAR_EST:
+            continue
+        t = dt.datetime.fromtimestamp(m["obsTime"], UTC)
+        if m.get("temp") is not None:
+            filas.append((cod, "temp_c", t, float(m["temp"])))
+        if m.get("altim") is not None:
+            filas.append((cod, "presion_hpa", t, float(m["altim"])))
+        if m.get("wspd") is not None:
+            filas.append((cod, "viento_ms", t, round(float(m["wspd"]) * 0.5144, 1)))
+        filas.append((cod, "lluvia_codigo", t, _codigo_lluvia(m.get("wxString"))))
+    for cod, (nom, isla, lat, lon, alt) in METAR_EST.items():
+        estacion(con, "metar", cod, nom, isla, lat, lon, alt, "Aeropuertos (METAR)")
+    return guardar(con, "metar", filas)
+
+
+FUENTES_EXTRA = {"inamhi": fuente_inamhi, "ioc": fuente_ioc, "metar": fuente_metar}
+
+# ---------------------------------------------------------------- WeatherLink (estaciones particulares públicas)
+# El mapa público solo da el valor actual y la lluvia acumulada del día (se reinicia a medianoche
+# de Galápagos). Se guarda el acumulado tal cual (lluvia_dia_acum_mm) y la lluvia de cada intervalo
+# como la diferencia con la consulta anterior del mismo día.
+WEATHERLINK_EST = {  # id público del mapa: (código, nombre, isla, lat, lon, altitud)
+    # Estación particular: mientras no conste el consentimiento del propietario, no se publica su
+    # nombre y la ubicación va redondeada a ~1 km (la exacta queda solo en el id del mapa).
+    "ID_RETIRADO": ("pa_weatherlink", "Puerto Ayora (WeatherLink)", "Santa Cruz", -0.75, -90.31, 10),
+}
+MAX_MM_H = 100  # filtro de saltos: un incremento por encima de esta intensidad se descarta
+GALAPAGOS = dt.timezone(dt.timedelta(hours=-6))
+
+
+def fuente_weatherlink(con):
+    api = endpoint("CLIMA_WEATHERLINK_API")
+    filas = []
+    for wid, (cod, nom, isla, lat, lon, alt) in WEATHERLINK_EST.items():
+        estacion(con, "weatherlink", cod, nom, isla, lat, lon, alt, "WeatherLink")
+        d = http_json(f"{api}/{wid}")
+        if "lastTimestamp" not in d or d.get("dailyRain") in (None, "", "--"):
+            raise ValueError(f"respuesta inesperada de {cod}: {str(d)[:200]}")
+        t = dt.datetime.fromtimestamp(int(d["lastTimestamp"]), UTC)
+        ts = t.strftime("%Y-%m-%dT%H:%M:%SZ")
+        if con.execute("SELECT 1 FROM obs WHERE fuente='weatherlink' AND estacion=? AND ts=? LIMIT 1", (cod, ts)).fetchone():
+            continue  # sin dato nuevo
+        num = lambda k: None if d.get(k) in (None, "", "--") else float(d[k])  # noqa: E731
+        acum = round(num("dailyRain") * (25.4 if d.get("rainUnit", "in") == "in" else 1), 2)
+        # incremento respecto de la última lectura del mismo día de Galápagos
+        dia0 = t.astimezone(GALAPAGOS).replace(hour=0, minute=0, second=0, microsecond=0).astimezone(UTC)
+        prev = con.execute("SELECT valor FROM obs WHERE fuente='weatherlink' AND estacion=? AND variable='lluvia_dia_acum_mm' "
+                           "AND ts>=? AND ts<? ORDER BY ts DESC LIMIT 1",
+                           (cod, dia0.strftime("%Y-%m-%dT%H:%M:%SZ"), ts)).fetchone()
+        filas.append((cod, "lluvia_dia_acum_mm", t, acum))
+        if prev is not None:
+            ult_t = con.execute("SELECT MAX(ts) FROM obs WHERE fuente='weatherlink' AND estacion=? "
+                                "AND variable='lluvia_dia_acum_mm' AND ts<?", (cod, ts)).fetchone()[0]
+            horas = max((t - dt.datetime.fromisoformat(ult_t.replace("Z", "+00:00"))).total_seconds() / 3600, 1 / 60)
+            inc = round(max(0.0, acum - prev[0]), 2)
+            # pluviómetro de balancín de 0,01" (0,254 mm); se descartan saltos imposibles (> 100 mm/h y > 10 mm)
+            filas.append((cod, "lluvia_mm", t, None if inc > max(10, MAX_MM_H * horas) else inc))
+        elif t - dia0 < dt.timedelta(minutes=10):
+            filas.append((cod, "lluvia_mm", t, acum))  # primera lectura del día, justo tras el reinicio
+        temp = num("temperature")
+        if temp is not None:
+            filas.append((cod, "temp_c", t, round((temp - 32) / 1.8 if "F" in d.get("temperatureUnit", "F") else temp, 2)))
+        if num("humidity") is not None:
+            filas.append((cod, "hr_pct", t, num("humidity")))
+        if num("barometer") is not None:
+            filas.append((cod, "presion_hpa", t, round(num("barometer") * (33.8639 if "in" in d.get("barometerUnit", "in") else 1), 1)))
+        if num("windSpeed") is not None:
+            filas.append((cod, "viento_ms", t, round(num("windSpeed") * (0.44704 if "mph" in d.get("windSpeedUnit", "mph") else 1), 1)))
+    return guardar(con, "weatherlink", filas)
+
+
+FUENTES_EXTRA["weatherlink"] = fuente_weatherlink
