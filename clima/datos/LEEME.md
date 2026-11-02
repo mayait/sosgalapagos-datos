@@ -10,7 +10,13 @@ Mediciones guardadas por SOS Galápagos para analizar las inundaciones de 2026 y
 
 ## Cómo citar
 
-«Datos: red IERSE (Universidad del Azuay); INAMHI; Fundación Charles Darwin (CC BY-NC-SA); USFQ GSC. Recopilación: SOS Galápagos (USFQ Galápagos · IA Humana)».
+- **IERSE**, licencia **CC BY-NC-ND 4.0** (atribución, no comercial, sin obras derivadas): Orellana-Samaniego, M.L., Cabrera-Lituma, A., Omar, D., Célleri, R., Bendix, J., y Ballari, D. 2023. Proyecto DARWIN. Versión 2023.1. IERSE, Universidad del Azuay. <http://opengeodata.uazuay.edu.ec/EstudioDarwin/>, fecha de acceso.
+- **USFQ GSC** (cita que pide el GSC; no publica licencia): Universidad San Francisco de Quito; Galapagos Science Center. (2026). Weather Data - GSC. Recuperado el <fecha> de https://weathergsc.usfq.edu.ec/
+- **INAMHI**: Instituto Nacional de Meteorología e Hidrología del Ecuador, estaciones automáticas.
+- **Fundación Charles Darwin**: series climáticas de Puerto Ayora y Bellavista, licencia CC BY-NC-SA.
+- Recopilación: SOS Galápagos (USFQ Galápagos · IA Humana).
+
+> ⚠️ **Licencia IERSE (sin obras derivadas):** las tablas consolidadas (`ierse-wsn/serie_5min.csv.gz`, `horario.csv`, `diario.csv`) y los recortes de `clima/eventos/` son agregaciones de esos datos. Está pendiente decidir si se mantienen en el repositorio o se pide permiso al IERSE.
 
 ## Cuidado al usarlos
 

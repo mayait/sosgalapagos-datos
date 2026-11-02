@@ -32,7 +32,8 @@ Por ahora tiene una fuente: la red de estaciones **IERSE-WSN** de la Universidad
   - presión (el servidor la da en Pa; en las tablas consolidadas va en hPa)
 - **Variables sin datos en Galápagos:** el servidor también ofrece UV, material particulado y ruido, pero en esta red vienen vacías.
 - **Hora:** el servidor no documenta la zona horaria. El ciclo diario indica que es la **hora local de Galápagos (UTC−6)**: la temperatura sube a partir de las 06:00 y la marea barométrica semidiurna cae en las horas esperadas.
-- **Licencia:** el visor no publica ninguna. Los datos son de libre consulta. Al usarlos, hay que citar «Red IERSE-WSN, Universidad del Azuay». Antes de redistribuirlos fuera de este proyecto, conviene pedir permiso.
+- **Licencia:** CC BY-NC-ND 4.0 (atribución, no comercial, **sin obras derivadas**). Cita obligatoria: Orellana-Samaniego, M.L., Cabrera-Lituma, A., Omar, D., Célleri, R., Bendix, J., y Ballari, D. 2023. Proyecto DARWIN. Versión 2023.1. IERSE, Universidad del Azuay. <http://opengeodata.uazuay.edu.ec/EstudioDarwin/>, fecha de acceso.
+- **GSC-USFQ (cita que pide el GSC; no publica licencia):** Universidad San Francisco de Quito; Galapagos Science Center. (2026). Weather Data - GSC. Recuperado el <fecha> de https://weathergsc.usfq.edu.ec/
 
 | Estación | ID | Lat | Lon | Altitud (DEM) |
 |---|---|---|---|---|

@@ -129,13 +129,13 @@ Las del mapa de la emergencia (`geodatos/export/galapagos/capas.json`). Detalle 
 | **CGREG / FCD** | Zonificación del Parque 2017, barrios, franja de quebradas, riesgos (flujos de lodo por El Niño) | GeoNode de la FCD. El SIIG pide usuario |
 | **MSP, MINEDUC** | Salud y educación | Copias en la SNGR |
 | **Google Open Buildings v3** | Huellas de edificios (no cubre San Cristóbal) | Abierta |
-| **IERSE** (Universidad del Azuay) | 4 estaciones meteorológicas en Santa Cruz, cada 5 min | Se cita la fuente, sin enlace |
+| **IERSE** (Universidad del Azuay), Proyecto DARWIN | 4 estaciones meteorológicas en Santa Cruz, cada 5 min | CC BY-NC-ND 4.0; cita obligatoria en [`clima/datos/LEEME.md`](clima/datos/LEEME.md#cómo-citar) |
 | **FCD** (Fundación Charles Darwin) | Series climáticas diarias de Puerto Ayora (desde 1965) y Bellavista | CC BY-NC-SA |
-| **USFQ GSC** (Galapagos Science Center) | 5 estaciones en San Cristóbal; lluvia diaria desde 2015 | Se cita la fuente, sin enlace |
+| **USFQ GSC** (Galapagos Science Center) | 5 estaciones en San Cristóbal; lluvia diaria desde 2015 | Se cita como pide el GSC ([`clima/datos/LEEME.md`](clima/datos/LEEME.md#cómo-citar)) |
 | **INAMHI** | Estaciones automáticas; historial de 90 días | Se cita la fuente, sin enlace |
 | **ECMWF y otros modelos** (vía Open-Meteo) | Lluvia estimada del evento y climatología 1991–2020 | Abierta |
 
-El catálogo completo de las fuentes geográficas, con los servicios probados, está en [`geodatos/docs/fuentes-oficiales.md`](geodatos/docs/fuentes-oficiales.md). Licencias y atribuciones: [`mapas-galapagos/documentacion/03-fuentes-y-licencias.md`](mapas-galapagos/documentacion/03-fuentes-y-licencias.md). Las fuentes meteorológicas se nombran **sin enlaces** mientras no haya permiso para redistribuirlas de forma abierta.
+El catálogo completo de las fuentes geográficas, con los servicios probados, está en [`geodatos/docs/fuentes-oficiales.md`](geodatos/docs/fuentes-oficiales.md). Licencias y atribuciones: [`mapas-galapagos/documentacion/03-fuentes-y-licencias.md`](mapas-galapagos/documentacion/03-fuentes-y-licencias.md). Las fuentes meteorológicas se citan como piden sus autores; no se publican los servicios (endpoints) de los que se descargan.
 
 ## 5. Cómo se procesaron
 
