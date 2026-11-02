@@ -2,7 +2,7 @@
 .DS_Store
 
 # Secretos y registros locales (NO publicar)
-galapagos/credenciales-locales.txt
+galapagos/credenciales-*.txt
 *.env
 .env*
 logs/
@@ -16,3 +16,6 @@ geodatos/descargas/
 geodatos/.venv/
 __pycache__/
 *.pyc
+
+# El bot de WhatsApp vive en un repositorio privado (mayait/sosgalapagos-bot)
+bot-whatsapp/
