@@ -1,0 +1,305 @@
+{
+ "fecha": "2026-11-02",
+ "fuente": "Comité técnico, sección urbana; GLO-30, OSM 31-oct-2026, Open Buildings v3, INEC MGN, IGM 1:25 000",
+ "barrio": {
+  "zona": "barrio La Cascada (OSM ∪ CGREG)",
+  "area_ha": 6.07,
+  "edificios": 260,
+  "techo_m2": 24954,
+  "pob_inec_manzanas": 1310,
+  "viviendas_sngr": 260,
+  "pob_sngr": 1309,
+  "edif_osm": 242,
+  "edif_gob": 18
+ },
+ "area_afectada_350m": {
+  "zona": "área afectada aproximada (radio 350 m, por validar)",
+  "area_ha": 38.17,
+  "edificios": 772,
+  "techo_m2": 86309,
+  "pob_inec_manzanas": 3641,
+  "viviendas_sngr": 763,
+  "pob_sngr": 3602,
+  "edif_osm": 663,
+  "edif_gob": 109
+ },
+ "cauce_natural": {
+  "nombre": "Cauce natural (D8) barrio → mar",
+  "metodo": "D8 pysheds sobre GLO-30 con quebradas quemadas",
+  "largo_m": 1194,
+  "cota_ini_m": 12.0,
+  "cota_fin_m": 1.3,
+  "pendiente_media_pct": 0.9,
+  "edificios_atravesados": 28,
+  "pct_longitud_sobre_techos": 24,
+  "nota": "No hay cauce cartografiado; atraviesa lotes. Error vertical GLO-30 ±2–4 m."
+ },
+ "corredor_calles": {
+  "nombre": "Corredor por calles: Calle C → Marchena → Av. Charles Darwin",
+  "metodo": "Ruta de mínimo coste en red OSM (longitud + 200 × subida)",
+  "largo_m": 1269,
+  "tramo_marchena_m": 1040,
+  "cota_ini_m": 11.6,
+  "cota_fin_m": 3.5,
+  "pendiente_media_pct": 0.64,
+  "nota": "Candidata a calle-canal; sube ~3 m al salir del barrio (umbral) y cruza ~20 calles transversales."
+ },
+ "perfil_cauce_natural_tramos": [
+  {
+   "desde_m": 0,
+   "hasta_m": 200,
+   "z_dsm_ini": 12.0,
+   "z_dsm_fin": 11.6,
+   "z_suelo_proxy_ini": 11.1,
+   "z_suelo_proxy_fin": 10.7,
+   "pendiente_pct": 0.25
+  },
+  {
+   "desde_m": 200,
+   "hasta_m": 400,
+   "z_dsm_ini": 11.5,
+   "z_dsm_fin": 11.8,
+   "z_suelo_proxy_ini": 10.7,
+   "z_suelo_proxy_fin": 10.7,
+   "pendiente_pct": -0.13
+  },
+  {
+   "desde_m": 400,
+   "hasta_m": 600,
+   "z_dsm_ini": 11.5,
+   "z_dsm_fin": 9.6,
+   "z_suelo_proxy_ini": 10.7,
+   "z_suelo_proxy_fin": 7.7,
+   "pendiente_pct": 1.03
+  },
+  {
+   "desde_m": 600,
+   "hasta_m": 800,
+   "z_dsm_ini": 9.2,
+   "z_dsm_fin": 5.8,
+   "z_suelo_proxy_ini": 7.1,
+   "z_suelo_proxy_fin": 4.8,
+   "pendiente_pct": 1.79
+  },
+  {
+   "desde_m": 800,
+   "hasta_m": 1000,
+   "z_dsm_ini": 5.7,
+   "z_dsm_fin": 3.5,
+   "z_suelo_proxy_ini": 4.5,
+   "z_suelo_proxy_fin": 2.7,
+   "pendiente_pct": 1.16
+  },
+  {
+   "desde_m": 1000,
+   "hasta_m": 1200,
+   "z_dsm_ini": 3.2,
+   "z_dsm_fin": 1.3,
+   "z_suelo_proxy_ini": 2.7,
+   "z_suelo_proxy_fin": 0.5,
+   "pendiente_pct": 1.03
+  }
+ ],
+ "contrapendientes_cauce": [
+  {
+   "s": 60.0,
+   "sube_m": 0.6,
+   "largo_m": 10,
+   "lonlat": [
+    -90.31237,
+    -0.73509
+   ]
+  },
+  {
+   "s": 330.0,
+   "sube_m": 1.4,
+   "largo_m": 100,
+   "lonlat": [
+    -90.3121,
+    -0.7372
+   ]
+  }
+ ],
+ "contrapendientes_marchena": [
+  {
+   "s": 200.0,
+   "sube_m": 3.0,
+   "largo_m": 290,
+   "lonlat": [
+    -90.31317,
+    -0.73473
+   ]
+  },
+  {
+   "s": 470.0,
+   "sube_m": 1.3,
+   "largo_m": 160,
+   "lonlat": [
+    -90.31231,
+    -0.73701
+   ]
+  }
+ ],
+ "cruces_vias_cauce": 16,
+ "franja_cauce_15m": {
+  "zona": "franja 15 m del cauce natural D8 (barrio→mar)",
+  "area_ha": 3.63,
+  "edificios": 57,
+  "techo_m2": 7916,
+  "pob_inec_manzanas": 151,
+  "viviendas_sngr": 50,
+  "pob_sngr": 143,
+  "edif_osm": 28,
+  "edif_gob": 29
+ },
+ "franja_cauce_30m": {
+  "zona": "franja 30 m del cauce natural D8 (barrio→mar)",
+  "area_ha": 7.37,
+  "edificios": 130,
+  "techo_m2": 14992,
+  "pob_inec_manzanas": 300,
+  "viviendas_sngr": 92,
+  "pob_sngr": 273,
+  "edif_osm": 68,
+  "edif_gob": 62
+ },
+ "franja_quebradas_igm_osm_20m_PA": {
+  "zona": "franja 20 m de quebradas IGM+OSM, Puerto Ayora",
+  "area_ha": 15.79,
+  "edificios": 8,
+  "techo_m2": 415,
+  "pob_inec_manzanas": 27,
+  "viviendas_sngr": 10,
+  "pob_sngr": 47,
+  "edif_osm": 4,
+  "edif_gob": 4
+ },
+ "franja_quebradas_igm_osm_50m_PA": {
+  "zona": "franja 50 m de quebradas IGM+OSM, Puerto Ayora",
+  "area_ha": 40.17,
+  "edificios": 43,
+  "techo_m2": 2983,
+  "pob_inec_manzanas": 155,
+  "viviendas_sngr": 40,
+  "pob_sngr": 180,
+  "edif_osm": 23,
+  "edif_gob": 20
+ },
+ "franja_cgreg_20m_en_Puerto_Ayora": "0 polígonos: la capa de encañadas CGREG no cubre el área urbana (el más cercano a ~4,7 km del barrio)",
+ "zona_baja_suelo_proxy": {
+  "cota_rebose_m": "12,00–12,25",
+  "area_ha": 15.0,
+  "edificios": 374,
+  "pob": 1676
+ },
+ "zona_baja_dsm": {
+  "cota_rebose_m": "13,25–13,50",
+  "area_ha": 5.3,
+  "edificios": 140,
+  "pob": 710
+ },
+ "fondo_barrio_m": 10.5,
+ "cobertura_techos_barrio_pct": 41.1,
+ "crecimiento": {
+  "barrio": {
+   "edif_igm25k": 1,
+   "edif_inec_censales": 294,
+   "edif_actuales": 260,
+   "actuales_fuera_zona_urbana_igm": 35,
+   "area_en_zona_urbana_igm_pct": 76
+  },
+  "barrio+200m": {
+   "edif_igm25k": 3,
+   "edif_inec_censales": 893,
+   "edif_actuales": 802,
+   "actuales_fuera_zona_urbana_igm": 39,
+   "area_en_zona_urbana_igm_pct": 47
+  },
+  "franja D8 30 m": {
+   "edif_igm25k": 4,
+   "edif_inec_censales": 116,
+   "edif_actuales": 130,
+   "actuales_fuera_zona_urbana_igm": 27,
+   "area_en_zona_urbana_igm_pct": 67
+  },
+  "suelo urbano Puerto Ayora": {
+   "edif_igm25k": 306,
+   "edif_inec_censales": 4054,
+   "edif_actuales": 4854,
+   "actuales_fuera_zona_urbana_igm": 1201,
+   "area_en_zona_urbana_igm_pct": 41
+  }
+ },
+ "capacidad_calle_canal_m3s": {
+  "ancho_10m_tirante_0_3m": 8,
+  "ancho_10m_tirante_0_5m": 18,
+  "supuestos": "Manning n=0,016, S=1 %"
+ },
+ "capacidad_cajon_3x2m_m3s": 28,
+ "caudal_pico_orden_m3s": "50–200 (asesor hidrológico)",
+ "perfil_marchena_tramos": [
+  {
+   "desde_m": 0,
+   "hasta_m": 200,
+   "z_dsm_ini": 11.6,
+   "z_dsm_fin": 15.0,
+   "z_suelo_proxy_ini": 10.6,
+   "z_suelo_proxy_fin": 13.4,
+   "pendiente_pct": -1.77
+  },
+  {
+   "desde_m": 200,
+   "hasta_m": 400,
+   "z_dsm_ini": 15.9,
+   "z_dsm_fin": 11.2,
+   "z_suelo_proxy_ini": 13.6,
+   "z_suelo_proxy_fin": 10.7,
+   "pendiente_pct": 2.47
+  },
+  {
+   "desde_m": 400,
+   "hasta_m": 600,
+   "z_dsm_ini": 11.5,
+   "z_dsm_fin": 12.0,
+   "z_suelo_proxy_ini": 10.7,
+   "z_suelo_proxy_fin": 11.2,
+   "pendiente_pct": -0.29
+  },
+  {
+   "desde_m": 600,
+   "hasta_m": 800,
+   "z_dsm_ini": 11.9,
+   "z_dsm_fin": 7.3,
+   "z_suelo_proxy_ini": 11.1,
+   "z_suelo_proxy_fin": 4.9,
+   "pendiente_pct": 2.39
+  },
+  {
+   "desde_m": 800,
+   "hasta_m": 1000,
+   "z_dsm_ini": 6.7,
+   "z_dsm_fin": 5.1,
+   "z_suelo_proxy_ini": 4.9,
+   "z_suelo_proxy_fin": 3.5,
+   "pendiente_pct": 0.84
+  },
+  {
+   "desde_m": 1000,
+   "hasta_m": 1200,
+   "z_dsm_ini": 4.8,
+   "z_dsm_fin": 3.5,
+   "z_suelo_proxy_ini": 3.1,
+   "z_suelo_proxy_fin": 2.4,
+   "pendiente_pct": 0.73
+  },
+  {
+   "desde_m": 1200,
+   "hasta_m": 1400,
+   "z_dsm_ini": 3.4,
+   "z_dsm_fin": 3.5,
+   "z_suelo_proxy_ini": 2.4,
+   "z_suelo_proxy_fin": 1.0,
+   "pendiente_pct": -0.1
+  }
+ ]
+}

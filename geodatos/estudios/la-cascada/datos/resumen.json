@@ -1,0 +1,2738 @@
+{
+ "metodo": {},
+ "parametros": {
+  "dem": "Copernicus GLO-30 (DSM) reproyectado a UTM 15S, 30 m, bilineal",
+  "pendiente_min_canal": 0.005,
+  "cortes_max_m": [
+   3.0,
+   6.0
+  ],
+  "relleno_max_m": 1.0,
+  "buffer_poblado_m": 30,
+  "radio_mancha_m": 600,
+  "lluvia_evento_mm": null
+ },
+ "barrio": {
+  "area_ha": 6.07,
+  "centroide_lonlat": [
+   -90.31369,
+   -0.7335
+  ],
+  "cota_min_m": 10.53,
+  "cota_mediana_m": 13.08,
+  "cota_max_m": 17.96,
+  "dist_mar_m": [
+   942,
+   1253
+  ],
+  "poligono": "unión de OSM «La Cascada» (zonas_pobladas) y CGREG «LA CASCADA» (barrios)",
+  "cota_mediana_anillo_300m": 22.73,
+  "edificios_en_poligono": 260,
+  "poblacion_estimada_manzanas": 1306,
+  "viviendas_manzanas": 259
+ },
+ "cuenca": {
+  "area_aportante_km2": 42.33,
+  "area_total_con_barrio_km2": 42.41,
+  "cota_max_m": 855.8,
+  "pendiente_media_pct": 9.7,
+  "pendiente_mediana_pct": 8.6,
+  "fraccion_en_depresiones_rellenadas_>1m": 0.0067,
+  "metodo": "D8 (pysheds) sobre DSM con quebradas IGM quemadas, depresiones rellenadas y planos resueltos",
+  "sensibilidad_sin_quemar": {
+   "area_aportante_km2": 42.33,
+   "celdas_comunes_km2": 42.33,
+   "solo_quemado_km2": 0.0,
+   "solo_sin_quemar_km2": 0.0
+  },
+  "rama 1": {
+   "subcuenca": "rama 1",
+   "area_km2": 29.46,
+   "cota_max_m": 855.8,
+   "cota_min_m": 14.7,
+   "pendiente_media_pct": 10.1,
+   "entrada_lonlat": [
+    -90.31291,
+    -0.73265
+   ],
+   "cota_entrada_m": 14.7,
+   "rumbo_desde_barrio": "N"
+  },
+  "rama 2": {
+   "subcuenca": "rama 2",
+   "area_km2": 12.24,
+   "cota_max_m": 826.0,
+   "cota_min_m": 15.0,
+   "pendiente_media_pct": 9.2,
+   "entrada_lonlat": [
+    -90.31533,
+    -0.73211
+   ],
+   "cota_entrada_m": 15.0,
+   "rumbo_desde_barrio": "NO"
+  },
+  "escorrentía local": {
+   "subcuenca": "escorrentía local",
+   "area_km2": 0.62,
+   "cota_max_m": 65.0,
+   "cota_min_m": 10.6,
+   "pendiente_media_pct": 5.9
+  },
+  "cauce_rama 1": {
+   "rama": "rama 1",
+   "longitud_km": 12.99,
+   "cota_cabecera_m": 773.2,
+   "cota_entrada_m": 14.7,
+   "pendiente_media_pct": 5.84,
+   "tc_kirpich_h": 1.43,
+   "tc_temez_h": 3.61
+  },
+  "cauce_rama 2": {
+   "rama": "rama 2",
+   "longitud_km": 12.99,
+   "cota_cabecera_m": 806.1,
+   "cota_entrada_m": 15.0,
+   "pendiente_media_pct": 6.09,
+   "tc_kirpich_h": 1.4,
+   "tc_temez_h": 3.58
+  },
+  "nota_cauces": "Las dos ramas miden ~13,0 km por coincidencia geométrica: ambas nacen en la divisoria de la cumbre (cabeceras distintas, a 773 y 806 m, y trazas distintas); no es un error de cálculo."
+ },
+ "secciones": {
+  "nota": "N-S: distancia negativa = norte; E-O: distancia negativa = este. Interpolación bilineal del DSM.",
+  "N-S centro": [
+   48.93,
+   41.07,
+   39.12,
+   36.1,
+   21.7,
+   12.73,
+   14.59,
+   14.34,
+   15.19,
+   14.31,
+   10.97
+  ],
+  "E-O centro": [
+   37.22,
+   35.31,
+   29.12,
+   12.53,
+   13.53,
+   12.73,
+   12.4,
+   17.17,
+   26.25,
+   27.13,
+   27.68
+  ]
+ },
+ "depresion": {
+  "punto_bajo_lonlat": [
+   -90.31452,
+   -0.73401
+  ],
+  "cota_punto_bajo_m": 10.53,
+  "cota_rebose_m": 12.95,
+  "depresiones_dsm": [
+   {
+    "area_ha": 2.7,
+    "prof_max_m": 2.42,
+    "volumen_m3": 33609,
+    "cota_rebose_m": 12.95,
+    "fraccion_dentro_barrio": 0.8
+   },
+   {
+    "area_ha": 0.36,
+    "prof_max_m": 2.32,
+    "volumen_m3": 7747,
+    "cota_rebose_m": 12.95,
+    "fraccion_dentro_barrio": 0.5
+   },
+   {
+    "area_ha": 0.54,
+    "prof_max_m": 1.2,
+    "volumen_m3": 3483,
+    "cota_rebose_m": 12.95,
+    "fraccion_dentro_barrio": 0.67
+   },
+   {
+    "area_ha": 1.26,
+    "prof_max_m": 1.84,
+    "volumen_m3": 10883,
+    "cota_rebose_m": 12.95,
+    "fraccion_dentro_barrio": 0.71
+   }
+  ],
+  "volumen_total_depresiones_m3": 55722,
+  "area_total_depresiones_ha": 4.86,
+  "curva_resumen": {
+   "12.5": {
+    "area_m2": 23400,
+    "volumen_m3": 21690,
+    "edificios": 86,
+    "poblacion": 400
+   },
+   "13.0": {
+    "area_m2": 132300,
+    "volumen_m3": 138810,
+    "edificios": 406,
+    "poblacion": 1458
+   },
+   "13.5": {
+    "area_m2": 211500,
+    "volumen_m3": 261608,
+    "edificios": 630,
+    "poblacion": 2149
+   },
+   "14.0": {
+    "area_m2": 257400,
+    "volumen_m3": 379867,
+    "edificios": 782,
+    "poblacion": 2759
+   },
+   "15.0": {
+    "area_m2": 398700,
+    "volumen_m3": 733902,
+    "edificios": 1162,
+    "poblacion": 4251
+   },
+   "16.0": {
+    "area_m2": 463500,
+    "volumen_m3": 1168421,
+    "edificios": 1317,
+    "poblacion": 4965
+   }
+  },
+  "vaso_del_punto_bajo": {
+   "8_vecinos": {
+    "area_ha": 6.21,
+    "volumen_m3": 61938,
+    "edificios_intersecan": 204,
+    "edificios_centroide": 164,
+    "poblacion": 912,
+    "viviendas": 182
+   },
+   "4_vecinos": {
+    "area_ha": 3.69,
+    "volumen_m3": 42018,
+    "edificios_intersecan": 127,
+    "edificios_centroide": 104,
+    "poblacion": 607,
+    "viviendas": 115
+   },
+   "nota": "Depresión rellenada que contiene el punto bajo, prof > 1 mm, sin ventana. Con 8 vecinos incluye una segunda poza unida por un paso diagonal a ~12,85 m; con 4 vecinos, no. Coincide con el llenado conectado a cota de rebose − 1 cm."
+  },
+  "exposicion_en_vaso_12.5_a_rebose": [
+   {
+    "conectividad": 8,
+    "cota_m": 12.5,
+    "area_ha": 2.34,
+    "volumen_m3": 21690,
+    "edificios_intersecan": 86,
+    "edificios_centroide": 68,
+    "poblacion": 400,
+    "viviendas": 74
+   },
+   {
+    "conectividad": 8,
+    "cota_m": 12.6,
+    "area_ha": 2.61,
+    "volumen_m3": 24170,
+    "edificios_intersecan": 101,
+    "edificios_centroide": 78,
+    "poblacion": 466,
+    "viviendas": 87
+   },
+   {
+    "conectividad": 8,
+    "cota_m": 12.7,
+    "area_ha": 2.79,
+    "volumen_m3": 26876,
+    "edificios_intersecan": 108,
+    "edificios_centroide": 83,
+    "poblacion": 491,
+    "viviendas": 92
+   },
+   {
+    "conectividad": 8,
+    "cota_m": 12.8,
+    "area_ha": 2.79,
+    "volumen_m3": 29666,
+    "edificios_intersecan": 108,
+    "edificios_centroide": 83,
+    "poblacion": 491,
+    "viviendas": 92
+   },
+   {
+    "conectividad": 8,
+    "cota_m": 12.9,
+    "area_ha": 5.85,
+    "volumen_m3": 57346,
+    "edificios_intersecan": 185,
+    "edificios_centroide": 147,
+    "poblacion": 829,
+    "viviendas": 165
+   },
+   {
+    "conectividad": 8,
+    "cota_m": 12.94,
+    "area_ha": 6.21,
+    "volumen_m3": 61296,
+    "edificios_intersecan": 204,
+    "edificios_centroide": 164,
+    "poblacion": 912,
+    "viviendas": 182
+   },
+   {
+    "conectividad": 4,
+    "cota_m": 12.5,
+    "area_ha": 2.34,
+    "volumen_m3": 21690,
+    "edificios_intersecan": 86,
+    "edificios_centroide": 68,
+    "poblacion": 400,
+    "viviendas": 74
+   },
+   {
+    "conectividad": 4,
+    "cota_m": 12.6,
+    "area_ha": 2.61,
+    "volumen_m3": 24170,
+    "edificios_intersecan": 101,
+    "edificios_centroide": 78,
+    "poblacion": 466,
+    "viviendas": 87
+   },
+   {
+    "conectividad": 4,
+    "cota_m": 12.7,
+    "area_ha": 2.79,
+    "volumen_m3": 26876,
+    "edificios_intersecan": 108,
+    "edificios_centroide": 83,
+    "poblacion": 491,
+    "viviendas": 92
+   },
+   {
+    "conectividad": 4,
+    "cota_m": 12.8,
+    "area_ha": 2.79,
+    "volumen_m3": 29666,
+    "edificios_intersecan": 108,
+    "edificios_centroide": 83,
+    "poblacion": 491,
+    "viviendas": 92
+   },
+   {
+    "conectividad": 4,
+    "cota_m": 12.9,
+    "area_ha": 3.51,
+    "volumen_m3": 40170,
+    "edificios_intersecan": 119,
+    "edificios_centroide": 95,
+    "poblacion": 560,
+    "viviendas": 105
+   },
+   {
+    "conectividad": 4,
+    "cota_m": 12.94,
+    "area_ha": 3.69,
+    "volumen_m3": 41637,
+    "edificios_intersecan": 127,
+    "edificios_centroide": 104,
+    "poblacion": 607,
+    "viviendas": 115
+   }
+  ],
+  "sensibilidad_criterio": [
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.001,
+    "dominio": "componente del punto bajo",
+    "n_componentes": 1,
+    "area_ha": 3.69,
+    "volumen_m3": 42018,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 127
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.001,
+    "dominio": "componentes que tocan el barrio",
+    "n_componentes": 3,
+    "area_ha": 6.03,
+    "volumen_m3": 60372,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 193
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.001,
+    "dominio": "componentes a <400 m del barrio",
+    "n_componentes": 20,
+    "area_ha": 17.1,
+    "volumen_m3": 127979,
+    "cota_rebose_min_m": 11.41,
+    "cota_rebose_max_m": 34.86,
+    "edificios": 472
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.1,
+    "dominio": "componente del punto bajo",
+    "n_componentes": 1,
+    "area_ha": 3.33,
+    "volumen_m3": 41827,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 114
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.1,
+    "dominio": "componentes que tocan el barrio",
+    "n_componentes": 3,
+    "area_ha": 5.67,
+    "volumen_m3": 60180,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 180
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.1,
+    "dominio": "componentes a <400 m del barrio",
+    "n_componentes": 17,
+    "area_ha": 15.57,
+    "volumen_m3": 127152,
+    "cota_rebose_min_m": 11.41,
+    "cota_rebose_max_m": 34.86,
+    "edificios": 436
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.2,
+    "dominio": "componente del punto bajo",
+    "n_componentes": 1,
+    "area_ha": 2.79,
+    "volumen_m3": 33861,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 108
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.2,
+    "dominio": "componentes que tocan el barrio",
+    "n_componentes": 4,
+    "area_ha": 4.95,
+    "volumen_m3": 55974,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 158
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.2,
+    "dominio": "componentes a <400 m del barrio",
+    "n_componentes": 19,
+    "area_ha": 14.04,
+    "volumen_m3": 124741,
+    "cota_rebose_min_m": 11.41,
+    "cota_rebose_max_m": 34.86,
+    "edificios": 389
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.3,
+    "dominio": "componente del punto bajo",
+    "n_componentes": 1,
+    "area_ha": 2.7,
+    "volumen_m3": 33609,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 101
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.3,
+    "dominio": "componentes que tocan el barrio",
+    "n_componentes": 4,
+    "area_ha": 4.86,
+    "volumen_m3": 55723,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 151
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.3,
+    "dominio": "componentes a <400 m del barrio",
+    "n_componentes": 17,
+    "area_ha": 12.87,
+    "volumen_m3": 121730,
+    "cota_rebose_min_m": 11.41,
+    "cota_rebose_max_m": 34.86,
+    "edificios": 367
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.5,
+    "dominio": "componente del punto bajo",
+    "n_componentes": 1,
+    "area_ha": 2.34,
+    "volumen_m3": 32227,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 86
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.5,
+    "dominio": "componentes que tocan el barrio",
+    "n_componentes": 3,
+    "area_ha": 3.78,
+    "volumen_m3": 50260,
+    "cota_rebose_min_m": 12.95,
+    "cota_rebose_max_m": 12.95,
+    "edificios": 116
+   },
+   {
+    "conectividad": 4,
+    "umbral_prof_m": 0.5,
+    "dominio": "componentes a <400 m del barrio",
+    "n_componentes": 16,
+    "area_ha": 10.17,
+    "volumen_m3": 110794,
+    "cota_rebose_min_m": 11.41,
+    "cota_rebose_max_m": 34.86,
+    "edificios": 279
+   }
+  ],
+  "rango_volumen_m3": {
+   "almacenamiento_cerrado_hasta_rebose": [
+    42018,
+    61938
+   ],
+   "almacenamiento_cerrado_area_ha": [
+    3.69,
+    6.21
+   ],
+   "exposicion_12.5m_a_rebose": {
+    "edificios": [
+     68,
+     204
+    ],
+    "poblacion": [
+     400,
+     912
+    ],
+    "viviendas": [
+     74,
+     182
+    ],
+    "nota": "mínimo: 12,5 m, edificios con el centroide dentro; máximo: rebose − 1 cm, 8 vecinos, edificios que intersecan"
+   },
+   "lamina_sostenida_13.5_a_14m_ventana": [
+    261608,
+    379867
+   ],
+   "criterio_alternativo_reproducido": {
+    "umbral_prof_m": 0.2,
+    "dominio": "componentes a <400 m del barrio",
+    "n_componentes": 19,
+    "area_ha": 14.04,
+    "volumen_m3": 124741,
+    "cota_rebose_min_m": 11.41,
+    "cota_rebose_max_m": 34.86
+   },
+   "superior_bathtub_14m": 379867,
+   "nota": "Almacenamiento cerrado: vaso del punto bajo hasta la cota de rebose; el rango 4–8 vecinos refleja si la segunda poza se une. No usar umbrales de profundidad para el volumen (recortan los bordes someros). Lámina sostenida: volumen bajo 13,5–14 m dentro de la ventana, solo posible con la salida en remanso u obstruida. El criterio alternativo suma vasos independientes."
+  }
+ },
+ "interceptor_este": {
+  "rama": "rama 2",
+  "cota_toma_m": 40,
+  "corte_max_admitido_m": 3.0,
+  "lado": "ESTE",
+  "longitud_km": 3.49,
+  "corte_max_m": 2.9,
+  "corte_medio_m": 0.9,
+  "area_captada_km2": 41.88,
+  "pct_parque": 100,
+  "zonificacion_png_m": {
+   "Transición": 1807,
+   "Aprovechamiento sustentable": 1700
+  },
+  "cruces_vias": [],
+  "edificios_a_menos_de_20m": 0,
+  "dist_min_edificio_m": 143,
+  "salida_mar_lonlat": [
+   -90.29917,
+   -0.74349
+  ],
+  "como_canal": {
+   "corte_medio_m_rasante": 0.86,
+   "prof_2.5m": {
+    "terraplen_longitud_m": {
+     ">0m": 3114,
+     ">1m": 2447,
+     ">2m": 1822
+    },
+    "terraplen_altura_max_m": 3.5,
+    "longitud_total_m": 3489,
+    "alternativa_sin_terraplen_excavacion_media_m": 3.12,
+    "alternativa_sin_terraplen_excavacion_max_m": 5.43
+   },
+   "prof_3.0m": {
+    "terraplen_longitud_m": {
+     ">0m": 3489,
+     ">1m": 2811,
+     ">2m": 2212
+    },
+    "terraplen_altura_max_m": 4.0,
+    "longitud_total_m": 3489,
+    "alternativa_sin_terraplen_excavacion_media_m": 3.62,
+    "alternativa_sin_terraplen_excavacion_max_m": 5.93
+   }
+  }
+ },
+ "desvio": {
+  "metodo": "Dijkstra de máxima cota de rasante: la rasante baja al menos PENDIENTE_MIN por metro, puede ir hasta RELLENO_MAX_M sobre el terreno o corte_max bajo él; prohibidas las celdas pobladas (+buffer). area_captada = celdas de la cuenca cuyo flujo D8 cruza la traza antes de llegar al barrio.",
+  "tabla": [
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 20,
+    "toma_lonlat": [
+     -90.31291,
+     -0.73238
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 29.46,
+    "salidas": {}
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 20,
+    "toma_lonlat": [
+     -90.31291,
+     -0.73238
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 29.46,
+    "salidas": {}
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 30,
+    "toma_lonlat": [
+     -90.31291,
+     -0.73211
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 29.46,
+    "salidas": {}
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 30,
+    "toma_lonlat": [
+     -90.31291,
+     -0.73211
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 29.46,
+    "salidas": {}
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 40,
+    "toma_lonlat": [
+     -90.31022,
+     -0.72994
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 28.92,
+    "salidas": {
+     "FRENTE URBANO": {
+      "rama": "rama 1",
+      "cota_toma_m": 40,
+      "corte_max_admitido_m": 3.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 1.9,
+      "corte_max_m": 2.9,
+      "corte_medio_m": 0.6,
+      "area_captada_km2": 29.11,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1863
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     },
+     "ESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 40,
+      "corte_max_admitido_m": 3.0,
+      "lado": "ESTE",
+      "longitud_km": 2.58,
+      "corte_max_m": 2.9,
+      "corte_medio_m": 0.9,
+      "area_captada_km2": 29.11,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 539,
+       "Aprovechamiento sustentable": 2045
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 221,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 40,
+    "toma_lonlat": [
+     -90.31022,
+     -0.72994
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 28.92,
+    "salidas": {
+     "FRENTE URBANO": {
+      "rama": "rama 1",
+      "cota_toma_m": 40,
+      "corte_max_admitido_m": 6.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 1.9,
+      "corte_max_m": 4.3,
+      "corte_medio_m": 0.7,
+      "area_captada_km2": 29.11,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1863
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     },
+     "ESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 40,
+      "corte_max_admitido_m": 6.0,
+      "lado": "ESTE",
+      "longitud_km": 2.57,
+      "corte_max_m": 5.9,
+      "corte_medio_m": 1.9,
+      "area_captada_km2": 29.1,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 252,
+       "Aprovechamiento sustentable": 2328
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 221,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 60,
+    "toma_lonlat": [
+     -90.3016,
+     -0.71692
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 14.57,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 60,
+      "corte_max_admitido_m": 3.0,
+      "lado": "ESTE",
+      "longitud_km": 3.84,
+      "corte_max_m": 3.0,
+      "corte_medio_m": 0.8,
+      "area_captada_km2": 14.72,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Aprovechamiento sustentable": 3836
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 318,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 1",
+      "cota_toma_m": 60,
+      "corte_max_admitido_m": 3.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 3.39,
+      "corte_max_m": 3.0,
+      "corte_medio_m": 0.6,
+      "area_captada_km2": 14.75,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1440,
+       "Aprovechamiento sustentable": 1909
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 60,
+    "toma_lonlat": [
+     -90.3016,
+     -0.71692
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 14.57,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 60,
+      "corte_max_admitido_m": 6.0,
+      "lado": "ESTE",
+      "longitud_km": 3.49,
+      "corte_max_m": 5.9,
+      "corte_medio_m": 1.3,
+      "area_captada_km2": 14.6,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Aprovechamiento sustentable": 3492
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 318,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 1",
+      "cota_toma_m": 60,
+      "corte_max_admitido_m": 6.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 3.35,
+      "corte_max_m": 5.4,
+      "corte_medio_m": 0.6,
+      "area_captada_km2": 14.61,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1440,
+       "Aprovechamiento sustentable": 1874
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 80,
+    "toma_lonlat": [
+     -90.29838,
+     -0.7115
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 13.75,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 3.0,
+      "lado": "ESTE",
+      "longitud_km": 4.56,
+      "corte_max_m": 3.0,
+      "corte_medio_m": 0.4,
+      "area_captada_km2": 14.05,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Aprovechamiento sustentable": 4563
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 318,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 1",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 3.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 4.36,
+      "corte_max_m": 2.5,
+      "corte_medio_m": 0.1,
+      "area_captada_km2": 14.1,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1440,
+       "Aprovechamiento sustentable": 2878
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 80,
+    "toma_lonlat": [
+     -90.29838,
+     -0.7115
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 13.75,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 6.0,
+      "lado": "ESTE",
+      "longitud_km": 4.53,
+      "corte_max_m": 5.3,
+      "corte_medio_m": 0.6,
+      "area_captada_km2": 14.05,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Aprovechamiento sustentable": 4528
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 318,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 1",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 6.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 4.36,
+      "corte_max_m": 2.5,
+      "corte_medio_m": 0.1,
+      "area_captada_km2": 14.1,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1440,
+       "Aprovechamiento sustentable": 2878
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 120,
+    "toma_lonlat": [
+     -90.2973,
+     -0.70445
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 11.99,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 120,
+      "corte_max_admitido_m": 3.0,
+      "lado": "ESTE",
+      "longitud_km": 5.95,
+      "corte_max_m": 2.8,
+      "corte_medio_m": 0.2,
+      "area_captada_km2": 12.52,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 425,
+       "Aprovechamiento sustentable": 5526
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 318,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "OESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 120,
+      "corte_max_admitido_m": 3.0,
+      "lado": "OESTE",
+      "longitud_km": 10.5,
+      "corte_max_m": 3.0,
+      "corte_medio_m": 0.6,
+      "area_captada_km2": 35.43,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 6959,
+       "Aprovechamiento sustentable": 3537
+      },
+      "cruces_vias": [
+       "Avenida Padre Julio Herrera",
+       "track"
+      ],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 62,
+      "salida_mar_lonlat": [
+       -90.3339,
+       -0.75951
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 1",
+      "cota_toma_m": 120,
+      "corte_max_admitido_m": 3.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 5.61,
+      "corte_max_m": 2.8,
+      "corte_medio_m": 0.1,
+      "area_captada_km2": 12.6,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1865,
+       "Aprovechamiento sustentable": 3701
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 1",
+    "cota_toma_m": 120,
+    "toma_lonlat": [
+     -90.2973,
+     -0.70445
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 11.99,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 120,
+      "corte_max_admitido_m": 6.0,
+      "lado": "ESTE",
+      "longitud_km": 5.87,
+      "corte_max_m": 5.9,
+      "corte_medio_m": 0.7,
+      "area_captada_km2": 12.46,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 479,
+       "Aprovechamiento sustentable": 5395
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 318,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "OESTE": {
+      "rama": "rama 1",
+      "cota_toma_m": 120,
+      "corte_max_admitido_m": 6.0,
+      "lado": "OESTE",
+      "longitud_km": 10.47,
+      "corte_max_m": 5.9,
+      "corte_medio_m": 1.5,
+      "area_captada_km2": 35.11,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 6977,
+       "Aprovechamiento sustentable": 3494
+      },
+      "cruces_vias": [
+       "Avenida Padre Julio Herrera",
+       "track"
+      ],
+      "edificios_a_menos_de_20m": 4,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.3339,
+       -0.75951
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 1",
+      "cota_toma_m": 120,
+      "corte_max_admitido_m": 6.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 5.59,
+      "corte_max_m": 3.4,
+      "corte_medio_m": 0.1,
+      "area_captada_km2": 12.6,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1865,
+       "Aprovechamiento sustentable": 3683
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 20,
+    "toma_lonlat": [
+     -90.31587,
+     -0.73211
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 12.22,
+    "salidas": {}
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 20,
+    "toma_lonlat": [
+     -90.31587,
+     -0.73211
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 12.22,
+    "salidas": {}
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 30,
+    "toma_lonlat": [
+     -90.31776,
+     -0.7313
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 11.79,
+    "salidas": {}
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 30,
+    "toma_lonlat": [
+     -90.31776,
+     -0.7313
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 11.79,
+    "salidas": {
+     "FRENTE URBANO": {
+      "rama": "rama 2",
+      "cota_toma_m": 30,
+      "corte_max_admitido_m": 6.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 2.56,
+      "corte_max_m": 6.0,
+      "corte_medio_m": 2.3,
+      "area_captada_km2": 42.01,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 2525
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     },
+     "ESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 30,
+      "corte_max_admitido_m": 6.0,
+      "lado": "ESTE",
+      "longitud_km": 3.22,
+      "corte_max_m": 6.0,
+      "corte_medio_m": 3.1,
+      "area_captada_km2": 42.01,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1661,
+       "Aprovechamiento sustentable": 1575
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 109,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 40,
+    "toma_lonlat": [
+     -90.31776,
+     -0.73103
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 11.79,
+    "salidas": {
+     "FRENTE URBANO": {
+      "rama": "rama 2",
+      "cota_toma_m": 40,
+      "corte_max_admitido_m": 3.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 2.71,
+      "corte_max_m": 2.9,
+      "corte_medio_m": 0.7,
+      "area_captada_km2": 41.88,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 2672
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     },
+     "ESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 40,
+      "corte_max_admitido_m": 3.0,
+      "lado": "ESTE",
+      "longitud_km": 3.49,
+      "corte_max_m": 2.9,
+      "corte_medio_m": 0.9,
+      "area_captada_km2": 41.88,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1807,
+       "Aprovechamiento sustentable": 1700
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 143,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ],
+      "como_canal": {
+       "corte_medio_m_rasante": 0.86,
+       "prof_2.5m": {
+        "terraplen_longitud_m": {
+         ">0m": 3114,
+         ">1m": 2447,
+         ">2m": 1822
+        },
+        "terraplen_altura_max_m": 3.5,
+        "longitud_total_m": 3489,
+        "alternativa_sin_terraplen_excavacion_media_m": 3.12,
+        "alternativa_sin_terraplen_excavacion_max_m": 5.43
+       },
+       "prof_3.0m": {
+        "terraplen_longitud_m": {
+         ">0m": 3489,
+         ">1m": 2811,
+         ">2m": 2212
+        },
+        "terraplen_altura_max_m": 4.0,
+        "longitud_total_m": 3489,
+        "alternativa_sin_terraplen_excavacion_media_m": 3.62,
+        "alternativa_sin_terraplen_excavacion_max_m": 5.93
+       }
+      }
+     }
+    }
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 40,
+    "toma_lonlat": [
+     -90.31776,
+     -0.73103
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 11.79,
+    "salidas": {
+     "FRENTE URBANO": {
+      "rama": "rama 2",
+      "cota_toma_m": 40,
+      "corte_max_admitido_m": 6.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 2.71,
+      "corte_max_m": 4.5,
+      "corte_medio_m": 0.9,
+      "area_captada_km2": 41.87,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 2672
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     },
+     "ESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 40,
+      "corte_max_admitido_m": 6.0,
+      "lado": "ESTE",
+      "longitud_km": 3.41,
+      "corte_max_m": 5.9,
+      "corte_medio_m": 2.2,
+      "area_captada_km2": 41.84,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 1556,
+       "Aprovechamiento sustentable": 1855
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 186,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 60,
+    "toma_lonlat": [
+     -90.32261,
+     -0.72805
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 9.23,
+    "salidas": {
+     "FRENTE URBANO": {
+      "rama": "rama 2",
+      "cota_toma_m": 60,
+      "corte_max_admitido_m": 3.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 4.12,
+      "corte_max_m": 2.9,
+      "corte_medio_m": 0.7,
+      "area_captada_km2": 38.76,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 2162,
+       "Aprovechamiento sustentable": 1922
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     },
+     "ESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 60,
+      "corte_max_admitido_m": 3.0,
+      "lado": "ESTE",
+      "longitud_km": 4.76,
+      "corte_max_m": 2.9,
+      "corte_medio_m": 0.8,
+      "area_captada_km2": 38.75,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 721,
+       "Aprovechamiento sustentable": 4041
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 220,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 60,
+    "toma_lonlat": [
+     -90.32261,
+     -0.72805
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 9.23,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 60,
+      "corte_max_admitido_m": 6.0,
+      "lado": "ESTE",
+      "longitud_km": 4.84,
+      "corte_max_m": 6.0,
+      "corte_medio_m": 1.4,
+      "area_captada_km2": 38.59,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 647,
+       "Aprovechamiento sustentable": 4197
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 299,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 2",
+      "cota_toma_m": 60,
+      "corte_max_admitido_m": 6.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 4.34,
+      "corte_max_m": 5.9,
+      "corte_medio_m": 0.8,
+      "area_captada_km2": 38.71,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 2087,
+       "Aprovechamiento sustentable": 2211
+      },
+      "cruces_vias": [
+       "Avenida Charles Darwin"
+      ],
+      "edificios_a_menos_de_20m": 3,
+      "dist_min_edificio_m": 0,
+      "salida_mar_lonlat": [
+       -90.30725,
+       -0.74187
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 80,
+    "toma_lonlat": [
+     -90.32234,
+     -0.72453
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 9.15,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 3.0,
+      "lado": "ESTE",
+      "longitud_km": 6.8,
+      "corte_max_m": 3.0,
+      "corte_medio_m": 0.7,
+      "area_captada_km2": 37.18,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 45,
+       "Aprovechamiento sustentable": 6751
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 318,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 2",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 3.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 5.81,
+      "corte_max_m": 2.9,
+      "corte_medio_m": 0.6,
+      "area_captada_km2": 11.26,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 4447,
+       "Aprovechamiento sustentable": 1292
+      },
+      "cruces_vias": [
+       "Avenida Padre Julio Herrera",
+       "track"
+      ],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 47,
+      "salida_mar_lonlat": [
+       -90.31263,
+       -0.74892
+      ]
+     },
+     "OESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 3.0,
+      "lado": "OESTE",
+      "longitud_km": 6.05,
+      "corte_max_m": 2.9,
+      "corte_medio_m": 0.4,
+      "area_captada_km2": 11.26,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 2746,
+       "Aprovechamiento sustentable": 3306
+      },
+      "cruces_vias": [
+       "Avenida Padre Julio Herrera",
+       "track"
+      ],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 50,
+      "salida_mar_lonlat": [
+       -90.3339,
+       -0.75951
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 80,
+    "toma_lonlat": [
+     -90.32234,
+     -0.72453
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 9.15,
+    "salidas": {
+     "ESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 6.0,
+      "lado": "ESTE",
+      "longitud_km": 6.64,
+      "corte_max_m": 5.9,
+      "corte_medio_m": 0.9,
+      "area_captada_km2": 37.14,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 45,
+       "Aprovechamiento sustentable": 6599
+      },
+      "cruces_vias": [],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 318,
+      "salida_mar_lonlat": [
+       -90.29917,
+       -0.74349
+      ]
+     },
+     "FRENTE URBANO": {
+      "rama": "rama 2",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 6.0,
+      "lado": "FRENTE URBANO",
+      "longitud_km": 5.76,
+      "corte_max_m": 4.9,
+      "corte_medio_m": 0.7,
+      "area_captada_km2": 11.25,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 4394,
+       "Aprovechamiento sustentable": 1292
+      },
+      "cruces_vias": [
+       "Avenida Padre Julio Herrera",
+       "track"
+      ],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 47,
+      "salida_mar_lonlat": [
+       -90.31263,
+       -0.74892
+      ]
+     },
+     "OESTE": {
+      "rama": "rama 2",
+      "cota_toma_m": 80,
+      "corte_max_admitido_m": 6.0,
+      "lado": "OESTE",
+      "longitud_km": 5.98,
+      "corte_max_m": 4.9,
+      "corte_medio_m": 0.5,
+      "area_captada_km2": 11.25,
+      "pct_parque": 100,
+      "zonificacion_png_m": {
+       "Transición": 2718,
+       "Aprovechamiento sustentable": 3263
+      },
+      "cruces_vias": [
+       "Avenida Padre Julio Herrera",
+       "track"
+      ],
+      "edificios_a_menos_de_20m": 0,
+      "dist_min_edificio_m": 75,
+      "salida_mar_lonlat": [
+       -90.3339,
+       -0.75951
+      ]
+     }
+    }
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 120,
+    "toma_lonlat": [
+     -90.32531,
+     -0.71341
+    ],
+    "corte_max_m": 3.0,
+    "area_en_toma_km2": 8.19,
+    "salidas": {}
+   },
+   {
+    "rama": "rama 2",
+    "cota_toma_m": 120,
+    "toma_lonlat": [
+     -90.32531,
+     -0.71341
+    ],
+    "corte_max_m": 6.0,
+    "area_en_toma_km2": 8.19,
+    "salidas": {}
+   }
+  ]
+ },
+ "tiempos": {
+  "tc_intervalo_defendible_h": [
+   1.43,
+   5.92
+  ],
+  "tc_central_h": 3.61,
+  "tc_cuenca_h": {
+   "kirpich": 1.43,
+   "temez": 3.61,
+   "scs_lag_por_CN": {
+    "CN60": 5.92,
+    "CN70": 4.57,
+    "CN80": 3.42
+   },
+   "velocidad_flujo_superficial_TR55_h": 4.18,
+   "velocidad_cauce_manning_h": 1.47
+  },
+  "nota": "California Culverts Practice (1942) es algebraicamente la fórmula de Kirpich; no se cuenta como método independiente. Kirpich se calibró en cuencas agrícolas < 0,5 km² (Tennessee): fuera de rango para 42 km². El SCS lag se desarrolló para cuencas < ~8 km². Témez se usa en cuencas naturales de hasta ~3000 km².",
+  "viajes_hasta_el_barrio": {
+   "Bellavista (centro del límite urbano IGM, ajustado al cauce)": {
+    "lonlat": [
+     -90.3272,
+     -0.69796
+    ],
+    "cota_m": 170.1,
+    "area_drenada_km2": 8.14,
+    "L_km": 6.06,
+    "H_m": 159.3,
+    "S_pct": 2.63,
+    "kirpich_h": 1.08,
+    "temez_h": 2.36,
+    "velocidad_flujo_superficial_TR55_h": 2.54,
+    "velocidad_cauce_manning_h": 0.89
+   },
+   "cabecera rama 1": {
+    "lonlat": [
+     -90.324,
+     -0.6459
+    ],
+    "cota_m": 773.2,
+    "area_drenada_km2": 0.0,
+    "L_km": 13.02,
+    "H_m": 762.4,
+    "S_pct": 5.85,
+    "kirpich_h": 1.43,
+    "temez_h": 3.62,
+    "velocidad_flujo_superficial_TR55_h": 4.18,
+    "velocidad_cauce_manning_h": 1.47
+   },
+   "rama 1, cota 40 m": {
+    "lonlat": [
+     -90.31022,
+     -0.72994
+    ],
+    "cota_m": 40.9,
+    "area_drenada_km2": 28.92,
+    "L_km": 0.49,
+    "H_m": 30.1,
+    "S_pct": 6.15,
+    "kirpich_h": 0.11,
+    "temez_h": 0.3,
+    "velocidad_flujo_superficial_TR55_h": 0.14,
+    "velocidad_cauce_manning_h": 0.05
+   },
+   "rama 2, cota 40 m": {
+    "lonlat": [
+     -90.31776,
+     -0.73103
+    ],
+    "cota_m": 41.6,
+    "area_drenada_km2": 11.79,
+    "L_km": 0.4,
+    "H_m": 28.4,
+    "S_pct": 7.15,
+    "kirpich_h": 0.09,
+    "temez_h": 0.25,
+    "velocidad_flujo_superficial_TR55_h": 0.09,
+    "velocidad_cauce_manning_h": 0.03
+   }
+  }
+ },
+ "evento_31oct": {
+  "fuente": "Open-Meteo, ECMWF IFS 9 km (y 0,25° como sensibilidad); pronóstico/análisis de modelo, sin medición en tierra",
+  "peso_celda_alta_thiessen": 0.673,
+  "peso_alta_por_cota_>=200m": 0.55,
+  "inicio_etiqueta_utc-5": "2026-10-30T23:00",
+  "nota_horas": "etiquetas Open-Meteo en America/Guayaquil (UTC-5); las horas de resultados se dan en hora de Galápagos (UTC-6)",
+  "celdas_ecmwf_9km": {
+   "costa": [
+    -90.28259,
+    -0.73814
+   ],
+   "alta": [
+    -90.35294,
+    -0.66784
+   ]
+  },
+  "observacion_referencia": {
+   "lamina_m": [
+    1.5,
+    2.0
+   ],
+   "fondo_m": [
+    10.5,
+    11.0
+   ],
+   "cota_agua_m": [
+    12.0,
+    13.0
+   ],
+   "fuente": "prensa (testigo), por validar"
+  },
+  "escenarios": [
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs_9km_cota200_CN76",
+    "modelo": "ecmwf_ifs_9km",
+    "ponderacion": "cota200",
+    "peso_alta": 0.55,
+    "amc": "AMC_II_III",
+    "CN": 75.7,
+    "lluvia_costa_mm": 82.2,
+    "lluvia_alta_mm": 133.2,
+    "lluvia_ponderada_mm": 110.3,
+    "max_horaria_ponderada_mm": 28.3,
+    "escorrentia_mm": 50.3,
+    "coef_escorrentia": 0.456,
+    "volumen_escorrentia_m3": 2133301,
+    "q_pico_m3s_tc_temez": 118.8,
+    "q_pico_m3s_tc_kirpich": 186.0,
+    "hora_pico_local_temez": "31-Oct 07:30 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 06:30 (UTC-6)",
+    "hora_local_vaso_lleno": "31-Oct 05:10 (UTC-6)",
+    "veces_volumen_vaso": 34.4,
+    "cota_si_no_hubiera_salida_m": 17.97,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 1.76,
+      "carga_m_kirpich": 2.37,
+      "cota_agua_m_temez": 14.71,
+      "cota_agua_m_kirpich": 15.32
+     },
+     "L100m": {
+      "carga_m_temez": 0.79,
+      "carga_m_kirpich": 1.06,
+      "cota_agua_m_temez": 13.74,
+      "cota_agua_m_kirpich": 14.01
+     },
+     "L300m": {
+      "carga_m_temez": 0.38,
+      "carga_m_kirpich": 0.51,
+      "cota_agua_m_temez": 13.33,
+      "cota_agua_m_kirpich": 13.46
+     }
+    }
+   },
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs_9km_cota200_CN83",
+    "modelo": "ecmwf_ifs_9km",
+    "ponderacion": "cota200",
+    "peso_alta": 0.55,
+    "amc": "AMC_III",
+    "CN": 83.2,
+    "lluvia_costa_mm": 82.2,
+    "lluvia_alta_mm": 133.2,
+    "lluvia_ponderada_mm": 110.3,
+    "max_horaria_ponderada_mm": 28.3,
+    "escorrentia_mm": 66.1,
+    "coef_escorrentia": 0.6,
+    "volumen_escorrentia_m3": 2803394,
+    "q_pico_m3s_tc_temez": 153.9,
+    "q_pico_m3s_tc_kirpich": 229.7,
+    "hora_pico_local_temez": "31-Oct 07:30 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 06:30 (UTC-6)",
+    "hora_local_vaso_lleno": "31-Oct 04:20 (UTC-6)",
+    "veces_volumen_vaso": 45.3,
+    "cota_si_no_hubiera_salida_m": 19.26,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 2.09,
+      "carga_m_kirpich": 2.73,
+      "cota_agua_m_temez": 15.04,
+      "cota_agua_m_kirpich": 15.68
+     },
+     "L100m": {
+      "carga_m_temez": 0.94,
+      "carga_m_kirpich": 1.22,
+      "cota_agua_m_temez": 13.89,
+      "cota_agua_m_kirpich": 14.17
+     },
+     "L300m": {
+      "carga_m_temez": 0.45,
+      "carga_m_kirpich": 0.59,
+      "cota_agua_m_temez": 13.4,
+      "cota_agua_m_kirpich": 13.54
+     }
+    }
+   },
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs_9km_cota200_CN68",
+    "modelo": "ecmwf_ifs_9km",
+    "ponderacion": "cota200",
+    "peso_alta": 0.55,
+    "amc": "AMC_II",
+    "CN": 68.3,
+    "lluvia_costa_mm": 82.2,
+    "lluvia_alta_mm": 133.2,
+    "lluvia_ponderada_mm": 110.3,
+    "max_horaria_ponderada_mm": 28.3,
+    "escorrentia_mm": 36.7,
+    "coef_escorrentia": 0.333,
+    "volumen_escorrentia_m3": 1557746,
+    "q_pico_m3s_tc_temez": 86.5,
+    "q_pico_m3s_tc_kirpich": 142.3,
+    "hora_pico_local_temez": "31-Oct 07:40 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 06:30 (UTC-6)",
+    "hora_local_vaso_lleno": "31-Oct 05:50 (UTC-6)",
+    "veces_volumen_vaso": 25.2,
+    "cota_si_no_hubiera_salida_m": 16.82,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 1.42,
+      "carga_m_kirpich": 1.98,
+      "cota_agua_m_temez": 14.37,
+      "cota_agua_m_kirpich": 14.93
+     },
+     "L100m": {
+      "carga_m_temez": 0.64,
+      "carga_m_kirpich": 0.89,
+      "cota_agua_m_temez": 13.59,
+      "cota_agua_m_kirpich": 13.84
+     },
+     "L300m": {
+      "carga_m_temez": 0.31,
+      "carga_m_kirpich": 0.43,
+      "cota_agua_m_temez": 13.26,
+      "cota_agua_m_kirpich": 13.38
+     }
+    }
+   },
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs_9km_thiessen_CN76",
+    "modelo": "ecmwf_ifs_9km",
+    "ponderacion": "thiessen",
+    "peso_alta": 0.673,
+    "amc": "AMC_II_III",
+    "CN": 75.7,
+    "lluvia_costa_mm": 82.2,
+    "lluvia_alta_mm": 133.2,
+    "lluvia_ponderada_mm": 116.5,
+    "max_horaria_ponderada_mm": 29.5,
+    "escorrentia_mm": 55.3,
+    "coef_escorrentia": 0.474,
+    "volumen_escorrentia_m3": 2343525,
+    "q_pico_m3s_tc_temez": 130.7,
+    "q_pico_m3s_tc_kirpich": 201.7,
+    "hora_pico_local_temez": "31-Oct 07:30 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 06:30 (UTC-6)",
+    "hora_local_vaso_lleno": "31-Oct 05:00 (UTC-6)",
+    "veces_volumen_vaso": 37.8,
+    "cota_si_no_hubiera_salida_m": 18.38,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 1.87,
+      "carga_m_kirpich": 2.5,
+      "cota_agua_m_temez": 14.82,
+      "cota_agua_m_kirpich": 15.45
+     },
+     "L100m": {
+      "carga_m_temez": 0.84,
+      "carga_m_kirpich": 1.12,
+      "cota_agua_m_temez": 13.79,
+      "cota_agua_m_kirpich": 14.07
+     },
+     "L300m": {
+      "carga_m_temez": 0.4,
+      "carga_m_kirpich": 0.54,
+      "cota_agua_m_temez": 13.35,
+      "cota_agua_m_kirpich": 13.49
+     }
+    }
+   },
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs_9km_thiessen_CN83",
+    "modelo": "ecmwf_ifs_9km",
+    "ponderacion": "thiessen",
+    "peso_alta": 0.673,
+    "amc": "AMC_III",
+    "CN": 83.2,
+    "lluvia_costa_mm": 82.2,
+    "lluvia_alta_mm": 133.2,
+    "lluvia_ponderada_mm": 116.5,
+    "max_horaria_ponderada_mm": 29.5,
+    "escorrentia_mm": 71.7,
+    "coef_escorrentia": 0.615,
+    "volumen_escorrentia_m3": 3039664,
+    "q_pico_m3s_tc_temez": 166.4,
+    "q_pico_m3s_tc_kirpich": 245.2,
+    "hora_pico_local_temez": "31-Oct 07:30 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 06:30 (UTC-6)",
+    "hora_local_vaso_lleno": "31-Oct 04:10 (UTC-6)",
+    "veces_volumen_vaso": 49.1,
+    "cota_si_no_hubiera_salida_m": 19.7,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 2.2,
+      "carga_m_kirpich": 2.85,
+      "cota_agua_m_temez": 15.15,
+      "cota_agua_m_kirpich": 15.8
+     },
+     "L100m": {
+      "carga_m_temez": 0.99,
+      "carga_m_kirpich": 1.28,
+      "cota_agua_m_temez": 13.94,
+      "cota_agua_m_kirpich": 14.23
+     },
+     "L300m": {
+      "carga_m_temez": 0.47,
+      "carga_m_kirpich": 0.61,
+      "cota_agua_m_temez": 13.42,
+      "cota_agua_m_kirpich": 13.56
+     }
+    }
+   },
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs_9km_thiessen_CN68",
+    "modelo": "ecmwf_ifs_9km",
+    "ponderacion": "thiessen",
+    "peso_alta": 0.673,
+    "amc": "AMC_II",
+    "CN": 68.3,
+    "lluvia_costa_mm": 82.2,
+    "lluvia_alta_mm": 133.2,
+    "lluvia_ponderada_mm": 116.5,
+    "max_horaria_ponderada_mm": 29.5,
+    "escorrentia_mm": 41.0,
+    "coef_escorrentia": 0.352,
+    "volumen_escorrentia_m3": 1737749,
+    "q_pico_m3s_tc_temez": 97.0,
+    "q_pico_m3s_tc_kirpich": 157.4,
+    "hora_pico_local_temez": "31-Oct 07:30 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 06:30 (UTC-6)",
+    "hora_local_vaso_lleno": "31-Oct 05:40 (UTC-6)",
+    "veces_volumen_vaso": 28.1,
+    "cota_si_no_hubiera_salida_m": 17.18,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 1.54,
+      "carga_m_kirpich": 2.12,
+      "cota_agua_m_temez": 14.49,
+      "cota_agua_m_kirpich": 15.07
+     },
+     "L100m": {
+      "carga_m_temez": 0.69,
+      "carga_m_kirpich": 0.95,
+      "cota_agua_m_temez": 13.64,
+      "cota_agua_m_kirpich": 13.9
+     },
+     "L300m": {
+      "carga_m_temez": 0.33,
+      "carga_m_kirpich": 0.46,
+      "cota_agua_m_temez": 13.28,
+      "cota_agua_m_kirpich": 13.41
+     }
+    }
+   },
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs025_cota200_CN76",
+    "modelo": "ecmwf_ifs025",
+    "ponderacion": "cota200",
+    "peso_alta": 0.55,
+    "amc": "AMC_II_III",
+    "CN": 75.7,
+    "lluvia_costa_mm": 25.7,
+    "lluvia_alta_mm": 25.7,
+    "lluvia_ponderada_mm": 25.7,
+    "max_horaria_ponderada_mm": 4.3,
+    "escorrentia_mm": 1.0,
+    "coef_escorrentia": 0.038,
+    "volumen_escorrentia_m3": 41150,
+    "q_pico_m3s_tc_temez": 1.0,
+    "q_pico_m3s_tc_kirpich": 1.2,
+    "hora_pico_local_temez": "31-Oct 16:30 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 15:30 (UTC-6)",
+    "hora_local_vaso_lleno": null,
+    "veces_volumen_vaso": 0.7,
+    "cota_si_no_hubiera_salida_m": 12.58,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 0.07,
+      "carga_m_kirpich": 0.08,
+      "cota_agua_m_temez": 13.02,
+      "cota_agua_m_kirpich": 13.03
+     },
+     "L100m": {
+      "carga_m_temez": 0.03,
+      "carga_m_kirpich": 0.04,
+      "cota_agua_m_temez": 12.98,
+      "cota_agua_m_kirpich": 12.99
+     },
+     "L300m": {
+      "carga_m_temez": 0.02,
+      "carga_m_kirpich": 0.02,
+      "cota_agua_m_temez": 12.97,
+      "cota_agua_m_kirpich": 12.97
+     }
+    }
+   },
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs025_cota200_CN83",
+    "modelo": "ecmwf_ifs025",
+    "ponderacion": "cota200",
+    "peso_alta": 0.55,
+    "amc": "AMC_III",
+    "CN": 83.2,
+    "lluvia_costa_mm": 25.7,
+    "lluvia_alta_mm": 25.7,
+    "lluvia_ponderada_mm": 25.7,
+    "max_horaria_ponderada_mm": 4.3,
+    "escorrentia_mm": 3.6,
+    "coef_escorrentia": 0.139,
+    "volumen_escorrentia_m3": 151552,
+    "q_pico_m3s_tc_temez": 2.8,
+    "q_pico_m3s_tc_kirpich": 3.2,
+    "hora_pico_local_temez": "31-Oct 16:10 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 15:20 (UTC-6)",
+    "hora_local_vaso_lleno": "31-Oct 13:20 (UTC-6)",
+    "veces_volumen_vaso": 2.4,
+    "cota_si_no_hubiera_salida_m": 13.05,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 0.15,
+      "carga_m_kirpich": 0.16,
+      "cota_agua_m_temez": 13.1,
+      "cota_agua_m_kirpich": 13.11
+     },
+     "L100m": {
+      "carga_m_temez": 0.07,
+      "carga_m_kirpich": 0.07,
+      "cota_agua_m_temez": 13.02,
+      "cota_agua_m_kirpich": 13.02
+     },
+     "L300m": {
+      "carga_m_temez": 0.03,
+      "carga_m_kirpich": 0.03,
+      "cota_agua_m_temez": 12.98,
+      "cota_agua_m_kirpich": 12.98
+     }
+    }
+   },
+   {
+    "escenario": "EVENTO31oct_ecmwf_ifs025_cota200_CN68",
+    "modelo": "ecmwf_ifs025",
+    "ponderacion": "cota200",
+    "peso_alta": 0.55,
+    "amc": "AMC_II",
+    "CN": 68.3,
+    "lluvia_costa_mm": 25.7,
+    "lluvia_alta_mm": 25.7,
+    "lluvia_ponderada_mm": 25.7,
+    "max_horaria_ponderada_mm": 4.3,
+    "escorrentia_mm": 0.0,
+    "coef_escorrentia": 0.001,
+    "volumen_escorrentia_m3": 1591,
+    "q_pico_m3s_tc_temez": 0.1,
+    "q_pico_m3s_tc_kirpich": 0.2,
+    "hora_pico_local_temez": "31-Oct 22:30 (UTC-6)",
+    "hora_pico_local_kirpich": "31-Oct 21:30 (UTC-6)",
+    "hora_local_vaso_lleno": null,
+    "veces_volumen_vaso": 0.0,
+    "cota_si_no_hubiera_salida_m": 11.02,
+    "vertedero_en_umbral_de_rebose": {
+     "L30m": {
+      "carga_m_temez": 0.02,
+      "carga_m_kirpich": 0.02,
+      "cota_agua_m_temez": 12.97,
+      "cota_agua_m_kirpich": 12.97
+     },
+     "L100m": {
+      "carga_m_temez": 0.01,
+      "carga_m_kirpich": 0.01,
+      "cota_agua_m_temez": 12.96,
+      "cota_agua_m_kirpich": 12.96
+     },
+     "L300m": {
+      "carga_m_temez": 0.0,
+      "carga_m_kirpich": 0.0,
+      "cota_agua_m_temez": 12.95,
+      "cota_agua_m_kirpich": 12.95
+     }
+    }
+   }
+  ],
+  "amc_5dias_26_30oct": {
+   "ecmwf_ifs025": {
+    "costa_mm": 6.2,
+    "alta_mm": 6.2,
+    "ponderada_mm": 6.2,
+    "clase": {
+     "estacion_de_crecimiento": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     },
+     "estacion_latente": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     }
+    }
+   },
+   "ecmwf_ifs": {
+    "costa_mm": 25.7,
+    "alta_mm": 56.8,
+    "ponderada_mm": 42.8,
+    "clase": {
+     "estacion_de_crecimiento": {
+      "costa": "I",
+      "alta": "III",
+      "ponderada": "II"
+     },
+     "estacion_latente": {
+      "costa": "II",
+      "alta": "III",
+      "ponderada": "III"
+     }
+    }
+   },
+   "era5": {
+    "costa_mm": 1.7,
+    "alta_mm": 1.7,
+    "ponderada_mm": 1.7,
+    "clase": {
+     "estacion_de_crecimiento": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     },
+     "estacion_latente": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     }
+    }
+   },
+   "gfs_seamless": {
+    "costa_mm": 14.5,
+    "alta_mm": 12.7,
+    "ponderada_mm": 13.5,
+    "clase": {
+     "estacion_de_crecimiento": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     },
+     "estacion_latente": {
+      "costa": "II",
+      "alta": "II",
+      "ponderada": "II"
+     }
+    }
+   },
+   "icon_seamless": {
+    "costa_mm": 12.7,
+    "alta_mm": 12.7,
+    "ponderada_mm": 12.7,
+    "clase": {
+     "estacion_de_crecimiento": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     },
+     "estacion_latente": {
+      "costa": "II",
+      "alta": "II",
+      "ponderada": "II"
+     }
+    }
+   },
+   "jma_seamless": {
+    "costa_mm": 2.8,
+    "alta_mm": 2.8,
+    "ponderada_mm": 2.8,
+    "clase": {
+     "estacion_de_crecimiento": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     },
+     "estacion_latente": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     }
+    }
+   },
+   "meteofrance_seamless": {
+    "costa_mm": 15.5,
+    "alta_mm": 15.5,
+    "ponderada_mm": 15.5,
+    "clase": {
+     "estacion_de_crecimiento": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     },
+     "estacion_latente": {
+      "costa": "II",
+      "alta": "II",
+      "ponderada": "II"
+     }
+    }
+   },
+   "ukmo_seamless": {
+    "costa_mm": 17.5,
+    "alta_mm": 12.0,
+    "ponderada_mm": 14.5,
+    "clase": {
+     "estacion_de_crecimiento": {
+      "costa": "I",
+      "alta": "I",
+      "ponderada": "I"
+     },
+     "estacion_latente": {
+      "costa": "II",
+      "alta": "I",
+      "ponderada": "II"
+     }
+    }
+   }
+  },
+  "cn_eleccion": "Central CN intermedio II–III: con ECMWF 9 km la lluvia de 5 días ponderada es AMC II con los umbrales de la estación de crecimiento y AMC III con los de la estación latente; los demás modelos dan AMC I–II. CN 83 (AMC III) y CN 68 (AMC II) quedan como sensibilidad."
+ },
+ "hidrologia": {
+  "metodo": "SCS-CN (Ia = 0,2 S) + hidrograma unitario adimensional SCS (Tlag = 0,6 tc, dt = 10 min); tormenta SCS tipo II de 24 h; cuenca agregada, lluvia uniforme, sin flujo base ni tránsito por depresiones.",
+  "area_km2": 42.41,
+  "tc_temez_h (central)": 3.61,
+  "tc_kirpich_h (sensibilidad)": 1.43,
+  "coberturas": {
+   "parque": 0.421,
+   "agricola": 0.5,
+   "urbano": 0.079
+  },
+  "cn_por_clase_supuesto": {
+   "parque (lava, suelo somero)": 55,
+   "zona agrícola (suelos más profundos, pastos)": 76,
+   "urbano": 90
+  },
+  "cn_compuesto_AMC_I": 47.4,
+  "cn_compuesto_AMC_II": 68.3,
+  "cn_compuesto_AMC_III": 83.2,
+  "volumen_almacenable_depresion_hasta_rebose_m3": 61938,
+  "volumen_bathtub_14m_m3": 379867,
+  "escenarios": [
+   {
+    "escenario": "P50mm_CN60",
+    "lluvia_mm": 50,
+    "CN": 60,
+    "escorrentia_mm": 1.4,
+    "coef_escorrentia": 0.028,
+    "volumen_escorrentia_m3": 59518,
+    "q_pico_m3s_tc_temez": 1.5,
+    "t_pico_h": 17.5,
+    "q_pico_m3s_tc_kirpich": 1.7,
+    "veces_volumen_vaso_hasta_rebose": 1.0,
+    "veces_volumen_bathtub_14m": 0.2,
+    "hora_en_que_se_llena_la_depresion": null,
+    "ancho_base_canal_m_S0.5pct": 0.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 0.5
+   },
+   {
+    "escenario": "P50mm_CN70",
+    "lluvia_mm": 50,
+    "CN": 70,
+    "escorrentia_mm": 5.8,
+    "coef_escorrentia": 0.116,
+    "volumen_escorrentia_m3": 246519,
+    "q_pico_m3s_tc_temez": 9.9,
+    "t_pico_h": 15.0,
+    "q_pico_m3s_tc_kirpich": 16.7,
+    "veces_volumen_vaso_hasta_rebose": 4.0,
+    "veces_volumen_bathtub_14m": 0.6,
+    "hora_en_que_se_llena_la_depresion": 15.166666666666666,
+    "ancho_base_canal_m_S0.5pct": 0.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 1.0
+   },
+   {
+    "escenario": "P50mm_CN80",
+    "lluvia_mm": 50,
+    "CN": 80,
+    "escorrentia_mm": 13.8,
+    "coef_escorrentia": 0.276,
+    "volumen_escorrentia_m3": 585360,
+    "q_pico_m3s_tc_temez": 30.0,
+    "t_pico_h": 14.5,
+    "q_pico_m3s_tc_kirpich": 57.5,
+    "veces_volumen_vaso_hasta_rebose": 9.5,
+    "veces_volumen_bathtub_14m": 1.5,
+    "hora_en_que_se_llena_la_depresion": 13.833333333333332,
+    "ancho_base_canal_m_S0.5pct": 2.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 6.0
+   },
+   {
+    "escenario": "P100mm_CN60",
+    "lluvia_mm": 100,
+    "CN": 60,
+    "escorrentia_mm": 18.6,
+    "coef_escorrentia": 0.186,
+    "volumen_escorrentia_m3": 787730,
+    "q_pico_m3s_tc_temez": 36.3,
+    "t_pico_h": 14.67,
+    "q_pico_m3s_tc_kirpich": 66.6,
+    "veces_volumen_vaso_hasta_rebose": 12.7,
+    "veces_volumen_bathtub_14m": 2.1,
+    "hora_en_que_se_llena_la_depresion": 13.666666666666666,
+    "ancho_base_canal_m_S0.5pct": 3.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 7.0
+   },
+   {
+    "escenario": "P100mm_CN70",
+    "lluvia_mm": 100,
+    "CN": 70,
+    "escorrentia_mm": 32.7,
+    "coef_escorrentia": 0.327,
+    "volumen_escorrentia_m3": 1387255,
+    "q_pico_m3s_tc_temez": 74.1,
+    "t_pico_h": 14.5,
+    "q_pico_m3s_tc_kirpich": 143.3,
+    "veces_volumen_vaso_hasta_rebose": 22.4,
+    "veces_volumen_bathtub_14m": 3.7,
+    "hora_en_que_se_llena_la_depresion": 13.166666666666666,
+    "ancho_base_canal_m_S0.5pct": 8.0,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 15.5
+   },
+   {
+    "escenario": "P100mm_CN80",
+    "lluvia_mm": 100,
+    "CN": 80,
+    "escorrentia_mm": 50.5,
+    "coef_escorrentia": 0.505,
+    "volumen_escorrentia_m3": 2143351,
+    "q_pico_m3s_tc_temez": 122.9,
+    "t_pico_h": 14.5,
+    "q_pico_m3s_tc_kirpich": 238.7,
+    "veces_volumen_vaso_hasta_rebose": 34.6,
+    "veces_volumen_bathtub_14m": 5.6,
+    "hora_en_que_se_llena_la_depresion": 12.666666666666666,
+    "ancho_base_canal_m_S0.5pct": 13.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 26.0
+   },
+   {
+    "escenario": "P150mm_CN60",
+    "lluvia_mm": 150,
+    "CN": 60,
+    "escorrentia_mm": 47.2,
+    "coef_escorrentia": 0.315,
+    "volumen_escorrentia_m3": 2003662,
+    "q_pico_m3s_tc_temez": 106.2,
+    "t_pico_h": 14.5,
+    "q_pico_m3s_tc_kirpich": 204.9,
+    "veces_volumen_vaso_hasta_rebose": 32.3,
+    "veces_volumen_bathtub_14m": 5.3,
+    "hora_en_que_se_llena_la_depresion": 13.166666666666666,
+    "ancho_base_canal_m_S0.5pct": 11.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 22.5
+   },
+   {
+    "escenario": "P150mm_CN70",
+    "lluvia_mm": 150,
+    "CN": 70,
+    "escorrentia_mm": 69.4,
+    "coef_escorrentia": 0.462,
+    "volumen_escorrentia_m3": 2941239,
+    "q_pico_m3s_tc_temez": 167.0,
+    "t_pico_h": 14.5,
+    "q_pico_m3s_tc_kirpich": 324.4,
+    "veces_volumen_vaso_hasta_rebose": 47.5,
+    "veces_volumen_bathtub_14m": 7.7,
+    "hora_en_que_se_llena_la_depresion": 12.666666666666666,
+    "ancho_base_canal_m_S0.5pct": 18.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 35.5
+   },
+   {
+    "escenario": "P150mm_CN80",
+    "lluvia_mm": 150,
+    "CN": 80,
+    "escorrentia_mm": 93.9,
+    "coef_escorrentia": 0.626,
+    "volumen_escorrentia_m3": 3981471,
+    "q_pico_m3s_tc_temez": 232.4,
+    "t_pico_h": 14.33,
+    "q_pico_m3s_tc_kirpich": 447.6,
+    "veces_volumen_vaso_hasta_rebose": 64.3,
+    "veces_volumen_bathtub_14m": 10.5,
+    "hora_en_que_se_llena_la_depresion": 11.666666666666666,
+    "ancho_base_canal_m_S0.5pct": 25.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 48.5
+   },
+   {
+    "escenario": "P200mm_CN60",
+    "lluvia_mm": 200,
+    "CN": 60,
+    "escorrentia_mm": 82.3,
+    "coef_escorrentia": 0.411,
+    "volumen_escorrentia_m3": 3489236,
+    "q_pico_m3s_tc_temez": 194.8,
+    "t_pico_h": 14.5,
+    "q_pico_m3s_tc_kirpich": 378.4,
+    "veces_volumen_vaso_hasta_rebose": 56.3,
+    "veces_volumen_bathtub_14m": 9.2,
+    "hora_en_que_se_llena_la_depresion": 12.666666666666666,
+    "ancho_base_canal_m_S0.5pct": 21.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 41.0
+   },
+   {
+    "escenario": "P200mm_CN70",
+    "lluvia_mm": 200,
+    "CN": 70,
+    "escorrentia_mm": 110.6,
+    "coef_escorrentia": 0.553,
+    "volumen_escorrentia_m3": 4692554,
+    "q_pico_m3s_tc_temez": 271.5,
+    "t_pico_h": 14.33,
+    "q_pico_m3s_tc_kirpich": 525.9,
+    "veces_volumen_vaso_hasta_rebose": 75.8,
+    "veces_volumen_bathtub_14m": 12.4,
+    "hora_en_que_se_llena_la_depresion": 12.166666666666666,
+    "ancho_base_canal_m_S0.5pct": 29.5,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 57.0
+   },
+   {
+    "escenario": "P200mm_CN80",
+    "lluvia_mm": 200,
+    "CN": 80,
+    "escorrentia_mm": 139.9,
+    "coef_escorrentia": 0.699,
+    "volumen_escorrentia_m3": 5932178,
+    "q_pico_m3s_tc_temez": 346.7,
+    "t_pico_h": 14.33,
+    "q_pico_m3s_tc_kirpich": 664.0,
+    "veces_volumen_vaso_hasta_rebose": 95.8,
+    "veces_volumen_bathtub_14m": 15.6,
+    "hora_en_que_se_llena_la_depresion": 10.333333333333332,
+    "ancho_base_canal_m_S0.5pct": 38.0,
+    "ancho_base_canal_m_S0.5pct_tc_kirpich": 72.0
+   }
+  ],
+  "canal_referencia": {
+   "n_manning": 0.035,
+   "calado_m": 2.5,
+   "talud": 1.0
+  }
+ },
+ "rebose": {
+  "metodo": "Camino de mínimo umbral (minimax) desde el punto bajo del barrio hasta el mar sobre el DSM; desempate por longitud.",
+  "SUR (bahía, frente urbano)": {
+   "salida": "SUR (bahía, frente urbano)",
+   "umbral_m": 12.95,
+   "umbral_lonlat": [
+    -90.31237,
+    -0.73509
+   ],
+   "longitud_m": 1509,
+   "fraccion_en_zona_poblada": 0.94,
+   "edificios_a_menos_de_20m": 208,
+   "llegada_mar_lonlat": [
+    -90.31209,
+    -0.74323
+   ]
+  },
+  "ESTE": {
+   "salida": "ESTE",
+   "umbral_m": 12.95,
+   "umbral_lonlat": [
+    -90.31237,
+    -0.73509
+   ],
+   "longitud_m": 2190,
+   "fraccion_en_zona_poblada": 0.76,
+   "edificios_a_menos_de_20m": 185,
+   "llegada_mar_lonlat": [
+    -90.30294,
+    -0.74349
+   ]
+  },
+  "definiciones": [
+   {
+    "superficie": "DSM",
+    "vecinos": 8,
+    "cota_fondo_m": 10.53,
+    "cota_rebose_m": 12.95,
+    "punto_de_control_lonlat": [
+     -90.31237,
+     -0.73509
+    ],
+    "dsm_en_punto_de_control_m": 12.95
+   },
+   {
+    "superficie": "DSM",
+    "vecinos": 4,
+    "cota_fondo_m": 10.53,
+    "cota_rebose_m": 13.25,
+    "punto_de_control_lonlat": [
+     -90.31183,
+     -0.73401
+    ],
+    "dsm_en_punto_de_control_m": 13.25
+   },
+   {
+    "superficie": "proxy de suelo (mín. 3×3)",
+    "vecinos": 8,
+    "cota_fondo_m": 10.53,
+    "cota_rebose_m": 12.0,
+    "punto_de_control_lonlat": [
+     -90.31264,
+     -0.73699
+    ],
+    "dsm_en_punto_de_control_m": 13.17
+   },
+   {
+    "superficie": "proxy de suelo (mín. 3×3)",
+    "vecinos": 4,
+    "cota_fondo_m": 10.53,
+    "cota_rebose_m": 12.0,
+    "punto_de_control_lonlat": [
+     -90.31264,
+     -0.73699
+    ],
+    "dsm_en_punto_de_control_m": 13.17
+   }
+  ],
+  "definicion_adoptada": "Cota de rebose: mínima cota de lámina a la que el agua conectada al punto bajo del barrio alcanza el mar (camino minimax). Referencia: DSM con 8 vecinos. Las demás variantes acotan la incertidumbre."
+ },
+ "cauce_este": {
+  "fuente": "OSM",
+  "atributos": {
+   "isla": "Santa Cruz",
+   "nombre": null,
+   "regimen": "stream",
+   "intermitente": "yes",
+   "fuente": "OSM"
+  },
+  "osm": {
+   "osm_way_id": 737164765,
+   "tags": {
+    "intermittent": "yes",
+    "waterway": "stream"
+   }
+  },
+  "longitud_m": 4118,
+  "extremo_oriental_lonlat": [
+   -90.28422,
+   -0.74282
+  ],
+  "cota_extremo_oriental_m": 42.0,
+  "dist_mar_extremo_oriental_m": 371,
+  "distancia_al_punto_mas_cercano_al_barrio_m": 480,
+  "umbral_para_recorrer_todo_el_trazado_m": 36.87,
+  "cota_rebose_barrio_m": 12.95,
+  "trazado_sobre_minimo_franja_mediana_m": 4.6,
+  "umbrales_detectados": [
+   {
+    "distancia_m": 1170,
+    "lonlat": [
+     -90.308236,
+     -0.734468
+    ],
+    "cota_min_franja_m": 18.83,
+    "prominencia_m": 7.8,
+    "dist_via_m": 119,
+    "edificios_60m": 0,
+    "vegetacion_igm": true,
+    "z_punto_acotado_igm_cercano": null
+   },
+   {
+    "distancia_m": 1530,
+    "lonlat": [
+     -90.305602,
+     -0.73623
+    ],
+    "cota_min_franja_m": 17.78,
+    "prominencia_m": 4.7,
+    "dist_via_m": 207,
+    "edificios_60m": 0,
+    "vegetacion_igm": true,
+    "z_punto_acotado_igm_cercano": null
+   },
+   {
+    "distancia_m": 2550,
+    "lonlat": [
+     -90.297344,
+     -0.739682
+    ],
+    "cota_min_franja_m": 21.16,
+    "prominencia_m": 8.4,
+    "dist_via_m": 501,
+    "edificios_60m": 0,
+    "vegetacion_igm": true,
+    "z_punto_acotado_igm_cercano": null
+   },
+   {
+    "distancia_m": 3570,
+    "lonlat": [
+     -90.289035,
+     -0.741854
+    ],
+    "cota_min_franja_m": 33.04,
+    "prominencia_m": 5.4,
+    "dist_via_m": 1440,
+    "edificios_60m": 0,
+    "vegetacion_igm": true,
+    "z_punto_acotado_igm_cercano": null
+   }
+  ],
+  "quebradas_igm_en_el_trazado_m": 9,
+  "grietas_igm_a_menos_de_200m": 0
+ },
+ "validacion_dsm": {
+  "nota": "DSM − punto acotado IGM (z entero). Radio 5 km del barrio. El punto acotado IGM tiene su propio error (cartografía 1:25 000).",
+  "todos": {
+   "n": 468,
+   "media_m": -2.06,
+   "mediana_m": -2.01,
+   "rmse_m": 2.87,
+   "p05_m": -5.24,
+   "p95_m": 0.88
+  },
+  "en_zona_poblada": {
+   "n": 53,
+   "media_m": -3.38,
+   "mediana_m": -3.4,
+   "rmse_m": 3.81,
+   "p05_m": -5.72,
+   "p95_m": -0.28
+  },
+  "fuera_zona_poblada": {
+   "n": 415,
+   "media_m": -1.89,
+   "mediana_m": -1.84,
+   "rmse_m": 2.72,
+   "p05_m": -4.95,
+   "p95_m": 1.03
+  }
+ }
+}
