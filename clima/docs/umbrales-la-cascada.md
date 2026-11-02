@@ -74,11 +74,11 @@ El vaso se llenó entre las 16:50 y las 18:10, y solo lo precedió «medio».
 - Santa Rosa está a 6,6 km de la cuenca y Los Guayabillos, a 0,4 km fuera de ella. Hay que asignar estaciones por sector.
 - Confirmar con el GAD o el COE si hubo anegamientos el 3-oct, el 23-oct y el 1–2-nov.
 
-- 2-nov-2026: se añadió a La Cascada una estación particular WeatherLink de Puerto Ayora (Davis Vantage Vue), con peso 1, como segundo pluviómetro costero junto a INAMHI M0191.
+- 2-nov-2026: se añadió a La Cascada la estación particular WeatherLink de Erna en Puerto Ayora (Davis Vantage Vue), con peso 1, como segundo pluviómetro costero junto a INAMHI M0191.
   - Está en la costa, aguas abajo de la cuenca, y **no representa la lluvia de la cuenca alta**. Como R es un máximo, no puede bajar el nivel, pero un chubasco costero sí puede subirlo.
   - El pluviómetro es un balancín pequeño de 0,01" (0,254 mm) y subestima la lluvia intensa.
   - Se descartan los saltos de más de 100 mm/h.
-  - Falta el consentimiento del propietario: por eso se publica sin su nombre y con la ubicación redondeada.
+  - Es la estación de Erna, en Puerto Ayora (−0,7534 / −90,3120); se publica con su nombre y su ubicación exacta (autorizado el 2-nov-2026).
 
 ## Referencias horarias del modelo 2D (ANUGA / LISFLOOD-ACC, 30-oct, hora de Galápagos)
 - Primera llegada de agua (0,1 m) al punto bajo: 15:36. La regla daba «medio» a las 15:15.
