@@ -1,0 +1,759 @@
+puerto,fecha_hora_utc6,tipo,nivel_m
+Puerto Ayora (predicha),2026-08-31 22:50,bajamar,-0.799
+Puerto Ayora (predicha),2026-09-01 05:00,pleamar,0.914
+Puerto Ayora (predicha),2026-09-01 11:20,bajamar,-0.81
+Puerto Ayora (predicha),2026-09-01 17:20,pleamar,0.722
+Puerto Ayora (predicha),2026-09-01 23:30,bajamar,-0.723
+Puerto Ayora (predicha),2026-09-02 05:40,pleamar,0.835
+Puerto Ayora (predicha),2026-09-02 12:00,bajamar,-0.769
+Puerto Ayora (predicha),2026-09-02 18:10,pleamar,0.64
+Puerto Ayora (predicha),2026-09-03 00:10,bajamar,-0.622
+Puerto Ayora (predicha),2026-09-03 06:20,pleamar,0.721
+Puerto Ayora (predicha),2026-09-03 12:50,bajamar,-0.698
+Puerto Ayora (predicha),2026-09-03 19:00,pleamar,0.544
+Puerto Ayora (predicha),2026-09-04 01:00,bajamar,-0.511
+Puerto Ayora (predicha),2026-09-04 07:20,pleamar,0.592
+Puerto Ayora (predicha),2026-09-04 13:50,bajamar,-0.616
+Puerto Ayora (predicha),2026-09-04 20:10,pleamar,0.461
+Puerto Ayora (predicha),2026-09-05 02:20,bajamar,-0.417
+Puerto Ayora (predicha),2026-09-05 08:30,pleamar,0.487
+Puerto Ayora (predicha),2026-09-05 15:10,bajamar,-0.561
+Puerto Ayora (predicha),2026-09-05 21:30,pleamar,0.432
+Puerto Ayora (predicha),2026-09-06 03:50,bajamar,-0.389
+Puerto Ayora (predicha),2026-09-06 10:00,pleamar,0.456
+Puerto Ayora (predicha),2026-09-06 16:30,bajamar,-0.578
+Puerto Ayora (predicha),2026-09-06 23:00,pleamar,0.494
+Puerto Ayora (predicha),2026-09-07 05:10,bajamar,-0.455
+Puerto Ayora (predicha),2026-09-07 11:20,pleamar,0.519
+Puerto Ayora (predicha),2026-09-07 17:40,bajamar,-0.663
+Puerto Ayora (predicha),2026-09-08 00:10,pleamar,0.624
+Puerto Ayora (predicha),2026-09-08 06:20,bajamar,-0.575
+Puerto Ayora (predicha),2026-09-08 12:30,pleamar,0.633
+Puerto Ayora (predicha),2026-09-08 18:40,bajamar,-0.773
+Puerto Ayora (predicha),2026-09-09 01:00,pleamar,0.774
+Puerto Ayora (predicha),2026-09-09 07:20,bajamar,-0.703
+Puerto Ayora (predicha),2026-09-09 13:20,pleamar,0.752
+Puerto Ayora (predicha),2026-09-09 19:30,bajamar,-0.87
+Puerto Ayora (predicha),2026-09-10 01:50,pleamar,0.908
+Puerto Ayora (predicha),2026-09-10 08:00,bajamar,-0.815
+Puerto Ayora (predicha),2026-09-10 14:00,pleamar,0.844
+Puerto Ayora (predicha),2026-09-10 20:20,bajamar,-0.928
+Puerto Ayora (predicha),2026-09-11 02:30,pleamar,1.0
+Puerto Ayora (predicha),2026-09-11 08:40,bajamar,-0.892
+Puerto Ayora (predicha),2026-09-11 14:50,pleamar,0.896
+Puerto Ayora (predicha),2026-09-11 21:00,bajamar,-0.94
+Puerto Ayora (predicha),2026-09-12 03:10,pleamar,1.034
+Puerto Ayora (predicha),2026-09-12 09:20,bajamar,-0.93
+Puerto Ayora (predicha),2026-09-12 15:30,pleamar,0.902
+Puerto Ayora (predicha),2026-09-12 21:40,bajamar,-0.904
+Puerto Ayora (predicha),2026-09-13 03:50,pleamar,1.007
+Puerto Ayora (predicha),2026-09-13 10:00,bajamar,-0.925
+Puerto Ayora (predicha),2026-09-13 16:10,pleamar,0.863
+Puerto Ayora (predicha),2026-09-13 22:10,bajamar,-0.83
+Puerto Ayora (predicha),2026-09-14 04:20,pleamar,0.927
+Puerto Ayora (predicha),2026-09-14 10:40,bajamar,-0.879
+Puerto Ayora (predicha),2026-09-14 16:50,pleamar,0.786
+Puerto Ayora (predicha),2026-09-14 22:50,bajamar,-0.729
+Puerto Ayora (predicha),2026-09-15 05:00,pleamar,0.809
+Puerto Ayora (predicha),2026-09-15 11:20,bajamar,-0.8
+Puerto Ayora (predicha),2026-09-15 17:30,pleamar,0.679
+Puerto Ayora (predicha),2026-09-15 23:30,bajamar,-0.614
+Puerto Ayora (predicha),2026-09-16 05:30,pleamar,0.672
+Puerto Ayora (predicha),2026-09-16 11:50,bajamar,-0.7
+Puerto Ayora (predicha),2026-09-16 18:10,pleamar,0.557
+Puerto Ayora (predicha),2026-09-17 00:10,bajamar,-0.496
+Puerto Ayora (predicha),2026-09-17 06:10,pleamar,0.53
+Puerto Ayora (predicha),2026-09-17 12:30,bajamar,-0.588
+Puerto Ayora (predicha),2026-09-17 18:50,pleamar,0.435
+Puerto Ayora (predicha),2026-09-18 00:50,bajamar,-0.384
+Puerto Ayora (predicha),2026-09-18 07:00,pleamar,0.399
+Puerto Ayora (predicha),2026-09-18 13:30,bajamar,-0.482
+Puerto Ayora (predicha),2026-09-18 19:50,pleamar,0.331
+Puerto Ayora (predicha),2026-09-19 01:50,bajamar,-0.291
+Puerto Ayora (predicha),2026-09-19 08:00,pleamar,0.296
+Puerto Ayora (predicha),2026-09-19 14:30,bajamar,-0.403
+Puerto Ayora (predicha),2026-09-19 21:10,pleamar,0.275
+Puerto Ayora (predicha),2026-09-20 03:20,bajamar,-0.242
+Puerto Ayora (predicha),2026-09-20 09:20,pleamar,0.252
+Puerto Ayora (predicha),2026-09-20 16:00,bajamar,-0.382
+Puerto Ayora (predicha),2026-09-20 22:30,pleamar,0.294
+Puerto Ayora (predicha),2026-09-21 04:40,bajamar,-0.268
+Puerto Ayora (predicha),2026-09-21 10:50,pleamar,0.288
+Puerto Ayora (predicha),2026-09-21 17:10,bajamar,-0.424
+Puerto Ayora (predicha),2026-09-21 23:40,pleamar,0.379
+Puerto Ayora (predicha),2026-09-22 05:50,bajamar,-0.348
+Puerto Ayora (predicha),2026-09-22 11:50,pleamar,0.38
+Puerto Ayora (predicha),2026-09-22 18:00,bajamar,-0.501
+Puerto Ayora (predicha),2026-09-23 00:30,pleamar,0.497
+Puerto Ayora (predicha),2026-09-23 06:30,bajamar,-0.449
+Puerto Ayora (predicha),2026-09-23 12:40,pleamar,0.493
+Puerto Ayora (predicha),2026-09-23 18:50,bajamar,-0.589
+Puerto Ayora (predicha),2026-09-24 01:00,pleamar,0.627
+Puerto Ayora (predicha),2026-09-24 07:10,bajamar,-0.559
+Puerto Ayora (predicha),2026-09-24 13:10,pleamar,0.607
+Puerto Ayora (predicha),2026-09-24 19:20,bajamar,-0.676
+Puerto Ayora (predicha),2026-09-25 01:40,pleamar,0.755
+Puerto Ayora (predicha),2026-09-25 07:50,bajamar,-0.672
+Puerto Ayora (predicha),2026-09-25 13:50,pleamar,0.71
+Puerto Ayora (predicha),2026-09-25 20:00,bajamar,-0.752
+Puerto Ayora (predicha),2026-09-26 02:10,pleamar,0.869
+Puerto Ayora (predicha),2026-09-26 08:20,bajamar,-0.78
+Puerto Ayora (predicha),2026-09-26 14:30,pleamar,0.792
+Puerto Ayora (predicha),2026-09-26 20:30,bajamar,-0.809
+Puerto Ayora (predicha),2026-09-27 02:40,pleamar,0.953
+Puerto Ayora (predicha),2026-09-27 09:00,bajamar,-0.872
+Puerto Ayora (predicha),2026-09-27 15:00,pleamar,0.845
+Puerto Ayora (predicha),2026-09-27 21:10,bajamar,-0.839
+Puerto Ayora (predicha),2026-09-28 03:20,pleamar,0.995
+Puerto Ayora (predicha),2026-09-28 09:30,bajamar,-0.935
+Puerto Ayora (predicha),2026-09-28 15:40,pleamar,0.863
+Puerto Ayora (predicha),2026-09-28 21:40,bajamar,-0.835
+Puerto Ayora (predicha),2026-09-29 03:50,pleamar,0.985
+Puerto Ayora (predicha),2026-09-29 10:10,bajamar,-0.957
+Puerto Ayora (predicha),2026-09-29 16:20,pleamar,0.843
+Puerto Ayora (predicha),2026-09-29 22:20,bajamar,-0.795
+Puerto Ayora (predicha),2026-09-30 04:30,pleamar,0.92
+Puerto Ayora (predicha),2026-09-30 10:50,bajamar,-0.929
+Puerto Ayora (predicha),2026-09-30 17:10,pleamar,0.784
+Puerto Ayora (predicha),2026-09-30 23:10,bajamar,-0.719
+Puerto Ayora (predicha),2026-10-01 05:10,pleamar,0.806
+Puerto Ayora (predicha),2026-10-01 11:40,bajamar,-0.854
+Puerto Ayora (predicha),2026-10-01 17:50,pleamar,0.694
+Puerto Ayora (predicha),2026-10-02 00:00,bajamar,-0.615
+Puerto Ayora (predicha),2026-10-02 06:00,pleamar,0.665
+Puerto Ayora (predicha),2026-10-02 12:30,bajamar,-0.746
+Puerto Ayora (predicha),2026-10-02 18:50,pleamar,0.593
+Puerto Ayora (predicha),2026-10-03 01:00,bajamar,-0.503
+Puerto Ayora (predicha),2026-10-03 07:10,pleamar,0.526
+Puerto Ayora (predicha),2026-10-03 13:30,bajamar,-0.634
+Puerto Ayora (predicha),2026-10-03 20:10,pleamar,0.513
+Puerto Ayora (predicha),2026-10-04 02:20,bajamar,-0.423
+Puerto Ayora (predicha),2026-10-04 08:30,pleamar,0.432
+Puerto Ayora (predicha),2026-10-04 14:50,bajamar,-0.565
+Puerto Ayora (predicha),2026-10-04 21:30,pleamar,0.502
+Puerto Ayora (predicha),2026-10-05 03:50,bajamar,-0.423
+Puerto Ayora (predicha),2026-10-05 10:00,pleamar,0.426
+Puerto Ayora (predicha),2026-10-05 16:20,bajamar,-0.571
+Puerto Ayora (predicha),2026-10-05 22:50,pleamar,0.574
+Puerto Ayora (predicha),2026-10-06 05:10,bajamar,-0.506
+Puerto Ayora (predicha),2026-10-06 11:10,pleamar,0.504
+Puerto Ayora (predicha),2026-10-06 17:30,bajamar,-0.632
+Puerto Ayora (predicha),2026-10-06 23:50,pleamar,0.692
+Puerto Ayora (predicha),2026-10-07 06:10,bajamar,-0.625
+Puerto Ayora (predicha),2026-10-07 12:10,pleamar,0.615
+Puerto Ayora (predicha),2026-10-07 18:20,bajamar,-0.704
+Puerto Ayora (predicha),2026-10-08 00:40,pleamar,0.81
+Puerto Ayora (predicha),2026-10-08 07:00,bajamar,-0.744
+Puerto Ayora (predicha),2026-10-08 13:00,pleamar,0.721
+Puerto Ayora (predicha),2026-10-08 19:10,bajamar,-0.762
+Puerto Ayora (predicha),2026-10-09 01:20,pleamar,0.9
+Puerto Ayora (predicha),2026-10-09 07:40,bajamar,-0.843
+Puerto Ayora (predicha),2026-10-09 13:50,pleamar,0.803
+Puerto Ayora (predicha),2026-10-09 19:50,bajamar,-0.793
+Puerto Ayora (predicha),2026-10-10 02:00,pleamar,0.948
+Puerto Ayora (predicha),2026-10-10 08:20,bajamar,-0.91
+Puerto Ayora (predicha),2026-10-10 14:30,pleamar,0.85
+Puerto Ayora (predicha),2026-10-10 20:30,bajamar,-0.794
+Puerto Ayora (predicha),2026-10-11 02:40,pleamar,0.948
+Puerto Ayora (predicha),2026-10-11 09:00,bajamar,-0.939
+Puerto Ayora (predicha),2026-10-11 15:10,pleamar,0.856
+Puerto Ayora (predicha),2026-10-11 21:10,bajamar,-0.768
+Puerto Ayora (predicha),2026-10-12 03:10,pleamar,0.902
+Puerto Ayora (predicha),2026-10-12 09:30,bajamar,-0.929
+Puerto Ayora (predicha),2026-10-12 15:50,pleamar,0.822
+Puerto Ayora (predicha),2026-10-12 21:50,bajamar,-0.718
+Puerto Ayora (predicha),2026-10-13 03:50,pleamar,0.823
+Puerto Ayora (predicha),2026-10-13 10:10,bajamar,-0.884
+Puerto Ayora (predicha),2026-10-13 16:20,pleamar,0.756
+Puerto Ayora (predicha),2026-10-13 22:20,bajamar,-0.65
+Puerto Ayora (predicha),2026-10-14 04:20,pleamar,0.72
+Puerto Ayora (predicha),2026-10-14 10:40,bajamar,-0.812
+Puerto Ayora (predicha),2026-10-14 17:00,pleamar,0.665
+Puerto Ayora (predicha),2026-10-14 23:00,bajamar,-0.569
+Puerto Ayora (predicha),2026-10-15 05:00,pleamar,0.606
+Puerto Ayora (predicha),2026-10-15 11:20,bajamar,-0.72
+Puerto Ayora (predicha),2026-10-15 17:40,pleamar,0.563
+Puerto Ayora (predicha),2026-10-15 23:40,bajamar,-0.479
+Puerto Ayora (predicha),2026-10-16 05:40,pleamar,0.49
+Puerto Ayora (predicha),2026-10-16 12:00,bajamar,-0.617
+Puerto Ayora (predicha),2026-10-16 18:20,pleamar,0.464
+Puerto Ayora (predicha),2026-10-17 00:20,bajamar,-0.388
+Puerto Ayora (predicha),2026-10-17 06:20,pleamar,0.383
+Puerto Ayora (predicha),2026-10-17 12:40,bajamar,-0.515
+Puerto Ayora (predicha),2026-10-17 19:10,pleamar,0.382
+Puerto Ayora (predicha),2026-10-18 01:20,bajamar,-0.307
+Puerto Ayora (predicha),2026-10-18 07:20,pleamar,0.296
+Puerto Ayora (predicha),2026-10-18 13:40,bajamar,-0.427
+Puerto Ayora (predicha),2026-10-18 20:20,pleamar,0.337
+Puerto Ayora (predicha),2026-10-19 02:30,bajamar,-0.259
+Puerto Ayora (predicha),2026-10-19 08:30,pleamar,0.25
+Puerto Ayora (predicha),2026-10-19 15:00,bajamar,-0.38
+Puerto Ayora (predicha),2026-10-19 21:30,pleamar,0.351
+Puerto Ayora (predicha),2026-10-20 04:00,bajamar,-0.276
+Puerto Ayora (predicha),2026-10-20 10:00,pleamar,0.272
+Puerto Ayora (predicha),2026-10-20 16:10,bajamar,-0.388
+Puerto Ayora (predicha),2026-10-20 22:40,pleamar,0.426
+Puerto Ayora (predicha),2026-10-21 05:00,bajamar,-0.353
+Puerto Ayora (predicha),2026-10-21 11:10,pleamar,0.353
+Puerto Ayora (predicha),2026-10-21 17:10,bajamar,-0.44
+Puerto Ayora (predicha),2026-10-21 23:30,pleamar,0.537
+Puerto Ayora (predicha),2026-10-22 05:50,bajamar,-0.465
+Puerto Ayora (predicha),2026-10-22 12:00,pleamar,0.463
+Puerto Ayora (predicha),2026-10-22 18:00,bajamar,-0.516
+Puerto Ayora (predicha),2026-10-23 00:20,pleamar,0.662
+Puerto Ayora (predicha),2026-10-23 06:40,bajamar,-0.594
+Puerto Ayora (predicha),2026-10-23 12:40,pleamar,0.579
+Puerto Ayora (predicha),2026-10-23 18:40,bajamar,-0.599
+Puerto Ayora (predicha),2026-10-24 00:50,pleamar,0.784
+Puerto Ayora (predicha),2026-10-24 07:10,bajamar,-0.73
+Puerto Ayora (predicha),2026-10-24 13:20,pleamar,0.69
+Puerto Ayora (predicha),2026-10-24 19:20,bajamar,-0.679
+Puerto Ayora (predicha),2026-10-25 01:30,pleamar,0.889
+Puerto Ayora (predicha),2026-10-25 07:50,bajamar,-0.859
+Puerto Ayora (predicha),2026-10-25 14:00,pleamar,0.784
+Puerto Ayora (predicha),2026-10-25 20:00,bajamar,-0.748
+Puerto Ayora (predicha),2026-10-26 02:10,pleamar,0.961
+Puerto Ayora (predicha),2026-10-26 08:30,bajamar,-0.964
+Puerto Ayora (predicha),2026-10-26 14:40,pleamar,0.853
+Puerto Ayora (predicha),2026-10-26 20:40,bajamar,-0.793
+Puerto Ayora (predicha),2026-10-27 02:50,pleamar,0.987
+Puerto Ayora (predicha),2026-10-27 09:10,bajamar,-1.029
+Puerto Ayora (predicha),2026-10-27 15:20,pleamar,0.888
+Puerto Ayora (predicha),2026-10-27 21:20,bajamar,-0.806
+Puerto Ayora (predicha),2026-10-28 03:30,pleamar,0.961
+Puerto Ayora (predicha),2026-10-28 09:50,bajamar,-1.042
+Puerto Ayora (predicha),2026-10-28 16:10,pleamar,0.881
+Puerto Ayora (predicha),2026-10-28 22:10,bajamar,-0.781
+Puerto Ayora (predicha),2026-10-29 04:10,pleamar,0.886
+Puerto Ayora (predicha),2026-10-29 10:30,bajamar,-1.001
+Puerto Ayora (predicha),2026-10-29 16:50,pleamar,0.835
+Puerto Ayora (predicha),2026-10-29 23:00,bajamar,-0.718
+Puerto Ayora (predicha),2026-10-30 05:00,pleamar,0.773
+Puerto Ayora (predicha),2026-10-30 11:20,bajamar,-0.913
+Puerto Ayora (predicha),2026-10-30 17:50,pleamar,0.76
+Puerto Ayora (predicha),2026-10-31 00:00,bajamar,-0.628
+Puerto Ayora (predicha),2026-10-31 06:00,pleamar,0.641
+Puerto Ayora (predicha),2026-10-31 12:20,bajamar,-0.799
+Puerto Ayora (predicha),2026-10-31 18:50,pleamar,0.678
+Puerto Ayora (predicha),2026-11-01 01:00,bajamar,-0.536
+Puerto Ayora (predicha),2026-11-01 07:00,pleamar,0.521
+Puerto Ayora (predicha),2026-11-01 13:20,bajamar,-0.686
+Puerto Ayora (predicha),2026-11-01 20:00,pleamar,0.622
+Puerto Ayora (predicha),2026-11-02 02:20,bajamar,-0.478
+Puerto Ayora (predicha),2026-11-02 08:20,pleamar,0.445
+Puerto Ayora (predicha),2026-11-02 14:40,bajamar,-0.604
+Puerto Ayora (predicha),2026-11-02 21:10,pleamar,0.615
+Puerto Ayora (predicha),2026-11-03 03:40,bajamar,-0.488
+Puerto Ayora (predicha),2026-11-03 09:40,pleamar,0.437
+Puerto Ayora (predicha),2026-11-03 15:50,bajamar,-0.568
+Puerto Ayora (predicha),2026-11-03 22:20,pleamar,0.656
+Puerto Ayora (predicha),2026-11-04 04:50,bajamar,-0.556
+Puerto Ayora (predicha),2026-11-04 10:50,pleamar,0.489
+Puerto Ayora (predicha),2026-11-04 17:00,bajamar,-0.569
+Puerto Ayora (predicha),2026-11-04 23:20,pleamar,0.718
+Puerto Ayora (predicha),2026-11-05 05:50,bajamar,-0.651
+Puerto Ayora (predicha),2026-11-05 12:00,pleamar,0.571
+Puerto Ayora (predicha),2026-11-05 18:00,bajamar,-0.589
+Puerto Ayora (predicha),2026-11-06 00:10,pleamar,0.775
+Puerto Ayora (predicha),2026-11-06 06:40,bajamar,-0.743
+Puerto Ayora (predicha),2026-11-06 12:50,pleamar,0.655
+Puerto Ayora (predicha),2026-11-06 18:50,bajamar,-0.613
+Puerto Ayora (predicha),2026-11-07 01:00,pleamar,0.811
+Puerto Ayora (predicha),2026-11-07 07:20,bajamar,-0.819
+Puerto Ayora (predicha),2026-11-07 13:30,pleamar,0.721
+Puerto Ayora (predicha),2026-11-07 19:30,bajamar,-0.633
+Puerto Ayora (predicha),2026-11-08 01:40,pleamar,0.822
+Puerto Ayora (predicha),2026-11-08 08:00,bajamar,-0.87
+Puerto Ayora (predicha),2026-11-08 14:10,pleamar,0.76
+Puerto Ayora (predicha),2026-11-08 20:10,bajamar,-0.644
+Puerto Ayora (predicha),2026-11-09 02:10,pleamar,0.807
+Puerto Ayora (predicha),2026-11-09 08:30,bajamar,-0.893
+Puerto Ayora (predicha),2026-11-09 14:50,pleamar,0.769
+Puerto Ayora (observada),2026-08-31 22:50,bajamar,-0.473
+Puerto Ayora (observada),2026-09-01 04:50,pleamar,1.185
+Puerto Ayora (observada),2026-09-01 11:20,bajamar,-0.556
+Puerto Ayora (observada),2026-09-01 17:20,pleamar,0.986
+Puerto Ayora (observada),2026-09-01 23:20,bajamar,-0.417
+Puerto Ayora (observada),2026-09-02 05:40,pleamar,1.1
+Puerto Ayora (observada),2026-09-02 12:00,bajamar,-0.486
+Puerto Ayora (observada),2026-09-02 18:10,pleamar,0.923
+Puerto Ayora (observada),2026-09-03 00:10,bajamar,-0.294
+Puerto Ayora (observada),2026-09-03 06:30,pleamar,1.002
+Puerto Ayora (observada),2026-09-03 13:00,bajamar,-0.409
+Puerto Ayora (observada),2026-09-03 18:50,pleamar,0.802
+Puerto Ayora (observada),2026-09-04 01:00,bajamar,-0.205
+Puerto Ayora (observada),2026-09-04 07:20,pleamar,0.866
+Puerto Ayora (observada),2026-09-04 13:50,bajamar,-0.34
+Puerto Ayora (observada),2026-09-04 20:10,pleamar,0.705
+Puerto Ayora (observada),2026-09-05 02:20,bajamar,-0.136
+Puerto Ayora (observada),2026-09-05 08:20,pleamar,0.732
+Puerto Ayora (observada),2026-09-05 15:10,bajamar,-0.305
+Puerto Ayora (observada),2026-09-05 21:40,pleamar,0.683
+Puerto Ayora (observada),2026-09-06 03:30,bajamar,-0.132
+Puerto Ayora (observada),2026-09-06 09:40,pleamar,0.715
+Puerto Ayora (observada),2026-09-06 16:30,bajamar,-0.338
+Puerto Ayora (observada),2026-09-06 23:00,pleamar,0.752
+Puerto Ayora (observada),2026-09-07 05:00,bajamar,-0.158
+Puerto Ayora (observada),2026-09-07 11:20,pleamar,0.844
+Puerto Ayora (observada),2026-09-07 17:40,bajamar,-0.352
+Puerto Ayora (observada),2026-09-08 00:00,pleamar,0.949
+Puerto Ayora (observada),2026-09-08 06:20,bajamar,-0.243
+Puerto Ayora (observada),2026-09-08 12:10,pleamar,0.964
+Puerto Ayora (observada),2026-09-08 18:50,bajamar,-0.452
+Puerto Ayora (observada),2026-09-09 01:10,pleamar,1.097
+Puerto Ayora (observada),2026-09-09 07:20,bajamar,-0.376
+Puerto Ayora (observada),2026-09-09 13:20,pleamar,1.074
+Puerto Ayora (observada),2026-09-09 19:30,bajamar,-0.545
+Puerto Ayora (observada),2026-09-10 01:50,pleamar,1.197
+Puerto Ayora (observada),2026-09-10 07:50,bajamar,-0.48
+Puerto Ayora (observada),2026-09-10 14:00,pleamar,1.13
+Puerto Ayora (observada),2026-09-10 20:10,bajamar,-0.617
+Puerto Ayora (observada),2026-09-11 02:30,pleamar,1.293
+Puerto Ayora (observada),2026-09-11 08:40,bajamar,-0.578
+Puerto Ayora (observada),2026-09-11 14:50,pleamar,1.154
+Puerto Ayora (observada),2026-09-11 20:50,bajamar,-0.659
+Puerto Ayora (observada),2026-09-12 03:10,pleamar,1.305
+Puerto Ayora (observada),2026-09-12 09:20,bajamar,-0.635
+Puerto Ayora (observada),2026-09-12 15:30,pleamar,1.169
+Puerto Ayora (observada),2026-09-12 21:40,bajamar,-0.623
+Puerto Ayora (observada),2026-09-13 03:40,pleamar,1.267
+Puerto Ayora (observada),2026-09-13 10:00,bajamar,-0.628
+Puerto Ayora (observada),2026-09-13 16:10,pleamar,1.133
+Puerto Ayora (observada),2026-09-13 22:10,bajamar,-0.514
+Puerto Ayora (observada),2026-09-14 04:20,pleamar,1.208
+Puerto Ayora (observada),2026-09-14 10:30,bajamar,-0.597
+Puerto Ayora (observada),2026-09-14 16:40,pleamar,1.022
+Puerto Ayora (observada),2026-09-14 22:40,bajamar,-0.45
+Puerto Ayora (observada),2026-09-15 04:50,pleamar,1.041
+Puerto Ayora (observada),2026-09-15 11:10,bajamar,-0.559
+Puerto Ayora (observada),2026-09-15 17:20,pleamar,0.897
+Puerto Ayora (observada),2026-09-15 23:20,bajamar,-0.37
+Puerto Ayora (observada),2026-09-16 05:30,pleamar,0.897
+Puerto Ayora (observada),2026-09-16 11:50,bajamar,-0.462
+Puerto Ayora (observada),2026-09-16 18:00,pleamar,0.771
+Puerto Ayora (observada),2026-09-17 00:00,bajamar,-0.261
+Puerto Ayora (observada),2026-09-17 06:10,pleamar,0.776
+Puerto Ayora (observada),2026-09-17 12:40,bajamar,-0.304
+Puerto Ayora (observada),2026-09-17 19:00,pleamar,0.696
+Puerto Ayora (observada),2026-09-18 00:40,bajamar,-0.083
+Puerto Ayora (observada),2026-09-18 07:00,pleamar,0.674
+Puerto Ayora (observada),2026-09-18 13:20,bajamar,-0.181
+Puerto Ayora (observada),2026-09-18 20:00,pleamar,0.603
+Puerto Ayora (observada),2026-09-19 01:50,bajamar,0.012
+Puerto Ayora (observada),2026-09-19 07:50,pleamar,0.553
+Puerto Ayora (observada),2026-09-19 14:40,bajamar,-0.103
+Puerto Ayora (observada),2026-09-19 20:40,pleamar,0.53
+Puerto Ayora (observada),2026-09-20 03:10,bajamar,0.046
+Puerto Ayora (observada),2026-09-20 09:20,pleamar,0.504
+Puerto Ayora (observada),2026-09-20 16:00,bajamar,-0.075
+Puerto Ayora (observada),2026-09-20 22:30,pleamar,0.565
+Puerto Ayora (observada),2026-09-21 04:40,bajamar,0.044
+Puerto Ayora (observada),2026-09-21 10:50,pleamar,0.559
+Puerto Ayora (observada),2026-09-21 17:10,bajamar,-0.104
+Puerto Ayora (observada),2026-09-21 23:40,pleamar,0.69
+Puerto Ayora (observada),2026-09-22 05:40,bajamar,-0.009
+Puerto Ayora (observada),2026-09-22 11:40,pleamar,0.683
+Puerto Ayora (observada),2026-09-22 17:50,bajamar,-0.178
+Puerto Ayora (observada),2026-09-23 00:20,pleamar,0.815
+Puerto Ayora (observada),2026-09-23 06:30,bajamar,-0.14
+Puerto Ayora (observada),2026-09-23 12:30,pleamar,0.779
+Puerto Ayora (observada),2026-09-23 18:50,bajamar,-0.283
+Puerto Ayora (observada),2026-09-24 01:10,pleamar,0.937
+Puerto Ayora (observada),2026-09-24 07:10,bajamar,-0.233
+Puerto Ayora (observada),2026-09-24 13:20,pleamar,0.916
+Puerto Ayora (observada),2026-09-24 19:30,bajamar,-0.352
+Puerto Ayora (observada),2026-09-25 01:40,pleamar,1.086
+Puerto Ayora (observada),2026-09-25 07:40,bajamar,-0.327
+Puerto Ayora (observada),2026-09-25 13:50,pleamar,1.029
+Puerto Ayora (observada),2026-09-25 19:50,bajamar,-0.41
+Puerto Ayora (observada),2026-09-26 02:10,pleamar,1.191
+Puerto Ayora (observada),2026-09-26 08:20,bajamar,-0.434
+Puerto Ayora (observada),2026-09-26 14:20,pleamar,1.092
+Puerto Ayora (observada),2026-09-26 20:30,bajamar,-0.465
+Puerto Ayora (observada),2026-09-27 02:40,pleamar,1.276
+Puerto Ayora (observada),2026-09-27 09:00,bajamar,-0.523
+Puerto Ayora (observada),2026-09-27 15:00,pleamar,1.155
+Puerto Ayora (observada),2026-09-27 21:00,bajamar,-0.461
+Puerto Ayora (observada),2026-09-28 03:10,pleamar,1.311
+Puerto Ayora (observada),2026-09-28 09:30,bajamar,-0.589
+Puerto Ayora (observada),2026-09-28 15:40,pleamar,1.195
+Puerto Ayora (observada),2026-09-28 21:40,bajamar,-0.433
+Puerto Ayora (observada),2026-09-29 03:50,pleamar,1.328
+Puerto Ayora (observada),2026-09-29 10:10,bajamar,-0.57
+Puerto Ayora (observada),2026-09-29 16:20,pleamar,1.219
+Puerto Ayora (observada),2026-09-29 22:20,bajamar,-0.342
+Puerto Ayora (observada),2026-09-30 04:30,pleamar,1.313
+Puerto Ayora (observada),2026-09-30 10:50,bajamar,-0.518
+Puerto Ayora (observada),2026-09-30 17:00,pleamar,1.16
+Puerto Ayora (observada),2026-09-30 23:10,bajamar,-0.329
+Puerto Ayora (observada),2026-10-01 05:10,pleamar,1.14
+Puerto Ayora (observada),2026-10-01 11:40,bajamar,-0.492
+Puerto Ayora (observada),2026-10-01 18:00,pleamar,1.004
+Puerto Ayora (observada),2026-10-02 00:00,bajamar,-0.245
+Puerto Ayora (observada),2026-10-02 06:00,pleamar,0.986
+Puerto Ayora (observada),2026-10-02 12:30,bajamar,-0.378
+Puerto Ayora (observada),2026-10-02 18:50,pleamar,0.92
+Puerto Ayora (observada),2026-10-03 00:50,bajamar,-0.124
+Puerto Ayora (observada),2026-10-03 07:00,pleamar,0.889
+Puerto Ayora (observada),2026-10-03 13:30,bajamar,-0.265
+Puerto Ayora (observada),2026-10-03 20:10,pleamar,0.851
+Puerto Ayora (observada),2026-10-04 02:20,bajamar,-0.069
+Puerto Ayora (observada),2026-10-04 08:30,pleamar,0.8
+Puerto Ayora (observada),2026-10-04 14:40,bajamar,-0.158
+Puerto Ayora (observada),2026-10-04 21:30,pleamar,0.89
+Puerto Ayora (observada),2026-10-05 03:40,bajamar,-0.005
+Puerto Ayora (observada),2026-10-05 09:50,pleamar,0.821
+Puerto Ayora (observada),2026-10-05 16:20,bajamar,-0.167
+Puerto Ayora (observada),2026-10-05 22:50,pleamar,0.929
+Puerto Ayora (observada),2026-10-06 05:00,bajamar,-0.133
+Puerto Ayora (observada),2026-10-06 11:10,pleamar,0.872
+Puerto Ayora (observada),2026-10-06 17:30,bajamar,-0.287
+Puerto Ayora (observada),2026-10-06 23:50,pleamar,1.04
+Puerto Ayora (observada),2026-10-07 06:10,bajamar,-0.276
+Puerto Ayora (observada),2026-10-07 12:10,pleamar,0.964
+Puerto Ayora (observada),2026-10-07 18:20,bajamar,-0.353
+Puerto Ayora (observada),2026-10-08 00:40,pleamar,1.178
+Puerto Ayora (observada),2026-10-08 07:00,bajamar,-0.359
+Puerto Ayora (observada),2026-10-08 13:10,pleamar,1.078
+Puerto Ayora (observada),2026-10-08 19:10,bajamar,-0.394
+Puerto Ayora (observada),2026-10-09 01:20,pleamar,1.261
+Puerto Ayora (observada),2026-10-09 07:40,bajamar,-0.437
+Puerto Ayora (observada),2026-10-09 13:50,pleamar,1.168
+Puerto Ayora (observada),2026-10-09 19:50,bajamar,-0.407
+Puerto Ayora (observada),2026-10-10 02:00,pleamar,1.311
+Puerto Ayora (observada),2026-10-10 08:20,bajamar,-0.515
+Puerto Ayora (observada),2026-10-10 14:30,pleamar,1.169
+Puerto Ayora (observada),2026-10-10 20:30,bajamar,-0.434
+Puerto Ayora (observada),2026-10-11 02:40,pleamar,1.256
+Puerto Ayora (observada),2026-10-11 09:00,bajamar,-0.564
+Puerto Ayora (observada),2026-10-11 15:00,pleamar,1.159
+Puerto Ayora (observada),2026-10-11 21:10,bajamar,-0.431
+Puerto Ayora (observada),2026-10-12 03:20,pleamar,1.214
+Puerto Ayora (observada),2026-10-12 09:20,bajamar,-0.539
+Puerto Ayora (observada),2026-10-12 15:40,pleamar,1.167
+Puerto Ayora (observada),2026-10-12 21:40,bajamar,-0.321
+Puerto Ayora (observada),2026-10-13 03:40,pleamar,1.178
+Puerto Ayora (observada),2026-10-13 10:00,bajamar,-0.467
+Puerto Ayora (observada),2026-10-13 16:10,pleamar,1.109
+Puerto Ayora (observada),2026-10-13 22:20,bajamar,-0.231
+Puerto Ayora (observada),2026-10-14 04:20,pleamar,1.071
+Puerto Ayora (observada),2026-10-14 10:40,bajamar,-0.416
+Puerto Ayora (observada),2026-10-14 17:00,pleamar,1.005
+Puerto Ayora (observada),2026-10-14 23:00,bajamar,-0.164
+Puerto Ayora (observada),2026-10-15 04:50,pleamar,0.945
+Puerto Ayora (observada),2026-10-15 11:20,bajamar,-0.334
+Puerto Ayora (observada),2026-10-15 17:40,pleamar,0.921
+Puerto Ayora (observada),2026-10-15 23:50,bajamar,-0.098
+Puerto Ayora (observada),2026-10-16 05:40,pleamar,0.86
+Puerto Ayora (observada),2026-10-16 12:00,bajamar,-0.224
+Puerto Ayora (observada),2026-10-16 18:20,pleamar,0.836
+Puerto Ayora (observada),2026-10-17 00:10,bajamar,0.003
+Puerto Ayora (observada),2026-10-17 06:20,pleamar,0.78
+Puerto Ayora (observada),2026-10-17 12:40,bajamar,-0.078
+Puerto Ayora (observada),2026-10-17 19:10,pleamar,0.831
+Puerto Ayora (observada),2026-10-18 01:20,bajamar,0.157
+Puerto Ayora (observada),2026-10-18 07:10,pleamar,0.764
+Puerto Ayora (observada),2026-10-18 13:30,bajamar,0.066
+Puerto Ayora (observada),2026-10-18 20:20,pleamar,0.8
+Puerto Ayora (observada),2026-10-19 02:30,bajamar,0.226
+Puerto Ayora (observada),2026-10-19 08:20,pleamar,0.691
+Puerto Ayora (observada),2026-10-19 15:00,bajamar,0.073
+Puerto Ayora (observada),2026-10-19 21:40,pleamar,0.781
+Puerto Ayora (observada),2026-10-20 03:50,bajamar,0.166
+Puerto Ayora (observada),2026-10-20 10:00,pleamar,0.713
+Puerto Ayora (observada),2026-10-20 16:00,bajamar,0.062
+Puerto Ayora (observada),2026-10-20 22:50,pleamar,0.849
+Puerto Ayora (observada),2026-10-21 05:00,bajamar,0.1
+Puerto Ayora (observada),2026-10-21 11:00,pleamar,0.766
+Puerto Ayora (observada),2026-10-21 17:00,bajamar,-0.002
+Puerto Ayora (observada),2026-10-21 23:40,pleamar,0.969
+Puerto Ayora (observada),2026-10-22 05:50,bajamar,-0.03
+Puerto Ayora (observada),2026-10-22 12:00,pleamar,0.888
+Puerto Ayora (observada),2026-10-22 17:50,bajamar,-0.074
+Puerto Ayora (observada),2026-10-23 00:20,pleamar,1.051
+Puerto Ayora (observada),2026-10-23 06:30,bajamar,-0.19
+Puerto Ayora (observada),2026-10-23 12:50,pleamar,0.996
+Puerto Ayora (observada),2026-10-23 18:40,bajamar,-0.157
+Puerto Ayora (observada),2026-10-24 00:50,pleamar,1.234
+Puerto Ayora (observada),2026-10-24 07:10,bajamar,-0.274
+Puerto Ayora (observada),2026-10-24 13:20,pleamar,1.114
+Puerto Ayora (observada),2026-10-24 19:20,bajamar,-0.239
+Puerto Ayora (observada),2026-10-25 01:30,pleamar,1.308
+Puerto Ayora (observada),2026-10-25 07:50,bajamar,-0.443
+Puerto Ayora (observada),2026-10-25 14:00,pleamar,1.197
+Puerto Ayora (observada),2026-10-25 20:00,bajamar,-0.345
+Puerto Ayora (observada),2026-10-26 02:00,pleamar,1.339
+Puerto Ayora (observada),2026-10-26 08:30,bajamar,-0.578
+Puerto Ayora (observada),2026-10-26 14:40,pleamar,1.231
+Puerto Ayora (observada),2026-10-26 20:40,bajamar,-0.397
+Puerto Ayora (observada),2026-10-27 02:50,pleamar,1.358
+Puerto Ayora (observada),2026-10-27 09:00,bajamar,-0.638
+Puerto Ayora (observada),2026-10-27 15:30,pleamar,1.276
+Puerto Ayora (observada),2026-10-27 21:20,bajamar,-0.382
+Puerto Ayora (observada),2026-10-28 03:30,pleamar,1.354
+Puerto Ayora (observada),2026-10-28 09:40,bajamar,-0.606
+Puerto Ayora (observada),2026-10-28 16:10,pleamar,1.289
+Puerto Ayora (observada),2026-10-28 22:10,bajamar,-0.318
+Puerto Ayora (observada),2026-10-29 04:10,pleamar,1.3
+Puerto Ayora (observada),2026-10-29 10:30,bajamar,-0.549
+Puerto Ayora (observada),2026-10-29 17:00,pleamar,1.225
+Puerto Ayora (observada),2026-10-29 22:50,bajamar,-0.279
+Puerto Ayora (observada),2026-10-30 05:00,pleamar,1.179
+Puerto Ayora (observada),2026-10-30 11:20,bajamar,-0.448
+Puerto Ayora (observada),2026-10-30 17:50,pleamar,1.209
+Puerto Ayora (observada),2026-10-31 00:00,bajamar,-0.107
+Puerto Ayora (observada),2026-10-31 06:00,pleamar,1.127
+Puerto Ayora (observada),2026-10-31 12:20,bajamar,-0.303
+Puerto Ayora (observada),2026-10-31 19:00,pleamar,1.085
+Puerto Ayora (observada),2026-11-01 01:00,bajamar,-0.057
+Puerto Ayora (observada),2026-11-01 07:10,pleamar,0.944
+Puerto Ayora (observada),2026-11-01 13:30,bajamar,-0.24
+Puerto Ayora (observada),2026-11-01 20:00,pleamar,1.026
+Puerto Ayora (observada),2026-11-02 02:20,bajamar,-0.033
+Puerto Ayora (observada),2026-11-02 08:20,pleamar,0.857
+Puerto Ayora (observada),2026-11-02 14:40,bajamar,-0.192
+Puerto Ayora (observada),2026-11-02 17:20,pleamar,0.106
+Puerto Baquerizo Moreno (estimada),2026-08-31 22:50,bajamar,-0.551
+Puerto Baquerizo Moreno (estimada),2026-09-01 04:50,pleamar,1.274
+Puerto Baquerizo Moreno (estimada),2026-09-01 11:20,bajamar,-0.635
+Puerto Baquerizo Moreno (estimada),2026-09-01 17:20,pleamar,1.056
+Puerto Baquerizo Moreno (estimada),2026-09-01 23:20,bajamar,-0.487
+Puerto Baquerizo Moreno (estimada),2026-09-02 05:40,pleamar,1.179
+Puerto Baquerizo Moreno (estimada),2026-09-02 12:00,bajamar,-0.561
+Puerto Baquerizo Moreno (estimada),2026-09-02 18:10,pleamar,0.985
+Puerto Baquerizo Moreno (estimada),2026-09-03 00:10,bajamar,-0.354
+Puerto Baquerizo Moreno (estimada),2026-09-03 06:30,pleamar,1.072
+Puerto Baquerizo Moreno (estimada),2026-09-03 13:00,bajamar,-0.476
+Puerto Baquerizo Moreno (estimada),2026-09-03 18:50,pleamar,0.855
+Puerto Baquerizo Moreno (estimada),2026-09-04 01:00,bajamar,-0.255
+Puerto Baquerizo Moreno (estimada),2026-09-04 07:20,pleamar,0.924
+Puerto Baquerizo Moreno (estimada),2026-09-04 13:50,bajamar,-0.4
+Puerto Baquerizo Moreno (estimada),2026-09-04 20:10,pleamar,0.75
+Puerto Baquerizo Moreno (estimada),2026-09-05 02:20,bajamar,-0.177
+Puerto Baquerizo Moreno (estimada),2026-09-05 08:20,pleamar,0.78
+Puerto Baquerizo Moreno (estimada),2026-09-05 15:10,bajamar,-0.36
+Puerto Baquerizo Moreno (estimada),2026-09-05 21:40,pleamar,0.725
+Puerto Baquerizo Moreno (estimada),2026-09-06 03:30,bajamar,-0.169
+Puerto Baquerizo Moreno (estimada),2026-09-06 09:40,pleamar,0.759
+Puerto Baquerizo Moreno (estimada),2026-09-06 16:30,bajamar,-0.394
+Puerto Baquerizo Moreno (estimada),2026-09-06 23:00,pleamar,0.8
+Puerto Baquerizo Moreno (estimada),2026-09-07 05:00,bajamar,-0.202
+Puerto Baquerizo Moreno (estimada),2026-09-07 11:20,pleamar,0.895
+Puerto Baquerizo Moreno (estimada),2026-09-07 17:40,bajamar,-0.416
+Puerto Baquerizo Moreno (estimada),2026-09-08 00:00,pleamar,1.009
+Puerto Baquerizo Moreno (estimada),2026-09-08 06:20,bajamar,-0.299
+Puerto Baquerizo Moreno (estimada),2026-09-08 12:20,pleamar,1.025
+Puerto Baquerizo Moreno (estimada),2026-09-08 18:50,bajamar,-0.527
+Puerto Baquerizo Moreno (estimada),2026-09-09 01:10,pleamar,1.172
+Puerto Baquerizo Moreno (estimada),2026-09-09 07:20,bajamar,-0.445
+Puerto Baquerizo Moreno (estimada),2026-09-09 13:20,pleamar,1.147
+Puerto Baquerizo Moreno (estimada),2026-09-09 19:30,bajamar,-0.629
+Puerto Baquerizo Moreno (estimada),2026-09-10 01:50,pleamar,1.285
+Puerto Baquerizo Moreno (estimada),2026-09-10 08:00,bajamar,-0.559
+Puerto Baquerizo Moreno (estimada),2026-09-10 14:00,pleamar,1.212
+Puerto Baquerizo Moreno (estimada),2026-09-10 20:10,bajamar,-0.707
+Puerto Baquerizo Moreno (estimada),2026-09-11 02:30,pleamar,1.39
+Puerto Baquerizo Moreno (estimada),2026-09-11 08:40,bajamar,-0.665
+Puerto Baquerizo Moreno (estimada),2026-09-11 14:50,pleamar,1.241
+Puerto Baquerizo Moreno (estimada),2026-09-11 20:50,bajamar,-0.75
+Puerto Baquerizo Moreno (estimada),2026-09-12 03:10,pleamar,1.405
+Puerto Baquerizo Moreno (estimada),2026-09-12 09:20,bajamar,-0.726
+Puerto Baquerizo Moreno (estimada),2026-09-12 15:30,pleamar,1.257
+Puerto Baquerizo Moreno (estimada),2026-09-12 21:40,bajamar,-0.711
+Puerto Baquerizo Moreno (estimada),2026-09-13 03:40,pleamar,1.365
+Puerto Baquerizo Moreno (estimada),2026-09-13 10:00,bajamar,-0.718
+Puerto Baquerizo Moreno (estimada),2026-09-13 16:10,pleamar,1.217
+Puerto Baquerizo Moreno (estimada),2026-09-13 22:10,bajamar,-0.595
+Puerto Baquerizo Moreno (estimada),2026-09-14 04:20,pleamar,1.299
+Puerto Baquerizo Moreno (estimada),2026-09-14 10:40,bajamar,-0.682
+Puerto Baquerizo Moreno (estimada),2026-09-14 16:40,pleamar,1.098
+Puerto Baquerizo Moreno (estimada),2026-09-14 22:50,bajamar,-0.521
+Puerto Baquerizo Moreno (estimada),2026-09-15 04:50,pleamar,1.119
+Puerto Baquerizo Moreno (estimada),2026-09-15 11:10,bajamar,-0.637
+Puerto Baquerizo Moreno (estimada),2026-09-15 17:20,pleamar,0.963
+Puerto Baquerizo Moreno (estimada),2026-09-15 23:20,bajamar,-0.43
+Puerto Baquerizo Moreno (estimada),2026-09-16 05:30,pleamar,0.962
+Puerto Baquerizo Moreno (estimada),2026-09-16 11:50,bajamar,-0.53
+Puerto Baquerizo Moreno (estimada),2026-09-16 18:00,pleamar,0.825
+Puerto Baquerizo Moreno (estimada),2026-09-17 00:00,bajamar,-0.309
+Puerto Baquerizo Moreno (estimada),2026-09-17 06:10,pleamar,0.828
+Puerto Baquerizo Moreno (estimada),2026-09-17 12:40,bajamar,-0.362
+Puerto Baquerizo Moreno (estimada),2026-09-17 18:50,pleamar,0.738
+Puerto Baquerizo Moreno (estimada),2026-09-18 00:40,bajamar,-0.12
+Puerto Baquerizo Moreno (estimada),2026-09-18 07:00,pleamar,0.712
+Puerto Baquerizo Moreno (estimada),2026-09-18 13:20,bajamar,-0.228
+Puerto Baquerizo Moreno (estimada),2026-09-18 20:00,pleamar,0.635
+Puerto Baquerizo Moreno (estimada),2026-09-19 01:50,bajamar,-0.016
+Puerto Baquerizo Moreno (estimada),2026-09-19 07:50,pleamar,0.582
+Puerto Baquerizo Moreno (estimada),2026-09-19 14:40,bajamar,-0.142
+Puerto Baquerizo Moreno (estimada),2026-09-19 20:40,pleamar,0.556
+Puerto Baquerizo Moreno (estimada),2026-09-20 03:10,bajamar,0.023
+Puerto Baquerizo Moreno (estimada),2026-09-20 09:20,pleamar,0.529
+Puerto Baquerizo Moreno (estimada),2026-09-20 16:00,bajamar,-0.112
+Puerto Baquerizo Moreno (estimada),2026-09-20 22:30,pleamar,0.594
+Puerto Baquerizo Moreno (estimada),2026-09-21 04:40,bajamar,0.018
+Puerto Baquerizo Moreno (estimada),2026-09-21 10:50,pleamar,0.587
+Puerto Baquerizo Moreno (estimada),2026-09-21 17:10,bajamar,-0.145
+Puerto Baquerizo Moreno (estimada),2026-09-21 23:40,pleamar,0.727
+Puerto Baquerizo Moreno (estimada),2026-09-22 05:40,bajamar,-0.042
+Puerto Baquerizo Moreno (estimada),2026-09-22 11:40,pleamar,0.72
+Puerto Baquerizo Moreno (estimada),2026-09-22 17:50,bajamar,-0.227
+Puerto Baquerizo Moreno (estimada),2026-09-23 00:20,pleamar,0.863
+Puerto Baquerizo Moreno (estimada),2026-09-23 06:30,bajamar,-0.184
+Puerto Baquerizo Moreno (estimada),2026-09-23 12:30,pleamar,0.826
+Puerto Baquerizo Moreno (estimada),2026-09-23 18:50,bajamar,-0.341
+Puerto Baquerizo Moreno (estimada),2026-09-24 01:10,pleamar,0.998
+Puerto Baquerizo Moreno (estimada),2026-09-24 07:10,bajamar,-0.287
+Puerto Baquerizo Moreno (estimada),2026-09-24 13:20,pleamar,0.975
+Puerto Baquerizo Moreno (estimada),2026-09-24 19:30,bajamar,-0.417
+Puerto Baquerizo Moreno (estimada),2026-09-25 01:40,pleamar,1.159
+Puerto Baquerizo Moreno (estimada),2026-09-25 07:40,bajamar,-0.393
+Puerto Baquerizo Moreno (estimada),2026-09-25 13:50,pleamar,1.098
+Puerto Baquerizo Moreno (estimada),2026-09-25 19:50,bajamar,-0.482
+Puerto Baquerizo Moreno (estimada),2026-09-26 02:10,pleamar,1.276
+Puerto Baquerizo Moreno (estimada),2026-09-26 08:20,bajamar,-0.51
+Puerto Baquerizo Moreno (estimada),2026-09-26 14:20,pleamar,1.168
+Puerto Baquerizo Moreno (estimada),2026-09-26 20:30,bajamar,-0.543
+Puerto Baquerizo Moreno (estimada),2026-09-27 02:40,pleamar,1.368
+Puerto Baquerizo Moreno (estimada),2026-09-27 09:00,bajamar,-0.608
+Puerto Baquerizo Moreno (estimada),2026-09-27 15:00,pleamar,1.237
+Puerto Baquerizo Moreno (estimada),2026-09-27 21:00,bajamar,-0.542
+Puerto Baquerizo Moreno (estimada),2026-09-28 03:10,pleamar,1.407
+Puerto Baquerizo Moreno (estimada),2026-09-28 09:30,bajamar,-0.679
+Puerto Baquerizo Moreno (estimada),2026-09-28 15:40,pleamar,1.279
+Puerto Baquerizo Moreno (estimada),2026-09-28 21:40,bajamar,-0.514
+Puerto Baquerizo Moreno (estimada),2026-09-29 03:50,pleamar,1.424
+Puerto Baquerizo Moreno (estimada),2026-09-29 10:10,bajamar,-0.663
+Puerto Baquerizo Moreno (estimada),2026-09-29 16:20,pleamar,1.301
+Puerto Baquerizo Moreno (estimada),2026-09-29 22:20,bajamar,-0.419
+Puerto Baquerizo Moreno (estimada),2026-09-30 04:30,pleamar,1.402
+Puerto Baquerizo Moreno (estimada),2026-09-30 10:50,bajamar,-0.608
+Puerto Baquerizo Moreno (estimada),2026-09-30 17:00,pleamar,1.236
+Puerto Baquerizo Moreno (estimada),2026-09-30 23:10,bajamar,-0.399
+Puerto Baquerizo Moreno (estimada),2026-10-01 05:10,pleamar,1.218
+Puerto Baquerizo Moreno (estimada),2026-10-01 11:40,bajamar,-0.576
+Puerto Baquerizo Moreno (estimada),2026-10-01 18:00,pleamar,1.072
+Puerto Baquerizo Moreno (estimada),2026-10-02 00:00,bajamar,-0.304
+Puerto Baquerizo Moreno (estimada),2026-10-02 06:00,pleamar,1.051
+Puerto Baquerizo Moreno (estimada),2026-10-02 12:30,bajamar,-0.451
+Puerto Baquerizo Moreno (estimada),2026-10-02 18:50,pleamar,0.978
+Puerto Baquerizo Moreno (estimada),2026-10-03 00:50,bajamar,-0.172
+Puerto Baquerizo Moreno (estimada),2026-10-03 07:00,pleamar,0.94
+Puerto Baquerizo Moreno (estimada),2026-10-03 13:30,bajamar,-0.327
+Puerto Baquerizo Moreno (estimada),2026-10-03 20:10,pleamar,0.901
+Puerto Baquerizo Moreno (estimada),2026-10-04 02:20,bajamar,-0.11
+Puerto Baquerizo Moreno (estimada),2026-10-04 08:30,pleamar,0.842
+Puerto Baquerizo Moreno (estimada),2026-10-04 14:40,bajamar,-0.213
+Puerto Baquerizo Moreno (estimada),2026-10-04 21:30,pleamar,0.939
+Puerto Baquerizo Moreno (estimada),2026-10-05 03:40,bajamar,-0.046
+Puerto Baquerizo Moreno (estimada),2026-10-05 09:50,pleamar,0.863
+Puerto Baquerizo Moreno (estimada),2026-10-05 16:20,bajamar,-0.222
+Puerto Baquerizo Moreno (estimada),2026-10-05 22:50,pleamar,0.985
+Puerto Baquerizo Moreno (estimada),2026-10-06 05:00,bajamar,-0.182
+Puerto Baquerizo Moreno (estimada),2026-10-06 11:10,pleamar,0.92
+Puerto Baquerizo Moreno (estimada),2026-10-06 17:30,bajamar,-0.348
+Puerto Baquerizo Moreno (estimada),2026-10-06 23:50,pleamar,1.107
+Puerto Baquerizo Moreno (estimada),2026-10-07 06:10,bajamar,-0.337
+Puerto Baquerizo Moreno (estimada),2026-10-07 12:10,pleamar,1.024
+Puerto Baquerizo Moreno (estimada),2026-10-07 18:20,bajamar,-0.421
+Puerto Baquerizo Moreno (estimada),2026-10-08 00:40,pleamar,1.256
+Puerto Baquerizo Moreno (estimada),2026-10-08 07:00,bajamar,-0.431
+Puerto Baquerizo Moreno (estimada),2026-10-08 13:10,pleamar,1.148
+Puerto Baquerizo Moreno (estimada),2026-10-08 19:10,bajamar,-0.468
+Puerto Baquerizo Moreno (estimada),2026-10-09 01:20,pleamar,1.348
+Puerto Baquerizo Moreno (estimada),2026-10-09 07:40,bajamar,-0.519
+Puerto Baquerizo Moreno (estimada),2026-10-09 13:50,pleamar,1.246
+Puerto Baquerizo Moreno (estimada),2026-10-09 19:50,bajamar,-0.484
+Puerto Baquerizo Moreno (estimada),2026-10-10 02:00,pleamar,1.403
+Puerto Baquerizo Moreno (estimada),2026-10-10 08:20,bajamar,-0.604
+Puerto Baquerizo Moreno (estimada),2026-10-10 14:30,pleamar,1.251
+Puerto Baquerizo Moreno (estimada),2026-10-10 20:30,bajamar,-0.511
+Puerto Baquerizo Moreno (estimada),2026-10-11 02:40,pleamar,1.348
+Puerto Baquerizo Moreno (estimada),2026-10-11 09:00,bajamar,-0.655
+Puerto Baquerizo Moreno (estimada),2026-10-11 15:00,pleamar,1.242
+Puerto Baquerizo Moreno (estimada),2026-10-11 21:10,bajamar,-0.505
+Puerto Baquerizo Moreno (estimada),2026-10-12 03:20,pleamar,1.301
+Puerto Baquerizo Moreno (estimada),2026-10-12 09:30,bajamar,-0.629
+Puerto Baquerizo Moreno (estimada),2026-10-12 15:40,pleamar,1.247
+Puerto Baquerizo Moreno (estimada),2026-10-12 21:40,bajamar,-0.391
+Puerto Baquerizo Moreno (estimada),2026-10-13 03:40,pleamar,1.258
+Puerto Baquerizo Moreno (estimada),2026-10-13 10:00,bajamar,-0.553
+Puerto Baquerizo Moreno (estimada),2026-10-13 16:10,pleamar,1.182
+Puerto Baquerizo Moreno (estimada),2026-10-13 22:20,bajamar,-0.295
+Puerto Baquerizo Moreno (estimada),2026-10-14 04:20,pleamar,1.141
+Puerto Baquerizo Moreno (estimada),2026-10-14 10:40,bajamar,-0.495
+Puerto Baquerizo Moreno (estimada),2026-10-14 17:00,pleamar,1.07
+Puerto Baquerizo Moreno (estimada),2026-10-14 23:00,bajamar,-0.22
+Puerto Baquerizo Moreno (estimada),2026-10-15 04:50,pleamar,1.004
+Puerto Baquerizo Moreno (estimada),2026-10-15 11:20,bajamar,-0.404
+Puerto Baquerizo Moreno (estimada),2026-10-15 17:40,pleamar,0.976
+Puerto Baquerizo Moreno (estimada),2026-10-15 23:50,bajamar,-0.144
+Puerto Baquerizo Moreno (estimada),2026-10-16 05:40,pleamar,0.908
+Puerto Baquerizo Moreno (estimada),2026-10-16 12:00,bajamar,-0.284
+Puerto Baquerizo Moreno (estimada),2026-10-16 18:20,pleamar,0.881
+Puerto Baquerizo Moreno (estimada),2026-10-17 00:10,bajamar,-0.035
+Puerto Baquerizo Moreno (estimada),2026-10-17 06:20,pleamar,0.817
+Puerto Baquerizo Moreno (estimada),2026-10-17 12:40,bajamar,-0.128
+Puerto Baquerizo Moreno (estimada),2026-10-17 19:10,pleamar,0.868
+Puerto Baquerizo Moreno (estimada),2026-10-18 01:20,bajamar,0.127
+Puerto Baquerizo Moreno (estimada),2026-10-18 07:10,pleamar,0.793
+Puerto Baquerizo Moreno (estimada),2026-10-18 13:30,bajamar,0.024
+Puerto Baquerizo Moreno (estimada),2026-10-18 20:20,pleamar,0.833
+Puerto Baquerizo Moreno (estimada),2026-10-19 02:30,bajamar,0.201
+Puerto Baquerizo Moreno (estimada),2026-10-19 08:20,pleamar,0.715
+Puerto Baquerizo Moreno (estimada),2026-10-19 15:00,bajamar,0.036
+Puerto Baquerizo Moreno (estimada),2026-10-19 21:40,pleamar,0.816
+Puerto Baquerizo Moreno (estimada),2026-10-20 03:50,bajamar,0.139
+Puerto Baquerizo Moreno (estimada),2026-10-20 10:00,pleamar,0.739
+Puerto Baquerizo Moreno (estimada),2026-10-20 16:00,bajamar,0.024
+Puerto Baquerizo Moreno (estimada),2026-10-20 22:50,pleamar,0.89
+Puerto Baquerizo Moreno (estimada),2026-10-21 05:00,bajamar,0.066
+Puerto Baquerizo Moreno (estimada),2026-10-21 11:00,pleamar,0.8
+Puerto Baquerizo Moreno (estimada),2026-10-21 17:10,bajamar,-0.045
+Puerto Baquerizo Moreno (estimada),2026-10-21 23:40,pleamar,1.021
+Puerto Baquerizo Moreno (estimada),2026-10-22 05:50,bajamar,-0.075
+Puerto Baquerizo Moreno (estimada),2026-10-22 12:00,pleamar,0.933
+Puerto Baquerizo Moreno (estimada),2026-10-22 17:50,bajamar,-0.124
+Puerto Baquerizo Moreno (estimada),2026-10-23 00:20,pleamar,1.115
+Puerto Baquerizo Moreno (estimada),2026-10-23 06:30,bajamar,-0.248
+Puerto Baquerizo Moreno (estimada),2026-10-23 12:50,pleamar,1.052
+Puerto Baquerizo Moreno (estimada),2026-10-23 18:40,bajamar,-0.215
+Puerto Baquerizo Moreno (estimada),2026-10-24 00:50,pleamar,1.31
+Puerto Baquerizo Moreno (estimada),2026-10-24 07:10,bajamar,-0.345
+Puerto Baquerizo Moreno (estimada),2026-10-24 13:20,pleamar,1.181
+Puerto Baquerizo Moreno (estimada),2026-10-24 19:20,bajamar,-0.305
+Puerto Baquerizo Moreno (estimada),2026-10-25 01:30,pleamar,1.394
+Puerto Baquerizo Moreno (estimada),2026-10-25 07:50,bajamar,-0.527
+Puerto Baquerizo Moreno (estimada),2026-10-25 14:00,pleamar,1.273
+Puerto Baquerizo Moreno (estimada),2026-10-25 20:00,bajamar,-0.418
+Puerto Baquerizo Moreno (estimada),2026-10-26 02:00,pleamar,1.432
+Puerto Baquerizo Moreno (estimada),2026-10-26 08:30,bajamar,-0.672
+Puerto Baquerizo Moreno (estimada),2026-10-26 14:40,pleamar,1.314
+Puerto Baquerizo Moreno (estimada),2026-10-26 20:40,bajamar,-0.474
+Puerto Baquerizo Moreno (estimada),2026-10-27 02:50,pleamar,1.454
+Puerto Baquerizo Moreno (estimada),2026-10-27 09:00,bajamar,-0.738
+Puerto Baquerizo Moreno (estimada),2026-10-27 15:30,pleamar,1.362
+Puerto Baquerizo Moreno (estimada),2026-10-27 21:20,bajamar,-0.461
+Puerto Baquerizo Moreno (estimada),2026-10-28 03:30,pleamar,1.448
+Puerto Baquerizo Moreno (estimada),2026-10-28 09:40,bajamar,-0.707
+Puerto Baquerizo Moreno (estimada),2026-10-28 16:10,pleamar,1.375
+Puerto Baquerizo Moreno (estimada),2026-10-28 22:10,bajamar,-0.394
+Puerto Baquerizo Moreno (estimada),2026-10-29 04:10,pleamar,1.386
+Puerto Baquerizo Moreno (estimada),2026-10-29 10:30,bajamar,-0.646
+Puerto Baquerizo Moreno (estimada),2026-10-29 17:00,pleamar,1.306
+Puerto Baquerizo Moreno (estimada),2026-10-29 23:00,bajamar,-0.348
+Puerto Baquerizo Moreno (estimada),2026-10-30 05:00,pleamar,1.254
+Puerto Baquerizo Moreno (estimada),2026-10-30 11:20,bajamar,-0.537
+Puerto Baquerizo Moreno (estimada),2026-10-30 17:50,pleamar,1.283
+Puerto Baquerizo Moreno (estimada),2026-10-31 00:00,bajamar,-0.168
+Puerto Baquerizo Moreno (estimada),2026-10-31 06:00,pleamar,1.189
+Puerto Baquerizo Moreno (estimada),2026-10-31 12:20,bajamar,-0.381
+Puerto Baquerizo Moreno (estimada),2026-10-31 18:50,pleamar,1.151
+Puerto Baquerizo Moreno (estimada),2026-11-01 01:00,bajamar,-0.109
+Puerto Baquerizo Moreno (estimada),2026-11-01 07:10,pleamar,0.995
+Puerto Baquerizo Moreno (estimada),2026-11-01 13:30,bajamar,-0.307
+Puerto Baquerizo Moreno (estimada),2026-11-01 20:00,pleamar,1.087
+Puerto Baquerizo Moreno (estimada),2026-11-02 02:20,bajamar,-0.079
+Puerto Baquerizo Moreno (estimada),2026-11-02 08:20,pleamar,0.9
+Puerto Baquerizo Moreno (estimada),2026-11-02 14:40,bajamar,-0.251
+Puerto Baquerizo Moreno (estimada),2026-11-02 17:20,pleamar,0.08

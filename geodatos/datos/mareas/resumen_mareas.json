@@ -1,0 +1,170 @@
+{
+ "generado": "2026-11-02T23:20Z",
+ "referencia_vertical": "metros sobre el nivel medio del mar 2017–2024 de cada mareógrafo (UHSLC)",
+ "estaciones": {
+  "puerto_ayora": {
+   "nombre": "Puerto Ayora (Academy Bay)",
+   "ioc": "sant",
+   "uhslc_id": 30,
+   "nivel_medio_ref_m_cero_uhslc": 1.531,
+   "desfase_ioc_ras_menos_uhslc_m": 0.018,
+   "dispersion_desfase_m": 0.009,
+   "horas_solape": 679,
+   "validacion_rms_m": 0.018,
+   "constituyentes_m": {
+    "M2": 0.646,
+    "S2": 0.19,
+    "N2": 0.14,
+    "K1": 0.091,
+    "SA": 0.062,
+    "K2": 0.051,
+    "P1": 0.03,
+    "NU2": 0.025,
+    "MU2": 0.022,
+    "MF": 0.02
+   },
+   "fase_M2_grados": 246.4,
+   "anomalia_mensual_uhslc_m": {
+    "2025-09": -0.071,
+    "2025-10": -0.056,
+    "2025-11": -0.042,
+    "2025-12": -0.043,
+    "2026-01": -0.018,
+    "2026-02": 0.051,
+    "2026-03": 0.136,
+    "2026-04": 0.148,
+    "2026-05": 0.241,
+    "2026-06": 0.215,
+    "2026-07": 0.195,
+    "2026-08": 0.251,
+    "2026-09": 0.302
+   },
+   "obs_desde": "2026-09-01 00:00:00+00:00",
+   "obs_hasta": "2026-11-02 23:00:00+00:00"
+  },
+  "baltra": {
+   "nombre": "Baltra",
+   "ioc": "balt",
+   "uhslc_id": 3,
+   "nivel_medio_ref_m_cero_uhslc": 1.915,
+   "desfase_ioc_ras_menos_uhslc_m": -0.012,
+   "dispersion_desfase_m": 0.011,
+   "horas_solape": 668,
+   "validacion_rms_m": 0.022,
+   "constituyentes_m": {
+    "M2": 0.726,
+    "S2": 0.194,
+    "N2": 0.159,
+    "K1": 0.083,
+    "SA": 0.059,
+    "K2": 0.051,
+    "P1": 0.03,
+    "NU2": 0.03,
+    "MU2": 0.027,
+    "2N2": 0.02
+   },
+   "fase_M2_grados": 244.7,
+   "anomalia_mensual_uhslc_m": {
+    "2025-09": -0.052,
+    "2025-10": 0.024,
+    "2025-11": 0.037,
+    "2025-12": -0.043,
+    "2026-01": -0.0,
+    "2026-02": 0.06,
+    "2026-03": 0.151,
+    "2026-04": 0.175,
+    "2026-05": 0.255,
+    "2026-06": 0.227,
+    "2026-07": 0.207,
+    "2026-08": 0.257,
+    "2026-09": 0.331
+   },
+   "obs_desde": "2026-09-01 00:00:00+00:00",
+   "obs_hasta": "2026-11-02 23:00:00+00:00"
+  }
+ },
+ "puerto_baquerizo": {
+  "metodo": "Puerto Ayora observado (IOC) trasladado con la razón de amplitud y el desfase de M2 entre las celdas de Open-Meteo Marine de Puerto Baquerizo Moreno y Puerto Ayora; el residuo no astronómico se toma igual al de Puerto Ayora",
+  "razon_amplitud_M2": 1.098,
+  "desfase_M2_min": 0.4,
+  "om_M2_puerto_ayora_m": 0.634,
+  "om_M2_fase_pa": 231.2,
+  "uhslc_M2_puerto_ayora_m": 0.646,
+  "uhslc_M2_fase_pa": 246.4,
+  "om_M2_baquerizo_m": 0.696
+ },
+ "sicigia_cuadratura": {
+  "rango_25h_p25_m": 1.16,
+  "rango_25h_p75_m": 1.749
+ },
+ "fases_lunares_aprox": [
+  [
+   "2026-09-04 05:18",
+   "cuarto menguante"
+  ],
+  [
+   "2026-09-11 14:29",
+   "luna nueva"
+  ],
+  [
+   "2026-09-18 23:40",
+   "cuarto creciente"
+  ],
+  [
+   "2026-09-26 08:51",
+   "luna llena"
+  ],
+  [
+   "2026-10-03 18:02",
+   "cuarto menguante"
+  ],
+  [
+   "2026-10-11 03:13",
+   "luna nueva"
+  ],
+  [
+   "2026-10-18 12:24",
+   "cuarto creciente"
+  ],
+  [
+   "2026-10-25 21:35",
+   "luna llena"
+  ],
+  [
+   "2026-11-02 06:46",
+   "cuarto menguante"
+  ],
+  [
+   "2026-11-09 15:57",
+   "luna nueva"
+  ]
+ ],
+ "modelo2d_santa_cruz": {
+  "nivel_fijo_m": 0.75,
+  "nivel_observado_m_sobre_nmm": {
+   "22:00": 0.171,
+   "22:15": 0.09,
+   "22:30": 0.051,
+   "22:34": 0.051
+  },
+  "nivel_observado_max_20h_24h_m": 0.823,
+  "celdas_tierra_entre_0,3m_y_nivel": {
+   "0.3": {
+    "celdas": 0,
+    "ha": 0.0
+   },
+   "0.82": {
+    "celdas": 10,
+    "ha": 0.9
+   },
+   "0.75": {
+    "celdas": 7,
+    "ha": 0.6
+   },
+   "1.0": {
+    "celdas": 14,
+    "ha": 1.3
+   }
+  }
+ }
+}

@@ -1,0 +1,15 @@
+punto,isla,lat,lon,cota_estacion_m,fuente_coord,celda_lat,celda_lon,cota_celda_gar_m,lluvia_media_anual_mm,media_max_diario_anual_mm,max_diario_mm,fecha_max,max_diario_oct_nov_mm,fecha_max_oct_nov,p99_dias_lluvia_mm,dias_ge_60mm,dias_ge_100mm,dias_ge_179mm,dias_ge_238mm
+Puerto Ayora (CDRS/DARWIN),Santa Cruz,-0.743708,-90.3027,2.0,"Tenelanda et al. 2025, tab. 1",-0.738,-90.3101,31,465.0,68.8,192.4,2010-02-26,73.7,1997-11-12,77.2,49,18,3,0
+Bellavista (FCD),Santa Cruz,-0.6935,-90.3275,223.0,"aprox., centro de Bellavista",-0.702,-90.3281,166,820.0,102.0,252.8,2022-03-08,200.8,1997-11-12,92.8,97,49,6,1
+Los Guayabillos (IERSE),Santa Cruz,-0.6991,-90.342,178.0,API IERSE-WSN,-0.702,-90.3461,173,912.0,108.3,365.5,1986-02-28,127.5,1997-11-12,95.8,117,49,8,2
+Santa Rosa (DARWIN/IERSE),Santa Cruz,-0.65453,-90.4035,422.0,"Tenelanda et al. 2025, tab. 1",-0.648,-90.4001,480,2237.0,181.8,332.0,1983-06-18,103.3,1997-11-12,148.1,451,233,45,12
+Minas Rojas (DARWIN),Santa Cruz,-0.618625,-90.3673,619.0,"Tenelanda et al. 2025, tab. 1",-0.612,-90.3641,535,1534.0,157.8,254.3,1995-03-23,25.1,1982-11-26,178.7,363,171,30,3
+Cerro Crocker (DARWIN),Santa Cruz,-0.642398,-90.326,849.0,"Tenelanda et al. 2025, tab. 1",-0.648,-90.3281,689,1562.0,132.5,310.4,2025-03-15,203.6,1997-11-12,104.4,237,106,17,6
+"Militar, Baltra (DARWIN)",Santa Cruz,-0.489962,-90.2808,22.0,"Tenelanda et al. 2025, tab. 1",-0.504,-90.2741,46,342.0,60.2,219.0,1998-02-13,6.1,2015-11-22,106.6,47,16,3,0
+Puerto Baquerizo Moreno,San Cristóbal,-0.9015,-89.6105,25.0,"estudio SC, sección 3.3",-0.9,-89.6081,30,1271.0,145.9,317.1,1983-06-18,35.6,1997-11-12,192.7,287,134,37,11
+El Progreso,San Cristóbal,-0.9071,-89.5569,250.0,"estudio SC, sección 3.3",-0.9,-89.5541,316,1745.0,162.1,548.6,1983-06-18,103.2,1997-11-12,155.0,391,170,36,11
+El Junco,San Cristóbal,-0.894,-89.48,684.0,"estudio SC, sección 3.3",-0.9,-89.4821,525,1805.0,141.8,661.2,1983-06-19,171.9,1997-11-12,97.0,255,98,24,7
+Toma Cerro Gato,San Cristóbal,-0.91979,-89.47821,,cuencas_tomas.json (AG-01),-0.918,-89.4821,299,1462.0,118.6,819.2,1983-06-19,188.9,1997-11-12,98.5,191,82,14,6
+Toma Los Americanos,San Cristóbal,-0.91354,-89.48683,,cuencas_tomas.json (AG-02),-0.918,-89.4821,299,1462.0,118.6,819.2,1983-06-19,188.9,1997-11-12,98.5,191,82,14,6
+Toma La Toma (El Progreso),San Cristóbal,-0.91109,-89.50649,,cuencas_tomas.json (AG-03),-0.918,-89.5001,354,1690.0,134.4,725.2,1983-06-19,280.6,1997-11-12,102.7,232,100,19,7
+Manantial El Chino,San Cristóbal,-0.90218,-89.45692,,cuencas_tomas.json (AG-04),-0.9,-89.4641,411,1486.0,126.9,700.4,1983-06-19,158.0,1997-11-12,94.9,203,79,14,6

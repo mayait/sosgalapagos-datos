@@ -1,0 +1,7 @@
+estacion,evento,total_mm,max_diario_mm,fecha_max,dias_ge_60mm,dias_ge_100mm
+Puerto Ayora (CDRS/DARWIN),1982-83,3279,137.6,1982-12-17,15,3
+Puerto Ayora (CDRS/DARWIN),1997-98,2479,166.9,1997-06-04,6,3
+Puerto Ayora (CDRS/DARWIN),2015-16,225,18.4,2016-01-04,0,0
+Puerto Ayora (CDRS/DARWIN),2023-24,1077,215.0,2024-02-22,5,4
+Bellavista (FCD),1997-98,3506,130.0,1998-04-29,7,2
+Bellavista (FCD),2015-16,976,89.7,2016-01-17,1,0
