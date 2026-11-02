@@ -105,5 +105,155 @@ def main():
         for n, i, a, m in NO: w.writerow([n, i, a, "no localizado", m])
     print("lugares", len(feats), "no localizados", len(NO))
 
+# ================================================================ medidas del plan (trazado aproximado)
+def medidas():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("b16", ROOT / "scripts/16b_urbano_sectores.py")
+    b16 = importlib.util.module_from_spec(spec); spec.loader.exec_module(b16)
+    I = b16.Isla("San Cristóbal"); T, TI = I.T, I.TI
+    import numpy as np
+    def celda_cauce(lon, lat, amin, radio=8):
+        r0, c0 = I.rc(lon, lat); best = None
+        for dr in range(-radio, radio + 1):
+            for dc in range(-radio, radio + 1):
+                r, c = r0 + dr, c0 + dc
+                if I.hd["land"][r, c] and I.km2(r, c) >= amin:
+                    d = Point(I.xy(r, c)).distance(Point(T(lon, lat)))
+                    if best is None or d < best[0]: best = (d, (r, c))
+        return best[1]
+    def eje(cell):   # cauce principal aguas arriba + aguas abajo como una línea UTM (de arriba a abajo)
+        up = I.cauce_principal_arriba(*cell)[::-1]; dn = I.aguas_abajo(*cell)[1:]
+        ln = I.linea(up + dn); return ln, ln.project(Point(I.xy(*cell)))
+    feats = []
+    def add(nombre, geom_utm, props):
+        feats.append({"type": "Feature", "geometry": mapping(stransform(TI, geom_utm)) if geom_utm is not None else None,
+                      "properties": dict(nombre=nombre, fuente_medida=PLAN, **props)})
+    # 1. Zanja de 1 040 m en Manzanillo: a lo largo del cauce D8 de El Manzanillo, terminando en el puente de la Vía Perimetral
+    cell = celda_cauce(-89.6058, -0.90819, 7.0)
+    ln, s0 = eje(cell)
+    z = substring(ln, max(s0 - 1040, 0), s0)
+    add("Zanja de 1 040 m — barrio Manzanillo", z, dict(tipo="línea", longitud_plan_m=1040, longitud_trazada_m=round(z.length),
+        metodo="Cauce D8 de El Manzanillo (≈8–9 km²) aguas arriba del puente OSM de la Vía Perimetral, 1 040 m",
+        incertidumbre="ALTA: el plan no da el trazado. Posición a lo largo del cauce desconocida (podría empezar o terminar en otro punto) y desplazamiento lateral del D8 de ±30–60 m.",
+        confianza="baja"))
+    # 2. La Picada: 240 m urbanos + 170 m en el PNG, sobre el cauce que cruza el límite del PNG junto al barrio Palmeras
+    lim = unary_union([stransform(T, g) for g, p in cargar("export/galapagos/limite_parque.geojson", lambda p: True)])
+    pal = Point(T(-89.5932, -0.9114))
+    cands = []
+    for g, p in cargar("capas/final/drenaje_derivado.geojson", lambda p: p.get("isla") == "San Cristóbal" and p["area_drenada_km2"] >= 0.1):
+        gu = stransform(T, g)
+        if gu.distance(pal) < 500 and gu.intersects(lim):
+            x = gu.intersection(lim); x = x if x.geom_type == "Point" else list(x.geoms)[0]
+            cands.append((x.distance(pal), x, p["area_drenada_km2"]))
+    if cands:
+        d, x, A = min(cands, key=lambda t: t[0])
+        lon, lat = TI(x.x, x.y); cell = celda_cauce(lon, lat, 0.05, 3)
+        ln, s0 = eje(cell)
+        add("Limpieza de cauce — La Picada, tramo en el PNG (170 m)", substring(ln, max(s0 - 170, 0), s0), dict(tipo="línea", longitud_plan_m=170,
+            metodo=f"Cauce D8 (≈{A:.1f} km²) que cruza el límite del PNG a {d:.0f} m del punto del barrio Palmeras; 170 m aguas arriba del límite",
+            incertidumbre="MUY ALTA: La Picada no está localizada; se supone que es el cauce que entra al barrio Palmeras desde el PNG.", confianza="baja"))
+        add("Limpieza de cauce — La Picada, tramo urbano (240 m)", substring(ln, s0, s0 + 240), dict(tipo="línea", longitud_plan_m=240,
+            metodo="Mismo cauce, 240 m aguas abajo del límite del PNG", incertidumbre="MUY ALTA (ídem).", confianza="baja"))
+    # 3. Desembocadura de Playa de Oro
+    cell = celda_cauce(-89.60951, -0.89986, 1.0)
+    path = I.aguas_abajo(*cell)
+    add("Desembocadura de la cañada Divino Niño en Playa de Oro (destaponar)", Point(I.xy(*path[-1])), dict(tipo="punto",
+        metodo="Salida al mar del cauce D8 de Divino Niño (≈1,5 km²) junto a la playa OSM «Playa de Oro»",
+        incertidumbre="MEDIA: ±50 m; la salida real puede estar canalizada.", confianza="media"))
+    # 4. Muro de contención del hospital (240 m)
+    hosp = Point(T(-89.60523, -0.89986))
+    cell = celda_cauce(-89.60523, -0.89986, 1.0)
+    ln, s0 = eje(cell); s1 = ln.project(hosp)
+    m = substring(ln, max(s1 - 120, 0), s1 + 120)
+    add("Muro de contención fracturado (240 m) — sector Hospital Oskar Jandl", m, dict(tipo="línea", longitud_plan_m=240, longitud_trazada_m=round(m.length),
+        metodo=f"240 m del cauce D8 de Divino Niño centrados en el punto más cercano al hospital (OSM), a {hosp.distance(ln):.0f} m",
+        incertidumbre="ALTA: el muro puede estar en otra margen o en otro tramo; ubicación del hospital discrepante entre OSM y MSP.", confianza="baja"))
+    # 5. Floreana: conexión de cañadas (500 m)
+    add("Conexión de las cañadas Hormiga y Varonesa (500 m) — Floreana", None, dict(tipo="sin geometría", longitud_plan_m=500,
+        metodo="No trazable: las cañadas no están en OSM ni en el IGM y no hay DEM procesado para Floreana en este proyecto",
+        incertidumbre="No localizada.", confianza="no localizada"))
+    (OUT / "medidas_plan.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": feats}, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("medidas", [(f["properties"]["nombre"][:40], f["properties"].get("longitud_trazada_m")) for f in feats])
+    return I
+
+# ================================================================ contraste urbano por sector prioritario
+def contraste(I):
+    import numpy as np
+    T = I.T
+    fr = I.franja
+    lug = json.loads((OUT / "lugares_plan.geojson").read_text())["features"]
+    cau = [(stransform(T, shape(f["geometry"])), f["properties"]) for f in json.loads((ROOT / "estudios/san-cristobal/datos/urbano/cauces_urbanos.geojson").read_text())["features"]]
+    filas = []
+    for f in lug:
+        p = f["properties"]
+        if p["prioridad_ugr"] != MAX or p["isla"] != "San Cristóbal" or f["geometry"]["type"] != "Point": continue
+        pt = stransform(T, shape(f["geometry"])); z = pt.buffer(150)
+        ids, pob = I.expo(z)
+        crs = [r for r in I.cruces if r["_xy"].distance(pt) <= 150]
+        sist = sorted(((g.distance(pt), q) for g, q in cau), key=lambda t: t[0])[0]
+        filas.append(dict(nombre=p["nombre"], confianza=p["confianza"], edificios_150m=len(ids), pob_inec_150m=pob,
+                          cruces_150m=len(crs), cruces_alta=sum(1 for r in crs if r["prioridad"] == "alta"),
+                          cruces_con_estructura=sum(1 for r in crs if r["estructura"] != "ninguna cartografiada"),
+                          cruces_ids=", ".join(r["id"] for r in crs), franja_cgreg_pct_150m=round(z.intersection(fr).area / z.area * 100, 1),
+                          dist_franja_m=round(pt.distance(fr)), sistema_cauce_mas_cercano=sist[1]["id"], area_sistema_km2=sist[1]["area_salida_km2"],
+                          dist_sistema_m=round(sist[0])))
+    json.dump(filas, open(OUT / "contraste_sectores.json", "w"), ensure_ascii=False, indent=1)
+    for r in filas: print(r)
+
+# ================================================================ figura
+def figura(I):
+    import matplotlib; matplotlib.use("Agg")
+    import matplotlib.pyplot as plt, numpy as np
+    from matplotlib.lines import Line2D
+    T, TI = I.T, I.TI
+    c0 = Point(T(-89.6010, -0.9045)); R = 1450; win = c0.buffer(R * 1.4)
+    fig, ax = plt.subplots(figsize=(10, 10))
+    xs = np.linspace(c0.x - R, c0.x + R, 150); ys = np.linspace(c0.y + R, c0.y - R, 150)
+    Z = np.full((150, 150), np.nan)
+    for i, y in enumerate(ys):
+        for j, x in enumerate(xs):
+            r, c = I.rc(*TI(x, y))
+            if I.hd["land"][r, c]: Z[i, j] = I.hd["Z"][r, c]
+    ax.imshow(Z, extent=(c0.x - R, c0.x + R, c0.y - R, c0.y + R), cmap="terrain", vmin=-30, vmax=160, alpha=.4)
+    for gg in getattr(I.franja.intersection(win), "geoms", []):
+        if gg.geom_type == "Polygon": ax.fill(*gg.exterior.xy, color="#2ab7ca", alpha=.4, lw=0)
+    for g in I.edg:
+        if g.intersects(win):
+            for gg in getattr(g, "geoms", [g]): ax.fill(*gg.exterior.xy, color="0.35", lw=0)
+    for g, p in cargar("capas/final/drenaje_derivado.geojson", lambda p: p.get("isla") == "San Cristóbal" and p["area_drenada_km2"] >= 0.5):
+        g = stransform(T, g)
+        if g.intersects(win): ax.plot(*g.xy, color="#1f6fd1", lw=.8 + .9 * min(p["area_drenada_km2"], 10) ** .5, zorder=3)
+    for f in json.loads((OUT / "medidas_plan.geojson").read_text())["features"]:
+        if not f["geometry"]: continue
+        g = stransform(T, shape(f["geometry"]))
+        if g.geom_type == "Point": ax.plot(g.x, g.y, "X", color="#ff7f0e", ms=13, mec="k", zorder=6)
+        else: ax.plot(*g.xy, color="#ff7f0e", lw=5, alpha=.85, zorder=5, solid_capstyle="round")
+    col = {"alta": "#2ca02c", "media": "#ffbf00", "baja": "#d62728"}
+    for f in json.loads((OUT / "lugares_plan.geojson").read_text())["features"]:
+        p = f["properties"]
+        if p["isla"] != "San Cristóbal": continue
+        g = stransform(T, shape(f["geometry"]))
+        if g.geom_type == "Point" and g.within(win):
+            ax.plot(g.x, g.y, "o" if p["prioridad_ugr"] == MAX else "s", color=col[p["confianza"]], mec="k", ms=9, zorder=7)
+            ax.annotate(p["nombre"].split(" (")[0], (g.x, g.y), xytext=(5, 4), textcoords="offset points", fontsize=7, zorder=8,
+                        bbox=dict(boxstyle="round,pad=.15", fc="white", ec="none", alpha=.7))
+        elif g.geom_type != "Point":
+            for gg in getattr(g, "geoms", [g]):
+                if gg.geom_type.endswith("LineString"): ax.plot(*gg.xy, color="#8c564b", lw=2, ls="--", zorder=4)
+    ax.set_xlim(c0.x - R, c0.x + R); ax.set_ylim(c0.y - R, c0.y + R); ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
+    ax.plot([c0.x - R * .9, c0.x - R * .9 + 250], [c0.y - R * .93] * 2, "k-", lw=3); ax.text(c0.x - R * .9, c0.y - R * .89, "250 m", fontsize=8)
+    ax.set_title("Plan de Acción SC-4-09-2026 (UGR GAD San Cristóbal): lugares y medidas ubicados — Puerto Baquerizo Moreno", fontsize=9)
+    ley = [Line2D([], [], marker="o", ls="", color="w", mec="k", label="Lugar de prioridad máxima (círculo) / normal (cuadrado)"),
+           Line2D([], [], marker="o", ls="", color="#2ca02c", mec="k", label="Confianza alta"), Line2D([], [], marker="o", ls="", color="#ffbf00", mec="k", label="Confianza media"),
+           Line2D([], [], marker="o", ls="", color="#d62728", mec="k", label="Confianza baja"), Line2D([], [], color="#ff7f0e", lw=5, label="Medida del plan (trazado aproximado)"),
+           Line2D([], [], color="#1f6fd1", lw=2, label="Cauce D8 ≥ 0,5 km²"), Line2D([], [], color="#8c564b", lw=2, ls="--", label="Vía Perimetral Jaime Roldós"),
+           Line2D([], [], color="#2ab7ca", lw=6, alpha=.5, label="Franja de quebrada CGREG (20 m)")]
+    ax.legend(handles=ley, loc="lower right", fontsize=7, framealpha=.9)
+    fig.text(.5, .03, "Ubicaciones preliminares, sin verificación de campo. Relieve del DSM GLO-30 (±2–4 m). Trazados de medidas: aproximación sobre el cauce D8.", ha="center", fontsize=7)
+    out = ROOT / "estudios/san-cristobal/figuras/f_plan_ugr.png"; fig.savefig(out, dpi=150, bbox_inches="tight"); plt.close(fig)
+
 if __name__ == "__main__":
     main()
+    I = medidas()
+    contraste(I)
+    figura(I)

@@ -1,0 +1,318 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -89.59765278594026,
+      -0.9082083415002612
+     ],
+     [
+      -89.59791666666666,
+      -0.908472222222215
+     ],
+     [
+      -89.59819444444445,
+      -0.90819444444445
+     ],
+     [
+      -89.59847222222221,
+      -0.9081944444444445
+     ],
+     [
+      -89.59875,
+      -0.908194444444444
+     ],
+     [
+      -89.59902777777778,
+      -0.9081944444444492
+     ],
+     [
+      -89.59930555555555,
+      -0.9081944444444424
+     ],
+     [
+      -89.59958333333333,
+      -0.9081944444444406
+     ],
+     [
+      -89.59986111111111,
+      -0.9084722222222257
+     ],
+     [
+      -89.60013888888889,
+      -0.9087500000000017
+     ],
+     [
+      -89.60041666666667,
+      -0.9087500000000078
+     ],
+     [
+      -89.60069444444444,
+      -0.908750000000006
+     ],
+     [
+      -89.60097222222223,
+      -0.9090277777777761
+     ],
+     [
+      -89.60125,
+      -0.9090277777777765
+     ],
+     [
+      -89.60152777777778,
+      -0.9090277777777789
+     ],
+     [
+      -89.60180555555556,
+      -0.9090277777777834
+     ],
+     [
+      -89.60208333333333,
+      -0.909027777777773
+     ],
+     [
+      -89.60236111111111,
+      -0.9090277777777815
+     ],
+     [
+      -89.60263888888889,
+      -0.9087499999999997
+     ],
+     [
+      -89.60291666666666,
+      -0.9087499999999997
+     ],
+     [
+      -89.60319444444444,
+      -0.9090277777777854
+     ],
+     [
+      -89.60347222222222,
+      -0.9090277777777853
+     ],
+     [
+      -89.60374999999999,
+      -0.90875
+     ],
+     [
+      -89.60402777777777,
+      -0.9087500000000002
+     ],
+     [
+      -89.60430555555556,
+      -0.9087499999999922
+     ],
+     [
+      -89.60458333333332,
+      -0.908749999999992
+     ],
+     [
+      -89.6048611111111,
+      -0.9087500000000005
+     ],
+     [
+      -89.60513888888889,
+      -0.9087500000000007
+     ],
+     [
+      -89.60541666666667,
+      -0.908749999999992
+     ],
+     [
+      -89.60569444444444,
+      -0.908749999999992
+     ],
+     [
+      -89.60597222222222,
+      -0.9084722222222196
+     ]
+    ]
+   },
+   "properties": {
+    "nombre": "Zanja de 1 040 m — barrio Manzanillo",
+    "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+    "tipo": "línea",
+    "longitud_plan_m": 1040,
+    "longitud_trazada_m": 1040,
+    "metodo": "Cauce D8 de El Manzanillo (≈8–9 km²) aguas arriba del puente OSM de la Vía Perimetral, 1 040 m",
+    "incertidumbre": "ALTA: el plan no da el trazado. Posición a lo largo del cauce desconocida (podría empezar o terminar en otro punto) y desplazamiento lateral del D8 de ±30–60 m.",
+    "confianza": "baja"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -89.59161784437686,
+      -0.9115277777801483
+     ],
+     [
+      -89.59180555555555,
+      -0.9115277777777794
+     ],
+     [
+      -89.59208333333333,
+      -0.9115277777777714
+     ],
+     [
+      -89.5923611111111,
+      -0.91180555555555
+     ],
+     [
+      -89.59263888888889,
+      -0.911805555555551
+     ],
+     [
+      -89.59291666666667,
+      -0.9115277777777779
+     ]
+    ]
+   },
+   "properties": {
+    "nombre": "Limpieza de cauce — La Picada, tramo en el PNG (170 m)",
+    "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+    "tipo": "línea",
+    "longitud_plan_m": 170,
+    "metodo": "Cauce D8 (≈8.2 km²) que cruza el límite del PNG a 54 m del punto del barrio Palmeras; 170 m aguas arriba del límite",
+    "incertidumbre": "MUY ALTA: La Picada no está localizada; se supone que es el cauce que entra al barrio Palmeras desde el PNG.",
+    "confianza": "baja"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -89.59291666666667,
+      -0.9115277777777779
+     ],
+     [
+      -89.59291666666667,
+      -0.9112499999999946
+     ],
+     [
+      -89.59319444444444,
+      -0.9109722222222254
+     ],
+     [
+      -89.59291666666667,
+      -0.9106944444444471
+     ],
+     [
+      -89.59319444444444,
+      -0.910416666666669
+     ],
+     [
+      -89.59347222222222,
+      -0.9104166666666591
+     ],
+     [
+      -89.59375,
+      -0.9104166666666687
+     ],
+     [
+      -89.59389870971161,
+      -0.9104166666693542
+     ]
+    ]
+   },
+   "properties": {
+    "nombre": "Limpieza de cauce — La Picada, tramo urbano (240 m)",
+    "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+    "tipo": "línea",
+    "longitud_plan_m": 240,
+    "metodo": "Mismo cauce, 240 m aguas abajo del límite del PNG",
+    "incertidumbre": "MUY ALTA (ídem).",
+    "confianza": "baja"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.60958333333333,
+     -0.899027777777777
+    ]
+   },
+   "properties": {
+    "nombre": "Desembocadura de la cañada Divino Niño en Playa de Oro (destaponar)",
+    "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+    "tipo": "punto",
+    "metodo": "Salida al mar del cauce D8 de Divino Niño (≈1,5 km²) junto a la playa OSM «Playa de Oro»",
+    "incertidumbre": "MEDIA: ±50 m; la salida real puede estar canalizada.",
+    "confianza": "media"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -89.60443513875812,
+      -0.899861111113776
+     ],
+     [
+      -89.60458333333332,
+      -0.8998611111111144
+     ],
+     [
+      -89.6048611111111,
+      -0.8998611111111131
+     ],
+     [
+      -89.60513888888889,
+      -0.9001388888888813
+     ],
+     [
+      -89.60541666666667,
+      -0.8998611111111121
+     ],
+     [
+      -89.60569444444444,
+      -0.8995833333333267
+     ],
+     [
+      -89.60569444444444,
+      -0.8993055555555581
+     ],
+     [
+      -89.60589185735007,
+      -0.8991081426438788
+     ]
+    ]
+   },
+   "properties": {
+    "nombre": "Muro de contención fracturado (240 m) — sector Hospital Oskar Jandl",
+    "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+    "tipo": "línea",
+    "longitud_plan_m": 240,
+    "longitud_trazada_m": 240,
+    "metodo": "240 m del cauce D8 de Divino Niño centrados en el punto más cercano al hospital (OSM), a 15 m",
+    "incertidumbre": "ALTA: el muro puede estar en otra margen o en otro tramo; ubicación del hospital discrepante entre OSM y MSP.",
+    "confianza": "baja"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "nombre": "Conexión de las cañadas Hormiga y Varonesa (500 m) — Floreana",
+    "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+    "tipo": "sin geometría",
+    "longitud_plan_m": 500,
+    "metodo": "No trazable: las cañadas no están en OSM ni en el IGM y no hay DEM procesado para Floreana en este proyecto",
+    "incertidumbre": "No localizada.",
+    "confianza": "no localizada"
+   }
+  }
+ ]
+}
