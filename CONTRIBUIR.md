@@ -36,7 +36,7 @@ Todo lo pendiente está en los [issues del proyecto](https://github.com/mayait/s
 
 Antes de empezar, asígnate el issue (o comenta en él) y ponle la etiqueta `en curso`. La rama lleva el número del issue, por ejemplo `datos/12-catastro-santa-cruz`. Si descubres algo nuevo que falta, abre un issue en lugar de anotarlo en un archivo.
 
-## 3b. Ramas
+## 4. Ramas
 
 ```
 main                         siempre publicable; solo se despliega desde aquí
@@ -52,7 +52,7 @@ main                         siempre publicable; solo se despliega desde aquí
 - Commits en español, con el estilo `tipo(ámbito): descripción` y estos ámbitos: `geodatos`, `clima`, `estudios`, `servidores`, `docs`. Ejemplo: `feat(clima): fuente INAMHI con historial de 90 días`.
 - Autor de los commits: la identidad de git de cada persona. Los agentes que trabajan para Julián usan `Julian Maya <1101119+mayait@users.noreply.github.com>`.
 
-## 4. Trabajar en paralelo con *worktrees* (recomendado para agentes)
+## 5. Trabajar en paralelo con *worktrees* (recomendado para agentes)
 
 Cada tarea va en su propia carpeta, sobre su propia rama, sin tocar la copia principal:
 
@@ -70,7 +70,7 @@ ln -s ~/dev/sosgalapagos-datos/clima/.venv        clima/.venv
 - Al terminar: PR, merge y `git worktree remove ../sosgalapagos-datos--estudio-idf`.
 - Si dos agentes van a tocar el mismo archivo caliente, se coordinan antes. Entre sesiones de Claude Code se usa `SendMessage`.
 
-## 5. Recetas
+## 6. Recetas
 
 ### Añadir una capa nueva
 1. Script que la descarga o la calcula. Para el proceso base, usa el siguiente número libre. Para un tema concreto, usa un nombre propio (`grd_*.py`, `est_<estudio>_*.py`). No reutilices un número que ya existe.
@@ -95,7 +95,7 @@ Ver `geodatos/docs/05-como-actualizar.md`, apartado A. Se reemplaza `geodatos/ca
 3. Scripts propios. Las figuras y el PDF se generan, no se editan a mano.
 4. Todo estudio dice que es **preliminar** y distingue el **dato medido** del **modelo**.
 
-## 6. Publicar
+## 7. Publicar
 
 Solo desde `main`, con el árbol limpio y por quien tenga acceso al servidor:
 
@@ -107,7 +107,7 @@ servidores/publicar.sh clima      # sosgalapagos.org/clima/ (recolector y panel)
 
 El script se niega a publicar fuera de `main` o con cambios sin commit. En el servidor deja un `version.txt` con el commit publicado. Detalles en [servidores/README.md](servidores/README.md).
 
-## 7. Antes de abrir un PR
+## 8. Antes de abrir un PR
 
 - [ ] Corrí los scripts de mi dominio y funcionan desde cero.
 - [ ] No subo `descargas/`, `.venv/`, `privado/`, credenciales ni bases SQLite.
