@@ -126,7 +126,13 @@ Tabla: Escenarios de diseño (tormenta tipo II de 24 h; cuenca de 42,4 km², inc
 | 150 mm | 60 / 70 / 80 | 47 / 69 / 94 | 2,0 / 2,9 / 4,0 | 106 / 167 / 232 | 205 / 324 / 448 | 32 / 47 / 64 |
 | 200 mm | 60 / 70 / 80 | 82 / 111 / 140 | 3,5 / 4,7 / 5,9 | 195 / 272 / 347 | 378 / 526 / 664 | 56 / 76 / 96 |
 
-> **Hallazgo central de la hidrología.** Según el método SCS-CN, y suponiendo que toda la escorrentía llega al barrio (sin pérdidas en cauces efímeros sobre basalto fracturado, grietas ni tubos de lava), **el vaso se llena con unos 25–50 mm de lluvia**. Con 100 mm, la escorrentía es de 13 a 50 veces su volumen. Lo que determina la altura del agua en el barrio es la **capacidad de salida**, no el almacenamiento.
+> **Lo que dice el SCS-CN y lo que no respalda la evidencia.** Según el método SCS-CN agregado, y suponiendo que toda la escorrentía llega al barrio sin pérdidas en los cauces efímeros sobre basalto fracturado, el vaso se llenaría con unos 25–50 mm de lluvia. **La serie medida de octubre no respalda ese resultado.** El 3-oct cayeron 68,2 mm en Los Guayabillos, y 112 mm entre el 3 y el 4, sin inundación reportada en La Cascada (por confirmar con el GAD/COE). Con ese criterio, el modelo 2D con SCS-CN inunda el barrio, mientras que un modelo de pérdida inicial más pérdida constante no lo hace (sección 5b).
+>
+> **Umbral empírico.** La diferencia entre ese día y el 30-oct está en la **intensidad**, más que en el volumen:
+> - el 3-oct, el máximo horario fue de 12,6 mm/h;
+> - el 30-oct hubo unas 3 horas seguidas a 21–61 mm/h.
+>
+> El umbral está entre ambos casos: del orden de **20–25 mm/h sostenidos durante más de una hora** sobre la parte media de la cuenca, tras unos 20 mm de pérdida inicial. Una vez superado, lo que determina la altura del agua en el barrio es la **capacidad de salida**, no el almacenamiento.
 
 ## 4.7 El evento del 30 de octubre de 2026: recalibración con lluvia medida
 
@@ -200,7 +206,7 @@ Tabla: Lámina máxima simulada sobre el punto más bajo del DSM (≈10,5 m), co
 - **Capacidad de salida.** Es la variable que gobierna la lámina. El caudal pico del evento, unos 300–500 m³/s en el escenario central, supera:
   - unas 7–14 veces los 35–45 m³/s de la calle-canal propuesta;
   - el caudal considerado para el interceptor en la sección 5 (150–230 m³/s). Conducir 325–497 m³/s exigiría 35–54 m de base al 0,5 %.
-- **Lo que no cambia.** El vaso se llenó horas antes del pico, como en cualquier escenario de más de ~25 mm. La lluvia medida refuerza la conclusión de que el problema es de salida y de exposición, no de almacenamiento.
+- **Lo que no cambia.** El 30-oct, el vaso se llenó horas antes del pico. La lluvia medida refuerza la conclusión de que, superado el umbral de intensidad, el problema es de salida y de exposición, no de almacenamiento.
 
 ## 4.8 Incertidumbre
 
@@ -209,7 +215,8 @@ Tabla: Lámina máxima simulada sobre el punto más bajo del DSM (≈10,5 m), co
 - **Un error del orden de las magnitudes clave.** El error aleatorio de ±2 m es del mismo orden que la profundidad del vaso (2,4 m), que la lámina simulada y que el desnivel del interceptor en sus primeros 2,5 km.
 - **Lluvia del evento.** Está medida, pero solo en dos estaciones útiles, ambas fuera de la cuenca y con totales mínimos por el corte de transmisión. La estación de la cumbre falla desde agosto y la de Los Guayabillos dejó de medir después del evento. La lluvia areal va de 152 a 208 mm (reducción areal a gradiente con la cota). Los pluviómetros de balancín subestiman las intensidades de más de 50 mm/h.
 - **Hidrología.** Para el evento medido, el caudal pico varía de 215 a 549 m³/s (factor ~2,5) según la lluvia areal, el CN (68–76) y el tc (Témez–Kirpich). El modelo es agregado, con lluvia uniforme, sin pérdidas en el cauce y sin calibrar con caudales.
-- **Tránsito por el vaso.** El vertedero libre ignora el remanso aguas abajo, donde los primeros 400 m son casi planos y están edificados. La longitud efectiva del frente de desborde (100–1 000 m) es un supuesto.
+- **Tránsito por el vaso.** El vertedero libre ignora el remanso aguas abajo, donde los primeros 400 m son casi planos y están edificados. La longitud efectiva del frente de desborde (100–1 000 m) es un supuesto. El modelo 2D (sección 5b) sí representa ese remanso.
+- **Pérdidas por intensidad.** El SCS-CN reparte las pérdidas según el volumen acumulado, no según la intensidad. Los días sin inundación reportada de octubre (3 y 4 de octubre: 68 y 44 mm con ≤ 13 mm/h; por confirmar) indican que sobre el basalto fracturado dominan las pérdidas por intensidad (infiltración y transmisión en los cauces). Por eso **el SCS-CN sobrestima la frecuencia de llenado del vaso**: el «25–50 mm» del apartado 4.6 no debe usarse como umbral de alerta.
 
 Tabla: Nivel de confianza de cada conclusión.
 

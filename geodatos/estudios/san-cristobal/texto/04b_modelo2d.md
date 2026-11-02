@@ -39,11 +39,11 @@ Tabla: Caudal pico por sección (m³/s; hora de Galápagos en los escenarios con
 
 | Sección | (i) 100 mm | (ii) Trasladada | (iii) Húmedo | (iv) 15 m |
 |---|---|---|---|---|
-| Barrio Frío, desembocadura (S01) | 18 | 95 (21:30) | 127 | 100 |
-| El Manzanillo, entrada (L01) | 4 | 23 | 28 | 19 |
+| Galápagos / Barrio Frío, desembocadura (S01) | 18 | 95 (21:30) | 127 | 100 |
+| Galápagos, entrada a la ciudad (L01) | 4 | 23 | 28 | 19 |
 | Divino Niño, salida (S02) | 7 | 16 | 23 | 18 |
-| Escuela Alvear, salida (S03) | 3 | 10 | 15 | 10 |
-| Quebrada del campus, rellano | 0,2 | 2,4 | 3,5 | 2,3 |
+| Alejandro Alvear, salida (S03) | 3 | 10 | 15 | 10 |
+| Playa Mann (quebrada del campus), rellano | 0,2 | 2,4 | 3,5 | 2,3 |
 | El Progreso, quebrada IGM (PRO-L01) | 0,6 | 15 | 17 | 15 |
 
 - **Orden de llegada con la tormenta trasladada (iv).**
@@ -99,7 +99,40 @@ Tabla: Agua que entra al campus aproximado (0,8 ha).
 - **Matiz importante.** Una malla de 15–30 m promedia la lámina sobre toda la celda. Si el desborde se encauza por la Vía Universidad o entre muros, el calado local será mayor. Como orden de magnitud, 0,5 m³/s por una calle de 8 m con un 5 % de pendiente circulan con ≈5 cm de calado a ≈1,4 m/s. No basta para inundar plantas bajas con umbral, pero sí para entrar por accesos a nivel y arrastrar sedimento.
 - **Lo que decide la respuesta real** es la cota del rellano y de la Vía Universidad frente al campus, y si existe algún paso bajo la vía. Ninguna de las dos cosas se resuelve con este DSM: hace falta GNSS y una inspección en campo.
 
-## 4b.4 Limitaciones y confianza
+## 4b.4 Contraste con el Plan de Acción de la UGR
+
+El Plan de Acción SC-4-09-2026 de la UGR del GAD San Cristóbal [R] da los nombres oficiales de las encañadas y los sectores de máxima prioridad. La correspondencia de nombres y la tabla completa están en la sección 4.6. Lo que aporta el modelo 2D es lo siguiente.
+
+**Sectores que el 2D reproduce.** Con la tormenta trasladada y la malla de 15 m:
+- **la playa de Barrio Frío:** 1,4 m de calado máximo;
+- **el entorno del puente de la perimetral sobre la Galápagos**, donde el plan sitúa el desborde de El Manzanillo de abril de 2026: 0,86 m y 10 edificios con ≥ 0,3 m;
+- **La Planada:** 0,94 m y 15 edificios;
+- **San Francisco, Fragata y Estación Terrena**, sobre el tramo urbano de la Galápagos: 1,25 m y 54 edificios.
+
+Con 100 mm solo destacan Barrio Frío y La Planada (0,5–0,8 m). El desborde de abril de 2026 junto al puente apunta, por tanto, a una lluvia mayor de 100 mm o a una obstrucción.
+
+**Sectores que el 2D no reproduce.**
+- El muro del Hospital Oskar Jandl (0,34 m) y la vía Jaime Roldós junto al Colegio Ignacio Hernández (0,19 m).
+- El taponamiento de la boca de Playa de Oro y de las rejillas de Playa Mann.
+
+Son procesos de calle, de obra y de sedimento que una malla de 15–30 m sin red pluvial no puede representar.
+
+**Bifurcaciones (trazadores).** Para comprobar lo que dice el plan sobre la hidrografía se marcó el agua de la Galápagos aguas arriba de la ciudad y, en otra corrida, la de Divino Niño (escenarios `traz_galapagos_15m`, `traz_divinonino_15m` y `traz_galapagos_100mm_15m`).
+
+Tabla: Por dónde sale al mar el agua marcada (porcentaje de su lluvia neta; el resto queda almacenado en el dominio).
+
+| Agua marcada | Barrio Frío | Centro (muelles) | Playa de Oro (Divino Niño) | Playa Mann sur (Alvear) | Frente al campus |
+|---|---|---|---|---|---|
+| Galápagos, tormenta trasladada | 67 % | 0 % | 0,03 % | 0 % | 0 % |
+| Galápagos, 100 mm | 48 % | 0 % | 0,02 % | 0 % | 0 % |
+| Divino Niño, tormenta trasladada | 1,7 % | 0 % | 75 % | 0,9 % | 0 % |
+
+**Respuesta**
+- **El modelo no reproduce que Divino Niño «se separe de la Galápagos».** En el collado donde podría ocurrir (466 m entre ambos cauces y solo 1,2 m* de resalte; sección 4.6), el calado de la Galápagos es de 0,65 m con la tormenta trasladada: insuficiente en el modelo.
+- **El paso de Divino Niño a Alvear es marginal** (≈1 %).
+- Ambas bifurcaciones son topográficamente posibles dentro del error del DSM y con obstrucciones o rellenos. Que el modelo no las vea **no las descarta**. Si existen, la mancha inundable real de Divino Niño y Alvear sería mayor que la de este modelo, porque recibirían agua de una cuenca de 10 km² en lugar de 1 km².
+
+## 4b.5 Limitaciones y confianza
 
 - Sin calibración: no hay niveles, caudales ni marcas del evento en San Cristóbal.
 - El DSM incluye techos y vegetación: crea obstáculos y depresiones falsas, y retiene agua en la parte alta.
@@ -111,7 +144,8 @@ Tabla: Nivel de confianza.
 
 | Conclusión | Confianza |
 |---|---|
-| Barrio Frío–El Manzanillo concentra el mayor caudal y la desembocadura es el punto más expuesto | Media-alta |
+| La Galápagos (Barrio Frío) concentra el mayor caudal y la desembocadura es el punto más expuesto | Media-alta |
+| El 2D no reproduce la separación de Divino Niño desde la Galápagos que describe el plan | Media (es un resultado del modelo, no de la realidad) |
 | Orden de llegada: El Progreso primero; Barrio Frío ≈2,5 h después del inicio del pulso fuerte | Media |
 | Caudales y calados (orden de magnitud) | Baja |
 | La quebrada del campus se reparte en el rellano y entra en el campus como una lámina de pocos centímetros | Media-baja |
@@ -123,4 +157,5 @@ Tabla: Nivel de confianza.
 - `_agua_quebrada_campus_max.tif` (trazador);
 - `_series.csv` (cada 5 min: calado y velocidad en los puntos, caudal por sección y agua que entra al campus);
 - `_cuadros_ciudad.npz` (cuadros cada 10 min, para la animación);
+- `<escenario>_agua_marcada_max.tif` y `salidas_al_mar` en el resumen, para los escenarios con trazador (`traz_*`);
 - `resumen_modelo2d.json`.

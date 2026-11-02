@@ -18,7 +18,7 @@
 
 ## Agua potable
 
-- Se localizaron las **tomas de agua del acueducto** (sección 9). Ninguna ubicación se ha verificado en campo:
+- Se localizaron las **tomas de agua del acueducto** (sección 8). Ninguna ubicación se ha verificado en campo:
   - **Cerro Gato**, con unos 27 l/s y confianza media;
   - **Los Americanos**, con unos 19 l/s y confianza media;
   - **La Toma**, que abastece la planta El Progreso y tiene confianza alta;

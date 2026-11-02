@@ -1,0 +1,222 @@
+{
+ "metodo": "Floreana (Puerto Velasco Ibarra): cauces D8 que llegan a la costa del poblado y coherencia topográfica de una conexión de\n≈500 m entre cañadas para proteger Playa Negra (Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal). EXPLORATORIO.\n\n  - DSM Copernicus GLO-30 (tile S02 W091), reproyectado a UTM 15S, 30 m; D8 (pysheds) con depresiones rellenadas.\n  - No hay cartografía IGM ni OSM de las cañadas «La Hormiga» y «La Varonesa / Lobería»: los nombres NO se asignan aquí.\n  - Para el cauce que desemboca en Playa Negra (OSM) se buscan, en cada celda de su red (≥ 0,05 km²), conexiones rectas de\n    ≤ LONG_MAX_M hasta las redes vecinas (norte y sur): desnivel, pendiente y corte máximo bajo una rasante recta.",
+ "salidas": {
+  "Playa Negra": {
+   "lonlat": [
+    -90.48828,
+    -1.27654
+   ],
+   "area_km2": 2.07,
+   "cota_max_red_m": 219.7,
+   "dist_a_playa_negra_m": 22
+  },
+  "norte": {
+   "lonlat": [
+    -90.4891,
+    -1.2703
+   ],
+   "area_km2": 1.75,
+   "cota_max_red_m": 351.1,
+   "dist_a_playa_negra_m": 688
+  },
+  "sur": {
+   "lonlat": [
+    -90.49016,
+    -1.2825
+   ],
+   "area_km2": 4.23,
+   "cota_max_red_m": 375.9,
+   "dist_a_playa_negra_m": 691
+  }
+ },
+ "conexion_hacia_norte": {
+  "n_opciones_<=550m_que_bajan": 138,
+  "n_viables": 42,
+  "criterio_viable": "pendiente ≥ 0.5 % y corte ≤ 3.0 m bajo una rasante recta",
+  "mejores_viables_por_area": [
+   {
+    "toma_lonlat": [
+     -90.47697,
+     -1.27815
+    ],
+    "destino_lonlat": [
+     -90.47697,
+     -1.27598
+    ],
+    "longitud_m": 240,
+    "area_captada_km2": 1.18,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.57,
+    "cota_toma_m": 68.0,
+    "desnivel_m": 1.3,
+    "pendiente_pct": 0.52,
+    "corte_max_m": 1.1
+   },
+   {
+    "toma_lonlat": [
+     -90.4767,
+     -1.27842
+    ],
+    "destino_lonlat": [
+     -90.47697,
+     -1.27598
+    ],
+    "longitud_m": 272,
+    "area_captada_km2": 1.18,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.57,
+    "cota_toma_m": 71.9,
+    "desnivel_m": 5.1,
+    "pendiente_pct": 1.89,
+    "corte_max_m": 0.4
+   },
+   {
+    "toma_lonlat": [
+     -90.47643,
+     -1.27869
+    ],
+    "destino_lonlat": [
+     -90.47697,
+     -1.27598
+    ],
+    "longitud_m": 306,
+    "area_captada_km2": 1.18,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.57,
+    "cota_toma_m": 74.8,
+    "desnivel_m": 8.0,
+    "pendiente_pct": 2.61,
+    "corte_max_m": 0.2
+   }
+  ],
+  "mejores_por_area_sin_criterio": [
+   {
+    "toma_lonlat": [
+     -90.48289,
+     -1.27707
+    ],
+    "destino_lonlat": [
+     -90.48236,
+     -1.27219
+    ],
+    "longitud_m": 543,
+    "area_captada_km2": 1.44,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.7,
+    "cota_toma_m": 33.5,
+    "desnivel_m": 0.7,
+    "pendiente_pct": 0.13,
+    "corte_max_m": 3.8
+   },
+   {
+    "toma_lonlat": [
+     -90.48262,
+     -1.27707
+    ],
+    "destino_lonlat": [
+     -90.48209,
+     -1.27246
+    ],
+    "longitud_m": 514,
+    "area_captada_km2": 1.44,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.7,
+    "cota_toma_m": 35.5,
+    "desnivel_m": 0.3,
+    "pendiente_pct": 0.06,
+    "corte_max_m": 4.7
+   }
+  ],
+  "area_max_captable_viable_km2": 1.18
+ },
+ "conexion_hacia_sur": {
+  "n_opciones_<=550m_que_bajan": 20,
+  "n_viables": 3,
+  "criterio_viable": "pendiente ≥ 0.5 % y corte ≤ 3.0 m bajo una rasante recta",
+  "mejores_viables_por_area": [
+   {
+    "toma_lonlat": [
+     -90.46699,
+     -1.29007
+    ],
+    "destino_lonlat": [
+     -90.46725,
+     -1.2917
+    ],
+    "longitud_m": 182,
+    "area_captada_km2": 0.09,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.04,
+    "cota_toma_m": 199.0,
+    "desnivel_m": 1.2,
+    "pendiente_pct": 0.65,
+    "corte_max_m": 1.6
+   },
+   {
+    "toma_lonlat": [
+     -90.46672,
+     -1.29034
+    ],
+    "destino_lonlat": [
+     -90.46698,
+     -1.29143
+    ],
+    "longitud_m": 124,
+    "area_captada_km2": 0.08,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.04,
+    "cota_toma_m": 200.5,
+    "desnivel_m": 1.2,
+    "pendiente_pct": 0.97,
+    "corte_max_m": 0.8
+   },
+   {
+    "toma_lonlat": [
+     -90.46591,
+     -1.28926
+    ],
+    "destino_lonlat": [
+     -90.46698,
+     -1.29143
+    ],
+    "longitud_m": 268,
+    "area_captada_km2": 0.06,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.03,
+    "cota_toma_m": 203.8,
+    "desnivel_m": 4.5,
+    "pendiente_pct": 1.69,
+    "corte_max_m": 1.7
+   }
+  ],
+  "mejores_por_area_sin_criterio": [
+   {
+    "toma_lonlat": [
+     -90.46753,
+     -1.28845
+    ],
+    "destino_lonlat": [
+     -90.46833,
+     -1.29279
+    ],
+    "longitud_m": 488,
+    "area_captada_km2": 0.18,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.09,
+    "cota_toma_m": 190.0,
+    "desnivel_m": 0.3,
+    "pendiente_pct": 0.06,
+    "corte_max_m": 13.7
+   },
+   {
+    "toma_lonlat": [
+     -90.46753,
+     -1.28818
+    ],
+    "destino_lonlat": [
+     -90.4686,
+     -1.29279
+    ],
+    "longitud_m": 524,
+    "area_captada_km2": 0.18,
+    "fraccion_de_la_cuenca_de_playa_negra": 0.09,
+    "cota_toma_m": 188.6,
+    "desnivel_m": 0.3,
+    "pendiente_pct": 0.05,
+    "corte_max_m": 17.0
+   }
+  ],
+  "area_max_captable_viable_km2": 0.09
+ }
+}

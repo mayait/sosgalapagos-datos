@@ -21,18 +21,18 @@ El cálculo se reproduce con `scripts/17_san_cristobal_inundacion.py`; las cifra
 - Solo el 0,6 % depende del relleno de depresiones de más de 1 m: la conexión no es un artefacto.
 - Llegan 14 quebradas de ≥ 0,05 km². Las cinco mayores suman el 81 % del área.
 
-**El Progreso.** Tiene 35 ha, ≈210 edificios y ≈280 personas, y recibe 1,1 km². Su llegada principal (PRO-L01) es la quebrada del IGM que baja de la parte alta, **cuyo trazado termina en el borde noreste del poblado**. Según el D8, el agua sale de El Progreso hacia el oeste y entra en la cuenca de El Manzanillo–Barrio Frío. **El Progreso está, por tanto, aguas arriba de Puerto Baquerizo Moreno.**
+**El Progreso.** Tiene 35 ha, ≈210 edificios y ≈280 personas, y recibe 1,1 km². Su llegada principal (PRO-L01) es la quebrada del IGM que baja de la parte alta, **cuyo trazado termina en el borde noreste del poblado**. Según el D8, el agua sale de El Progreso hacia el oeste y entra en la cuenca de la Galápagos (Barrio Frío). **El Progreso está, por tanto, aguas arriba de Puerto Baquerizo Moreno.**
 
-Tabla: Llegadas principales a las zonas pobladas (D8). Q100: tormenta tipo II de 100 mm; valor central con CN 70 y tc de Témez; entre paréntesis, de CN 60 con Témez a CN 80 con Kirpich. Los nombres locales son la hipótesis de la sección 7.
+Tabla: Llegadas principales a las zonas pobladas (D8). Q100: tormenta tipo II de 100 mm; valor central con CN 70 y tc de Témez; entre paréntesis, de CN 60 con Témez a CN 80 con Kirpich. Los nombres siguen la correspondencia con el Plan de Acción SC-4-09-2026 de la UGR del GAD San Cristóbal (sección 4.6).
 
-| Id | Nombre local probable | Área (km²) | Cota máx.* (m) | Pendiente media | Cauce: L (km) / pendiente | tc (h) | Q100 (m³/s) |
+| Id | Encañada oficial | Área (km²) | Cota máx.* (m) | Pendiente media | Cauce: L (km) / pendiente | tc (h) | Q100 (m³/s) |
 |---|---|---|---|---|---|---|---|
-| PBM-L01 | El Manzanillo → Barrio Frío | 5,4 | 526 | 10,4 % | 8,9 / 4,8 % | 1,0–4,2 | 11 (5–35) |
-| PBM-L02 | Afluente sureste (La Planada) | 1,8 | 294 | 8,9 % | 3,7 / 5,3 % | 0,4–2,3 | 6 (3–19) |
+| PBM-L01 | Galápagos / Barrio Frío | 5,4 | 526 | 10,4 % | 8,9 / 4,8 % | 1,0–4,2 | 11 (5–35) |
+| PBM-L02 | La Planada → Manzanillo–El Manantial | 1,8 | 294 | 8,9 % | 3,7 / 5,3 % | 0,4–2,3 | 6 (3–19) |
 | PBM-L03 | Divino Niño | 1,0 | 139 | 6,4 % | 2,2 / 4,6 % | 0,2–1,7 | 4 (2–13) |
-| PBM-L04 | Escuela Alvear | 0,45 | 122 | 8,6 % | 1,7 / 5,6 % | 0,1–1,2 | 2 (1–7) |
-| PBM-L05 | Quebrada del campus (§ 4.4) | 0,31 | 78 | 8,1 % | 1,3 / 4,6 % | 0,1–1,0 | 2 (1–5) |
-| PRO-L01 | Quebrada IGM de El Progreso | 1,0 | 526 | 14,0 % | 3,2 / 6,1 % | 0,3–1,6 | 4 (2–12) |
+| PBM-L04 | Alejandro Alvear | 0,45 | 122 | 8,6 % | 1,7 / 5,6 % | 0,1–1,2 | 2 (1–7) |
+| PBM-L05 | Playa Mann (quebrada del campus, § 4.4) | 0,31 | 78 | 8,1 % | 1,3 / 4,6 % | 0,1–1,0 | 2 (1–5) |
+| PRO-L01 | Cabecera rural de la Galápagos (quebrada IGM de El Progreso) | 1,0 | 526 | 14,0 % | 3,2 / 6,1 % | 0,3–1,6 | 4 (2–12) |
 
 ## 4.3 Puntos potenciales de inundación
 
@@ -49,10 +49,10 @@ Tabla: Salidas al mar de Puerto Baquerizo Moreno (D8). Edificios a ≤ 45 m del 
 
 | Id | Encañada | Lugar | Área (km²) | Cauce cartografiado al final | Edificios | Q100 (m³/s) |
 |---|---|---|---|---|---|---|
-| PBM-S01 | Barrio Frío | Malecón (−0,9026; −89,6132) | 10,6 | Sí (IGM; puentes) | 25 | 19 (9–58) |
-| PBM-S02 | Divino Niño | Sur de Playa Mann (−0,8994; −89,6097) | 1,5 | No | 32 | 6 (3–18) |
-| PBM-S03 | Escuela Alvear | Playa Mann (−0,8980; −89,6097) | 1,0 | No | 8 | 4 (2–14) |
-| PBM-S04 | Cauce pequeño | Norte del campus (−0,8945; −89,6102) | 0,1 | No | 6 | 0,9 (0,4–2) |
+| PBM-S01 | Galápagos / Barrio Frío | Playa de Barrio Frío, Poza de las Garzas (−0,9026; −89,6132) | 10,6 | Sí (IGM; puentes) | 25 | 19 (9–58) |
+| PBM-S02 | Divino Niño | Playa de Oro (−0,8994; −89,6097) | 1,5 | No | 32 | 6 (3–18) |
+| PBM-S03 | Alejandro Alvear | Playa Mann sur (−0,8980; −89,6097) | 1,0 | No | 8 | 4 (2–14) |
+| PBM-S04 | Playa Mann (ramal norte) | Norte del campus (−0,8945; −89,6102) | 0,1 | No | 6 | 0,9 (0,4–2) |
 
 **Ranking.** Cada punto suma de 0 a 9 puntos (`datos/puntos_inundacion.geojson`):
 - **A. Área aportante:** 0 (< 0,1 km²), 1 (0,1–0,5), 2 (0,5–2) o 3 (≥ 2).
@@ -65,22 +65,22 @@ Tabla: Los diez primeros puntos del ranking.
 
 | # | Id | Tipo | Lugar | Área (km²) | Edificios | Puntos (A-E-C-H-L) |
 |---|---|---|---|---|---|---|
-| 1 | PBM-L01 | Llegada | El Manzanillo, entrada este (−0,9062; −89,5938) | 5,4 | 110 | 8 (3-3-0-1-1) |
-| 2 | PBM-S01 | Salida con cauce | Barrio Frío, Malecón | 10,6 | 25 | 7 (3-2-0-1-1) |
-| 3 | PBM-S02 | Salida sin cauce | Divino Niño | 1,5 | 32 | 7 (2-2-1-1-1) |
+| 1 | PBM-L01 | Llegada | Galápagos, entrada este (−0,9062; −89,5938) | 5,4 | 110 | 8 (3-3-0-1-1) |
+| 2 | PBM-S01 | Salida con cauce | Galápagos, playa de Barrio Frío | 10,6 | 25 | 7 (3-2-0-1-1) |
+| 3 | PBM-S02 | Salida sin cauce | Divino Niño, Playa de Oro | 1,5 | 32 | 7 (2-2-1-1-1) |
 | 4 | PBM-L02 | Llegada | La Planada (−0,9116; −89,5919) | 1,8 | 45 | 6 (2-2-1-1-0) |
 | 5 | PBM-L03 | Llegada | Divino Niño (−0,8996; −89,6035) | 1,0 | 66 | 6 (2-2-1-1-0) |
 | 6 | V22 | Vaso no robusto | Desembocadura de Barrio Frío | 10,6 | 2 | 5 (3-0-0-1-1) |
-| 7 | PBM-S03 | Salida sin cauce | Escuela Alvear, Playa Mann | 1,0 | 8 | 5 (2-1-1-1-0) |
+| 7 | PBM-S03 | Salida sin cauce | Alvear, Playa Mann sur | 1,0 | 8 | 5 (2-1-1-1-0) |
 | 8 | V15 | Vaso no robusto | La Planada | 2,0 | 8 | 4 (2-1-0-1-0) |
-| 9 | PBM-L04 | Llegada | Escuela Alvear (−0,8975; −89,6048) | 0,45 | 13 | 4 (1-1-1-1-0) |
-| 10 | PBM-L05 | Llegada | Quebrada del campus (−0,8961; −89,6070) | 0,31 | 12 | 4 (1-1-1-1-0) |
+| 9 | PBM-L04 | Llegada | Alvear (−0,8975; −89,6048) | 0,45 | 13 | 4 (1-1-1-1-0) |
+| 10 | PBM-L05 | Llegada | Playa Mann, quebrada del campus (−0,8961; −89,6070) | 0,31 | 12 | 4 (1-1-1-1-0) |
 
 El primer punto de El Progreso es el vaso V03 (puesto 13). El ranking sirve para **ordenar las visitas de campo**; no mide el riesgo, porque los pesos son convencionales. V22 es, en la práctica, la boca de Barrio Frío (S01).
 
 ## 4.4 La quebrada del campus USFQ / Galapagos Science Center
 
-**De dónde viene.** Nace en la ladera al este-noreste del campus, a ≈78 m*, en terreno casi sin edificar. Al llegar a un **rellano a ≈20 m***, entre 160 y 200 m al este del campus, su trazado se vuelve ambiguo:
+**Nombre oficial: cañada de Playa Mann** (Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal; sección 4.6). **De dónde viene.** Nace en la ladera al este-noreste del campus, a ≈78 m*, en terreno casi sin edificar. Al llegar a un **rellano a ≈20 m***, entre 160 y 200 m al este del campus, su trazado se vuelve ambiguo:
 - **En la rejilla UTM** (este análisis), gira al sur, se une a la encañada de la Escuela Alvear y llega al mar en Playa Mann (−0,8980; −89,6097). Pasa a **157 m** del campus en su punto más cercano.
 - **En la rejilla geográfica original** (la de la sección 6), sigue al oeste, **atraviesa el campus** y llega a la costa junto a él (−0,8951; −89,6093).
 - **Con 1–3 m de ruido en el DSM**, entre el **12 y el 23 %** de las realizaciones cruzan el campus. En su mayoría entran por la esquina noreste, junto a la Vía Universidad (−0,8950; −89,6083).
@@ -143,7 +143,104 @@ Tabla: DSM menos punto acotado del IGM 1:25 000 (m).
 - En el entorno de Puerto Baquerizo el error es de ≈3 m (RMSE), como en Santa Cruz, pero **el sesgo cambia de signo**: +1,5 m, frente a −2,1 m en Puerto Ayora. **El sesgo de «unos −2 m» que usa el estudio no vale aquí**: es local.
 - En El Progreso el RMSE sube a 5 m, del orden de la profundidad de sus vasos. En la isla completa hay colas largas (P5 = −12 m) por el relieve y la vegetación de la parte alta.
 
-## 4.6 Incertidumbre
+## 4.6 Contraste con el Plan de Acción de la UGR
+
+La Unidad de Gestión de Riesgos del GAD de San Cristóbal identifica en su plan 15 encañadas oficiales y los sectores afectados en abril de 2025 y abril de 2026 [R] (Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal; documento interno). Los cálculos se reproducen con `scripts/27_canadas_oficiales_san_cristobal.py` y están en `datos/contraste_plan_ugr.json`.
+
+### Correspondencia de nombres
+
+Las capas `cuencas.geojson` y `puntos_inundacion.geojson` llevan ahora la propiedad `cañada_oficial`, y `datos/cañadas_oficiales.geojson` contiene el cauce D8 de cada encañada.
+
+Tabla: Correspondencia entre los cauces D8 y las encañadas oficiales. La confianza es la de la correspondencia, no la del cauce.
+
+| Encañada oficial | Cauces y puntos D8 | Anclaje | Confianza |
+|---|---|---|---|
+| Galápagos / Barrio Frío | PBM-L01, S01, V22 y PRO-L01 (cabecera rural) | Cuenca principal (10,6 km²) que llega a la playa de Barrio Frío | Alta |
+| Divino Niño | PBM-L03, L11, S02 | Desemboca en Playa de Oro (OSM), a 60 m | Alta en la salida; media en el trazado |
+| Alejandro Alvear | PBM-L04, L13, S03 | Pasa junto a la E. E. B. Alejandro Alvear; pasarela de muelle a 115 m de la boca | Media |
+| Playa Mann | PBM-L05 (quebrada del campus), L12, S04 | Pasa junto a las oficinas del PNG y llega a Playa Mann (rejilla original y 2D) | Media |
+| La Planada | PBM-L02 (tramo alto), L14, V15 | Registro de la SNGR de 2025 a 210 m | Media |
+| Manzanillo–El Manantial | PBM-L02 (tramo bajo), L08, L09 | Ramales que bajan desde La Planada, como dice el plan | Media-baja |
+| Palmeras–Arrayanes | PBM-L07 | Entre Las Palmeras (IGM) y la Galápagos; no hay topónimo «Arrayanes» | Baja |
+| Cerro Quemado / Don García | PBM-L06, L10 | Laderas de Estación Terrena | Baja |
+| CGRS | Recorrido desde el antiguo vertedero del IGM | Ubicación del CGRS sin confirmar | Baja |
+| Parque Artesanal | — | No localizado | — |
+
+**Lo que no cuadra:**
+- **Cerro Quemado.** El D8 no lleva ninguna ladera a la mina de Cerro Quemado (OSM): Estación Terrena drena a Barrio Frío y la mina vierte hacia el sur. O el cauce está canalizado, o la mina tiene un fondo cerrado que el DSM no resuelve.
+- **Playa Mann y Alvear.** En el D8 en UTM la quebrada de Playa Mann es un afluente de Alvear. En la rejilla original y en el 2D se reparte entre ambas (sección 4.4).
+
+### Bifurcaciones: Divino Niño «se separa de la Galápagos» y Alvear «recoge aguas de Divino Niño»
+
+**Lo que puede hacer cada modelo**
+- **El D8 no puede bifurcar.** Le da a Divino Niño una cuenca propia de ≈1 km², sin conexión con la Galápagos.
+- **El 2D, con trazadores (sección 4b), tampoco reproduce el reparto.** Con la tormenta trasladada:
+  - de la lluvia neta marcada en la Galápagos, el 67 % sale por la playa de Barrio Frío y solo el 0,03 % por Playa de Oro; el resto queda almacenado;
+  - del agua de Divino Niño, el 75 % sale por Playa de Oro, el 1,7 % por Barrio Frío y el 0,9 % por la boca de Alvear.
+
+**Lo que muestra el terreno: un collado bajo.** Fuera de la franja costera, el cauce de la Galápagos (−0,9083; −89,5997; 62 m*) pasa a **466 m** del ramal sur de Divino Niño (−0,9042; −89,6008; 60 m*).
+- Entre ambos, el DSM solo sube **1,2 m** sobre el lecho de la Galápagos, menos que su error.
+- El 2D da allí 0,65 m de calado con la tormenta trasladada y 0,28 m con 100 mm. No basta para desbordar en el modelo, pero sí bastaría una crecida algo mayor, una obstrucción o un relleno que eleve el lecho. La SNGR ya registró en 2010 que «la encañada que atraviesa […] ha sido obstaculizada por relleno» en El Manzanillo [R].
+- **Hipótesis:** la separación que describe el plan («a la altura de los talleres del Consejo de Gobierno») estaría en ese collado, al noreste de Estación Terrena. Hay que comprobarlo en campo.
+
+**La vía Jaime Roldós no lleva el agua de la Galápagos hacia el hospital.** Desde el puente de la perimetral (45 m*), la vía sube hasta 56 m* en Cerro Patricia y luego baja de 50 a 24 m* hasta el hospital. El agua que, según el plan, «drena por la vía perimetral» e impide el acceso al hospital es, según el DSM, la de la ladera del ramal sur de Divino Niño, no la de la Galápagos.
+
+**Divino Niño y Alvear** pasan a 120 m entre sí cerca de la costa, con un resalte de 2,5 m*, probablemente edificios. Que Alvear recoja agua de Divino Niño es topográficamente posible, pero el 2D lo cuantifica en ≈1 %.
+
+> **Por qué importa.** El plan describe un **abanico con cauces distributarios** (Galápagos → Divino Niño → Alvear). En un abanico, la zona inundable no se limita a la línea D8: cuando el cauce principal desborda, los distributarios reciben agua de una cuenca mucho mayor (10 km² en lugar de 1 km²). Ninguno de los dos modelos lo representa con un DSM de 30 m sin rellenos ni obras. **Hay que levantar en campo la sección del cauce en el collado y los pasos bajo las vías.**
+
+### Validación con los sectores de máxima prioridad del plan
+
+Tabla: Sectores de máxima prioridad del plan frente al ranking (sección 4.3) y el modelo 2D (sección 4b). Calado máximo y número de edificios con ≥ 0,3 m en el radio de cada sector.
+
+| Sector del plan [R] | Ranking (puntos cercanos) | 2D, tormenta trasladada (15 m) | 2D, 100 mm | ¿Lo identifica? |
+|---|---|---|---|---|
+| Barrio Frío: playa y Poza de las Garzas | S01 (n.º 2), V22 (n.º 6) | 1,4 m; 7 edificios | 0,8 m | **Sí** |
+| Manzanillo: desborde a 100 m del puente (abr-2026) | Ninguno a ≤ 150 m | 0,86 m; 10 edificios | 0,24 m | **Sí en el 2D**; no en el ranking |
+| La Planada | V15 (n.º 8); L02 (n.º 4) a 210 m | 0,94 m; 15 edificios | 0,54 m; 6 | **Sí** |
+| Divino Niño: Playa de Oro (boca tapada) | S02 (n.º 3) | 0,68 m; 1 edificio | 0,15 m | Sí (la boca); **no** el taponamiento |
+| Divino Niño: muro del hospital | Ninguno | 0,34 m | 0,07 m | **No** |
+| Divino Niño: vía Jaime Roldós / Colegio I. Hernández | Ninguno | 0,19 m | 0,11 m | **No** |
+| Playa Mann | S03 (n.º 7), L05 (n.º 10) | 0,53 m; 1 edificio | 0,12 m | Parcialmente |
+| Los Arrayanes / La Picada (ubicación supuesta) | L07 (n.º 31) | 1,0 m; 0 de 23 edificios | 0,53 m | Solo el 2D, y con ubicación dudosa |
+| San Francisco, Fragata y Estación Terrena | Ninguno | 1,25 m; 54 edificios | 0,79 m; 1 | **Sí en el 2D**; no en el ranking |
+
+**Qué se le escapa al análisis y por qué**
+1. **Los tramos intermedios de la Galápagos:** el puente de El Manzanillo y Estación Terrena.
+   - El ranking solo puntúa entradas, salidas y vasos; no puntúa los tramos urbanos entre la entrada y la boca.
+   - El 2D sí los marca: 0,9–1,3 m y 10–54 edificios con ≥ 0,3 m.
+   - Habría que añadir al ranking los tramos urbanos de cauce.
+2. **Los procesos de obra e infraestructura:**
+   - la boca de Playa de Oro tapada con lodo y piedras;
+   - el muro del hospital;
+   - las rejillas y el alcantarillado taponados de Playa Mann;
+   - el agua que corre por la vía Jaime Roldós.
+   
+   El DSM de 30 m no ve calles, muros ni sumideros, y el modelo no transporta sedimento.
+3. **Los Arrayanes / La Picada.** No hay topónimo cartografiado y la urbanización queda en el borde del polígono urbano usado, así que su exposición se cuenta casi a cero.
+4. **El orden de magnitud de la lluvia.** Con 100 mm, el 2D apenas da 0,24 m junto al puente de El Manzanillo. El desborde de abril de 2026 sugiere una lluvia mayor u obstrucciones.
+
+### El Progreso: 43 viviendas y 124 personas según el plan
+
+El plan da **43 viviendas y 124 personas** expuestas directamente y atribuye la inundación de los sectores bajos a «cunetas y bordillos» [R]. Nuestros resultados son del mismo orden:
+
+Tabla: Exposición en El Progreso según cada fuente.
+
+| Fuente | Edificios / viviendas | Personas |
+|---|---|---|
+| Plan de Acción [R] | 43 viviendas | 124 |
+| Vasos robustos (V01, V03, V06, V11) | 20 edificios | ≈10 |
+| Todos los vasos del poblado (13) | 51 edificios | ≈27 |
+| 2D, calado ≥ 0,1 m (100 mm / trasladada) | 28 / 35 edificios | — |
+| 2D, calado ≥ 0,3 m | 17 / 25–29 edificios | — |
+| Total de la zona (INEC) | 206 edificios; 120 viviendas | 276 |
+
+- **El mecanismo coincide:** encharcamiento en depresiones sin salida, no una crecida.
+- **La magnitud** (≈30–50 edificios afectados) es compatible con las 43 viviendas del plan.
+- **La población** asignada por manzana del INEC (≈10–30 personas) es mucho menor que la del plan. Las manzanas censales no coinciden con los vasos, y un edificio no es una vivienda.
+- El plan cifra el 36 % de las viviendas y el 45 % de la población de El Progreso; el 2D, el 14–17 % de los edificios con ≥ 0,1 m.
+
+## 4.7 Incertidumbre
 
 - **DSM:** ±3 m en torno a la ciudad y ±5 m en El Progreso. En tramos con un 1–3 % de pendiente eso equivale al desnivel de 100 m de recorrido, así que las rutas del rellano del campus y de las salidas a Playa Mann son inciertas en decenas a cientos de metros.
 - **El DSM no ve** alcantarillas, cauces entubados ni bordillos; en la ciudad el agua sigue las calles.
@@ -154,7 +251,9 @@ Tabla: Nivel de confianza de cada conclusión.
 
 | Conclusión | Confianza |
 |---|---|
-| Área que drena a Puerto Baquerizo (≈11 km²) y peso de El Manzanillo–Barrio Frío | Alta |
+| Área que drena a Puerto Baquerizo (≈11 km²) y peso de la Galápagos (Barrio Frío) | Alta |
+| Correspondencia con las encañadas oficiales (Galápagos, Divino Niño) | Alta; Alvear, Playa Mann y La Planada: media; resto: baja |
+| Existe un collado bajo (≈1,2 m*) por el que la Galápagos puede desbordar hacia Divino Niño | Media-baja |
 | El Progreso está en la cuenca alta de Barrio Frío | Media-alta |
 | En Puerto Baquerizo no hay vasos de almacenamiento relevantes: el problema es el paso del agua | Media |
 | Encharcamiento por depresiones en El Progreso | Media-baja |

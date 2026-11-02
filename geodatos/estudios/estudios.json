@@ -383,6 +383,9 @@
         "archivo": "estudios/san-cristobal/texto/00_resumen.md"
       },
       {
+        "archivo": "estudios/san-cristobal/texto/00b_plan_ugr.md"
+      },
+      {
         "archivo": "estudios/san-cristobal/texto/01_alcance.md",
         "n": 1
       },
@@ -404,6 +407,10 @@
         "archivo": "estudios/san-cristobal/texto/04b_modelo2d.md",
         "titulo": "Modelo hidrodinámico 2D",
         "n": "4b"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/04c_floreana.md",
+        "n": "4c"
       },
       {
         "archivo": "estudios/san-cristobal/texto/05_cruces.md",
@@ -428,11 +435,11 @@
       {
         "archivo": "estudios/san-cristobal/texto/09_agua_potable.md",
         "titulo": "Tomas de agua del acueducto: ubicación, infraestructura, riesgos y cuencas",
-        "n": 9
+        "n": 8
       },
       {
         "archivo": "estudios/san-cristobal/texto/08_recomendaciones.md",
-        "n": 10,
+        "n": 9,
         "refs": "scb"
       },
       {

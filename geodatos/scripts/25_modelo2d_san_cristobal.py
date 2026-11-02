@@ -70,6 +70,18 @@ ESCENARIOS = {
     "guayabillos": dict(nombre="Tormenta medida en Los Guayabillos el 30-oct, trasladada", lluvia="guayabillos", dur_h=26.0, amc="II", celda=30.0),
     "guayabillos_amc3": dict(nombre="Ídem, suelo húmedo (CN AMC III)", lluvia="guayabillos", dur_h=26.0, amc="III", celda=30.0),
     "guayabillos_15m": dict(nombre="Ídem, malla de 15 m", lluvia="guayabillos", dur_h=26.0, amc="II", celda=15.0),
+    # pruebas de trazador para la hidrografía del Plan de Acción SC-4-09-2026 (UGR del GAD San Cristóbal): ¿se separa Divino Niño de la
+    # Galápagos? ¿recoge Alvear aguas de Divino Niño? Solo se exporta el reparto del agua marcada entre las salidas al mar.
+    "traz_galapagos_15m": dict(nombre="Trazador: agua de la Galápagos/Barrio Frío aguas arriba de la ciudad (tormenta trasladada, 15 m)",
+                               lluvia="guayabillos", dur_h=26.0, amc="II", celda=15.0, solo_trazador=True,
+                               trazador=[(-89.59376, -0.90615), (-89.59188, -0.91157), (-89.59376, -0.90805), (-89.59619, -0.91347),
+                                         (-89.59996, -0.91211), (-89.59323, -0.91374)]),
+    "traz_divinonino_15m": dict(nombre="Trazador: agua de Divino Niño aguas arriba de la ciudad (tormenta trasladada, 15 m)",
+                                lluvia="guayabillos", dur_h=26.0, amc="II", celda=15.0, solo_trazador=True,
+                                trazador=[(-89.60345, -0.89963), (-89.60022, -0.90397)]),
+    "traz_galapagos_100mm_15m": dict(nombre="Trazador Galápagos con 100 mm SCS II (15 m)", lluvia="scs", P=100.0, dur_h=28.0, amc="II", celda=15.0,
+                                     solo_trazador=True, trazador=[(-89.59376, -0.90615), (-89.59188, -0.91157), (-89.59376, -0.90805),
+                                                                   (-89.59619, -0.91347), (-89.59996, -0.91211), (-89.59323, -0.91374)]),
 }
 USFQ_LONLAT = (-89.6089, -0.8955)
 PUNTOS = {   # series temporales (lon, lat)
@@ -85,7 +97,22 @@ PUNTOS = {   # series temporales (lon, lat)
     "el_progreso_iess_2021": (-89.55727, -0.90859),
     "el_progreso_escuela_darwin_2024": (-89.55625, -0.90812),
     "el_progreso_vaso_V01": (-89.55766, -0.90373),
+    # sectores del Plan de Acción SC-4-09-2026 (UGR del GAD San Cristóbal)
+    "hospital_oskar_jandl": (-89.60523, -0.89986),
+    "colegio_ignacio_hernandez_via_jaime_roldos": (-89.60401, -0.90199),
+    "manzanillo_puente_perimetral": (-89.6058, -0.90835),
+    "la_planada_registro_2025": (-89.59404, -0.91131),
+    "playa_de_oro": (-89.60951, -0.89986),
 }
+SALIDAS_MAR = {   # tramos de costa para repartir el agua que sale al mar (radio de asignación SALIDA_RADIO_M)
+    "Galápagos / Barrio Frío (playa, Poza de las Garzas)": (-89.61315, -0.90261),
+    "Centro: muelles de pasajeros y de pescadores": (-89.61120, -0.90050),
+    "Divino Niño (Playa de Oro)": (-89.60965, -0.89936),
+    "Playa Mann sur (S03; Alvear según el D8)": (-89.60965, -0.89800),
+    "Playa Mann frente al campus": (-89.60930, -0.89514),
+    "Norte de Playa Mann (S04)": (-89.61018, -0.89448),
+}
+SALIDA_RADIO_M = 120
 SECCIONES = {   # caudal por sección transversal al cauce D8 (lon, lat del punto de control; semiancho en m)
     "El Manzanillo (entrada, PBM-L01)": ((-89.59376, -0.90615), 90),
     "Barrio Frío (desembocadura, PBM-S01)": ((-89.61315, -0.90261), 90),
@@ -166,7 +193,7 @@ def flujos(z, h, qx, qy, n2, act, dt, dx, g, hmin, frmax):
 
 
 @njit(cache=True)
-def continuidad(h, m, qx, qy, act, dt, dx, fac):
+def continuidad(h, m, qx, qy, act, dt, dx, fac, abs_h, abs_m):
     """Limitador de volumen + actualización de lámina h y del trazador m. Devuelve el volumen absorbido (mar/contorno)."""
     H, W = h.shape
     for i in range(H):
@@ -226,6 +253,7 @@ def continuidad(h, m, qx, qy, act, dt, dx, fac):
                 hn[i, j] = hv; mn[i, j] = mv
             else:
                 absorb += hv * dx * dx
+                abs_h[i, j] += hv * dx * dx; abs_m[i, j] += mv * dx * dx
                 hn[i, j] = 0.0; mn[i, j] = 0.0
     h[:, :] = hn; m[:, :] = mn
     return absorb
@@ -348,7 +376,12 @@ def preparar_base():
     dom = ndimage.binary_dilation(up, iterations=int(MARGEN_M / 30)) & ~sea
     rows, cols = np.where(ndimage.binary_dilation(dom, iterations=3))
     x0, y1 = tr * (cols.min(), rows.min()); x1, y0 = tr * (cols.max() + 1, rows.max() + 1)
-    return dict(tr=tr, dem=dem, A=A, F=F, sea=sea, dom=dom, cuenca_campus=cuenca_campus, zonas=zonas,
+    def aguas_arriba_de(puntos):
+        m = np.zeros((H, W), bool)
+        for lo, la in puntos:
+            c_, r_ = ~tr * T(lo, la); m[int(r_), int(c_)] = True
+        return aguas_arriba(m) | m
+    return dict(tr=tr, dem=dem, A=A, F=F, sea=sea, dom=dom, cuenca_campus=cuenca_campus, zonas=zonas, aguas_arriba_de=aguas_arriba_de,
                 bounds=(x0, y0, x1, y1), area_aportante_km2=float(up.sum() * 900 / 1e6))
 
 
@@ -376,7 +409,7 @@ def simular(clave, esc, base):
     H, W = dem.shape
     sea = (dem == -9999) | (dem <= 0.5)
     dom = remuestrear_mascara(base["dom"], base["tr"], tr, (H, W)) & ~sea
-    traz = remuestrear_mascara(base["cuenca_campus"], base["tr"], tr, (H, W)) & dom
+    traz = remuestrear_mascara(base["cuenca_campus"] if "trazador" not in esc else base["aguas_arriba_de"](esc["trazador"]), base["tr"], tr, (H, W)) & dom
     Ac = np.zeros((H, W)); reproject(base["A"], Ac, src_transform=base["tr"], src_crs=f"EPSG:{EPSG}", dst_transform=tr, dst_crs=f"EPSG:{EPSG}", resampling=Resampling.max)
     cauce = (Ac >= A_CAUCE_KM2) & dom
     # coberturas
@@ -395,7 +428,7 @@ def simular(clave, esc, base):
     qx = np.zeros((H, W + 1)); qy = np.zeros((H + 1, W)); fac = np.ones((H, W))
     hmax = np.zeros((H, W)); vmax = np.zeros((H, W)); hvmax = np.zeros((H, W))
     tl1 = -np.ones((H, W)); tl2 = -np.ones((H, W))
-    mmax = np.zeros((H, W))                      # lámina máxima de agua marcada (de la quebrada del campus), muestreada cada 5 min
+    mmax = np.zeros((H, W)); abs_h = np.zeros((H, W)); abs_m = np.zeros((H, W))                      # lámina máxima de agua marcada (de la quebrada del campus), muestreada cada 5 min
     act = dom.copy()
     # campus
     ux, uy = T(*USFQ_LONLAT); upt = Point(ux, uy)
@@ -445,7 +478,7 @@ def simular(clave, esc, base):
         h += add; m += np.where(traz, add, 0.0)
         vol_lluvia += float(add.sum() * area); vol_traz += float((add * traz).sum() * area)
         flujos(z, h, qx, qy, n2, act, dt, celda, G, H_MIN, FR_MAX)
-        vol_abs += continuidad(h, m, qx, qy, act, dt, celda, fac)
+        vol_abs += continuidad(h, m, qx, qy, act, dt, celda, fac, abs_h, abs_m)
         a_, b_ = flujo_frontera(qx, qy, cmask, h, m, celda, dt); vin_c += a_; vmk_c += b_
         t += dt; pasos += 1
         maximos(h, qx, qy, t, hmax, vmax, hvmax, tl1, tl2, UMBRALES_LLEGADA[0], UMBRALES_LLEGADA[1], 0.05)
@@ -467,7 +500,7 @@ def simular(clave, esc, base):
     print(f"  {clave}: {pasos} pasos, {dur:.0f} s; balance {balance}")
     return dict(H=H, W=W, tr=tr, dem=dem, dom=dom, hmax=hmax, vmax=vmax, hvmax=hvmax, tl1=tl1, tl2=tl2, serie=serie, serie_q=serie_q,
                 serie_campus=serie_campus, cuadros=cuadros, t_cuadros=t_cuadros, t0=t0, info_ll=info_ll, balance=balance, cmask=cmask,
-                campus=campus, traz=traz, mmax=mmax, vol_traz=vol_traz, pasos=pasos, seg=dur, pts=pts, clase=clase, nser=nser, h_final=h.copy(), m_final=m.copy())
+                campus=campus, traz=traz, mmax=mmax, abs_h=abs_h, abs_m=abs_m, sea=sea, vol_traz=vol_traz, pasos=pasos, seg=dur, pts=pts, clase=clase, nser=nser, h_final=h.copy(), m_final=m.copy())
 
 
 # ---------------------------------------------------------------- salidas
@@ -476,8 +509,35 @@ def hora_txt(t0, t_s):
     return (t0 + dt_.timedelta(seconds=float(t_s))).strftime("%d-%b %H:%M")
 
 
+def salidas_al_mar(res):
+    """Reparte el volumen absorbido por el mar (total y marcado) entre los tramos de SALIDAS_MAR."""
+    tr = res["tr"]; ab_h, ab_m = res["abs_h"], res["abs_m"]
+    rs, cs = np.where(res["sea"] & (ab_h > 0))
+    xy = np.array([tr * (c + .5, r + .5) for r, c in zip(rs, cs)]) if len(rs) else np.zeros((0, 2))
+    cen = {k: np.array(T(*v)) for k, v in SALIDAS_MAR.items()}
+    out = {k: [0.0, 0.0] for k in list(SALIDAS_MAR) + ["resto de la costa"]}
+    for (x, y), r, c in zip(xy, rs, cs):
+        d = {k: math.hypot(x - v[0], y - v[1]) for k, v in cen.items()}
+        k = min(d, key=d.get)
+        k = k if d[k] <= SALIDA_RADIO_M else "resto de la costa"
+        out[k][0] += ab_h[r, c]; out[k][1] += ab_m[r, c]
+    bordes = (~res["sea"]) & (ab_h > 0)
+    out["bordes del dominio (tierra)"] = [float(ab_h[bordes].sum()), float(ab_m[bordes].sum())]
+    tot_m = sum(v[1] for v in out.values()) + float(res["m_final"][res["dom"]].sum() * tr.a ** 2)
+    return {k: {"vol_m3": round(v[0]), "vol_trazador_m3": round(v[1]), "fraccion_del_trazador": round(v[1] / tot_m, 3) if tot_m else None}
+            for k, v in out.items()}, round(float(res["m_final"][res["dom"]].sum() * tr.a ** 2)), round(tot_m)
+
+
 def exportar(clave, esc, res, R, base_zonas):
     tr, dom = res["tr"], res["dom"]
+    sal, traz_alm, traz_tot = salidas_al_mar(res)
+    if esc.get("solo_trazador"):
+        guardar_tif(f"{clave}_agua_marcada_max.tif", np.where(dom & (res["mmax"] > 0.001), res["mmax"], -9999), tr)
+        R["escenarios"][clave] = {"descripcion": esc["nombre"], "celda_m": esc["celda"], "trazador_puntos": esc["trazador"],
+                                 "vol_lluvia_neta_marcada_m3": round(res["vol_traz"]), "salidas_al_mar": sal,
+                                 "trazador_almacenado_al_final_m3": traz_alm, "balance_masa": res["balance"]}
+        print("   salidas:", {k: (v["vol_m3"], v["vol_trazador_m3"], v["fraccion_del_trazador"]) for k, v in sal.items()})
+        return
     hmax = np.where(dom, res["hmax"], -9999); vmax = np.where(dom & (res["hmax"] > 0.05), res["vmax"], -9999)
     tl = np.where(dom & (res["tl2"] >= 0), res["tl2"] / 3600, -9999); tl1 = np.where(dom & (res["tl1"] >= 0), res["tl1"] / 3600, -9999)
     guardar_tif(f"{clave}_calado_max.tif", hmax, tr); guardar_tif(f"{clave}_velocidad_max.tif", vmax, tr)
@@ -550,7 +610,7 @@ def exportar(clave, esc, res, R, base_zonas):
     # el trazador alrededor del campus: concentración máxima no se guarda; se informa el volumen
     R["escenarios"][clave] = {"descripcion": esc["nombre"], "celda_m": esc["celda"], "amc": esc["amc"], "lluvia": res["info_ll"], "duracion_simulada_h": esc["dur_h"],
                              "pasos": res["pasos"], "tiempo_calculo_s": round(res["seg"]), "balance_masa": res["balance"],
-                             "clases_calado": resumen_cl, "exposicion_por_zona": expo_zonas, "puntos": pk, "secciones": qk, "campus": campus,
+                             "clases_calado": resumen_cl, "exposicion_por_zona": expo_zonas, "salidas_al_mar": sal, "puntos": pk, "secciones": qk, "campus": campus,
                              "celdas_dominio": int(dom.sum()), "area_dominio_km2": round(float(dom.sum() * tr.a ** 2 / 1e6), 2)}
     print("   campus:", campus)
     print("   secciones:", qk)

@@ -148,7 +148,7 @@ Tabla: Cuencas de captación. Para las tomas sin cauce a ≤ 60 m, se da la cañ
 | AG-10 (FCD) | * a 133 m | 2,87 | 400–721 | 12 % | 100 / 0 / 0 % | 21 | 8,5 | 10 | 11–20 | 18–32 | 31–38 |
 | AG-11 (FCD) | * a 132 m | 0,16 | 315–383 | 10 % | 100 / 0 / 0 % | 0 | 0 | 0 | 1,7–2,7 | 2,7–4,1 | 2,4–2,7 |
 
-\* Cota del DSM. Las áreas coinciden con las de la sección 9.3 (0,6 km² en Cerro Gato, 1,3 en La Toma y 4,9 en El Chino).
+\* Cota del DSM. Las áreas coinciden con las de la sección 8.3 (0,6 km² en Cerro Gato, 1,3 en La Toma y 4,9 en El Chino).
 
 **Resultado 2: la crecida es entre 200 y más de 1 000 veces mayor que lo que se capta.**
 - Las tomas captan 19–27 l/s. Con 100 mm, la crecida de sus cañadas es de 5 a 30 m³/s, y llega en **10–60 min** (tc de Kirpich a Témez para cuencas de 0,6–1,3 km²).
