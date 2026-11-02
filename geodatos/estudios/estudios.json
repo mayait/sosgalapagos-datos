@@ -439,8 +439,8 @@
       },
       "capas": [
         {
-          "nombre": "Modelo 2D: calado máximo (tormenta del 30-oct trasladada)",
-          "archivo": "estudios/san-cristobal/datos/modelo2d/guayabillos_calado_max_clases.geojson",
+          "nombre": "Modelo 2D (15 m): calado máximo, tormenta del 30-oct trasladada",
+          "archivo": "estudios/san-cristobal/datos/modelo2d/guayabillos_15m_calado_max_clases.geojson",
           "color": "#2171b5",
           "relleno": 0.6,
           "grosor": 0,
@@ -455,6 +455,25 @@
               "0.5–1 m": "#6baed6"
             }
           }
+        },
+        {
+          "nombre": "Modelo 2D: calado máximo con 100 mm (SCS II)",
+          "archivo": "estudios/san-cristobal/datos/modelo2d/scs100_calado_max_clases.geojson",
+          "color": "#2171b5",
+          "relleno": 0.6,
+          "grosor": 0,
+          "colores": {
+            "campo": "clase",
+            "valores": {
+              "0,1–0,5 m": "#c6dbef",
+              "0,5–1 m": "#6baed6",
+              "1–2 m": "#2171b5",
+              ">2 m": "#08306b",
+              "0.1–0.5 m": "#c6dbef",
+              "0.5–1 m": "#6baed6"
+            }
+          },
+          "visible": false
         },
         {
           "nombre": "Cuencas que llegan a zonas pobladas",
@@ -614,7 +633,7 @@
           "off": 12
         }
       ],
-      "calado": "estudios/san-cristobal/datos/modelo2d/guayabillos_calado_max.tif",
+      "calado": "estudios/san-cristobal/datos/modelo2d/guayabillos_15m_calado_max.tif",
       "calado_titulo": "Calado máximo, tormenta del 30-oct trasladada (modelo 2D)"
     },
     "descargas": [
