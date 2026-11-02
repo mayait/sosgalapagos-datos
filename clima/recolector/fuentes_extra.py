@@ -164,7 +164,15 @@ FUENTES_EXTRA = {"inamhi": fuente_inamhi, "ioc": fuente_ioc, "metar": fuente_met
 # consentimiento del propietario, se publican sin nombre y con la ubicación redondeada a ~1 km.
 WEATHERLINK_META = {  # código: (nombre, isla, lat, lon, altitud)
     "pa_weatherlink": ("Puerto Ayora (WeatherLink)", "Santa Cruz", -0.75, -90.31, 10),
+    # Sensores «GALAP» de Puerto Baquerizo Moreno: inactivos el 2-nov-2026 (1–3 sin datos; 4 desde
+    # ago-2022; 5 desde sep-2024). Entran solos al dashboard cuando vuelvan a transmitir.
+    "galap1": ("Puerto Baquerizo (GALAP1)", "San Cristóbal", -0.902, -89.608, 10),
+    "galap2": ("Puerto Baquerizo (GALAP2)", "San Cristóbal", -0.902, -89.608, 10),
+    "galap3": ("Puerto Baquerizo (GALAP3)", "San Cristóbal", -0.902, -89.608, 10),
+    "galap4": ("Puerto Baquerizo (GALAP4)", "San Cristóbal", -0.902, -89.608, 10),
+    "galap5": ("Puerto Baquerizo (GALAP5)", "San Cristóbal", -0.902, -89.608, 10),
 }
+WEATHERLINK_MAX_EDAD = 3 * 86400  # una estación que no transmite hace más de 3 días no se registra
 
 
 def _weatherlink_estaciones():
@@ -185,12 +193,23 @@ GALAPAGOS = dt.timezone(dt.timedelta(hours=-6))
 def fuente_weatherlink(con):
     api = endpoint("CLIMA_WEATHERLINK_API")
     filas = []
+    activas, errores = 0, []
     for wid, (cod, nom, isla, lat, lon, alt) in _weatherlink_estaciones().items():
+        try:
+            d = http_json(f"{api}/{wid}")
+        except Exception as e:  # una estación caída no detiene a las demás
+            errores.append(f"{cod}: {e}")
+            continue
+        t_ult = d.get("lastTimestamp")
+        try:
+            edad = dt.datetime.now(UTC).timestamp() - int(t_ult)
+        except (TypeError, ValueError):
+            edad = None
+        if edad is None or edad > WEATHERLINK_MAX_EDAD or d.get("dailyRain") in (None, "", "--"):
+            continue  # inactiva: no se registra ni se publica
+        activas += 1
         estacion(con, "weatherlink", cod, nom, isla, lat, lon, alt, "WeatherLink")
-        d = http_json(f"{api}/{wid}")
-        if "lastTimestamp" not in d or d.get("dailyRain") in (None, "", "--"):
-            raise ValueError(f"respuesta inesperada de {cod}: {str(d)[:200]}")
-        t = dt.datetime.fromtimestamp(int(d["lastTimestamp"]), UTC)
+        t = dt.datetime.fromtimestamp(int(t_ult), UTC)
         ts = t.strftime("%Y-%m-%dT%H:%M:%SZ")
         if con.execute("SELECT 1 FROM obs WHERE fuente='weatherlink' AND estacion=? AND ts=? LIMIT 1", (cod, ts)).fetchone():
             continue  # sin dato nuevo
@@ -220,6 +239,8 @@ def fuente_weatherlink(con):
             filas.append((cod, "presion_hpa", t, round(num("barometer") * (33.8639 if "in" in d.get("barometerUnit", "in") else 1), 1)))
         if num("windSpeed") is not None:
             filas.append((cod, "viento_ms", t, round(num("windSpeed") * (0.44704 if "mph" in d.get("windSpeedUnit", "mph") else 1), 1)))
+    if not activas and errores:
+        raise RuntimeError("; ".join(errores)[:400])
     return guardar(con, "weatherlink", filas)
 
 
