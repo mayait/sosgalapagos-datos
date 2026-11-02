@@ -1,0 +1,865 @@
+{
+ "_nota": "Caché de los issues de mayait/sosgalapagos-datos para el sitio /estudios (la escribe scripts/22_pendientes.py --actualizar). No editar a mano: los pendientes se cambian en GitHub.",
+ "repo": "mayait/sosgalapagos-datos",
+ "descargado": "2026-11-02T23:02:50+00:00",
+ "issues": [
+  {
+   "numero": 1,
+   "titulo": "Delimitación oficial de las áreas inundadas del 30–31-oct-2026",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/1",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Delimitación oficial de las áreas inundadas del 30–31-oct-2026**\n**Quién lo tiene o puede levantarlo:** COE cantonal, SNGR, vuelo de dron\n**Para qué sirve:** Validar el modelo HAND y la capa `areas_afectadas` (hoy por validar)\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:19Z",
+   "actualizado": "2026-11-02T20:38:19Z",
+   "cerrado": null
+  },
+  {
+   "numero": 2,
+   "titulo": "Marcas de agua del evento con GNSS (barrio La Cascada y su salida)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/2",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Marcas de agua del evento** con GNSS (barrio La Cascada y su salida)\n**Quién lo tiene o puede levantarlo:** GAD Santa Cruz, academia, sociedad civil\n**Para qué sirve:** Calibrar la lámina y el rebose del vaso de La Cascada (≈12–13 m)\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 1,
+   "creado": "2026-11-02T20:38:23Z",
+   "actualizado": "2026-11-02T20:58:29Z",
+   "cerrado": null
+  },
+  {
+   "numero": 3,
+   "titulo": "Lluvia medida en Puerto Ayora el 30–31-oct: incorporar INAMHI M0191 al estudio de La Cascada",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/3",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Novedad (2-nov):** la estación INAMHI M0191 (Puerto Ayora, 6 m, a 1,4 km de La Cascada) registró 93,6 mm el 30-oct y 135,4 mm el 31-oct (días en UTC−5), con un pico de ~37 mm/h. El recolector de clima ya la recoge.\n\n**Dato:** **Lluvia medida el 30–31-oct** en Puerto Ayora (no hay estación allí)\n**Quién lo tiene o puede levantarlo:** FCD, INAMHI, aeropuerto, pluviómetros privados\n**Para qué sirve:** Decidir entre ECMWF 9 km (≈80–130 mm) y los otros modelos (0,2–26 mm)\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 1,
+   "creado": "2026-11-02T20:38:26Z",
+   "actualizado": "2026-11-02T20:58:27Z",
+   "cerrado": null
+  },
+  {
+   "numero": 4,
+   "titulo": "Catastro municipal (predios, edificios, usos) de los tres GAD",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/4",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Catastro municipal** (predios, edificios, usos) de los tres GAD\n**Quién lo tiene o puede levantarlo:** GAD Santa Cruz, San Cristóbal, Isabela\n**Para qué sirve:** Exposición real por edificio en lugar de OSM + Open Buildings\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:29Z",
+   "actualizado": "2026-11-02T20:38:29Z",
+   "cerrado": null
+  },
+  {
+   "numero": 5,
+   "titulo": "Red de drenaje urbano: sumideros, colectores, alcantarillas y pasos bajo vías con cotas de fondo",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/5",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Red de drenaje urbano**: sumideros, colectores, alcantarillas y pasos bajo vías con cotas de fondo\n**Quién lo tiene o puede levantarlo:** GAD (obras públicas), CGREG\n**Para qué sirve:** Capacidad real de la salida urbana; cruces quebrada–vía\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:33Z",
+   "actualizado": "2026-11-02T20:38:33Z",
+   "cerrado": null
+  },
+  {
+   "numero": 6,
+   "titulo": "Refugios y puntos de encuentro para inundación (distintos de los de tsunami)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/6",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Refugios y puntos de encuentro para inundación** (distintos de los de tsunami)\n**Quién lo tiene o puede levantarlo:** COE, SNGR\n**Para qué sirve:** Capa de puntos clave para esta amenaza\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:36Z",
+   "actualizado": "2026-11-02T20:38:36Z",
+   "cerrado": null
+  },
+  {
+   "numero": 7,
+   "titulo": "SIIG del CGREG (requiere usuario)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/7",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **SIIG del CGREG** (requiere usuario)\n**Quién lo tiene o puede levantarlo:** CGREG\n**Para qué sirve:** Capas oficiales de planificación y riesgos actualizadas\n\n**Prioridad:** P2 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:39Z",
+   "actualizado": "2026-11-02T20:38:39Z",
+   "cerrado": null
+  },
+  {
+   "numero": 8,
+   "titulo": "Censo 2022 por manzana publicado",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/8",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Censo 2022 por manzana** publicado\n**Quién lo tiene o puede levantarlo:** INEC\n**Para qué sirve:** Población real; hoy es una estimación SNGR por vivienda\n\n**Prioridad:** P2 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:43Z",
+   "actualizado": "2026-11-02T20:38:43Z",
+   "cerrado": null
+  },
+  {
+   "numero": 9,
+   "titulo": "Aforos o huellas de crecida en quebradas",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/9",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Aforos o huellas de crecida** en quebradas\n**Quién lo tiene o puede levantarlo:** Academia, DPNG\n**Para qué sirve:** Calibrar CN y tiempo de concentración\n\n**Prioridad:** P2 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:46Z",
+   "actualizado": "2026-11-02T20:38:46Z",
+   "cerrado": null
+  },
+  {
+   "numero": 10,
+   "titulo": "Ensayos de infiltración y geología (grietas, tubos de lava)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/10",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Ensayos de infiltración y geología** (grietas, tubos de lava)\n**Quién lo tiene o puede levantarlo:** Academia, FCD\n**Para qué sirve:** Pérdidas reales en el lecho de lava; alternativa de infiltración\n\n**Prioridad:** P2 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:49Z",
+   "actualizado": "2026-11-02T20:38:49Z",
+   "cerrado": null
+  },
+  {
+   "numero": 11,
+   "titulo": "Fotografías aéreas históricas del IGM e historial de OSM",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/11",
+   "etiquetas": [
+    "P3",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Fotografías aéreas históricas del IGM** e historial de OSM\n**Quién lo tiene o puede levantarlo:** IGM\n**Para qué sirve:** Drenajes históricos y fecha de urbanización del escarpe\n\n**Prioridad:** P3 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:53Z",
+   "actualizado": "2026-11-02T20:38:53Z",
+   "cerrado": null
+  },
+  {
+   "numero": 12,
+   "titulo": "Datum vertical: IGM frente a EGM2008 en cada isla",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/12",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Datum vertical**: IGM frente a EGM2008 en cada isla\n**Quién lo tiene o puede levantarlo:** IGM, INOCAR\n**Para qué sirve:** Explicar el sesgo de −2 a −3 m del DSM y fijar cotas respecto del mar\n\n**Prioridad:** P2 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:56Z",
+   "actualizado": "2026-11-02T20:38:56Z",
+   "cerrado": null
+  },
+  {
+   "numero": 13,
+   "titulo": "Nivel del mar / mareógrafo (Puerto Ayora, Baquerizo)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/13",
+   "etiquetas": [
+    "P3",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Novedad (2-nov):** el recolector de clima ya recoge el mareógrafo IOC de Puerto Ayora. Falta Puerto Baquerizo Moreno y la serie histórica.\n\n**Dato:** **Nivel del mar / mareógrafo** (Puerto Ayora, Baquerizo)\n**Quién lo tiene o puede levantarlo:** INOCAR\n**Para qué sirve:** Costa baja y marejadas combinadas con lluvia\n\n**Prioridad:** P3 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:38:59Z",
+   "actualizado": "2026-11-02T20:38:59Z",
+   "cerrado": null
+  },
+  {
+   "numero": 14,
+   "titulo": "Registro histórico de eventos completo (fechas, lugares, daños)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/14",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** **Registro histórico de eventos** completo (fechas, lugares, daños)\n**Quién lo tiene o puede levantarlo:** SNGR, GAD, prensa local\n**Para qué sirve:** Frecuencia y validación de zonas susceptibles\n\n**Prioridad:** P2 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:03Z",
+   "actualizado": "2026-11-02T20:39:03Z",
+   "cerrado": null
+  },
+  {
+   "numero": 15,
+   "titulo": "Floreana y resto de Isabela (hoy solo Isabela sur)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/15",
+   "etiquetas": [
+    "P3",
+    "datos-faltantes"
+   ],
+   "cuerpo": "**Dato:** Floreana y resto de Isabela (hoy solo Isabela sur)\n**Para qué sirve:** Cobertura completa de zonas pobladas\n\n**Prioridad:** P3 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:06Z",
+   "actualizado": "2026-11-02T20:39:06Z",
+   "cerrado": null
+  },
+  {
+   "numero": 16,
+   "titulo": "DTM ≤ 1 m de los poblados: Puerto Ayora y escarpe (5–10 km²), Bellavista, Puerto Baquerizo Moreno, Puerto…",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/16",
+   "etiquetas": [
+    "P1",
+    "mas-resolucion"
+   ],
+   "cuerpo": "**Hoy:** **DSM Copernicus GLO-30** (30 m, incluye edificios y árboles)\n**Lo que necesitamos:** **DTM ≤ 1 m** de los poblados: Puerto Ayora y escarpe (5–10 km²), Bellavista, Puerto Baquerizo Moreno, Puerto Villamil\n**Cómo:** Dron con fotogrametría (OpenDroneMap) + GNSS RTK; o LiDAR\n\n**Prioridad:** P1 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:09Z",
+   "actualizado": "2026-11-02T20:39:09Z",
+   "cerrado": null
+  },
+  {
+   "numero": 17,
+   "titulo": "Topografía urbana 1:1 000–1:5 000 si existe (hoy: Curvas IGM 1:25 000)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/17",
+   "etiquetas": [
+    "P2",
+    "mas-resolucion"
+   ],
+   "cuerpo": "**Hoy:** Curvas IGM 1:25 000\n**Lo que necesitamos:** Topografía urbana 1:1 000–1:5 000 si existe\n**Cómo:** Pedir a GAD / IGM\n\n**Prioridad:** P2 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:13Z",
+   "actualizado": "2026-11-02T20:39:13Z",
+   "cerrado": null
+  },
+  {
+   "numero": 18,
+   "titulo": "Huellas completas y con altura (hoy: Huellas de edificios: OSM + Google Open Buildings (no cubre San…",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/18",
+   "etiquetas": [
+    "P2",
+    "mas-resolucion"
+   ],
+   "cuerpo": "**Hoy:** Huellas de edificios: OSM + Google Open Buildings (no cubre San Cristóbal)\n**Lo que necesitamos:** Huellas completas y con altura\n**Cómo:** Catastro, digitalización sobre ortofoto de dron\n\n**Prioridad:** P2 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:16Z",
+   "actualizado": "2026-11-02T20:39:16Z",
+   "cerrado": null
+  },
+  {
+   "numero": 19,
+   "titulo": "Pluviómetros en cada poblado y en la parte alta de cada cuenca (hoy: Lluvia: 4 estaciones IERSE en Santa…",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/19",
+   "etiquetas": [
+    "P1",
+    "mas-resolucion"
+   ],
+   "cuerpo": "**Hoy:** Lluvia: 4 estaciones IERSE en Santa Cruz (ninguna en Puerto Ayora) + red GSC en San Cristóbal\n**Lo que necesitamos:** Pluviómetros en cada poblado y en la parte alta de cada cuenca\n**Cómo:** Instalar pluviómetros (USFQ, FCD, ciudadanos) y sumarlos a `clima/`\n\n**Prioridad:** P1 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:20Z",
+   "actualizado": "2026-11-02T20:39:20Z",
+   "cerrado": null
+  },
+  {
+   "numero": 20,
+   "titulo": "Lluvia satelital GPM IMERG (30 min, 10 km) del evento y la serie (hoy: Lluvia de modelos (Open-Meteo,…",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/20",
+   "etiquetas": [
+    "P2",
+    "mas-resolucion"
+   ],
+   "cuerpo": "**Hoy:** Lluvia de modelos (Open-Meteo, ECMWF 9 km)\n**Lo que necesitamos:** Lluvia satelital GPM IMERG (30 min, 10 km) del evento y la serie\n**Cómo:** Cuenta NASA Earthdata\n\n**Prioridad:** P2 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:23Z",
+   "actualizado": "2026-11-02T20:39:23Z",
+   "cerrado": null
+  },
+  {
+   "numero": 21,
+   "titulo": "Imagen de alta resolución posterior al evento (hoy: Imágenes satelitales)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/21",
+   "etiquetas": [
+    "P2",
+    "mas-resolucion"
+   ],
+   "cuerpo": "**Hoy:** Imágenes satelitales\n**Lo que necesitamos:** Imagen de alta resolución posterior al evento\n**Cómo:** Maxar Open Data, Planet, Sentinel-1/2\n\n**Prioridad:** P2 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:26Z",
+   "actualizado": "2026-11-02T20:39:26Z",
+   "cerrado": null
+  },
+  {
+   "numero": 22,
+   "titulo": "Población por manzana del censo (hoy: Población estimada por vivienda (SNGR))",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/22",
+   "etiquetas": [
+    "P2",
+    "mas-resolucion"
+   ],
+   "cuerpo": "**Hoy:** Población estimada por vivienda (SNGR)\n**Lo que necesitamos:** Población por manzana del censo\n**Cómo:** INEC\n\n**Prioridad:** P2 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:30Z",
+   "actualizado": "2026-11-02T20:39:30Z",
+   "cerrado": null
+  },
+  {
+   "numero": 23,
+   "titulo": "Recalcular HAND con el DTM de dron y validarlo con las marcas de agua",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/23",
+   "etiquetas": [
+    "P1",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Recalcular HAND con el DTM de dron** y validarlo con las marcas de agua\n**Depende de:** §2 DTM, §1 marcas\n**Notas:** Ver [docs/modelo-hand.md](docs/modelo-hand.md)\n\n**Prioridad:** P1 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:33Z",
+   "actualizado": "2026-11-02T20:39:33Z",
+   "cerrado": null
+  },
+  {
+   "numero": 24,
+   "titulo": "Curvas IDF (intensidad–duración–frecuencia)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/24",
+   "etiquetas": [
+    "P1",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Curvas IDF** (intensidad–duración–frecuencia)\n**Depende de:** Serie diaria GSC desde 2015, IERSE, FCD\n**Notas:** Base de cualquier diseño de obra\n\n**Prioridad:** P1 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:37Z",
+   "actualizado": "2026-11-02T20:39:37Z",
+   "cerrado": null
+  },
+  {
+   "numero": 25,
+   "titulo": "Modelo lluvia–caudal (HEC-HMS) por subcuenca, calibrado con el evento",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/25",
+   "etiquetas": [
+    "P2",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Modelo lluvia–caudal (HEC-HMS)** por subcuenca, calibrado con el evento\n**Depende de:** IDF, aforos, infiltración\n\n**Prioridad:** P2 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:40Z",
+   "actualizado": "2026-11-02T20:39:40Z",
+   "cerrado": null
+  },
+  {
+   "numero": 26,
+   "titulo": "Modelo hidráulico 2D (HEC-RAS 2D, ANUGA o SFINCS) del escarpe, La Cascada y la salida",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/26",
+   "etiquetas": [
+    "P2",
+    "en curso",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Modelo hidráulico 2D** (HEC-RAS 2D, ANUGA o SFINCS) del escarpe, La Cascada y la salida\n**Depende de:** DTM, caudales\n**Notas:** Mancha, calados y velocidades por período de retorno\n\n**Prioridad:** P2 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 1,
+   "creado": "2026-11-02T20:39:43Z",
+   "actualizado": "2026-11-02T20:58:20Z",
+   "cerrado": null
+  },
+  {
+   "numero": 27,
+   "titulo": "Drenaje urbano 1D/2D (SWMM)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/27",
+   "etiquetas": [
+    "P3",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Drenaje urbano 1D/2D** (SWMM)\n**Depende de:** Red de sumideros\n\n**Prioridad:** P3 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:47Z",
+   "actualizado": "2026-11-02T20:39:47Z",
+   "cerrado": null
+  },
+  {
+   "numero": 28,
+   "titulo": "Mapa de amenaza por inundación candidato a oficial (hoy no existe ninguno para Galápagos)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/28",
+   "etiquetas": [
+    "P1",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Mapa de amenaza por inundación** candidato a oficial (hoy no existe ninguno para Galápagos)\n**Depende de:** Los anteriores\n**Notas:** Propuesta para SNGR, CGREG y GAD\n\n**Prioridad:** P1 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:50Z",
+   "actualizado": "2026-11-02T20:39:50Z",
+   "cerrado": null
+  },
+  {
+   "numero": 29,
+   "titulo": "Riesgo = amenaza × exposición × vulnerabilidad por manzana",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/29",
+   "etiquetas": [
+    "P2",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Riesgo = amenaza × exposición × vulnerabilidad** por manzana\n**Depende de:** Catastro, censo\n**Notas:** Hoy solo tenemos exposición\n\n**Prioridad:** P2 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:54Z",
+   "actualizado": "2026-11-02T20:39:54Z",
+   "cerrado": null
+  },
+  {
+   "numero": 30,
+   "titulo": "Alerta temprana por lluvia conectada al recolector (regla preliminar v0.1 de La Cascada)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/30",
+   "etiquetas": [
+    "P1",
+    "en curso",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Alerta temprana por lluvia**: umbrales por estación conectados al recolector. Hay una regla preliminar 0.1 para La Cascada (1 h / 3 h / 24 h + humedad antecedente; `clima/docs/umbrales-la-cascada.md`)\n**Depende de:** Clima en vivo, IDF\n**Notas:** Calibrar: confirmar si hubo inundación el 3-oct, el 23-oct y el 1/2-nov; revisar el pluviómetro de Los Guayabillos (marca 0 desde el 31-oct). Después, aviso al bot de WhatsApp y al COE\n\n**Prioridad:** P1 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:39:57Z",
+   "actualizado": "2026-11-02T20:39:57Z",
+   "cerrado": null
+  },
+  {
+   "numero": 31,
+   "titulo": "Pronóstico 72 h (ECMWF/GFS) en el panel de clima",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/31",
+   "etiquetas": [
+    "P2",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Pronóstico 72 h** (ECMWF/GFS) en el panel de clima\n\n**Prioridad:** P2 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:01Z",
+   "actualizado": "2026-11-02T20:40:01Z",
+   "cerrado": null
+  },
+  {
+   "numero": 32,
+   "titulo": "Susceptibilidad a movimientos en masa (pendiente + lluvia + geología)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/32",
+   "etiquetas": [
+    "P2",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Susceptibilidad a movimientos en masa** (pendiente + lluvia + geología)\n**Depende de:** Geología\n\n**Prioridad:** P2 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:04Z",
+   "actualizado": "2026-11-02T20:40:04Z",
+   "cerrado": null
+  },
+  {
+   "numero": 33,
+   "titulo": "Inventario en terreno de cruces quebrada–vía",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/33",
+   "etiquetas": [
+    "P1",
+    "en curso",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** **Inventario en terreno de cruces quebrada–vía**\n**Notas:** El estudio de Santa Cruz los lista; falta verificar\n\n**Prioridad:** P1 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 1,
+   "creado": "2026-11-02T20:40:07Z",
+   "actualizado": "2026-11-02T20:58:24Z",
+   "cerrado": null
+  },
+  {
+   "numero": 34,
+   "titulo": "Seguimiento de El Niño (ONI, temperatura del mar)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/34",
+   "etiquetas": [
+    "P3",
+    "procesos"
+   ],
+   "cuerpo": "**Proceso:** Seguimiento de **El Niño** (ONI, temperatura del mar)\n**Notas:** Contexto para alertas estacionales\n\n**Prioridad:** P3 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:10Z",
+   "actualizado": "2026-11-02T20:40:10Z",
+   "cerrado": null
+  },
+  {
+   "numero": 35,
+   "titulo": "Decidir qué componente de mapa queda en la app (hay dos motores de capas en paralelo)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/35",
+   "etiquetas": [
+    "P1",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Decidir qué componente de mapa queda en la app (hay dos motores de capas en paralelo)\n\n**Prioridad:** P1 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:13Z",
+   "actualizado": "2026-11-02T20:40:13Z",
+   "cerrado": null
+  },
+  {
+   "numero": 36,
+   "titulo": "Publicación automática desde main (CI que regenere y suba /mapas y /estudios)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/36",
+   "etiquetas": [
+    "P2",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Publicación automática desde `main` (CI que regenere y suba `/mapas` y `/estudios`)\n\n**Prioridad:** P2 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:17Z",
+   "actualizado": "2026-11-02T20:40:17Z",
+   "cerrado": null
+  },
+  {
+   "numero": 37,
+   "titulo": "Validación automática en cada PR: GeoJSON válido, EPSG:4326, sin datos personales, catálogo completo",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/37",
+   "etiquetas": [
+    "P2",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Validación automática en cada PR: GeoJSON válido, EPSG:4326, sin datos personales, catálogo completo\n\n**Prioridad:** P2 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:20Z",
+   "actualizado": "2026-11-02T20:40:20Z",
+   "cerrado": null
+  },
+  {
+   "numero": 38,
+   "titulo": "Respaldo fuera del servidor de clima.db (hoy solo copias locales de 14 días)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/38",
+   "etiquetas": [
+    "P1",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Respaldo fuera del servidor de `clima.db` (hoy solo copias locales de 14 días)\n\n**Prioridad:** P1 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:23Z",
+   "actualizado": "2026-11-02T20:40:23Z",
+   "cerrado": null
+  },
+  {
+   "numero": 39,
+   "titulo": "Monitoreo y aviso si el recolector de clima deja de correr",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/39",
+   "etiquetas": [
+    "P1",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Monitoreo y aviso si el recolector de clima deja de correr\n\n**Prioridad:** P1 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:27Z",
+   "actualizado": "2026-11-02T20:40:27Z",
+   "cerrado": null
+  },
+  {
+   "numero": 40,
+   "titulo": "WMS/WFS en producción (GeoServer) para que instituciones consuman las capas desde QGIS/ArcGIS",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/40",
+   "etiquetas": [
+    "P3",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** WMS/WFS en producción (GeoServer) para que instituciones consuman las capas desde QGIS/ArcGIS\n\n**Prioridad:** P3 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:30Z",
+   "actualizado": "2026-11-02T20:40:30Z",
+   "cerrado": null
+  },
+  {
+   "numero": 41,
+   "titulo": "Dividir el manifiesto geodatos/scripts/capas.json en un archivo por capa (capas.d/<capa>.json) y generar…",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/41",
+   "etiquetas": [
+    "P2",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Dividir el manifiesto `geodatos/scripts/capas.json` en un archivo por capa (`capas.d/<capa>.json`) y generar el agregado, para reducir conflictos entre ramas\n\n**Prioridad:** P2 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:34Z",
+   "actualizado": "2026-11-02T20:40:34Z",
+   "cerrado": null
+  },
+  {
+   "numero": 42,
+   "titulo": "Generar el catálogo de capas (fuente, fecha, licencia, resolución, responsable) desde el manifiesto, en…",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/42",
+   "etiquetas": [
+    "P2",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Generar el catálogo de capas (fuente, fecha, licencia, resolución, responsable) desde el manifiesto, en lugar de mantenerlo a mano\n\n**Prioridad:** P2 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:37Z",
+   "actualizado": "2026-11-02T20:40:37Z",
+   "cerrado": null
+  },
+  {
+   "numero": 43,
+   "titulo": "Controlar el tamaño del repositorio: los GeoJSON regenerados pesan 8–15 MB por versión (evaluar Git LFS o…",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/43",
+   "etiquetas": [
+    "P3",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Controlar el tamaño del repositorio: los GeoJSON regenerados pesan 8–15 MB por versión (evaluar Git LFS o publicar los generados como *release*)\n\n**Prioridad:** P3 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:41Z",
+   "actualizado": "2026-11-02T20:40:41Z",
+   "cerrado": null
+  },
+  {
+   "numero": 44,
+   "titulo": "Renombrar capas y campos heredados que dicen «albergue» (p. ej. albergues_sngr) a «refugio»",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/44",
+   "etiquetas": [
+    "P3",
+    "plataforma"
+   ],
+   "cuerpo": "**Tarea:** Renombrar capas y campos heredados que dicen «albergue» (p. ej. `albergues_sngr`) a «refugio»\n\n**Prioridad:** P3 · **Sección:** Plataforma y servidores\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:44Z",
+   "actualizado": "2026-11-02T20:40:44Z",
+   "cerrado": null
+  },
+  {
+   "numero": 45,
+   "titulo": "Acuerdos de intercambio de datos con GAD, CGREG, DPNG, FCD, INAMHI, SNGR e INOCAR",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/45",
+   "etiquetas": [
+    "P1",
+    "gobernanza"
+   ],
+   "cuerpo": "**Tarea:** Acuerdos de intercambio de datos con GAD, CGREG, DPNG, FCD, INAMHI, SNGR e INOCAR\n\n**Prioridad:** P1 · **Sección:** Gestión del riesgo y gobernanza de datos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:47Z",
+   "actualizado": "2026-11-02T20:40:47Z",
+   "cerrado": null
+  },
+  {
+   "numero": 46,
+   "titulo": "Pedir al GSC la licencia de sus datos meteorológicos",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/46",
+   "etiquetas": [
+    "P2",
+    "gobernanza"
+   ],
+   "cuerpo": "**Tarea:** Pedir al GSC la licencia de sus datos meteorológicos\n\n**Prioridad:** P2 · **Sección:** Gestión del riesgo y gobernanza de datos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:51Z",
+   "actualizado": "2026-11-02T20:40:51Z",
+   "cerrado": null
+  },
+  {
+   "numero": 47,
+   "titulo": "Metadatos por capa (fuente, fecha, licencia, resolución, responsable) en catalogo/ para todas las capas",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/47",
+   "etiquetas": [
+    "P2",
+    "gobernanza"
+   ],
+   "cuerpo": "**Tarea:** Metadatos por capa (fuente, fecha, licencia, resolución, responsable) en `catalogo/` para todas las capas\n\n**Prioridad:** P2 · **Sección:** Gestión del riesgo y gobernanza de datos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:54Z",
+   "actualizado": "2026-11-02T20:40:54Z",
+   "cerrado": null
+  },
+  {
+   "numero": 48,
+   "titulo": "Protocolo de datos personales (LOPDP): qué se depura, quién revisa, nunca subir crudos oficiales",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/48",
+   "etiquetas": [
+    "P1",
+    "gobernanza"
+   ],
+   "cuerpo": "**Tarea:** Protocolo de datos personales (LOPDP): qué se depura, quién revisa, nunca subir crudos oficiales\n\n**Prioridad:** P1 · **Sección:** Gestión del riesgo y gobernanza de datos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:40:57Z",
+   "actualizado": "2026-11-02T20:40:57Z",
+   "cerrado": null
+  },
+  {
+   "numero": 49,
+   "titulo": "Distinguir siempre dato oficial de modelo propio en mapas y textos",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/49",
+   "etiquetas": [
+    "P1",
+    "gobernanza"
+   ],
+   "cuerpo": "**Tarea:** Distinguir siempre **dato oficial** de **modelo propio** en mapas y textos\n\n**Prioridad:** P1 · **Sección:** Gestión del riesgo y gobernanza de datos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:41:01Z",
+   "actualizado": "2026-11-02T20:41:01Z",
+   "cerrado": null
+  },
+  {
+   "numero": 50,
+   "titulo": "Definir la licencia del código (p. ej. MIT) y de los datos derivados (respetando ODbL de OSM y las de cada…",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/50",
+   "etiquetas": [
+    "P2",
+    "gobernanza"
+   ],
+   "cuerpo": "**Tarea:** Definir la **licencia** del código (p. ej. MIT) y de los datos derivados (respetando ODbL de OSM y las de cada fuente)\n\n**Prioridad:** P2 · **Sección:** Gestión del riesgo y gobernanza de datos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:41:04Z",
+   "actualizado": "2026-11-02T20:41:04Z",
+   "cerrado": null
+  },
+  {
+   "numero": 51,
+   "titulo": "Formar un equipo local (USFQ, GAD, CGREG) que mantenga los datos después de la emergencia",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/51",
+   "etiquetas": [
+    "P2",
+    "gobernanza"
+   ],
+   "cuerpo": "**Tarea:** Formar un equipo local (USFQ, GAD, CGREG) que mantenga los datos después de la emergencia\n\n**Prioridad:** P2 · **Sección:** Gestión del riesgo y gobernanza de datos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:41:07Z",
+   "actualizado": "2026-11-02T20:41:07Z",
+   "cerrado": null
+  },
+  {
+   "numero": 52,
+   "titulo": "Confirmar si hubo inundación en La Cascada el 3-oct, el 23-oct y el 1/2-nov de 2026",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/52",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes"
+   ],
+   "cuerpo": "Ese día cayeron 68 mm (Los Guayabillos, 3-oct) y 97 mm con 28 mm/h (Santa Rosa, 23-oct), y no hay reportes de inundación. Hoy se usan como validación **condicional** del modelo 2D (#26) y de la regla de alerta (#30).\n\n**Quién puede confirmarlo:** GAD Santa Cruz, COE, ECU 911, vecinos o la prensa local.",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:58:42Z",
+   "actualizado": "2026-11-02T20:58:42Z",
+   "cerrado": null
+  },
+  {
+   "numero": 53,
+   "titulo": "Ubicar los 16 lugares no localizados del Plan de Acción de la UGR de San Cristóbal",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/53",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes"
+   ],
+   "cuerpo": "El estudio de San Cristóbal integra el Plan de Acción de la UGR, pero 16 lugares no se pudieron georreferenciar (`geodatos/estudios/san-cristobal/datos/ugr/no_localizados.csv`). Hay que confirmarlos con la UGR o en terreno.",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:58:44Z",
+   "actualizado": "2026-11-02T20:58:44Z",
+   "cerrado": null
+  },
+  {
+   "numero": 54,
+   "titulo": "Verificar en campo el collado Galápagos–Divino Niño (San Cristóbal)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/54",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes"
+   ],
+   "cuerpo": "El estudio lo plantea como **hipótesis** a partir del DEM de 30 m. Hay que verificar en terreno, o con GNSS o dron, si el agua puede pasar por ese collado.",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:58:46Z",
+   "actualizado": "2026-11-02T20:58:46Z",
+   "cerrado": null
+  },
+  {
+   "numero": 55,
+   "titulo": "Confirmar sobre qué cauce va la zanja de Manzanillo (alternativa A ≈6 m³/s o B ≈24 m³/s)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/55",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes"
+   ],
+   "cuerpo": "El caudal de diseño cambia unas cuatro veces según el cauce: ≈6 m³/s si es el A y ≈24 m³/s si es el B. Ver el estudio de San Cristóbal.",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:58:48Z",
+   "actualizado": "2026-11-02T20:58:48Z",
+   "cerrado": null
+  },
+  {
+   "numero": 56,
+   "titulo": "Revisar en campo los pluviómetros de Cerro Crocker y Los Guayabillos (IERSE)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/56",
+   "etiquetas": [
+    "P1",
+    "mas-resolucion"
+   ],
+   "cuerpo": "- **Cerro Crocker:** parece fallar desde agosto de 2026 (9 y 18 mm en septiembre y octubre frente a 140 y 340 mm en Los Guayabillos).\n- **Los Guayabillos:** marca 0 mm desde el 31-oct con cobertura completa, mientras Santa Rosa mide lluvia. Probablemente está obstruido.\n\nAfectan a la regla de alerta (#30) y a la lluvia areal de los estudios. Coordinar con el IERSE.",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:58:51Z",
+   "actualizado": "2026-11-02T20:58:51Z",
+   "cerrado": null
+  },
+  {
+   "numero": 57,
+   "titulo": "Renombrar los scripts con prefijo duplicado (15, 16 y 17)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/57",
+   "etiquetas": [
+    "P3",
+    "plataforma"
+   ],
+   "cuerpo": "Hay dos scripts con cada uno de esos números: `15_lluvias_openmeteo` y `15_santa_cruz_inundacion`, `16_cruces_quebradas_vias` y `16_lluvias_ierse_evento`, `17_lluvias_san_cristobal` y `17_san_cristobal_inundacion`. Propuesta: `21_lluvias_openmeteo`, `22_lluvias_ierse_evento` y `23_lluvias_san_cristobal`, actualizando las referencias en los textos y los LEEME.",
+   "comentarios": 0,
+   "creado": "2026-11-02T20:58:53Z",
+   "actualizado": "2026-11-02T20:58:53Z",
+   "cerrado": null
+  }
+ ]
+}

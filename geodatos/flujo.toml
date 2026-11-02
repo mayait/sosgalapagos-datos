@@ -1,0 +1,302 @@
+# Flujo incremental de los estudios (/estudios) y de las capas de estudios en /mapas.
+#
+# Cada [pasos.<nombre>] declara qué script corre, qué archivos lee (entradas) y cuáles escribe (salidas).
+# scripts/flujo.py arma el grafo con estas declaraciones (un paso depende de otro si lee algo que el otro escribe),
+# detecta qué entradas cambiaron (por contenido, con un hash) y rehace, en orden, solo lo afectado.
+#
+#   .venv/bin/python -I scripts/flujo.py --seco            qué se rehace y por qué (no ejecuta nada)
+#   .venv/bin/python -I scripts/flujo.py                   rehace lo afectado (salta los pasos pesados y los de red)
+#   .venv/bin/python -I scripts/flujo.py --cambio RUTA     simula que RUTA cambió (con --seco: «¿qué se rehace si…?»)
+#   .venv/bin/python -I scripts/flujo.py --marcar          da por buenas las salidas actuales (primera vez o tras rehacer a mano)
+#   .venv/bin/python -I scripts/flujo.py --grafo           dibuja el grafo (Mermaid)
+#
+# Rutas relativas a geodatos/. «../clima/…» es la carpeta de clima (solo lectura). Se admiten comodines (*, **).
+# «@grupo» se sustituye por la lista de [grupos]. El propio script del paso cuenta siempre como entrada.
+# Claves de un paso:
+#   script   archivo en scripts/ (se usa para el comando por omisión y como entrada)
+#   cmd      lista de comandos (se corren desde geodatos/ con sh); {py} = .venv/bin/python -I. Por omisión: «{py} scripts/<script>»
+#   codigo   otros scripts que el paso importa (cuentan como entradas)
+#   pesado   true = corrida larga (modelo 2D, ANUGA): solo corre con --pesados o si se nombra con --solo/--forzar
+#   red      true = baja datos de internet: solo corre con --red (y entonces corre siempre)
+#   manual   true = nunca corre sola, solo con --forzar <paso>
+#   siempre  true = corre en cada ejecución que no sea --seco (controles)
+#   nota     una línea para la persona que lee el plan
+#
+# Si añades un script nuevo: declara aquí sus entradas y salidas y corre «flujo.py --seco» para ver dónde queda.
+
+[grupos]
+ierse = ["../clima/datos/ierse-wsn/serie_5min.csv.gz", "../clima/datos/ierse-wsn/diario.csv",
+         "../clima/datos/ierse-wsn/horario.csv", "../clima/datos/ierse-wsn/estaciones.geojson",
+         "../clima/datos/ierse-wsn/estaciones.json"]
+dem_sc = ["descargas/dem_recortes/santa_cruz_dem.tif", "descargas/dem_recortes/santa_cruz_dem_quemado.tif"]
+dem_scb = ["descargas/dem_recortes/san_cristobal_dem.tif", "descargas/dem_recortes/san_cristobal_dem_quemado.tif"]
+capas = ["capas/final/*.geojson", "capas/igm/*.geojson", "capas/osm/*.geojson", "capas/dem/*.geojson", "export/galapagos/*.geojson"]
+lluvia_evento = ["estudios/la-cascada/datos/lluvia_ierse_30oct_5min.csv", "estudios/la-cascada/datos/lluvia_ierse_validacion_5min.csv"]
+
+# ------------------------------------------------------------------ lluvia
+[pasos.lluvia_ierse]
+script = "21_lluvia_ierse_estudios.py"
+nota = "Copia la lluvia IERSE de clima/ a los datos de La Cascada (antes se copiaba a mano)"
+entradas = ["@ierse"]
+salidas = ["estudios/la-cascada/datos/lluvia_ierse_30oct_5min.csv", "estudios/la-cascada/datos/lluvia_ierse_validacion_5min.csv",
+           "estudios/la-cascada/datos/lluvia_ierse_diaria.csv", "estudios/la-cascada/datos/estaciones_ierse.geojson"]
+
+[pasos.lluvia_modelos]
+script = "15_lluvias_openmeteo.py"
+red = true
+nota = "Baja de Open-Meteo la lluvia estimada por los modelos"
+entradas = []
+salidas = ["estudios/santa-cruz/datos/lluvias/modelos_diaria.csv", "estudios/santa-cruz/datos/lluvias/modelos_horaria.csv",
+           "estudios/santa-cruz/datos/lluvias/modelos_celdas.csv", "estudios/san-cristobal/datos/lluvias/modelos_diaria.csv",
+           "estudios/san-cristobal/datos/lluvias/modelos_horaria.csv", "estudios/san-cristobal/datos/lluvias/modelos_celdas.csv"]
+
+[pasos.lluvia_santa_cruz]
+script = "16_lluvias_ierse_evento.py"
+nota = "Lluvia medida del 30/31-oct en Santa Cruz, hietogramas y comparación con modelos"
+entradas = ["@ierse", "../clima/datos/ierse-wsn/crudos/**/*.csv.gz", "estudios/santa-cruz/datos/lluvias/crudo/ierse_1_2nov/*.json",
+            "estudios/santa-cruz/datos/lluvias/modelos_diaria.csv", "estudios/santa-cruz/datos/lluvias/modelos_horaria.csv"]
+salidas = ["estudios/santa-cruz/datos/lluvias/hietograma_5min.csv", "estudios/santa-cruz/datos/lluvias/hietograma_1h.csv",
+           "estudios/santa-cruz/datos/lluvias/diaria_15oct_2nov.csv", "estudios/santa-cruz/datos/lluvias/comparacion_modelos.csv",
+           "estudios/santa-cruz/datos/lluvias/resumen_estaciones.csv", "estudios/santa-cruz/datos/lluvias/serie_diaria_ierse.csv",
+           "estudios/santa-cruz/datos/lluvias/cortes_transmision.csv", "estudios/santa-cruz/datos/lluvias/mayores_dias_por_estacion.csv",
+           "estudios/santa-cruz/datos/lluvias/cerro_crocker_mensual.csv", "estudios/santa-cruz/datos/lluvias/verificacion_cerro_crocker.*",
+           "estudios/santa-cruz/figuras/f_lluvia_medida.png", "estudios/santa-cruz/figuras/f_lluvia_diaria_serie.png"]
+
+[pasos.lluvia_san_cristobal]
+script = "17_lluvias_san_cristobal.py"
+nota = "Modelos y METAR del aeropuerto (el METAR se baja solo si falta el archivo)"
+entradas = ["estudios/san-cristobal/datos/lluvias/modelos_*.csv", "estudios/san-cristobal/datos/lluvias/crudo/metar_*.csv"]
+salidas = ["estudios/san-cristobal/datos/lluvias/metar_lluvia_observada.csv", "estudios/san-cristobal/datos/lluvias/resumen_modelos.csv"]
+
+# ------------------------------------------------------------------ Santa Cruz: hidrología, puntos y cruces
+[pasos.cascada]
+script = "12_cascada_analisis.py"
+nota = "Cuenca, vaso, manchas de llenado, desvíos e hidrogramas de La Cascada"
+entradas = ["@dem_sc", "@capas", "descargas/osm/santa_cruz_hidro.osm.json", "@lluvia_evento",
+            "estudios/la-cascada/datos/lluvia_ierse_diaria.csv", "estudios/la-cascada/datos/estaciones_ierse.geojson",
+            "estudios/la-cascada/datos/lluvia_evento_ecmwf_horaria.csv", "estudios/la-cascada/datos/lluvia_modelos_diaria.csv"]
+salidas = ["estudios/la-cascada/datos/cuenca_cascada.geojson", "estudios/la-cascada/datos/cauce_principal.geojson",
+           "estudios/la-cascada/datos/mancha_1*m.geojson", "estudios/la-cascada/datos/rutas_desvio.geojson",
+           "estudios/la-cascada/datos/salidas_rebose.geojson", "estudios/la-cascada/datos/curva_cota_volumen.csv",
+           "estudios/la-cascada/datos/hidrogramas.csv", "estudios/la-cascada/datos/hidrogramas_evento_30oct.csv",
+           "estudios/la-cascada/datos/lluvia_areal_30oct_10min.csv", "estudios/la-cascada/datos/perfil_*.csv",
+           "estudios/la-cascada/datos/secciones_barrio.csv", "estudios/la-cascada/datos/resumen.json",
+           "estudios/santa-cruz/datos/hitos_hidrologicos.csv"]
+
+[pasos.cascada_figuras]
+script = "13_cascada_figuras.py"
+entradas = ["descargas/dem_recortes/santa_cruz_dem.tif", "estudios/la-cascada/datos/*.*json", "estudios/la-cascada/datos/*.csv",
+            "estudios/la-cascada/datos/urbano/*", "estudios/la-cascada/datos/lluvias/*.csv"]
+salidas = ["estudios/la-cascada/figuras/f*.png"]
+
+[pasos.cascada_informe]
+script = "14_cascada_informe.py"
+nota = "PDF del informe de La Cascada"
+entradas = ["estudios/la-cascada/texto/*", "estudios/la-cascada/figuras/*.png"]
+salidas = ["estudios/la-cascada/Informe_La_Cascada_desvio_quebradas.pdf"]
+
+[pasos.santa_cruz_puntos]
+script = "15_santa_cruz_inundacion.py"
+nota = "Puntos potenciales de inundación, vasos y Tomás de Berlanga"
+entradas = ["@dem_sc", "@capas", "estudios/la-cascada/datos/lluvia_ierse_30oct_5min.csv"]
+salidas = ["estudios/santa-cruz/datos/puntos_inundacion.geojson", "estudios/santa-cruz/datos/vasos.geojson",
+           "estudios/santa-cruz/datos/cuencas_puntos.geojson", "estudios/santa-cruz/datos/hidrogramas_puntos_30oct.csv",
+           "estudios/santa-cruz/datos/resumen.json", "estudios/santa-cruz/datos/acumulacion_d8.tif",
+           "estudios/santa-cruz/datos/direcciones_d8.tif"]
+
+[pasos.cruces]
+script = "16_cruces_quebradas_vias.py"
+nota = "Cruces de quebradas con vías en las dos islas"
+entradas = ["@dem_sc", "@dem_scb", "@capas", "../clima/datos/ierse-wsn/serie_5min.csv.gz", "estudios/santa-cruz/datos/acumulacion_d8.tif"]
+salidas = ["estudios/santa-cruz/datos/cruces.csv", "estudios/santa-cruz/datos/cruces.geojson",
+           "estudios/san-cristobal/datos/cruces.csv", "estudios/san-cristobal/datos/cruces.geojson"]
+
+[pasos.urbano]
+script = "16b_urbano_sectores.py"
+codigo = ["16_cruces_quebradas_vias.py"]
+nota = "Diagnóstico urbano: Tomás de Berlanga, Puerto Baquerizo Moreno y campus GSC"
+entradas = ["@capas", "estudios/la-cascada/datos/cuenca_cascada.geojson", "estudios/san-cristobal/datos/cañadas_oficiales.geojson",
+            "estudios/santa-cruz/datos/cruces.csv", "estudios/san-cristobal/datos/cruces.csv"]
+salidas = ["estudios/santa-cruz/datos/urbano/*", "estudios/san-cristobal/datos/urbano/*",
+           "estudios/santa-cruz/figuras/f_tomas_de_berlanga.png", "estudios/san-cristobal/figuras/f_urbano_pbm.png",
+           "estudios/san-cristobal/figuras/f_campus_gsc.png"]
+
+[pasos.riesgo_islas]
+script = "grd_riesgo_islas.py"
+nota = "Instalaciones críticas, recurrencia SNGR y umbrales de lluvia"
+entradas = ["@dem_sc", "@dem_scb", "capas/final/*.geojson", "../clima/datos/ierse-wsn/serie_5min.csv.gz"]
+salidas = ["estudios/santa-cruz/datos/riesgo/*.csv", "estudios/san-cristobal/datos/riesgo/*.csv"]
+
+[pasos.linea_tiempo]
+script = "grd_linea_tiempo.py"
+entradas = ["../clima/datos/ierse-wsn/horario.csv", "estudios/santa-cruz/datos/riesgo/umbrales_sat_30oct.csv"]
+salidas = ["estudios/santa-cruz/datos/linea_tiempo.csv"]
+
+[pasos.cronologia]
+script = "20_cronologia_figura.py"
+entradas = ["estudios/la-cascada/datos/hidrogramas_evento_30oct.csv", "estudios/la-cascada/datos/lluvia_ierse_30oct_5min.csv"]
+salidas = ["estudios/santa-cruz/figuras/cronologia_30oct.png"]
+
+# ------------------------------------------------------------------ Santa Cruz: modelo 2D
+[pasos.modelo2d_santa_cruz]
+script = "24_modelo2d_santa_cruz.py"
+pesado = true
+nota = "LISFLOOD-ACC: juegos (a) y (b) del 30-oct y validación del 3–4 oct (≈1–2 min por escenario)"
+cmd = ["{py} -W ignore scripts/24_modelo2d_santa_cruz.py b_central --motor lisflood",
+       "{py} -W ignore scripts/24_modelo2d_santa_cruz.py central --motor lisflood",
+       "{py} -W ignore scripts/24_modelo2d_santa_cruz.py b_03oct --motor lisflood",
+       "{py} -W ignore scripts/24_modelo2d_santa_cruz.py a_03oct --motor lisflood"]
+entradas = ["@dem_sc", "capas/dem/cuencas_localidad.geojson", "capas/final/barrios.geojson", "capas/final/zonas_pobladas.geojson",
+            "capas/igm/zona_urbana.geojson", "export/galapagos/zona_agricola.geojson", "estudios/la-cascada/datos/cuenca_cascada.geojson",
+            "@lluvia_evento", "estudios/santa-cruz/datos/cruces.csv"]
+salidas = ["estudios/santa-cruz/datos/modelo2d/b_central/resumen_b_central.json", "estudios/santa-cruz/datos/modelo2d/b_central/calado_max_clases.geojson",
+           "estudios/santa-cruz/datos/modelo2d/b_central/series_puntos.csv", "estudios/santa-cruz/datos/modelo2d/b_central/calado_max_m.tif",
+           "estudios/santa-cruz/datos/modelo2d/central/resumen_central.json", "estudios/santa-cruz/datos/modelo2d/b_03oct/resumen_b_03oct.json",
+           "estudios/santa-cruz/datos/modelo2d/a_03oct/resumen_a_03oct.json"]
+
+[pasos.modelo2d_santa_cruz_sensibilidad]
+script = "24_modelo2d_santa_cruz.py"
+pesado = true
+nota = "Sensibilidad (lluvia, Manning, CN, 23-oct) de los juegos (a) y (b)"
+cmd = ["for e in b_bajo b_alto b_manning_bajo b_manning_alto b_23oct bajo alto manning_bajo manning_alto cn68 a_23oct; do {py} -W ignore scripts/24_modelo2d_santa_cruz.py $e --motor lisflood || exit 1; done"]
+entradas = ["@dem_sc", "capas/dem/cuencas_localidad.geojson", "capas/final/barrios.geojson", "capas/final/zonas_pobladas.geojson",
+            "capas/igm/zona_urbana.geojson", "export/galapagos/zona_agricola.geojson", "estudios/la-cascada/datos/cuenca_cascada.geojson",
+            "@lluvia_evento", "estudios/santa-cruz/datos/cruces.csv"]
+salidas = ["estudios/santa-cruz/datos/modelo2d/b_bajo/resumen_b_bajo.json", "estudios/santa-cruz/datos/modelo2d/b_alto/resumen_b_alto.json",
+           "estudios/santa-cruz/datos/modelo2d/cn68/resumen_cn68.json"]
+
+[pasos.modelo2d_santa_cruz_anuga]
+script = "24_modelo2d_santa_cruz.py"
+pesado = true
+manual = true
+nota = "Contraste ANUGA del juego (b) desde las 17 h (≈13 min por hora simulada): solo a mano"
+cmd = ["INICIO_H=17 {py} -W ignore scripts/24_modelo2d_santa_cruz.py b_central --motor anuga"]
+entradas = ["@dem_sc", "estudios/la-cascada/datos/cuenca_cascada.geojson", "@lluvia_evento"]
+salidas = ["estudios/santa-cruz/datos/modelo2d/b_central_desde17h_anuga/resumen_b_central.json"]
+
+[pasos.modelo2d_santa_cruz_figuras]
+script = "24_modelo2d_santa_cruz.py"
+nota = "Figuras y animación del modelo 2D (no simula: lee los resultados)"
+cmd = ["{py} -W ignore scripts/24_modelo2d_santa_cruz.py figuras b_central",
+       "{py} -W ignore scripts/24_modelo2d_santa_cruz.py figuras central",
+       "{py} -W ignore scripts/24_modelo2d_santa_cruz.py validacion",
+       "cp estudios/santa-cruz/figuras/anim_30oct_b_central.gif estudios/santa-cruz/figuras/anim_30oct.gif"]
+entradas = ["estudios/santa-cruz/datos/modelo2d/b_central/*", "estudios/santa-cruz/datos/modelo2d/central/*",
+            "estudios/santa-cruz/datos/modelo2d/b_03oct/*", "estudios/santa-cruz/datos/modelo2d/a_03oct/*",
+            "@lluvia_evento", "estudios/la-cascada/datos/cuenca_cascada.geojson"]
+salidas = ["estudios/santa-cruz/figuras/m2d_*.png", "estudios/santa-cruz/figuras/anim_30oct*.gif"]
+
+# ------------------------------------------------------------------ San Cristóbal
+[pasos.san_cristobal_hidrologia]
+script = "17_san_cristobal_inundacion.py"
+nota = "Cuencas, vasos, puntos y quebrada del campus USFQ / GSC"
+entradas = ["@dem_scb", "@capas", "estudios/san-cristobal/datos/insumos/*.geojson", "estudios/san-cristobal/datos/lluvias/modelos_horaria.csv"]
+salidas = ["estudios/san-cristobal/datos/cuencas.geojson", "estudios/san-cristobal/datos/puntos_inundacion.geojson",
+           "estudios/san-cristobal/datos/vasos.geojson", "estudios/san-cristobal/datos/quebrada_usfq.geojson",
+           "estudios/san-cristobal/datos/perfil_quebrada_usfq.csv", "estudios/san-cristobal/datos/resumen.json"]
+
+[pasos.modelo2d_san_cristobal]
+script = "25_modelo2d_san_cristobal.py"
+pesado = true
+nota = "Modelo 2D de San Cristóbal (todos los escenarios, incluidos los trazadores)"
+cmd = ["{py} -W ignore scripts/25_modelo2d_san_cristobal.py"]
+entradas = ["@dem_scb", "capas/final/edificios_exposicion.geojson", "capas/final/manzanas_inec.geojson", "capas/final/zonas_pobladas.geojson",
+            "export/galapagos/zona_agricola.geojson", "estudios/san-cristobal/datos/insumos/campus_usfq_osm.geojson",
+            "estudios/santa-cruz/datos/lluvias/hietograma_5min.csv", "estudios/la-cascada/datos/lluvia_ierse_30oct_5min.csv"]
+salidas = ["estudios/san-cristobal/datos/modelo2d/resumen_modelo2d.json", "estudios/san-cristobal/datos/modelo2d/*_calado_max_clases.geojson",
+           "estudios/san-cristobal/datos/modelo2d/*_series.csv", "estudios/san-cristobal/datos/modelo2d/*_calado_max.tif",
+           "estudios/san-cristobal/figuras/f_modelo2d_*.png", "estudios/san-cristobal/figuras/anim_modelo2d_*.gif"]
+
+[pasos.canadas_oficiales]
+script = "27_canadas_oficiales_san_cristobal.py"
+nota = "Cañadas oficiales del plan de la UGR; añade «cañada_oficial» a cuencas y puntos"
+entradas = ["@dem_scb", "capas/final/edificios_exposicion.geojson", "export/galapagos/vias.geojson",
+            "estudios/san-cristobal/datos/cuencas.geojson", "estudios/san-cristobal/datos/puntos_inundacion.geojson",
+            "estudios/san-cristobal/datos/modelo2d/resumen_modelo2d.json", "estudios/san-cristobal/datos/modelo2d/*_calado_max.tif",
+            "estudios/san-cristobal/datos/modelo2d/*_agua_marcada_max.tif"]
+salidas = ["estudios/san-cristobal/datos/cañadas_oficiales.geojson", "estudios/san-cristobal/datos/contraste_plan_ugr.json",
+           "estudios/san-cristobal/datos/cuencas.geojson", "estudios/san-cristobal/datos/puntos_inundacion.geojson"]
+
+[pasos.agua]
+script = "16c_agua_san_cristobal.py"
+codigo = ["16_cruces_quebradas_vias.py"]
+nota = "Tomas de agua y conducciones del acueducto"
+entradas = ["@dem_scb", "@capas", "descargas/igm/wfs/acueducto.geojson"]
+salidas = ["estudios/san-cristobal/datos/agua/tomas.geojson", "estudios/san-cristobal/datos/agua/conducciones.geojson",
+           "estudios/san-cristobal/datos/agua/fuentes_agua.csv", "estudios/san-cristobal/datos/agua/diagnostico.json",
+           "estudios/san-cristobal/datos/agua/cruces_conducciones.csv"]
+
+[pasos.tomas_cuencas]
+script = "26_cuencas_tomas_san_cristobal.py"
+nota = "Cuencas de captación y crecidas de las tomas de agua"
+entradas = ["@dem_scb", "@capas", "estudios/san-cristobal/datos/agua/tomas.geojson", "estudios/santa-cruz/datos/lluvias/hietograma_5min.csv"]
+salidas = ["estudios/san-cristobal/datos/agua/cuencas_tomas.geojson", "estudios/san-cristobal/datos/agua/cuencas_tomas.json"]
+
+[pasos.plan_ugr]
+script = "16d_plan_ugr_sancristobal.py"
+codigo = ["16b_urbano_sectores.py"]
+nota = "Lugares y medidas del Plan de Acción de la UGR"
+entradas = ["@capas", "descargas/igm/wfs/zona_urbana.geojson", "estudios/san-cristobal/datos/cañadas_oficiales.geojson",
+            "estudios/san-cristobal/datos/urbano/cauces_urbanos.geojson"]
+salidas = ["estudios/san-cristobal/datos/ugr/lugares_plan.geojson", "estudios/san-cristobal/datos/ugr/medidas_plan.geojson",
+           "estudios/san-cristobal/datos/ugr/contraste_sectores.json", "estudios/san-cristobal/datos/ugr/no_localizados.csv",
+           "estudios/san-cristobal/figuras/f_plan_ugr.png"]
+
+[pasos.floreana]
+script = "28_floreana_canadas.py"
+entradas = ["descargas/dem/Copernicus_DSM_COG_10_S02_00_W091_00_DEM.tif"]
+salidas = ["estudios/san-cristobal/datos/floreana/cauces_floreana.geojson", "estudios/san-cristobal/datos/floreana/floreana.json"]
+
+# ------------------------------------------------------------------ figuras comunes
+[pasos.figuras_3d]
+script = "18_figuras_3d.py"
+nota = "Vistas 3D de las dos islas"
+entradas = ["@dem_sc", "@dem_scb", "capas/final/barrios.geojson", "capas/final/quebradas.geojson", "capas/final/zonas_pobladas.geojson",
+            "../clima/datos/ierse-wsn/diario.csv", "../clima/datos/ierse-wsn/estaciones.geojson",
+            "estudios/la-cascada/datos/cuenca_cascada.geojson", "estudios/la-cascada/datos/mancha_13m.geojson",
+            "estudios/la-cascada/datos/rutas_desvio.geojson", "estudios/santa-cruz/datos/cruces.geojson",
+            "estudios/santa-cruz/datos/puntos_inundacion.geojson", "estudios/san-cristobal/datos/cuencas.geojson",
+            "estudios/san-cristobal/datos/quebrada_usfq.geojson", "estudios/san-cristobal/datos/cruces.geojson",
+            "estudios/san-cristobal/datos/puntos_inundacion.geojson", "estudios/san-cristobal/datos/agua/*.geojson"]
+salidas = ["estudios/santa-cruz/figuras/3d_*.png", "estudios/san-cristobal/figuras/3d_*.png"]
+
+# ------------------------------------------------------------------ pendientes (issues de GitHub)
+[pasos.pendientes_issues]
+script = "22_pendientes.py"
+red = true
+nota = "Baja los issues de GitHub (gh) a estudios/pendientes.json"
+cmd = ["{py} scripts/22_pendientes.py --actualizar"]
+entradas = []
+salidas = ["estudios/pendientes.json"]
+
+[pasos.pendientes]
+script = "22_pendientes.py"
+nota = "Páginas de pendientes de cada isla, desde la caché de issues"
+entradas = ["estudios/pendientes.json", "estudios/estudios.json"]
+salidas = ["estudios/pendientes/*.md"]
+
+# ------------------------------------------------------------------ publicación (local)
+[pasos.sitio]
+script = "19_estudios_web.py"
+nota = "Genera publicar/estudios (no publica)"
+entradas = ["estudios/estudios.json", "estudios/*/texto/*.md", "estudios/pendientes/*.md", "web/estudios.css", "web/estudios.js",
+            "estudios/*/figuras/*.png", "estudios/*/figuras/*.gif",
+            "estudios/*/datos/*.geojson", "estudios/*/datos/*.json", "estudios/*/datos/*.csv",
+            "estudios/*/datos/*/*.geojson", "estudios/*/datos/*/*.json", "estudios/*/datos/*/*.csv",
+            "estudios/santa-cruz/datos/modelo2d/b_central/*", "estudios/san-cristobal/datos/modelo2d/guayabillos_15m_calado_max.tif",
+            "@dem_sc", "@dem_scb"]
+salidas = ["publicar/estudios/index.html", "publicar/estudios/santa-cruz/index.html", "publicar/estudios/san-cristobal/index.html"]
+
+[pasos.revision]
+script = "revisar_publicacion.py"
+siempre = true
+nota = "Checklist automático antes de publicar (falla si algo no pasa)"
+entradas = ["publicar/estudios/index.html"]
+salidas = []
+
+[pasos.mapas]
+script = "10_publicar_web.py"
+nota = "Genera publicar/mapas con las capas de los estudios (no publica)"
+entradas = ["estudios/estudios.json", "scripts/capas_estudios.json", "web/index.html", "export/galapagos/*", "export/galapagos-completo/*.geojson",
+            "estudios/*/datos/*.geojson", "estudios/*/datos/*/*.geojson", "estudios/santa-cruz/datos/modelo2d/b_central/*.geojson"]
+salidas = ["publicar/mapas/index.html"]
