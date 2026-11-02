@@ -86,33 +86,83 @@ def inamhi_historial(con, dias=2, archivo=None):
 
 
 # ---------------------------------------------------------------- Mareógrafos IOC (nivel del mar)
+# Se usa siempre el mismo radar por estación («ras», con el mismo cero que la serie UHSLC; el «rad» de
+# Puerto Ayora tiene otro cero, +4,9 m) y se resta el desfase IOC−UHSLC calculado por
+# scripts/05_mareas.py, así que nivel_mar_m queda en el cero UHSLC (comparable con la predicción).
 IOC_EST = {"sant": ("Mareógrafo Puerto Ayora", "Santa Cruz", -0.7525, -90.3117),
            "balt": ("Mareógrafo Baltra", "Baltra", -0.4350, -90.2833)}
+IOC_SENSORES = ("ras", "rad")  # orden de preferencia
+
+
+def _ioc_desfases():
+    import os
+    from pathlib import Path
+    f = Path(__file__).resolve().parent / "mareas_prediccion.json"
+    if not f.exists():
+        return {}
+    d = json.loads(f.read_text())
+    return {cod: (e.get("ioc") or {}) for cod, e in d.get("estaciones", {}).items()}
 
 
 def fuente_ioc(con):
     api = endpoint("CLIMA_IOC_API")
     fin = dt.datetime.now(UTC)
-    ini = fin - dt.timedelta(hours=2)
+    desfases = _ioc_desfases()
     filas = []
     for cod, (nom, isla, lat, lon) in IOC_EST.items():
         estacion(con, "ioc", cod, nom, isla, lat, lon, 0, "IOC")
+        ult = con.execute("SELECT MAX(ts) FROM obs WHERE fuente='ioc' AND estacion=?", (cod,)).fetchone()[0]
+        ini = fin - dt.timedelta(days=3)
+        if ult:
+            ini = max(ini, dt.datetime.fromisoformat(ult.replace("Z", "+00:00")) - dt.timedelta(minutes=30))
         q = urllib.parse.urlencode({"query": "data", "code": cod, "format": "json",
                                     "timestart": ini.strftime("%Y-%m-%dT%H:%M:%S"),
                                     "timestop": fin.strftime("%Y-%m-%dT%H:%M:%S")})
-        datos = http_json(f"{api}?{q}")
-        # El sensor de presión está congelado y algún radar también: se usa el radar que varía más
+        datos = http_json(f"{api}?{q}", timeout=120)
         por = {}
         for x in datos:
-            if x.get("sensor") in ("rad", "ras") and x.get("slevel") is not None:
+            if x.get("sensor") in IOC_SENSORES and x.get("slevel") is not None:
                 por.setdefault(x["sensor"], []).append(x)
-        vivos = {s: v for s, v in por.items() if len(v) > 5 and statistics.pstdev([x["slevel"] for x in v]) > 0.002}
-        if not vivos:
-            continue
-        s = max(vivos, key=lambda k: statistics.pstdev([x["slevel"] for x in vivos[k]]))
-        filas += [(cod, "nivel_mar_m", dt.datetime.fromisoformat(x["stime"]).replace(tzinfo=UTC), float(x["slevel"]))
-                  for x in vivos[s]]
+        # el sensor preferido que esté vivo (no congelado) y tenga desfase conocido
+        for sen in IOC_SENSORES:
+            xs = por.get(sen, [])
+            des = (desfases.get(cod) or {}).get(sen)
+            if len(xs) > 5 and statistics.pstdev([x["slevel"] for x in xs]) > 0.002 and des:
+                off = des["desfase_cm"] / 100
+                filas += [(cod, "nivel_mar_m", dt.datetime.fromisoformat(x["stime"]).replace(tzinfo=UTC),
+                           round(float(x["slevel"]) - off, 3)) for x in xs]
+                break
     return guardar(con, "ioc", filas)
+
+
+# ---------------------------------------------------------------- Modelo de nivel del mar (Open-Meteo Marine)
+# Para los puertos sin mareógrafo (Puerto Baquerizo, Puerto Villamil): marea + nivel modelados, cada hora.
+MAR_MODELO = {"baquerizo": ("Puerto Baquerizo Moreno", -0.902, -89.612),
+              "villamil": ("Puerto Villamil", -0.962, -90.965)}
+
+
+def fuente_mar_modelo(con):
+    import os
+    from pathlib import Path
+    destino = Path(os.environ.get("CLIMA_DB", "clima.db")).parent / "mar_modelo.json"
+    if destino.exists() and dt.datetime.now(UTC).timestamp() - destino.stat().st_mtime < 3000:
+        return 0  # una vez por hora basta
+    api = endpoint("CLIMA_OPENMETEO_MARINE_API")
+    q = urllib.parse.urlencode({"latitude": ",".join(str(v[1]) for v in MAR_MODELO.values()),
+                                "longitude": ",".join(str(v[2]) for v in MAR_MODELO.values()),
+                                "minutely_15": "sea_level_height_msl", "hourly": "wave_height",
+                                "timezone": "GMT", "past_days": 1, "forecast_days": 3})
+    d = http_json(f"{api}?{q}", timeout=60)
+    d = d if isinstance(d, list) else [d]
+    out = {"generado": dt.datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"), "puertos": {}}
+    for (cod, (nom, lat, lon)), p in zip(MAR_MODELO.items(), d):
+        m, h = p.get("minutely_15", {}), p.get("hourly", {})
+        out["puertos"][cod] = {"nombre": nom, "t": m.get("time", []), "nivel_m": m.get("sea_level_height_msl", []),
+                               "ola_t": h.get("time", []), "ola_m": h.get("wave_height", [])}
+    tmp = destino.with_suffix(".tmp")
+    tmp.write_text(json.dumps(out))
+    os.replace(tmp, destino)
+    return sum(len(v["t"]) for v in out["puertos"].values())
 
 
 # ---------------------------------------------------------------- METAR (aeropuertos)
@@ -153,7 +203,7 @@ def fuente_metar(con):
     return guardar(con, "metar", filas)
 
 
-FUENTES_EXTRA = {"inamhi": fuente_inamhi, "ioc": fuente_ioc, "metar": fuente_metar}
+FUENTES_EXTRA = {"inamhi": fuente_inamhi, "ioc": fuente_ioc, "metar": fuente_metar, "mar_modelo": fuente_mar_modelo}
 
 # ---------------------------------------------------------------- WeatherLink (estaciones particulares públicas)
 # El mapa público solo da el valor actual y la lluvia acumulada del día (se reinicia a medianoche

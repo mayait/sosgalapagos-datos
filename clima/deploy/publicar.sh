@@ -19,7 +19,7 @@ ssh "$SERVIDOR" 'set -e
 ssh "$SERVIDOR" 'install -d -m 750 -o root -g clima /etc/sosgalapagos-clima'
 scp -q privado/fuentes.env "$SERVIDOR":/etc/sosgalapagos-clima/fuentes.env
 ssh "$SERVIDOR" 'chown root:clima /etc/sosgalapagos-clima/fuentes.env; chmod 640 /etc/sosgalapagos-clima/fuentes.env'
-rsync -az recolector/*.py recolector/umbrales_inundacion.json deploy/respaldo.sh deploy/recibir.sh "$SERVIDOR":/opt/sosgalapagos-clima/
+rsync -az recolector/*.py recolector/*.json deploy/respaldo.sh deploy/recibir.sh "$SERVIDOR":/opt/sosgalapagos-clima/
 # Series diarias de la FCD para la estacionalidad (privadas: fuera de la carpeta pública)
 ssh "$SERVIDOR" 'install -d -m 750 -o clima -g clima /var/lib/sosgalapagos-clima/fcd'
 rsync -az datos/fcd/*.csv "$SERVIDOR":/var/lib/sosgalapagos-clima/fcd/

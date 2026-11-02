@@ -87,6 +87,25 @@ GSC-USFQ (San Cristóbal) ──► servidor: sosgalapagos-clima.timer (cada 5 m
   - El token solo está en el servidor (`/srv/sosgalapagos-privado/caddy/clima-investigadores.caddy` y el drop-in `sosgalapagos-clima-csv.service.d/investigadores.conf`) y en `privado/token_investigadores.txt`.
   - Para revocarlo: borrar el archivo `.caddy` y recargar Caddy.
 
+## Mareas y nivel del mar
+
+- **Marea astronómica:** `scripts/05_mareas.py` ajusta las constantes armónicas con UTide sobre las series horarias del UHSLC (Universidad de Hawái), guardadas en `datos/uhslc/` (Puerto Ayora/Academy Bay desde 1978 y Baltra; aquí van 2000–2026).
+  - Escribe `recolector/mareas_prediccion.json`: predicción cada 10 min hasta fines de 2027, más pleamares y bajamares.
+  - Hay que regenerarlo antes de que se acabe la predicción y cuando haya más datos del UHSLC.
+  - Validación fuera de muestra (jul–sep-2026): error típico de 1,8 cm en Puerto Ayora y 2,2 cm en Baltra, sobre mareas de 1,8–2,1 m.
+- **Nivel observado:** mareógrafos IOC de Puerto Ayora y Baltra, cada 5 min.
+  - Se usa siempre el radar «ras», que tiene el mismo cero que el UHSLC. El «rad» de Puerto Ayora está desplazado +4,9 m.
+  - El desfase IOC − UHSLC lo calcula el mismo script con el tramo en que ambos se solapan.
+- **Anomalía:** observado − marea astronómica, con referencia al nivel medio 2017–2024. Recoge sobre todo El Niño.
+  - Sep-2026: +30 cm de media mensual.
+  - 2-nov-2026: +41 cm.
+  - Esa anomalía se suma a cada pleamar del pronóstico.
+- **Puertos sin mareógrafo** (Puerto Baquerizo, Puerto Villamil): se muestra el modelo de nivel del mar de Open-Meteo Marine (fuente `mar_modelo`, cada hora). Según el modelo, la pleamar ocurre a la misma hora (±15 min) que en Puerto Ayora y con una altura parecida (±10 %).
+- **Fuentes revisadas sin éxito:**
+  - IOC no tiene otros mareógrafos en Galápagos.
+  - El INOCAR no respondió (sus tablas de mareas no están accesibles en línea).
+- Cita del UHSLC: Caldwell, P. C., M. A. Merrifield, P. R. Thompson (2015). Sea level measured by tide gauges from global oceans — the Joint Archive for Sea Level holdings (NCEI Accession 0019568). NOAA National Centers for Environmental Information.
+
 ## Otras fuentes
 
 Inventario verificado, con endpoints, en `privado/fuentes.md` (no versionado). Lo más útil:
