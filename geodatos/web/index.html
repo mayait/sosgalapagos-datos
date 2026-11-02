@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapas de Galápagos</title>
+<meta name="description" content="Capas geográficas de la emergencia por inundaciones en Galápagos (oct–nov 2026): quebradas, zonas inundables, cuencas, vías, población y puntos clave. Descarga en Shapefile y GeoJSON.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root{--bg:#f4f4f1;--panel:#ffffff;--ink:#1b1b19;--mut:#6b6a64;--line:#e6e5df;--acc:#0b5cad;--soft:#eef3f9;--on:#0b5cad;--warn:#b45309}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--panel:#1d1d1b;--ink:#ecebe6;--mut:#a09f98;--line:#33332e;--acc:#7ab0ea;--soft:#232d38;--on:#3f86d4;--warn:#f59e0b}}
+:root[data-theme="dark"]{--bg:#141413;--panel:#1d1d1b;--ink:#ecebe6;--mut:#a09f98;--line:#33332e;--acc:#7ab0ea;--soft:#232d38;--on:#3f86d4;--warn:#f59e0b}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--acc)}
+#app{display:grid;grid-template-columns:370px 1fr;height:100vh;height:100dvh}
+#side{background:var(--panel);border-right:1px solid var(--line);overflow:auto;display:flex;flex-direction:column;min-height:0}
+.head{padding:14px 16px 12px;border-bottom:1px solid var(--line);background:var(--panel)}
+.back{font-size:12px;text-decoration:none;color:var(--mut)}.back:hover{color:var(--acc)}
+h1{font-size:17px;margin:4px 0 0;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:12px;margin:3px 0 10px}
+.lbl{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:650;margin:10px 0 4px}
+.row{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:999px;padding:4px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+.chip:hover{border-color:var(--acc)}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{flex:1;border:0;background:transparent;color:var(--mut);font:inherit;font-size:12.5px;padding:6px 9px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--on);color:#fff}
+.seg.small{display:inline-flex}.seg.small button{flex:none;font-size:12px;padding:4px 9px}
+.varnote{font-size:11.5px;color:var(--mut);margin-top:5px}
+.dl-all{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--acc);color:var(--acc);background:transparent;border-radius:8px;padding:6px 10px;font-size:12.5px;font-weight:600;text-decoration:none}
+.btn.pri{background:var(--on);border-color:var(--on);color:#fff}
+.btn small{font-weight:400;opacity:.85}
+.body{padding:2px 16px 24px}
+.grp{border-bottom:1px solid var(--line);padding:10px 0 6px}
+.grp h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 4px;font-weight:650}
+.lyr{padding:5px 0}
+.lyr .top{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.sw{position:relative;flex:none;width:30px;height:17px;border-radius:999px;background:var(--line);transition:.15s}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:.15s}
+.lyr.on .sw{background:var(--on)}.lyr.on .sw::after{left:15px}
+.lyr .t{flex:1;font-size:13.5px}
+.lyr .meta{display:block;font-size:11px;color:var(--mut)}
+.dl{margin:2px 0 0 40px;font-size:11.5px;display:flex;gap:10px;flex-wrap:wrap}
+.dl a{text-decoration:none;white-space:nowrap}.dl a:hover{text-decoration:underline}
+.dl span{color:var(--mut)}
+.lyr .leg{display:none;margin:5px 0 2px 40px;font-size:11.5px;color:var(--mut)}
+.lyr.on .leg{display:grid;grid-template-columns:1fr;gap:2px}
+.leg i{display:inline-block;width:16px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.leg i.ln{height:0;border-top:3px solid;border-radius:0;vertical-align:3px}
+.leg i.pt{width:14px;height:14px;border-radius:50%;color:#fff;font:700 9px/14px system-ui;text-align:center;font-style:normal;vertical-align:-3px;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.desc{font-size:11px;color:var(--mut);margin:3px 0 0 40px;display:none}.lyr.on .desc{display:block}
+.zoomhint{font-size:11px;color:var(--warn);margin-left:40px;display:none}.lyr.on.far .zoomhint{display:block}
+details.card{margin:12px 0 0;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--bg)}
+details.card summary{cursor:pointer;font-weight:600;font-size:13px}
+.card table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}.card td{padding:2px 0;border-bottom:1px solid var(--line)}
+.card td.r{text-align:right;font-variant-numeric:tabular-nums}.card tr:last-child td{border:0}
+.card p{font-size:12px;margin:6px 0}
+.note{font-size:11.5px;color:var(--mut);margin-top:12px}
+#map{height:100%;background:#dfe6ea}
+#carga{position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:800;background:rgba(20,20,19,.85);color:#fff;font-size:12.5px;padding:5px 12px;border-radius:999px;display:none}
+#carga.on{display:block}
+.leaflet-popup-content-wrapper{border-radius:10px}
+.leaflet-popup-content{font-size:12.5px;margin:10px 12px;min-width:180px}
+.pp-t{font-weight:650;font-size:13.5px;margin-bottom:2px}.pp-s{font-size:11px;color:#777;margin-bottom:6px}
+.pp table{border-collapse:collapse}.pp td{padding:2px 8px 2px 0;vertical-align:top}.pp td:first-child{color:#777;white-space:nowrap}
+.pin{width:19px;height:19px;border-radius:50%;color:#fff;font:800 11px/15px system-ui;text-align:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45)}
+.pin.risk{box-shadow:0 0 0 3px #1d4a9e,0 1px 4px rgba(0,0,0,.45)}
+.rot{background:transparent;border:0;box-shadow:none;color:#7c2d12;font:600 11px system-ui;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 2px #fff}
+.rot.via{color:#374151;font:500 10.5px system-ui}
+.rot::before{display:none}
+.map-far .rot{display:none}
+#coord{position:absolute;right:8px;bottom:22px;z-index:500;background:rgba(255,255,255,.85);color:#222;padding:2px 6px;border-radius:4px;font:11px ui-monospace,monospace}
+.mix{mix-blend-mode:multiply}
+@media (max-width:760px){
+ #app{grid-template-columns:1fr;grid-template-rows:45vh 1fr;grid-template-rows:45dvh 1fr}
+ #side{order:2;border-right:0;border-top:1px solid var(--line)}
+ #coord{display:none}
+}
+</style>
+</head>
+<body>
+<div id="app">
+ <aside id="side">
+  <div class="head">
+   <a class="back" href="/">← SOS Galápagos</a>
+   <h1>Mapas y capas de la emergencia</h1>
+   <div class="sub">Inundaciones por El Niño en Galápagos, oct–nov 2026. Activa las capas para verlas y descárgalas en Shapefile o GeoJSON para usarlas en QGIS, ArcGIS o Google Earth.</div>
+   <div class="lbl">Cobertura</div>
+   <div class="seg" id="variantes">
+    <button data-v="zona">Zona poblada</button>
+    <button data-v="completo">Islas completas</button>
+   </div>
+   <div class="varnote" id="varnote"></div>
+   <div class="lbl">Descargar todas las capas</div>
+   <div class="dl-all" id="todo"></div>
+   <div class="lbl">Ir a</div>
+   <div class="row" id="islas"></div>
+   <div class="lbl">Mapa base</div>
+   <div class="seg small" id="bases"></div>
+  </div>
+  <div class="body">
+   <div id="grupos"></div>
+   <details class="card" id="expo"><summary>Exposición estimada por isla</summary><div></div></details>
+   <details class="card"><summary>Cómo usar los archivos</summary>
+    <p><b>Shapefile (.zip):</b> descomprime y abre el <code>.shp</code> en QGIS o ArcGIS. Coordenadas WGS 84 (EPSG:4326) y atributos en UTF-8. Cada zip trae un <code>LEEME.txt</code> con la fuente, la licencia y los nombres de campo acortados.</p>
+    <p><b>GeoJSON:</b> se abre directo en QGIS, geojson.io, Mapbox o con cualquier librería web.</p>
+    <p><b>Relieve y pendientes:</b> PNG georreferenciados con archivo de mundo (.pgw).</p>
+   </details>
+   <div class="note">Fuentes: IGM 1:25 000, CGREG, zonificación PNG 2017 (CGREG/FCD), SNGR/INOCAR, MSP, MINEDUC, INEC MGN 2026, © colaboradores de OpenStreetMap (ODbL, 31-oct-2026), Google Open Buildings y Copernicus GLO-30. La susceptibilidad, la costa baja y los cauces adicionales son un <b>modelo sobre un DSM de 30 m</b>: sirven para priorizar, no son delimitaciones oficiales. <a href="/privacidad">Privacidad</a>.</div>
+  </div>
+ </aside>
+ <div style="position:relative;min-height:0"><div id="map"></div><div id="carga">Cargando capas…</div><div id="coord"></div></div>
+</div>
+<script>
+const VERSION = '__VERSION__';
+const NOTA_VAR = {
+  zona: 'Recortado a las zonas pobladas, la zona agrícola, las vías y las cuencas que drenan a los poblados. Más liviano.',
+  completo: 'Cada isla completa, incluido el Parque Nacional. Más pesado: en celular activa pocas capas a la vez.',
+};
+let variante = location.hash === '#completo' ? 'completo' : 'zona';
+const datos = () => `datos/${variante}/`;
+const conV = u => `${u}?v=${VERSION}`;
+const esMovil = matchMedia('(max-width: 760px), (pointer: coarse)').matches;
+
+// ═══════════ Motor de estilos del manifiesto (el mismo de la app) ═══════════
+function claseDe(capa, props) {
+  const c = capa.clasificar; if (!c) return null;
+  const v = props?.[c.propiedad];
+  if (c.rangos) return c.rangos.find(r => (Number(v) || 0) <= r.hasta) ?? null;
+  return c.valores?.[String(v)] ?? c.otro ?? null;
+}
+function estiloDe(capa, props) {
+  const { etiqueta, simbolo, hasta, ...k } = claseDe(capa, props) ?? {};
+  let s = { ...capa.estilo, ...k };
+  for (const r of capa.estilo_si ?? []) {
+    const v = props?.[r.propiedad];
+    if ((r.igual_a !== undefined && v === r.igual_a) || (r.distinto_de !== undefined && v !== r.distinto_de)) s = { ...s, ...r.estilo };
+  }
+  return s;
+}
+function leyendaDe(capa) {
+  if (capa.solo_rotulo) return [];
+  if (capa.leyenda) return capa.leyenda.map(([color, texto]) => ({ color, texto, forma: 'area' }));
+  const forma = capa.tipo === 'linea' ? 'linea' : capa.tipo === 'punto' ? 'punto' : 'area';
+  const c = capa.clasificar;
+  const items = c ? [...(c.rangos ?? Object.values(c.valores ?? {})), ...(c.otro ? [c.otro] : [])] : [{ etiqueta: capa.titulo }];
+  const out = items.map(it => { const s = { ...capa.estilo, ...it };
+    return { color: forma === 'linea' ? s.color : (s.fillColor ?? s.color), texto: it.etiqueta, forma, simbolo: it.simbolo, dash: s.dashArray }; });
+  for (const r of capa.estilo_si ?? []) if (r.etiqueta) out.push({ color: '#6b7280', texto: r.etiqueta, forma: 'linea', dash: r.estilo.dashArray });
+  return out;
+}
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fmt = v => v === true ? 'Sí' : v === false ? 'No' : typeof v === 'number' ? v.toLocaleString('es') : v;
+function popupDe(capa, props) {
+  const p = capa.popup ?? {}; const cls = claseDe(capa, props);
+  const titulo = (p.titulo && props[p.titulo] != null && props[p.titulo] !== '' ? props[p.titulo] + (p.sufijo_titulo ?? '') : p.titulo_defecto) ?? capa.titulo;
+  let h = `<div class="pp"><div class="pp-t">${esc(titulo)}</div><div class="pp-s">${esc(cls?.etiqueta && cls.etiqueta !== titulo ? cls.etiqueta + ' · ' : '')}${esc(capa.titulo)}</div><table>`;
+  for (const [k, lab] of Object.entries(p.campos ?? {})) { const v = props[k]; if (v == null || v === '') continue; h += `<tr><td>${esc(lab)}</td><td>${esc(fmt(v))}</td></tr>`; }
+  return h + '</table></div>';
+}
+function rendererPatron(pt, pane) {
+  const r = L.svg({ pane });
+  r.on('add', () => {
+    const svg = r._container; if (!svg || svg.querySelector('#' + pt.id)) return;
+    const s = pt.separacion ?? 8;
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    defs.innerHTML = `<pattern id="${pt.id}" patternUnits="userSpaceOnUse" width="${s}" height="${s}" patternTransform="rotate(45)">` +
+      `<rect width="${s}" height="${s}" fill="${pt.fondo ?? 'none'}" fill-opacity="${pt.opacidad_fondo ?? 0}"/>` +
+      `<line x1="0" y1="0" x2="0" y2="${s}" stroke="${pt.color}" stroke-width="${pt.grosor ?? 1.5}" stroke-opacity="${pt.opacidad ?? 0.6}"/></pattern>`;
+    svg.insertBefore(defs, svg.firstChild);
+  });
+  return r;
+}
+let pendientes = 0;
+const carga = d => { pendientes += d; document.getElementById('carga').classList.toggle('on', pendientes > 0); };
+async function json(url) {
+  carga(1);
+  try { const r = await fetch(conV(url)); if (!r.ok) throw new Error(r.status + ' ' + url); return await r.json(); }
+  finally { carga(-1); }
+}
+async function crearCapa(capa, ctx) {
+  const base = datos();
+  if (capa.tipo === 'raster') {
+    const lim = ctx.limites ??= await json(base + 'raster/limites.json');
+    return L.layerGroup(Object.entries(lim).map(([k, v]) => L.imageOverlay(conV(`${base}raster/${k}_${capa.raster}.png`), v.bounds,
+      { opacity: capa.opacidad ?? .7, pane: 'fondo', className: capa.raster === 'relieve' ? 'mix' : '' })));
+  }
+  const gj = await (ctx.cache[capa.archivo] ??= json(base + capa.archivo));
+  const filter = capa.filtro ? f => capa.filtro.en.includes(f.properties?.[capa.filtro.propiedad]) : undefined;
+  const pane = capa.patron ? 'parque' : capa.tipo === 'punto' ? 'puntos' : capa.tipo === 'linea' ? 'lineas' : 'areas';
+  const renderer = capa.patron ? rendererPatron(capa.patron, pane) : ctx.renderers[pane];
+  const grupo = L.layerGroup();
+  if (capa.borde) grupo.addLayer(L.geoJSON(gj, { filter, pane, renderer, interactive: false, style: () => ({ ...capa.borde, lineCap: 'round' }) }));
+  const main = L.geoJSON(gj, {
+    filter, pane, renderer,
+    style: f => ({ lineCap: 'round', lineJoin: 'round', ...estiloDe(capa, f.properties) }),
+    pointToLayer: (f, ll) => {
+      if (capa.solo_rotulo) return L.circleMarker(ll, { pane, renderer, radius: 0, stroke: false, fill: false, interactive: false });
+      const s = estiloDe(capa, f.properties); const cl = claseDe(capa, f.properties);
+      if (cl?.simbolo) return L.marker(ll, { pane, icon: L.divIcon({ className: '', iconSize: [19, 19],
+        html: `<div class="pin${f.properties.en_susc_alta_media ? ' risk' : ''}" style="background:${s.fillColor}">${esc(cl.simbolo)}</div>` }) });
+      return L.circleMarker(ll, { pane, renderer, radius: s.radius ?? 5, color: f.properties.en_susc_alta_media ? '#1d4a9e' : '#fff',
+        weight: f.properties.en_susc_alta_media ? 2.5 : 1.3, fillColor: s.fillColor, fillOpacity: 1 });
+    },
+    onEachFeature: (f, l) => {
+      if (!capa.solo_rotulo) l.bindPopup(() => popupDe(capa, f.properties));
+      const r = capa.rotulo; const txt = r && f.properties?.[r.propiedad];
+      if (txt != null && txt !== '') l.bindTooltip(esc(txt) + esc(r.sufijo ?? ''), r.permanente
+        ? { permanent: true, direction: 'center', className: capa.solo_rotulo ? 'rot via' : 'rot' } : { sticky: true });
+    },
+  });
+  grupo.addLayer(main);
+  return grupo;
+}
+
+// ═══════════ Mapa ═══════════
+const map = L.map('map', { zoomControl: true, minZoom: 8 });
+L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
+for (const [n, z] of [['fondo', 350], ['parque', 390], ['areas', 410], ['lineas', 430], ['puntos', 620]]) map.createPane(n).style.zIndex = z;
+map.getPane('fondo').style.pointerEvents = 'none';
+const nuevoCtx = () => ({ cache: {}, limites: null, renderers: { areas: L.canvas({ pane: 'areas', padding: .3 }), lineas: L.canvas({ pane: 'lineas', padding: .3 }), puntos: L.canvas({ pane: 'puntos', padding: .3 }) } });
+let ctx = nuevoCtx();
+
+(async () => {
+  const [man, idx] = await Promise.all([json('capas.json'), json('descargas.json')]);
+
+  // Mapas base
+  const segB = document.getElementById('bases'); let base;
+  for (const b of man.mapas_base) {
+    const capa = L.tileLayer(b.url, { maxZoom: 19, maxNativeZoom: b.maxZoom ?? 19, attribution: b.atribucion });
+    const btn = document.createElement('button'); btn.textContent = b.titulo;
+    const usar = () => { if (base) map.removeLayer(base); base = capa.addTo(map); segB.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === btn)); };
+    btn.onclick = usar; segB.appendChild(btn); if (b.defecto || !base) usar();
+  }
+  // Saltos
+  const zi = document.getElementById('islas');
+  for (const [k, v] of Object.entries(man.islas)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = k; b.onclick = () => map.fitBounds(v.bounds); zi.appendChild(b); }
+  map.fitBounds(man.islas['Puerto Ayora'].bounds);
+
+  // Panel de capas
+  const cont = document.getElementById('grupos'); const filas = [];
+  for (const g of man.grupos) {
+    const sec = document.createElement('div'); sec.className = 'grp'; sec.innerHTML = `<h2>${esc(g.titulo)}</h2>`;
+    for (const capa of g.capas) {
+      const row = document.createElement('div'); row.className = 'lyr';
+      const ley = leyendaDe(capa).map(it => {
+        const ic = it.forma === 'punto' ? `<i class="pt" style="background:${it.color}">${esc(it.simbolo ?? '')}</i>`
+          : it.forma === 'linea' ? `<i class="ln" style="border-color:${it.color};${it.dash ? 'border-top-style:dashed' : ''}"></i>` : `<i style="background:${it.color}"></i>`;
+        return `<span>${ic}${esc(it.texto)}</span>`; }).join('');
+      row.innerHTML = `<div class="top"><span class="sw"></span><span class="t">${esc(capa.titulo)}<span class="meta"></span></span></div>
+        <div class="dl"></div>
+        ${capa.descripcion ? `<div class="desc">${esc(capa.descripcion)}</div>` : ''}<div class="zoomhint">Acércate al mapa (zoom ${capa.zoom_min}+) para ver esta capa.</div><div class="leg">${ley}</div>`;
+      const st = { on: false, layer: null, cargando: null };
+      const clave = capa.archivo ?? 'raster:' + capa.raster;
+      const pintar = () => {
+        const a = idx.variantes[variante].archivos[clave];
+        row.querySelector('.meta').textContent = (capa.fuente ?? '') + (a?.elementos ? ' · ' + a.elementos.toLocaleString('es') + ' elementos' : '');
+        row.querySelector('.dl').innerHTML = !a ? '<span>Sin datos en esta cobertura</span>'
+          : `<a href="${a.shp.url}" download>↓ ${a.shp.formato ?? 'Shapefile'} <span>${a.shp.tam}</span></a>` +
+            (a.geojson ? `<a href="${a.geojson.url}" download="${variante}-${capa.archivo}">↓ GeoJSON <span>${a.geojson.tam}</span></a>` : '');
+      };
+      const sync = async () => {
+        const lejos = !!capa.zoom_min && map.getZoom() < capa.zoom_min;
+        row.classList.toggle('far', st.on && lejos);
+        if (st.on && !lejos) {
+          if (!st.layer) {
+            const v = variante;
+            st.cargando ??= crearCapa(capa, ctx).catch(e => { console.error(e); return null; });
+            const l = await st.cargando; st.cargando = null;
+            if (v !== variante || !l) return;                 // cambió la cobertura mientras cargaba
+            st.layer = l;
+          }
+          if (st.on && !map.hasLayer(st.layer)) st.layer.addTo(map);
+        } else if (st.layer && map.hasLayer(st.layer)) map.removeLayer(st.layer);
+      };
+      const reset = () => { if (st.layer) map.removeLayer(st.layer); st.layer = null; st.cargando = null; pintar(); };
+      row.querySelector('.top').onclick = () => { st.on = !st.on; row.classList.toggle('on', st.on); sync(); };
+      const vis = esMovil && 'visible_movil' in capa ? capa.visible_movil : capa.visible;
+      if (vis) { st.on = true; row.classList.add('on'); }
+      pintar();
+      filas.push({ sync, reset }); sec.appendChild(row);
+    }
+    cont.appendChild(sec);
+  }
+  const syncTodo = async () => { for (const f of filas) await f.sync(); };   // en orden, para respetar el apilado
+
+  // Cobertura (zona poblada / islas completas)
+  const segV = document.getElementById('variantes');
+  const pintarVariante = () => {
+    segV.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === variante));
+    document.getElementById('varnote').textContent = NOTA_VAR[variante];
+    const t = idx.variantes[variante].todo;
+    document.getElementById('todo').innerHTML =
+      `<a class="btn pri" href="${t.shp.url}" download>↓ Shapefile <small>${t.shp.tam}</small></a>` +
+      `<a class="btn" href="${t.geojson.url}" download>↓ GeoJSON <small>${t.geojson.tam}</small></a>`;
+  };
+  segV.querySelectorAll('button').forEach(b => b.onclick = () => {
+    if (b.dataset.v === variante) return;
+    variante = b.dataset.v; history.replaceState(null, '', variante === 'completo' ? '#completo' : location.pathname);
+    filas.forEach(f => f.reset()); ctx = nuevoCtx(); pintarVariante(); syncTodo(); expo();
+    if (variante === 'completo' && map.getZoom() > 12) map.setZoom(11);
+  });
+  pintarVariante();
+  await syncTodo();
+  const zoomSync = () => { map.getContainer().classList.toggle('map-far', map.getZoom() < 15); filas.forEach(f => f.sync()); };
+  map.on('zoomend', zoomSync); zoomSync();
+
+  // Exposición
+  async function expo() {
+    const R = await json(datos() + 'resumen_exposicion.json');
+    const n = v => (v ?? 0).toLocaleString('es');
+    const filasE = [['Edificios', 'edificios'], ['  en susceptibilidad alta', 'susc_alta'], ['  en susceptibilidad media', 'susc_media'], ['  en franja de quebrada', 'franja_quebrada_20m'], ['  en zona de tsunami', 'zona_tsunami'],
+      ['Población estimada', 'pob_total'], ['  en susceptibilidad alta o media', 'pob_susc_alta_media'], ['  en franja de quebrada', 'pob_franja_quebrada'], ['  en zona de tsunami', 'pob_zona_tsunami']];
+    document.querySelector('#expo div').innerHTML = '<table><tr><td></td><td class="r"><b>S. Cruz</b></td><td class="r"><b>S. Crist.</b></td><td class="r"><b>Isabela</b></td></tr>' +
+      filasE.map(([l, k]) => `<tr><td>${l.startsWith('  ') ? '&nbsp;&nbsp;' + l.trim() : '<b>' + l + '</b>'}</td><td class="r">${n(R['Santa Cruz'][k])}</td><td class="r">${n(R['San Cristóbal'][k])}</td><td class="r">${n(R['Isabela'][k])}</td></tr>`).join('') + '</table>';
+  }
+  expo();
+})();
+map.on('mousemove', e => document.getElementById('coord').textContent = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)} · z${map.getZoom()}`);
+</script>
+</body>
+</html>

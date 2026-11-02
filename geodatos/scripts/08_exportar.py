@@ -2,9 +2,10 @@
 suaviza los polígonos derivados de píxeles, quita duplicados y exporta un paquete listo para el proyecto
 principal: export/galapagos/*.geojson + capas.json (manifiesto con grupos, estilos y leyendas).
 
-Uso: .venv/bin/python -I scripts/08_exportar.py
+Uso: .venv/bin/python -I scripts/08_exportar.py              # recortado al área de interés
+     .venv/bin/python -I scripts/08_exportar.py --completo   # islas completas (incluye el parque) → export/galapagos-completo
 """
-import json, pathlib, math
+import json, pathlib, math, sys
 import numpy as np, rasterio
 from rasterio import features
 from scipy.ndimage import gaussian_filter
@@ -16,7 +17,8 @@ from shapely.strtree import STRtree
 from shapely import set_precision
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-C = ROOT / "capas"; OUT = ROOT / "export" / "galapagos"; OUT.mkdir(parents=True, exist_ok=True)
+COMPLETO = "--completo" in sys.argv   # sin recorte: toda la superficie de cada isla
+C = ROOT / "capas"; OUT = ROOT / "export" / ("galapagos-completo" if COMPLETO else "galapagos"); OUT.mkdir(parents=True, exist_ok=True)
 (OUT / "raster").mkdir(exist_ok=True)
 M = 1 / 111320                      # grados por metro en el ecuador
 REG = {"Santa Cruz": "santa_cruz", "San Cristóbal": "san_cristobal", "Isabela": "isabela_sur"}
@@ -27,7 +29,27 @@ def load(p): return json.loads((C / p).read_text())["features"]
 def rnd(g, nd=5):
     return json.loads(json.dumps(mapping(g)), parse_float=lambda x: round(float(x), nd))
 manifest_sizes = {}
+# Simplificación para la web (metros). Por debajo de la resolución de la fuente
+# (DSM de 30 m, IGM 1:25 000): no cambia lo que se ve, pero reduce los vértices
+# que el navegador redibuja en cada movimiento (clave en teléfonos).
+SIMPLIFICAR_M = {
+    "susceptibilidad_inundacion.geojson": 8, "parque_nacional.geojson": 10, "parque_zonificacion.geojson": 10,
+    "limite_parque.geojson": 5, "costa_baja.geojson": 6, "tsunami_inundacion.geojson": 4,
+    "quebradas.geojson": 4, "drenaje_adicional.geojson": 6, "franja_quebradas_20m.geojson": 3,
+    "cuencas_localidad.geojson": 8, "cuencas_aportantes.geojson": 8, "curvas_nivel.geojson": 5,
+    "vias.geojson": 2, "zonas_inundables_oficiales.geojson": 3, "zona_agricola.geojson": 5,
+}
+def simplificar(name, feats):
+    tol = SIMPLIFICAR_M.get(name)
+    if not tol: return feats
+    out = []
+    for f in feats:
+        g = shape(f["geometry"]).simplify(tol * M, preserve_topology=True)
+        if g.is_empty: continue
+        out.append({**f, "geometry": rnd(g)})
+    return out
 def save(name, feats):
+    feats = simplificar(name, feats)
     fc = {"type": "FeatureCollection", "features": feats}
     (OUT / name).write_text(json.dumps(fc, ensure_ascii=False, separators=(",", ":")))
     manifest_sizes[name] = len(feats)
@@ -75,7 +97,7 @@ for isla in REG:
     u = unary_union(a).buffer(100 * M, 4).buffer(-100 * M, 4)          # cierra huecos pequeños
     u = u.intersection(tierra[isla]).simplify(15 * M, preserve_topology=True)
     u = unary_union([p for p in parts(u) if p.area / M**2 > 50_000])
-    aoi[isla] = u
+    aoi[isla] = tierra[isla] if COMPLETO else u
     aoi_feats.append(F(u, isla=isla, area_km2=round(u.area / M**2 / 1e6, 1),
                        criterio="Zona agrícola y urbana completas (zonificación PNG 2017 y CGREG) + cuencas completas que drenan a poblados + 500 m de zonas pobladas + 300 m de vías"))
     print(f"  {isla}: {u.area / M**2 / 1e6:.1f} km²")
@@ -247,7 +269,7 @@ for f in load("final/salud_msp.geojson"):
     add_pt(shape(f["geometry"]), "salud" if publico or mayor else "salud_privada", nombre_salud(p, publico), (p.get("tipologia") or "").capitalize(), "MSP 2023",
                                 institucion=p.get("institucion"), nivel=p.get("nivel"))
 for f in load("final/albergues_sngr.geojson"):
-    p = f["properties"]; add_pt(shape(f["geometry"]), "albergue", p.get("nombre"), p.get("tipo"), "SNGR 2025",
+    p = f["properties"]; add_pt(shape(f["geometry"]), "refugio", p.get("nombre"), p.get("tipo"), "SNGR 2025",
                                 capacidad_personas=p.get("capacidad_personas"), capacidad_familias=p.get("capacidad_familias"))
 for f in load("final/tsunami_zonas_seguras.geojson"):
     p = f["properties"]; add_pt(shape(f["geometry"]), "zona_segura", (p.get("nombre") or "").title(), (p.get("tipo") or "").capitalize(), "SNGR",
@@ -256,12 +278,12 @@ for f in load("final/tsunami_sirenas.geojson"):
     p = f["properties"]; add_pt(shape(f["geometry"]), "sirena", p.get("codigo"), p.get("referencia"), "SNGR SAT")
 for f in load("final/educacion_mineduc.geojson"):
     p = f["properties"]; add_pt(shape(f["geometry"]), "educacion", (p.get("nom_instit") or p.get("nombre") or "").title(), (p.get("nom_sosten") or "").capitalize(), "MINEDUC 2021")
-MAP = {"salud": "salud", "emergencia": "emergencia", "refugio": "albergue", "educacion": "educacion", "gobierno": "gobierno", "agua": "agua",
+MAP = {"salud": "salud", "emergencia": "emergencia", "refugio": "refugio", "educacion": "educacion", "gobierno": "gobierno", "agua": "agua",
        "energia": "energia", "transporte": "transporte", "telecom": "telecom", "abastecimiento": "abastecimiento", "alojamiento": "alojamiento",
        "encuentro": "encuentro", "otros": "otros"}
 for f in load("final/puntos_clave.geojson"):
     p = f["properties"]
-    if p["categoria"] == "refugio" and p.get("subtipo") in ("shelter",): continue   # paradas/techos en OSM, no albergues
+    if p["categoria"] == "refugio" and p.get("subtipo") in ("shelter",): continue   # paradas/techos en OSM, no refugios
     cat = MAP[p["categoria"]]
     if cat == "salud" and p.get("subtipo") not in ("hospital", "clinic"): cat = "salud_privada"
     add_pt(shape(f["geometry"]), cat, p.get("nombre"), p.get("subtipo"), p["fuente"])
@@ -288,14 +310,15 @@ for isla, k in REG.items():
     H, W = z.shape
     xs = tr.c + tr.a * (np.arange(W) + .5); ys = tr.f + tr.e * (np.arange(H) + .5)
     cg = contourpy.contour_generator(xs, ys, zs, line_type="Separate")
-    for lv in range(10, int(zs.max()) + 1, 10):
+    paso = 20 if COMPLETO else 10                      # islas completas: cada 20 m para no pasar de ~15 MB
+    for lv in range(paso, int(zs.max()) + 1, paso):
         for seg in cg.lines(lv):
             if len(seg) < 5: continue
             g = LineString(seg).simplify(6 * M)
             g = g.intersection(aoi[isla])
             for p in parts(g):
                 if p.length / M >= 60:
-                    cv.append(F(p, isla=isla, elevacion_m=lv, maestra=lv % 50 == 0))
+                    cv.append(F(p, isla=isla, elevacion_m=lv, maestra=lv % (100 if COMPLETO else 50) == 0))
     # relieve sombreado completo (contexto) + máscara del área de interés
     lim = json.loads((C / "raster/limites.json").read_text())[k]["bounds"]
     Image.open(C / f"raster/{k}_relieve.png").save(OUT / f"raster/{k}_relieve.png", optimize=True)

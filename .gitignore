@@ -19,3 +19,7 @@ __pycache__/
 
 # El bot de WhatsApp vive en un repositorio privado (mayait/sosgalapagos-bot)
 bot-whatsapp/
+
+# Página pública de mapas: se genera (10_publicar_web.py) y se sube con publicar_mapas.sh
+geodatos/publicar/
+geodatos/export/galapagos-completo/
