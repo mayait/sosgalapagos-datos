@@ -26,5 +26,5 @@ geodatos/geoserver-local/
 geodatos/estudios/**/*.tif
 geodatos/estudios/*/datos/lluvias/crudo/
 
-# Worktrees de equipos y agentes (ver CONTRIBUIR.md §4) por si se crean dentro
+# Worktrees de equipos y agentes (ver CONTRIBUIR.md §5) por si se crean dentro
 .worktrees/
