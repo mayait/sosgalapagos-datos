@@ -45,7 +45,7 @@ INEC MGN 2026, OpenStreetMap (31-oct-2026), Google Open Buildings y Copernicus G
 - La población por manzana es una estimación (viviendas SNGR), no el censo.
 
 Preparado por SOS Galápagos (https://sosgalapagos.org) para la respuesta a las inundaciones
-de El Niño, oct-nov 2026. Responsable: Human Centric SAS BIC (IA Humana).
+de El Niño, oct-nov 2026. Responsable: Julián Maya.
 """
 # Capas que se publican completas (islas enteras) también en la cobertura «Zona poblada»
 SIEMPRE_COMPLETAS = {"quebradas.geojson"}

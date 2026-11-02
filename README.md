@@ -2,7 +2,7 @@
 
 Información geográfica, mediciones del clima, estudios técnicos y servidores que se usaron para coordinar la respuesta a las **inundaciones por El Niño de octubre y noviembre de 2026** en **Santa Cruz, San Cristóbal e Isabela** (Galápagos, Ecuador).
 
-- Coordinación: **USFQ Galápagos**. Desarrollo: **IA Humana** ([iahumana.org](https://iahumana.org)).
+- Coordinación: **USFQ Galápagos**. Responsable del repositorio: **Julián Maya**. Equipos y colaboradores: ver [Créditos](#créditos).
 - Se publica en: [sosgalapagos.org/mapas](https://sosgalapagos.org/mapas/) · [/estudios](https://sosgalapagos.org/estudios/) · [/clima](https://sosgalapagos.org/clima/).
 - La plataforma de coordinación (ResponseGrid) vive en otro repositorio: [mayait/sosgalapagos](https://github.com/mayait/sosgalapagos).
 
@@ -219,5 +219,11 @@ La lista completa, con prioridades, está en [`PENDIENTES.md`](PENDIENTES.md). L
 ## Licencias, créditos y privacidad
 
 - Licencia del código: **por definir** (ver PENDIENTES §5). Datos derivados: cada capa conserva la licencia de su fuente; ver `03-fuentes-y-licencias.md`. Las capas con OSM se publican bajo **ODbL**.
-- **Datos personales:** se eliminaron los nombres y teléfonos de los responsables de refugios y de las fuentes de eventos de la SNGR. Nunca se publican nombres de personas afectadas. Responsable del tratamiento en SOS Galápagos: Human Centric SAS BIC (IA Humana).
-- Atribución sugerida: «Datos: IGM, CGREG/FCD, SNGR, INEC, INOCAR, © colaboradores de OpenStreetMap (ODbL), Copernicus GLO-30, IERSE, USFQ GSC. Procesamiento: SOS Galápagos (USFQ Galápagos · IA Humana)».
+- **Datos personales:** se eliminaron los nombres y teléfonos de los responsables de refugios y de las fuentes de eventos de la SNGR. Nunca se publican nombres de personas afectadas.
+- Atribución sugerida: «Datos: IGM, CGREG/FCD, SNGR, INEC, INOCAR, © colaboradores de OpenStreetMap (ODbL), Copernicus GLO-30, IERSE, USFQ GSC. Procesamiento: SOS Galápagos (USFQ Galápagos)».
+
+## Créditos
+
+- **Julián Maya**: responsable del repositorio.
+- **USFQ Galápagos**: coordinación de la respuesta.
+- *Equipos y colaboradores: por completar.*

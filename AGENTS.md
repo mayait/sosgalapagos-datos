@@ -17,7 +17,7 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 ## Convenciones
 
 - Idioma: español claro. En SOS Galápagos se dice **«refugio»**, nunca «albergue».
-- Commits: `tipo(ámbito): descripción`, autor `IA Humana <noreply@iahumana.org>`, sin líneas `Co-Authored-By`.
+- Commits: `tipo(ámbito): descripción`, sin líneas `Co-Authored-By`. Usa la identidad de git de quien trabaja; los agentes de Julián usan `Julian Maya <1101119+mayait@users.noreply.github.com>`.
 - Python: `geodatos/.venv/bin/python -I scripts/…` (`-I` aísla el intérprete). Dependencias en `geodatos/requirements.txt`. `pysheds` necesita `numpy < 2.4`.
 - Coordenadas: EPSG:4326. Horas: se guardan en UTC. Galápagos está en UTC−6. INAMHI y GSC usan la hora continental (UTC−5), aunque marquen «Z». IERSE usa UTC−6. Open-Meteo devuelve UTC−5 si se pide `America/Guayaquil`.
 - En la Mac no hay Docker: los contenedores se corren con `container` (Apple).

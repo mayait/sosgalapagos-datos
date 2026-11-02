@@ -42,7 +42,7 @@ main                         siempre publicable; solo se despliega desde aquí
 - Ramas cortas: un tema por rama y PR en horas o pocos días.
 - Un PR **no** incluye regeneraciones masivas ajenas a su tema. Si tu cambio obliga a regenerar `export/` o `mapas-galapagos/`, dilo en el PR. Esa regeneración la hace quien integra, en `main`, después del merge.
 - Commits en español, con el estilo `tipo(ámbito): descripción` y estos ámbitos: `geodatos`, `clima`, `estudios`, `servidores`, `docs`. Ejemplo: `feat(clima): fuente INAMHI con historial de 90 días`.
-- Autor de los commits automáticos: `IA Humana <noreply@iahumana.org>`.
+- Autor de los commits: la identidad de git de cada persona. Los agentes que trabajan para Julián usan `Julian Maya <1101119+mayait@users.noreply.github.com>`.
 
 ## 4. Trabajar en paralelo con *worktrees* (recomendado para agentes)
 

@@ -14,7 +14,7 @@ Mediciones guardadas por SOS Galápagos para analizar las inundaciones de 2026 y
 - **USFQ GSC** (cita que pide el GSC; no publica licencia): Universidad San Francisco de Quito; Galapagos Science Center. (2026). Weather Data - GSC. Recuperado el <fecha> de https://weathergsc.usfq.edu.ec/
 - **INAMHI**: Instituto Nacional de Meteorología e Hidrología del Ecuador, estaciones automáticas.
 - **Fundación Charles Darwin**: series climáticas de Puerto Ayora y Bellavista, licencia CC BY-NC-SA.
-- Recopilación: SOS Galápagos (USFQ Galápagos · IA Humana).
+- Recopilación: SOS Galápagos (USFQ Galápagos).
 
 > **Licencia IERSE (sin obras derivadas):** las tablas consolidadas (`ierse-wsn/serie_5min.csv.gz`, `horario.csv`, `diario.csv`) y los recortes de `clima/eventos/` son agregaciones de esos datos, sin cambios en los valores. Se mantienen en el repositorio por decisión de la coordinación (2-nov-2026). Quien las use debe citar al IERSE como se indica arriba y no darles uso comercial.
 
