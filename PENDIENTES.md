@@ -75,7 +75,7 @@ Prioridad: **P1** = cambia decisiones de esta emergencia · **P2** = mejora much
 | | Tarea | Prioridad |
 |---|---|---|
 | [ ] | Acuerdos de intercambio de datos con GAD, CGREG, DPNG, FCD, INAMHI, SNGR e INOCAR | P1 |
-| [ ] | Permiso escrito de las redes meteorológicas para redistribuir sus datos (hoy **no se publican**) | P1 |
+| [ ] | **Licencia IERSE CC BY-NC-ND 4.0 (sin derivadas):** decidir si las tablas consolidadas y los recortes de eventos derivados de IERSE se quedan en el repositorio público o pedir permiso al IERSE. Pedir también la licencia de los datos del GSC | P1 |
 | [ ] | Metadatos por capa (fuente, fecha, licencia, resolución, responsable) en `catalogo/` para todas las capas | P2 |
 | [ ] | Protocolo de datos personales (LOPDP): qué se depura, quién revisa, nunca subir crudos oficiales | P1 |
 | [ ] | Distinguir siempre **dato oficial** de **modelo propio** en mapas y textos | P1 |
