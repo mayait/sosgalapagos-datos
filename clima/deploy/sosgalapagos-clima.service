@@ -10,7 +10,7 @@ Group=clima
 Environment=CLIMA_DB=/var/lib/sosgalapagos-clima/clima.db
 Environment=CLIMA_SALIDA=/srv/sosgalapagos-clima/datos
 # IERSE llega por el puente (puente/puente_ierse.sh): el servidor no lo alcanza
-Environment=CLIMA_FUENTES=gsc,inamhi,ioc,metar,weatherlink,tempest
+Environment=CLIMA_FUENTES=gsc,inamhi,ioc,metar,weatherlink,tempest,mar_modelo
 Environment=CLIMA_PRIVADO=/var/lib/sosgalapagos-clima/privado
 Environment=CLIMA_FCD_DIR=/var/lib/sosgalapagos-clima/fcd
 # Endpoints de las fuentes (no versionados; los copia deploy/publicar.sh)

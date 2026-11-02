@@ -19,3 +19,4 @@ python-dateutil==4.0.0
 rasterio==1.5.2
 tzdata==2026.6
 websockets==17.4
+utide>=0.3  # solo para scripts/05_mareas.py (análisis armónico de mareas)

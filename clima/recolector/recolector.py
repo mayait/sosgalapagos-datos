@@ -303,7 +303,7 @@ def ahora_utc():
 
 PRIVADO = Path(os.environ.get("CLIMA_PRIVADO", AQUI / "privado"))
 OPERADOR = {"ierse": "IERSE-WSN", "gsc": "GSC-USFQ", "inamhi": "INAMHI", "ioc": "IOC", "metar": "Aeropuertos (METAR)",
-            "weatherlink": "WeatherLink", "tempest": "Tempest"}
+            "weatherlink": "WeatherLink", "tempest": "Tempest", "mar_modelo": "Modelo de nivel del mar"}
 EVENTOS = [  # momentos de referencia para comparar (horas UTC)
     {"id": "inundacion-2026-10-30", "nombre": "Inundación La Cascada (30–31 oct 2026)",
      "desde": "2026-10-30T06:00:00Z", "hasta": "2026-11-01T06:00:00Z"},
@@ -350,8 +350,14 @@ def exportar(con):
     except Exception as e:  # el nivel de inundación nunca debe tumbar la exportación
         traceback.print_exc()
         riesgo = {"error": str(e)[:200]}
+    try:
+        import mareas
+        marea = mareas.calcular(con, ahora)
+    except Exception as e:
+        traceback.print_exc()
+        marea = {"error": str(e)[:200]}
     escribir(SALIDA / "estado.json", {"generado": iso(ahora), "estaciones": ests, "fuentes": corr,
-                                      "eventos": EVENTOS, "inundacion": riesgo})
+                                      "eventos": EVENTOS, "inundacion": riesgo, "mareas": marea})
 
     # Historia horaria completa en un eje común (horas UTC): lluvia (suma) y temperatura (media).
     # null = sin registros en esa hora (corte de transmisión o fuera del período de la estación).
