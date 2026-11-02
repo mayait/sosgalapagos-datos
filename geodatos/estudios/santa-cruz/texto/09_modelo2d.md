@@ -126,6 +126,13 @@ Tabla: Sensibilidad del modelo 2D (30-oct; calado en el centro de La Cascada y c
 - **Pérdidas.** Ningún juego está calibrado con caudales. El juego (b) se apoya en una validación condicional (sin inundación reportada, por confirmar), y su pérdida constante (10–35 mm/h) solo está acotada.
 - **Lluvia.** Es puntual y mínima: hay dos estaciones útiles, ambas fuera de la cuenca, que dejaron de transmitir a las 21:25.
 - **Mar.** El nivel de +0,75 m no está verificado. Las celdas costeras por debajo de esa cota quedan anegadas desde el inicio.
+- **Contraste con ANUGA.** Se repitió el juego (b) con ANUGA: 20 400 triángulos de hasta 8 000 m² (2 000 m² en zona urbana), desde las 17:00 y partiendo de terreno seco. Los dos motores coinciden en lo esencial:
+  - nivel máximo del agua en La Cascada: 14,5 m con ANUGA frente a 14,8 m con LISFLOOD-ACC;
+  - hora del máximo: 22:17 frente a 22:24;
+  - Matazarnos: 13,9 m frente a 14,0 m;
+  - superficie con más de 1 m de agua: 89 ha en los dos.
+
+  Los calados en puntos concretos difieren hasta ±0,8 m, porque cada malla promedia de forma distinta la cota del DSM en la celda o en el triángulo. El caudal de entrada también difiere (67 frente a 147 m³/s): ANUGA arranca seco a las 17:00 y la sección de control se calcula de otra manera. Las salidas están en `datos/modelo2d/b_central_desde17h_anuga/`.
 - **Resolución.** Con 30 m no se resuelven los pasos bajo vías ni la red de calles. Una versión de 10–15 m solo tiene sentido con un modelo del terreno de dron o LiDAR.
 
 # Método
@@ -146,12 +153,12 @@ La lluvia medida cae sobre cada celda, una parte se pierde por infiltración y e
 
 ## Comparación de motores
 
-Tabla: Motores de cálculo usados o en curso para el 30-oct.
+Tabla: Motores de cálculo usados para el 30-oct.
 
 | Motor | Malla | Estado | Resultado |
 |---|---|---|---|
 | Esquema inercial local de Bates et al. (2010), el de LISFLOOD-FP, con la ponderación θ = 0,8 de de Almeida et al. (2012); programado en Python/numpy | Regular de 30 m: unas 58 000 celdas y 52 km². Paso de tiempo adaptativo (α = 0,7), unos 21 000 pasos por evento | Completo: juegos (a) y (b), tres escenarios de lluvia, sensibilidad y validación condicional | Todos los resultados de esta página. Cada evento de 20 h tarda alrededor de **1 minuto** en un ordenador portátil |
-| ANUGA 4.1 (volúmenes finitos sobre malla triangular) | Triangular: 47 000 triángulos en la prueba de rendimiento; 20 000 en la corrida de contraste (juego (b), desde las 17:00) | Pendiente: la corrida de contraste no terminó a tiempo | Sin resultados todavía. Con 47 000 triángulos necesita unos 13 minutos por hora simulada en plena crecida, así que se usa solo como contraste. Se incorporará cuando concluya |
+| ANUGA 4.1 (volúmenes finitos sobre malla triangular) | Triangular: 47 000 triángulos en la prueba de rendimiento; 20 400 en la corrida de contraste (juego (b), desde las 17:00, partiendo de terreno seco) | Terminado: la corrida de contraste tardó 2,4 h | Coincide en lo esencial con el esquema inercial (ver Límites). Con 47 000 triángulos necesita unos 13 minutos por hora simulada en plena crecida, así que se usa solo como contraste |
 
 El esquema inercial usa la ponderación θ = 0,8 porque amortigua las oscilaciones en aguas profundas y planas.
 
