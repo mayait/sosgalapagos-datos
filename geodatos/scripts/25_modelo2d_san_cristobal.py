@@ -1,6 +1,6 @@
 """Modelo hidrodinámico 2D «rain-on-grid» preliminar: Puerto Baquerizo Moreno, El Progreso y el campus USFQ / GSC.
 
-Método (documentado también en estudios/san-cristobal/texto/04b_modelo2d.md):
+Método (documentado también en estudios/san-cristobal/texto/12_modelo2d.md):
   - Ecuaciones de aguas someras simplificadas con el esquema INERCIAL LOCAL de Bates, Horritt y Fewtrell (2010,
     J. Hydrol. 387:33-45): flujo por caras de celda con término de presión + fricción de Manning semiimplícita;
         q(t+dt) = [q(t) − g·hf·dt·∂η/∂x] / [1 + g·dt·n²·|q(t)| / hf^(7/3)],   hf = max(η_i, η_j) − max(z_i, z_j).

@@ -1,33 +1,10 @@
-# Modelo hidrodinámico 2D del 30 de octubre
+Intro: Qué muestra un modelo 2D de inundación con la lluvia medida el 30 de octubre: cuándo llegó el agua a La Cascada, cuánta y por dónde salió. También qué juego de parámetros se toma como principal y por qué, cómo se contrastó y hasta dónde llega: el modelo explica el mecanismo, pero no sirve todavía para dimensionar obras.
 
-> **Resultado preliminar.** Es un modelo sin calibrar con caudales ni con marcas de agua, sobre un modelo de superficie de 30 m que incluye techos y vegetación. Sirve para entender el mecanismo, el orden de magnitud y la secuencia del evento, no para delimitar zonas ni fijar cotas normativas.
+# Lo que muestra el modelo
 
-## Método
+Es un modelo de inundación **bidimensional distribuido** («rain-on-grid»): la lluvia medida cae sobre cada celda, una parte se pierde por infiltración y el resto escurre por el terreno. No está calibrado con caudales ni con marcas de agua, y corre sobre un modelo de superficie de 30 m que incluye techos y vegetación. **Sirve para entender el mecanismo, el orden de magnitud y la secuencia del evento, no para delimitar zonas ni fijar cotas normativas.** El método está al final de esta página.
 
-Es un modelo de inundación **bidimensional distribuido** («rain-on-grid»): la lluvia medida cae sobre cada celda, una parte se pierde por infiltración y el resto escurre por el terreno siguiendo las ecuaciones de aguas someras.
-
-- **Motor.** Esquema inercial local de Bates et al. (2010), el de LISFLOOD-FP, con la ponderación θ = 0,8 de de Almeida et al. (2012), que amortigua las oscilaciones en aguas profundas y planas. Está programado en Python/numpy dentro de `scripts/24_modelo2d_santa_cruz.py`.
-  - Malla regular de 30 m: unas 58 000 celdas y 52 km².
-  - Paso de tiempo adaptativo (α = 0,7), unos 21 000 pasos por evento.
-  - Cada evento de 20 h tarda alrededor de **1 minuto** en un ordenador portátil.
-- **ANUGA.** También se instaló ANUGA 4.1 (volúmenes finitos sobre malla triangular). Con 47 000 triángulos necesita unos 13 minutos por hora simulada en plena crecida, así que solo se usa como contraste (ver Limitaciones).
-- **Dominio.** Toda la cuenca que drena a Puerto Ayora (47 km², incluida la de La Cascada), con 150 m de margen y una franja de mar. Abarca Bellavista, Tomás de Berlanga, La Cascada y el frente urbano.
-- **Terreno.** Es el DSM Copernicus GLO-30. En el mar se supone un fondo de −3 m.
-- **Contornos.** El mar tiene un nivel fijo de **+0,75 m**. Es un supuesto: la marea de esa noche no se ha verificado. El resto del contorno es una pared.
-- **Rugosidad de Manning.** 0,08 en zona urbana (los edificios como rugosidad alta), 0,06 en zona agrícola, 0,08 en Parque (lava y matorral) y 0,03 en el mar.
-- **Lluvia.** Medida por la red IERSE-WSN (Universidad del Azuay), en intervalos de 10 min. Cerro Crocker queda excluido.
-  - Escenario **central**: Los Guayabillos repartido de forma uniforme (179 mm).
-  - Escenario **bajo**: la misma serie × 0,85, como reducción areal (152 mm).
-  - Escenario **alto**: gradiente con la cota entre Los Guayabillos y Santa Rosa (≈208 mm de media).
-  - La simulación arranca a las 12:00 del 30-oct. La lluvia de la mañana se cuenta en las pérdidas iniciales.
-
-**Dos juegos de parámetros de pérdidas.**
-- **Juego (a), SCS-CN distribuido.** CN de 55 en Parque, 76 en zona agrícola y 90 en zona urbana (AMC II), con un factor sobre S de 0,665. Ese factor se calibró para que la escorrentía total de la cuenca de La Cascada sea igual a la del modelo agregado con CN 76 (109 mm). Reproduce el 30-oct sin ninguna otra restricción.
-- **Juego (b), pérdida inicial más pérdida constante.**
-  - Pérdida inicial de 20 mm y pérdida constante de **25 mm/h** en Parque y zona agrícola.
-  - En zona urbana, 5 mm y 5 mm/h: refleja techos que vierten a cisternas y sumideros que descargan a grietas.
-  - La pérdida constante se aplica a la lluvia y también al agua que corre por la superficie, así que incluye las **pérdidas de transmisión** en los cauces sobre basalto fracturado.
-  - Este juego reproduce el 30-oct y, además, deja sin inundación los días de lluvia de octubre sin inundación reportada (ver Validación).
+Se usan dos juegos de parámetros de pérdidas: **(a)**, SCS-CN distribuido, y **(b)**, pérdida inicial más pérdida constante. El (b) es el principal (ver «Qué juego se toma como principal»).
 
 ## Resultados del 30 de octubre
 
@@ -36,8 +13,8 @@ Tabla: Resultados del modelo 2D del 30-oct (lluvia central; hora UTC−6). Los c
 | Magnitud | Juego (a) SCS-CN | Juego (b) pérdida constante |
 |---|---|---|
 | La Cascada, centro del barrio: calado máximo | **2,4 m** | **1,8 m** |
-| La Cascada, celda más baja (≈10,5 m): calado máximo | 4,6 m | 4,0 m |
-| Nivel máximo del agua (DSM) | 15,3 m | 14,8 m |
+| La Cascada, celda más baja (≈10,5 m*): calado máximo | 4,6 m | 4,0 m |
+| Nivel máximo del agua (DSM) | 15,3 m* | 14,8 m* |
 | Llegada del agua al centro (≥ 0,1 m) | 20:40 | 20:53 |
 | Hora del calado máximo en el barrio | 22:11 | 22:24 |
 | Caudal de entrada a La Cascada: pico (hora) | 345 m³/s (22:01) | 147 m³/s (22:12) |
@@ -50,16 +27,19 @@ Tabla: Resultados del modelo 2D del 30-oct (lluvia central; hora UTC−6). Los c
 | Bellavista, centro (llegada SC-003) | 0,71 m | 0,53 m |
 | Superficie con más de 1 m de agua / entre 0,5 y 1 m | 143 ha / 141 ha | 89 ha / 95 ha |
 
-**Mecanismo que muestra el modelo.**
+\* Cota del DSM (±2–4 m), orientativa.
+
+## Cómo se llenó La Cascada
+
 1. La lluvia de la tarde (15:00–16:00) y la que cae sobre el propio barrio empiezan a llenar la parte más baja hacia las 15:30.
 2. El pulso de 18:00–21:30 genera la crecida de las dos ramas.
 3. El agua entra a La Cascada a partir de las 20:30–21:00.
 4. El barrio se llena y desborda hacia Matazarnos y el frente urbano, que a su vez se llenan. El nivel máximo se alcanza **entre las 22:10 y las 22:25**.
 5. Después, el agua baja lentamente. A las 08:00 del 31-oct quedan 2,6–3 m en la celda más baja, porque el vaso no tiene salida por gravedad, y 0,5–0,8 m en el centro.
 
-En Tomás de Berlanga, el 2D confirma un flujo por el cauce no cartografiado de 0,3–0,5 m de calado y 1,5–1,9 m/s. La escuela no se inunda con esta resolución. Si allí entró agua, fue por las calles y por los pasos bajo la vía, que una malla de 30 m no representa.
+En Tomás de Berlanga, el 2D confirma un flujo por el cauce no cartografiado de 0,3–0,5 m de calado y 1,5–1,9 m/s. La escuela no se inunda con esta resolución. Si allí entró agua, fue por las calles y por los pasos bajo la vía, que una malla de 30 m no representa (ver [Tomás de Berlanga, Bellavista y resto de la isla](../parte-alta/)).
 
-![Calado máximo del 30 de octubre, juego (b), que se propone como principal.](figuras/m2d_calado_max_b_central.png)
+![Calado máximo del 30 de octubre, juego (b), el principal.](figuras/m2d_calado_max_b_central.png)
 
 ![Hora de llegada del agua (calado ≥ 0,1 m), juego (b).](figuras/m2d_hora_llegada_b_central.png)
 
@@ -67,13 +47,28 @@ En Tomás de Berlanga, el 2D confirma un flujo por el cauce no cartografiado de 
 
 ![Calado máximo con el juego (a), SCS-CN, como envolvente superior.](figuras/m2d_calado_max_central.png)
 
-## Validación
+# Qué juego se toma como principal
+
+**Se toma el juego (b) como principal** porque es el único que cumple a la vez dos condiciones: reproduce el 30-oct y deja sin inundación el 3–4 oct, días en que no consta inundación (por confirmar con el GAD/COE). El juego (a) queda como envolvente superior: sería el válido si llegara a confirmarse que esos días sí hubo inundación.
+
+Los dos juegos coinciden en tres puntos:
+- La Cascada se inunda cuando llueve con **intensidad alta y sostenida** sobre la parte media de la cuenca, del orden de **más de 20–25 mm/h durante más de una hora**.
+- El agua llega al centro del barrio **unos 40–60 minutos después del máximo de lluvia** (20:00–21:00) y unas 2,5–3 horas después del inicio del pulso intenso (18:00).
+- Una vez dentro, queda atrapada en el vaso durante horas.
+
+Y discrepan en lo que importa para una obra: el caudal. Con la lluvia central, la crecida que entra al barrio va de 47 a 319 m³/s según la pérdida constante del juego (b), y es de 345 m³/s con el juego (a). **El diseño de obras no puede apoyarse en este modelo sin aforos.**
+
+# Validación
+
+## Contraste con lo observado
 
 - **Calado frente al testimonio.** El testimonio habla de agua «hasta dos metros» (prensa, por validar). El modelo da 1,8 m (b) y 2,4 m (a) en el centro del barrio, y 4–4,6 m en la celda más baja del DSM. **Es compatible**, pero no discrimina: no se sabe el punto exacto del testimonio y el DSM tiene ±2 m de error.
 - **Hora frente a la SNGR.** El agua llega al barrio a las 20:40–20:55 y alcanza el máximo a las 22:10–22:25 del 30-oct. Esto coincide con la «tarde y noche del 30» de la SNGR y con el corte de las estaciones a las 21:25.
-- **Volumen frente al modelo agregado.** Con el juego (a), el volumen que entra al barrio (3,2 hm³) es el 69 % de la escorrentía agregada de su cuenca (4,6 hm³). El resto queda retenido en depresiones del DSM aguas arriba o sigue escurriendo a las 08:00. El caudal pico (345 m³/s a las 22:01) cae dentro del rango agregado (325–497 m³/s). El juego (b) reduce el volumen a 1,1 hm³ y el pico a 147 m³/s.
+- **Volumen frente al modelo agregado.** Con el juego (a), el volumen que entra al barrio (3,2 hm³) es el 69 % de la escorrentía agregada de su cuenca (4,6 hm³). El resto queda retenido en depresiones del DSM aguas arriba o sigue escurriendo a las 08:00. El caudal pico (345 m³/s a las 22:01) cae dentro del rango agregado (325–497 m³/s; ver [La Cascada: cuenca, vaso y crecida](../hidrologia/)). El juego (b) reduce el volumen a 1,1 hm³ y el pico a 147 m³/s.
 
-**Validación condicional con días de octubre sin inundación reportada.** La red IERSE midió estos días de lluvia sin que conste inundación en La Cascada, aunque está **por confirmar con el GAD/COE**:
+## Validación condicional con días sin inundación reportada
+
+La red IERSE midió estos días de lluvia sin que conste inundación en La Cascada, aunque está **por confirmar con el GAD/COE**:
 - **3 de octubre:** 68,2 mm en Los Guayabillos, con 12,6 mm/h de máximo horario (cobertura del 100 %).
 - **4 de octubre:** 43,8 mm más.
 - **23 de octubre:** 97,2 mm en Santa Rosa, con 28,2 mm/h. Este día **se descarta para La Cascada**: Los Guayabillos midió 0 mm, así que la lluvia cayó al oeste, fuera de la cuenca. En el modelo, ninguno de los dos juegos lleva agua al barrio ese día.
@@ -87,7 +82,9 @@ Tabla: Validación condicional con el 3 y el 4 de octubre (sin inundación repor
 
 **Qué cambia entre los dos juegos.** El SCS-CN reparte las pérdidas según el **volumen** acumulado. Cualquier día de 60–70 mm sobre suelo húmedo produce escorrentía, y el vaso, que se llena con decenas de miles de metros cúbicos, se inunda. La pérdida constante, en cambio, depende de la **intensidad**: solo escurre la lluvia que supera la capacidad de infiltración del basalto. El 3-oct, con un máximo de 12,6 mm/h (26 mm/h en 10 min), casi nada supera esa capacidad. El 30-oct hubo unas 3 horas seguidas a 21–61 mm/h, y la mayor parte de esa lluvia escurre. Con el juego (b), la **intensidad**, y no el volumen diario, es lo que separa un día sin inundación de uno con inundación.
 
-**Rango de parámetros compatible con ambas condiciones** (barrido de la pérdida constante en Parque y zona agrícola, con 20 mm de pérdida inicial):
+## Rango de parámetros compatible con ambas condiciones
+
+Barrido de la pérdida constante en Parque y zona agrícola, con 20 mm de pérdida inicial:
 
 Tabla: Barrido de la pérdida constante, juego (b).
 
@@ -103,6 +100,8 @@ Tabla: Barrido de la pérdida constante, juego (b).
 Cualquier pérdida constante de al menos 10–15 mm/h deja el barrio sin inundar el 3-oct. Con 15–25 mm/h se obtienen 1,8–2,3 m en el centro el 30-oct. El calado del 30-oct es poco sensible a este parámetro, pero **el caudal pico varía unas 7 veces** (47–319 m³/s). Por eso el diseño de obras no puede apoyarse en este modelo sin aforos.
 
 ![Series simuladas en La Cascada con los juegos (a) y (b): 30-oct y 3–4 oct, con la lluvia horaria de Los Guayabillos.](figuras/m2d_validacion.png)
+
+# Sensibilidad y límites
 
 ## Sensibilidad
 
@@ -121,25 +120,53 @@ Tabla: Sensibilidad del modelo 2D (30-oct; calado en el centro de La Cascada y c
 - La rugosidad casi no cambia el calado, pero desplaza el pico unos ±30–40 minutos y cambia el caudal en un factor de 1,4–2.
 - Lo que más pesa en los caudales y en la extensión inundada es el juego de pérdidas, (a) frente a (b).
 
-## Qué juego usar
-
-**Se propone el juego (b) como principal.** Es el único que cumple a la vez el 30-oct y la ausencia de inundación reportada el 3–4 oct. El juego (a) es la envolvente superior, válida si llegara a confirmarse que esos días sí hubo inundación.
-
-En ambos casos el mensaje para la gestión del riesgo es el mismo:
-- La Cascada se inunda cuando llueve con **intensidad alta y sostenida** sobre la parte media de la cuenca, del orden de **más de 20–25 mm/h durante más de una hora**.
-- El agua llega al centro del barrio **unos 40–60 minutos después del máximo de lluvia** (20:00–21:00) y unas 2,5–3 horas después del inicio del pulso intenso (18:00).
-- Una vez dentro, queda atrapada en el vaso durante horas.
-
-## Limitaciones
+## Límites
 
 - **Terreno.** El DSM de 30 m incluye techos y vegetación (±2–4 m; sesgo de unos −2 m frente al IGM). No representa calles, muros, alcantarillas ni cauces estrechos. Los calados absolutos tienen una incertidumbre del orden de ±1–2 m.
 - **Pérdidas.** Ningún juego está calibrado con caudales. El juego (b) se apoya en una validación condicional (sin inundación reportada, por confirmar), y su pérdida constante (10–35 mm/h) solo está acotada.
 - **Lluvia.** Es puntual y mínima: hay dos estaciones útiles, ambas fuera de la cuenca, que dejaron de transmitir a las 21:25.
 - **Mar.** El nivel de +0,75 m no está verificado. Las celdas costeras por debajo de esa cota quedan anegadas desde el inicio.
-- **ANUGA.** La corrida de contraste con ANUGA (malla de 20 000 triángulos, juego (b), desde las 17:00) no terminó a tiempo para este informe. Se incorporará cuando concluya.
 - **Resolución.** Con 30 m no se resuelven los pasos bajo vías ni la red de calles. Una versión de 10–15 m solo tiene sentido con un modelo del terreno de dron o LiDAR.
 
-**Archivos.** Las salidas de cada escenario están en `datos/modelo2d/<escenario>/`:
+# Método
+
+## Planteamiento
+
+La lluvia medida cae sobre cada celda, una parte se pierde por infiltración y el resto escurre por el terreno siguiendo las ecuaciones de aguas someras.
+
+- **Dominio.** Toda la cuenca que drena a Puerto Ayora (47 km², incluida la de La Cascada), con 150 m de margen y una franja de mar. Abarca Bellavista, Tomás de Berlanga, La Cascada y el frente urbano.
+- **Terreno.** Es el DSM Copernicus GLO-30. En el mar se supone un fondo de −3 m.
+- **Contornos.** El mar tiene un nivel fijo de **+0,75 m**. Es un supuesto: la marea de esa noche no se ha verificado. El resto del contorno es una pared.
+- **Rugosidad de Manning.** 0,08 en zona urbana (los edificios como rugosidad alta), 0,06 en zona agrícola, 0,08 en Parque (lava y matorral) y 0,03 en el mar.
+- **Lluvia.** Medida por la red IERSE-WSN (Universidad del Azuay), en intervalos de 10 min. Cerro Crocker queda excluido.
+  - Escenario **central**: Los Guayabillos repartido de forma uniforme (179 mm).
+  - Escenario **bajo**: la misma serie × 0,85, como reducción areal (152 mm).
+  - Escenario **alto**: gradiente con la cota entre Los Guayabillos y Santa Rosa (≈208 mm de media).
+  - La simulación arranca a las 12:00 del 30-oct. La lluvia de la mañana se cuenta en las pérdidas iniciales.
+
+## Comparación de motores
+
+Tabla: Motores de cálculo usados o en curso para el 30-oct.
+
+| Motor | Malla | Estado | Resultado |
+|---|---|---|---|
+| Esquema inercial local de Bates et al. (2010), el de LISFLOOD-FP, con la ponderación θ = 0,8 de de Almeida et al. (2012); programado en Python/numpy | Regular de 30 m: unas 58 000 celdas y 52 km². Paso de tiempo adaptativo (α = 0,7), unos 21 000 pasos por evento | Completo: juegos (a) y (b), tres escenarios de lluvia, sensibilidad y validación condicional | Todos los resultados de esta página. Cada evento de 20 h tarda alrededor de **1 minuto** en un ordenador portátil |
+| ANUGA 4.1 (volúmenes finitos sobre malla triangular) | Triangular: 47 000 triángulos en la prueba de rendimiento; 20 000 en la corrida de contraste (juego (b), desde las 17:00) | Pendiente: la corrida de contraste no terminó a tiempo | Sin resultados todavía. Con 47 000 triángulos necesita unos 13 minutos por hora simulada en plena crecida, así que se usa solo como contraste. Se incorporará cuando concluya |
+
+El esquema inercial usa la ponderación θ = 0,8 porque amortigua las oscilaciones en aguas profundas y planas.
+
+## Los dos juegos de parámetros de pérdidas
+
+- **Juego (a), SCS-CN distribuido.** CN de 55 en Parque, 76 en zona agrícola y 90 en zona urbana (AMC II), con un factor sobre S de 0,665. Ese factor se calibró para que la escorrentía total de la cuenca de La Cascada sea igual a la del modelo agregado con CN 76 (109 mm). Reproduce el 30-oct sin ninguna otra restricción.
+- **Juego (b), pérdida inicial más pérdida constante.**
+  - Pérdida inicial de 20 mm y pérdida constante de **25 mm/h** en Parque y zona agrícola.
+  - En zona urbana, 5 mm y 5 mm/h: refleja techos que vierten a cisternas y sumideros que descargan a grietas.
+  - La pérdida constante se aplica a la lluvia y también al agua que corre por la superficie, así que incluye las **pérdidas de transmisión** en los cauces sobre basalto fracturado.
+  - Este juego reproduce el 30-oct y, además, deja sin inundación los días de lluvia de octubre sin inundación reportada (ver «Validación»).
+
+## Archivos
+
+El modelo está en `scripts/24_modelo2d_santa_cruz.py`. Las salidas de cada escenario están en `datos/modelo2d/<escenario>/`:
 - calado y velocidad máximos, hora de llegada y hora del máximo, en GeoTIFF;
 - `calado_max_clases.geojson`, con clases de 0,1–0,5, 0,5–1, 1–2 y más de 2 m;
 - `series_puntos.csv`, con las series en los puntos de control (La Cascada, Tomás de Berlanga, Bellavista, Matazarnos, Pelican Bay y seis cruces de vía);
