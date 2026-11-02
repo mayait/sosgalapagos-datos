@@ -47,7 +47,7 @@
    },
    "duracion_simulada_h": 26.0,
    "pasos": 16243,
-   "tiempo_calculo_s": 10,
+   "tiempo_calculo_s": 11,
    "balance_masa": {
     "lluvia_neta_m3": 1704136,
     "salida_mar_y_contornos_m3": 1313459,
@@ -55,19 +55,19 @@
     "error_relativo": -0.0
    },
    "clases_calado": {
-    "0.1–0.5 m": {
+    "0,1–0,5 m": {
      "area_ha": 141.8,
      "edificios_que_tocan": 715
     },
-    "0.5–1.0 m": {
+    "0,5–1 m": {
      "area_ha": 24.1,
      "edificios_que_tocan": 190
     },
-    "1.0–2.0 m": {
+    "1–2 m": {
      "area_ha": 8.6,
      "edificios_que_tocan": 28
     },
-    "> 2.0 m": {
+    ">2 m": {
      "area_ha": 4.3,
      "edificios_que_tocan": 6
     }
@@ -200,7 +200,7 @@
    },
    "duracion_simulada_h": 28.0,
    "pasos": 19389,
-   "tiempo_calculo_s": 16,
+   "tiempo_calculo_s": 18,
    "balance_masa": {
     "lluvia_neta_m3": 642153,
     "salida_mar_y_contornos_m3": 425263,
@@ -208,19 +208,19 @@
     "error_relativo": 0.0
    },
    "clases_calado": {
-    "0.1–0.5 m": {
+    "0,1–0,5 m": {
      "area_ha": 61.4,
      "edificios_que_tocan": 395
     },
-    "0.5–1.0 m": {
+    "0,5–1 m": {
      "area_ha": 10.3,
      "edificios_que_tocan": 68
     },
-    "1.0–2.0 m": {
+    "1–2 m": {
      "area_ha": 3.2,
      "edificios_que_tocan": 13
     },
-    "> 2.0 m": {
+    ">2 m": {
      "area_ha": 1.4,
      "edificios_que_tocan": 4
     }
@@ -366,19 +366,19 @@
     "error_relativo": -0.0
    },
    "clases_calado": {
-    "0.1–0.5 m": {
+    "0,1–0,5 m": {
      "area_ha": 171.2,
      "edificios_que_tocan": 786
     },
-    "0.5–1.0 m": {
+    "0,5–1 m": {
      "area_ha": 29.8,
      "edificios_que_tocan": 219
     },
-    "1.0–2.0 m": {
+    "1–2 m": {
      "area_ha": 9.1,
      "edificios_que_tocan": 33
     },
-    "> 2.0 m": {
+    ">2 m": {
      "area_ha": 5.0,
      "edificios_que_tocan": 6
     }
@@ -499,6 +499,164 @@
     "celdas_campus_con_agua_quebrada_>1cm": 3
    },
    "celdas_dominio": 20115,
+   "area_dominio_km2": 18.1
+  },
+  "guayabillos_15m": {
+   "descripcion": "Ídem, malla de 15 m",
+   "celda_m": 15.0,
+   "amc": "II",
+   "lluvia": {
+    "fuente": "estudios/santa-cruz/datos/lluvias/hietograma_5min.csv",
+    "estacion": "Los Guayabillos (IERSE-WSN), Santa Cruz, ≈178 m",
+    "total_mm": 178.8,
+    "fin_registro": "2026-10-30T21:25:27",
+    "max_1h_mm": 62.9,
+    "hora_max_1h": "20:00–21:00",
+    "max_5min_mm": 6.4
+   },
+   "duracion_simulada_h": 26.0,
+   "pasos": 30475,
+   "tiempo_calculo_s": 80,
+   "balance_masa": {
+    "lluvia_neta_m3": 1703258,
+    "salida_mar_y_contornos_m3": 1382974,
+    "almacenado_final_m3": 320284,
+    "error_relativo": 0.0
+   },
+   "clases_calado": {
+    "0.1–0.5 m": {
+     "area_ha": 136.0,
+     "edificios_que_tocan": 789
+    },
+    "0.5–1.0 m": {
+     "area_ha": 22.9,
+     "edificios_que_tocan": 189
+    },
+    "1.0–2.0 m": {
+     "area_ha": 7.8,
+     "edificios_que_tocan": 33
+    },
+    "> 2.0 m": {
+     "area_ha": 4.0,
+     "edificios_que_tocan": 6
+    }
+   },
+   "puntos": {
+    "campus_GSC": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "campus_USFQ": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "campus_esquina_NE_via_universidad": {
+     "h_max_m": 0.03,
+     "hora_h_max": "30-Oct 21:00",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.03
+    },
+    "rellano_quebrada_campus": {
+     "h_max_m": 0.06,
+     "hora_h_max": "30-Oct 21:00",
+     "v_max_ms": 0.53,
+     "h_max_3x3_celdas_m": 0.11
+    },
+    "escuela_alvear": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "barrio_frio_registro_2024": {
+     "h_max_m": 0.01,
+     "hora_h_max": "30-Oct 20:35",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.04
+    },
+    "barrio_frio_desembocadura": {
+     "h_max_m": 0.57,
+     "hora_h_max": "30-Oct 21:30",
+     "v_max_ms": 1.19,
+     "h_max_3x3_celdas_m": 1.42
+    },
+    "divino_nino_salida": {
+     "h_max_m": 0.13,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 1.47,
+     "h_max_3x3_celdas_m": 0.33
+    },
+    "manzanillo_registro_2019": {
+     "h_max_m": 0.66,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 1.39,
+     "h_max_3x3_celdas_m": 0.72
+    },
+    "el_progreso_iess_2021": {
+     "h_max_m": 0.01,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "el_progreso_escuela_darwin_2024": {
+     "h_max_m": 0.81,
+     "hora_h_max": "30-Oct 20:35",
+     "v_max_ms": 0.09,
+     "h_max_3x3_celdas_m": 0.86
+    },
+    "el_progreso_vaso_V01": {
+     "h_max_m": 5.35,
+     "hora_h_max": "30-Oct 21:35",
+     "v_max_ms": 0.01,
+     "h_max_3x3_celdas_m": 5.52
+    }
+   },
+   "secciones": {
+    "El Manzanillo (entrada, PBM-L01)": {
+     "Q_max_m3s": 18.9,
+     "hora": "30-Oct 21:15"
+    },
+    "Barrio Frío (desembocadura, PBM-S01)": {
+     "Q_max_m3s": 100.4,
+     "hora": "30-Oct 21:30"
+    },
+    "Divino Niño (salida, PBM-S02)": {
+     "Q_max_m3s": 17.6,
+     "hora": "30-Oct 21:05"
+    },
+    "Escuela Alvear (salida, PBM-S03)": {
+     "Q_max_m3s": 9.6,
+     "hora": "30-Oct 21:00"
+    },
+    "Quebrada del campus (rellano)": {
+     "Q_max_m3s": 2.3,
+     "hora": "30-Oct 21:10"
+    },
+    "El Progreso (quebrada IGM, PRO-L01)": {
+     "Q_max_m3s": 15.3,
+     "hora": "30-Oct 21:00"
+    }
+   },
+   "campus": {
+    "celdas": 51,
+    "h_max_m": 0.05,
+    "v_max_ms": 0.0,
+    "hv_max_m2s": 0.0,
+    "hora_h_max": "30-Oct 21:00",
+    "vol_entrado_m3": 3515,
+    "vol_entrado_de_la_quebrada_m3": 922,
+    "fraccion_del_agua_de_la_quebrada_que_entra": 0.049,
+    "vol_lluvia_neta_quebrada_m3": 19009,
+    "caudal_max_entrante_m3s": 0.6,
+    "caudal_max_entrante_quebrada_m3s": 0.18,
+    "lamina_max_agua_quebrada_en_campus_m": 0.015,
+    "celdas_campus_con_agua_quebrada_>1cm": 5
+   },
+   "celdas_dominio": 80444,
    "area_dominio_km2": 18.1
   }
  }

@@ -1,6 +1,6 @@
 # Resumen
 
-> **Estudio totalmente preliminar y en curso.** Es un reconocimiento de gabinete. En San Cristóbal **no hay lluvia medida pública** del evento de octubre de 2026, de modo que los caudales son escenarios. Están en preparación un modelo hidrodinámico 2D y el análisis de las tomas de agua del acueducto (Cerro Gato, Los Americanos y otras). Cada sección admite comentarios.
+> **Estudio totalmente preliminar y en curso.** Es un reconocimiento de gabinete. En San Cristóbal **no hay lluvia medida pública** del evento de octubre de 2026, de modo que los caudales son escenarios. El modelo hidrodinámico 2D y las cuencas de captación de las tomas de agua siguen en desarrollo. Cada sección admite comentarios.
 
 ## Hallazgos principales
 
@@ -15,3 +15,13 @@
   - Los edificios del campus están 8–13 m por debajo del rellano por el que baja la quebrada.
 - **Cruces de quebradas con vías:** 325 en total, 25 de prioridad alta y 11 con estructura cartografiada. La vía Puerto Baquerizo Moreno–El Progreso cruza un afluente de 6,5 km² sin estructura conocida.
 - **Lluvia del 30–31 de octubre.** Las observaciones del aeropuerto (METAR) registran lluvia fuerte el 30-oct a las 15 h y lluvia continua el 31-oct de 08:00 a 14:00. Coincide con el reporte de la SNGR de desbordamientos en Barrio Frío y Divino Niño. **Si la tormenta medida en Santa Cruz hubiera caído sobre San Cristóbal**, los caudales serían varias veces los del escenario de 100 mm. Este escenario se modela en la sección del modelo 2D, en preparación.
+
+## Agua potable
+
+- Se localizaron las **tomas de agua del acueducto** (sección 9). Ninguna ubicación se ha verificado en campo:
+  - **Cerro Gato**, con unos 27 l/s y confianza media;
+  - **Los Americanos**, con unos 19 l/s y confianza media;
+  - **La Toma**, que abastece la planta El Progreso y tiene confianza alta;
+  - el manantial **El Chino**, con unos 20 l/s y confianza media.
+- **Las conducciones atraviesan zonas expuestas.** La línea de Cerro Gato cruza 42 cauces y va 1,65 km dentro de la franja de quebradas. La red que baja al puerto recorre 1,45 km dentro del polígono de flujos de lodo del CGREG, a lo largo de Barrio Frío.
+- **Precedente:** en abril de 2023, un aluvión llenó de lodo la represa de Los Americanos. Siguieron 21 días de emergencia del agua potable.
