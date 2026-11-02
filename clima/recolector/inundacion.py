@@ -14,7 +14,7 @@ from pathlib import Path
 
 UTC = dt.timezone.utc
 REGLA = json.loads((Path(__file__).resolve().parent / "umbrales_inundacion.json").read_text())
-PASO_MIN = {"ierse": 5, "gsc": 5, "inamhi": 5, "weatherlink": 5}  # resolución esperada por fuente
+PASO_MIN = {"ierse": 5, "gsc": 5, "inamhi": 5, "weatherlink": 5, "tempest": 5}  # resolución esperada por fuente
 
 
 def _serie(con, clave, desde):
