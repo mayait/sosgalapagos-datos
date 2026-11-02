@@ -1,0 +1,23 @@
+[Unit]
+Description=SOS Galápagos · descargas CSV mensuales del clima
+
+[Service]
+Type=oneshot
+User=clima
+Group=clima
+Environment=CLIMA_DB=/var/lib/sosgalapagos-clima/clima.db
+Environment=CLIMA_SALIDA=/srv/sosgalapagos-clima/datos
+Environment=CLIMA_PRIVADO=/var/lib/sosgalapagos-clima/privado
+Environment=CLIMA_FCD_DIR=/var/lib/sosgalapagos-clima/fcd
+# Endpoints de las fuentes (no versionados; los copia deploy/publicar.sh)
+EnvironmentFile=-/etc/sosgalapagos-clima/fuentes.env
+WorkingDirectory=/opt/sosgalapagos-clima
+ExecStart=/opt/sosgalapagos-clima/.venv/bin/python -I /opt/sosgalapagos-clima/recolector.py --solo-exportar --csv
+# Copia de seguridad diaria de la base (a las 06 UTC; se conservan 14)
+ExecStartPost=/opt/sosgalapagos-clima/respaldo.sh
+Nice=15
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+ReadWritePaths=/var/lib/sosgalapagos-clima /srv/sosgalapagos-clima

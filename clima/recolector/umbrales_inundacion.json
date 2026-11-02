@@ -1,0 +1,149 @@
+{
+ "version": "0.2-preliminar",
+ "fecha": "2026-11-02",
+ "advertencia": "Nivel preliminar y no oficial, calculado por SOS Galápagos con la lluvia medida y un estudio técnico preliminar que tiene un solo evento de referencia (30-oct-2026). No es una alerta oficial: siga siempre las indicaciones del COE, la SNGR y el ECU 911.",
+ "niveles": [
+  {
+   "nivel": "muy alto",
+   "color": "#7f1d1d",
+   "si_alguno": {
+    "R1h": 45,
+    "R3h": 90,
+    "R24h": 150
+   },
+   "probabilidad": "muy probable"
+  },
+  {
+   "nivel": "alto",
+   "color": "#dc2626",
+   "si_alguno": {
+    "R1h": 30,
+    "R3h": 60,
+    "R24h": 100
+   },
+   "probabilidad": "probable"
+  },
+  {
+   "nivel": "medio",
+   "color": "#d97706",
+   "si_alguno": {
+    "R1h": 15,
+    "R3h": 30,
+    "R24h": 50
+   },
+   "probabilidad": "posible"
+  },
+  {
+   "nivel": "bajo",
+   "color": "#16a34a",
+   "probabilidad": "poco probable"
+  }
+ ],
+ "humedad_antecedente": {
+  "seco": {
+   "max": 36,
+   "factor": 1.0
+  },
+  "normal": {
+   "factor": 1.0
+  },
+  "humedo": {
+   "min": 53,
+   "factor": 0.8
+  }
+ },
+ "persistencia_horas": 8,
+ "cobertura_minima": 0.8,
+ "excluir_cero_si_otra_mm_3h": 10,
+ "zonas": [
+  {
+   "id": "la-cascada",
+   "zona": "La Cascada (Puerto Ayora)",
+   "isla": "Santa Cruz",
+   "calibrada": true,
+   "nota": "calibrada con un solo evento (30-oct-2026)",
+   "estaciones": [
+    [
+     "ierse/n_glps05",
+     1.0
+    ],
+    [
+     "ierse/n_glps09",
+     0.75
+    ],
+    [
+     "inamhi/M0191",
+     1.0
+    ],
+    [
+     "weatherlink/pa_weatherlink",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "santa-cruz-alta",
+   "zona": "Parte alta de Santa Cruz (Bellavista, Santa Rosa)",
+   "isla": "Santa Cruz",
+   "calibrada": false,
+   "nota": "sin calibrar; el riesgo principal son los cruces de quebradas con vías",
+   "estaciones": [
+    [
+     "ierse/n_glps09",
+     1.0
+    ],
+    [
+     "ierse/n_glps05",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "san-cristobal",
+   "zona": "San Cristóbal",
+   "isla": "San Cristóbal",
+   "calibrada": false,
+   "nota": "sin calibrar: no hay evento de referencia",
+   "estaciones": [
+    [
+     "gsc/junco",
+     1.0
+    ],
+    [
+     "gsc/cerro_alto",
+     1.0
+    ],
+    [
+     "gsc/mirador",
+     1.0
+    ],
+    [
+     "gsc/merceditas",
+     1.0
+    ],
+    [
+     "inamhi/M0221",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "isabela",
+   "zona": "Isabela (Puerto Villamil)",
+   "isla": "Isabela",
+   "calibrada": false,
+   "nota": "no hay estaciones con datos en tiempo real",
+   "estaciones": []
+  }
+ ],
+ "revision": "2-nov-2026: revisión del especialista en gestión de riesgos del comité de estudios (silencio en alerta = alarma, cobertura solo en ventanas cortas, persistencia 8 h, sin ajuste en seco, probabilidad cualitativa)",
+ "cobertura_ventanas": [
+  "R1h",
+  "R3h"
+ ],
+ "silencio_en_alerta": {
+  "desde_nivel": "alto",
+  "nivel": "muy alto",
+  "horas": 8
+ }
+}

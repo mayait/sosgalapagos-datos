@@ -1,0 +1,9 @@
+[Unit]
+Description=SOS Galápagos · descargas CSV del clima cada hora
+
+[Timer]
+OnCalendar=*:17
+Persistent=true
+
+[Install]
+WantedBy=timers.target

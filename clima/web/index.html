@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Clima en vivo · Galápagos</title>
+<meta name="description" content="Lluvia y temperatura medidas cada 5 minutos por las estaciones meteorológicas de Santa Cruz y San Cristóbal.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root{color-scheme:light;--bg:#f4f4f1;--panel:#fff;--ink:#1b1b19;--ink2:#3d3c38;--mut:#6b6a64;--line:#e6e5df;--grid:#efeee9;--acc:#0b5cad;--soft:#eef3f9;--on:#0b5cad;
+  --rain:#2a78d6;--rain-part:#9ec5f4;--gap:#ebeae4;--cmp:#1b1b19;--evt:#eb6834;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;
+  --ok:#1e7a3c;--warn:#b45309;--crit:#b42318;--q0:#cde2fb;--q1:#86b6ef;--q2:#3987e5;--q3:#1c5cab;--q4:#0d366b}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--acc)}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:flex-end;justify-content:space-between;margin-bottom:12px}
+.back{font-size:12px;text-decoration:none;color:var(--mut)}.back:hover{color:var(--acc)}
+h1{font-size:22px;margin:2px 0 0;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:13px;margin:2px 0 0;max-width:660px}
+.upd{font-size:12.5px;color:var(--mut);text-align:right}
+.upd b{color:var(--ink);font-weight:600}
+.controls{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:4px 0 12px}
+.ctl{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mut);flex-wrap:wrap}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
+.seg button{border:0;background:transparent;color:var(--ink2);font:inherit;font-size:12.5px;padding:5px 10px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--on);color:#fff}
+.seg button:disabled{color:#bbb;cursor:not-allowed}
+select,input[type=date]{font:inherit;font-size:12.5px;padding:4px 6px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink)}
+.chip{border:1px solid var(--evt);color:#9a3d14;background:#fff4ee;border-radius:999px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.card h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 10px;font-weight:650}
+.card h3{font-size:13px;margin:16px 0 6px}
+.note{font-size:12px;color:var(--mut);margin:8px 0 0}
+.grid2{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:14px}
+.hero{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.hero .k{font-size:12px;color:var(--mut)}
+.hero .v{font-size:28px;font-weight:650;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hero .v small{font-size:14px;font-weight:500;color:var(--mut)}
+.hero .w{font-size:12.5px;color:var(--mut)}
+#map{height:330px;border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);font-weight:650;text-align:right;padding:6px 5px;border-bottom:1px solid var(--line);white-space:nowrap;vertical-align:bottom}
+th:first-child,td:first-child{text-align:left}
+td{text-align:right;padding:7px 5px;border-bottom:1px solid var(--line);white-space:nowrap}
+td .n{font-weight:600}
+td .m{display:block;font-size:11.5px;color:var(--mut)}
+tr.ref td{color:var(--mut);font-size:12px;border-bottom-style:dashed}
+.tblwrap{overflow-x:auto}
+.st{display:inline-flex;align-items:center;gap:4px;font-size:11.5px}
+.st.ok{color:var(--ok)}.st.warn{color:var(--warn)}.st.crit{color:var(--crit)}
+.bar-pct{display:inline-block;height:6px;border-radius:3px;background:var(--evt);vertical-align:middle;margin-right:6px}
+.sm{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:14px 20px}
+.sm .t{font-size:13px;font-weight:600;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.sm .t span{font-weight:400;color:var(--mut);font-size:12px;text-align:right}
+svg text{fill:var(--mut);font:11px system-ui,sans-serif}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--mut);margin:0 0 10px}
+.legend i{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:6px;vertical-align:3px}
+.legend i.sq{height:10px;width:10px;vertical-align:-1px}
+.legend i.dash{height:0;border-top:2px dashed var(--cmp);background:none}
+#tip{position:fixed;pointer-events:none;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.15);display:none;z-index:1000;font-variant-numeric:tabular-nums;max-width:280px}
+.empty{color:var(--mut);font-size:13px;padding:16px 0}
+.fuentes{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12.5px;color:var(--ink2)}
+.riesgo{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px}
+.zona{border:1px solid var(--line);border-radius:10px;padding:12px;border-top:5px solid var(--zc,#999)}
+.zona .zn{font-weight:650;font-size:13.5px}.zona .zi{font-size:11.5px;color:var(--mut)}
+.zona .nv{display:flex;align-items:center;gap:8px;margin:8px 0 2px;font-size:22px;font-weight:700;letter-spacing:-.01em;color:var(--zc)}
+.zona .pr{font-size:12px;color:var(--ink2)}
+.zona .rr{display:grid;grid-template-columns:34px 1fr 64px;gap:4px 8px;align-items:center;font-size:11.5px;color:var(--mut);margin-top:8px;font-variant-numeric:tabular-nums}
+.zona .rr .trk{position:relative;height:8px;background:var(--gap);border-radius:4px;overflow:hidden}
+.zona .rr .trk i{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+.zona .rr .trk b{position:absolute;top:-2px;bottom:-2px;width:2px;background:#9a9a94}
+.zona .tira{display:flex;gap:1px;margin-top:8px;height:10px}.zona .tira span{flex:1;border-radius:1px}
+.zona .det{font-size:11.5px;color:var(--mut);margin-top:6px}
+.tag{display:inline-block;font-size:10.5px;font-weight:650;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:999px;background:#fff4ee;color:#9a3d14;border:1px solid #f3c7b0;vertical-align:2px;margin-left:6px}
+.aviso{font-size:12px;color:var(--ink2);background:#fffaf2;border:1px solid #f1e0c0;border-radius:8px;padding:8px 10px;margin-top:12px}
+details.um{margin-top:8px;font-size:12px;color:var(--mut)}details.um summary{cursor:pointer}
+details.um table{margin-top:6px;font-size:12px}
+.est{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px}
+@media (max-width:860px){.est{grid-template-columns:1fr}}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12.5px;font-variant-numeric:tabular-nums}.kv b{font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <a class="back" href="/">← SOS Galápagos</a>
+    <h1>Clima en vivo · Galápagos</h1>
+    <p class="sub">Lluvia y temperatura medidas por las estaciones meteorológicas de las islas. Se actualiza cada 5 minutos. Todas las horas son de Galápagos (UTC−6).</p>
+  </div>
+  <div class="upd" id="upd">Cargando…</div>
+</header>
+
+<div class="controls"><div class="ctl">Isla <div class="seg" id="isla"></div></div></div>
+
+<div class="heroes" id="heroes"></div>
+
+<div class="grid2">
+  <section class="card"><h2>Lluvia en las últimas 24 horas</h2><div id="map"></div>
+    <p class="note">El tamaño y el color del círculo indican la lluvia acumulada en 24 h. Si el círculo está en gris, la estación no ha transmitido en la última hora.</p></section>
+  <section class="card"><h2>Estaciones ahora</h2><div class="tblwrap"><table id="tabla"></table></div>
+    <p class="note">Lluvia acumulada en mm. Mientras una estación no transmite, la lluvia no se mide, así que un total con cortes es un mínimo.</p></section>
+</div>
+
+<section class="card" id="inundacion">
+  <h2>Nivel de inundación por zona <span class="tag">preliminar · no oficial</span></h2>
+  <div class="riesgo" id="zonas"></div>
+  <div class="aviso" id="aviso"></div>
+  <details class="um"><summary>¿Cómo se calcula?</summary><div id="metodo"></div></details>
+</section>
+
+<section class="card" id="explorador">
+  <h2>Explorador de lluvia</h2>
+  <div class="controls" style="margin-top:0">
+    <div class="ctl">Período <div class="seg" id="periodo">
+      <button data-h="24">24 h</button><button data-h="72" class="on">72 h</button><button data-h="168">7 días</button><button data-h="720">30 días</button><button data-h="2160">90 días</button><button data-h="todo">Todo</button></div></div>
+    <div class="ctl">Desde <input type="date" id="desde"> hasta <input type="date" id="hasta"></div>
+    <button class="chip" id="irEvento">Ver la inundación del 30–31 oct</button>
+  </div>
+  <div class="controls">
+    <div class="ctl">Agrupar <div class="seg" id="grupo"><button data-g="1" class="on">por hora</button><button data-g="3">3 h</button><button data-g="6">6 h</button><button data-g="24">por día</button></div></div>
+    <div class="ctl">Ver <div class="seg" id="vista"><button data-v="int" class="on">lluvia por intervalo</button><button data-v="acu">acumulada</button></div></div>
+    <div class="ctl">Comparar con <select id="comparar">
+      <option value="">nada</option><option value="evento">la inundación del 30–31 oct</option><option value="anterior">el período anterior</option><option value="anio">el mismo período hace un año</option></select></div>
+  </div>
+  <div class="legend" id="leyenda"></div>
+  <div class="sm" id="lluvias"></div>
+  <h3>Intensidad en el período elegido</h3>
+  <div class="tblwrap"><table id="intens"></table></div>
+  <p class="note">Las columnas «máx.» indican la mayor lluvia acumulada en ventanas móviles de esa duración dentro del período. La fila gris de cada estación muestra lo que midió esa misma estación durante la inundación del 30–31 oct. Esa estación dejó de transmitir en pleno evento, así que esos valores son mínimos. «Historia» compara el día más lluvioso del período con todos los días registrados por la estación.</p>
+</section>
+
+<section class="card">
+  <h2>Temperatura del aire</h2>
+  <div class="sm" id="temps"></div>
+  <p class="note">Usa el mismo período que el explorador de lluvia. Con más de 31 días se muestra el promedio diario.</p>
+</section>
+
+<section class="card" id="estacionalidad">
+  <h2>Estacionalidad de la lluvia</h2>
+  <div class="controls" style="margin-top:0"><div class="ctl">Serie <div class="seg" id="serieEst"></div></div></div>
+  <div class="est">
+    <div><h3 style="margin-top:0">Lluvia por mes</h3><div class="legend" id="legMes"></div><div id="mesChart"></div></div>
+    <div><h3 style="margin-top:0">Probabilidad de un día lluvioso según la semana del año</h3><div class="legend" id="legSem"></div><div id="semChart"></div></div>
+  </div>
+  <h3>Lluvia de 24 h esperable (periodo de retorno)</h3>
+  <div class="tblwrap"><table id="retorno"></table></div>
+  <p class="note" id="notaEst"></p>
+</section>
+
+<section class="card" id="mar">
+  <h2>Nivel del mar</h2>
+  <div class="legend" id="legMar"></div>
+  <div id="marChart"></div>
+  <p class="note">Mareógrafos de radar; nivel relativo al cero de cada sensor (no comparable entre estaciones). Sirve para ver si una lluvia fuerte coincide con marea alta en la costa baja.</p>
+</section>
+
+<section class="card">
+  <h2>Fuentes</h2>
+  <div class="fuentes" id="fuentes"></div>
+  <p class="note">Datos de terceros, tal como llegan y sin control de calidad. La estacionalidad usa además series diarias de la Fundación Charles Darwin (Puerto Ayora desde 1965, Bellavista 1987–2019).</p>
+</section>
+
+</div>
+<div id="tip"></div>
+
+<script>
+const TZ = "Pacific/Galapagos", HORA = 3600e3, DIA = 864e5, LOCAL = 6 * HORA; // UTC−6
+const fH = new Intl.DateTimeFormat("es-EC", {timeZone: TZ, weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hour12: false});
+const fD = new Intl.DateTimeFormat("es-EC", {timeZone: TZ, day: "numeric", month: "short"});
+const fDY = new Intl.DateTimeFormat("es-EC", {timeZone: TZ, day: "numeric", month: "short", year: "numeric"});
+const num = (x, d = 1) => x == null || !isFinite(x) ? "—" : x.toLocaleString("es-EC", {minimumFractionDigits: d, maximumFractionDigits: d});
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const SERIES = ["--s1", "--s2", "--s3", "--s4"];
+const S = {isla: "Todas", per: 72, desde: null, hasta: null, g: 1, vista: "int", cmp: ""};
+let E, H, D; // estado, horario, diario
+
+// ---------- carga
+async function cargar() {
+  try {
+    const q = "?t=" + Math.floor(Date.now() / 60000);
+    [E, H, D] = await Promise.all(["estado", "horario", "diario"].map(n => fetch(`datos/${n}.json${q}`).then(r => r.json())));
+    H.t0 = Date.parse(H.inicio);
+    pintar();
+  } catch (err) {
+    console.error(err);
+    document.getElementById("upd").textContent = "No se pudieron cargar los datos. Se reintenta en 1 minuto.";
+    setTimeout(cargar, 60000);
+  }
+}
+const minDesde = ts => ts ? (Date.now() - Date.parse(ts)) / 60000 : Infinity;
+function estadoEst(e) {
+  const m = minDesde(e.ultimo);
+  if (m <= 30) return {c: "ok", t: "● transmitiendo"};
+  if (m <= 180) return {c: "warn", t: `▲ sin datos hace ${num(m / 60)} h`};
+  return {c: "crit", t: m > 2880 ? `✕ sin datos desde el ${fD.format(new Date(e.ultimo || 0))}` : `✕ sin datos hace ${Math.round(m / 60)} h`};
+}
+const enIsla = e => S.isla === "Todas" || e.isla === S.isla || (S.isla === "Santa Cruz" && e.isla === "Baltra");
+const visibles = () => E.estaciones.filter(e => e.fuente !== "ioc" && enIsla(e));
+const LLUVIA_TXT = ["sin lluvia", "lluvia débil", "lluvia moderada", "lluvia fuerte"];
+const clave = e => `${e.fuente}/${e.estacion}`;
+
+function pintar() {
+  const errores = Object.entries(E.fuentes || {}).filter(([, c]) => !c.ok || minDesde(c.ts) > 20).map(([f]) => f);
+  document.getElementById("upd").innerHTML = `Actualizado: <b>${fH.format(new Date(E.generado))}</b><br>${errores.length ? `<span class="st warn">▲ Sin respuesta reciente de ${errores.join(", ")}</span>` : `<span class="st ok">● Todas las fuentes al día</span>`}`;
+  const islas = ["Todas", ...new Set(E.estaciones.filter(e => e.isla !== "Baltra").map(e => e.isla))];
+  const seg = document.getElementById("isla");
+  seg.innerHTML = islas.map(i => `<button class="${i === S.isla ? "on" : ""}">${i}</button>`).join("");
+  seg.querySelectorAll("button").forEach(b => b.onclick = () => { S.isla = b.textContent; pintar(); });
+  heroes(); mapa(); tabla(); inundacion(); explorador(); estacionalidad(); mar(); fuentes();
+}
+
+function heroes() {
+  const vs = visibles().filter(e => minDesde(e.ultimo) < 1440);
+  const max = k => vs.reduce((a, e) => (e.lluvia?.[k] ?? -1) > (a?.lluvia?.[k] ?? -1) ? e : a, null);
+  const tarjeta = (k, etq) => { const e = max(k); return `<div class="hero"><div class="k">${etq}</div><div class="v">${e ? num(e.lluvia[k]) : "—"} <small>mm</small></div><div class="w">${e ? e.nombre + " · " + e.isla : "sin datos"}</div></div>`; };
+  const tx = vs.filter(e => e.actual?.temp_c != null);
+  const activas = visibles().filter(e => minDesde(e.ultimo) <= 30).length;
+  document.getElementById("heroes").innerHTML = tarjeta("1h", "Más lluvia en la última hora") + tarjeta("6h", "Más lluvia en 6 h") + tarjeta("24h", "Más lluvia en 24 h") + tarjeta("72h", "Más lluvia en 72 h") +
+    `<div class="hero"><div class="k">Estaciones transmitiendo</div><div class="v">${activas} <small>de ${visibles().length}</small></div><div class="w">${tx.length ? "Temperatura de " + num(Math.min(...tx.map(e => e.actual.temp_c))) + " a " + num(Math.max(...tx.map(e => e.actual.temp_c))) + " °C" : ""}</div></div>`;
+}
+
+let MAP, CAPA;
+function mapa() {
+  if (!MAP) {
+    MAP = L.map("map", {scrollWheelZoom: false});
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 17, attribution: "Esri"}).addTo(MAP);
+    CAPA = L.layerGroup().addTo(MAP);
+  }
+  CAPA.clearLayers();
+  const vs = visibles(); if (!vs.length) return;
+  const escala = [[1, "--q0"], [10, "--q1"], [30, "--q2"], [60, "--q3"], [Infinity, "--q4"]];
+  vs.forEach(e => {
+    const v = e.lluvia?.["24h"], vivo = minDesde(e.ultimo) <= 60;
+    const col = !vivo || v == null ? "#9a9a94" : css(escala.find(([m]) => v < m)[1]);
+    L.circleMarker([e.lat, e.lon], {radius: 7 + Math.sqrt(Math.max(v || 0, 0)) * 2.2, color: "#fff", weight: 2, fillColor: col, fillOpacity: .9})
+      .bindTooltip(`<b>${e.nombre}</b> · ${e.altitud_m ?? "?"} m<br>${vivo && v != null ? num(v) + " mm en 24 h" : estadoEst(e).t}`, {direction: "top"}).addTo(CAPA);
+  });
+  MAP.fitBounds(L.latLngBounds(vs.map(e => [e.lat, e.lon])).pad(.35), {maxZoom: 12});
+}
+
+function tabla() {
+  const fila = e => {
+    const s = estadoEst(e), a = e.actual || {}, l = e.lluvia || {};
+    const extra = (a.lluvia_codigo != null ? ` · ${LLUVIA_TXT[a.lluvia_codigo]}` : "") + (a.lluvia_dia_acum_mm != null ? ` · hoy ${num(a.lluvia_dia_acum_mm)} mm` : "");
+    return `<tr><td><span class="n">${e.nombre}</span><span class="m">${e.operador} · ${e.altitud_m ?? "?"} m · <span class="st ${s.c}">${s.t}</span>${extra}</span></td>
+      <td>${num(l["1h"])}</td><td>${num(l["6h"])}</td><td>${num(l["24h"])}</td><td>${num(l["72h"])}</td><td>${num(a.temp_c)}</td></tr>`;
+  };
+  document.getElementById("tabla").innerHTML = `<thead><tr><th>Estación</th><th>1 h</th><th>6 h</th><th>24 h</th><th>72 h</th><th>°C</th></tr></thead><tbody>${visibles().map(fila).join("")}</tbody>`;
+}
+
+function fuentes() {
+  document.getElementById("fuentes").innerHTML = Object.entries(E.fuentes || {}).map(([f, c]) => {
+    const n = E.estaciones.filter(e => e.operador === f), islas = [...new Set(n.map(e => e.isla))].join(", ");
+    const st = c.ok && minDesde(c.ts) <= 20 ? `<span class="st ok">● al día</span>` : `<span class="st warn">▲ última respuesta ${fH.format(new Date(c.ts))}</span>`;
+    return `<span><b>${f}</b> · ${n.length} estaciones en ${islas} · ${st}</span>`;
+  }).join("");
+}
+
+// ---------- datos por período
+const tH = i => H.t0 + i * HORA;                     // hora i (UTC ms)
+const iH = t => Math.round((t - H.t0) / HORA);
+const ahoraI = () => H.horas;                          // índice exclusivo de la hora en curso + 1
+const diaLocal = t => Math.floor((t - LOCAL) / DIA);   // número de día de Galápagos
+function ventana() {
+  if (S.desde && S.hasta) {
+    const a = Date.parse(S.desde + "T00:00:00-06:00"), b = Date.parse(S.hasta + "T00:00:00-06:00") + DIA;
+    return {a, b};
+  }
+  const b = tH(ahoraI());
+  if (S.per === "todo") {
+    const ini = Math.min(H.t0, ...Object.values(D.diario).map(d => Date.parse(d.inicio + "T00:00:00-06:00")));
+    return {a: S.g === 24 ? ini : H.t0, b};
+  }
+  return {a: b - S.per * HORA, b};
+}
+// Serie horaria de una estación entre a y b (ms) → [{t, v}] con v=null si no hubo datos
+function horaria(k, a, b, varn = "lluvia_mm") {
+  const s = H.series[k]?.[varn] || [], out = [];
+  for (let t = a; t < b; t += HORA) { const i = iH(t); out.push({t, v: i >= 0 && i < s.length ? s[i] : null}); }
+  return out;
+}
+function diaria(k, a, b) {
+  const d = D.diario[k]; const out = [];
+  if (!d) return out;
+  const d0 = Date.parse(d.inicio + "T00:00:00-06:00");
+  for (let t = a; t < b; t += DIA) {
+    const i = Math.round((t - d0) / DIA);
+    out.push({t, v: i >= 0 && i < d.lluvia.length ? d.lluvia[i] : null, cob: i >= 0 && i < d.horas.length ? d.horas[i] / 24 : 0});
+  }
+  return out;
+}
+// Agrupa en cubos de g horas alineados con la hora local
+function agrupar(k, a, b) {
+  if (S.g === 24) return diaria(k, Math.floor((a - LOCAL) / DIA) * DIA + LOCAL, b);
+  const g = S.g * HORA, a0 = Math.floor((a - LOCAL) / g) * g + LOCAL, hs = horaria(k, a0, b), out = [];
+  for (let j = 0; j < hs.length; j += S.g) {
+    const tr = hs.slice(j, j + S.g), con = tr.filter(x => x.v != null);
+    out.push({t: tr[0].t, v: con.length ? con.reduce((s, x) => s + x.v, 0) : null, cob: con.length / S.g});
+  }
+  return out;
+}
+function desplazamiento(a, b) {
+  if (S.cmp === "anterior") return -(b - a);
+  if (S.cmp === "anio") return -365 * DIA;
+  if (S.cmp === "evento") return Date.parse(E.eventos[0].desde) - a;
+  return null;
+}
+const acumular = arr => { let s = 0; return arr.map(x => ({...x, v: x.v == null ? (s || null) : (s += x.v)})); };
+
+// ---------- explorador
+const tip = document.getElementById("tip");
+function mostrar(ev, html) { tip.innerHTML = html; tip.style.display = "block"; tip.style.left = Math.min(ev.clientX + 14, innerWidth - tip.offsetWidth - 8) + "px"; tip.style.top = Math.max(4, ev.clientY - tip.offsetHeight - 10) + "px"; }
+const ocultar = () => tip.style.display = "none";
+const etiquetaG = () => ({1: "hora", 3: "3 h", 6: "6 h", 24: "día"})[S.g];
+
+function ejeX(a, b, x, y0, alto) {
+  const span = b - a, paso = span <= 4 * DIA ? DIA : span <= 40 * DIA ? 7 * DIA : span <= 200 * DIA ? 30 * DIA : 365 * DIA;
+  let t = "", d = (diaLocal(a) + 1) * DIA + LOCAL;
+  if (paso === 30 * DIA || paso === 365 * DIA) {
+    const f = new Date(a); let m = new Date(Date.UTC(f.getUTCFullYear(), f.getUTCMonth() + 1, 1, 6));
+    const salto = paso === 365 * DIA ? 12 : (span > 400 * DIA ? 3 : 1);
+    for (; m.getTime() < b; m = new Date(Date.UTC(m.getUTCFullYear(), m.getUTCMonth() + salto, 1, 6))) {
+      const xx = x(m.getTime()); t += `<line x1="${xx}" x2="${xx}" y1="${y0}" y2="${y0 + alto}" stroke="var(--grid)"/><text x="${xx + 3}" y="${y0 + alto + 12}">${m.toLocaleDateString("es-EC", {month: "short", year: "2-digit", timeZone: TZ})}</text>`;
+    }
+    return t;
+  }
+  for (; d < b; d += paso) { const xx = x(d); t += `<line x1="${xx}" x2="${xx}" y1="${y0}" y2="${y0 + alto}" stroke="var(--grid)"/><text x="${xx + 3}" y="${y0 + alto + 12}">${fD.format(new Date(d))}</text>`; }
+  return t;
+}
+
+function explorador() {
+  const {a, b} = ventana();
+  document.querySelectorAll("#periodo button").forEach(x => x.classList.toggle("on", !S.desde && String(S.per) === x.dataset.h));
+  document.querySelectorAll("#grupo button").forEach(x => { x.classList.toggle("on", +x.dataset.g === S.g); x.disabled = (b - a) > 120 * DIA && +x.dataset.g < 24; });
+  if ((b - a) > 120 * DIA && S.g < 24) { S.g = 24; return explorador(); }
+  document.querySelectorAll("#vista button").forEach(x => x.classList.toggle("on", x.dataset.v === S.vista));
+  document.getElementById("desde").value = S.desde || new Date(a - LOCAL).toISOString().slice(0, 10);
+  document.getElementById("hasta").value = S.hasta || new Date(b - LOCAL - 1).toISOString().slice(0, 10);
+  const off = desplazamiento(a, b), nCmp = {evento: "inundación 30–31 oct", anterior: "período anterior", anio: "hace un año"}[S.cmp];
+  document.getElementById("leyenda").innerHTML =
+    (S.vista === "int" ? `<span><i class="sq" style="background:var(--rain)"></i>mm por ${etiquetaG()}</span><span><i class="sq" style="background:var(--rain-part)"></i>${etiquetaG()} con datos incompletos</span>` : `<span><i style="background:var(--rain)"></i>lluvia acumulada en el período</span>`) +
+    `<span><i class="sq" style="background:var(--gap)"></i>sin datos</span>` + (off != null ? `<span><i class="dash"></i>${nCmp}${S.cmp === "evento" ? " (alineada al inicio del período)" : ""}</span>` : "");
+
+  const vs = visibles();
+  const datos = vs.map(e => {
+    const k = clave(e), cur = agrupar(k, a, b);
+    const cmp = off != null ? agrupar(k, a + off, b + off) : null;
+    if (cmp && S.cmp === "evento") { const fin = Date.parse(E.eventos[0].hasta); cmp.forEach(x => { if (x.t >= fin) x.v = null; }); }
+    return {e, k, cur: S.vista === "acu" ? acumular(cur) : cur, cmp: cmp && (S.vista === "acu" ? acumular(cmp) : cmp), tot: cur.reduce((s, x) => s + (x.v || 0), 0)};
+  }).filter(d => d.cur.some(x => x.v != null) || (d.cmp && d.cmp.some(x => x.v != null)));
+  const ymax = Math.max(S.vista === "acu" ? 10 : 2, ...datos.flatMap(d => [...d.cur, ...(d.cmp || [])].map(x => x.v || 0))) * 1.05;
+  const W = 360, Hh = 140, P = {l: 32, r: 6, t: 6, b: 18}, iw = W - P.l - P.r, ih = Hh - P.t - P.b;
+  const n = Math.max(1, datos[0]?.cur.length || 1), bw = iw / n;
+  const y = v => P.t + ih - v / ymax * ih;
+  const ticks = [0, ymax / 2, ymax].map(v => Math.round(v));
+  const lin = arr => { let p = "", on = false; arr.forEach((q, i) => { if (q.v == null) { on = false; return; } const xx = P.l + (i + .5) * bw; p += (on ? "L" : "M") + xx.toFixed(1) + "," + y(q.v).toFixed(1); on = true; }); return p; };
+  const cont = document.getElementById("lluvias");
+  cont.innerHTML = datos.map((d, k) => {
+    let marcas = "";
+    d.cur.forEach((q, i) => {
+      const x0 = P.l + i * bw;
+      if (q.v == null) { marcas += `<rect x="${x0}" y="${P.t}" width="${Math.max(bw, .6)}" height="${ih}" fill="var(--gap)"/>`; return; }
+      if (S.vista === "int" && q.v > 0) {
+        const hh = Math.max(1.2, ih - (y(q.v) - P.t)), w = Math.max(bw * .82, .8);
+        marcas += `<rect x="${x0 + (bw - w) / 2}" y="${P.t + ih - hh}" width="${w}" height="${hh}" rx="${Math.min(2, w / 3)}" fill="var(${q.cob < .99 ? "--rain-part" : "--rain"})"/>`;
+      }
+    });
+    if (S.vista === "acu") marcas += `<path d="${lin(d.cur)}" fill="none" stroke="var(--rain)" stroke-width="2.2"/>`;
+    if (d.cmp) marcas += S.vista === "acu" ? `<path d="${lin(d.cmp)}" fill="none" stroke="var(--cmp)" stroke-width="1.5" stroke-dasharray="4 3"/>`
+      : `<path d="${d.cmp.map((q, i) => q.v == null ? "" : `M${(P.l + i * bw).toFixed(1)},${y(q.v).toFixed(1)}h${bw.toFixed(1)}`).join("")}" fill="none" stroke="var(--cmp)" stroke-width="1.5"/>`;
+    const t0 = d.cur[0]?.t ?? a, fin = d.cur.length ? d.cur[d.cur.length - 1].t + S.g * HORA : b;
+    return `<div><div class="t">${d.e.nombre}<span>${d.e.isla} · ${num(d.tot)} mm en el período</span></div>
+      <svg viewBox="0 0 ${W} ${Hh}" width="100%" data-k="${k}" role="img" aria-label="Lluvia en ${d.e.nombre}">
+      ${ejeX(t0, fin, t => P.l + (t - t0) / (fin - t0) * iw, P.t, ih)}
+      ${ticks.map(t => `<line x1="${P.l}" x2="${W - P.r}" y1="${y(t)}" y2="${y(t)}" stroke="var(--grid)"/><text x="${P.l - 4}" y="${y(t) + 4}" text-anchor="end">${t}</text>`).join("")}
+      ${marcas}<line x1="${P.l}" x2="${W - P.r}" y1="${P.t + ih}" y2="${P.t + ih}" stroke="#cfcec7"/>
+      <line class="cross" y1="${P.t}" y2="${P.t + ih}" stroke="var(--mut)" stroke-dasharray="2 2" visibility="hidden"/>
+      <rect x="${P.l}" y="0" width="${iw}" height="${Hh}" fill="transparent"/></svg></div>`;
+  }).join("") || `<p class="empty">No hay datos de lluvia para este período y esta isla.</p>`;
+  cont.querySelectorAll("svg").forEach(svg => {
+    const d = datos[+svg.dataset.k], cr = svg.querySelector(".cross");
+    svg.onmousemove = ev => {
+      const r = svg.getBoundingClientRect(), i = Math.floor(((ev.clientX - r.left) / r.width * W - P.l) / bw);
+      if (i < 0 || i >= d.cur.length) { cr.setAttribute("visibility", "hidden"); return ocultar(); }
+      const q = d.cur[i], c = d.cmp?.[i], xx = P.l + (i + .5) * bw;
+      cr.setAttribute("x1", xx); cr.setAttribute("x2", xx); cr.setAttribute("visibility", "visible");
+      const cuando = S.g === 24 ? fDY.format(new Date(q.t)) : fH.format(new Date(q.t)) + (S.g > 1 ? ` (+${S.g} h)` : "");
+      const val = q.v == null ? "sin datos" : `${num(q.v)} mm${S.vista === "acu" ? " acumulados" : ""}${q.cob != null && q.cob < .99 && S.vista === "int" ? ` · datos de ${Math.round(q.cob * 100)} % del intervalo` : ""}`;
+      mostrar(ev, `<b>${d.e.nombre}</b><br>${cuando}<br>${val}` + (c ? `<br><span style="color:var(--mut)">${nCmp}: ${c.v == null ? "sin datos" : num(c.v) + " mm"}</span>` : ""));
+    };
+    svg.onmouseleave = () => { cr.setAttribute("visibility", "hidden"); ocultar(); };
+  });
+  intensidades(a, b, datos.map(d => d.e));
+  temps(a, b);
+}
+
+// Máximos móviles sobre la serie horaria
+function maximos(k, a, b) {
+  const hs = horaria(k, a, b), v = hs.map(x => x.v ?? 0), out = {falta: hs.filter(x => x.v == null).length, horas: hs.length};
+  out.tot = v.reduce((s, x) => s + x, 0);
+  for (const w of [1, 3, 6, 24]) {
+    let s = 0, m = 0;
+    for (let i = 0; i < v.length; i++) { s += v[i]; if (i >= w) s -= v[i - w]; if (s > m) m = s; }
+    out["m" + w] = m;
+  }
+  return out;
+}
+function historia(k, a, b) {
+  const d = D.diario[k]; if (!d) return null;
+  const validos = d.lluvia.filter((x, i) => x != null && d.horas[i] >= 20);
+  if (validos.length < 30) return {corto: true, n: validos.length};
+  const dias = diaria(k, Math.floor((a - LOCAL) / DIA) * DIA + LOCAL, b).filter(x => x.v != null);
+  if (!dias.length) return null;
+  const top = dias.reduce((m, x) => x.v > m.v ? x : m);
+  const mas = validos.filter(x => x > top.v).length;
+  const i0 = d.horas.findIndex(h => h >= 20);
+  return {v: top.v, t: top.t, parcial: top.cob < .83, pct: 100 * mas / validos.length, n: validos.length,
+          desde: new Date(Date.parse(d.inicio + "T12:00:00-06:00") + Math.max(0, i0) * DIA)};
+}
+function intensidades(a, b, ests) {
+  const ev = E.eventos[0], ea = Date.parse(ev.desde), eb = Date.parse(ev.hasta);
+  const filas = ests.map(e => {
+    const k = clave(e), m = maximos(k, a, b), r = maximos(k, ea, eb), h = historia(k, a, b);
+    const hayEv = r.horas - r.falta > 0;
+    const pct = hayEv && r.m24 > 0 ? m.m24 / r.m24 * 100 : null;
+    const hist = !h ? "—" : h.corto ? `<span class="m">registro aún corto (${h.n} días completos)</span>` :
+      `${num(h.v)} mm el ${fD.format(new Date(h.t))}${h.parcial ? " (día incompleto)" : ""}<span class="m">${h.pct === 0 ? "el más lluvioso" : `más que el ${num(100 - h.pct, h.pct < 1 ? 1 : 0)} %`} de ${h.n.toLocaleString("es-EC")} días registrados desde ${fDY.format(h.desde)}</span>`;
+    return `<tr><td><span class="n">${e.nombre}</span><span class="m">${e.isla} · ${m.falta ? `${m.falta} h sin datos de ${m.horas}` : "sin cortes"}</span></td>
+      <td>${num(m.tot)}</td><td>${num(m.m1)}</td><td>${num(m.m3)}</td><td>${num(m.m6)}</td><td>${num(m.m24)}</td>
+      <td>${pct == null ? "—" : `<span class="bar-pct" style="width:${Math.min(60, pct * .6)}px"></span>${num(pct, 0)} %`}</td><td>${hist}</td></tr>` +
+      (hayEv ? `<tr class="ref"><td>↳ en la inundación</td><td>${num(r.tot)}</td><td>${num(r.m1)}</td><td>${num(r.m3)}</td><td>${num(r.m6)}</td><td>${num(r.m24)}</td><td colspan="2" style="text-align:left">${r.falta ? `${r.falta} h sin transmisión: valores mínimos` : ""}</td></tr>` : "");
+  });
+  document.getElementById("intens").innerHTML = `<thead><tr><th>Estación</th><th>Total mm</th><th>máx. 1 h</th><th>máx. 3 h</th><th>máx. 6 h</th><th>máx. 24 h</th><th>24 h vs. inundación</th><th>Historia</th></tr></thead><tbody>${filas.join("")}</tbody>`;
+}
+
+function temps(a, b) {
+  const diarioT = (b - a) > 31 * DIA, islas = [...new Set(visibles().map(e => e.isla))];
+  const W = 560, Hh = 190, P = {l: 32, r: 96, t: 8, b: 18}, iw = W - P.l - P.r, ih = Hh - P.t - P.b;
+  const cont = document.getElementById("temps");
+  cont.style.gridTemplateColumns = "repeat(auto-fill,minmax(440px,1fr))";
+  const bloques = islas.map(isla => {
+    const vs = visibles().filter(e => e.isla === isla).map(e => {
+      let s = horaria(clave(e), a, b, "temp_c");
+      if (diarioT) { const g = {}; s.forEach(q => { if (q.v != null) { const d = diaLocal(q.t); (g[d] ||= []).push(q.v); } });
+        s = []; for (let d = diaLocal(a); d * DIA + LOCAL < b; d++) { const v = g[d]; s.push({t: d * DIA + LOCAL, v: v ? v.reduce((x, y) => x + y, 0) / v.length : null}); } }
+      return {e, s};
+    }).filter(d => d.s.some(q => q.v != null)).slice(0, 4);
+    if (!vs.length) return null;
+    const todos = vs.flatMap(d => d.s.filter(q => q.v != null).map(q => q.v));
+    const lo = Math.floor(Math.min(...todos) - .5), hi = Math.ceil(Math.max(...todos) + .5), n = vs[0].s.length;
+    const x = i => P.l + (i + .5) * iw / n, y = v => P.t + ih - (v - lo) / (hi - lo) * ih;
+    const lineas = vs.map((d, k) => {
+      let p = "", on = false; d.s.forEach((q, i) => { if (q.v == null) { on = false; return; } p += (on ? "L" : "M") + x(i).toFixed(1) + "," + y(q.v).toFixed(1); on = true; });
+      const li = d.s.map((q, i) => q.v == null ? -1 : i).filter(i => i >= 0).pop();
+      return {yl: y(d.s[li].v), p, k, nombre: d.e.nombre};
+    });
+    const ord = [...lineas].sort((p, q) => p.yl - q.yl); for (let i = 1; i < ord.length; i++) if (ord[i].yl - ord[i - 1].yl < 12) ord[i].yl = ord[i - 1].yl + 12;
+    const paso = Math.max(1, Math.round((hi - lo) / 4)), ticks = []; for (let t = Math.ceil(lo); t <= hi; t += paso) ticks.push(t);
+    const fin = vs[0].s[n - 1].t + (diarioT ? DIA : HORA), t0 = vs[0].s[0].t;
+    const svg = `<svg viewBox="0 0 ${W} ${Hh}" width="100%" role="img" aria-label="Temperatura en ${isla}">
+      ${ejeX(t0, fin, t => P.l + (t - t0) / (fin - t0) * iw, P.t, ih)}
+      ${ticks.map(t => `<line x1="${P.l}" x2="${P.l + iw}" y1="${y(t)}" y2="${y(t)}" stroke="var(--grid)"/><text x="${P.l - 4}" y="${y(t) + 4}" text-anchor="end">${t}°</text>`).join("")}
+      ${lineas.map(l => `<path d="${l.p}" fill="none" stroke="var(${SERIES[l.k]})" stroke-width="2" stroke-linejoin="round"/>`).join("")}
+      ${lineas.map(l => `<text x="${P.l + iw + 6}" y="${l.yl + 4}" style="fill:var(--ink)">${l.nombre}</text>`).join("")}
+      <line class="cross" y1="${P.t}" y2="${P.t + ih}" stroke="var(--mut)" stroke-dasharray="3 3" visibility="hidden"/>
+      <rect x="${P.l}" y="0" width="${iw}" height="${Hh}" fill="transparent"/></svg>`;
+    return {isla, vs, svg, n, x};
+  }).filter(Boolean);
+  cont.innerHTML = bloques.map(b => `<div><div class="t">${b.isla}<span>${diarioT ? "promedio diario" : "promedio por hora"}</span></div><div class="legend">${b.vs.map((d, k) => `<span><i style="background:var(${SERIES[k]})"></i>${d.e.nombre} (${d.e.altitud_m ?? "?"} m)</span>`).join("")}</div>${b.svg}</div>`).join("") || `<p class="empty">Sin datos de temperatura en este período.</p>`;
+  cont.querySelectorAll("svg").forEach((svg, j) => {
+    const bl = bloques[j], cr = svg.querySelector(".cross");
+    svg.onmousemove = ev => {
+      const r = svg.getBoundingClientRect(), i = Math.floor(((ev.clientX - r.left) / r.width * W - P.l) / (iw / bl.n));
+      if (i < 0 || i >= bl.n) { cr.setAttribute("visibility", "hidden"); return ocultar(); }
+      cr.setAttribute("x1", bl.x(i)); cr.setAttribute("x2", bl.x(i)); cr.setAttribute("visibility", "visible");
+      const t = new Date(bl.vs[0].s[i].t);
+      mostrar(ev, `<b>${diarioT ? fDY.format(t) : fH.format(t)}</b><br>` + bl.vs.map((d, k) => `<span style="color:var(${SERIES[k]})">■</span> ${d.e.nombre}: ${num(d.s[i].v)} °C`).join("<br>"));
+    };
+    svg.onmouseleave = () => { cr.setAttribute("visibility", "hidden"); ocultar(); };
+  });
+}
+
+
+// ---------- nivel de inundación (regla preliminar)
+const ICONO = {"muy alto": "■", "alto": "▲", "medio": "◆", "bajo": "●", "sin datos": "○"};
+function inundacion() {
+  const I = E.inundacion; const cont = document.getElementById("zonas");
+  if (!I || !I.zonas) { cont.innerHTML = `<p class="empty">El nivel no está disponible ahora.</p>`; return; }
+  const col = Object.fromEntries(I.umbrales.map(u => [u.nivel, u.color]));
+  const top = I.umbrales[0], zs = I.zonas.filter(z => S.isla === "Todas" || z.isla === S.isla);
+  cont.innerHTML = zs.map(z => {
+    const c = z.color, f = z.factor || 1;
+    const barras = z.nivel === "sin datos" ? "" : ["R1h", "R3h", "R24h"].map(k => {
+      const max = top[k] * f * 1.15, v = z.R[k] ?? 0;
+      const marcas = I.umbrales.slice(0, 3).map(u => `<b style="left:${Math.min(100, u[k] * f / max * 100)}%" title="${u.nivel}: ${num(u[k] * f, 0)} mm"></b>`).join("");
+      return `<span>${k.slice(1)}</span><span class="trk"><i style="width:${Math.min(100, v / max * 100)}%;background:${c}"></i>${marcas}</span><span>${num(v)} mm</span>`;
+    }).join("");
+    const tira = (z.historial_72h || []).map((nv, i) => `<span style="background:${nv ? col[nv] : "var(--gap)"}" title="hace ${72 - i} h: ${nv || "sin datos"}"></span>`).join("");
+    const usadas = (z.estaciones || []).filter(d => d.usada).map(d => d.estacion + (d.peso && d.peso !== 1 ? ` (×${num(d.peso, 2)})` : ""));
+    const fuera = (z.estaciones || []).filter(d => !d.usada).map(d => `${d.estacion}: ${d.motivo}`);
+    return `<div class="zona" style="--zc:${c}">
+      <div class="zn">${z.zona}</div><div class="zi">${z.nota}</div>
+      <div class="nv"><span>${ICONO[z.nivel] || "○"}</span>${z.nivel[0].toUpperCase() + z.nivel.slice(1)}</div>
+      <div class="pr">${z.probabilidad ? `Inundación <b>${z.probabilidad}</b> <span style="color:var(--mut)">(juicio experto, sin base estadística)</span>` : "No hay estaciones válidas en esta zona."}</div>
+      ${z.silencio ? `<div class="det" style="color:var(--crit)">▲ Las estaciones dejaron de transmitir durante una alerta: se asume lo peor.</div>` : ""}
+      ${z.ultimo_nivel && !z.silencio ? `<div class="det">Último nivel con datos: <b>${z.ultimo_nivel}</b>${z.nivel === "sin datos" ? " (falla la recolección o no hay estaciones válidas)" : ""}</div>` : ""}
+      ${z.nivel_instantaneo && z.nivel_instantaneo !== z.nivel && !z.silencio ? `<div class="det">Se mantiene por persistencia (${I.persistencia_horas || 8} h); la lluvia de ahora indica «${z.nivel_instantaneo}».</div>` : ""}
+      ${barras ? `<div class="rr">${barras}</div>` : ""}
+      ${z.humedad ? `<div class="det">Suelo ${z.humedad}: ${num(z.P5d)} mm en los 5 días previos${f !== 1 ? ` → umbrales ×${num(f, 1)}` : ""}</div>` : ""}
+      ${tira ? `<div class="tira" title="Últimas 72 horas">${tira}</div><div class="det" style="display:flex;justify-content:space-between"><span>hace 72 h</span><span>ahora</span></div>` : ""}
+      <div class="det">${usadas.length ? "Con: " + usadas.join(", ") : ""}${fuera.length ? `<br>Excluidas: ${fuera.join("; ")}` : ""}</div>
+    </div>`;
+  }).join("");
+  document.getElementById("aviso").textContent = I.advertencia;
+  document.getElementById("metodo").innerHTML = `<p>Se toma la lluvia de referencia de cada zona (R) como la mayor entre sus estaciones válidas, con un peso por estación, y se compara con los umbrales en 1, 3 y 24 horas. Basta que una ventana supere un umbral. Los umbrales bajan un 20 % si el suelo está húmedo (más de 53 mm en los 5 días previos). El nivel se mantiene ${I.persistencia_horas || 8} horas, porque la crecida llega 1,5–3,5 h después de la lluvia y el agua tarda en bajar. Si las estaciones dejan de transmitir con el nivel en «alto» o más, el nivel pasa a «muy alto»: el silencio durante una alerta se trata como alarma. Una estación se excluye si en la última hora o en las últimas 3 horas recibió menos del 80 % de sus datos, o si marca 0 mm mientras otra registra 10 mm o más en 3 h. Versión ${I.version}, revisada por el comité de estudios; calibrada con un solo evento (30-oct-2026). Sus limitaciones: Santa Rosa y Los Guayabillos están fuera de la cuenca de La Cascada, y que no conste una inundación no significa que no la hubo.</p>
+    <table><thead><tr><th>Nivel</th><th>1 h</th><th>3 h</th><th>24 h</th><th>Probabilidad (cualitativa)</th></tr></thead><tbody>${I.umbrales.map(u => `<tr><td><span style="color:${u.color}">${ICONO[u.nivel]}</span> ${u.nivel}</td><td>${u.R1h ? "≥ " + u.R1h : "—"}</td><td>${u.R3h ? "≥ " + u.R3h : "—"}</td><td>${u.R24h ? "≥ " + u.R24h : "—"}</td><td>${u.prob}</td></tr>`).join("")}</tbody></table>`;
+}
+
+// ---------- estacionalidad
+const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+const SER_KEY = {"puerto-ayora": "inamhi/M0191", junco: "gsc/junco", cerro_alto: "gsc/cerro_alto", mirador: "gsc/mirador", merceditas: "gsc/merceditas"};
+let SEST = null;
+function max24(k, a, b) { return k ? maximos(k, a, b) : null; }
+function estacionalidad() {
+  const X = D.estacionalidad; if (!X || !X.series) return;
+  const series = X.series.filter(x => S.isla === "Todas" || x.isla === S.isla);
+  if (!series.length) { document.getElementById("estacionalidad").style.display = "none"; return; }
+  document.getElementById("estacionalidad").style.display = "";
+  if (!series.find(x => x.id === SEST)) SEST = series[0].id;
+  const seg = document.getElementById("serieEst");
+  seg.innerHTML = series.map(x => `<button class="${x.id === SEST ? "on" : ""}" data-id="${x.id}">${x.nombre}</button>`).join("");
+  seg.querySelectorAll("button").forEach(b => b.onclick = () => { SEST = b.dataset.id; estacionalidad(); });
+  const x = series.find(y => y.id === SEST), anio = String(new Date().getFullYear()), prev = String(+anio - 1);
+  // --- meses
+  const W = 560, Hh = 230, P = {l: 38, r: 8, t: 8, b: 20}, iw = W - P.l - P.r, ih = Hh - P.t - P.b, bw = iw / 12;
+  const vals = [...x.mensual.map(m => m.p90), ...x.nino, ...(x.anios[anio] || []), ...(x.anios[prev] || [])].filter(v => v != null);
+  const ymax = Math.max(10, ...vals) * 1.08, y = v => P.t + ih - v / ymax * ih, cx = i => P.l + (i + .5) * bw;
+  const paso = ymax > 400 ? 100 : ymax > 200 ? 50 : ymax > 80 ? 20 : 10, ticks = []; for (let t = 0; t <= ymax; t += paso) ticks.push(t);
+  let g = ticks.map(t => `<line x1="${P.l}" x2="${W - P.r}" y1="${y(t)}" y2="${y(t)}" stroke="var(--grid)"/><text x="${P.l - 4}" y="${y(t) + 4}" text-anchor="end">${t}</text>`).join("");
+  x.mensual.forEach((m, i) => {
+    if (m.p10 == null) return;
+    g += `<rect x="${cx(i) - bw * .3}" y="${y(m.p90)}" width="${bw * .6}" height="${Math.max(1, y(m.p10) - y(m.p90))}" rx="3" fill="var(--q0)"/>`;
+    g += `<line x1="${cx(i) - bw * .3}" x2="${cx(i) + bw * .3}" y1="${y(m.p50)}" y2="${y(m.p50)}" stroke="var(--q3)" stroke-width="2"/>`;
+    g += `<text x="${cx(i)}" y="${Hh - 4}" text-anchor="middle">${MESES[i]}</text>`;
+  });
+  const pts = arr => arr.map((v, i) => v == null ? null : [cx(i), y(v)]);
+  const linea = arr => { let d = "", on = false; pts(arr).forEach(q => { if (!q) { on = false; return; } d += (on ? "L" : "M") + q[0].toFixed(1) + "," + q[1].toFixed(1); on = true; }); return d; };
+  g += `<path d="${linea(x.nino)}" fill="none" stroke="var(--evt)" stroke-width="2" stroke-dasharray="5 3"/>`;
+  (x.anios[prev] || []).forEach((v, i) => { if (v != null) g += `<circle cx="${cx(i)}" cy="${y(v)}" r="3.5" fill="#fff" stroke="#8a8984" stroke-width="1.5"/>`; });
+  (x.anios[anio] || []).forEach((v, i) => { if (v != null) { const ok = x.mes_completo[anio]?.[i]; g += `<circle cx="${cx(i)}" cy="${y(v)}" r="4.5" fill="${ok ? "var(--rain)" : "#fff"}" stroke="var(--rain)" stroke-width="2"/>`; } });
+  g += `<rect class="hit" x="${P.l}" y="0" width="${iw}" height="${Hh}" fill="transparent"/>`;
+  document.getElementById("legMes").innerHTML = `<span><i class="sq" style="background:var(--q0)"></i>rango habitual (p10–p90)</span><span><i style="background:var(--q3)"></i>mediana</span><span><i class="dash" style="border-color:var(--evt)"></i>años El Niño fuerte</span><span><i class="sq" style="background:var(--rain);border-radius:50%"></i>${anio}</span><span><i class="sq" style="background:#fff;border:1.5px solid #8a8984;border-radius:50%"></i>${prev}</span>`;
+  const mc = document.getElementById("mesChart");
+  mc.innerHTML = `<svg viewBox="0 0 ${W} ${Hh}" width="100%" role="img" aria-label="Lluvia mensual en ${x.nombre}">${g}</svg>`;
+  mc.querySelector("svg").onmousemove = ev => {
+    const r = ev.currentTarget.getBoundingClientRect(), i = Math.floor(((ev.clientX - r.left) / r.width * W - P.l) / bw);
+    if (i < 0 || i > 11) return ocultar(); const m = x.mensual[i];
+    mostrar(ev, `<b>${x.nombre} · ${MESES[i]}</b><br>Mediana ${num(m.p50, 0)} mm · media ${num(m.media, 0)} mm<br>Rango habitual ${num(m.p10, 0)}–${num(m.p90, 0)} mm (${m.n} años)<br><span style="color:var(--evt)">El Niño fuerte: ${num(x.nino[i], 0)} mm</span><br>${anio}: ${x.anios[anio]?.[i] == null ? "sin datos" : num(x.anios[anio][i], 0) + " mm" + (x.mes_completo[anio]?.[i] ? "" : " (mes incompleto)")}<br>${prev}: ${x.anios[prev]?.[i] == null ? "sin datos" : num(x.anios[prev][i], 0) + " mm"}`);
+  };
+  mc.querySelector("svg").onmouseleave = ocultar;
+  // --- semanas
+  const W2 = 440, H2 = 230, Q = {l: 34, r: 8, t: 8, b: 20}, jw = W2 - Q.l - Q.r, jh = H2 - Q.t - Q.b;
+  const pmax = Math.min(1, Math.max(.1, ...x.prob_semanal["1"]) * 1.1), yy = v => Q.t + jh - v / pmax * jh, xx = w => Q.l + (w + .5) * jw / 52;
+  const sem = Math.min(51, Math.floor((Date.now() - Date.UTC(new Date().getUTCFullYear(), 0, 1)) / (7 * DIA)));
+  const cols = {"1": "--q1", "10": "--q2", "25": "--q4"};
+  let g2 = [0, .25, .5, .75, 1].filter(v => v <= pmax).map(v => `<line x1="${Q.l}" x2="${W2 - Q.r}" y1="${yy(v)}" y2="${yy(v)}" stroke="var(--grid)"/><text x="${Q.l - 4}" y="${yy(v) + 4}" text-anchor="end">${v * 100}%</text>`).join("");
+  MESES.forEach((m, i) => { const w = i * 52 / 12; g2 += `<text x="${Q.l + w * jw / 52 + 2}" y="${H2 - 4}">${m}</text>`; });
+  g2 += `<line x1="${xx(sem)}" x2="${xx(sem)}" y1="${Q.t}" y2="${Q.t + jh}" stroke="var(--ink)" stroke-dasharray="2 2"/><text x="${xx(sem) + 3}" y="${Q.t + 10}" style="fill:var(--ink)">hoy</text>`;
+  Object.entries(cols).forEach(([u, c]) => { g2 += `<path d="${x.prob_semanal[u].map((v, w) => (w ? "L" : "M") + xx(w).toFixed(1) + "," + yy(v).toFixed(1)).join("")}" fill="none" stroke="var(${c})" stroke-width="2"/>`; });
+  g2 += `<rect x="${Q.l}" y="0" width="${jw}" height="${H2}" fill="transparent"/>`;
+  document.getElementById("legSem").innerHTML = Object.entries(cols).map(([u, c]) => `<span><i style="background:var(${c})"></i>≥ ${u} mm en el día</span>`).join("");
+  const sc = document.getElementById("semChart");
+  sc.innerHTML = `<svg viewBox="0 0 ${W2} ${H2}" width="100%" role="img" aria-label="Probabilidad semanal de lluvia en ${x.nombre}">${g2}</svg>`;
+  sc.querySelector("svg").onmousemove = ev => {
+    const r = ev.currentTarget.getBoundingClientRect(), w = Math.floor(((ev.clientX - r.left) / r.width * W2 - Q.l) / (jw / 52));
+    if (w < 0 || w > 51) return ocultar();
+    const d = new Date(Date.UTC(2001, 0, 1 + w * 7 + 3));
+    mostrar(ev, `<b>Semana del ${d.getUTCDate()} ${MESES[d.getUTCMonth()]}</b><br>` + Object.keys(cols).map(u => `≥ ${u} mm: ${num(x.prob_semanal[u][w] * 100, 0)} % de los días`).join("<br>"));
+  };
+  sc.querySelector("svg").onmouseleave = ocultar;
+  // --- retorno (todas las series visibles)
+  const ev0 = E.eventos[0], ea = Date.parse(ev0.desde), eb = Date.parse(ev0.hasta), b = tH(ahoraI());
+  document.getElementById("retorno").innerHTML = `<thead><tr><th>Serie</th><th>2 años</th><th>5 años</th><th>10 años</th><th>25 años</th><th>50 años</th><th>Últimas 24 h</th><th>Inundación 30–31 oct (máx. 24 h)</th><th>Récord anual</th></tr></thead><tbody>` +
+    series.map(z => {
+      const k = SER_KEY[z.id], est = k && E.estaciones.find(e => clave(e) === k), ult = est?.lluvia?.["24h"];
+      const evm = k ? maximos(k, ea, eb) : null, rt = z.retorno_24h || {};
+      const per = v => { if (v == null || !z.retorno_24h) return ""; const T = [2, 5, 10, 25, 50].filter(t => v >= rt[t]).pop(); return T ? ` <span class="m">≥ ${T} años</span>` : ""; };
+      return `<tr><td><span class="n">${z.nombre}</span><span class="m">${z.operador} · ${z.anios_completos} años completos desde ${z.desde.slice(0, 4)}</span></td>` +
+        (z.retorno_24h ? [2, 5, 10, 25, 50].map(t => `<td>${num(rt[t], 0)} mm</td>`).join("") : `<td colspan="5" style="text-align:center;color:var(--mut)">registro demasiado corto</td>`) +
+        `<td>${ult == null ? "—" : num(ult) + " mm" + per(ult)}</td><td>${evm && evm.horas - evm.falta > 0 ? num(evm.m24) + " mm" + per(evm.m24) : "—"}</td><td>${z.max_anual_top?.[0] ? `${num(z.max_anual_top[0][1], 0)} mm (${z.max_anual_top[0][0]})` : "—"}</td></tr>`;
+    }).join("") + "</tbody>";
+  document.getElementById("notaEst").innerHTML = `Modelo estadístico simple a partir de series diarias: rango habitual por mes (percentiles 10–90), composición de años El Niño fuerte (${x.nino_anios.map(a => `${a}–${String(a + 1).slice(2)}`).join(", ")}), probabilidad diaria suavizada ±15 días y periodo de retorno con una distribución de Gumbel sobre los máximos anuales de lluvia diaria. «Periodo de retorno de 10 años» significa un 10 % de probabilidad de superarse en un año cualquiera. Serie ${x.nombre}: ${x.dias.toLocaleString("es-EC")} días entre ${x.desde} y ${x.hasta}. Los círculos vacíos del año en curso son meses incompletos.`;
+}
+
+// ---------- nivel del mar
+function mar() {
+  const ks = Object.keys(H.series).filter(k => k.startsWith("ioc/") && H.series[k].nivel_mar_m);
+  const card = document.getElementById("mar");
+  const vis = ks.filter(k => { const e = E.estaciones.find(x => clave(x) === k); return e && (S.isla === "Todas" || e.isla === S.isla || (S.isla === "Santa Cruz" && e.isla === "Baltra")); });
+  if (!vis.length) { card.style.display = "none"; return; } card.style.display = "";
+  const b = tH(ahoraI()), a = b - 72 * HORA;
+  const W = 420, Hh = 150, P = {l: 38, r: 8, t: 8, b: 18}, iw = W - P.l - P.r, ih = Hh - P.t - P.b;
+  document.getElementById("legMar").innerHTML = "";
+  const html = vis.map((k, j) => {
+    const e = E.estaciones.find(x => clave(x) === k), s = horaria(k, a, b, "nivel_mar_m"), v = s.filter(q => q.v != null).map(q => q.v);
+    if (!v.length) return "";
+    const lo = Math.min(...v) - .1, hi = Math.max(...v) + .1, y = q => P.t + ih - (q - lo) / (hi - lo) * ih, x = i => P.l + (i + .5) * iw / s.length;
+    let d = "", on = false; s.forEach((q, i) => { if (q.v == null) { on = false; return; } d += (on ? "L" : "M") + x(i).toFixed(1) + "," + y(q.v).toFixed(1); on = true; });
+    const t = [lo, (lo + hi) / 2, hi];
+    return `<div><div class="t">${e.nombre}<span>ahora ${num(e.actual?.nivel_mar_m, 2)} m</span></div><svg viewBox="0 0 ${W} ${Hh}" width="100%" role="img" aria-label="Nivel del mar en ${e.nombre}">
+      ${ejeX(a, b, tt => P.l + (tt - a) / (b - a) * iw, P.t, ih)}
+      ${t.map(q => `<line x1="${P.l}" x2="${W - P.r}" y1="${y(q)}" y2="${y(q)}" stroke="var(--grid)"/><text x="${P.l - 4}" y="${y(q) + 4}" text-anchor="end">${num(q, 1)}</text>`).join("")}
+      <path d="${d}" fill="none" stroke="var(--s${j + 1})" stroke-width="2"/></svg></div>`;
+  }).join("");
+  document.getElementById("marChart").className = "sm"; document.getElementById("marChart").innerHTML = html;
+}
+
+// ---------- controles del explorador
+const sel = (id, fn) => document.querySelectorAll(`#${id} button`).forEach(b => b.onclick = () => { fn(b); explorador(); });
+sel("periodo", b => { S.per = b.dataset.h === "todo" ? "todo" : +b.dataset.h; S.desde = S.hasta = null;
+  const h = S.per === "todo" ? 1e9 : S.per; S.g = h <= 72 ? 1 : h <= 168 ? S.g : h <= 720 ? Math.max(S.g, 6) : 24; });
+sel("grupo", b => { S.g = +b.dataset.g; });
+sel("vista", b => { S.vista = b.dataset.v; });
+document.getElementById("comparar").onchange = ev => { S.cmp = ev.target.value; explorador(); };
+["desde", "hasta"].forEach(id => document.getElementById(id).onchange = () => {
+  const d = document.getElementById("desde").value, h = document.getElementById("hasta").value;
+  if (d && h && d <= h) { S.desde = d; S.hasta = h; const dias = (Date.parse(h) - Date.parse(d)) / DIA + 1; S.g = dias <= 3 ? 1 : dias <= 10 ? S.g : dias <= 40 ? Math.max(S.g, 6) : 24; explorador(); }
+});
+document.getElementById("irEvento").onclick = () => { S.desde = "2026-10-29"; S.hasta = "2026-11-01"; S.g = 1; S.cmp = ""; document.getElementById("comparar").value = ""; explorador(); document.getElementById("explorador").scrollIntoView({behavior: "smooth"}); };
+
+cargar();
+setInterval(cargar, 5 * 60 * 1000);
+</script>
+</body>
+</html>

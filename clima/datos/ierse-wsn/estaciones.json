@@ -1,0 +1,38 @@
+{
+ "n_glps01": {
+  "node_id": "n_glps01",
+  "node_lat": -0.642398,
+  "node_location": "Estación Cerro Crocker",
+  "node_long": -90.326,
+  "node_name": "Cerro Crocker",
+  "primer_dia": "2026-04-23",
+  "ultimo_dia": "2026-11-02"
+ },
+ "n_glps05": {
+  "node_id": "n_glps05",
+  "node_lat": -0.699079,
+  "node_location": "Estación Los Guayabillos",
+  "node_long": -90.341962,
+  "node_name": "Los Guayabillos",
+  "primer_dia": "2026-04-24",
+  "ultimo_dia": "2026-11-02"
+ },
+ "n_glps06": {
+  "node_id": "n_glps06",
+  "node_lat": -0.489962,
+  "node_location": "Estación Militar",
+  "node_long": -90.2808,
+  "node_name": "Militar",
+  "primer_dia": "2026-04-24",
+  "ultimo_dia": "2026-11-02"
+ },
+ "n_glps09": {
+  "node_id": "n_glps09",
+  "node_lat": -0.654547,
+  "node_location": "Estación Santa Rosa",
+  "node_long": -90.403519,
+  "node_name": "Santa Rosa",
+  "primer_dia": "2026-05-07",
+  "ultimo_dia": "2026-11-02"
+ }
+}

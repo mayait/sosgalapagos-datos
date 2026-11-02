@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+recolector/clima.db*
+recolector/salida/
+recolector/privado/
+puente/puente.db*
+puente/salida/
+puente/privado/
+puente/.ultimo_envio
+privado/

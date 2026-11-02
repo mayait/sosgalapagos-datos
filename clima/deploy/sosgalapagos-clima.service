@@ -1,0 +1,27 @@
+[Unit]
+Description=SOS Galápagos · recolector meteorológico (una corrida)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=clima
+Group=clima
+Environment=CLIMA_DB=/var/lib/sosgalapagos-clima/clima.db
+Environment=CLIMA_SALIDA=/srv/sosgalapagos-clima/datos
+# IERSE llega por el puente (puente/puente_ierse.sh): el servidor no lo alcanza
+Environment=CLIMA_FUENTES=gsc,inamhi,ioc,metar,weatherlink
+Environment=CLIMA_PRIVADO=/var/lib/sosgalapagos-clima/privado
+Environment=CLIMA_FCD_DIR=/var/lib/sosgalapagos-clima/fcd
+# Endpoints de las fuentes (no versionados; los copia deploy/publicar.sh)
+EnvironmentFile=-/etc/sosgalapagos-clima/fuentes.env
+WorkingDirectory=/opt/sosgalapagos-clima
+ExecStart=/opt/sosgalapagos-clima/.venv/bin/python -I /opt/sosgalapagos-clima/recolector.py
+TimeoutStartSec=240
+Nice=10
+# Endurecimiento: solo escribe en su base y en la carpeta pública
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+ReadWritePaths=/var/lib/sosgalapagos-clima /srv/sosgalapagos-clima
