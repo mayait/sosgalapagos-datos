@@ -738,6 +738,230 @@
    },
    "celdas_dominio": 80444,
    "area_dominio_km2": 18.1
+  },
+  "traz_galapagos_15m": {
+   "descripcion": "Trazador: agua de la Galápagos/Barrio Frío aguas arriba de la ciudad (tormenta trasladada, 15 m)",
+   "celda_m": 15.0,
+   "trazador_puntos": [
+    [
+     -89.59376,
+     -0.90615
+    ],
+    [
+     -89.59188,
+     -0.91157
+    ],
+    [
+     -89.59376,
+     -0.90805
+    ],
+    [
+     -89.59619,
+     -0.91347
+    ],
+    [
+     -89.59996,
+     -0.91211
+    ],
+    [
+     -89.59323,
+     -0.91374
+    ]
+   ],
+   "vol_lluvia_neta_marcada_m3": 692175,
+   "salidas_al_mar": {
+    "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+     "vol_m3": 805757,
+     "vol_trazador_m3": 466455,
+     "fraccion_del_trazador": 0.674
+    },
+    "Centro: muelles de pasajeros y de pescadores": {
+     "vol_m3": 13719,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Divino Niño (Playa de Oro)": {
+     "vol_m3": 142026,
+     "vol_trazador_m3": 230,
+     "fraccion_del_trazador": 0.0
+    },
+    "Playa Mann sur (S03; Alvear según el D8)": {
+     "vol_m3": 65474,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Playa Mann frente al campus": {
+     "vol_m3": 2063,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Norte de Playa Mann (S04)": {
+     "vol_m3": 8468,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "resto de la costa": {
+     "vol_m3": 35139,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "bordes del dominio (tierra)": {
+     "vol_m3": 310327,
+     "vol_trazador_m3": 9471,
+     "fraccion_del_trazador": 0.014
+    }
+   },
+   "trazador_almacenado_al_final_m3": 216019,
+   "balance_masa": {
+    "lluvia_neta_m3": 1703258,
+    "salida_mar_y_contornos_m3": 1382974,
+    "almacenado_final_m3": 320284,
+    "error_relativo": 0.0
+   }
+  },
+  "traz_divinonino_15m": {
+   "descripcion": "Trazador: agua de Divino Niño aguas arriba de la ciudad (tormenta trasladada, 15 m)",
+   "celda_m": 15.0,
+   "trazador_puntos": [
+    [
+     -89.60345,
+     -0.89963
+    ],
+    [
+     -89.60022,
+     -0.90397
+    ]
+   ],
+   "vol_lluvia_neta_marcada_m3": 75709,
+   "salidas_al_mar": {
+    "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+     "vol_m3": 805757,
+     "vol_trazador_m3": 1264,
+     "fraccion_del_trazador": 0.017
+    },
+    "Centro: muelles de pasajeros y de pescadores": {
+     "vol_m3": 13719,
+     "vol_trazador_m3": 2,
+     "fraccion_del_trazador": 0.0
+    },
+    "Divino Niño (Playa de Oro)": {
+     "vol_m3": 142026,
+     "vol_trazador_m3": 57078,
+     "fraccion_del_trazador": 0.754
+    },
+    "Playa Mann sur (S03; Alvear según el D8)": {
+     "vol_m3": 65474,
+     "vol_trazador_m3": 674,
+     "fraccion_del_trazador": 0.009
+    },
+    "Playa Mann frente al campus": {
+     "vol_m3": 2063,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Norte de Playa Mann (S04)": {
+     "vol_m3": 8468,
+     "vol_trazador_m3": 2,
+     "fraccion_del_trazador": 0.0
+    },
+    "resto de la costa": {
+     "vol_m3": 35139,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "bordes del dominio (tierra)": {
+     "vol_m3": 310327,
+     "vol_trazador_m3": 495,
+     "fraccion_del_trazador": 0.007
+    }
+   },
+   "trazador_almacenado_al_final_m3": 16195,
+   "balance_masa": {
+    "lluvia_neta_m3": 1703258,
+    "salida_mar_y_contornos_m3": 1382974,
+    "almacenado_final_m3": 320284,
+    "error_relativo": 0.0
+   }
+  },
+  "traz_galapagos_100mm_15m": {
+   "descripcion": "Trazador Galápagos con 100 mm SCS II (15 m)",
+   "celda_m": 15.0,
+   "trazador_puntos": [
+    [
+     -89.59376,
+     -0.90615
+    ],
+    [
+     -89.59188,
+     -0.91157
+    ],
+    [
+     -89.59376,
+     -0.90805
+    ],
+    [
+     -89.59619,
+     -0.91347
+    ],
+    [
+     -89.59996,
+     -0.91211
+    ],
+    [
+     -89.59323,
+     -0.91374
+    ]
+   ],
+   "vol_lluvia_neta_marcada_m3": 243112,
+   "salidas_al_mar": {
+    "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+     "vol_m3": 260569,
+     "vol_trazador_m3": 117523,
+     "fraccion_del_trazador": 0.483
+    },
+    "Centro: muelles de pasajeros y de pescadores": {
+     "vol_m3": 5719,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Divino Niño (Playa de Oro)": {
+     "vol_m3": 48042,
+     "vol_trazador_m3": 50,
+     "fraccion_del_trazador": 0.0
+    },
+    "Playa Mann sur (S03; Alvear según el D8)": {
+     "vol_m3": 19631,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Playa Mann frente al campus": {
+     "vol_m3": 844,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Norte de Playa Mann (S04)": {
+     "vol_m3": 2369,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "resto de la costa": {
+     "vol_m3": 12881,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "bordes del dominio (tierra)": {
+     "vol_m3": 96977,
+     "vol_trazador_m3": 2950,
+     "fraccion_del_trazador": 0.012
+    }
+   },
+   "trazador_almacenado_al_final_m3": 122589,
+   "balance_masa": {
+    "lluvia_neta_m3": 641670,
+    "salida_mar_y_contornos_m3": 447032,
+    "almacenado_final_m3": 194637,
+    "error_relativo": 0.0
+   }
   }
  }
 }

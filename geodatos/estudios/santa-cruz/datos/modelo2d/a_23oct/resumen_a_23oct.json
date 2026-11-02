@@ -7,7 +7,7 @@
   "lluvia": "grad",
   "evento": "23oct"
  },
- "motor": "LISFLOOD-ACC (Bates et al. 2010), numpy",
+ "motor": "LISFLOOD-ACC (Bates et al. 2010; θ = 0,8 de Almeida et al. 2012), numpy",
  "celdas": 57955,
  "celda_m": 30.0,
  "area_km2": 52.16,
@@ -17,8 +17,8 @@
  "factor_S_calibrado": 0.648,
  "escorrentia_objetivo_mm": 11.4,
  "perdidas_ilcl": null,
- "pasos": 18480,
- "tiempo_ejecucion_s": 41,
+ "pasos": 18072,
+ "tiempo_ejecucion_s": 54,
  "puntos": {
   "La Cascada (punto bajo)": {
    "calado_max_m": 0.0,
@@ -35,9 +35,9 @@
    "velocidad_max_ms": 0.0
   },
   "La Cascada (entrada rama N)": {
-   "calado_max_m": 0.04,
-   "nivel_max_m": 16.22,
-   "hora_calado_max": "2026-10-23T20:00",
+   "calado_max_m": 0.0,
+   "nivel_max_m": 16.18,
+   "hora_calado_max": "2026-10-23T00:00",
    "hora_llegada_0.1m": null,
    "velocidad_max_ms": 0.0
   },
@@ -49,18 +49,18 @@
    "velocidad_max_ms": 0.0
   },
   "Tomás de Berlanga (cauce)": {
-   "calado_max_m": 0.05,
+   "calado_max_m": 0.04,
    "nivel_max_m": 119.59,
-   "hora_calado_max": "2026-10-23T09:54",
+   "hora_calado_max": "2026-10-23T10:56",
    "hora_llegada_0.1m": null,
    "velocidad_max_ms": 0.0
   },
   "Bellavista (centro, llegada SC-003)": {
-   "calado_max_m": 0.21,
-   "nivel_max_m": 187.14,
-   "hora_calado_max": "2026-10-23T07:22",
-   "hora_llegada_0.1m": "2026-10-23T07:13",
-   "velocidad_max_ms": 0.43
+   "calado_max_m": 0.16,
+   "nivel_max_m": 187.09,
+   "hora_calado_max": "2026-10-23T07:47",
+   "hora_llegada_0.1m": "2026-10-23T07:37",
+   "velocidad_max_ms": 0.36
   },
   "Matazarnos (vaso SC-002)": {
    "calado_max_m": 0.0,
@@ -98,18 +98,18 @@
    "velocidad_max_ms": 0.0
   },
   "Cruce CR-SCZ-0016 ((sin nombre), 9.7 km²)": {
-   "calado_max_m": 0.08,
+   "calado_max_m": 0.07,
    "nivel_max_m": 115.17,
-   "hora_calado_max": "2026-10-23T10:00",
+   "hora_calado_max": "2026-10-23T11:02",
    "hora_llegada_0.1m": null,
-   "velocidad_max_ms": 0.58
+   "velocidad_max_ms": 0.54
   },
   "Cruce CR-SCZ-0020 ((sin nombre), 8.9 km²)": {
-   "calado_max_m": 0.08,
-   "nivel_max_m": 130.06,
-   "hora_calado_max": "2026-10-23T09:04",
+   "calado_max_m": 0.07,
+   "nivel_max_m": 130.05,
+   "hora_calado_max": "2026-10-23T10:00",
    "hora_llegada_0.1m": null,
-   "velocidad_max_ms": 0.52
+   "velocidad_max_ms": 0.46
   },
   "Cruce CR-SCZ-0019 ((sin nombre), 8.9 km²)": {
    "calado_max_m": 0.0,
@@ -120,13 +120,13 @@
   }
  },
  "entrada_la_cascada": {
-  "q_max_m3s": 1.3,
+  "q_max_m3s": 0.0,
   "hora_q_max": "2026-10-23T20:00",
-  "volumen_m3": 3266
+  "volumen_m3": 0
  },
  "salida_mar": {
-  "q_max_m3s": 0.1,
-  "hora": "2026-10-23T00:19",
+  "q_max_m3s": 0.0,
+  "hora": "2026-10-23T00:10",
   "volumen_m3": -1675
  },
  "balance_m3": {
@@ -136,9 +136,9 @@
   "en_tierra_final": 525788
  },
  "area_inundada_ha": {
-  "0,1–0,5 m": 55.2,
-  "0,5–1 m": 14.2,
-  "1–2 m": 8.1,
+  "0,1–0,5 m": 48.4,
+  "0,5–1 m": 13.6,
+  "1–2 m": 7.7,
   "> 2 m": 4.0
  }
 }

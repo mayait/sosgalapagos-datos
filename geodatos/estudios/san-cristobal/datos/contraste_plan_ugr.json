@@ -1,0 +1,982 @@
+{
+ "fuente": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+ "nota": "Fuente interna del GAD; se cita, no se reproduce.",
+ "correspondencia": {
+  "PBM-L01": {
+   "cañada_oficial": "Galápagos / Barrio Frío",
+   "confianza": "alta",
+   "motivo": "Mayor cuenca (5,4 km²) que nace en la zona rural y llega al Malecón; el plan la describe como la principal."
+  },
+  "PBM-L02": {
+   "cañada_oficial": "La Planada → Manzanillo – El Manantial",
+   "confianza": "media",
+   "motivo": "Entra por La Planada (registro SNGR de 2025 a 210 m) y baja por El Manzanillo (registros de 2019 y 2023): el plan dice que El Manzanillo tiene «ramificaciones que bajan desde La Planada»."
+  },
+  "PBM-L03": {
+   "cañada_oficial": "Divino Niño",
+   "confianza": "alta",
+   "motivo": "Desemboca en Playa de Oro (OSM), como dice el plan; pasa a 200 m del Hospital Oskar Jandl."
+  },
+  "PBM-L04": {
+   "cañada_oficial": "Alejandro Alvear",
+   "confianza": "media",
+   "motivo": "Nace en el Parque y baja junto a la E. E. B. Alejandro Alvear (Playa Mann); alternativa: rama de Playa Mann."
+  },
+  "PBM-L05": {
+   "cañada_oficial": "Playa Mann",
+   "confianza": "media",
+   "motivo": "Quebrada del campus: pasa junto a las oficinas del PNG y, en la rejilla original y en el 2D, llega a Playa Mann."
+  },
+  "PBM-L06": {
+   "cañada_oficial": "Cerro Quemado / Don García",
+   "confianza": "baja",
+   "motivo": "Ladera sur (Estación Terrena); según el D8 drena a Barrio Frío y no a la mina de Cerro Quemado."
+  },
+  "PBM-L07": {
+   "cañada_oficial": "Palmeras – Arrayanes",
+   "confianza": "baja",
+   "motivo": "Llega del Parque al este, entre Las Palmeras (IGM) y la entrada de la Galápagos, y se une a ella."
+  },
+  "PBM-L08": {
+   "cañada_oficial": "Manzanillo – El Manantial",
+   "confianza": "media-baja",
+   "motivo": "Ramal sur que baja desde La Planada hacia El Manzanillo."
+  },
+  "PBM-L09": {
+   "cañada_oficial": "Manzanillo – El Manantial",
+   "confianza": "media-baja",
+   "motivo": "Ramal que baja al barrio Manzanillo (IGM) y se une a la Galápagos."
+  },
+  "PBM-L10": {
+   "cañada_oficial": "Cerro Quemado / Don García",
+   "confianza": "baja",
+   "motivo": "Ladera junto a las canteras de Cerro Quemado (IGM/OSM)."
+  },
+  "PBM-L11": {
+   "cañada_oficial": "Divino Niño",
+   "confianza": "media",
+   "motivo": "Ramal sur de Divino Niño, junto al Colegio Ignacio Hernández y la vía Jaime Roldós."
+  },
+  "PBM-L12": {
+   "cañada_oficial": "Playa Mann",
+   "confianza": "baja",
+   "motivo": "Cauce pequeño al norte de Playa Mann; puede ser otro ramal de Playa Mann."
+  },
+  "PBM-L13": {
+   "cañada_oficial": "Alejandro Alvear",
+   "confianza": "media-baja",
+   "motivo": "Afluente del ramal de Alvear."
+  },
+  "PBM-L14": {
+   "cañada_oficial": "La Planada",
+   "confianza": "media-baja",
+   "motivo": "Ramal alto de La Planada."
+  },
+  "PBM-S01": {
+   "cañada_oficial": "Galápagos / Barrio Frío",
+   "confianza": "alta",
+   "motivo": "Desembocadura en Bahía Naufragio, en la playa de Barrio Frío (Poza de las Garzas)."
+  },
+  "PBM-S02": {
+   "cañada_oficial": "Divino Niño",
+   "confianza": "alta",
+   "motivo": "Playa de Oro (OSM, a 60 m)."
+  },
+  "PBM-S03": {
+   "cañada_oficial": "Alejandro Alvear",
+   "confianza": "media",
+   "motivo": "Pasa junto a la E. E. B. Alejandro Alvear y desemboca a 115 m de una pasarela de muelle (OSM)."
+  },
+  "PBM-S04": {
+   "cañada_oficial": "Playa Mann",
+   "confianza": "baja",
+   "motivo": "Desemboca al norte de Playa Mann."
+  },
+  "V22": {
+   "cañada_oficial": "Galápagos / Barrio Frío",
+   "confianza": "alta",
+   "motivo": "Boca de la Galápagos en la playa de Barrio Frío."
+  },
+  "V12": {
+   "cañada_oficial": "Galápagos / Barrio Frío",
+   "confianza": "baja",
+   "motivo": "Zona baja del centro, entre las bocas de la Galápagos y de Divino Niño."
+  },
+  "V13": {
+   "cañada_oficial": "Galápagos / Barrio Frío",
+   "confianza": "baja",
+   "motivo": "Zona baja del centro (registro SNGR de Barrio Frío de 2024)."
+  },
+  "V24": {
+   "cañada_oficial": "Galápagos / Barrio Frío",
+   "confianza": "baja",
+   "motivo": "Zona baja del centro."
+  },
+  "V15": {
+   "cañada_oficial": "La Planada",
+   "confianza": "media",
+   "motivo": "Sector La Planada (registro SNGR de 2025)."
+  },
+  "V16": {
+   "cañada_oficial": "Manzanillo – El Manantial",
+   "confianza": "media-baja",
+   "motivo": "Ladera de El Manzanillo (registro SNGR de 2023)."
+  },
+  "V19": {
+   "cañada_oficial": "Cerro Quemado / Don García",
+   "confianza": "baja",
+   "motivo": "Ladera suroeste, cerca de Estación Terrena."
+  },
+  "V21": {
+   "cañada_oficial": "Divino Niño",
+   "confianza": "baja",
+   "motivo": "Ramal sur de Divino Niño."
+  },
+  "PRO-L01": {
+   "cañada_oficial": "Galápagos / Barrio Frío (cabecera rural, El Progreso)",
+   "confianza": "media",
+   "motivo": "El D8 lleva esta quebrada de El Progreso a la cuenca de la Galápagos."
+  },
+  "PRO-L02": {
+   "cañada_oficial": "Recintos de El Progreso",
+   "confianza": "baja",
+   "motivo": "Ladera sur de El Progreso."
+  },
+  "V01": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V02": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V03": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V05": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V06": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V07": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V08": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V09": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V10": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V11": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V17": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V18": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "V23": {
+   "cañada_oficial": "El Progreso, zona urbana (cunetas y bordillos)",
+   "confianza": "media",
+   "motivo": "Depresión dentro del poblado o a menos de 100 m."
+  },
+  "Z1-L01": {
+   "cañada_oficial": "Recintos de El Progreso: Cerro Verde",
+   "confianza": "media",
+   "motivo": "Huella edificada de Cerro Verde (IGM)."
+  },
+  "Z2-L01": {
+   "cañada_oficial": "Recintos de El Progreso: Cerro Verde",
+   "confianza": "media",
+   "motivo": "Huella edificada de Cerro Verde (IGM)."
+  },
+  "Z3-L01": {
+   "cañada_oficial": "Recintos de El Progreso",
+   "confianza": "baja",
+   "motivo": "Huella edificada al noreste de El Progreso; recinto no identificado."
+  },
+  "Z3-L02": {
+   "cañada_oficial": "Recintos de El Progreso",
+   "confianza": "baja",
+   "motivo": "Huella edificada al noreste de El Progreso; recinto no identificado."
+  },
+  "Z3-L03": {
+   "cañada_oficial": "Recintos de El Progreso",
+   "confianza": "baja",
+   "motivo": "Huella edificada al noreste de El Progreso; recinto no identificado."
+  },
+  "V04": {
+   "cañada_oficial": "Recintos de El Progreso",
+   "confianza": "baja",
+   "motivo": "Huella edificada al noreste de El Progreso; recinto no identificado."
+  },
+  "V14": {
+   "cañada_oficial": "Recintos de El Progreso",
+   "confianza": "baja",
+   "motivo": "Huella edificada al noreste de El Progreso; recinto no identificado."
+  },
+  "V20": {
+   "cañada_oficial": "Recintos de El Progreso",
+   "confianza": "baja",
+   "motivo": "Huella edificada al noreste de El Progreso; recinto no identificado."
+  }
+ },
+ "cañadas_oficiales": {
+  "Galápagos / Barrio Frío": {
+   "cañada_oficial": "Galápagos / Barrio Frío",
+   "ids_d8": [
+    "PBM-L01"
+   ],
+   "confianza": "alta",
+   "nota": "Cauce D8 principal desde la cabecera hasta la playa de Barrio Frío.",
+   "fuente_nombres": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+   "area_d8_km2": 5.417,
+   "longitud_d8_km": 11.76
+  },
+  "Divino Niño": {
+   "cañada_oficial": "Divino Niño",
+   "ids_d8": [
+    "PBM-L03",
+    "PBM-L11"
+   ],
+   "confianza": "alta (salida) / media (trazado)",
+   "nota": "El D8 le da cuenca propia (≈1 km²); el plan dice que se separa de la Galápagos.",
+   "fuente_nombres": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+   "area_d8_km2": 0.987,
+   "longitud_d8_km": 4.99
+  },
+  "Alejandro Alvear": {
+   "cañada_oficial": "Alejandro Alvear",
+   "ids_d8": [
+    "PBM-L04",
+    "PBM-L13"
+   ],
+   "confianza": "media",
+   "nota": "En el D8 en UTM recoge también la quebrada del campus (Playa Mann).",
+   "fuente_nombres": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+   "area_d8_km2": 0.451,
+   "longitud_d8_km": 2.78
+  },
+  "Playa Mann": {
+   "cañada_oficial": "Playa Mann",
+   "ids_d8": [
+    "PBM-L05",
+    "PBM-L12"
+   ],
+   "confianza": "media",
+   "nota": "Quebrada del campus y cauce pequeño del norte de Playa Mann.",
+   "fuente_nombres": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+   "area_d8_km2": 0.312,
+   "longitud_d8_km": 2.56
+  },
+  "Manzanillo – El Manantial": {
+   "cañada_oficial": "Manzanillo – El Manantial",
+   "ids_d8": [
+    "PBM-L02",
+    "PBM-L08",
+    "PBM-L09"
+   ],
+   "confianza": "media-baja",
+   "nota": "Ramales que bajan desde La Planada hacia El Manzanillo.",
+   "fuente_nombres": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+   "area_d8_km2": 1.82,
+   "longitud_d8_km": 9.66
+  },
+  "La Planada": {
+   "cañada_oficial": "La Planada",
+   "ids_d8": [
+    "PBM-L02",
+    "PBM-L14"
+   ],
+   "confianza": "media",
+   "nota": "Tramo alto de PBM-L02 y ramal PBM-L14.",
+   "fuente_nombres": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+   "area_d8_km2": 1.82,
+   "longitud_d8_km": 7.7
+  },
+  "Palmeras – Arrayanes": {
+   "cañada_oficial": "Palmeras – Arrayanes",
+   "ids_d8": [
+    "PBM-L07"
+   ],
+   "confianza": "baja",
+   "nota": "Hipótesis: no hay topónimo «Arrayanes» ni «La Picada» cartografiado.",
+   "fuente_nombres": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+   "area_d8_km2": 0.197,
+   "longitud_d8_km": 3.62
+  },
+  "Cerro Quemado / Don García": {
+   "cañada_oficial": "Cerro Quemado / Don García",
+   "ids_d8": [
+    "PBM-L06",
+    "PBM-L10"
+   ],
+   "confianza": "baja",
+   "nota": "El D8 no lleva estas laderas a la mina de Cerro Quemado (ver «mina»).",
+   "fuente_nombres": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+   "area_d8_km2": 0.295,
+   "longitud_d8_km": 2.46
+  }
+ },
+ "cerro_quemado": {
+  "mina Cerro Quemado (OSM)": {
+   "area_d8_max_60m_km2": 0.005,
+   "cota_dsm_m": 74.0,
+   "salida_d8_lonlat": [
+    -89.61559,
+    -0.92376
+   ],
+   "recorrido_m": 2155
+  },
+  "cantera IGM este": {
+   "area_d8_max_60m_km2": 0.041,
+   "cota_dsm_m": 31.7,
+   "salida_d8_lonlat": [
+    -89.61315,
+    -0.90234
+   ],
+   "recorrido_m": 1632
+  },
+  "cantera IGM oeste": {
+   "area_d8_max_60m_km2": 0.02,
+   "cota_dsm_m": 25.3,
+   "salida_d8_lonlat": [
+    -89.61559,
+    -0.92376
+   ],
+   "recorrido_m": 1956
+  },
+  "recorrido D8 desde Estación Terrena": {
+   "salida_lonlat": [
+    -89.61315,
+    -0.90234
+   ],
+   "pasa_a_menos_de_150m_de_la_mina": false
+  }
+ },
+ "cgrs_hipotesis_vertedero_igm": {
+  "punto": [
+   -89.58585,
+   -0.90881
+  ],
+  "area_d8_km2": 0.002,
+  "se_une_a_la_galapagos": true,
+  "recorrido_hasta_la_galapagos_m": null,
+  "nota": "Ubicación del CGRS no confirmada: se usa el antiguo vertedero del IGM como hipótesis."
+ },
+ "parque_artesanal": "No localizado: no hay topónimo ni objeto cartografiado; queda pendiente.",
+ "bifurcaciones": {
+  "Galápagos → Divino Niño": {
+   "distancia_entre_cauces_m": 466,
+   "punto_cauce_origen_lonlat": [
+    -89.59969,
+    -0.90831
+   ],
+   "punto_cauce_destino_lonlat": [
+    -89.60076,
+    -0.90424
+   ],
+   "cota_origen_dsm_m": 62.4,
+   "cota_destino_dsm_m": 60.4,
+   "resalte_sobre_el_lecho_de_origen_m": 1.2,
+   "calado_max_2d_en_origen_m": {
+    "scs100": 0.28,
+    "guayabillos_15m": 0.65
+   },
+   "agua_marcada_max_en_destino_m": {
+    "traz_galapagos_15m": 0.0,
+    "traz_divinonino_15m": 0.32
+   }
+  },
+  "Galápagos → Alvear": {
+   "distancia_entre_cauces_m": 876,
+   "punto_cauce_origen_lonlat": [
+    -89.61288,
+    -0.90424
+   ],
+   "punto_cauce_destino_lonlat": [
+    -89.60803,
+    -0.898
+   ],
+   "cota_origen_dsm_m": 8.0,
+   "cota_destino_dsm_m": 10.8,
+   "resalte_sobre_el_lecho_de_origen_m": 4.0,
+   "calado_max_2d_en_origen_m": {
+    "scs100": 0.27,
+    "guayabillos_15m": 1.05
+   },
+   "agua_marcada_max_en_destino_m": {
+    "traz_galapagos_15m": 0.0,
+    "traz_divinonino_15m": 0.01
+   }
+  },
+  "Divino Niño → Alvear": {
+   "distancia_entre_cauces_m": 120,
+   "punto_cauce_origen_lonlat": [
+    -89.60803,
+    -0.89909
+   ],
+   "punto_cauce_destino_lonlat": [
+    -89.60803,
+    -0.898
+   ],
+   "cota_origen_dsm_m": 11.1,
+   "cota_destino_dsm_m": 10.8,
+   "resalte_sobre_el_lecho_de_origen_m": 2.5,
+   "calado_max_2d_en_origen_m": {
+    "scs100": 0.17,
+    "guayabillos_15m": 0.45
+   },
+   "agua_marcada_max_en_destino_m": {
+    "traz_galapagos_15m": 0.0,
+    "traz_divinonino_15m": 0.01
+   }
+  },
+  "Alvear → Divino Niño": {
+   "distancia_entre_cauces_m": 120,
+   "punto_cauce_origen_lonlat": [
+    -89.60803,
+    -0.898
+   ],
+   "punto_cauce_destino_lonlat": [
+    -89.60803,
+    -0.89909
+   ],
+   "cota_origen_dsm_m": 10.8,
+   "cota_destino_dsm_m": 11.1,
+   "resalte_sobre_el_lecho_de_origen_m": 2.7,
+   "calado_max_2d_en_origen_m": {
+    "scs100": 0.11,
+    "guayabillos_15m": 0.53
+   },
+   "agua_marcada_max_en_destino_m": {
+    "traz_galapagos_15m": 0.0,
+    "traz_divinonino_15m": 0.31
+   }
+  }
+ },
+ "bifurcaciones_nota": "Fuera de la franja costera (≤ 200 m del mar), donde todas las bocas se conectan por la playa. Resalte: lo que sube el DSM sobre el lecho del cauce de origen en la recta hasta el cauce de destino. Si es menor que el calado de crecida más el error del DSM (±2–4 m), la bifurcación por desborde es topográficamente posible.",
+ "perfil_via_jaime_roldos_sur_a_norte": {
+  "nota": "lon, lat, cota DSM (m), de sur (puente sobre la Galápagos, −0,9084) a norte (hospital, −0,8999)",
+  "puntos": [
+   [
+    -89.60609,
+    -0.90899,
+    46.2
+   ],
+   [
+    -89.61217,
+    -0.9087,
+    20.1
+   ],
+   [
+    -89.60583,
+    -0.90839,
+    45.5
+   ],
+   [
+    -89.60574,
+    -0.90772,
+    45.8
+   ],
+   [
+    -89.60565,
+    -0.90705,
+    49.5
+   ],
+   [
+    -89.60555,
+    -0.90637,
+    56.0
+   ],
+   [
+    -89.60544,
+    -0.90571,
+    53.7
+   ],
+   [
+    -89.60532,
+    -0.90504,
+    49.8
+   ],
+   [
+    -89.60504,
+    -0.9044,
+    49.7
+   ],
+   [
+    -89.60494,
+    -0.90373,
+    48.2
+   ],
+   [
+    -89.60483,
+    -0.90306,
+    44.6
+   ],
+   [
+    -89.60473,
+    -0.90239,
+    44.9
+   ],
+   [
+    -89.60494,
+    -0.90178,
+    38.8
+   ],
+   [
+    -89.60527,
+    -0.90119,
+    31.8
+   ],
+   [
+    -89.60561,
+    -0.90061,
+    27.6
+   ],
+   [
+    -89.60599,
+    -0.90004,
+    24.1
+   ],
+   [
+    -89.60639,
+    -0.8995,
+    20.1
+   ]
+  ]
+ },
+ "validacion_sectores_plan": {
+  "Barrio Frío: playa y Poza de las Garzas": {
+   "referencia_ubicacion": "Boca D8 de la Galápagos (S01)",
+   "radio_m": 150,
+   "puntos_del_ranking_cercanos": [
+    {
+     "ranking": 2,
+     "id": "PBM-S01",
+     "tipo": "salida al mar con cauce cartografiado"
+    },
+    {
+     "ranking": 6,
+     "id": "V22",
+     "tipo": "vaso (depresión cerrada)"
+    }
+   ],
+   "scs100": {
+    "calado_max_m": 0.8,
+    "area_calado_>=0.3m_ha": 0.36,
+    "edificios_con_calado_>=0.3m": 7,
+    "edificios_en_el_radio": 93
+   },
+   "guayabillos": {
+    "calado_max_m": 1.35,
+    "area_calado_>=0.3m_ha": 1.08,
+    "edificios_con_calado_>=0.3m": 13,
+    "edificios_en_el_radio": 93
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 1.42,
+    "area_calado_>=0.3m_ha": 1.06,
+    "edificios_con_calado_>=0.3m": 7,
+    "edificios_en_el_radio": 93
+   }
+  },
+  "Manzanillo: desbordamiento a 100 m del puente (abr-2026)": {
+   "referencia_ubicacion": "Puente IGM/OSM de la vía perimetral sobre la Galápagos",
+   "radio_m": 150,
+   "puntos_del_ranking_cercanos": [],
+   "scs100": {
+    "calado_max_m": 0.24,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 45
+   },
+   "guayabillos": {
+    "calado_max_m": 0.79,
+    "area_calado_>=0.3m_ha": 1.44,
+    "edificios_con_calado_>=0.3m": 13,
+    "edificios_en_el_radio": 45
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 0.86,
+    "area_calado_>=0.3m_ha": 1.67,
+    "edificios_con_calado_>=0.3m": 10,
+    "edificios_en_el_radio": 45
+   }
+  },
+  "Manzanillo (barrio)": {
+   "referencia_ubicacion": "Topónimo IGM",
+   "radio_m": 200,
+   "puntos_del_ranking_cercanos": [
+    {
+     "ranking": 18,
+     "id": "PBM-L09",
+     "tipo": "llegada de quebrada"
+    }
+   ],
+   "scs100": {
+    "calado_max_m": 0.06,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 72
+   },
+   "guayabillos": {
+    "calado_max_m": 0.26,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 72
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 0.4,
+    "area_calado_>=0.3m_ha": 0.07,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 72
+   }
+  },
+  "La Planada": {
+   "referencia_ubicacion": "Registro SNGR de 2025",
+   "radio_m": 200,
+   "puntos_del_ranking_cercanos": [
+    {
+     "ranking": 8,
+     "id": "V15",
+     "tipo": "vaso (depresión cerrada)"
+    }
+   ],
+   "scs100": {
+    "calado_max_m": 0.54,
+    "area_calado_>=0.3m_ha": 0.54,
+    "edificios_con_calado_>=0.3m": 6,
+    "edificios_en_el_radio": 103
+   },
+   "guayabillos": {
+    "calado_max_m": 0.73,
+    "area_calado_>=0.3m_ha": 1.8,
+    "edificios_con_calado_>=0.3m": 25,
+    "edificios_en_el_radio": 103
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 0.94,
+    "area_calado_>=0.3m_ha": 1.44,
+    "edificios_con_calado_>=0.3m": 15,
+    "edificios_en_el_radio": 103
+   }
+  },
+  "Divino Niño: Playa de Oro (desembocadura tapada)": {
+   "referencia_ubicacion": "Playa de Oro (OSM)",
+   "radio_m": 120,
+   "puntos_del_ranking_cercanos": [
+    {
+     "ranking": 3,
+     "id": "PBM-S02",
+     "tipo": "salida al mar sin cauce cartografiado"
+    }
+   ],
+   "scs100": {
+    "calado_max_m": 0.15,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 69
+   },
+   "guayabillos": {
+    "calado_max_m": 0.25,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 69
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 0.68,
+    "area_calado_>=0.3m_ha": 0.14,
+    "edificios_con_calado_>=0.3m": 1,
+    "edificios_en_el_radio": 69
+   }
+  },
+  "Divino Niño: muro del Hospital Oskar Jandl": {
+   "referencia_ubicacion": "Hospital (OSM)",
+   "radio_m": 100,
+   "puntos_del_ranking_cercanos": [],
+   "scs100": {
+    "calado_max_m": 0.07,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 44
+   },
+   "guayabillos": {
+    "calado_max_m": 0.14,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 44
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 0.34,
+    "area_calado_>=0.3m_ha": 0.02,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 44
+   }
+  },
+  "Divino Niño: Colegio Ignacio Hernández / vía Jaime Roldós": {
+   "referencia_ubicacion": "Colegio (OSM)",
+   "radio_m": 100,
+   "puntos_del_ranking_cercanos": [],
+   "scs100": {
+    "calado_max_m": 0.11,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 15
+   },
+   "guayabillos": {
+    "calado_max_m": 0.19,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 15
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 0.19,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 15
+   }
+  },
+  "Playa Mann (rejillas, vía adoquinada, playa)": {
+   "referencia_ubicacion": "Barrio entre Playa Mann y la E. E. B. Alvear",
+   "radio_m": 200,
+   "puntos_del_ranking_cercanos": [
+    {
+     "ranking": 7,
+     "id": "PBM-S03",
+     "tipo": "salida al mar sin cauce cartografiado"
+    },
+    {
+     "ranking": 10,
+     "id": "PBM-L05",
+     "tipo": "llegada de quebrada"
+    }
+   ],
+   "scs100": {
+    "calado_max_m": 0.12,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 110
+   },
+   "guayabillos": {
+    "calado_max_m": 0.3,
+    "area_calado_>=0.3m_ha": 0.0,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 110
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 0.53,
+    "area_calado_>=0.3m_ha": 0.32,
+    "edificios_con_calado_>=0.3m": 1,
+    "edificios_en_el_radio": 110
+   }
+  },
+  "Los Arrayanes / La Picada (ubicación supuesta)": {
+   "referencia_ubicacion": "SUPUESTA: entrada de PBM-L07; no hay topónimo cartografiado",
+   "radio_m": 200,
+   "puntos_del_ranking_cercanos": [
+    {
+     "ranking": 31,
+     "id": "PBM-L07",
+     "tipo": "llegada de quebrada"
+    }
+   ],
+   "scs100": {
+    "calado_max_m": 0.53,
+    "area_calado_>=0.3m_ha": 0.45,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 23
+   },
+   "guayabillos": {
+    "calado_max_m": 0.82,
+    "area_calado_>=0.3m_ha": 2.25,
+    "edificios_con_calado_>=0.3m": 3,
+    "edificios_en_el_radio": 23
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 1.03,
+    "area_calado_>=0.3m_ha": 2.05,
+    "edificios_con_calado_>=0.3m": 0,
+    "edificios_en_el_radio": 23
+   }
+  },
+  "San Francisco, Fragata y Estación Terrena": {
+   "referencia_ubicacion": "Panadería «Fragata» (OSM) y registros SNGR de Estación Terrena",
+   "radio_m": 250,
+   "puntos_del_ranking_cercanos": [],
+   "scs100": {
+    "calado_max_m": 0.79,
+    "area_calado_>=0.3m_ha": 0.09,
+    "edificios_con_calado_>=0.3m": 1,
+    "edificios_en_el_radio": 392
+   },
+   "guayabillos": {
+    "calado_max_m": 1.07,
+    "area_calado_>=0.3m_ha": 2.07,
+    "edificios_con_calado_>=0.3m": 39,
+    "edificios_en_el_radio": 392
+   },
+   "guayabillos_15m": {
+    "calado_max_m": 1.25,
+    "area_calado_>=0.3m_ha": 2.72,
+    "edificios_con_calado_>=0.3m": 54,
+    "edificios_en_el_radio": 392
+   }
+  }
+ },
+ "trazadores_2d": {
+  "traz_galapagos_15m": {
+   "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+    "vol_m3": 805757,
+    "vol_trazador_m3": 466455,
+    "fraccion_del_trazador": 0.674
+   },
+   "Centro: muelles de pasajeros y de pescadores": {
+    "vol_m3": 13719,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "Divino Niño (Playa de Oro)": {
+    "vol_m3": 142026,
+    "vol_trazador_m3": 230,
+    "fraccion_del_trazador": 0.0
+   },
+   "Playa Mann sur (S03; Alvear según el D8)": {
+    "vol_m3": 65474,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "Playa Mann frente al campus": {
+    "vol_m3": 2063,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "Norte de Playa Mann (S04)": {
+    "vol_m3": 8468,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "resto de la costa": {
+    "vol_m3": 35139,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "bordes del dominio (tierra)": {
+    "vol_m3": 310327,
+    "vol_trazador_m3": 9471,
+    "fraccion_del_trazador": 0.014
+   }
+  },
+  "traz_divinonino_15m": {
+   "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+    "vol_m3": 805757,
+    "vol_trazador_m3": 1264,
+    "fraccion_del_trazador": 0.017
+   },
+   "Centro: muelles de pasajeros y de pescadores": {
+    "vol_m3": 13719,
+    "vol_trazador_m3": 2,
+    "fraccion_del_trazador": 0.0
+   },
+   "Divino Niño (Playa de Oro)": {
+    "vol_m3": 142026,
+    "vol_trazador_m3": 57078,
+    "fraccion_del_trazador": 0.754
+   },
+   "Playa Mann sur (S03; Alvear según el D8)": {
+    "vol_m3": 65474,
+    "vol_trazador_m3": 674,
+    "fraccion_del_trazador": 0.009
+   },
+   "Playa Mann frente al campus": {
+    "vol_m3": 2063,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "Norte de Playa Mann (S04)": {
+    "vol_m3": 8468,
+    "vol_trazador_m3": 2,
+    "fraccion_del_trazador": 0.0
+   },
+   "resto de la costa": {
+    "vol_m3": 35139,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "bordes del dominio (tierra)": {
+    "vol_m3": 310327,
+    "vol_trazador_m3": 495,
+    "fraccion_del_trazador": 0.007
+   }
+  },
+  "traz_galapagos_100mm_15m": {
+   "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+    "vol_m3": 260569,
+    "vol_trazador_m3": 117523,
+    "fraccion_del_trazador": 0.483
+   },
+   "Centro: muelles de pasajeros y de pescadores": {
+    "vol_m3": 5719,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "Divino Niño (Playa de Oro)": {
+    "vol_m3": 48042,
+    "vol_trazador_m3": 50,
+    "fraccion_del_trazador": 0.0
+   },
+   "Playa Mann sur (S03; Alvear según el D8)": {
+    "vol_m3": 19631,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "Playa Mann frente al campus": {
+    "vol_m3": 844,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "Norte de Playa Mann (S04)": {
+    "vol_m3": 2369,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "resto de la costa": {
+    "vol_m3": 12881,
+    "vol_trazador_m3": 0,
+    "fraccion_del_trazador": 0.0
+   },
+   "bordes del dominio (tierra)": {
+    "vol_m3": 96977,
+    "vol_trazador_m3": 2950,
+    "fraccion_del_trazador": 0.012
+   }
+  }
+ }
+}
