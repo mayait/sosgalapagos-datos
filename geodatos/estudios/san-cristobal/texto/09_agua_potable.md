@@ -119,7 +119,75 @@ Las tomas son represas pequeñas o captaciones de cañada en laderas empinadas. 
    - mantener los accesos a las tomas transitables en temporada de lluvias.
 4. **Plan de contingencia:** reservas en tanques, distribución con tanqueros y comunicación de los horarios, a partir de lo aprendido en 2023.
 
-<!-- Subsección «Cuencas de captación»: la añade el hidrólogo de San Cristóbal. -->
+## 9.4 Cuencas de captación (hidrología)
+
+> Subsección del hidrólogo. Cuencas D8 sobre el DSM GLO-30 de 30 m (±2–4 m) y caudales SCS-CN de orden de magnitud: **no hay lluvia ni caudales medidos.** Se reproduce con `scripts/26_cuencas_tomas_san_cristobal.py`; los resultados están en `datos/agua/cuencas_tomas.geojson` y `cuencas_tomas.json`.
+
+**Método**
+- Cada toma (`categoria = "toma"`) se ajustó al cauce D8 de mayor área a ≤ 60 m. El desplazamiento queda registrado.
+- Si en ese radio no hay cauce (área < 0,1 km²), se analiza además **la cañada más cercana** de ≥ 0,1 km² a ≤ 300 m, como hipótesis de dónde está realmente la captación.
+- **Uso del suelo:** zonificación del Parque (2017), zonas pobladas y manzanas del INEC, y edificios de OSM y Open Buildings.
+- **Crecida:** tormenta tipo II de 100 mm en 24 h y tormenta de Los Guayabillos del 30-oct trasladada (sección 4b), con CN 60 / 76 / 90 según la cobertura (AMC II) y AMC III como suelo húmedo. El rango va del tc de Témez al de Kirpich.
+
+**Resultado 1: casi ninguna toma cae sobre un cauce del DSM.** Solo El Chino (AG-04; 4,7 km²) y la captación AG-09 (0,13 km²) quedan sobre una cañada a ≤ 60 m.
+- En Cerro Gato, Los Americanos, La Toma, AG-10 y AG-11, la cuenca D8 en el punto ajustado mide 0,003–0,03 km²: es ladera, no cauce.
+- Puede deberse a dos cosas, sin que se pueda elegir entre ellas:
+  - son **manantiales** de ladera, cuya recarga es subterránea y no coincide con la cuenca superficial;
+  - la coordenada está desplazada.
+- En ambos casos, la escorrentía que llega a la obra en una crecida es la de la **cañada contigua**, que está a 88–224 m.
+
+Tabla: Cuencas de captación. Para las tomas sin cauce a ≤ 60 m, se da la cañada más cercana (*). Q en m³/s; rango Témez–Kirpich. Vías: OSM e IGM, que se solapan en parte.
+
+| Toma | Ajuste / cañada | Área (km²) | Cota de la toma–máx.* (m) | Pendiente | Agrícola / Parque / poblado | Edificios | Vías (km) | Cruces vía–cauce | Q 100 mm, AMC II | Q 100 mm, AMC III | Q tormenta trasladada |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| AG-01 Cerro Gato | * a 88 m | 0,60 | 247–528 | 27 % | 100 / 0 / 0 % | 0 | 0 | 0 | 4,7–9,2 | 7,5–14 | 8,0–10 |
+| AG-02 Los Americanos | * a 224 m | 0,62 | 379–604 | 23 % | 100 / 0 / 0 % | 0 | 0,5 | 1 | 5,1–9,8 | 8,2–15 | 8,4–11 |
+| AG-03 La Toma | * a 94 m | 1,26 | 484–695 | 14 % | 100 / 0 / 0 % | 0 | 3,8 | 0 | 7,4–14 | 12–23 | 16–20 |
+| AG-04 El Chino | Ajuste de 37 m | 4,75 | 294–716 | 18 % | 87 / 12 / 0 % | 21 | 14,6 | 5 | 16–31 | 28–52 | 49–61 |
+| AG-09 (FCD) | Ajuste de 48 m | 0,13 | 346–454 | 20 % | 100 / 0 / 0 % | 0 | 0 | 0 | 1,8–2,5 | 2,8–3,7 | 2,2–2,3 |
+| AG-10 (FCD) | * a 133 m | 2,87 | 400–721 | 12 % | 100 / 0 / 0 % | 21 | 8,5 | 10 | 11–20 | 18–32 | 31–38 |
+| AG-11 (FCD) | * a 132 m | 0,16 | 315–383 | 10 % | 100 / 0 / 0 % | 0 | 0 | 0 | 1,7–2,7 | 2,7–4,1 | 2,4–2,7 |
+
+\* Cota del DSM. Las áreas coinciden con las de la sección 9.3 (0,6 km² en Cerro Gato, 1,3 en La Toma y 4,9 en El Chino).
+
+**Resultado 2: la crecida es entre 200 y más de 1 000 veces mayor que lo que se capta.**
+- Las tomas captan 19–27 l/s. Con 100 mm, la crecida de sus cañadas es de 5 a 30 m³/s, y llega en **10–60 min** (tc de Kirpich a Témez para cuencas de 0,6–1,3 km²).
+- Con suelo húmedo o con la tormenta trasladada, el caudal sube un 50–200 %. En El Chino llega a 50–60 m³/s.
+- Una toma de cañada con represa pequeña no puede «dejar pasar» esa crecida limpia. Lo esperable es lo que ocurrió en Los Americanos en abril de 2023: **arrastre de sedimento y vegetación, colmatación de la toma y de la válvula, y turbidez alta en la planta** durante horas o días.
+- Las pendientes medias, del 14–27 %, favorecen la erosión de laderas y lechos.
+
+**Resultado 3: fuentes de contaminación y de sedimento aguas arriba.**
+- Las cuencas están por completo en **zona agrícola** (suelo rural). Eso significa fincas, pastos y bosque secundario, no necesariamente cultivos.
+  - Los usos con más probabilidad de aportar coliformes y nutrientes son el ganado y los pozos sépticos de las fincas.
+  - Ninguna cuenca toca una zona poblada.
+- **El Chino (AG-04) y la cañada de AG-10** son las más expuestas:
+  - cada una tiene 21 edificios;
+  - tienen 8–15 km de caminos;
+  - tienen 5 y 10 cruces de vía con cauce, respectivamente. Cada cruce es a la vez una fuente de sedimento y un punto de vertido desde la calzada.
+- **La Toma** tiene ≈4 km de caminos en su cuenca, sin cruces con el cauce principal.
+- **Cerro Gato y Los Americanos** son las cuencas más «limpias»: sin edificios y con solo 0–0,5 km de caminos. Su riesgo de turbidez viene sobre todo de la pendiente y de la crecida.
+
+**Índice de turbidez y arrastre.** Para la cuenca relevante de cada toma (la propia o la cañada contigua), se suman cuatro criterios de 0 a 2 puntos (total de 0 a 8):
+- pendiente: 0 si es < 10 %; 1 entre el 10 y el 20 %; 2 si es ≥ 20 %;
+- fracción agrícola más poblada: 0 si es < 10 %; 1 entre el 10 y el 40 %; 2 si es ≥ 40 %;
+- vías: 0 si no hay; 1 si hay < 1 km; 2 si hay ≥ 1 km o algún cruce vía–cauce;
+- caudal pico con 100 mm: 0 si es < 1 m³/s; 1 entre 1 y 5; 2 si es ≥ 5.
+
+Resultado:
+- **Riesgo alto:** El Chino, La Toma, AG-10, Cerro Gato y Los Americanos (6–8 puntos).
+- **Riesgo medio:** AG-09 y AG-11 (3–4).
+
+El índice **ordena**; no cuantifica la turbidez.
+
+**Resultado 4: la discrepancia de cotas cambia la cuenca.**
+- Si Cerro Gato estuviera a 164 m (USFQ) y no a ≈250 m (DSM), el D8 situaría la toma 0,5 km aguas abajo, con 0,90 km² y un Q100 de 6–13 m³/s.
+- Si La Toma estuviera a 150 m y no a ≈500 m, estaría 2,6 km aguas abajo, con 2,2 km² y un Q100 de 10–20 m³/s.
+- En ambos casos las conclusiones cualitativas se mantienen: cuencas agrícolas, empinadas y con crecidas mucho mayores que lo que se capta. **La ubicación y la cota reales deben fijarse con GNSS** antes de dimensionar desarenadores o rejillas.
+
+**Confianza:**
+- Áreas de las cañadas: media. Dependen de la ubicación real de la toma.
+- Caudales: baja (solo orden de magnitud).
+- Fuentes de contaminación: media para vías y edificios; baja para el uso real del suelo agrícola.
 
 **Fuentes:**
 - IGM 1:25 000, WFS de Galápagos: acueducto, manantial, tanque, estanque y toponimia.

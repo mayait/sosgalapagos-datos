@@ -1,6 +1,6 @@
 # Resumen
 
-> **Estudio totalmente preliminar y en curso.** Es un reconocimiento de gabinete. En San Cristóbal **no hay lluvia medida pública** del evento de octubre de 2026, de modo que los caudales son escenarios. Las cuencas de captación de las tomas de agua siguen en desarrollo. Cada sección admite comentarios.
+> **Estudio totalmente preliminar y en curso.** Es un reconocimiento de gabinete. En San Cristóbal **no hay lluvia medida pública** del evento de octubre de 2026, de modo que los caudales son escenarios. Cada sección admite comentarios.
 
 ## Hallazgos principales
 
@@ -24,4 +24,5 @@
   - **La Toma**, que abastece la planta El Progreso y tiene confianza alta;
   - el manantial **El Chino**, con unos 20 l/s y confianza media.
 - **Las conducciones atraviesan zonas expuestas.** La línea de Cerro Gato cruza 42 cauces y va 1,65 km dentro de la franja de quebradas. La red que baja al puerto recorre 1,45 km dentro del polígono de flujos de lodo del CGREG, a lo largo de Barrio Frío.
+- **Cuencas de captación.** Son pequeñas, de 0,6 a 4,7 km². Con 100 mm, las crecidas (5–30 m³/s) multiplican por cientos el caudal que se capta (19–27 l/s). **El fallo esperable es que el sedimento y los restos vegetales tapen las tomas**, y las cinco tomas principales tienen un riesgo alto de turbidez. El Chino es la que tiene más fuentes de contaminación aguas arriba (21 edificios y 5–10 cruces de vías con cauces).
 - **Precedente:** en abril de 2023, un aluvión llenó de lodo la represa de Los Americanos. Siguieron 21 días de emergencia del agua potable.
