@@ -1,0 +1,1243 @@
+{
+ "conducciones": [
+  {
+   "nombre": "(sin nombre)",
+   "estado_igm": "FUNCIONANDO",
+   "ubicacion_igm": "SOBRE LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 137,
+   "extremo_inicial": "—",
+   "extremo_final": "—",
+   "cota_ini_m": 3,
+   "cota_fin_m": 1,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 2,
+   "cruces_cauce_ge_0_5km2": 2,
+   "cruce_mayor_km2": 11.0,
+   "cruces_via_osm": 1,
+   "en_riesgo_cgreg": "Flujos lodo y escombros en el fenómeno del Niño: 92 m",
+   "en_franja_quebrada_m": 0
+  },
+  {
+   "nombre": "(sin nombre)",
+   "estado_igm": "FUNCIONANDO",
+   "ubicacion_igm": "SOBRE LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 1459,
+   "extremo_inicial": "—",
+   "extremo_final": "—",
+   "cota_ini_m": 48,
+   "cota_fin_m": 83,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 5,
+   "cruces_cauce_ge_0_5km2": 5,
+   "cruce_mayor_km2": 4.57,
+   "cruces_via_osm": 0,
+   "en_riesgo_cgreg": "ninguno",
+   "en_franja_quebrada_m": 0
+  },
+  {
+   "nombre": "(sin nombre)",
+   "estado_igm": "FUNCIONANDO",
+   "ubicacion_igm": "SOBRE LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 1106,
+   "extremo_inicial": "—",
+   "extremo_final": "—",
+   "cota_ini_m": 38,
+   "cota_fin_m": 7,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 6,
+   "cruces_cauce_ge_0_5km2": 6,
+   "cruce_mayor_km2": 16.96,
+   "cruces_via_osm": 0,
+   "en_riesgo_cgreg": "ninguno",
+   "en_franja_quebrada_m": 0
+  },
+  {
+   "nombre": "(sin nombre)",
+   "estado_igm": "FUNCIONANDO",
+   "ubicacion_igm": "SOBRE LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 935,
+   "extremo_inicial": "—",
+   "extremo_final": "—",
+   "cota_ini_m": 7,
+   "cota_fin_m": 33,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 0,
+   "cruces_cauce_ge_0_5km2": 0,
+   "cruce_mayor_km2": 0,
+   "cruces_via_osm": 0,
+   "en_riesgo_cgreg": "ninguno",
+   "en_franja_quebrada_m": 0
+  },
+  {
+   "nombre": "(sin nombre)",
+   "estado_igm": "FUNCIONANDO",
+   "ubicacion_igm": "SOBRE LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 212,
+   "extremo_inicial": "—",
+   "extremo_final": "—",
+   "cota_ini_m": -9999,
+   "cota_fin_m": 7,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 0,
+   "cruces_cauce_ge_0_5km2": 0,
+   "cruce_mayor_km2": 0,
+   "cruces_via_osm": 0,
+   "en_riesgo_cgreg": "ninguno",
+   "en_franja_quebrada_m": 0
+  },
+  {
+   "nombre": "(sin nombre)",
+   "estado_igm": "FUNCIONANDO",
+   "ubicacion_igm": "SOBRE LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 1456,
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "extremo_final": "—",
+   "cota_ini_m": 53,
+   "cota_fin_m": 4,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 8,
+   "cruces_cauce_ge_0_5km2": 7,
+   "cruce_mayor_km2": 10.48,
+   "cruces_via_osm": 8,
+   "en_riesgo_cgreg": "Flujos lodo y escombros en el fenómeno del Niño: 1451 m",
+   "en_franja_quebrada_m": 1273
+  },
+  {
+   "nombre": "Proyección Agua Potable Pampas Mías",
+   "estado_igm": "EN CONSTRUCCIÓN",
+   "ubicacion_igm": "BAJO LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 6032,
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "extremo_final": "AG-03 La Toma (El Progreso) (196 m)",
+   "cota_ini_m": 333,
+   "cota_fin_m": 503,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 13,
+   "cruces_cauce_ge_0_5km2": 6,
+   "cruce_mayor_km2": 1.39,
+   "cruces_via_osm": 9,
+   "en_riesgo_cgreg": "ninguno",
+   "en_franja_quebrada_m": 249
+  },
+  {
+   "nombre": "(sin nombre)",
+   "estado_igm": "FUNCIONANDO",
+   "ubicacion_igm": "BAJO LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 3277,
+   "extremo_inicial": "—",
+   "extremo_final": "AG-04 El Chino (manantial) (0 m)",
+   "cota_ini_m": 110,
+   "cota_fin_m": 296,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 4,
+   "cruces_cauce_ge_0_5km2": 4,
+   "cruce_mayor_km2": 5.11,
+   "cruces_via_osm": 4,
+   "en_riesgo_cgreg": "ninguno",
+   "en_franja_quebrada_m": 41
+  },
+  {
+   "nombre": "Proyecto de agua Cerro Gato",
+   "estado_igm": "EN CONSTRUCCIÓN",
+   "ubicacion_igm": "BAJO LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 16672,
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "extremo_final": "AG-P2 Planta / tanques Las Palmeras (35 m)",
+   "cota_ini_m": 270,
+   "cota_fin_m": 83,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 42,
+   "cruces_cauce_ge_0_5km2": 21,
+   "cruce_mayor_km2": 7.06,
+   "cruces_via_osm": 9,
+   "en_riesgo_cgreg": "ninguno",
+   "en_franja_quebrada_m": 1653
+  },
+  {
+   "nombre": "(sin nombre)",
+   "estado_igm": "FUNCIONANDO",
+   "ubicacion_igm": "BAJO LA SUPERFICIE DE LA TIERRA",
+   "largo_m": 9736,
+   "extremo_inicial": "—",
+   "extremo_final": "AG-T2 Tanques de Cerro Verde (0 m)",
+   "cota_ini_m": 223,
+   "cota_fin_m": 281,
+   "fuente": "IGM 1:25 000, capa acueducto",
+   "cruces_cauce": 15,
+   "cruces_cauce_ge_0_5km2": 6,
+   "cruce_mayor_km2": 2.26,
+   "cruces_via_osm": 4,
+   "en_riesgo_cgreg": "ninguno",
+   "en_franja_quebrada_m": 390
+  }
+ ],
+ "tomas": [
+  {
+   "id": "AG-01",
+   "nombre": "Cerro Gato",
+   "categoria": "toma",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 0.61,
+   "pendiente_25ha_pct": 21,
+   "via_mas_cercana_m": 473,
+   "via_tipo": "unclassified",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 64,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-02",
+   "nombre": "Los Americanos (toma / represa)",
+   "categoria": "toma",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 0.04,
+   "pendiente_25ha_pct": 26,
+   "via_mas_cercana_m": 152,
+   "via_tipo": "track",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 171,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-03",
+   "nombre": "La Toma (El Progreso)",
+   "categoria": "toma",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 1.33,
+   "pendiente_25ha_pct": 12,
+   "via_mas_cercana_m": 121,
+   "via_tipo": "track",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 67,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-04",
+   "nombre": "El Chino (manantial)",
+   "categoria": "toma",
+   "area_drenada_d8_km2": 4.75,
+   "area_d8_max_100m_km2": 4.93,
+   "pendiente_25ha_pct": 31,
+   "via_mas_cercana_m": 13,
+   "via_tipo": "track",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 0,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-05",
+   "nombre": "El Chino (poza FCD)",
+   "categoria": "reservorio",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 0.21,
+   "pendiente_25ha_pct": 26,
+   "via_mas_cercana_m": 24,
+   "via_tipo": "track",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 94,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-06",
+   "nombre": "J Chico",
+   "categoria": "reservorio",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 0.01,
+   "pendiente_25ha_pct": 12,
+   "via_mas_cercana_m": 67,
+   "via_tipo": "unclassified",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 157,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-07",
+   "nombre": "La Piscina",
+   "categoria": "reservorio",
+   "area_drenada_d8_km2": 3.03,
+   "area_d8_max_100m_km2": 3.09,
+   "pendiente_25ha_pct": 28,
+   "via_mas_cercana_m": 187,
+   "via_tipo": "track",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 91,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-08",
+   "nombre": "Vertiente Las Goteras",
+   "categoria": "manantial",
+   "area_drenada_d8_km2": 0.02,
+   "area_d8_max_100m_km2": 0.05,
+   "pendiente_25ha_pct": 22,
+   "via_mas_cercana_m": 35,
+   "via_tipo": "unclassified",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 385,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-09",
+   "nombre": "Captación FCD sin nombre (oeste de La Toma)",
+   "categoria": "toma",
+   "area_drenada_d8_km2": 0.09,
+   "area_d8_max_100m_km2": 0.16,
+   "pendiente_25ha_pct": 27,
+   "via_mas_cercana_m": 300,
+   "via_tipo": "track",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 37,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-10",
+   "nombre": "Captación FCD sin nombre (noroeste de El Progreso)",
+   "categoria": "toma",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 2.81,
+   "pendiente_25ha_pct": 22,
+   "via_mas_cercana_m": 37,
+   "via_tipo": "unclassified",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 107,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-11",
+   "nombre": "Captación FCD sin nombre (El Chino sur)",
+   "categoria": "toma",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 0.16,
+   "pendiente_25ha_pct": 17,
+   "via_mas_cercana_m": 39,
+   "via_tipo": "track",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 88,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-P1",
+   "nombre": "Planta de tratamiento El Progreso",
+   "categoria": "planta",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 0.01,
+   "pendiente_25ha_pct": 22,
+   "via_mas_cercana_m": 24,
+   "via_tipo": "service",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 313,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-P2",
+   "nombre": "Planta / tanques Las Palmeras",
+   "categoria": "planta",
+   "area_drenada_d8_km2": 0.01,
+   "area_d8_max_100m_km2": 1.6,
+   "pendiente_25ha_pct": 8,
+   "via_mas_cercana_m": 49,
+   "via_tipo": "cycleway",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "Flujos lodo y escombros en el fenómeno del Niño (152 m); Explosión de combustible, derrames e incendios (305 m); Contaminación de acuíferos y derrame de residuos (104 m)",
+   "dist_quebrada_igm_osm_m": 1096,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-T1",
+   "nombre": "Tanque Cerro Patricia",
+   "categoria": "tanque",
+   "area_drenada_d8_km2": 0.0,
+   "area_d8_max_100m_km2": 0.02,
+   "pendiente_25ha_pct": 5,
+   "via_mas_cercana_m": 31,
+   "via_tipo": "tertiary",
+   "via_nombre": "Vía Puerto Baquerizo Moreno - El Progreso",
+   "riesgos_cgreg_500m": "Flujos lodo y escombros en el fenómeno del Niño (213 m); Explosión de combustible, derrames e incendios (0 m); Explosión de combustible, derrames e incendios (489 m); Explosión de combustible, derrames e incendios (480 m)",
+   "dist_quebrada_igm_osm_m": 316,
+   "en_franja_cgreg": false
+  },
+  {
+   "id": "AG-T2",
+   "nombre": "Tanques de Cerro Verde",
+   "categoria": "tanque",
+   "area_drenada_d8_km2": 0.01,
+   "area_d8_max_100m_km2": 0.2,
+   "pendiente_25ha_pct": 14,
+   "via_mas_cercana_m": 21,
+   "via_tipo": "service",
+   "via_nombre": "",
+   "riesgos_cgreg_500m": "ninguno",
+   "dist_quebrada_igm_osm_m": 126,
+   "en_franja_cgreg": false
+  }
+ ],
+ "cruces": [
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.61333,
+   "lat": -0.90287,
+   "area_km2": 11.0,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 2
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.61306,
+   "lat": -0.90317,
+   "area_km2": 10.85,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 3
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.5237,
+   "lat": -0.8478,
+   "area_km2": 4.57,
+   "cauce": "IGM 1:25 000",
+   "cota_dsm_m": 83
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.53357,
+   "lat": -0.84833,
+   "area_km2": 1.14,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 59
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.53293,
+   "lat": -0.84833,
+   "area_km2": 1.11,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 62
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.5314,
+   "lat": -0.84833,
+   "area_km2": 1.08,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 67
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.52889,
+   "lat": -0.84857,
+   "area_km2": 0.85,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 72
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.3089,
+   "lat": -0.79056,
+   "area_km2": 16.96,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 9
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.31352,
+   "lat": -0.78944,
+   "area_km2": 15.62,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 32
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.31394,
+   "lat": -0.78911,
+   "area_km2": 15.6,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 33
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.31484,
+   "lat": -0.78889,
+   "area_km2": 15.57,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 35
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.31548,
+   "lat": -0.78861,
+   "area_km2": 15.56,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 37
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.31584,
+   "lat": -0.7886,
+   "area_km2": 0.63,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 37
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "lon": -89.61261,
+   "lat": -0.90424,
+   "area_km2": 10.48,
+   "cauce": "OSM",
+   "cota_dsm_m": 10
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "lon": -89.61244,
+   "lat": -0.90528,
+   "area_km2": 10.47,
+   "cauce": "OSM",
+   "cota_dsm_m": 11
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "lon": -89.61212,
+   "lat": -0.90578,
+   "area_km2": 10.46,
+   "cauce": "OSM",
+   "cota_dsm_m": 12
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "lon": -89.61155,
+   "lat": -0.90641,
+   "area_km2": 9.72,
+   "cauce": "OSM",
+   "cota_dsm_m": 15
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "lon": -89.61028,
+   "lat": -0.90776,
+   "area_km2": 9.69,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 21
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "lon": -89.6108,
+   "lat": -0.9073,
+   "area_km2": 9.69,
+   "cauce": "OSM",
+   "cota_dsm_m": 19
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "lon": -89.60616,
+   "lat": -0.90829,
+   "area_km2": 9.4,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 41
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "AG-T1 Tanque Cerro Patricia (221 m)",
+   "lon": -89.60966,
+   "lat": -0.90818,
+   "area_km2": 0.23,
+   "cauce": "OSM",
+   "cota_dsm_m": 24
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.52083,
+   "lat": -0.9124,
+   "area_km2": 1.39,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 426
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.50749,
+   "lat": -0.91138,
+   "area_km2": 1.28,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 495
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.5073,
+   "lat": -0.9102,
+   "area_km2": 1.26,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 503
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.52026,
+   "lat": -0.91248,
+   "area_km2": 0.95,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 434
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.5196,
+   "lat": -0.9125,
+   "area_km2": 0.82,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 434
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.53083,
+   "lat": -0.91129,
+   "area_km2": 0.69,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 390
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.52806,
+   "lat": -0.91155,
+   "area_km2": 0.38,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 385
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.55103,
+   "lat": -0.90925,
+   "area_km2": 0.22,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 324
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.55211,
+   "lat": -0.90933,
+   "area_km2": 0.22,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 320
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.52749,
+   "lat": -0.91165,
+   "area_km2": 0.2,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 388
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.53125,
+   "lat": -0.91125,
+   "area_km2": 0.2,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 388
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.54846,
+   "lat": -0.9093,
+   "area_km2": 0.15,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 348
+  },
+  {
+   "conduccion": "Proyección Agua Potable Pampas Mías",
+   "extremo_inicial": "AG-P1 Planta de tratamiento El Progreso (16 m)",
+   "lon": -89.511,
+   "lat": -0.9125,
+   "area_km2": 0.03,
+   "cauce": "IGM 1:25 000",
+   "cota_dsm_m": 489
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.4545,
+   "lat": -0.905,
+   "area_km2": 5.11,
+   "cauce": "IGM 1:25 000",
+   "cota_dsm_m": 251
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.4571,
+   "lat": -0.9019,
+   "area_km2": 4.75,
+   "cauce": "Encañada de Franco",
+   "cota_dsm_m": 296
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.43669,
+   "lat": -0.91602,
+   "area_km2": 1.19,
+   "cauce": "OSM",
+   "cota_dsm_m": 111
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.43917,
+   "lat": -0.9118,
+   "area_km2": 0.84,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 156
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.49268,
+   "lat": -0.9299,
+   "area_km2": 7.06,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 91
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.52528,
+   "lat": -0.9367,
+   "area_km2": 4.29,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 139
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.53863,
+   "lat": -0.93335,
+   "area_km2": 2.71,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 146
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.49774,
+   "lat": -0.93142,
+   "area_km2": 2.24,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 122
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.5625,
+   "lat": -0.93304,
+   "area_km2": 2.0,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 114
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.47626,
+   "lat": -0.92486,
+   "area_km2": 1.93,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 151
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.49389,
+   "lat": -0.93023,
+   "area_km2": 1.82,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 123
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.4935,
+   "lat": -0.9301,
+   "area_km2": 1.82,
+   "cauce": "IGM 1:25 000",
+   "cota_dsm_m": 118
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.4751,
+   "lat": -0.92323,
+   "area_km2": 1.74,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 161
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.55434,
+   "lat": -0.93427,
+   "area_km2": 1.65,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 116
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.59541,
+   "lat": -0.91015,
+   "area_km2": 1.6,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 83
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.57042,
+   "lat": -0.92848,
+   "area_km2": 1.49,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 99
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.51518,
+   "lat": -0.9351,
+   "area_km2": 1.09,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 127
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.53251,
+   "lat": -0.9336,
+   "area_km2": 1.07,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 137
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.50976,
+   "lat": -0.9333,
+   "area_km2": 0.97,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 128
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.55197,
+   "lat": -0.93447,
+   "area_km2": 0.89,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 115
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.51667,
+   "lat": -0.9353,
+   "area_km2": 0.89,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 133
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.47583,
+   "lat": -0.92231,
+   "area_km2": 0.89,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 173
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.57361,
+   "lat": -0.9268,
+   "area_km2": 0.71,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 105
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.58317,
+   "lat": -0.92194,
+   "area_km2": 0.61,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 104
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.50854,
+   "lat": -0.93229,
+   "area_km2": 0.5,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 136
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.48028,
+   "lat": -0.92745,
+   "area_km2": 0.48,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 156
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.54194,
+   "lat": -0.93347,
+   "area_km2": 0.44,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 146
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.50251,
+   "lat": -0.9314,
+   "area_km2": 0.43,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 137
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.54904,
+   "lat": -0.93487,
+   "area_km2": 0.34,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 117
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.57806,
+   "lat": -0.92518,
+   "area_km2": 0.32,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 119
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.53472,
+   "lat": -0.93349,
+   "area_km2": 0.32,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 144
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.57846,
+   "lat": -0.92488,
+   "area_km2": 0.31,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 118
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.48972,
+   "lat": -0.9299,
+   "area_km2": 0.3,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 138
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.56361,
+   "lat": -0.93231,
+   "area_km2": 0.27,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 115
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.5817,
+   "lat": -0.92306,
+   "area_km2": 0.24,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 104
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.50694,
+   "lat": -0.9318,
+   "area_km2": 0.23,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 145
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.55705,
+   "lat": -0.93483,
+   "area_km2": 0.22,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 119
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.56573,
+   "lat": -0.931,
+   "area_km2": 0.16,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 118
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.52148,
+   "lat": -0.93686,
+   "area_km2": 0.14,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 138
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.48694,
+   "lat": -0.92964,
+   "area_km2": 0.14,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 138
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.54389,
+   "lat": -0.93401,
+   "area_km2": 0.13,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 131
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.56139,
+   "lat": -0.93386,
+   "area_km2": 0.13,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 110
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.56694,
+   "lat": -0.93043,
+   "area_km2": 0.11,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 117
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.48361,
+   "lat": -0.92761,
+   "area_km2": 0.11,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 150
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.4988,
+   "lat": -0.932,
+   "area_km2": 0.07,
+   "cauce": "IGM 1:25 000",
+   "cota_dsm_m": 131
+  },
+  {
+   "conduccion": "Proyecto de agua Cerro Gato",
+   "extremo_inicial": "AG-01 Cerro Gato (0 m)",
+   "lon": -89.4771,
+   "lat": -0.9214,
+   "area_km2": 0.01,
+   "cauce": "IGM 1:25 000",
+   "cota_dsm_m": 214
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.45901,
+   "lat": -0.91111,
+   "area_km2": 2.26,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 227
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.47087,
+   "lat": -0.88833,
+   "area_km2": 1.41,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 529
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.43704,
+   "lat": -0.88111,
+   "area_km2": 1.14,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 290
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.43738,
+   "lat": -0.87957,
+   "area_km2": 0.75,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 305
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.46632,
+   "lat": -0.89528,
+   "area_km2": 0.65,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 424
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.4576,
+   "lat": -0.90851,
+   "area_km2": 0.5,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 241
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.45811,
+   "lat": -0.9105,
+   "area_km2": 0.39,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 227
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.44582,
+   "lat": -0.87585,
+   "area_km2": 0.25,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 366
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.47218,
+   "lat": -0.88444,
+   "area_km2": 0.22,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 518
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.4359,
+   "lat": -0.88472,
+   "area_km2": 0.2,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 268
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.45017,
+   "lat": -0.87583,
+   "area_km2": 0.15,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 400
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.45087,
+   "lat": -0.8758,
+   "area_km2": 0.14,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 401
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.45713,
+   "lat": -0.87602,
+   "area_km2": 0.13,
+   "cauce": "D8 GLO-30",
+   "cota_dsm_m": 437
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.4735,
+   "lat": -0.8812,
+   "area_km2": 0.09,
+   "cauce": "IGM 1:25 000",
+   "cota_dsm_m": 533
+  },
+  {
+   "conduccion": "(sin nombre)",
+   "extremo_inicial": "—",
+   "lon": -89.4713,
+   "lat": -0.8871,
+   "area_km2": 0.05,
+   "cauce": "IGM 1:25 000",
+   "cota_dsm_m": 522
+  }
+ ]
+}

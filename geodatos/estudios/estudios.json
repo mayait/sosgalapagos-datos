@@ -129,6 +129,24 @@
       },
       "capas": [
         {
+          "nombre": "Modelo 2D: calado máximo el 30-oct",
+          "archivo": "estudios/santa-cruz/datos/modelo2d/central_calado_max_clases.geojson",
+          "color": "#2171b5",
+          "relleno": 0.6,
+          "grosor": 0,
+          "colores": {
+            "campo": "clase",
+            "valores": {
+              "0,1–0,5 m": "#c6dbef",
+              "0,5–1 m": "#6baed6",
+              "1–2 m": "#2171b5",
+              ">2 m": "#08306b",
+              "0.1–0.5 m": "#c6dbef",
+              "0.5–1 m": "#6baed6"
+            }
+          }
+        },
+        {
           "nombre": "Cuenca que drena a La Cascada",
           "archivo": "estudios/la-cascada/datos/cuenca_cascada.geojson",
           "color": "#111111",
@@ -302,7 +320,9 @@
             }
           ]
         }
-      ]
+      ],
+      "calado": "estudios/santa-cruz/datos/modelo2d/central_calado_max.tif",
+      "calado_titulo": "Calado máximo el 30-oct (modelo 2D)"
     },
     "descargas": [
       {
@@ -413,12 +433,30 @@
     "mapa": {
       "vista": {
         "centro": [
-          -0.902,
-          -89.6
+          -0.905,
+          -89.55
         ],
-        "zoom": 14
+        "zoom": 12
       },
       "capas": [
+        {
+          "nombre": "Modelo 2D: calado máximo (tormenta del 30-oct trasladada)",
+          "archivo": "estudios/san-cristobal/datos/modelo2d/guayabillos_calado_max_clases.geojson",
+          "color": "#2171b5",
+          "relleno": 0.6,
+          "grosor": 0,
+          "colores": {
+            "campo": "clase",
+            "valores": {
+              "0,1–0,5 m": "#c6dbef",
+              "0,5–1 m": "#6baed6",
+              "1–2 m": "#2171b5",
+              ">2 m": "#08306b",
+              "0.1–0.5 m": "#c6dbef",
+              "0.5–1 m": "#6baed6"
+            }
+          }
+        },
         {
           "nombre": "Cuencas que llegan a zonas pobladas",
           "archivo": "estudios/san-cristobal/datos/cuencas.geojson",
@@ -519,6 +557,36 @@
               ]
             }
           ]
+        },
+        {
+          "nombre": "Tomas de agua y acueducto",
+          "archivo": "estudios/san-cristobal/datos/agua/tomas.geojson",
+          "color": "#00acc1",
+          "radio": 8,
+          "colores": {
+            "campo": "categoria",
+            "valores": {
+              "toma": "#00acc1",
+              "reservorio": "#26c6da",
+              "manantial": "#80deea",
+              "planta": "#006064",
+              "tanque": "#4dd0e1"
+            }
+          }
+        },
+        {
+          "nombre": "Conducciones de agua",
+          "archivo": "estudios/san-cristobal/datos/agua/conducciones.geojson",
+          "color": "#00838f",
+          "grosor": 2.5,
+          "discontinua": true
+        },
+        {
+          "nombre": "Cuencas de captación de las tomas",
+          "archivo": "estudios/san-cristobal/datos/agua/cuencas_tomas.geojson",
+          "color": "#00acc1",
+          "relleno": 0.08,
+          "grosor": 1.5
         }
       ]
     },
@@ -546,7 +614,9 @@
           "color": "#e65100",
           "off": 12
         }
-      ]
+      ],
+      "calado": "estudios/san-cristobal/datos/modelo2d/guayabillos_calado_max.tif",
+      "calado_titulo": "Calado máximo, tormenta del 30-oct trasladada (modelo 2D)"
     },
     "descargas": [
       {
@@ -558,6 +628,16 @@
         "dir": "estudios/san-cristobal/datos",
         "patron": "*.csv",
         "prefijo": "san-cristobal/"
+      },
+      {
+        "dir": "estudios/san-cristobal/datos/agua",
+        "patron": "*.*",
+        "prefijo": "san-cristobal/agua/"
+      },
+      {
+        "dir": "estudios/san-cristobal/datos/modelo2d",
+        "patron": "*.geojson",
+        "prefijo": "san-cristobal/modelo2d/"
       }
     ]
   }

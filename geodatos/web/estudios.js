@@ -95,6 +95,12 @@
         for (var j = 0; j < d.ny; j++) ys.push(d.y0 - j * d.dx);
         var tr = [{ type: "surface", x: xs, y: ys, z: z, colorscale: [[0, "#cfe0ee"], [0.004, "#e8e2c8"], [0.15, "#c9c08f"], [0.35, "#9bb06f"], [0.55, "#5f8f4e"], [0.75, "#6b5a45"], [1, "#9c8f80"]],
           showscale: false, hovertemplate: "cota %{z:.0f} m<extra></extra>", lighting: { ambient: 0.55, diffuse: 0.8, roughness: 0.9 }, contours: { z: { show: false } } }];
+        if (d.agua) {
+          var zw = z.map(function (f, r) { return f.map(function (q, c) { var h = d.agua[r][c]; return h == null ? null : q + h * d.vexag * 0 + Math.max(h, 0.5); }); });
+          tr.push({ type: "surface", x: xs, y: ys, z: zw, surfacecolor: d.agua, cmin: 0, cmax: 2, opacity: 0.85, name: d.agua_txt, showlegend: true,
+            colorscale: [[0, "#c6dbef"], [0.25, "#6baed6"], [0.5, "#2171b5"], [1, "#08306b"]], colorbar: { title: { text: "calado (m)" }, len: 0.5, thickness: 12 },
+            hovertemplate: "calado máx. %{surfacecolor:.2f} m<extra></extra>" });
+        }
         var vistos = {};
         d.capas.forEach(function (c) {
           tr.push({ type: "scatter3d", mode: c.t === "p" ? "markers" : "lines", x: c.x, y: c.y, z: c.z, name: c.n, legendgroup: c.n, line: { color: c.c, width: 5 },

@@ -1,0 +1,130 @@
+{
+ "escenario": "central",
+ "config": {
+  "lluvia": "G",
+  "fn": 1.0,
+  "cn": 76
+ },
+ "motor": "ANUGA 4.1.0 DE0",
+ "triangulos": 47216,
+ "area_km2": 52.16,
+ "nivel_mar_m": 0.75,
+ "factor_S_calibrado": 0.686,
+ "escorrentia_objetivo_mm": 109.0,
+ "volumen_exceso_total_m3": 5460887,
+ "tiempo_ejecucion_s": 5,
+ "puntos": {
+  "La Cascada (punto bajo)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 10.65,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "La Cascada (centro)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 13.38,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "La Cascada (entrada rama N)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 14.76,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Tomás de Berlanga (escuela)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 127.04,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Tomás de Berlanga (cauce)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 118.76,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Bellavista (centro, llegada SC-003)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 186.81,
+   "hora_calado_max": "2026-10-30T12:01",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Matazarnos (vaso SC-002)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 10.88,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Pelican Bay (vaso SC-001)": {
+   "calado_max_m": 3.76,
+   "nivel_max_m": 0.76,
+   "hora_calado_max": "2026-10-30T12:02",
+   "hora_llegada_0.1m": "2026-10-30T12:00",
+   "velocidad_max_ms": 0.0
+  },
+  "Cruce CR-SCZ-0010 (Avenida Charles Darwin, 44.4 km²)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 3.27,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Cruce CR-SCZ-0011 (Juan León Mera, 43.1 km²)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 11.0,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Cruce CR-SCZ-0001 (Calle C, 43.0 km²)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 13.15,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Cruce CR-SCZ-0016 ((sin nombre), 9.7 km²)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 115.62,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Cruce CR-SCZ-0020 ((sin nombre), 8.9 km²)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 128.55,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Cruce CR-SCZ-0019 ((sin nombre), 8.9 km²)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 111.12,
+   "hora_calado_max": "2026-10-30T12:00",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  }
+ },
+ "entrada_la_cascada": {
+  "q_max_m3s": 0.0,
+  "hora_q_max": "2026-10-30T12:00",
+  "volumen_m3": 0
+ },
+ "salida_mar": {
+  "q_max_m3s_balance": 1.2,
+  "hora": "2026-10-30T12:04",
+  "volumen_m3": 133
+ },
+ "volumen_en_tierra_final_m3": 5255,
+ "area_inundada_ha": {
+  "0,1–0,5 m": 0.6
+ }
+}

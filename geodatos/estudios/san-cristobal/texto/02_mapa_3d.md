@@ -17,3 +17,5 @@ Cuencas que llegan a las zonas pobladas, cauces principales, la quebrada y la cu
 ![La parte habitada de San Cristóbal, de Puerto Baquerizo Moreno a El Progreso y la parte alta.](figuras/3d_isla_desde_sur.png)
 
 ![Campus USFQ / Galapagos Science Center: llegada de la quebrada.](figuras/3d_campus_usfq.png)
+
+![Tomas de agua del acueducto en la parte alta de San Cristóbal: Cerro Gato, Los Americanos, La Toma y el manantial El Chino. Las ubicaciones tienen confianza media o alta según las fuentes (sección 8).](figuras/3d_tomas_agua.png)

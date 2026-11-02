@@ -311,6 +311,25 @@ def scb_campus_usfq():
            marcadores=[(-89.6089, -0.8955, "USFQ / GSC", "#d62728")])
 
 
+@vista
+def scb_tomas_agua():
+    tom = [(f["geometry"]["coordinates"][0], f["geometry"]["coordinates"][1], f["properties"].get("nombre") or f["properties"]["id"])
+           for f in gj(SCB / "agua/tomas.geojson") if f["properties"].get("id") in ("AG-01", "AG-02", "AG-03", "AG-04")]
+    bb = (-89.53, -0.94, -89.44, -0.88)
+    cs = capas_scb(bb)
+    for f in gj(SCB / "agua/conducciones.geojson"):
+        cs.append((shape(f["geometry"]), {"color": "#00838f", "lw": 2.2, "ls": "--", "label": "Conducciones de agua"}))
+    for f in gj(SCB / "agua/cuencas_tomas.geojson"):
+        cs.append((shape(f["geometry"]), {"color": "#00acc1", "lw": 1.6, "label": "Cuencas de captación de las tomas"}))
+    for f in gj(SCB / "agua/tomas.geojson"):
+        if f["properties"].get("categoria") in ("toma", "manantial"):
+            cs.append((shape(f["geometry"]), {"color": "#00acc1", "marker": "o", "s": 50, "label": "Toma de agua / manantial"}))
+    render("san-cristobal", (-89.485, -0.912), 8000, 6000, 32, -100, 5, "San Cristóbal: tomas de agua del acueducto en la parte alta (Cerro Gato, Los Americanos, La Toma)",
+           ROOT / "estudios/san-cristobal/figuras/3d_tomas_agua.png", cs, paso=1,
+           marcadores=[(lon, lat, nm, "#006064") for lon, lat, nm in tom],
+           nota="Ubicaciones de confianza media o alta según fuentes (ver sección de agua potable).")
+
+
 if __name__ == "__main__":
     quien = sys.argv[1:] or list(VISTAS)
     for n in quien:

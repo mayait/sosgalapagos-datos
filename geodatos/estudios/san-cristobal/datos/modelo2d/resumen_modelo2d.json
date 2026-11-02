@@ -1,0 +1,505 @@
+{
+ "metodo": {
+  "esquema": "inercial local (Bates et al., 2010), numpy + numba",
+  "cfl_alfa": 0.7,
+  "dt_max_s": 10.0,
+  "h_min_m": 0.001,
+  "froude_max": 1.0,
+  "manning": {
+   "natural": 0.08,
+   "agricola": 0.06,
+   "poblado": 0.04,
+   "cauce": 0.045
+  },
+  "cn_amc_ii": {
+   "natural": 60,
+   "agricola": 76,
+   "poblado": 90
+  },
+  "infiltracion": "SCS-CN distribuida por celda (Ia = 0,2 S)",
+  "terreno": "DSM Copernicus GLO-30 sin quemar (UTM 16S, bilineal)",
+  "contornos": "mar y bordes del dominio absorbentes",
+  "trazador": "lluvia neta de la cuenca de la quebrada del campus aguas arriba del rellano (0,28 km²)",
+  "sin_representar": "red pluvial, alcantarillas, puentes, muros, cauces menores de 30 m, sedimentos"
+ },
+ "dominio": {
+  "bounds_utm": [
+   208211.0374441701,
+   9898134.979121983,
+   218921.0374441701,
+   9901584.979121983
+  ],
+  "area_aportante_km2": 14.59
+ },
+ "escenarios": {
+  "guayabillos": {
+   "descripcion": "Tormenta medida en Los Guayabillos el 30-oct, trasladada",
+   "celda_m": 30.0,
+   "amc": "II",
+   "lluvia": {
+    "fuente": "estudios/santa-cruz/datos/lluvias/hietograma_5min.csv",
+    "estacion": "Los Guayabillos (IERSE-WSN), Santa Cruz, ≈178 m",
+    "total_mm": 178.8,
+    "fin_registro": "2026-10-30T21:25:27",
+    "max_1h_mm": 62.9,
+    "hora_max_1h": "20:00–21:00",
+    "max_5min_mm": 6.4
+   },
+   "duracion_simulada_h": 26.0,
+   "pasos": 16243,
+   "tiempo_calculo_s": 10,
+   "balance_masa": {
+    "lluvia_neta_m3": 1704136,
+    "salida_mar_y_contornos_m3": 1313459,
+    "almacenado_final_m3": 390678,
+    "error_relativo": -0.0
+   },
+   "clases_calado": {
+    "0.1–0.5 m": {
+     "area_ha": 141.8,
+     "edificios_que_tocan": 715
+    },
+    "0.5–1.0 m": {
+     "area_ha": 24.1,
+     "edificios_que_tocan": 190
+    },
+    "1.0–2.0 m": {
+     "area_ha": 8.6,
+     "edificios_que_tocan": 28
+    },
+    "> 2.0 m": {
+     "area_ha": 4.3,
+     "edificios_que_tocan": 6
+    }
+   },
+   "puntos": {
+    "campus_GSC": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "campus_USFQ": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "campus_esquina_NE_via_universidad": {
+     "h_max_m": 0.03,
+     "hora_h_max": "30-Oct 21:20",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.04
+    },
+    "rellano_quebrada_campus": {
+     "h_max_m": 0.07,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 0.41,
+     "h_max_3x3_celdas_m": 0.18
+    },
+    "escuela_alvear": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.02
+    },
+    "barrio_frio_registro_2024": {
+     "h_max_m": 0.03,
+     "hora_h_max": "30-Oct 20:35",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.07
+    },
+    "barrio_frio_desembocadura": {
+     "h_max_m": 0.78,
+     "hora_h_max": "30-Oct 21:30",
+     "v_max_ms": 2.91,
+     "h_max_3x3_celdas_m": 1.35
+    },
+    "divino_nino_salida": {
+     "h_max_m": 0.13,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 1.37,
+     "h_max_3x3_celdas_m": 0.23
+    },
+    "manzanillo_registro_2019": {
+     "h_max_m": 0.47,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 1.06,
+     "h_max_3x3_celdas_m": 0.71
+    },
+    "el_progreso_iess_2021": {
+     "h_max_m": 0.01,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 1.52
+    },
+    "el_progreso_escuela_darwin_2024": {
+     "h_max_m": 0.33,
+     "hora_h_max": "30-Oct 20:35",
+     "v_max_ms": 0.02,
+     "h_max_3x3_celdas_m": 0.83
+    },
+    "el_progreso_vaso_V01": {
+     "h_max_m": 5.52,
+     "hora_h_max": "30-Oct 21:55",
+     "v_max_ms": 0.02,
+     "h_max_3x3_celdas_m": 5.52
+    }
+   },
+   "secciones": {
+    "El Manzanillo (entrada, PBM-L01)": {
+     "Q_max_m3s": 23.2,
+     "hora": "30-Oct 21:25"
+    },
+    "Barrio Frío (desembocadura, PBM-S01)": {
+     "Q_max_m3s": 95.3,
+     "hora": "30-Oct 21:30"
+    },
+    "Divino Niño (salida, PBM-S02)": {
+     "Q_max_m3s": 16.4,
+     "hora": "30-Oct 21:25"
+    },
+    "Escuela Alvear (salida, PBM-S03)": {
+     "Q_max_m3s": 10.3,
+     "hora": "30-Oct 21:00"
+    },
+    "Quebrada del campus (rellano)": {
+     "Q_max_m3s": 2.4,
+     "hora": "30-Oct 21:25"
+    },
+    "El Progreso (quebrada IGM, PRO-L01)": {
+     "Q_max_m3s": 14.7,
+     "hora": "30-Oct 21:00"
+    }
+   },
+   "campus": {
+    "celdas": 16,
+    "h_max_m": 0.04,
+    "v_max_ms": 0.0,
+    "hv_max_m2s": 0.0,
+    "hora_h_max": "30-Oct 21:00",
+    "vol_entrado_m3": 4436,
+    "vol_entrado_de_la_quebrada_m3": 1839,
+    "fraccion_del_agua_de_la_quebrada_que_entra": 0.097,
+    "vol_lluvia_neta_quebrada_m3": 19009,
+    "caudal_max_entrante_m3s": 0.7,
+    "caudal_max_entrante_quebrada_m3s": 0.31,
+    "lamina_max_agua_quebrada_en_campus_m": 0.018,
+    "celdas_campus_con_agua_quebrada_>1cm": 3
+   },
+   "celdas_dominio": 20115,
+   "area_dominio_km2": 18.1
+  },
+  "scs100": {
+   "descripcion": "100 mm en 24 h, SCS tipo II",
+   "celda_m": 30.0,
+   "amc": "II",
+   "lluvia": {
+    "total_mm": 100.0,
+    "max_1h_mm": 45.2
+   },
+   "duracion_simulada_h": 28.0,
+   "pasos": 19389,
+   "tiempo_calculo_s": 16,
+   "balance_masa": {
+    "lluvia_neta_m3": 642153,
+    "salida_mar_y_contornos_m3": 425263,
+    "almacenado_final_m3": 216890,
+    "error_relativo": 0.0
+   },
+   "clases_calado": {
+    "0.1–0.5 m": {
+     "area_ha": 61.4,
+     "edificios_que_tocan": 395
+    },
+    "0.5–1.0 m": {
+     "area_ha": 10.3,
+     "edificios_que_tocan": 68
+    },
+    "1.0–2.0 m": {
+     "area_ha": 3.2,
+     "edificios_que_tocan": 13
+    },
+    "> 2.0 m": {
+     "area_ha": 1.4,
+     "edificios_que_tocan": 4
+    }
+   },
+   "puntos": {
+    "campus_GSC": {
+     "h_max_m": 0.01,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "campus_USFQ": {
+     "h_max_m": 0.01,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.02
+    },
+    "campus_esquina_NE_via_universidad": {
+     "h_max_m": 0.01,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "rellano_quebrada_campus": {
+     "h_max_m": 0.02,
+     "hora_h_max": "13.17 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.05
+    },
+    "escuela_alvear": {
+     "h_max_m": 0.01,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.02
+    },
+    "barrio_frio_registro_2024": {
+     "h_max_m": 0.03,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.05
+    },
+    "barrio_frio_desembocadura": {
+     "h_max_m": 0.31,
+     "hora_h_max": "12.33 h",
+     "v_max_ms": 1.72,
+     "h_max_3x3_celdas_m": 0.8
+    },
+    "divino_nino_salida": {
+     "h_max_m": 0.07,
+     "hora_h_max": "12.08 h",
+     "v_max_ms": 0.98,
+     "h_max_3x3_celdas_m": 0.15
+    },
+    "manzanillo_registro_2019": {
+     "h_max_m": 0.1,
+     "hora_h_max": "13.75 h",
+     "v_max_ms": 0.38,
+     "h_max_3x3_celdas_m": 0.25
+    },
+    "el_progreso_iess_2021": {
+     "h_max_m": 0.01,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 1.04
+    },
+    "el_progreso_escuela_darwin_2024": {
+     "h_max_m": 0.27,
+     "hora_h_max": "12.25 h",
+     "v_max_ms": 0.09,
+     "h_max_3x3_celdas_m": 0.76
+    },
+    "el_progreso_vaso_V01": {
+     "h_max_m": 3.53,
+     "hora_h_max": "28.00 h",
+     "v_max_ms": 0.01,
+     "h_max_3x3_celdas_m": 3.53
+    }
+   },
+   "secciones": {
+    "El Manzanillo (entrada, PBM-L01)": {
+     "Q_max_m3s": 4.4,
+     "hora": "13.50 h"
+    },
+    "Barrio Frío (desembocadura, PBM-S01)": {
+     "Q_max_m3s": 18.2,
+     "hora": "12.17 h"
+    },
+    "Divino Niño (salida, PBM-S02)": {
+     "Q_max_m3s": 7.4,
+     "hora": "12.00 h"
+    },
+    "Escuela Alvear (salida, PBM-S03)": {
+     "Q_max_m3s": 3.1,
+     "hora": "12.00 h"
+    },
+    "Quebrada del campus (rellano)": {
+     "Q_max_m3s": 0.2,
+     "hora": "13.25 h"
+    },
+    "El Progreso (quebrada IGM, PRO-L01)": {
+     "Q_max_m3s": 0.6,
+     "hora": "16.25 h"
+    }
+   },
+   "campus": {
+    "celdas": 16,
+    "h_max_m": 0.02,
+    "v_max_ms": 0.0,
+    "hv_max_m2s": 0.0,
+    "hora_h_max": "12.00 h",
+    "vol_entrado_m3": 1286,
+    "vol_entrado_de_la_quebrada_m3": 383,
+    "fraccion_del_agua_de_la_quebrada_que_entra": 0.073,
+    "vol_lluvia_neta_quebrada_m3": 5283,
+    "caudal_max_entrante_m3s": 0.23,
+    "caudal_max_entrante_quebrada_m3s": 0.02,
+    "lamina_max_agua_quebrada_en_campus_m": 0.004,
+    "celdas_campus_con_agua_quebrada_>1cm": 0
+   },
+   "celdas_dominio": 20115,
+   "area_dominio_km2": 18.1
+  },
+  "guayabillos_amc3": {
+   "descripcion": "Ídem, suelo húmedo (CN AMC III)",
+   "celda_m": 30.0,
+   "amc": "III",
+   "lluvia": {
+    "fuente": "estudios/santa-cruz/datos/lluvias/hietograma_5min.csv",
+    "estacion": "Los Guayabillos (IERSE-WSN), Santa Cruz, ≈178 m",
+    "total_mm": 178.8,
+    "fin_registro": "2026-10-30T21:25:27",
+    "max_1h_mm": 62.9,
+    "hora_max_1h": "20:00–21:00",
+    "max_5min_mm": 6.4
+   },
+   "duracion_simulada_h": 26.0,
+   "pasos": 17593,
+   "tiempo_calculo_s": 12,
+   "balance_masa": {
+    "lluvia_neta_m3": 2378556,
+    "salida_mar_y_contornos_m3": 1960362,
+    "almacenado_final_m3": 418194,
+    "error_relativo": -0.0
+   },
+   "clases_calado": {
+    "0.1–0.5 m": {
+     "area_ha": 171.2,
+     "edificios_que_tocan": 786
+    },
+    "0.5–1.0 m": {
+     "area_ha": 29.8,
+     "edificios_que_tocan": 219
+    },
+    "1.0–2.0 m": {
+     "area_ha": 9.1,
+     "edificios_que_tocan": 33
+    },
+    "> 2.0 m": {
+     "area_ha": 5.0,
+     "edificios_que_tocan": 6
+    }
+   },
+   "puntos": {
+    "campus_GSC": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "campus_USFQ": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "campus_esquina_NE_via_universidad": {
+     "h_max_m": 0.04,
+     "hora_h_max": "30-Oct 20:55",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.05
+    },
+    "rellano_quebrada_campus": {
+     "h_max_m": 0.09,
+     "hora_h_max": "30-Oct 20:40",
+     "v_max_ms": 0.48,
+     "h_max_3x3_celdas_m": 0.22
+    },
+    "escuela_alvear": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.03
+    },
+    "barrio_frio_registro_2024": {
+     "h_max_m": 0.03,
+     "hora_h_max": "30-Oct 21:00",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.13
+    },
+    "barrio_frio_desembocadura": {
+     "h_max_m": 0.91,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 3.2,
+     "h_max_3x3_celdas_m": 1.51
+    },
+    "divino_nino_salida": {
+     "h_max_m": 0.16,
+     "hora_h_max": "30-Oct 21:05",
+     "v_max_ms": 1.52,
+     "h_max_3x3_celdas_m": 0.28
+    },
+    "manzanillo_registro_2019": {
+     "h_max_m": 0.56,
+     "hora_h_max": "30-Oct 21:20",
+     "v_max_ms": 1.23,
+     "h_max_3x3_celdas_m": 0.82
+    },
+    "el_progreso_iess_2021": {
+     "h_max_m": 0.01,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 1.62
+    },
+    "el_progreso_escuela_darwin_2024": {
+     "h_max_m": 0.34,
+     "hora_h_max": "30-Oct 20:35",
+     "v_max_ms": 0.02,
+     "h_max_3x3_celdas_m": 0.83
+    },
+    "el_progreso_vaso_V01": {
+     "h_max_m": 5.74,
+     "hora_h_max": "30-Oct 21:35",
+     "v_max_ms": 0.02,
+     "h_max_3x3_celdas_m": 5.74
+    }
+   },
+   "secciones": {
+    "El Manzanillo (entrada, PBM-L01)": {
+     "Q_max_m3s": 28.4,
+     "hora": "30-Oct 21:05"
+    },
+    "Barrio Frío (desembocadura, PBM-S01)": {
+     "Q_max_m3s": 126.6,
+     "hora": "30-Oct 21:25"
+    },
+    "Divino Niño (salida, PBM-S02)": {
+     "Q_max_m3s": 22.6,
+     "hora": "30-Oct 21:05"
+    },
+    "Escuela Alvear (salida, PBM-S03)": {
+     "Q_max_m3s": 14.6,
+     "hora": "30-Oct 21:00"
+    },
+    "Quebrada del campus (rellano)": {
+     "Q_max_m3s": 3.5,
+     "hora": "30-Oct 20:40"
+    },
+    "El Progreso (quebrada IGM, PRO-L01)": {
+     "Q_max_m3s": 17.1,
+     "hora": "30-Oct 20:40"
+    }
+   },
+   "campus": {
+    "celdas": 16,
+    "h_max_m": 0.05,
+    "v_max_ms": 0.0,
+    "hv_max_m2s": 0.0,
+    "hora_h_max": "30-Oct 20:55",
+    "vol_entrado_m3": 7165,
+    "vol_entrado_de_la_quebrada_m3": 3250,
+    "fraccion_del_agua_de_la_quebrada_que_entra": 0.101,
+    "vol_lluvia_neta_quebrada_m3": 32210,
+    "caudal_max_entrante_m3s": 0.98,
+    "caudal_max_entrante_quebrada_m3s": 0.47,
+    "lamina_max_agua_quebrada_en_campus_m": 0.024,
+    "celdas_campus_con_agua_quebrada_>1cm": 3
+   },
+   "celdas_dominio": 20115,
+   "area_dominio_km2": 18.1
+  }
+ }
+}

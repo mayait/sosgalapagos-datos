@@ -161,7 +161,16 @@ def dem_json(cfg, dst):
                 capas.append({"n": c["nombre"], "c": c["color"], "t": "p" if g["type"] == "Point" else "l",
                               "x": [round(float(a - cx)) for a in np.array(xs)[dentro]], "y": [round(float(b - cy)) for b in np.array(ys)[dentro]],
                               "z": [round(float(z[r, k]) + c.get("off", 4), 1) for r, k in zip(rows[dentro], cols[dentro])]})
-    d = {"dx": round(dx, 2), "nx": n, "ny": ny, "x0": -v["ancho_m"] / 2, "y0": v["alto_m"] / 2,
+    agua = None
+    cal = ROOT / v.get("calado", "-")
+    if cal.exists():
+        h = np.full((ny, n), np.nan, "float32")
+        with rasterio.open(cal) as s2:
+            reproject(s2.read(1).astype("float32"), h, src_transform=s2.transform, src_crs=s2.crs, src_nodata=s2.nodata,
+                      dst_transform=tr, dst_crs="EPSG:32715", dst_nodata=np.nan, resampling=Resampling.max)
+        h = np.where(np.nan_to_num(h) >= 0.1, h, np.nan)
+        agua = [[None if not np.isfinite(q) else round(float(q), 2) for q in fila] for fila in h]
+    d = {"dx": round(dx, 2), "nx": n, "ny": ny, "x0": -v["ancho_m"] / 2, "y0": v["alto_m"] / 2, "agua": agua, "agua_txt": v.get("calado_titulo", "Calado máximo (modelo 2D)"),
          "z": (z * 10).round().astype(int).tolist(), "vexag": v.get("vexag", 4), "capas": capas, "titulo": v.get("titulo", "")}
     (dst / "vista3d.json").write_text(json.dumps(d, separators=(",", ":")))
 
@@ -231,7 +240,7 @@ def pagina(sid, cfg):
             cuerpo += f'\n<h1>{t.get("n", "")}{"." if t.get("n") else ""} {html.escape(nombre)}</h1>\n<p class="pendiente">Sección en preparación.</p>\n'
             continue
         txt = renumerar(p.read_text(encoding="utf-8"), t.get("n"), cfg.get("refs_mapas", {}).get(t.get("refs")), t.get("titulo"))
-        cuerpo += md_a_html(txt, [p.parent.parent] + bases, dst / "figuras", figs, tabs)
+        cuerpo += md_a_html(txt, [p.parent.parent, p.parent] + bases, dst / "figuras", figs, tabs)
     secs = secciones(cuerpo)
     capas = mapa_capas(cfg, dst)
     if cfg.get("vista3d"): dem_json(cfg, dst)
