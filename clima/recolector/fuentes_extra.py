@@ -160,10 +160,10 @@ FUENTES_EXTRA = {"inamhi": fuente_inamhi, "ioc": fuente_ioc, "metar": fuente_met
 # de Galápagos). Se guarda el acumulado tal cual (lluvia_dia_acum_mm) y la lluvia de cada intervalo
 # como la diferencia con la consulta anterior del mismo día.
 # Estaciones: CLIMA_WEATHERLINK_ESTACIONES (privado/fuentes.env) = "id_publico_del_mapa:codigo[,…]".
-# Los identificadores no se versionan: delatan a estaciones particulares. Mientras no conste el
-# consentimiento del propietario, se publican sin nombre y con la ubicación redondeada a ~1 km.
+# Los identificadores del mapa no se versionan (como el resto de endpoints). La estación de Erna en
+# Puerto Ayora se publica con su nombre y ubicación exacta: autorizado por Julián el 2-nov-2026.
 WEATHERLINK_META = {  # código: (nombre, isla, lat, lon, altitud)
-    "pa_weatherlink": ("Puerto Ayora (WeatherLink)", "Santa Cruz", -0.75, -90.31, 10),
+    "pa_weatherlink": ("Puerto Ayora (Erna)", "Santa Cruz", -0.753368, -90.311995, 10),
     # Sensores «GALAP» de Puerto Baquerizo Moreno: inactivos el 2-nov-2026 (1–3 sin datos; 4 desde
     # ago-2022; 5 desde sep-2024). Entran solos al dashboard cuando vuelvan a transmitir.
     "galap1": ("Puerto Baquerizo (GALAP1)", "San Cristóbal", -0.902, -89.608, 10),

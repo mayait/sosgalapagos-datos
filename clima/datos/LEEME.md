@@ -16,7 +16,7 @@ Mediciones guardadas por SOS Galápagos para analizar las inundaciones de 2026 y
 - **Fundación Charles Darwin**: series climáticas de Puerto Ayora y Bellavista, licencia CC BY-NC-SA.
 - Recopilación: SOS Galápagos (USFQ Galápagos · IA Humana).
 
-> ⚠️ **Licencia IERSE (sin obras derivadas):** las tablas consolidadas (`ierse-wsn/serie_5min.csv.gz`, `horario.csv`, `diario.csv`) y los recortes de `clima/eventos/` son agregaciones de esos datos. Está pendiente decidir si se mantienen en el repositorio o se pide permiso al IERSE.
+> **Licencia IERSE (sin obras derivadas):** las tablas consolidadas (`ierse-wsn/serie_5min.csv.gz`, `horario.csv`, `diario.csv`) y los recortes de `clima/eventos/` son agregaciones de esos datos, sin cambios en los valores. Se mantienen en el repositorio por decisión de la coordinación (2-nov-2026). Quien las use debe citar al IERSE como se indica arriba y no darles uso comercial.
 
 ## Cuidado al usarlos
 
