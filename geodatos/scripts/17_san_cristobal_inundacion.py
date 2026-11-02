@@ -745,7 +745,6 @@ s0 = stem[k0]
 rv = int(MC_VENTANA_M / CELDA)
 ra_, rb_ = max(r_q - rv, 0), min(r_q + rv, H); ca_, cb_ = max(c_q - rv, 0), min(c_q + rv, W)
 sub_q = demq[ra_:rb_, ca_:cb_]; sub_sea = sea[ra_:rb_, ca_:cb_]; sub_cm = ndimage.binary_dilation(cm, iterations=1)[ra_:rb_, ca_:cb_]
-salidas_ref = {"S03 (Playa Mann norte)": (r_o, c_o)}
 mc = {}
 with tempfile.TemporaryDirectory() as td:
     pth_ = pathlib.Path(td) / "mc.tif"

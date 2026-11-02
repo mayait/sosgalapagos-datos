@@ -64,6 +64,11 @@
         "titulo": "La Cascada: análisis topográfico e hidrológico"
       },
       {
+        "archivo": "estudios/santa-cruz/texto/05b_modelo2d.md",
+        "titulo": "Modelo hidrodinámico 2D del 30 de octubre",
+        "n": "5b"
+      },
+      {
         "archivo": "estudios/la-cascada/texto/05_desvio.md",
         "n": 6,
         "refs": "lc",
@@ -371,6 +376,11 @@
         "refs": "scb"
       },
       {
+        "archivo": "estudios/san-cristobal/texto/04b_modelo2d.md",
+        "titulo": "Modelo hidrodinámico 2D",
+        "n": "4b"
+      },
+      {
         "archivo": "estudios/san-cristobal/texto/05_cruces.md",
         "n": 5,
         "refs": "scb"
@@ -386,8 +396,14 @@
         "refs": "scb"
       },
       {
-        "archivo": "estudios/san-cristobal/texto/08_recomendaciones.md",
+        "archivo": "estudios/san-cristobal/texto/09_agua_potable.md",
+        "titulo": "Tomas de agua del acueducto y sus cuencas",
         "n": 8,
+        "refs": "scb"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/08_recomendaciones.md",
+        "n": 9,
         "refs": "scb"
       },
       {
