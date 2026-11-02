@@ -130,7 +130,7 @@
       "capas": [
         {
           "nombre": "Modelo 2D: calado máximo el 30-oct",
-          "archivo": "estudios/santa-cruz/datos/modelo2d/central/calado_max_clases.geojson",
+          "archivo": "estudios/santa-cruz/datos/modelo2d/b_central/calado_max_clases.geojson",
           "color": "#2171b5",
           "relleno": 0.6,
           "grosor": 0,
@@ -321,7 +321,7 @@
           ]
         }
       ],
-      "calado": "estudios/santa-cruz/datos/modelo2d/central/calado_max_m.tif",
+      "calado": "estudios/santa-cruz/datos/modelo2d/b_central/calado_max_m.tif",
       "calado_titulo": "Calado máximo el 30-oct (modelo 2D)"
     },
     "descargas": [
@@ -351,7 +351,7 @@
         "prefijo": "la-cascada/"
       },
       {
-        "dir": "estudios/santa-cruz/datos/modelo2d/central",
+        "dir": "estudios/santa-cruz/datos/modelo2d/b_central",
         "patron": "*.*[!z]",
         "prefijo": "santa-cruz/modelo2d/"
       }
@@ -367,17 +367,6 @@
       "estudios/san-cristobal",
       "estudios/la-cascada"
     ],
-    "refs_mapas": {
-      "scb": {
-        "3": "3",
-        "4": "4",
-        "5": "6",
-        "6": "7",
-        "7": "8",
-        "8": "9",
-        "9": "10"
-      }
-    },
     "textos": [
       {
         "archivo": "estudios/san-cristobal/texto/00_resumen.md"
@@ -395,13 +384,11 @@
       },
       {
         "archivo": "estudios/san-cristobal/texto/03_lluvias.md",
-        "n": 3,
-        "refs": "scb"
+        "n": 3
       },
       {
         "archivo": "estudios/san-cristobal/texto/04_hidrologia.md",
-        "n": 4,
-        "refs": "scb"
+        "n": 4
       },
       {
         "archivo": "estudios/san-cristobal/texto/04b_modelo2d.md",
@@ -414,13 +401,11 @@
       },
       {
         "archivo": "estudios/san-cristobal/texto/05_cruces.md",
-        "n": 5,
-        "refs": "scb"
+        "n": 5
       },
       {
         "archivo": "estudios/san-cristobal/texto/06_urbano.md",
-        "n": 6,
-        "refs": "scb"
+        "n": 6
       },
       {
         "archivo": "estudios/san-cristobal/texto/06b_plan_ugr_ubicacion.md",
@@ -429,8 +414,7 @@
       },
       {
         "archivo": "estudios/san-cristobal/texto/07_riesgo.md",
-        "n": 7,
-        "refs": "scb"
+        "n": 7
       },
       {
         "archivo": "estudios/san-cristobal/texto/09_agua_potable.md",
@@ -439,8 +423,7 @@
       },
       {
         "archivo": "estudios/san-cristobal/texto/08_recomendaciones.md",
-        "n": 9,
-        "refs": "scb"
+        "n": 9
       },
       {
         "archivo": "estudios/san-cristobal/texto/90_descargas.md"
