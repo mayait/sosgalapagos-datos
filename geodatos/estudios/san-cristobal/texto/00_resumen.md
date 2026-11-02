@@ -1,6 +1,6 @@
 # Resumen
 
-> **Estudio totalmente preliminar y en curso.** Es un reconocimiento de gabinete. En San Cristóbal **no hay lluvia medida pública** del evento de octubre de 2026, de modo que los caudales son escenarios. El modelo hidrodinámico 2D y las cuencas de captación de las tomas de agua siguen en desarrollo. Cada sección admite comentarios.
+> **Estudio totalmente preliminar y en curso.** Es un reconocimiento de gabinete. En San Cristóbal **no hay lluvia medida pública** del evento de octubre de 2026, de modo que los caudales son escenarios. Las cuencas de captación de las tomas de agua siguen en desarrollo. Cada sección admite comentarios.
 
 ## Hallazgos principales
 
@@ -11,10 +11,10 @@
 - **El Progreso** está aguas arriba de Puerto Baquerizo Moreno y su agua acaba en la cuenca de Barrio Frío. Tiene **5 vasos** cerca de puntos ya inundados en 2021 y 2024, lo que sugiere un mal drenaje local.
 - **Campus USFQ / Galapagos Science Center.**
   - Junto al campus pasa una quebrada pequeña (0,3 km², ≈1–5 m³/s con 100 mm) que **no tiene franja de protección** y cruza la Vía Universidad sin un paso conocido.
-  - Con un modelo de 30 m no se puede saber si entra en el campus. Según el trazado, pasa por él o a unos 150 m; en el 12–23 % de 400 simulaciones con ruido de cota, el agua entra por la Vía Universidad.
+  - **Según el modelo 2D (malla de 15 m), entra agua al campus como desborde somero, no como cauce.** Con la tormenta trasladada, un 5–10 % del caudal de la quebrada cruza la esquina noreste del campus junto a la Vía Universidad. Deja una lámina de 2–5 cm, con una entrada máxima de 0,6–1,0 m³/s. Con 100 mm, el aporte de la quebrada es despreciable. Hay que verificarlo en campo.
   - Los edificios del campus están 8–13 m por debajo del rellano por el que baja la quebrada.
 - **Cruces de quebradas con vías:** 325 en total, 25 de prioridad alta y 11 con estructura cartografiada. La vía Puerto Baquerizo Moreno–El Progreso cruza un afluente de 6,5 km² sin estructura conocida.
-- **Lluvia del 30–31 de octubre.** Las observaciones del aeropuerto (METAR) registran lluvia fuerte el 30-oct a las 15 h y lluvia continua el 31-oct de 08:00 a 14:00. Coincide con el reporte de la SNGR de desbordamientos en Barrio Frío y Divino Niño. **Si la tormenta medida en Santa Cruz hubiera caído sobre San Cristóbal**, los caudales serían varias veces los del escenario de 100 mm. Este escenario se modela en la sección del modelo 2D, en preparación.
+- **Lluvia del 30–31 de octubre.** Las observaciones del aeropuerto (METAR) registran lluvia fuerte el 30-oct a las 15 h y lluvia continua el 31-oct de 08:00 a 14:00. Coincide con el reporte de la SNGR de desbordamientos en Barrio Frío y Divino Niño. **Si la tormenta medida en Santa Cruz hubiera caído sobre San Cristóbal**, el modelo 2D da en Barrio Frío ≈95–127 m³/s, frente a ≈18 m³/s con 100 mm (sección 4b).
 
 ## Agua potable
 

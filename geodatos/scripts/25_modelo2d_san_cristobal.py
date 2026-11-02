@@ -41,7 +41,7 @@ from numba import njit
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 EST = ROOT / "estudios/san-cristobal"
 OUT = EST / "datos/modelo2d"
-FIG = EST / "texto/figuras"
+FIG = EST / "figuras"                     # el generador web busca las figuras aquí
 DEM_CRUDO = ROOT / "descargas/dem_recortes/san_cristobal_dem.tif"
 DEM_QUEMADO = ROOT / "descargas/dem_recortes/san_cristobal_dem_quemado.tif"
 HIETO = ROOT / "estudios/santa-cruz/datos/lluvias/hietograma_5min.csv"
@@ -62,6 +62,7 @@ N_CLASE = {"natural": 0.08, "agricola": 0.06, "poblado": 0.04, "cauce": 0.045}
 CN_CLASE = {"natural": 60, "agricola": 76, "poblado": 90}      # AMC II, como en el script 17
 UMBRALES_LLEGADA = (0.1, 0.3)
 CLASES_CALADO = ((0.1, 0.5), (0.5, 1.0), (1.0, 2.0), (2.0, 99.0))
+ETIQUETA_CLASE = {(0.1, 0.5): "0,1–0,5 m", (0.5, 1.0): "0,5–1 m", (1.0, 2.0): "1–2 m", (2.0, 99.0): ">2 m"}   # valores exactos que usa el mapa web
 DT_SERIE_S = 300           # series cada 5 min
 DT_CUADRO_S = 600          # cuadros cada 10 min
 ESCENARIOS = {
@@ -95,6 +96,7 @@ SECCIONES = {   # caudal por sección transversal al cauce D8 (lon, lat del punt
 }
 VENTANA_CIUDAD = (-89.6175, -0.9145, -89.5900, -0.8905)     # lon0, lat0, lon1, lat1 (mapas y animación)
 VENTANA_PROGRESO = (-89.5640, -0.9150, -89.5460, -0.8980)
+VENTANA_CAMPUS = (-89.6125, -0.9010, -89.6020, -0.8920)
 
 T = Transformer.from_crs(4326, EPSG, always_xy=True).transform
 TI = Transformer.from_crs(EPSG, 4326, always_xy=True).transform
@@ -474,7 +476,7 @@ def hora_txt(t0, t_s):
     return (t0 + dt_.timedelta(seconds=float(t_s))).strftime("%d-%b %H:%M")
 
 
-def exportar(clave, esc, res, R):
+def exportar(clave, esc, res, R, base_zonas):
     tr, dom = res["tr"], res["dom"]
     hmax = np.where(dom, res["hmax"], -9999); vmax = np.where(dom & (res["hmax"] > 0.05), res["vmax"], -9999)
     tl = np.where(dom & (res["tl2"] >= 0), res["tl2"] / 3600, -9999); tl1 = np.where(dom & (res["tl1"] >= 0), res["tl1"] / 3600, -9999)
@@ -493,12 +495,24 @@ def exportar(clave, esc, res, R):
         geoms = [shape(s) for s, _ in shapes(msk.astype("uint8"), mask=msk, transform=tr)]
         u = unary_union(geoms)
         ne = len(te.query(u, predicate="intersects"))
-        etiqueta = f"{lo}–{hi} m" if hi < 99 else f"> {lo} m"
+        etiqueta = ETIQUETA_CLASE[(lo, hi)]
         resumen_cl[etiqueta] = {"area_ha": round(msk.sum() * tr.a ** 2 / 1e4, 1), "edificios_que_tocan": ne}
         for gg in getattr(u, "geoms", [u]):
             fs.append({"type": "Feature", "properties": {"clase": etiqueta, "calado_min_m": lo, "calado_max_m": hi if hi < 99 else None,
                                                          "escenario": esc["nombre"]}, "geometry": r6(gg.simplify(tr.a * 0.3))})
     (OUT / f"{clave}_calado_max_clases.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": fs}, ensure_ascii=False))
+    # edificios por zona según el calado máximo en la celda de su centroide (el DSM incluye techos: es un indicador, no un conteo exacto)
+    expo_zonas = {}
+    for zn, zg in base_zonas.items():
+        cnt = {f">={u}m": 0 for u in (0.1, 0.3, 0.5, 1.0)}; tot = 0
+        for g, _ in edif:
+            if not zg.contains(g.centroid): continue
+            tot += 1
+            c, r = ~tr * g.centroid.coords[0]; r, c = int(r), int(c)
+            if 0 <= r < res["H"] and 0 <= c < res["W"]:
+                for u in (0.1, 0.3, 0.5, 1.0):
+                    if res["hmax"][r, c] >= u: cnt[f">={u}m"] += 1
+        expo_zonas[zn] = {"edificios_en_zona": tot, "edificios_con_calado_max": cnt}
     # series
     t_ser = np.arange(res["nser"]) * DT_SERIE_S
     cab = ["tiempo_h", "hora"] + [f"{k}_h_m" for k in res["serie"]] + [f"{k}_v_ms" for k in res["serie"]] + \
@@ -536,7 +550,7 @@ def exportar(clave, esc, res, R):
     # el trazador alrededor del campus: concentración máxima no se guarda; se informa el volumen
     R["escenarios"][clave] = {"descripcion": esc["nombre"], "celda_m": esc["celda"], "amc": esc["amc"], "lluvia": res["info_ll"], "duracion_simulada_h": esc["dur_h"],
                              "pasos": res["pasos"], "tiempo_calculo_s": round(res["seg"]), "balance_masa": res["balance"],
-                             "clases_calado": resumen_cl, "puntos": pk, "secciones": qk, "campus": campus,
+                             "clases_calado": resumen_cl, "exposicion_por_zona": expo_zonas, "puntos": pk, "secciones": qk, "campus": campus,
                              "celdas_dominio": int(dom.sum()), "area_dominio_km2": round(float(dom.sum() * tr.a ** 2 / 1e6), 2)}
     print("   campus:", campus)
     print("   secciones:", qk)
@@ -558,7 +572,7 @@ def figuras(clave, res, R):
         return max(int(r0), 0), min(int(r1) + 1, res["H"]), max(int(c0), 0), min(int(c1) + 1, res["W"])
 
     edif = feats("capas/final/edificios_exposicion.geojson")
-    for nm, v in (("ciudad", VENTANA_CIUDAD), ("progreso", VENTANA_PROGRESO)):
+    for nm, v in (("ciudad", VENTANA_CIUDAD), ("progreso", VENTANA_PROGRESO), ("campus", VENTANA_CAMPUS)):
         r0, r1, c0, c1 = ventana(v)
         ext = [tr.c + c0 * tr.a, tr.c + c1 * tr.a, tr.f + r1 * tr.e, tr.f + r0 * tr.e]
         fig, ax = plt.subplots(figsize=(10, 9))
@@ -570,7 +584,7 @@ def figuras(clave, res, R):
         for g, _ in edif:
             if bx[0] < g.centroid.x < bx[2] and bx[1] < g.centroid.y < bx[3] and g.geom_type == "Polygon":
                 ax.plot(*g.exterior.xy, color="#444", lw=0.3)
-        if nm == "ciudad":
+        if nm in ("ciudad", "campus"):
             mm = res["mmax"][r0:r1, c0:c1]
             ax.contour(np.linspace(ext[0], ext[1], mm.shape[1]), np.linspace(ext[3], ext[2], mm.shape[0]), mm, levels=[0.02],
                        colors="#9467bd", linewidths=1.2)
@@ -604,7 +618,8 @@ def figuras(clave, res, R):
         msk = (hh >= 0.1) & res["dom"][r0:r1, c0:c1]
         img[msk] = (0.25 * img[msk] + 0.75 * cols[k[msk]]).astype(np.uint8)
         img[camp] = (230, 85, 13)
-        im = Image.fromarray(img).resize((img.shape[1] * 3, img.shape[0] * 3), Image.NEAREST)
+        esc_px = 3 if tr.a >= 30 else 2
+        im = Image.fromarray(img).resize((img.shape[1] * esc_px, img.shape[0] * esc_px), Image.NEAREST)
         from PIL import ImageDraw
         d = ImageDraw.Draw(im); d.rectangle([0, 0, 330, 22], fill=(255, 255, 255))
         d.text((5, 5), f"{hora_txt(res['t0'], tt)}  calado >= 0,1 m  (preliminar)", fill=(0, 0, 0))
@@ -637,8 +652,8 @@ if __name__ == "__main__":
         esc = ESCENARIOS[clave]
         print("Escenario", clave, "—", esc["nombre"])
         res = simular(clave, esc, base)
-        exportar(clave, esc, res, R)
-        if esc["celda"] == 30.0 and clave in ("scs100", "guayabillos"):
+        exportar(clave, esc, res, R, base["zonas"])
+        if clave in ("scs100", "guayabillos", "guayabillos_15m"):
             figuras(clave, res, R)
         fr.write_text(json.dumps(R, ensure_ascii=False, indent=1))
     print("Listo:", OUT)

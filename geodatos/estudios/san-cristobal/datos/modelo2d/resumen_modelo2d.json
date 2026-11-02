@@ -47,7 +47,7 @@
    },
    "duracion_simulada_h": 26.0,
    "pasos": 16243,
-   "tiempo_calculo_s": 11,
+   "tiempo_calculo_s": 8,
    "balance_masa": {
     "lluvia_neta_m3": 1704136,
     "salida_mar_y_contornos_m3": 1313459,
@@ -70,6 +70,26 @@
     ">2 m": {
      "area_ha": 4.3,
      "edificios_que_tocan": 6
+    }
+   },
+   "exposicion_por_zona": {
+    "Puerto Baquerizo Moreno": {
+     "edificios_en_zona": 2988,
+     "edificios_con_calado_max": {
+      ">=0.1m": 576,
+      ">=0.3m": 187,
+      ">=0.5m": 100,
+      ">=1.0m": 3
+     }
+    },
+    "El Progreso": {
+     "edificios_en_zona": 206,
+     "edificios_con_calado_max": {
+      ">=0.1m": 33,
+      ">=0.3m": 29,
+      ">=0.5m": 23,
+      ">=1.0m": 9
+     }
     }
    },
    "puntos": {
@@ -200,7 +220,7 @@
    },
    "duracion_simulada_h": 28.0,
    "pasos": 19389,
-   "tiempo_calculo_s": 18,
+   "tiempo_calculo_s": 16,
    "balance_masa": {
     "lluvia_neta_m3": 642153,
     "salida_mar_y_contornos_m3": 425263,
@@ -223,6 +243,26 @@
     ">2 m": {
      "area_ha": 1.4,
      "edificios_que_tocan": 4
+    }
+   },
+   "exposicion_por_zona": {
+    "Puerto Baquerizo Moreno": {
+     "edificios_en_zona": 2988,
+     "edificios_con_calado_max": {
+      ">=0.1m": 241,
+      ">=0.3m": 46,
+      ">=0.5m": 29,
+      ">=1.0m": 1
+     }
+    },
+    "El Progreso": {
+     "edificios_en_zona": 206,
+     "edificios_con_calado_max": {
+      ">=0.1m": 28,
+      ">=0.3m": 17,
+      ">=0.5m": 12,
+      ">=1.0m": 3
+     }
     }
    },
    "puntos": {
@@ -358,7 +398,7 @@
    },
    "duracion_simulada_h": 26.0,
    "pasos": 17593,
-   "tiempo_calculo_s": 12,
+   "tiempo_calculo_s": 10,
    "balance_masa": {
     "lluvia_neta_m3": 2378556,
     "salida_mar_y_contornos_m3": 1960362,
@@ -381,6 +421,26 @@
     ">2 m": {
      "area_ha": 5.0,
      "edificios_que_tocan": 6
+    }
+   },
+   "exposicion_por_zona": {
+    "Puerto Baquerizo Moreno": {
+     "edificios_en_zona": 2988,
+     "edificios_con_calado_max": {
+      ">=0.1m": 661,
+      ">=0.3m": 231,
+      ">=0.5m": 121,
+      ">=1.0m": 3
+     }
+    },
+    "El Progreso": {
+     "edificios_en_zona": 206,
+     "edificios_con_calado_max": {
+      ">=0.1m": 34,
+      ">=0.3m": 30,
+      ">=0.5m": 23,
+      ">=1.0m": 10
+     }
     }
    },
    "puntos": {
@@ -516,7 +576,7 @@
    },
    "duracion_simulada_h": 26.0,
    "pasos": 30475,
-   "tiempo_calculo_s": 80,
+   "tiempo_calculo_s": 79,
    "balance_masa": {
     "lluvia_neta_m3": 1703258,
     "salida_mar_y_contornos_m3": 1382974,
@@ -524,21 +584,41 @@
     "error_relativo": 0.0
    },
    "clases_calado": {
-    "0.1–0.5 m": {
+    "0,1–0,5 m": {
      "area_ha": 136.0,
      "edificios_que_tocan": 789
     },
-    "0.5–1.0 m": {
+    "0,5–1 m": {
      "area_ha": 22.9,
      "edificios_que_tocan": 189
     },
-    "1.0–2.0 m": {
+    "1–2 m": {
      "area_ha": 7.8,
      "edificios_que_tocan": 33
     },
-    "> 2.0 m": {
+    ">2 m": {
      "area_ha": 4.0,
      "edificios_que_tocan": 6
+    }
+   },
+   "exposicion_por_zona": {
+    "Puerto Baquerizo Moreno": {
+     "edificios_en_zona": 2988,
+     "edificios_con_calado_max": {
+      ">=0.1m": 535,
+      ">=0.3m": 181,
+      ">=0.5m": 82,
+      ">=1.0m": 3
+     }
+    },
+    "El Progreso": {
+     "edificios_en_zona": 206,
+     "edificios_con_calado_max": {
+      ">=0.1m": 35,
+      ">=0.3m": 25,
+      ">=0.5m": 21,
+      ">=1.0m": 11
+     }
     }
    },
    "puntos": {
