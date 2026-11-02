@@ -23,7 +23,10 @@ from shapely import make_valid
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT = ROOT / "publicar" / "mapas"
-VARIANTES = {"zona": ROOT / "export" / "galapagos", "completo": ROOT / "export" / "galapagos-completo"}
+# En /mapas se publica solo la versión completa (sin recorte): es para tomar decisiones con toda la información.
+# El recorte («zona») sigue existiendo para el mapa de la app (export/galapagos).
+VARIANTES = {"completo": ROOT / "export" / "galapagos-completo"}
+MANIFIESTO = ROOT / "export" / "galapagos" / "capas.json"
 TITULO_VAR = {"zona": "Zona poblada (recortado al área de interés)", "completo": "Islas completas (sin recorte, incluye el Parque Nacional)"}
 HOY = datetime.date.today().isoformat()
 PRJ = ('GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],'
@@ -175,7 +178,7 @@ def leeme(capa_titulo, archivo, var, n, extra=""):
 def main():
     if OUT.exists(): shutil.rmtree(OUT)
     (OUT / "datos").mkdir(parents=True); (OUT / "descargas").mkdir()
-    man = json.loads((VARIANTES["zona"] / "capas.json").read_text())
+    man = json.loads(MANIFIESTO.read_text())
     man["grupos"].append(EXTRA)
     man["mapas_base"] = [b for b in man.get("mapas_base", []) if b["id"] != "claro"]
     titulos = {}
@@ -194,7 +197,7 @@ def main():
         todo_gj = zipfile.ZipFile(d_desc / f"todo-{var}-geojson.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
         for gj in sorted(src.glob("*.geojson")):
             if var == "zona" and gj.name in SIEMPRE_COMPLETAS:
-                gj = VARIANTES["completo"] / gj.name          # sin recorte también en «Zona poblada»
+                gj = ROOT / "export" / "galapagos-completo" / gj.name   # sin recorte también en «Zona poblada»
             data = json.loads(gj.read_text())
             feats = [f for f in data["features"] if f.get("geometry")]
             shutil.copy(gj, d_datos / gj.name)

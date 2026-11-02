@@ -89,13 +89,7 @@ details.card summary{cursor:pointer;font-weight:600;font-size:13px}
   <div class="head">
    <a class="back" href="/">← SOS Galápagos</a>
    <h1>Mapas y capas de la emergencia</h1>
-   <div class="sub">Inundaciones por El Niño en Galápagos, oct–nov 2026. Activa las capas para verlas y descárgalas en Shapefile o GeoJSON para usarlas en QGIS, ArcGIS o Google Earth.</div>
-   <div class="lbl">Cobertura</div>
-   <div class="seg" id="variantes">
-    <button data-v="zona">Zona poblada</button>
-    <button data-v="completo">Islas completas</button>
-   </div>
-   <div class="varnote" id="varnote"></div>
+   <div class="sub">Inundaciones por El Niño en Galápagos, oct–nov 2026. Toda la información de Santa Cruz, San Cristóbal e Isabela, sin recortes, incluido el Parque Nacional. Activa las capas para verlas y descárgalas en Shapefile o GeoJSON para usarlas en QGIS o ArcGIS.</div>
    <div class="lbl">Descargar todas las capas</div>
    <div class="dl-all" id="todo"></div>
    <div class="lbl">Ir a</div>
@@ -118,11 +112,7 @@ details.card summary{cursor:pointer;font-weight:600;font-size:13px}
 </div>
 <script>
 const VERSION = '__VERSION__';
-const NOTA_VAR = {
-  zona: 'Recortado a las zonas pobladas, la zona agrícola, las vías y las cuencas que drenan a los poblados. Más liviano.',
-  completo: 'Cada isla completa, incluido el Parque Nacional. Más pesado: en celular activa pocas capas a la vez.',
-};
-let variante = location.hash === '#completo' ? 'completo' : 'zona';
+const variante = 'completo';     // sin recortes: toda la información para tomar decisiones
 const datos = () => `datos/${variante}/`;
 const conV = u => `${u}?v=${VERSION}`;
 const esMovil = matchMedia('(max-width: 760px), (pointer: coarse)').matches;
@@ -289,23 +279,11 @@ let ctx = nuevoCtx();
   }
   const syncTodo = async () => { for (const f of filas) await f.sync(); };   // en orden, para respetar el apilado
 
-  // Cobertura (zona poblada / islas completas)
-  const segV = document.getElementById('variantes');
-  const pintarVariante = () => {
-    segV.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === variante));
-    document.getElementById('varnote').textContent = NOTA_VAR[variante];
-    const t = idx.variantes[variante].todo;
-    document.getElementById('todo').innerHTML =
-      `<a class="btn pri" href="${t.shp.url}" download>↓ Shapefile <small>${t.shp.tam}</small></a>` +
-      `<a class="btn" href="${t.geojson.url}" download>↓ GeoJSON <small>${t.geojson.tam}</small></a>`;
-  };
-  segV.querySelectorAll('button').forEach(b => b.onclick = () => {
-    if (b.dataset.v === variante) return;
-    variante = b.dataset.v; history.replaceState(null, '', variante === 'completo' ? '#completo' : location.pathname);
-    filas.forEach(f => f.reset()); ctx = nuevoCtx(); pintarVariante(); syncTodo(); expo();
-    if (variante === 'completo' && map.getZoom() > 12) map.setZoom(11);
-  });
-  pintarVariante();
+  // Descargar todo
+  const t = idx.variantes[variante].todo;
+  document.getElementById('todo').innerHTML =
+    `<a class="btn pri" href="${t.shp.url}" download>↓ Shapefile <small>${t.shp.tam}</small></a>` +
+    `<a class="btn" href="${t.geojson.url}" download>↓ GeoJSON <small>${t.geojson.tam}</small></a>`;
   await syncTodo();
   const zoomSync = () => { map.getContainer().classList.toggle('map-far', map.getZoom() < 15); filas.forEach(f => f.sync()); };
   map.on('zoomend', zoomSync); zoomSync();
