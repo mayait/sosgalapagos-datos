@@ -112,6 +112,9 @@ details.card summary{cursor:pointer;font-weight:600;font-size:13px}
 </div>
 <script>
 const VERSION = '__VERSION__';
+// Vista inicial: el archipiélago completo, con el mapa base topográfico.
+const ARCHIPIELAGO = [[-1.42, -91.70], [0.40, -89.25]];
+const BASE_INICIAL = 'topografico';
 const variante = 'completo';     // sin recortes: toda la información para tomar decisiones
 const datos = () => `datos/${variante}/`;
 const conV = u => `${u}?v=${VERSION}`;
@@ -209,7 +212,7 @@ async function crearCapa(capa, ctx) {
 }
 
 // ═══════════ Mapa ═══════════
-const map = L.map('map', { zoomControl: true, minZoom: 8 });
+const map = L.map('map', { zoomControl: true, minZoom: 7 });
 L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
 for (const [n, z] of [['fondo', 350], ['parque', 390], ['areas', 410], ['lineas', 430], ['puntos', 620]]) map.createPane(n).style.zIndex = z;
 map.getPane('fondo').style.pointerEvents = 'none';
@@ -225,12 +228,13 @@ let ctx = nuevoCtx();
     const capa = L.tileLayer(b.url, { maxZoom: 19, maxNativeZoom: b.maxZoom ?? 19, attribution: b.atribucion });
     const btn = document.createElement('button'); btn.textContent = b.titulo;
     const usar = () => { if (base) map.removeLayer(base); base = capa.addTo(map); segB.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === btn)); };
-    btn.onclick = usar; segB.appendChild(btn); if (b.defecto || !base) usar();
+    btn.onclick = usar; segB.appendChild(btn); if (b.id === BASE_INICIAL) usar();
   }
   // Saltos
   const zi = document.getElementById('islas');
-  for (const [k, v] of Object.entries(man.islas)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = k; b.onclick = () => map.fitBounds(v.bounds); zi.appendChild(b); }
-  map.fitBounds(man.islas['Puerto Ayora'].bounds);
+  const saltos = { 'Archipiélago': { bounds: ARCHIPIELAGO }, ...man.islas };
+  for (const [k, v] of Object.entries(saltos)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = k; b.onclick = () => map.fitBounds(v.bounds); zi.appendChild(b); }
+  map.fitBounds(ARCHIPIELAGO);
 
   // Panel de capas
   const cont = document.getElementById('grupos'); const filas = [];
