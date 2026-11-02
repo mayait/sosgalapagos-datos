@@ -32,8 +32,8 @@ Salidas:
   datos/mareas/nivel_mar_{puerto_ayora,baltra}_10min.csv     observado, predicho y residuo (m sobre el NMM 2017–2024)
   datos/mareas/nivel_mar_puerto_baquerizo_estimado_10min.csv
   datos/mareas/pleamares_bajamares.csv, constituyentes.csv, resumen_mareas.json
-  estudios/santa-cruz/datos/lluvia_mareas_{inventario,horaria,eventos}.csv
-  estudios/san-cristobal/datos/lluvia_mareas_{inventario,horaria,eventos}.csv
+  estudios/santa-cruz/datos/lluvia_mareas_{inventario,horaria,diaria,eventos}.csv
+  estudios/san-cristobal/datos/lluvia_mareas_{inventario,horaria,diaria,eventos}.csv
   estudios/{santa-cruz,san-cristobal}/figuras/mareas_*.png
 
 Uso, desde geodatos/:
@@ -744,6 +744,7 @@ def main():
     hl["hora_inicio_utc6"] = loc(hl.h).strftime("%Y-%m-%d %H:%M")
     for isla, carpeta, mar, col in (("Santa Cruz", SC, pa, "obs_m"), ("San Cristóbal", SCB, pb, "est_m")):
         ks = [k for k, v in ESTACIONES.items() if v[1] == isla]
+        # Las estaciones particulares (Erna, Punta Estrada) se publican con nombre y ubicación por decisión del 2-nov-2026.
         inv[inv.isla == isla].to_csv(carpeta / "datos" / "lluvia_mareas_inventario.csv", index=False)
         x = hl[hl.estacion.isin(ks) & (hl.h >= pd.Timestamp("2026-10-28 06:00", tz="UTC")) & (hl.h < pd.Timestamp("2026-11-03 06:00", tz="UTC"))]
         tab = x.pivot_table(index="hora_inicio_utc6", columns="estacion", values="mm").round(1)
@@ -755,6 +756,23 @@ def main():
         tab = tab.join(mh, how="left")
         tab.index.name = "hora_inicio_utc6"
         tab.to_csv(carpeta / "datos" / "lluvia_mareas_horaria.csv")
+        # Lluvia diaria (día natural en UTC−6) a partir de la horaria; horas_con_dato = horas con registro (de 24).
+        cols = [c for c in tab.columns if c.endswith(" (mm)")]
+        dd = tab[cols].copy()
+        dd["dia"] = dd.index.str[:10]
+        suma = dd.groupby("dia")[cols].sum(min_count=1).round(1)
+        n = dd.groupby("dia")[cols].count()
+        diaria = (suma.stack().rename("lluvia_mm").to_frame()
+                  .join(n.stack().rename("horas_con_dato")).reset_index()
+                  .rename(columns={"level_1": "estacion"}))
+        diaria["estacion"] = diaria.estacion.str.replace(" (mm)", "", regex=False)
+        diaria = diaria[["estacion", "dia", "lluvia_mm", "horas_con_dato"]].sort_values(["estacion", "dia"])
+        if isla == "Santa Cruz":   # lluvia de la costa después del corte de IERSE (30-oct 22:00 → 31-oct 03:00)
+            m0191 = [c for c in cols if "(M0191)" in c][0]
+            v = tab.loc[(tab.index >= "2026-10-30 22:00") & (tab.index < "2026-10-31 03:00"), m0191]
+            diaria = pd.concat([diaria, pd.DataFrame([{"estacion": m0191.replace(" (mm)", ""), "dia": "30-oct 22:00 a 31-oct 03:00",
+                                                        "lluvia_mm": round(float(v.sum()), 1), "horas_con_dato": int(v.count())}])])
+        diaria.to_csv(carpeta / "datos" / "lluvia_mareas_diaria.csv", index=False)
         ev[ev.isla == isla].drop(columns="isla").to_csv(carpeta / "datos" / "lluvia_mareas_eventos.csv", index=False)
 
     # ---------------- resumen

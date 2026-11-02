@@ -1,7 +1,7 @@
 {
  "_nota": "Caché de los issues de mayait/sosgalapagos-datos para el sitio /estudios (la escribe scripts/22_pendientes.py --actualizar). No editar a mano: los pendientes se cambian en GitHub.",
  "repo": "mayait/sosgalapagos-datos",
- "descargado": "2026-11-02T23:20:42+00:00",
+ "descargado": "2026-11-02T23:49:28+00:00",
  "issues": [
   {
    "numero": 1,
@@ -43,9 +43,9 @@
     "datos-faltantes"
    ],
    "cuerpo": "**Novedad (2-nov):** la estación INAMHI M0191 (Puerto Ayora, 6 m, a 1,4 km de La Cascada) registró 93,6 mm el 30-oct y 135,4 mm el 31-oct (días en UTC−5), con un pico de ~37 mm/h. El recolector de clima ya la recoge.\n\n**Dato:** **Lluvia medida el 30–31-oct** en Puerto Ayora (no hay estación allí)\n**Quién lo tiene o puede levantarlo:** FCD, INAMHI, aeropuerto, pluviómetros privados\n**Para qué sirve:** Decidir entre ECMWF 9 km (≈80–130 mm) y los otros modelos (0,2–26 mm)\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 1,
+   "comentarios": 2,
    "creado": "2026-11-02T20:38:26Z",
-   "actualizado": "2026-11-02T20:58:27Z",
+   "actualizado": "2026-11-02T23:49:15Z",
    "cerrado": null
   },
   {
@@ -911,7 +911,7 @@
   },
   {
    "numero": 61,
-   "titulo": "Lluvia medida del 30–31-oct en San Cristóbal (proyecto DARWIN, GSC, INAMHI)",
+   "titulo": "Lluvia medida en la ciudad y a 5–10 min del 30–31-oct en San Cristóbal (GSC, DARWIN, INAMHI)",
    "estado": "open",
    "url": "https://github.com/mayait/sosgalapagos-datos/issues/61",
    "etiquetas": [
@@ -919,10 +919,10 @@
     "datos-faltantes",
     "san-cristobal"
    ],
-   "cuerpo": "No hay lluvia medida pública del evento. Las estaciones del proyecto DARWIN (U. de Marburgo: Puerto Baquerizo, El Junco, La Galapaguera) y las del GSC podrían tenerla. INAMHI M0221 y M0193 solo llegan hasta 2013. Sin estos datos, los caudales son escenarios. (Otro agente trabaja en el script 29 con datos de Marburgo: coordinar.)\n\n**Isla:** San Cristóbal\n**Sale de:** 11_lluvia.md, 01_panorama.md\nhttps://sosgalapagos.org/estudios/san-cristobal/lluvia/\nhttps://sosgalapagos.org/estudios/san-cristobal/panorama/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
-   "comentarios": 0,
+   "cuerpo": "Ya hay lluvia medida del evento en la parte alta de San Cristóbal (estaciones USFQ-GSC vía el historial del INAMHI; ver el comentario del 2-nov). Falta la lluvia **en la ciudad** (ninguna estación dentro de las cuencas urbanas; M0221 solo desde el 2-nov), las intensidades de 5–10 min del GSC, su serie histórica y las estaciones DARWIN.\n\n**Isla:** San Cristóbal\nhttps://sosgalapagos.org/estudios/san-cristobal/lluvia/",
+   "comentarios": 1,
    "creado": "2026-11-02T23:19:48Z",
-   "actualizado": "2026-11-02T23:19:48Z",
+   "actualizado": "2026-11-02T23:49:13Z",
    "cerrado": null
   },
   {
@@ -1115,6 +1115,54 @@
    "comentarios": 0,
    "creado": "2026-11-02T23:20:16Z",
    "actualizado": "2026-11-02T23:20:16Z",
+   "cerrado": null
+  },
+  {
+   "numero": 74,
+   "titulo": "Modelo 2D de San Cristóbal con la lluvia USFQ-GSC del 30–31-oct",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/74",
+   "etiquetas": [
+    "P2",
+    "mas-resolucion",
+    "san-cristobal"
+   ],
+   "cuerpo": "Correr el modelo 2D de Puerto Baquerizo Moreno con el hietograma medido (El Mirador o Cerro Alto; suelo húmedo, AMC III) y compararlo con los escenarios de 50/100/150 mm y con la tormenta de Santa Cruz trasladada. Una comparación gruesa sugiere que lo medido se parece más al escenario de 100 mm. Datos: geodatos/estudios/san-cristobal/datos/lluvia_mareas_horaria.csv. Avanza #26.\n\nhttps://sosgalapagos.org/estudios/san-cristobal/modelo-2d/",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:49:17Z",
+   "actualizado": "2026-11-02T23:49:17Z",
+   "cerrado": null
+  },
+  {
+   "numero": 75,
+   "titulo": "Enlazar el mareógrafo de Puerto Ayora con el datum del DSM y del IGM",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/75",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "El modelo 2D de Santa Cruz usa un nivel del mar fijo de +0,75 m. A la hora del pico (22:12–22:34 del 30-oct) el mar observado estaba en +0,13 a +0,05 m sobre el nivel medio 2017–2024, pero solo es comparable si el cero del DSM coincide con el nivel medio del mar, lo que no está verificado. Hace falta el enlace del mareógrafo (INOCAR/IOC) con el datum del IGM y del Copernicus GLO-30. Relacionado con #12.\n\nhttps://sosgalapagos.org/estudios/santa-cruz/modelo-2d/",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:49:18Z",
+   "actualizado": "2026-11-02T23:49:18Z",
+   "cerrado": null
+  },
+  {
+   "numero": 76,
+   "titulo": "Series del proyecto DARWIN (U. de Marburgo) del 15-oct al 2-nov y permiso para publicar derivados",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/76",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "gobernanza"
+   ],
+   "cuerpo": "Tres estaciones de DARWIN parecen compartir sitio con estaciones IERSE-WSN de Santa Cruz (Santa Rosa, Cerro Crocker, Militar) y podrían tener la lluvia que IERSE perdió entre las 21:25 del 30-oct y las 18:45 del 31-oct; también hay estaciones en San Cristóbal (Puerto Baquerizo Moreno, La Galapaguera, El Junco). Lo publicado llega a 2025–may-2026 y el acuerdo de uso prohíbe redistribuir: hay que pedir las series del evento y permiso para publicar derivados (con coautoría si lo piden). Lo pide el responsable del proyecto. Relacionado con #61 y #62.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:49:20Z",
+   "actualizado": "2026-11-02T23:49:20Z",
    "cerrado": null
   }
  ]
