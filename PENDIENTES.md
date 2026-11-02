@@ -49,7 +49,7 @@ Prioridad: **P1** = cambia decisiones de esta emergencia · **P2** = mejora much
 | [ ] | **Drenaje urbano 1D/2D** (SWMM) | P3 | Red de sumideros | |
 | [ ] | **Mapa de amenaza por inundación** candidato a oficial (hoy no existe ninguno para Galápagos) | P1 | Los anteriores | Propuesta para SNGR, CGREG y GAD |
 | [ ] | **Riesgo = amenaza × exposición × vulnerabilidad** por manzana | P2 | Catastro, censo | Hoy solo tenemos exposición |
-| [ ] | **Alerta temprana por lluvia**: umbrales por estación conectados al recolector | P1 | Clima en vivo, IDF | Aviso al bot de WhatsApp y al COE |
+| [~] | **Alerta temprana por lluvia**: umbrales por estación conectados al recolector. Hay una regla preliminar 0.1 para La Cascada (1 h / 3 h / 24 h + humedad antecedente; `clima/docs/umbrales-la-cascada.md`) | P1 | Clima en vivo, IDF | Calibrar: confirmar si hubo inundación el 3-oct, el 23-oct y el 1/2-nov; revisar el pluviómetro de Los Guayabillos (marca 0 desde el 31-oct). Después, aviso al bot de WhatsApp y al COE |
 | [ ] | **Pronóstico 72 h** (ECMWF/GFS) en el panel de clima | P2 | — | |
 | [ ] | **Susceptibilidad a movimientos en masa** (pendiente + lluvia + geología) | P2 | Geología | |
 | [ ] | **Inventario en terreno de cruces quebrada–vía** | P1 | — | El estudio de Santa Cruz los lista; falta verificar |
