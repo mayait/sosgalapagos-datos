@@ -56,7 +56,7 @@ El estudio de **La Cascada** no se apoya en HAND: allí el barrio es un **vaso c
 
 - La clase alta coincide con el polígono oficial **«Riesgo de inundación – Puerto Ayora»** del CGREG.
 - El polígono de **flujos de lodo por El Niño** del CGREG cae sobre la quebrada encima de **La Cascada**, el barrio más afectado el 30–31-oct-2026.
-- **Falta** compararlo con la delimitación real de lo inundado y con marcas de agua (ver [PENDIENTES.md](../PENDIENTES.md)).
+- **Falta** compararlo con la delimitación real de lo inundado y con marcas de agua (ver los [issues](https://github.com/mayait/sosgalapagos-datos/issues)).
 
 ## Límites (decirlos siempre que se muestre el mapa)
 

@@ -55,7 +55,7 @@ Todas las capas están en **EPSG:4326**. Antes de usarlas, lee las advertencias 
 | Los informes | [`geodatos/estudios/`](geodatos/estudios/) |
 | Cómo funciona cada servidor y cómo publicar | [`servidores/README.md`](servidores/README.md) |
 | Cómo trabajar en equipo, con ramas y agentes | [`CONTRIBUIR.md`](CONTRIBUIR.md) · [`AGENTS.md`](AGENTS.md) |
-| Qué falta | [`PENDIENTES.md`](PENDIENTES.md) |
+| Qué falta | [Issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues) |
 
 ---
 
@@ -208,17 +208,17 @@ Mapa completo, rutas en el servidor, timers, respaldos y comprobaciones: [`servi
 
 ## 9. Qué falta
 
-La lista completa, con prioridades, está en [`PENDIENTES.md`](PENDIENTES.md). Lo más urgente:
+Todo lo pendiente está en los **[issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues)**, con prioridad (P1, P2, P3) y tipo (datos faltantes, más resolución, procesos, plataforma, gobernanza). [Ver solo los P1](https://github.com/mayait/sosgalapagos-datos/issues?q=is%3Aopen+label%3AP1). Lo más urgente:
 
 1. **Delimitación oficial de lo inundado** el 30–31-oct y **marcas de agua** para validar el modelo.
-2. **Lluvia medida en Puerto Ayora**: no hay ninguna estación allí.
+2. **Lluvia medida en Puerto Ayora**: incorporar al estudio la estación INAMHI M0191, que sí registró el evento.
 3. **Relieve de 1 m sin edificios** (dron o LiDAR) de los poblados, para rehacer HAND y modelar la inundación en 2D.
 4. **Catastro y red de drenaje urbano** de los tres GAD.
 5. **Curvas IDF y alerta temprana por lluvia** conectadas al recolector.
 
 ## Licencias, créditos y privacidad
 
-- Licencia del código: **por definir** (ver PENDIENTES §5). Datos derivados: cada capa conserva la licencia de su fuente; ver `03-fuentes-y-licencias.md`. Las capas con OSM se publican bajo **ODbL**.
+- Licencia del código: **por definir** (ver los [issues de gobernanza](https://github.com/mayait/sosgalapagos-datos/issues?q=is%3Aopen+label%3Agobernanza)). Datos derivados: cada capa conserva la licencia de su fuente; ver `03-fuentes-y-licencias.md`. Las capas con OSM se publican bajo **ODbL**.
 - **Datos personales:** se eliminaron los nombres y teléfonos de los responsables de refugios y de las fuentes de eventos de la SNGR. Nunca se publican nombres de personas afectadas.
 - Atribución sugerida: «Datos: IGM, CGREG/FCD, SNGR, INEC, INOCAR, © colaboradores de OpenStreetMap (ODbL), Copernicus GLO-30, IERSE, USFQ GSC. Procesamiento: SOS Galápagos (USFQ Galápagos)».
 

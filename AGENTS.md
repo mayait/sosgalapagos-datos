@@ -30,6 +30,6 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 | Entender una capa | `mapas-galapagos/documentacion/01-catalogo-de-capas.md` y `02-metodologia.md` |
 | Saber de dónde sale un dato | `geodatos/docs/fuentes-oficiales.md` |
 | Entender el modelo HAND | `docs/modelo-hand.md` |
-| Ver qué falta | `PENDIENTES.md` |
+| Ver qué falta | [Issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues) (etiquetas P1–P3 y por tipo) |
 | Publicar o tocar un servidor | `servidores/README.md` |
 | Tocar el clima | `clima/LEEME.md` |
