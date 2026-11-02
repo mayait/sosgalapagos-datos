@@ -200,9 +200,12 @@ Mapa completo, rutas en el servidor, timers, respaldos y comprobaciones: [`servi
 - **Agentes de IA:** [`AGENTS.md`](AGENTS.md) recoge las reglas que no se pueden romper (privacidad, enlaces de clima, publicación).
 - **Instalación:**
   ```bash
-  cd geodatos && uv venv .venv --python 3.12 && uv pip install -p .venv -r requirements.txt
-  ./scripts/servir.sh            # visor local en http://127.0.0.1:8765/visor/
+  git clone https://github.com/mayait/sosgalapagos-datos.git ~/dev/sosgalapagos-datos
+  cd ~/dev/sosgalapagos-datos/geodatos && uv venv .venv --python 3.12 && uv pip install -p .venv -r requirements.txt
+  cd ../clima && uv venv .venv --python 3.12 && uv pip install -p .venv -r requirements.txt
+  cd ../geodatos && ./scripts/servir.sh     # visor local en http://127.0.0.1:8765/visor/
   ```
+  `geodatos/descargas/` no está en git: se regenera con los scripts 01–07 (unos 15 min y ~400 MB). Los secretos de clima (`clima/privado/`) se piden a Julián.
 - **Relación con la app:** `09_entregable.py` y `export/integracion/copiar-a-app.sh` copian a la app ResponseGrid. Usan `SOSGALAPAGOS_APP`, que por defecto apunta a `~/dev/RESPONSEGRID_GALAPAGOS/app`.
 - **Dependencia interna:** algunos estudios leen `clima/datos/`. `geodatos/` y `clima/` deben estar uno junto al otro.
 
