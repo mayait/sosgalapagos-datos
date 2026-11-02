@@ -42,6 +42,10 @@ def slug(t):
 def copiar_imagen(src: pathlib.Path, dst_dir: pathlib.Path):
     """PNG de figura → WebP (≤1600 px) para la página y PNG original para ampliar/descargar."""
     dst_dir.mkdir(parents=True, exist_ok=True)
+    if src.suffix.lower() == ".gif":                       # animaciones: tal cual
+        shutil.copy2(src, dst_dir / src.name)
+        w, h = Image.open(src).size
+        return src.name, src.name, (w, h)
     im = Image.open(src).convert("RGB")
     from PIL import ImageChops
     bb = ImageChops.difference(im, Image.new("RGB", im.size, "white")).getbbox()
