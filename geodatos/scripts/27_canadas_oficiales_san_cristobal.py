@@ -86,8 +86,8 @@ SECTORES = {
     "Divino Niño: Colegio Ignacio Hernández / vía Jaime Roldós": ((-89.60401, -0.90199), 100, "Colegio (OSM)"),
     "Playa Mann (rejillas, vía adoquinada, playa)": ((-89.6085, -0.8970), 200, "Barrio entre Playa Mann y la E. E. B. Alvear"),
     "Los Arrayanes / La Picada (ubicación supuesta)": ((-89.59376, -0.90805), 200, "SUPUESTA: entrada de PBM-L07; no hay topónimo cartografiado"),
-    "San Francisco, Fragata y Estación Terrena": ((-89.6090, -0.9070), 250, "Panadería «Fragata» (OSM) y registros SNGR de Estación Terrena"),
 }
+NO_EVALUADOS = {"San Francisco, Fragata y Estación Terrena": "Sin ubicación fiable (solo comercios homónimos en OSM; ver ugr/no_localizados.csv): no evaluado."}
 ESCENARIOS_2D = ("scs100", "guayabillos", "guayabillos_15m")
 
 
@@ -329,7 +329,7 @@ for g_ in getattr(jr, "geoms", [jr]):
             perf.append([round(lo, 5), round(la, 5), round(float(ndimage.map_coordinates(dem, [[r_ - .5], [c_ - .5]], order=1)[0]), 1)])
 perf.sort(key=lambda x: x[1])
 R["perfil_via_jaime_roldos_sur_a_norte"] = {"nota": "lon, lat, cota DSM (m), de sur (puente sobre la Galápagos, −0,9084) a norte (hospital, −0,8999)",
-                                           "puntos": [x for x in perf if -0.9090 <= x[1] <= -0.8995]}
+                                           "puntos": [x for x in perf if -0.9090 <= x[1] <= -0.8995 and -89.607 <= x[0] <= -89.603]}
 
 # ---------------------------------------------------------------- 3. validación con el 2D y el ranking
 pts = [(stransform(T, shape(f["geometry"])), f["properties"]) for f in json.loads((DAT / "puntos_inundacion.geojson").read_text())["features"]]
@@ -360,6 +360,7 @@ for nm, ((lo, la), rad, ref) in SECTORES.items():
     val[nm] = fila
     print(nm, {k: v for k, v in fila.items() if k in ESCENARIOS_2D}, fila["puntos_del_ranking_cercanos"][:2])
 R["validacion_sectores_plan"] = val
+R["sectores_no_evaluados"] = NO_EVALUADOS
 for k in ("traz_galapagos_15m", "traz_divinonino_15m", "traz_galapagos_100mm_15m"):
     if k in r2d.get("escenarios", {}):
         R.setdefault("trazadores_2d", {})[k] = r2d["escenarios"][k]["salidas_al_mar"]

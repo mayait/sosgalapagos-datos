@@ -24,9 +24,14 @@ Qué hace
        - C: coeficiente de escorrentía volumétrico SCS para la lámina total con CN 60 / 70 / 80
          (mínimo / central / máximo). Con 100 mm: 0,19 / 0,33 / 0,51; con 178,8 mm: 0,38 / 0,52 / 0,67.
      El método racional no es válido en rigor por encima de unos 10–25 km²: allí la cifra es solo una escala.
+     ADVERTENCIA: el C volumétrico (lámina total) aplicado a la intensidad PICO subestima el caudal punta. Se añaden
+     dos columnas de sensibilidad con CN 70 que NO cambian la prioridad: *_c_temez (C de Témez con P0 = Ia; ≈ ×1,24 con
+     100 mm y ×1,17 con 178,8 mm) y *_c_incremental (C incremental SCS al final de la lámina, cota superior cuando el
+     pico llega tarde en la tormenta, como el 30-oct; ≈ ×2,0 y ×1,6).
   5. Atributos de contexto: estructura (puente / alcantarilla / vado OSM o IGM a ≤ ESTR_M m), zona poblada
      (capas/final/zonas_pobladas.geojson, sin «farmyard»), edificios a ≤ 50 m (capas/final/edificios_exposicion),
-     cota del DSM crudo (±2–4 m; sesgo ≈ −2 m frente a los puntos acotados IGM).
+     cota del DSM crudo (±2–4 m; sesgo local frente a los puntos acotados IGM: ≈ −2 m en Puerto Ayora, ≈ +1,5 m en
+     Puerto Baquerizo Moreno y ≈ +1,9 m en El Progreso).
   6. Prioridad con criterios explícitos (ver PUNTOS más abajo) y salidas:
        estudios/santa-cruz/datos/cruces.geojson y .csv
        estudios/san-cristobal/datos/cruces.geojson y .csv
@@ -64,6 +69,17 @@ def c_scs(P, cn):
     return 0.0 if P <= Ia else (P - Ia) ** 2 / (P - Ia + S) / P
 for cn in (60, 70, 80):
     CN_C["100"][cn] = c_scs(100, cn); CN_C["evento"][cn] = c_scs(P_EVENTO, cn)
+
+def c_temez(P, cn):
+    """Coeficiente de escorrentía de Témez (MOPU 5.2-IC): C = (P/P0 − 1)(P/P0 + 23) / (P/P0 + 11)², con P0 = Ia = 0,2·S del CN."""
+    S = 25400 / cn - 254; P0 = 0.2 * S; r = P / P0
+    return 0.0 if r <= 1 else (r - 1) * (r + 23) / (r + 11) ** 2
+def c_incremental(P, cn):
+    """Coeficiente incremental SCS al final de una lámina P: dQ/dP = 1 − S² / (P − Ia + S)² (cota superior para el pico tardío)."""
+    S = 25400 / cn - 254; Ia = 0.2 * S
+    return 0.0 if P <= Ia else 1 - S ** 2 / (P - Ia + S) ** 2
+CT = {"100": c_temez(100, 70), "evento": c_temez(P_EVENTO, 70)}
+CI = {"100": c_incremental(100, 70), "evento": c_incremental(P_EVENTO, 70)}
 
 # ---------------------------------------------------------------- lluvia: curva intensidad–duración observada
 def curva_id():
@@ -143,6 +159,9 @@ def caudales(A, L, J, con_evento):
         I = intensidad(tc, P / TOT30)
         for cn, suf in ((60, "_min"), (70, ""), (80, "_max")):
             out[nom + suf] = round(CN_C[esc][cn] * I * A * K / 3.6, 1)
+        # sensibilidad al coeficiente (no cambia la prioridad): C de Témez y C incremental SCS, ambos con CN 70
+        out[nom + "_c_temez"] = round(CT[esc] * I * A * K / 3.6, 1)
+        out[nom + "_c_incremental"] = round(CI[esc] * I * A * K / 3.6, 1)
         out["i_" + nom + "_mmh"] = round(I, 1)
     return out
 
@@ -307,6 +326,7 @@ def main():
         (out / "cruces.geojson").write_text(json.dumps({"type": "FeatureCollection", "metadata": {
             "titulo": f"Cruces de quebradas con vías — {isla} (PRELIMINAR)", "metodo": __doc__.split("Uso:")[0].strip(),
             "criterios_prioridad": PUNTOS, "C_scs": {k: {str(cn): round(v, 2) for cn, v in d.items()} for k, d in CN_C.items()},
+            "C_temez_CN70": {k: round(v, 2) for k, v in CT.items()}, "C_incremental_CN70": {k: round(v, 2) for k, v in CI.items()},
             "lluvia": f"Curva intensidad–duración observada en Los Guayabillos el 30-oct-2026 ({TOT30:.1f} mm)"},
             "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [r["lon"], r["lat"]]},
                           "properties": {k: r[k] for k in cols if k not in ("lon", "lat")}} for r in filas]}, ensure_ascii=False), encoding="utf-8")

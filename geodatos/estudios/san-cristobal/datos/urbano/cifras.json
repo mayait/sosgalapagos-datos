@@ -32,6 +32,8 @@
     "q100_min": 16.0,
     "q100": 28.1,
     "q100_max": 43.5,
+    "q100_c_temez": 35.1,
+    "q100_c_incremental": 56.9,
     "i_q100_mmh": 22.4,
     "id": "PBM-01"
    },
@@ -60,6 +62,8 @@
     "q100_min": 15.5,
     "q100": 27.3,
     "q100_max": 42.2,
+    "q100_c_temez": 34.0,
+    "q100_c_incremental": 55.2,
     "i_q100_mmh": 22.5,
     "id": "PBM-02"
    },
@@ -88,6 +92,8 @@
     "q100_min": 13.8,
     "q100": 24.3,
     "q100_max": 37.5,
+    "q100_c_temez": 30.2,
+    "q100_c_incremental": 49.1,
     "i_q100_mmh": 25.0,
     "id": "PBM-03"
    },
@@ -116,6 +122,8 @@
     "q100_min": 2.8,
     "q100": 5.0,
     "q100_max": 7.7,
+    "q100_c_temez": 6.2,
+    "q100_c_incremental": 10.1,
     "i_q100_mmh": 30.3,
     "id": "PBM-04"
    },
@@ -144,6 +152,8 @@
     "q100_min": 2.8,
     "q100": 5.0,
     "q100_max": 7.7,
+    "q100_c_temez": 6.2,
+    "q100_c_incremental": 10.1,
     "i_q100_mmh": 30.7,
     "id": "PBM-05"
    },
@@ -172,6 +182,8 @@
     "q100_min": 2.9,
     "q100": 5.0,
     "q100_max": 7.8,
+    "q100_c_temez": 6.3,
+    "q100_c_incremental": 10.2,
     "i_q100_mmh": 31.9,
     "id": "PBM-06"
    },
@@ -200,6 +212,8 @@
     "q100_min": 2.9,
     "q100": 5.1,
     "q100_max": 7.8,
+    "q100_c_temez": 6.3,
+    "q100_c_incremental": 10.3,
     "i_q100_mmh": 32.7,
     "id": "PBM-07"
    },
@@ -228,6 +242,8 @@
     "q100_min": 1.4,
     "q100": 2.4,
     "q100_max": 3.7,
+    "q100_c_temez": 3.0,
+    "q100_c_incremental": 4.9,
     "i_q100_mmh": 35.4,
     "id": "PBM-08"
    }
@@ -488,53 +504,33 @@
    },
    {
     "cañada_oficial": "Manzanillo – El Manantial",
-    "largo_en_zona_m": 1475,
-    "edif_15m": 108,
-    "edif_30m": 202,
-    "pob_30m": 554,
-    "sobre_linea": 29,
-    "franja_directa_m": 403,
-    "franja_30m_m": 1063
+    "largo_en_zona_m": 288,
+    "edif_15m": 30,
+    "edif_30m": 52,
+    "pob_30m": 117,
+    "sobre_linea": 10,
+    "franja_directa_m": 0,
+    "franja_30m_m": 0
    },
    {
     "cañada_oficial": "La Planada",
-    "largo_en_zona_m": 1319,
-    "edif_15m": 93,
-    "edif_30m": 175,
-    "pob_30m": 492,
-    "sobre_linea": 23,
-    "franja_directa_m": 403,
-    "franja_30m_m": 1063
-   },
-   {
-    "cañada_oficial": "Palmeras – Arrayanes",
-    "largo_en_zona_m": 1187,
-    "edif_15m": 78,
-    "edif_30m": 150,
-    "pob_30m": 437,
-    "sobre_linea": 19,
-    "franja_directa_m": 403,
-    "franja_30m_m": 1063
+    "largo_en_zona_m": 132,
+    "edif_15m": 15,
+    "edif_30m": 25,
+    "pob_30m": 55,
+    "sobre_linea": 4,
+    "franja_directa_m": 0,
+    "franja_30m_m": 0
    },
    {
     "cañada_oficial": "Cerro Quemado / Don García",
-    "largo_en_zona_m": 506,
-    "edif_15m": 22,
-    "edif_30m": 42,
-    "pob_30m": 92,
-    "sobre_linea": 6,
+    "largo_en_zona_m": 277,
+    "edif_15m": 9,
+    "edif_30m": 16,
+    "pob_30m": 44,
+    "sobre_linea": 3,
     "franja_directa_m": 0,
-    "franja_30m_m": 263
-   },
-   {
-    "cañada_oficial": "Centro de Gestión de Residuos Sólidos (CGRS)",
-    "largo_en_zona_m": 1187,
-    "edif_15m": 78,
-    "edif_30m": 150,
-    "pob_30m": 437,
-    "sobre_linea": 19,
-    "franja_directa_m": 403,
-    "franja_30m_m": 1063
+    "franja_30m_m": 34
    }
   ],
   "definicion_zona": "límite urbano IGM ∪ huella edificada a < 2,5 km del centro"
@@ -572,6 +568,8 @@
     "q100_min": 2.1,
     "q100": 3.8,
     "q100_max": 5.8,
+    "q100_c_temez": 4.7,
+    "q100_c_incremental": 7.6,
     "i_q100_mmh": 33.1,
     "id": "ELP-01"
    }
@@ -641,6 +639,8 @@
   "q100_min": 0.6,
   "q100": 1.1,
   "q100_max": 1.7,
+  "q100_c_temez": 1.3,
+  "q100_c_incremental": 2.2,
   "i_q100_mmh": 36.3,
   "q30oct_hipotetico": 3.0,
   "franja_cgreg_cubre_cauce_pct": 0,

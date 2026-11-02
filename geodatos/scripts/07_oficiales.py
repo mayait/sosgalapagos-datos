@@ -49,7 +49,7 @@ save("eventos_historicos.geojson", ev)
 save("salud_msp.geojson", pick("sngr_msp_establecimientos_salud_2023", ["uni_nombre__nombre_oficial_","tipología","institución","nivel_atención","estado","uni_direccion","par_descripcion"],
      {"uni_nombre__nombre_oficial_":"nombre","tipología":"tipologia","institución":"institucion","nivel_atención":"nivel","uni_direccion":"direccion","par_descripcion":"parroquia"}, "MSP vía SNGR (2023)"))
 save("albergues_sngr.geojson", pick("sngr_albergues_activos_2025", ["nombre_de","tipo_de_se","total_pers","total_fami","espacio_pa","sector_com","parroquia","altitud_m_","nombre_d_1"],
-     {"nombre_de":"nombre","tipo_de_se":"tipo","total_pers":"capacidad_personas","total_fami":"capacidad_familias","espacio_pa":"espacio_m2","sector_com":"sector","altitud_m_":"altitud_m","nombre_d_1":"administra"}, "SNGR albergues activos 2025"))
+     {"nombre_de":"nombre","tipo_de_se":"tipo","total_pers":"capacidad_personas","total_fami":"capacidad_familias","espacio_pa":"espacio_m2","sector_com":"sector","altitud_m_":"altitud_m","nombre_d_1":"administra"}, "SNGR refugios activos 2025"))
 save("educacion_mineduc.geojson", pick("sngr_mineduc_instituciones_educativas_2021", list(load(O/"sngr_mineduc_instituciones_educativas_2021.geojson")[0]["properties"].keys()), fuente="MINEDUC vía SNGR (2021)"))
 
 # --- Población y zonas pobladas oficiales ---

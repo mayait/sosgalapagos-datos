@@ -1,7 +1,7 @@
 {
  "version": 2,
  "titulo": "Capas de la emergencia — Galápagos",
- "nota": "Manifiesto de capas. Lo leen el visor de geodatos/ y el mapa de ResponseGrid. Los estilos son opciones de Leaflet (PathOptions). 'clasificar' cambia el estilo según una propiedad y alimenta la leyenda.",
+ "nota": "Manifiesto de capas. Lo leen el visor de geodatos/ y el mapa de ResponseGrid. Los estilos son opciones de Leaflet (PathOptions). 'clasificar' cambia el estilo según una propiedad y alimenta la leyenda. 'visible_movil' (opcional) sustituye a 'visible' en pantallas táctiles o angostas: deja apagadas por defecto las capas pesadas para que el mapa sea fluido en celulares.",
  "islas": {
   "Santa Cruz": {
    "bounds": [
@@ -53,6 +53,191 @@
   }
  },
  "grupos": [
+  {
+   "id": "puntos",
+   "titulo": "Puntos clave",
+   "capas": [
+    {
+     "id": "puntos_criticos",
+     "titulo": "Salud, refugios y seguridad",
+     "archivo": "puntos_clave.geojson",
+     "tipo": "punto",
+     "visible": false,
+     "fuente": "MSP, SNGR, MINEDUC, IGM y OSM",
+     "filtro": {
+      "propiedad": "categoria",
+      "en": [
+       "salud",
+       "refugio",
+       "zona_segura",
+       "sirena",
+       "educacion",
+       "emergencia"
+      ]
+     },
+     "estilo": {
+      "radius": 9
+     },
+     "clasificar": {
+      "propiedad": "categoria",
+      "valores": {
+       "salud": {
+        "etiqueta": "Salud pública, hospital o centro de salud",
+        "fillColor": "#dc2626",
+        "simbolo": "+"
+       },
+       "refugio": {
+        "etiqueta": "Refugio",
+        "fillColor": "#16a34a",
+        "simbolo": "R"
+       },
+       "zona_segura": {
+        "etiqueta": "Zona segura o punto de encuentro",
+        "fillColor": "#059669",
+        "simbolo": "S"
+       },
+       "sirena": {
+        "etiqueta": "Sirena de alerta",
+        "fillColor": "#d97706",
+        "simbolo": "!"
+       },
+       "educacion": {
+        "etiqueta": "Centro educativo",
+        "fillColor": "#7c3aed",
+        "simbolo": "E"
+       },
+       "emergencia": {
+        "etiqueta": "Policía y bomberos",
+        "fillColor": "#1d4ed8",
+        "simbolo": "P"
+       }
+      }
+     },
+     "popup": {
+      "titulo": "nombre",
+      "titulo_defecto": "Punto clave",
+      "campos": {
+       "categoria": "Categoría",
+       "subtipo": "Tipo",
+       "institucion": "Institución",
+       "nivel": "Nivel",
+       "capacidad_personas": "Capacidad (personas)",
+       "capacidad": "Capacidad",
+       "en_susc_alta_media": "En susceptibilidad alta o media",
+       "en_zona_tsunami": "En zona de tsunami",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "puntos_servicios",
+     "titulo": "Servicios: salud privada, agua, energía, transporte",
+     "archivo": "puntos_clave.geojson",
+     "tipo": "punto",
+     "visible": false,
+     "fuente": "IGM y OSM",
+     "filtro": {
+      "propiedad": "categoria",
+      "en": [
+       "salud_privada",
+       "agua",
+       "energia",
+       "transporte",
+       "telecom",
+       "gobierno"
+      ]
+     },
+     "estilo": {
+      "radius": 5
+     },
+     "clasificar": {
+      "propiedad": "categoria",
+      "valores": {
+       "salud_privada": {
+        "etiqueta": "Consultorio, laboratorio o farmacia",
+        "fillColor": "#f87171"
+       },
+       "agua": {
+        "etiqueta": "Agua (tanques, captaciones)",
+        "fillColor": "#0891b2"
+       },
+       "energia": {
+        "etiqueta": "Energía y combustible",
+        "fillColor": "#ca8a04"
+       },
+       "transporte": {
+        "etiqueta": "Muelles, aeropuertos y puentes",
+        "fillColor": "#0f766e"
+       },
+       "telecom": {
+        "etiqueta": "Telecomunicaciones",
+        "fillColor": "#64748b"
+       },
+       "gobierno": {
+        "etiqueta": "Gobierno",
+        "fillColor": "#334155"
+       }
+      }
+     },
+     "popup": {
+      "titulo": "nombre",
+      "titulo_defecto": "Servicio",
+      "campos": {
+       "categoria": "Categoría",
+       "subtipo": "Tipo",
+       "en_susc_alta_media": "En susceptibilidad alta o media",
+       "fuente": "Fuente"
+      }
+     }
+    },
+    {
+     "id": "puntos_logistica",
+     "titulo": "Alojamiento, comercio y espacios de reunión",
+     "archivo": "puntos_clave.geojson",
+     "tipo": "punto",
+     "visible": false,
+     "zoom_min": 14,
+     "fuente": "IGM y OSM",
+     "filtro": {
+      "propiedad": "categoria",
+      "en": [
+       "alojamiento",
+       "abastecimiento",
+       "encuentro"
+      ]
+     },
+     "estilo": {
+      "radius": 4.5
+     },
+     "clasificar": {
+      "propiedad": "categoria",
+      "valores": {
+       "alojamiento": {
+        "etiqueta": "Alojamiento",
+        "fillColor": "#db2777"
+       },
+       "abastecimiento": {
+        "etiqueta": "Supermercado, ferretería o banco",
+        "fillColor": "#ea580c"
+       },
+       "encuentro": {
+        "etiqueta": "Estadio, coliseo o iglesia",
+        "fillColor": "#65a30d"
+       }
+      }
+     },
+     "popup": {
+      "titulo": "nombre",
+      "titulo_defecto": "Lugar",
+      "campos": {
+       "categoria": "Categoría",
+       "subtipo": "Tipo",
+       "fuente": "Fuente"
+      }
+     }
+    }
+   ]
+  },
   {
    "id": "emergencia",
    "titulo": "Emergencia en curso",
@@ -157,14 +342,15 @@
        "nota": "Nota",
        "fuente": "Fuente"
       }
-     }
+     },
+     "visible_movil": false
     },
     {
      "id": "limite_parque",
      "titulo": "Límite del Parque Nacional",
      "archivo": "limite_parque.geojson",
      "tipo": "linea",
-     "visible": true,
+     "visible": false,
      "fuente": "Zonificación PNG 2017 (CGREG/FCD)",
      "estilo": {
       "color": "#14532d",
@@ -253,7 +439,8 @@
        "descripcion": "Criterio",
        "fuente": "Fuente"
       }
-     }
+     },
+     "visible_movil": false
     },
     {
      "id": "oficiales",
@@ -480,7 +667,8 @@
        "orden": "Orden de Strahler",
        "area_drenada_km2": "Área drenada (km²)"
       }
-     }
+     },
+     "visible_movil": false
     },
     {
      "id": "franja",
@@ -557,7 +745,7 @@
      "titulo": "Límite urbano",
      "archivo": "limite_urbano.geojson",
      "tipo": "poligono",
-     "visible": true,
+     "visible": false,
      "fuente": "IGM 1:25 000",
      "estilo": {
       "color": "#111827",
@@ -662,7 +850,7 @@
      "titulo": "Vías",
      "archivo": "vias.geojson",
      "tipo": "linea",
-     "visible": true,
+     "visible": false,
      "fuente": "OpenStreetMap, 31-oct-2026",
      "estilo": {
       "opacity": 0.95
@@ -707,6 +895,22 @@
      }
     },
     {
+     "id": "nombres_vias",
+     "titulo": "Nombres de calles",
+     "archivo": "nombres_vias.geojson",
+     "tipo": "punto",
+     "visible": false,
+     "visible_movil": false,
+     "zoom_min": 16,
+     "solo_rotulo": true,
+     "rotulo": {
+      "propiedad": "nombre",
+      "permanente": true
+     },
+     "fuente": "OpenStreetMap, 31-oct-2026",
+     "descripcion": "Rótulos propios de calles; útiles sobre el mapa satelital o topográfico."
+    },
+    {
      "id": "rutas",
      "titulo": "Rutas de evacuación por tsunami",
      "archivo": "rutas_evacuacion_tsunami.geojson",
@@ -743,191 +947,6 @@
    ]
   },
   {
-   "id": "puntos",
-   "titulo": "Puntos clave",
-   "capas": [
-    {
-     "id": "puntos_criticos",
-     "titulo": "Salud, albergues y seguridad",
-     "archivo": "puntos_clave.geojson",
-     "tipo": "punto",
-     "visible": false,
-     "fuente": "MSP, SNGR, MINEDUC, IGM y OSM",
-     "filtro": {
-      "propiedad": "categoria",
-      "en": [
-       "salud",
-       "albergue",
-       "zona_segura",
-       "sirena",
-       "educacion",
-       "emergencia"
-      ]
-     },
-     "estilo": {
-      "radius": 9
-     },
-     "clasificar": {
-      "propiedad": "categoria",
-      "valores": {
-       "salud": {
-        "etiqueta": "Salud pública, hospital o centro de salud",
-        "fillColor": "#dc2626",
-        "simbolo": "+"
-       },
-       "albergue": {
-        "etiqueta": "Albergue",
-        "fillColor": "#16a34a",
-        "simbolo": "A"
-       },
-       "zona_segura": {
-        "etiqueta": "Zona segura o punto de encuentro",
-        "fillColor": "#059669",
-        "simbolo": "S"
-       },
-       "sirena": {
-        "etiqueta": "Sirena de alerta",
-        "fillColor": "#d97706",
-        "simbolo": "!"
-       },
-       "educacion": {
-        "etiqueta": "Centro educativo",
-        "fillColor": "#7c3aed",
-        "simbolo": "E"
-       },
-       "emergencia": {
-        "etiqueta": "Policía y bomberos",
-        "fillColor": "#1d4ed8",
-        "simbolo": "P"
-       }
-      }
-     },
-     "popup": {
-      "titulo": "nombre",
-      "titulo_defecto": "Punto clave",
-      "campos": {
-       "categoria": "Categoría",
-       "subtipo": "Tipo",
-       "institucion": "Institución",
-       "nivel": "Nivel",
-       "capacidad_personas": "Capacidad (personas)",
-       "capacidad": "Capacidad",
-       "en_susc_alta_media": "En susceptibilidad alta o media",
-       "en_zona_tsunami": "En zona de tsunami",
-       "fuente": "Fuente"
-      }
-     }
-    },
-    {
-     "id": "puntos_servicios",
-     "titulo": "Servicios: salud privada, agua, energía, transporte",
-     "archivo": "puntos_clave.geojson",
-     "tipo": "punto",
-     "visible": false,
-     "fuente": "IGM y OSM",
-     "filtro": {
-      "propiedad": "categoria",
-      "en": [
-       "salud_privada",
-       "agua",
-       "energia",
-       "transporte",
-       "telecom",
-       "gobierno"
-      ]
-     },
-     "estilo": {
-      "radius": 5
-     },
-     "clasificar": {
-      "propiedad": "categoria",
-      "valores": {
-       "salud_privada": {
-        "etiqueta": "Consultorio, laboratorio o farmacia",
-        "fillColor": "#f87171"
-       },
-       "agua": {
-        "etiqueta": "Agua (tanques, captaciones)",
-        "fillColor": "#0891b2"
-       },
-       "energia": {
-        "etiqueta": "Energía y combustible",
-        "fillColor": "#ca8a04"
-       },
-       "transporte": {
-        "etiqueta": "Muelles, aeropuertos y puentes",
-        "fillColor": "#0f766e"
-       },
-       "telecom": {
-        "etiqueta": "Telecomunicaciones",
-        "fillColor": "#64748b"
-       },
-       "gobierno": {
-        "etiqueta": "Gobierno",
-        "fillColor": "#334155"
-       }
-      }
-     },
-     "popup": {
-      "titulo": "nombre",
-      "titulo_defecto": "Servicio",
-      "campos": {
-       "categoria": "Categoría",
-       "subtipo": "Tipo",
-       "en_susc_alta_media": "En susceptibilidad alta o media",
-       "fuente": "Fuente"
-      }
-     }
-    },
-    {
-     "id": "puntos_logistica",
-     "titulo": "Alojamiento, comercio y espacios de reunión",
-     "archivo": "puntos_clave.geojson",
-     "tipo": "punto",
-     "visible": false,
-     "zoom_min": 14,
-     "fuente": "IGM y OSM",
-     "filtro": {
-      "propiedad": "categoria",
-      "en": [
-       "alojamiento",
-       "abastecimiento",
-       "encuentro"
-      ]
-     },
-     "estilo": {
-      "radius": 4.5
-     },
-     "clasificar": {
-      "propiedad": "categoria",
-      "valores": {
-       "alojamiento": {
-        "etiqueta": "Alojamiento",
-        "fillColor": "#db2777"
-       },
-       "abastecimiento": {
-        "etiqueta": "Supermercado, ferretería o banco",
-        "fillColor": "#ea580c"
-       },
-       "encuentro": {
-        "etiqueta": "Estadio, coliseo o iglesia",
-        "fillColor": "#65a30d"
-       }
-      }
-     },
-     "popup": {
-      "titulo": "nombre",
-      "titulo_defecto": "Lugar",
-      "campos": {
-       "categoria": "Categoría",
-       "subtipo": "Tipo",
-       "fuente": "Fuente"
-      }
-     }
-    }
-   ]
-  },
-  {
    "id": "relieve",
    "titulo": "Relieve",
    "capas": [
@@ -936,7 +955,7 @@
      "titulo": "Relieve sombreado",
      "tipo": "raster",
      "raster": "relieve",
-     "visible": true,
+     "visible": false,
      "opacidad": 0.5,
      "fuente": "Copernicus GLO-30"
     },
@@ -1004,20 +1023,12 @@
  ],
  "mapas_base": [
   {
-   "id": "claro",
-   "titulo": "Claro",
-   "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-   "atribucion": "Esri, HERE, Garmin, © OpenStreetMap",
-   "maxZoom": 19,
-   "maxNativeZoom": 16,
-   "defecto": true
-  },
-  {
    "id": "calles",
    "titulo": "Calles",
    "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
    "atribucion": "© OpenStreetMap",
-   "maxZoom": 19
+   "maxZoom": 19,
+   "defecto": true
   },
   {
    "id": "satelite",

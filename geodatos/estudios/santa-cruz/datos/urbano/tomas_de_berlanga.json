@@ -44,10 +44,14 @@
    "q100_min": 16.4,
    "q100": 28.9,
    "q100_max": 44.7,
+   "q100_c_temez": 36.1,
+   "q100_c_incremental": 58.5,
    "i_q100_mmh": 24.6,
    "q30oct_min": 59.1,
    "q30oct": 82.0,
    "q30oct_max": 106.3,
+   "q30oct_c_temez": 96.5,
+   "q30oct_c_incremental": 131.7,
    "i_q30oct_mmh": 44.1
   },
   {
@@ -65,10 +69,14 @@
    "q100_min": 13.2,
    "q100": 23.3,
    "q100_max": 36.0,
+   "q100_c_temez": 29.1,
+   "q100_c_incremental": 47.2,
    "i_q100_mmh": 24.8,
    "q30oct_min": 47.7,
    "q30oct": 66.1,
    "q30oct_max": 85.7,
+   "q30oct_c_temez": 77.8,
+   "q30oct_c_incremental": 106.1,
    "i_q30oct_mmh": 44.3
   }
  ],

@@ -12,7 +12,8 @@
   "dist_franja_m": 30,
   "sistema_cauce_mas_cercano": "PBM-02",
   "area_sistema_km2": 10.62,
-  "dist_sistema_m": 1
+  "dist_sistema_m": 1,
+  "cañadas_oficiales_cercanas": "Galápagos / Barrio Frío (15 m); Cerro Quemado / Don García (287 m)"
  },
  {
   "nombre": "Playa de Oro",
@@ -27,7 +28,8 @@
   "dist_franja_m": 204,
   "sistema_cauce_mas_cercano": "PBM-07",
   "area_sistema_km2": 1.55,
-  "dist_sistema_m": 82
+  "dist_sistema_m": 82,
+  "cañadas_oficiales_cercanas": "Divino Niño (56 m); Alejandro Alvear (206 m)"
  },
  {
   "nombre": "Playa Mann",
@@ -42,7 +44,8 @@
   "dist_franja_m": 415,
   "sistema_cauce_mas_cercano": "PBM-08",
   "area_sistema_km2": 0.7,
-  "dist_sistema_m": 257
+  "dist_sistema_m": 257,
+  "cañadas_oficiales_cercanas": "Playa Mann (154 m); Alejandro Alvear (267 m)"
  },
  {
   "nombre": "Hospital Oskar Jandl",
@@ -57,7 +60,8 @@
   "dist_franja_m": 56,
   "sistema_cauce_mas_cercano": "PBM-07",
   "area_sistema_km2": 1.55,
-  "dist_sistema_m": 15
+  "dist_sistema_m": 15,
+  "cañadas_oficiales_cercanas": "Divino Niño (35 m); Alejandro Alvear (217 m)"
  },
  {
   "nombre": "Colegio Ignacio Hernández",
@@ -72,7 +76,8 @@
   "dist_franja_m": 298,
   "sistema_cauce_mas_cercano": "PBM-07",
   "area_sistema_km2": 1.55,
-  "dist_sistema_m": 205
+  "dist_sistema_m": 205,
+  "cañadas_oficiales_cercanas": "Divino Niño (59 m); Alejandro Alvear (487 m)"
  },
  {
   "nombre": "Barrio Frío",
@@ -87,7 +92,8 @@
   "dist_franja_m": 117,
   "sistema_cauce_mas_cercano": "PBM-02",
   "area_sistema_km2": 10.62,
-  "dist_sistema_m": 89
+  "dist_sistema_m": 89,
+  "cañadas_oficiales_cercanas": "Galápagos / Barrio Frío (93 m); Cerro Quemado / Don García (263 m)"
  },
  {
   "nombre": "Barrio Manzanillo",
@@ -102,7 +108,8 @@
   "dist_franja_m": 334,
   "sistema_cauce_mas_cercano": "PBM-03",
   "area_sistema_km2": 8.72,
-  "dist_sistema_m": 210
+  "dist_sistema_m": 210,
+  "cañadas_oficiales_cercanas": "Manzanillo – El Manantial (75 m); Galápagos / Barrio Frío (202 m)"
  },
  {
   "nombre": "Ciudadela El Gran Maestro (Manzanillo)",
@@ -117,7 +124,8 @@
   "dist_franja_m": 107,
   "sistema_cauce_mas_cercano": "PBM-03",
   "area_sistema_km2": 8.72,
-  "dist_sistema_m": 29
+  "dist_sistema_m": 29,
+  "cañadas_oficiales_cercanas": "Galápagos / Barrio Frío (16 m); Manzanillo – El Manantial (33 m)"
  },
  {
   "nombre": "Puente de Manzanillo (Vía Perimetral)",
@@ -132,7 +140,8 @@
   "dist_franja_m": 0,
   "sistema_cauce_mas_cercano": "PBM-03",
   "area_sistema_km2": 8.72,
-  "dist_sistema_m": 572
+  "dist_sistema_m": 572,
+  "cañadas_oficiales_cercanas": "Galápagos / Barrio Frío (5 m); Manzanillo – El Manantial (370 m)"
  },
  {
   "nombre": "Barrio Divino Niño",
@@ -147,7 +156,8 @@
   "dist_franja_m": 171,
   "sistema_cauce_mas_cercano": "PBM-07",
   "area_sistema_km2": 1.55,
-  "dist_sistema_m": 103
+  "dist_sistema_m": 103,
+  "cañadas_oficiales_cercanas": "Divino Niño (41 m); Alejandro Alvear (350 m)"
  },
  {
   "nombre": "Barrio Palmeras",
@@ -162,7 +172,8 @@
   "dist_franja_m": 407,
   "sistema_cauce_mas_cercano": "PBM-06",
   "area_sistema_km2": 1.57,
-  "dist_sistema_m": 47
+  "dist_sistema_m": 47,
+  "cañadas_oficiales_cercanas": "La Planada (15 m); Manzanillo – El Manantial (15 m)"
  },
  {
   "nombre": "Barrio Playa Mann",
@@ -177,7 +188,8 @@
   "dist_franja_m": 268,
   "sistema_cauce_mas_cercano": "PBM-08",
   "area_sistema_km2": 0.7,
-  "dist_sistema_m": 138
+  "dist_sistema_m": 138,
+  "cañadas_oficiales_cercanas": "Alejandro Alvear (147 m); Playa Mann (147 m)"
  },
  {
   "nombre": "Sector La Planada",
@@ -192,6 +204,7 @@
   "dist_franja_m": 406,
   "sistema_cauce_mas_cercano": "PBM-05",
   "area_sistema_km2": 1.6,
-  "dist_sistema_m": 91
+  "dist_sistema_m": 91,
+  "cañadas_oficiales_cercanas": "La Planada (32 m); Manzanillo – El Manantial (32 m)"
  }
 ]

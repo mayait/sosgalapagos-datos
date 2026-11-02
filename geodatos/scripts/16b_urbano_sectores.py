@@ -12,7 +12,8 @@ Método (mismo D8 y mismo cálculo de caudal que el script 16):
     de cauce; población INEC repartida por área de techo dentro de cada manzana.
   - Franja normativa: polígonos CGREG «encañadas» (buffer 20 m) y cobertura de la línea de cauce por la franja.
   - Cruces y estructuras: estudios/<isla>/datos/cruces.csv (script 16).
-  - Cotas del DSM con error ±2–4 m (sesgo ≈ −2 m frente a los puntos IGM): solo descriptivas.
+  - Cotas del DSM con error ±2–4 m (sesgo local frente al IGM: ≈ −2 m en Puerto Ayora, ≈ +1,5 m en Puerto Baquerizo
+    Moreno, ≈ +1,9 m en El Progreso): solo descriptivas.
 
 Salidas
   estudios/santa-cruz/datos/urbano/tomas_de_berlanga_{cauces,edificios}.geojson, tomas_de_berlanga.json
@@ -272,6 +273,25 @@ def san_cristobal():
                     lon_m, lat_m = I.TI(*g.interpolate(0.5, normalized=True).coords[0])
                     prox.append(dict(area_km2=p["area_drenada_km2"], largo_m=round(g.length), edif_15m=len(i15), edif_30m=len(i30), pob_30m=p30, punto_medio=[round(lon_m, 5), round(lat_m, 5)]))
         c["tramos_drenaje_derivado_0_3km2"] = sorted(prox, key=lambda d: -d["edif_15m"])
+        # comparación con las cañadas oficiales de la hidrología (datos/cañadas_oficiales.geojson), recortadas a la zona
+        fo = ROOT / "estudios/san-cristobal/datos/cañadas_oficiales.geojson"
+        if fo.exists():
+            comp = []
+            ofi = json.loads(fo.read_text(encoding="utf-8"))["features"]
+            gal = unary_union([stransform(T, shape(f["geometry"])) for f in ofi if f["properties"]["cañada_oficial"].startswith("Galápagos")])
+            for f in ofi:
+                g = stransform(T, shape(f["geometry"]))
+                if not f["properties"]["cañada_oficial"].startswith("Galápagos"):
+                    g = g.difference(gal.buffer(10))   # solo el tramo propio: sin el curso compartido de la Galápagos
+                g = g.intersection(zona)
+                if g.is_empty or g.length < 20: continue
+                i15, _ = I.expo(g.buffer(15)); i30, p30 = I.expo(g.buffer(30))
+                comp.append(dict(cañada_oficial=f["properties"]["cañada_oficial"], largo_en_zona_m=round(g.length), edif_15m=len(i15), edif_30m=len(i30), pob_30m=p30,
+                                 sobre_linea=sum(1 for i in i15 if I.edg[i].intersects(g)), franja_directa_m=round(g.intersection(I.franja).length),
+                                 franja_30m_m=round(g.intersection(I.franja.buffer(30)).length)))
+            c["cañadas_oficiales_en_zona"] = comp
+            print("   oficiales:", comp)
+        c["definicion_zona"] = ("límite urbano IGM ∪ huella edificada a < 2,5 km del centro" if nombre.startswith("Puerto") else "suelo urbano CGREG ∪ huella edificada a < 300 m")
         cif[nombre] = c
         print("==", nombre, {k: v for k, v in c.items() if k != "sistemas_de_cauce"})
         for ln, d in sist:

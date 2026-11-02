@@ -492,11 +492,6 @@
     46.2
    ],
    [
-    -89.61217,
-    -0.9087,
-    20.1
-   ],
-   [
     -89.60583,
     -0.90839,
     45.5
@@ -826,30 +821,10 @@
     "edificios_con_calado_>=0.3m": 0,
     "edificios_en_el_radio": 23
    }
-  },
-  "San Francisco, Fragata y Estación Terrena": {
-   "referencia_ubicacion": "Panadería «Fragata» (OSM) y registros SNGR de Estación Terrena",
-   "radio_m": 250,
-   "puntos_del_ranking_cercanos": [],
-   "scs100": {
-    "calado_max_m": 0.79,
-    "area_calado_>=0.3m_ha": 0.09,
-    "edificios_con_calado_>=0.3m": 1,
-    "edificios_en_el_radio": 392
-   },
-   "guayabillos": {
-    "calado_max_m": 1.07,
-    "area_calado_>=0.3m_ha": 2.07,
-    "edificios_con_calado_>=0.3m": 39,
-    "edificios_en_el_radio": 392
-   },
-   "guayabillos_15m": {
-    "calado_max_m": 1.25,
-    "area_calado_>=0.3m_ha": 2.72,
-    "edificios_con_calado_>=0.3m": 54,
-    "edificios_en_el_radio": 392
-   }
   }
+ },
+ "sectores_no_evaluados": {
+  "San Francisco, Fragata y Estación Terrena": "Sin ubicación fiable (solo comercios homónimos en OSM; ver ugr/no_localizados.csv): no evaluado."
  },
  "trazadores_2d": {
   "traz_galapagos_15m": {
