@@ -1,7 +1,7 @@
 {
  "_nota": "Caché de los issues de mayait/sosgalapagos-datos para el sitio /estudios (la escribe scripts/22_pendientes.py --actualizar). No editar a mano: los pendientes se cambian en GitHub.",
  "repo": "mayait/sosgalapagos-datos",
- "descargado": "2026-11-02T23:02:50+00:00",
+ "descargado": "2026-11-02T23:20:42+00:00",
  "issues": [
   {
    "numero": 1,
@@ -28,9 +28,9 @@
     "datos-faltantes"
    ],
    "cuerpo": "**Dato:** **Marcas de agua del evento** con GNSS (barrio La Cascada y su salida)\n**Quién lo tiene o puede levantarlo:** GAD Santa Cruz, academia, sociedad civil\n**Para qué sirve:** Calibrar la lámina y el rebose del vaso de La Cascada (≈12–13 m)\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 1,
+   "comentarios": 2,
    "creado": "2026-11-02T20:38:23Z",
-   "actualizado": "2026-11-02T20:58:29Z",
+   "actualizado": "2026-11-02T23:20:25Z",
    "cerrado": null
   },
   {
@@ -73,9 +73,9 @@
     "datos-faltantes"
    ],
    "cuerpo": "**Dato:** **Red de drenaje urbano**: sumideros, colectores, alcantarillas y pasos bajo vías con cotas de fondo\n**Quién lo tiene o puede levantarlo:** GAD (obras públicas), CGREG\n**Para qué sirve:** Capacidad real de la salida urbana; cruces quebrada–vía\n\n**Prioridad:** P1 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 0,
+   "comentarios": 1,
    "creado": "2026-11-02T20:38:33Z",
-   "actualizado": "2026-11-02T20:38:33Z",
+   "actualizado": "2026-11-02T23:20:27Z",
    "cerrado": null
   },
   {
@@ -238,9 +238,9 @@
     "mas-resolucion"
    ],
    "cuerpo": "**Hoy:** **DSM Copernicus GLO-30** (30 m, incluye edificios y árboles)\n**Lo que necesitamos:** **DTM ≤ 1 m** de los poblados: Puerto Ayora y escarpe (5–10 km²), Bellavista, Puerto Baquerizo Moreno, Puerto Villamil\n**Cómo:** Dron con fotogrametría (OpenDroneMap) + GNSS RTK; o LiDAR\n\n**Prioridad:** P1 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 0,
+   "comentarios": 1,
    "creado": "2026-11-02T20:39:09Z",
-   "actualizado": "2026-11-02T20:39:09Z",
+   "actualizado": "2026-11-02T23:20:30Z",
    "cerrado": null
   },
   {
@@ -496,9 +496,9 @@
     "procesos"
    ],
    "cuerpo": "**Proceso:** **Inventario en terreno de cruces quebrada–vía**\n**Notas:** El estudio de Santa Cruz los lista; falta verificar\n\n**Prioridad:** P1 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 1,
+   "comentarios": 2,
    "creado": "2026-11-02T20:40:07Z",
-   "actualizado": "2026-11-02T20:58:24Z",
+   "actualizado": "2026-11-02T23:20:29Z",
    "cerrado": null
   },
   {
@@ -859,6 +859,262 @@
    "comentarios": 0,
    "creado": "2026-11-02T20:58:53Z",
    "actualizado": "2026-11-02T20:58:53Z",
+   "cerrado": null
+  },
+  {
+   "numero": 58,
+   "titulo": "Cota del rellano y de la Vía Universidad frente al campus USFQ / GSC, y paso de la quebrada bajo la vía",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/58",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "san-cristobal"
+   ],
+   "cuerpo": "El resultado del campus es no concluyente: el resalte hacia el GSC (1,6 m) es menor que el error del DSM. Hace falta GNSS del rellano y de la vía, y saber si hay paso o alcantarilla en CR-SCR-0218 y qué capacidad tiene. También la cota de los accesos y de las plantas bajas de los edificios a menos de 25 m del cauce.\n\n**Isla:** San Cristóbal\n**Sale de:** san-cristobal/texto/04_campus.md, «Qué falta saber»\nhttps://sosgalapagos.org/estudios/san-cristobal/campus/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:40Z",
+   "actualizado": "2026-11-02T23:19:40Z",
+   "cerrado": null
+  },
+  {
+   "numero": 59,
+   "titulo": "Estado del agua potable de San Cristóbal tras el 30–31-oct",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/59",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "san-cristobal"
+   ],
+   "cuerpo": "No hay información pública sobre las tomas de Los Americanos y Cerro Gato ni sobre sus válvulas, ni datos de turbidez de las plantas El Progreso y Las Palmeras, ni del estado de los cruces de la línea de Cerro Gato con cauces de más de 2 km². Dato en manos del GAD.\n\n**Isla:** San Cristóbal\n**Sale de:** 06_agua.md, «Vacíos de información»\nhttps://sosgalapagos.org/estudios/san-cristobal/agua/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:42Z",
+   "actualizado": "2026-11-02T23:19:42Z",
+   "cerrado": null
+  },
+  {
+   "numero": 60,
+   "titulo": "Ubicación y trazado verificados de las tomas y conducciones del acueducto de San Cristóbal",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/60",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes",
+    "san-cristobal"
+   ],
+   "cuerpo": "Qué tomas están en servicio en 2026; si las dos líneas «en construcción» del IGM son las actuales; trazado de las conducciones desde Los Americanos y entre la planta El Progreso y Puerto Baquerizo Moreno; profundidad y protección de las tuberías en los cruces; GNSS de tomas y represa.\n\n**Isla:** San Cristóbal\n**Sale de:** 06_agua.md\nhttps://sosgalapagos.org/estudios/san-cristobal/agua/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:46Z",
+   "actualizado": "2026-11-02T23:19:46Z",
+   "cerrado": null
+  },
+  {
+   "numero": 61,
+   "titulo": "Lluvia medida del 30–31-oct en San Cristóbal (proyecto DARWIN, GSC, INAMHI)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/61",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "san-cristobal"
+   ],
+   "cuerpo": "No hay lluvia medida pública del evento. Las estaciones del proyecto DARWIN (U. de Marburgo: Puerto Baquerizo, El Junco, La Galapaguera) y las del GSC podrían tenerla. INAMHI M0221 y M0193 solo llegan hasta 2013. Sin estos datos, los caudales son escenarios. (Otro agente trabaja en el script 29 con datos de Marburgo: coordinar.)\n\n**Isla:** San Cristóbal\n**Sale de:** 11_lluvia.md, 01_panorama.md\nhttps://sosgalapagos.org/estudios/san-cristobal/lluvia/\nhttps://sosgalapagos.org/estudios/san-cristobal/panorama/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:48Z",
+   "actualizado": "2026-11-02T23:19:48Z",
+   "cerrado": null
+  },
+  {
+   "numero": 62,
+   "titulo": "Recuperar la lluvia de la red IERSE durante el corte del 30-oct (21:25) al 31-oct (18:45) y saber la causa",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/62",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "Las estaciones de Los Guayabillos y Santa Rosa dejaron de transmitir a la vez en el peor momento. Hay que saber si guardaron registros en memoria local y qué cortó la transmisión (energía, comunicaciones). También si tienen batería, panel solar o comunicaciones de respaldo. Complementa #56.\n\n**Isla:** Santa Cruz\n**Sale de:** 02_lluvia.md (tabla de vacíos), 07_riesgos.md\nhttps://sosgalapagos.org/estudios/santa-cruz/lluvia/\nhttps://sosgalapagos.org/estudios/santa-cruz/riesgos/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:50Z",
+   "actualizado": "2026-11-02T23:19:50Z",
+   "cerrado": null
+  },
+  {
+   "numero": 63,
+   "titulo": "Lectura diaria de la estación Charles Darwin (FCD) del 15-oct al 2-nov",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/63",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "Es un dato de lluvia en Puerto Ayora, independiente de M0191 (#3). Dato en manos de la FCD (dataZone).\n\n**Isla:** Santa Cruz\n**Sale de:** 02_lluvia.md, tabla de vacíos\nhttps://sosgalapagos.org/estudios/santa-cruz/lluvia/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:52Z",
+   "actualizado": "2026-11-02T23:19:52Z",
+   "cerrado": null
+  },
+  {
+   "numero": 64,
+   "titulo": "Horas de los hechos del 30-oct en Santa Cruz",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/64",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "Hora del desborde de cada cañada; cuándo llegó el agua a La Cascada y hasta qué altura; avisos informales; sesión del COE cantonal y declaratoria; si siguió lloviendo después de las 21:25. Se puede reconstruir con entrevistas y registros. Sin nombres de personas afectadas.\n\n**Isla:** Santa Cruz\n**Sale de:** 01_que_paso.md, «Qué falta saber»\nhttps://sosgalapagos.org/estudios/santa-cruz/que-paso/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:54Z",
+   "actualizado": "2026-11-02T23:19:54Z",
+   "cerrado": null
+  },
+  {
+   "numero": 65,
+   "titulo": "Cota de rebose de La Cascada y naturaleza del umbral de la calle Isla Santiago – Karl Angermeyer",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/65",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "La cota real del rebose está entre 12,0 y 13,25 m en el DSM y solo se fija con GNSS. Hay que saber si el umbral es un lomo de lava o un relleno urbano, y si hay sótanos o muros que corten el flujo.\n\n**Isla:** Santa Cruz\n**Sale de:** 03_la_cascada.md, «Qué falta saber»\nhttps://sosgalapagos.org/estudios/santa-cruz/la-cascada/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:56Z",
+   "actualizado": "2026-11-02T23:19:56Z",
+   "cerrado": null
+  },
+  {
+   "numero": 66,
+   "titulo": "Tomás de Berlanga: trazado del cauce, cota de la escuela y ruta de evacuación",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/66",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "El cauce no se ha recorrido en campo desde la Av. Padre Julio Herrera. Faltan la cota de la escuela respecto al cauce y su ruta de evacuación (de eso depende si puede servir de refugio), y saber si existe aviso o cierre de la vía con lluvia intensa. Pasos CR-SCZ-0016 a 0020 y 0041: comentar en #33.\n\n**Isla:** Santa Cruz\n**Sale de:** 05_parte_alta.md, «Qué falta saber»\nhttps://sosgalapagos.org/estudios/santa-cruz/parte-alta/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:19:59Z",
+   "actualizado": "2026-11-02T23:19:59Z",
+   "cerrado": null
+  },
+  {
+   "numero": 67,
+   "titulo": "Exposición real de los refugios de Bellavista y Puerto Ayora",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/67",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "El refugio oficial (estadio Gordon Wolf) está a 59 m de un cauce de ≈7,5 km². El Coliseo y la Casa de los Mormones están en cotas bajas según el DSM. Faltan la cota del piso, los muros y las alcantarillas, verificados en campo. Complementa #6.\n\n**Isla:** Santa Cruz\n**Sale de:** 07_riesgos.md\nhttps://sosgalapagos.org/estudios/santa-cruz/riesgos/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:20:01Z",
+   "actualizado": "2026-11-02T23:20:01Z",
+   "cerrado": null
+  },
+  {
+   "numero": 68,
+   "titulo": "¿La cañada El Aguacatal drena hacia La Cascada?",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/68",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "Según las coordenadas del registro SNGR de 2024, sí; está por verificar en campo. Cambia el área y la lluvia que llegan al barrio.\n\n**Isla:** Santa Cruz\n**Sale de:** 01_que_paso.md, 07_riesgos.md\nhttps://sosgalapagos.org/estudios/santa-cruz/que-paso/\nhttps://sosgalapagos.org/estudios/santa-cruz/riesgos/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:20:03Z",
+   "actualizado": "2026-11-02T23:20:03Z",
+   "cerrado": null
+  },
+  {
+   "numero": 69,
+   "titulo": "Floreana: qué cauce es cada cañada del Plan de Acción y trazado de la conexión de ≈500 m",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/69",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes",
+    "san-cristobal"
+   ],
+   "cuerpo": "No se sabe cuál de los tres cauces es La Hormiga, La Varonesa o La Lobería, ni si La Hormiga es una obra (cuneta perimetral). Hace falta la topografía GNSS del trazado y saber adónde va el agua desviada.\n\n**Isla:** San Cristóbal (Floreana)\n**Sale de:** 07_floreana.md\nhttps://sosgalapagos.org/estudios/san-cristobal/floreana/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:20:05Z",
+   "actualizado": "2026-11-02T23:20:05Z",
+   "cerrado": null
+  },
+  {
+   "numero": 70,
+   "titulo": "Trazados de las obras del Plan de Acción de la UGR (zanja de 1 040 m, muro de 240 m, conexión de Floreana)",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/70",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "san-cristobal"
+   ],
+   "cuerpo": "Los trazados reales están en manos de la UGR. Sin ellos, el análisis supone ubicaciones. Complementa #55.\n\n**Isla:** San Cristóbal\n**Sale de:** 03_plan_ugr.md, «Qué falta saber»\nhttps://sosgalapagos.org/estudios/san-cristobal/plan-ugr/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:20:08Z",
+   "actualizado": "2026-11-02T23:20:08Z",
+   "cerrado": null
+  },
+  {
+   "numero": 71,
+   "titulo": "¿Existe un protocolo de evacuación por inundación para La Cascada, Bellavista y El Aguacatal?",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/71",
+   "etiquetas": [
+    "P1",
+    "gobernanza",
+    "santa-cruz"
+   ],
+   "cuerpo": "No se encontró ninguno, aunque la alerta naranja por El Niño rige desde el 20-jul. Dato en manos del GAD, el COE y la SNGR.\n\n**Isla:** Santa Cruz\n**Sale de:** 01_que_paso.md, tabla «Qué señales había»\nhttps://sosgalapagos.org/estudios/santa-cruz/que-paso/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:20:11Z",
+   "actualizado": "2026-11-02T23:20:11Z",
+   "cerrado": null
+  },
+  {
+   "numero": 72,
+   "titulo": "Clasificación del suelo del puerto de San Cristóbal (urbano o rural) en la capa del CGREG",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/72",
+   "etiquetas": [
+    "P2",
+    "gobernanza",
+    "san-cristobal"
+   ],
+   "cuerpo": "En la capa del CGREG solo El Progreso figura como suelo urbano, y el polígono del puerto aparece como «rural». Hay que confirmarlo con el GAD, porque condiciona qué norma se aplica.\n\n**Isla:** San Cristóbal\n**Sale de:** 02_encanadas.md\nhttps://sosgalapagos.org/estudios/san-cristobal/encanadas/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:20:14Z",
+   "actualizado": "2026-11-02T23:20:14Z",
+   "cerrado": null
+  },
+  {
+   "numero": 73,
+   "titulo": "Serie original de lluvia de Bellavista (FCD) y episodio de marzo de 2008",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/73",
+   "etiquetas": [
+    "P3",
+    "datos-faltantes",
+    "santa-cruz"
+   ],
+   "cuerpo": "La FCD advierte que los datos publicados se «ajustaron». Los 770 mm en 3 días de marzo de 2008 hay que verificarlos con la serie original.\n\n**Isla:** Santa Cruz\n**Sale de:** 02_lluvia.md\nhttps://sosgalapagos.org/estudios/santa-cruz/lluvia/\n\nSi tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.",
+   "comentarios": 0,
+   "creado": "2026-11-02T23:20:16Z",
+   "actualizado": "2026-11-02T23:20:16Z",
    "cerrado": null
   }
  ]
