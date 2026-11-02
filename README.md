@@ -8,6 +8,21 @@ Información geográfica, mediciones del clima, estudios técnicos y servidores 
 
 > ⚠️ **Todo lo de aquí es preliminar.** No existe un mapa oficial de amenaza por inundación pluvial para Galápagos. Las capas marcadas como **modelo** (susceptibilidad HAND, cuencas, costa baja, lluvias de modelos) sirven para **priorizar**, no para delimitar ni para normar. Las capas **oficiales** citan su institución.
 
+## ⬇️ Descargar los datos
+
+| Qué | Enlace |
+|---|---|
+| **Todo el repositorio** (capas, clima, estudios y scripts) | [ZIP de `main`](https://github.com/mayait/sosgalapagos-datos/archive/refs/heads/main.zip) |
+| **Capas de las islas completas en Shapefile** (WGS84, UTF-8, con LEEME) | [Versiones publicadas → `todo-completo-shp.zip`](https://github.com/mayait/sosgalapagos-datos/releases/latest) |
+| **Capas de las islas completas en GeoJSON** | [Versiones publicadas → `todo-completo-geojson.zip`](https://github.com/mayait/sosgalapagos-datos/releases/latest) |
+| **Datos del clima** (IERSE, INAMHI, FCD) | [Versiones publicadas → `clima-datos-*.zip`](https://github.com/mayait/sosgalapagos-datos/releases/latest) · carpeta [`clima/datos/`](clima/datos/) |
+| Capas del mapa de la emergencia (zona poblada), una por una | [`mapas-galapagos/datos/`](mapas-galapagos/datos/) |
+| Capas por fuente y depuradas (OSM, IGM, DEM, integradas) | [`geodatos/capas/`](geodatos/capas/) |
+| Una capa a la vez, en Shapefile o GeoJSON, desde el visor | [sosgalapagos.org/mapas](https://sosgalapagos.org/mapas/) |
+| Informe de La Cascada (PDF) | [`geodatos/estudios/la-cascada/`](geodatos/estudios/la-cascada/) |
+
+Todas las capas están en **EPSG:4326**. Antes de usarlas, lee las advertencias de [§6](#6-cómo-se-usó-el-modelo-hand) y las licencias del final.
+
 ---
 
 ## El repositorio en una imagen
@@ -55,6 +70,8 @@ Información geográfica, mediciones del clima, estudios técnicos y servidores 
 | 2 nov | **Informe técnico preliminar de La Cascada** (PDF de 39 páginas): cuenca, vaso, desvío de quebradas, lluvias y propuestas |
 | 2 nov | **Clima en vivo** ([/clima](https://sosgalapagos.org/clima/)): recolector cada 5 min de las estaciones IERSE (Santa Cruz) y USFQ GSC (San Cristóbal) |
 | 2 nov | Estudios web de **Santa Cruz** y **San Cristóbal** ([/estudios](https://sosgalapagos.org/estudios/), en revisión) |
+| 2 nov | Nivel **preliminar** de inundación por zona en /clima (regla v0.1 por lluvia de 1 h, 3 h y 24 h y humedad previa) |
+| 2 nov | Modelos 2D del evento en Santa Cruz y San Cristóbal; tomas de agua del acueducto de San Cristóbal |
 | 2 nov | Este repositorio: datos, estudios y servidores separados de la plataforma |
 
 ## 2. Qué datos hay
@@ -65,8 +82,8 @@ Información geográfica, mediciones del clima, estudios técnicos y servidores 
 | **Capas depuradas** | Por fuente (`osm/`, `igm/`, `dem/`), integradas (`final/`), rásteres PNG y capa operativa de áreas afectadas | `geodatos/capas/` | Sí |
 | **Paquete del mapa** | 25 capas recortadas al área de interés + manifiesto `capas.json` + resumen de exposición | `geodatos/export/galapagos/` | Sí |
 | **Entregable** | Datos, visor y documentación (catálogo, metodología, fuentes, especificación y cómo actualizar) | `mapas-galapagos/` | Sí |
-| **Clima medido** | Estaciones IERSE (4, Santa Cruz, cada 5 min, desde abril de 2026); historial INAMHI (16-oct → 2-nov, la fuente solo guarda 90 días); series consolidadas de 5 min, horarias y diarias | `clima/datos/` | Sí (los crudos nunca se modifican) |
-| **Estudios** | Textos, datos, figuras y PDF de La Cascada, Santa Cruz y San Cristóbal | `geodatos/estudios/` | Sí |
+| **Clima medido** | Estaciones IERSE (4, Santa Cruz, cada 5 min, desde abril de 2026); historial INAMHI (16-oct → 2-nov, la fuente solo guarda 90 días); series diarias de la FCD (Puerto Ayora desde 1965 y Bellavista); series consolidadas de 5 min, horarias y diarias. En el servidor se recogen además USFQ GSC, INAMHI en vivo, mareógrafos y METAR | `clima/datos/` ([LEEME](clima/datos/LEEME.md)) | Sí (los crudos nunca se modifican) |
+| **Estudios** | Textos, datos, figuras y PDF de La Cascada, Santa Cruz y San Cristóbal (incluye modelos 2D del 30-oct y las tomas de agua de San Cristóbal); se siguen ampliando | `geodatos/estudios/` | Sí |
 
 **Exposición estimada** (`geodatos/export/galapagos/resumen_exposicion.json`):
 
@@ -113,6 +130,7 @@ Las del mapa de la emergencia (`geodatos/export/galapagos/capas.json`). Detalle 
 | **MSP, MINEDUC** | Salud y educación | Copias en la SNGR |
 | **Google Open Buildings v3** | Huellas de edificios (no cubre San Cristóbal) | Abierta |
 | **IERSE** (Universidad del Azuay) | 4 estaciones meteorológicas en Santa Cruz, cada 5 min | Se cita la fuente, sin enlace |
+| **FCD** (Fundación Charles Darwin) | Series climáticas diarias de Puerto Ayora (desde 1965) y Bellavista | CC BY-NC-SA |
 | **USFQ GSC** (Galapagos Science Center) | 5 estaciones en San Cristóbal; lluvia diaria desde 2015 | Se cita la fuente, sin enlace |
 | **INAMHI** | Estaciones automáticas; historial de 90 días | Se cita la fuente, sin enlace |
 | **ECMWF y otros modelos** (vía Open-Meteo) | Lluvia estimada del evento y climatología 1991–2020 | Abierta |
