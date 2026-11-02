@@ -9,7 +9,7 @@ Es un reconocimiento de gabinete. **No es un diseño de ingeniería, ni un mapa 
   - especialistas en meteorología, gestión del riesgo y planificación urbana.
 - **Sin revisión profesional.** No lo han revisado **profesionales habilitados**. Hasta entonces, estas conclusiones no sirven para decidir obras, permisos ni reasentamientos.
 - **Sin campo.** **Ningún punto se ha visitado.** Las cifras cambiarán con datos de campo.
-- **Sin lluvia medida.** En San Cristóbal **no hay lluvia medida pública** del evento de octubre de 2026. Los caudales son escenarios, no reconstrucciones.
+- **Lluvia medida solo en la parte alta.** Las cuatro estaciones USFQ-GSC midieron el evento hora a hora (82–155 mm el 31-oct), pero fuera de las cuencas urbanas. En la ciudad no hay dato. Los caudales son escenarios, no reconstrucciones: el modelo no se ha corrido con la lluvia medida.
 
 # Datos y convenciones
 
@@ -20,7 +20,8 @@ Es un reconocimiento de gabinete. **No es un diseño de ingeniería, ni un mapa 
 - **Edificios:** OSM y Google Open Buildings.
 - **Población:** INEC.
 - **Registros y capas de riesgo:** SNGR y CGREG.
-- **Lluvia:** estimaciones de modelos (Open-Meteo) y observaciones METAR del aeropuerto.
+- **Lluvia:** estaciones USFQ-GSC de la parte alta (Merceditas, El Junco, Cerro Alto y El Mirador; historial horario del INAMHI, 16-oct a 2-nov de 2026), estimaciones de modelos (Open-Meteo), observaciones METAR del aeropuerto y, como contraste, el reanálisis GAR (TU Berlín, 1980–2025; lluvia modelada, sin validar en la isla).
+- **Nivel del mar:** sin mareógrafo en la isla. Se estimó trasladando el nivel observado en Puerto Ayora (mareógrafo IOC, operado por el INOCAR), con la onda M2 del modelo Open-Meteo Marine.
 
 ## Convenciones
 
@@ -59,7 +60,7 @@ Tabla: DSM menos punto acotado del IGM 1:25 000 (m).
 
 - **DSM:** ±3 m en torno a la ciudad y ±5 m en El Progreso. En tramos con un 1–3 % de pendiente eso equivale al desnivel de 100 m de recorrido. Por eso las rutas del rellano del campus y de las salidas a Playa Mann son inciertas en decenas a cientos de metros.
 - **El DSM no ve** alcantarillas, cauces entubados ni bordillos; en la ciudad el agua sigue las calles.
-- **Lluvia:** no hay ninguna medida. Con 100 mm, el caudal pico de la quebrada del campus varía unas 7 veces (2,0–13,7 m³/s) según el CN (60–80) y el método de tc.
+- **Lluvia:** no hay ninguna medida dentro de las cuencas urbanas; la de la parte alta es horaria y no se ha simulado. Con 100 mm, el caudal pico de la quebrada del campus varía unas 7 veces (2,0–13,7 m³/s) según el CN (60–80) y el método de tc.
 - **Campus:** no está cartografiado como polígono. Se aproximó con los edificios universitarios de OSM (0,8 ha).
 
 Tabla: Nivel de confianza de cada conclusión.
@@ -99,6 +100,12 @@ Todas las capas y tablas del estudio, en GeoJSON (WGS84) y CSV (UTF-8). Incluyen
 - LOGIRD: https://procuraduria.utpl.edu.ec/NormativaExterna/LEY%20ORG%C3%81NICA%20PARA%20LA%20GESTI%C3%93N%20INTEGRAL%20DEL%20RIESGO%20DE%20DESASTRES.pdf
 - LOREG: https://faolex.fao.org/docs/pdf/ecu166165.pdf
 - Bates, P. D., Horritt, M. S. y Fewtrell, T. J. (2010): esquema inercial local usado en el [Modelo 2D](../modelo-2d/).
+- Universidad San Francisco de Quito, Galapagos Science Center (2026). *Weather Data – GSC*. Estaciones M5300–M5303, consultadas en el historial horario del INAMHI el 2-nov-2026.
+- Paltán, H. A. et al. (2021). Climate and sea surface trends in the Galapagos Islands. *Scientific Reports* 11: 14465.
+- Schmidt, B. et al. (2025). Analysis of the meso-scale climate of the Galápagos Archipelago by dynamical downscaling of reanalysis data. *Int. J. Climatol.* 45(13): e8924. https://doi.org/10.1002/joc.8924. Datos GAR v1 (CC BY 4.0): https://data.klima.tu-berlin.de/GAR/
+- Proyecto DARWIN (LCRS, U. de Marburgo): solo metadatos públicos (2-nov-2026); sus series no se publican. Subconjuntos procesados de San Cristóbal: Puerto Baquerizo Moreno doi:10.5678/f8vq-0q35; El Junco doi:10.5678/j39v-8d16; La Galapaguera doi:10.5678/gt9f-jz35.
+- IOC/UNESCO, Sea Level Station Monitoring Facility (mareógrafo de Puerto Ayora, operador INOCAR); UHSLC *fast delivery*: https://uhslc.soest.hawaii.edu/; Open-Meteo Marine (modelo): https://open-meteo.com/
+- Scripts de lluvia y marea: `scripts/30_lluvia_mareas.py`; reanálisis GAR e inventario DARWIN: `scripts/29_marburg_darwin.py`.
 - Datos: `capas/final/` (eventos SNGR, refugios SNGR 2025, MSP, MINEDUC, OSM, CGREG, INOCAR), DSM Copernicus GLO-30 y resultados del modelo 2D (`datos/modelo2d/`).
 
 Las fuentes de las tomas de agua del acueducto están en [Tomas de agua](../agua/).

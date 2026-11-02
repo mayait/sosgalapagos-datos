@@ -2,7 +2,7 @@ Intro: Lo que todavía no se sabe sobre las inundaciones en San Cristóbal: dato
 
 # Cómo aportar
 
-Esta página reúne los pendientes abiertos del proyecto que tocan a San Cristóbal: **18 propios de la isla** y **27 comunes a las islas**. Se arma sola a partir de los [issues de GitHub](https://github.com/mayait/sosgalapagos-datos/issues) (última descarga: 2026-11-02) y se ordena por prioridad: la prioridad 1 cambia decisiones de esta emergencia; la 2 mejora mucho el análisis; la 3 es deseable.
+Esta página reúne los pendientes abiertos del proyecto que tocan a San Cristóbal: **20 propios de la isla** y **27 comunes a las islas**. Se arma sola a partir de los [issues de GitHub](https://github.com/mayait/sosgalapagos-datos/issues) (última descarga: 2026-11-02) y se ordena por prioridad: la prioridad 1 cambia decisiones de esta emergencia; la 2 mejora mucho el análisis; la 3 es deseable.
 
 Si tienes un dato que ayude (fotos o videos con fecha, hora y lugar, marcas de agua, lluvia medida, planos de obras, registros de daños), escríbelo en los comentarios de la sección que corresponda o en el issue de GitHub. Los comentarios son públicos: no pongas nombres, teléfonos ni datos de otras personas.
 
@@ -29,19 +29,18 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
     **Sale de:** 06_agua.md, «Vacíos de información»  
     https://sosgalapagos.org/estudios/san-cristobal/agua/  
     Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
-- **[Lluvia medida del 30–31-oct en San Cristóbal (proyecto DARWIN, GSC, INAMHI)](https://github.com/mayait/sosgalapagos-datos/issues/61)** (#61 · prioridad 1)  
-    No hay lluvia medida pública del evento. Las estaciones del proyecto DARWIN (U. de Marburgo: Puerto Baquerizo, El Junco, La Galapaguera) y las del GSC podrían tenerla. INAMHI M0221 y M0193 solo llegan hasta 2013. Sin estos datos, los caudales son escenarios. (Otro agente trabaja en el script 29 con datos de Marburgo: coordinar.)  
+- **[Lluvia medida en la ciudad y a 5–10 min del 30–31-oct en San Cristóbal (GSC, DARWIN, INAMHI)](https://github.com/mayait/sosgalapagos-datos/issues/61)** (#61 · prioridad 1 · 1 comentario)  
+    Ya hay lluvia medida del evento en la parte alta de San Cristóbal (estaciones USFQ-GSC vía el historial del INAMHI; ver el comentario del 2-nov). Falta la lluvia **en la ciudad** (ninguna estación dentro de las cuencas urbanas; M0221 solo desde el 2-nov), las intensidades de 5–10 min del GSC, su serie histórica y las estaciones DARWIN.  
     **Isla:** San Cristóbal  
-    **Sale de:** 11_lluvia.md, 01_panorama.md  
-    https://sosgalapagos.org/estudios/san-cristobal/lluvia/  
-    https://sosgalapagos.org/estudios/san-cristobal/panorama/  
-    Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+    https://sosgalapagos.org/estudios/san-cristobal/lluvia/
 - **[Trazados de las obras del Plan de Acción de la UGR (zanja de 1 040 m, muro de 240 m, conexión de Floreana)](https://github.com/mayait/sosgalapagos-datos/issues/70)** (#70 · prioridad 1)  
     Los trazados reales están en manos de la UGR. Sin ellos, el análisis supone ubicaciones. Complementa [#55](https://github.com/mayait/sosgalapagos-datos/issues/55).  
     **Isla:** San Cristóbal  
     **Sale de:** 03_plan_ugr.md, «Qué falta saber»  
     https://sosgalapagos.org/estudios/san-cristobal/plan-ugr/  
     Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Series del proyecto DARWIN (U. de Marburgo) del 15-oct al 2-nov y permiso para publicar derivados](https://github.com/mayait/sosgalapagos-datos/issues/76)** (#76 · prioridad 1)  
+    Tres estaciones de DARWIN parecen compartir sitio con estaciones IERSE-WSN de Santa Cruz (Santa Rosa, Cerro Crocker, Militar) y podrían tener la lluvia que IERSE perdió entre las 21:25 del 30-oct y las 18:45 del 31-oct; también hay estaciones en San Cristóbal (Puerto Baquerizo Moreno, La Galapaguera, El Junco). Lo publicado llega a 2025–may-2026 y el acuerdo de uso prohíbe redistribuir: hay que pedir las series del evento y permiso para publicar derivados (con coautoría si lo piden). Lo pide el responsable del proyecto. Relacionado con [#61](https://github.com/mayait/sosgalapagos-datos/issues/61) y [#62](https://github.com/mayait/sosgalapagos-datos/issues/62).
 - **[Ubicar los 16 lugares no localizados del Plan de Acción de la UGR de San Cristóbal](https://github.com/mayait/sosgalapagos-datos/issues/53)** (#53 · prioridad 2)  
     El estudio de San Cristóbal integra el Plan de Acción de la UGR, pero 16 lugares no se pudieron georreferenciar (`geodatos/estudios/san-cristobal/datos/ugr/no_localizados.csv`). Hay que confirmarlos con la UGR o en terreno.
 - **[Verificar en campo el collado Galápagos–Divino Niño (San Cristóbal)](https://github.com/mayait/sosgalapagos-datos/issues/54)** (#54 · prioridad 2)  
@@ -113,6 +112,9 @@ Datos que existen, pero con un detalle que no alcanza para responder bien.
     **Hoy:** Huellas de edificios: OSM + Google Open Buildings (no cubre San Cristóbal)  
     **Lo que necesitamos:** Huellas completas y con altura  
     **Cómo:** Catastro, digitalización sobre ortofoto de dron
+- **[Modelo 2D de San Cristóbal con la lluvia USFQ-GSC del 30–31-oct](https://github.com/mayait/sosgalapagos-datos/issues/74)** (#74 · prioridad 2)  
+    Correr el modelo 2D de Puerto Baquerizo Moreno con el hietograma medido (El Mirador o Cerro Alto; suelo húmedo, AMC III) y compararlo con los escenarios de 50/100/150 mm y con la tormenta de Santa Cruz trasladada. Una comparación gruesa sugiere que lo medido se parece más al escenario de 100 mm. Datos: geodatos/estudios/san-cristobal/datos/lluvia_mareas_horaria.csv. Avanza [#26](https://github.com/mayait/sosgalapagos-datos/issues/26).  
+    https://sosgalapagos.org/estudios/san-cristobal/modelo-2d/
 
 ## Comunes a las islas
 
@@ -170,6 +172,8 @@ Acuerdos, permisos y reglas para que los datos lleguen, se compartan y se manten
 
 ## En San Cristóbal
 
+- **[Series del proyecto DARWIN (U. de Marburgo) del 15-oct al 2-nov y permiso para publicar derivados](https://github.com/mayait/sosgalapagos-datos/issues/76)** (#76 · prioridad 1)  
+    Tres estaciones de DARWIN parecen compartir sitio con estaciones IERSE-WSN de Santa Cruz (Santa Rosa, Cerro Crocker, Militar) y podrían tener la lluvia que IERSE perdió entre las 21:25 del 30-oct y las 18:45 del 31-oct; también hay estaciones en San Cristóbal (Puerto Baquerizo Moreno, La Galapaguera, El Junco). Lo publicado llega a 2025–may-2026 y el acuerdo de uso prohíbe redistribuir: hay que pedir las series del evento y permiso para publicar derivados (con coautoría si lo piden). Lo pide el responsable del proyecto. Relacionado con [#61](https://github.com/mayait/sosgalapagos-datos/issues/61) y [#62](https://github.com/mayait/sosgalapagos-datos/issues/62).
 - **[Pedir al GSC la licencia de sus datos meteorológicos](https://github.com/mayait/sosgalapagos-datos/issues/46)** (#46 · prioridad 2)
 - **[Clasificación del suelo del puerto de San Cristóbal (urbano o rural) en la capa del CGREG](https://github.com/mayait/sosgalapagos-datos/issues/72)** (#72 · prioridad 2)  
     En la capa del CGREG solo El Progreso figura como suelo urbano, y el polígono del puerto aparece como «rural». Hay que confirmarlo con el GAD, porque condiciona qué norma se aplica.  

@@ -1,20 +1,48 @@
-Intro: Qué se sabe de la lluvia del 15 de octubre al 2 de noviembre de 2026 en San Cristóbal: lo observado en el aeropuerto, lo que estiman los modelos, la climatología publicada, la afectación reportada y qué datos faltan y en manos de quién están. No hay ninguna medida pública de milímetros de lluvia en la isla para estos días.
+Intro: Qué se sabe de la lluvia del 15 de octubre al 2 de noviembre de 2026 en San Cristóbal: lo que midieron las estaciones USFQ-GSC de la parte alta, lo observado en el aeropuerto, lo que estiman los modelos, la climatología, la afectación reportada y qué datos faltan y en manos de quién están.
 
 # Lo esencial
 
 En esta página se separan tres tipos de información: **[M] medido u observado** (pluviómetros y observaciones meteorológicas de aeropuerto, METAR), **[E] estimado** (modelos numéricos) y **[R] reportado** (informes oficiales y prensa). Todas las horas están en **hora de Galápagos (UTC−6)** y todas las fuentes se consultaron el 2 de noviembre de 2026.
 
-- **No hay ninguna medida pública de la cantidad de lluvia en San Cristóbal para estos días.** La red IERSE-WSN, que midió el evento de Santa Cruz, no tiene estaciones en esta isla. Las estaciones del INAMHI, de la FCD, del proyecto DARWIN y del Galapagos Science Center no publican datos recientes en abierto.
-- **Lo único observado es cuándo llovió y con qué intensidad aparente [M]**, según los METAR del aeropuerto (SEST):
-  - el 30-oct llovió entre las 14 y las 16 h, con **lluvia fuerte a las 15 h** (visibilidad de 3 000 m);
-  - el 31-oct llovió **de forma continua de 08 a 14 h** (visibilidad de hasta 2 000 m).
-  - Eso coincide con la SNGR, que sitúa el desbordamiento de las cañadas **Barrio Frío y Divino Niño** en la «mañana» del 31-oct [R].
-- **Los modelos estiman entre 18 y 58 mm** en Puerto Baquerizo Moreno para el 30 y el 31-oct [E]. En Santa Cruz esos mismos modelos subestimaron la intensidad horaria de la tormenta entre 2 y 74 veces (ver [lluvia de Santa Cruz](../../santa-cruz/lluvia/)). Aquí se leen como **un mínimo de error desconocido**, no como la lluvia real.
-- **No es posible decir si la lluvia del 30–31 de octubre fue extraordinaria en San Cristóbal, ni calcular un periodo de retorno.** Lo observado (lluvia moderada continua durante 6 h y desbordes) indica un evento importante para la estación, pero no un extremo cuantificado.
+- **Hay lluvia medida en la parte alta [M].** Las cuatro estaciones de la USFQ y el Galapagos Science Center (USFQ-GSC), que se consultan en el historial horario del INAMHI, midieron el **31-oct**:
+  - **155,2 mm en El Junco** (584 m);
+  - **149,9 mm en Cerro Alto** (517 m);
+  - **91,1 mm en El Mirador** (387 m);
+  - **82,3 mm en Merceditas** (100 m).
+- **Las horas más intensas fueron las 08:00–10:00 del 31-oct**, con hasta **39,1 mm en una hora** (El Junco de 08 a 09 h, Cerro Alto de 09 a 10 h). Es la misma mañana en que la SNGR sitúa el desbordamiento de las cañadas **Barrio Frío y Divino Niño** [R], y en que el aeropuerto observó lluvia continua de 08 a 14 h.
+- **Ya había llovido el día antes:** 36–92 mm el 30-oct. El suelo estaba húmedo cuando llegó la lluvia del 31.
+- **En la ciudad no hay dato.** El pluviómetro M0221 del INAMHI, en Puerto Baquerizo Moreno, solo tiene datos desde el 2-nov. Ninguna de las cuatro estaciones está dentro de las cuencas que drenan a la ciudad o a El Progreso: Cerro Alto y El Mirador quedan a ≈1,5–2 km de su borde, El Junco a ≈5 km y Merceditas, al este de la isla, a ≈10 km.
+- **Los modelos estimaban entre 18 y 58 mm** en Puerto Baquerizo Moreno para el 30 y el 31-oct [E]. Se quedaron cortos, como en Santa Cruz.
+- **Sigue sin poder calcularse un periodo de retorno.** Las estaciones USFQ-GSC no tienen una serie larga publicada, y el reanálisis GAR no está validado en la isla (ver «Climatología»).
 
-# Lo observado y lo estimado
+# Lo medido, lo observado y lo estimado
 
-## Lo observado del 30-oct al 2-nov [M, cualitativo]
+## Lo medido en la parte alta [M]
+
+Tabla: Lluvia diaria medida por las estaciones USFQ-GSC (mm; día en hora de Galápagos; 2-nov hasta las 16 h). Historial horario del INAMHI, con el 99,7–99,8 % de las horas del 16-oct al 2-nov.
+
+| Estación (cota) | 30-oct | **31-oct** | 1-nov | 2-nov | Del 30-oct 06:00 al 31-oct 18:00 | Máx. 1 h, 30–31 oct (hora) |
+|---|---|---|---|---|---|---|
+| El Junco (584 m) | 92,0 | **155,2** | 90,1 | 47,1 | 231,6 | **39,1** (31-oct, 08–09 h) |
+| Cerro Alto (517 m) | 65,3 | **149,9** | 54,0 | 61,8 | 208,8 | **39,1** (31-oct, 09–10 h) |
+| El Mirador (387 m) | 48,7 | **91,1** | 34,1 | 45,6 | 135,9 | 30,5 (31-oct, 09–10 h) |
+| Merceditas (100 m) | 36,1 | **82,3** | 32,8 | 51,9 | 112,8 | 13,7 (31-oct, 11–12 h) |
+
+- Llovió de forma moderada toda la tarde y la noche del 30-oct. La lluvia volvió a subir hacia las 04:00 del 31-oct (14,2 mm en El Junco entre las 04 y las 05 h). El máximo llegó entre las 08 y las 10 h, y El Junco tuvo otro pico a las 12–13 h (29,0 mm).
+- El 23-oct ya hubo un episodio fuerte: 117 mm en Cerro Alto del 22 al 24-oct, con 32,5 mm en una hora.
+- **Límites.** Son datos de operación, sin control de calidad publicado. Son horarios: no permiten calcular intensidades en 60 minutos móviles ni en 5 minutos. La hora del INAMHI es la continental (UTC−5) y aquí se pasó a la de Galápagos.
+
+**Frente a los escenarios del estudio.** Los caudales de las otras páginas salen de escenarios: 100 mm en 24 h con 45 mm en la hora más intensa, y la tormenta de Santa Cruz trasladada, de 179 mm con 63 mm en una hora (ver [Modelo 2D](../modelo-2d/)). Una primera comparación, sin correr el modelo:
+
+- **en total**, el 31-oct de El Mirador y Cerro Alto (91–150 mm) es del orden del escenario de 100 mm o algo mayor, y queda por debajo de la tormenta trasladada. Con el 30-oct, suman 136–209 mm;
+- **en intensidad horaria** (30–39 mm), queda por debajo de los dos. Por eso lo medido se parece más al escenario de 100 mm;
+- **en el suelo**, la lluvia del 30-oct lo dejó húmedo, más cerca de la variante AMC III que de la AMC II.
+
+Esta comparación es gruesa: las estaciones están fuera de las cuencas urbanas y la lluvia de la ciudad no se midió. **Correr el modelo 2D con la lluvia medida está pendiente.**
+
+![Lluvia horaria medida por las estaciones USFQ-GSC y nivel del mar estimado en Puerto Baquerizo Moreno, del 28-oct al 2-nov. En rojo, la «mañana» del desborde de cañadas según la SNGR.](figuras/mareas_lluvia_28oct_2nov.png)
+
+## Lo observado en el aeropuerto [M, cualitativo]
 
 Tabla: Tiempo presente en los METAR del aeropuerto de San Cristóbal (SEST). Clave: -RA = lluvia débil; RA = lluvia moderada; +RA = lluvia fuerte; DZ = llovizna; VCSH = chubascos en las cercanías. La visibilidad está en metros.
 
@@ -31,8 +59,9 @@ Tabla: Tiempo presente en los METAR del aeropuerto de San Cristóbal (SEST). Cla
 
 - La lluvia del **31-oct por la mañana** fue la más persistente del periodo en el aeropuerto: seis horas seguidas con lluvia, cuatro de ellas moderada. Coincide con el desbordamiento de cañadas que reportó la SNGR.
 - El 30-oct hubo un episodio fuerte pero corto a media tarde, casi a la misma hora que el primer pulso de Santa Cruz.
-- **No se sabe qué pasó la noche del 30 al 31**, porque el aeropuerto no emite METAR de noche.
+- El aeropuerto no emite METAR de noche.
 - El aeropuerto está en la costa, al suroeste del centro urbano. Las cañadas nacen en la parte alta, donde la lluvia suele ser mayor.
+- Las estaciones USFQ-GSC sí cubren la noche: del 30-oct a las 18:00 al 31-oct a las 06:00 midieron 34–74 mm, según la estación, con lluvia moderada casi todas las horas.
 
 ## Estimaciones de modelos [E]
 
@@ -60,7 +89,7 @@ Tabla: Lluvia estimada (mm). Máx. 1 h: máximo horario entre el 30 y el 31-oct,
 
 **Hora.** ECMWF de 9 km reparte la lluvia entre la noche del 30 y la madrugada del 31. Entre las 07 y las 14 h del 31 solo da unos 6 mm, justo cuando el aeropuerto observaba lluvia moderada continua y desbordaban las cañadas. El mismo modelo situó el máximo de Santa Cruz unas 9 horas tarde (ver [lluvia de Santa Cruz](../../santa-cruz/lluvia/)).
 
-**Cantidad.** Lo único que puede afirmarse es que **los modelos no resuelven la convección ni la orografía de San Cristóbal**. Por analogía con Santa Cruz, la lluvia real de la parte alta pudo ser varias veces mayor que la modelada. **No hay forma de comprobarlo sin datos de estación.**
+**Cantidad.** **Los modelos no resuelven la convección ni la orografía de San Cristóbal.** El 31-oct, El Junco midió 155,2 mm, casi 7 veces lo que el ECMWF de 9 km dio en su celda (22,9 mm).
 
 # Climatología [M, publicada]
 
@@ -72,7 +101,18 @@ Tabla: Lluvia estimada (mm). Máx. 1 h: máximo horario entre el 30 y el 31-oct,
 - **Octubre** es de los meses más secos en la costa. En la estación Charles Darwin de Puerto Ayora, la media es de 10,9 mm (1991–2020). En San Cristóbal no hay una serie diaria pública con la que comparar el evento.
 - **Encañadas.** Una tesis de la USFQ, el «Modelo hidráulico de flujo fluvial de las encañadas de Puerto Baquerizo Moreno», describe 17 encañadas en la isla, tres de ellas principales en la ciudad, y calcula curvas IDF. Su repositorio no respondió el 2-nov, así que **no se pudieron verificar sus cifras**.
 
-Sin una serie medida, no se puede saber si la lluvia del 30–31 de octubre fue extraordinaria ni estimar su periodo de retorno.
+**Lo que dice un reanálisis [E].**
+
+- El reanálisis GAR (TU Berlín, modelo WRF de 2 km forzado con ERA5, 1980–2025; Schmidt et al. 2025) es la única serie larga y abierta que cubre San Cristóbal. **No está validado en esta isla**: en la costa da ≈1 270 mm al año, frente a los ≈500 publicados. Probablemente es unas 2,5 veces demasiado húmedo, y sus milímetros no deben usarse tal cual.
+- Sí permite tres lecturas:
+  1. 1983 es el año de lluvias diarias más altas en Puerto Baquerizo Moreno, El Progreso y El Junco, y 1997 y 2017 están entre los cinco primeros en El Junco. En la costa también aparecen años sin El Niño (2002, 2011);
+  2. el máximo diario **casi no cambia con la cota** entre Puerto Baquerizo Moreno, El Progreso y El Junco, aunque el total anual crezca ≈1,4 veces;
+  3. con la serie medida de Puerto Ayora como referencia (100 mm en un día cada 4–5 años; FCD, 1965–2025) y con GAR corregido por su sesgo (100 mm ≈ 10 años), **100 mm en un día son un evento de años, no de siglos**, y 150 mm, de decenas de años.
+- No es una curva IDF ni sirve para diseñar.
+
+![San Cristóbal: lluvia diaria extrema modelada por GAR, 1980–2025. Es un reanálisis sin validar en la isla.](figuras/marburg_gar_san_cristobal.png)
+
+Sin una serie medida larga, no se puede estimar el periodo de retorno de la lluvia del 30–31 de octubre.
 
 # Afectación reportada [R]
 
@@ -103,7 +143,7 @@ No se encontraron reportes de víctimas en San Cristóbal. Tampoco se encontraro
 
 # Vacíos de información
 
-Sin datos de estación, esta página solo puede describir la cronología cualitativa y los impactos. Sin datos medidos no se puede dimensionar ninguna obra ni un sistema de alerta en Puerto Baquerizo Moreno.
+Hay lluvia horaria medida en la parte alta, pero no en la ciudad ni en series largas. Sin eso no se puede dimensionar ninguna obra ni un sistema de alerta en Puerto Baquerizo Moreno.
 
 ## Estaciones y fuentes de lluvia
 
@@ -111,10 +151,10 @@ Tabla: Estaciones y fuentes de lluvia en San Cristóbal y su estado al 2 de novi
 
 | Fuente | Estación | Datos publicados | Acceso | ¿Cubre el evento? |
 |---|---|---|---|---|
-| INAMHI | **M0221 Puerto Baquerizo Moreno** (costa; lluvia y temperatura) | Usada por Paltán et al. (2021) para 1981–2017. En la plataforma DARWIN figuran datos hasta dic-2013 | Sin portal operativo; plataforma DARWIN con registro | No |
-| INAMHI | **M0193 El Progreso–Socavón** (parte alta), según la plataforma DARWIN. Paltán et al. citan además una pluviométrica de la parte alta (M0508) | Hasta dic-2013 en DARWIN | Ídem | No |
-| Proyecto DARWIN (U. de Marburgo; contacto N. Turini). Estaciones automáticas cada 10 min, con lluvia medida por sensor de radar | Puerto Baquerizo Moreno; El Junco; La Galapaguera | Hasta el 7-may-2026 (Puerto Baquerizo) y el 25-may-2026 (El Junco y La Galapaguera) | Registro y acuerdo de uso: no se puede redistribuir y el titular aprueba la publicación | **No publicado aún**; la estación podría tenerlo |
-| Galapagos Science Center (UNC–USFQ) | Estaciones en San Cristóbal. Paltán et al. (2021) les atribuyen solo 2–6 años de datos | No se encontró portal público | Dato en manos de la USFQ / GSC | Desconocido |
+| USFQ-GSC (Galapagos Science Center), vía el historial horario del INAMHI | **Merceditas (M5300), El Junco (M5301), Cerro Alto (M5302) y El Mirador (M5303)** | Horario del 16-oct al 2-nov (el INAMHI guarda 90 días); cada 5 min desde el 1-nov. El histórico diario del GSC llega hasta mayo–junio de 2026 | Historial del INAMHI | **Sí**, hora a hora, en la parte alta |
+| INAMHI | **M0221 Puerto Baquerizo Moreno** (costa) | Usada por Paltán et al. (2021) para 1981–2017. En la plataforma DARWIN, **mensual**, de ene-1959 a dic-2013 (6 m), con lluvia, temperatura, humedad y evaporación. Cada 5 min solo desde el 2-nov-2026 | Sin portal operativo | **No** |
+| INAMHI | **M0193 El Progreso–Socavón** (250 m). Paltán et al. citan además una pluviométrica de la parte alta (M0508) | En DARWIN, **mensual**, de ene-1964 a dic-2013. Serviría para el gradiente costa–El Progreso y para los totales de 1982–83 y 1997–98, no para máximos diarios | Plataforma DARWIN con registro | No |
+| Proyecto DARWIN (U. de Marburgo). Estaciones automáticas cada 10 min, con lluvia medida **solo por sensor de radar** | Puerto Baquerizo Moreno (25 m); La Galapaguera (165 m); El Junco (684 m) | Hasta el 7-may-2026 (Puerto Baquerizo) y el 25-may-2026 (El Junco y La Galapaguera). DOI: Puerto Baquerizo 10.5678/f8vq-0q35; El Junco 10.5678/j39v-8d16; La Galapaguera 10.5678/gt9f-jz35 | Registro y acuerdo de uso: no se puede redistribuir y el titular aprueba la publicación | **No publicado**. El sensor de radar subestima mucho la garúa: en Cerro Crocker (Santa Cruz) midió en un año 6 veces menos que un balancín (Schmidt et al. 2025) |
 | METAR del aeropuerto (SEST), vía Iowa Environmental Mesonet | Aeropuerto, ≈6 m | Continuo, **solo de 08 a 16 h** | Abierto | Sí, pero **sin milímetros**: el campo de lluvia viene siempre vacío |
 | FCD dataZone | — | No tiene ninguna estación en San Cristóbal | — | No |
 
@@ -124,8 +164,8 @@ Tabla: Datos de lluvia que faltan para San Cristóbal.
 
 | Dato que falta | En manos de | Observaciones |
 |---|---|---|
-| Inventario de estaciones meteorológicas y pluviómetros; datos del 15-oct al 2-nov de 2026, idealmente a 5–10 minutos | Galapagos Science Center (USFQ–UNC) | No se encontró portal público |
-| Datos de octubre y noviembre de 2026 de las estaciones de Puerto Baquerizo Moreno, El Junco y La Galapaguera | Proyecto DARWIN (U. de Marburgo, N. Turini) | Su acuerdo de uso exige autoría compartida y prohíbe redistribuir |
+| Datos de 5–10 minutos del 30–31 oct de las estaciones USFQ-GSC, su serie histórica completa y su control de calidad | Galapagos Science Center (USFQ–UNC) | Hoy solo hay datos horarios del evento. Paltán et al. (2021) atribuyen a esas estaciones 2–6 años de datos: una serie así daría un primer orden de magnitud en la parte alta, no un periodo de retorno fiable |
+| Lluvia en la ciudad el 30–31 oct | Proyecto DARWIN (estación de Puerto Baquerizo Moreno; U. de Marburgo, contacto: N. Turini); pluviómetros privados | Su acuerdo de uso exige autoría compartida y prohíbe redistribuir |
 | Series diarias de M0221 (Puerto Baquerizo Moreno) y de la estación de El Progreso (M0193 o M0508); curvas IDF vigentes para San Cristóbal | INAMHI | Sin portal operativo |
 | Registros de la estación del aeropuerto SEST, incluida la lluvia acumulada | Dirección de Aviación Civil | La lluvia acumulada no se publica en el METAR |
 | Tesis sobre las encañadas de Puerto Baquerizo Moreno, con sus curvas IDF y sus caudales | USFQ | El repositorio no respondió el 2-nov |
@@ -133,4 +173,7 @@ Tabla: Datos de lluvia que faltan para San Cristóbal.
 
 # Archivos
 
-Los datos están en `datos/lluvias/` (observaciones METAR en `datos/lluvias/metar_lluvia_observada.csv`) y se regeneran con `scripts/15_lluvias_openmeteo.py` y `scripts/17_lluvias_san_cristobal.py`.
+- METAR y modelos: `datos/lluvias/` (observaciones METAR en `datos/lluvias/metar_lluvia_observada.csv`), con `scripts/15_lluvias_openmeteo.py` y `scripts/17_lluvias_san_cristobal.py`.
+- Lluvia USFQ-GSC y nivel del mar estimado: `datos/lluvia_mareas_horaria.csv`, `lluvia_mareas_diaria.csv`, `lluvia_mareas_inventario.csv` y `lluvia_mareas_eventos.csv`, con `scripts/30_lluvia_mareas.py`.
+- Reanálisis GAR: `geodatos/datos/marburg_darwin/` del repositorio, con `scripts/29_marburg_darwin.py`.
+- Cita de los datos de lluvia: Universidad San Francisco de Quito, Galapagos Science Center (2026), *Weather Data – GSC*; INAMHI.

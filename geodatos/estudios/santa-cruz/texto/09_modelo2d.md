@@ -120,12 +120,29 @@ Tabla: Sensibilidad del modelo 2D (30-oct; calado en el centro de La Cascada y c
 - La rugosidad casi no cambia el calado, pero desplaza el pico unos ±30–40 minutos y cambia el caudal en un factor de 1,4–2.
 - Lo que más pesa en los caudales y en la extensión inundada es el juego de pérdidas, (a) frente a (b).
 
+**¿Es razonable el gradiente del escenario alto?**
+
+- El escenario alto interpola la lluvia entre Los Guayabillos (178 m) y Santa Rosa (416 m) y la mantiene constante por encima.
+- Dos fuentes independientes apoyan esa forma:
+  - en el reanálisis GAR (TU Berlín, modelo de 2 km, 1980–2025), el máximo diario medio crece ≈1,5–1,8 veces de la costa a 300–400 m y se estabiliza por encima [E];
+  - en la red DARWIN, las mayores intensidades de El Niño 2023–24 se midieron en la costa y a cotas medias, no en la cumbre (Tenelanda et al. 2025).
+- **No hay base para extrapolar por encima de Santa Rosa.**
+- Ambas fuentes indican también que la franja costera de la cuenca recibe **menos** que Los Guayabillos: en GAR, ≈0,55–0,65 veces. El escenario central (Los Guayabillos uniforme) sobrestima algo la lluvia sobre la parte baja; el escenario bajo (× 0,85) cubre parte de ese efecto.
+- El 30-oct no fue así en la costa después de las 22:00: el M0191 de Puerto Ayora siguió midiendo lluvia fuerte cuando la red IERSE ya estaba cortada (ver «Límites»).
+
+![Lluvia y cota en Santa Cruz y San Cristóbal según el reanálisis GAR (lluvia modelada, celdas de 2 km). Estrellas: lluvia medida el 30-oct (mínimos).](figuras/marburg_gar_gradiente.png)
+
 ## Límites
 
 - **Terreno.** El DSM de 30 m incluye techos y vegetación (±2–4 m; sesgo de unos −2 m frente al IGM). No representa calles, muros, alcantarillas ni cauces estrechos. Los calados absolutos tienen una incertidumbre del orden de ±1–2 m.
 - **Pérdidas.** Ningún juego está calibrado con caudales. El juego (b) se apoya en una validación condicional (sin inundación reportada, por confirmar), y su pérdida constante (10–35 mm/h) solo está acotada.
-- **Lluvia.** Es puntual y mínima: hay dos estaciones útiles, ambas fuera de la cuenca, que dejaron de transmitir a las 21:25.
-- **Mar.** El nivel de +0,75 m no está verificado. Las celdas costeras por debajo de esa cota quedan anegadas desde el inicio.
+- **Lluvia.** Es puntual y mínima: hay dos estaciones útiles, ambas fuera de la cuenca, que dejaron de transmitir a las 21:25. **La lluvia de entrada se corta a esa hora.** El pluviómetro M0191 del INAMHI, en Puerto Ayora, midió **135 mm más entre las 22:00 y las 03:00** [M]. Si esa lluvia también cayó en la parte media de la cuenca, lo que no se sabe, el vaso de La Cascada siguió recibiendo agua después del máximo que da el modelo (ver [La lluvia](../lluvia/)).
+- **Mar.** El modelo fija el mar en +0,75 m. El mareógrafo de Puerto Ayora (IOC, operado por el INOCAR) midió otra cosa [M]:
+  - a la hora del pico (22:12–22:34) el mar estaba en **+0,13 a +0,05 m** y bajando, 1,5 h antes de la bajamar de medianoche (−0,11 m). Es decir, **0,6–0,7 m por debajo** del supuesto;
+  - la pleamar había sido a las 17:50 (+1,21 m). Durante la simulación el mar varió entre −0,41 y +1,21 m;
+  - la comparación supone que el cero del DSM coincide con el nivel medio del mar de 2017–2024 del mareógrafo, algo que no está comprobado. Vale para el sentido (el modelo puso más mar del que hubo), no para los centímetros.
+- **Qué implica el mar.** Con +0,75 m quedan bajo el mar desde el inicio 7 celdas de tierra (≈0,6 ha) en la orilla de Pelican Bay y junto al muelle; con el nivel real de esa hora, ninguna. Para La Cascada, Matazarnos y el cruce de la Av. Charles Darwin, cambiar el mar entre −0,1 y +1,2 m no cambia el resultado: están a 10–15 m* y los controla su propio umbral. **El supuesto es conservador para la orilla y neutro para el barrio. La marea no agravó La Cascada el 30-oct.**
+- **Mar alto por El Niño.** Desde septiembre el mar está **0,26–0,51 m por encima de su marea astronómica** en Puerto Ayora y Baltra; a finales de octubre, +0,43 a +0,51 m [M]. Las pleamares de esos días llegaron a 1,1–1,4 m. Si una tormenta así coincide con una pleamar de mareas vivas, como la del 27–28-oct (+1,36 m), el último tramo de la salida (1,3–5 m* de cota) tendría ≈1,3 m más de mar que el 30-oct a las 22:30, más el oleaje, que el mareógrafo no ve.
 - **Contraste con ANUGA.** Se repitió el juego (b) con ANUGA: 20 400 triángulos de hasta 8 000 m² (2 000 m² en zona urbana), desde las 17:00 y partiendo de terreno seco. Los dos motores coinciden en lo esencial:
   - nivel máximo del agua en La Cascada: 14,5 m con ANUGA frente a 14,8 m con LISFLOOD-ACC;
   - hora del máximo: 22:17 frente a 22:24;
@@ -135,6 +152,10 @@ Tabla: Sensibilidad del modelo 2D (30-oct; calado en el centro de La Cascada y c
   Los calados en puntos concretos difieren hasta ±0,8 m, porque cada malla promedia de forma distinta la cota del DSM en la celda o en el triángulo. El caudal de entrada también difiere (67 frente a 147 m³/s): ANUGA arranca seco a las 17:00 y la sección de control se calcula de otra manera. Las salidas están en `datos/modelo2d/b_central_desde17h_anuga/`.
 - **Resolución.** Con 30 m no se resuelven los pasos bajo vías ni la red de calles. Una versión de 10–15 m solo tiene sentido con un modelo del terreno de dron o LiDAR.
 
+\* Cota del DSM (±2–4 m), orientativa.
+
+![Lluvia y marea en cada evento de Santa Cruz: nivel del mar observado en Puerto Ayora a la hora de cada pico de lluvia y de cada hito del modelo 2D (juego b).](figuras/mareas_tabla_eventos.png)
+
 # Método
 
 ## Planteamiento
@@ -143,7 +164,7 @@ La lluvia medida cae sobre cada celda, una parte se pierde por infiltración y e
 
 - **Dominio.** Toda la cuenca que drena a Puerto Ayora (47 km², incluida la de La Cascada), con 150 m de margen y una franja de mar. Abarca Bellavista, Tomás de Berlanga, La Cascada y el frente urbano.
 - **Terreno.** Es el DSM Copernicus GLO-30. En el mar se supone un fondo de −3 m.
-- **Contornos.** El mar tiene un nivel fijo de **+0,75 m**. Es un supuesto: la marea de esa noche no se ha verificado. El resto del contorno es una pared.
+- **Contornos.** El mar tiene un nivel fijo de **+0,75 m**. Es un supuesto: a la hora del pico el mar real estaba entre +0,05 y +0,13 m (ver «Límites»). El resto del contorno es una pared.
 - **Rugosidad de Manning.** 0,08 en zona urbana (los edificios como rugosidad alta), 0,06 en zona agrícola, 0,08 en Parque (lava y matorral) y 0,03 en el mar.
 - **Lluvia.** Medida por la red IERSE-WSN (Universidad del Azuay), en intervalos de 10 min. Cerro Crocker queda excluido.
   - Escenario **central**: Los Guayabillos repartido de forma uniforme (179 mm).
@@ -180,3 +201,5 @@ El modelo está en `scripts/24_modelo2d_santa_cruz.py`. Las salidas de cada esce
 - `caudales_secciones.csv`, con el caudal de entrada a La Cascada y la salida al mar;
 - `cuadros_10min.npz`, con los cuadros cada 10 minutos;
 - `resumen_<escenario>.json`.
+
+El nivel del mar observado y predicho está en `geodatos/datos/mareas/` del repositorio, y la lluvia y la marea de cada evento, en `datos/lluvia_mareas_eventos.csv` (`scripts/30_lluvia_mareas.py`).

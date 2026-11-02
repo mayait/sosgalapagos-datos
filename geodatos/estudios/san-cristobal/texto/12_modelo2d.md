@@ -2,7 +2,7 @@ Intro: Un modelo hidrodinámico 2D reparte la lluvia sobre una malla del terreno
 
 # Lo que muestra el modelo
 
-El modelo dice **por dónde y en qué orden** circula el agua. No se ha calibrado: **no hay ni lluvia ni niveles medidos en San Cristóbal.** Trabaja sobre un DSM de 30 m que incluye techos y vegetación (±2–4 m). Los calados y caudales son de orden de magnitud y no sirven para delimitar zonas ni para diseñar obras.
+El modelo dice **por dónde y en qué orden** circula el agua. No se ha calibrado: **no hay niveles ni caudales medidos en San Cristóbal, ni lluvia medida dentro de sus cuencas.** La lluvia del 31-oct sí se midió en la parte alta, fuera del dominio (ver [La lluvia](../lluvia/)), pero todavía no se ha pasado por el modelo. Trabaja sobre un DSM de 30 m que incluye techos y vegetación (±2–4 m). Los calados y caudales son de orden de magnitud y no sirven para delimitar zonas ni para diseñar obras.
 
 - **La Galápagos (Barrio Frío) concentra el mayor caudal**, y su desembocadura es el punto más expuesto.
 - **El Progreso es lo primero que se encharca**, en depresiones sin salida.
@@ -23,6 +23,14 @@ Tabla: Escenarios simulados (lluvia uniforme sobre el dominio).
 | (iv) **`guayabillos_15m`** (principal) | Igual que (ii) | 63 mm | AMC II | 15 m (DSM remuestreado) |
 
 El escenario (ii) es un **«qué pasaría si»**: es la lluvia de Santa Cruz, no la de San Cristóbal (ver [La lluvia](../lluvia/)). La estación dejó de transmitir a las 21:25, así que en ese escenario **los picos coinciden con el final del registro y se leen como mínimos.**
+
+**¿A qué escenario se parece lo medido el 31-oct?** Las estaciones USFQ-GSC de la parte alta más cercanas al dominio, El Mirador y Cerro Alto, midieron 91–150 mm en el día, con 30–39 mm en la hora más intensa (08–10 h) [M]. En total es del orden de (i) o algo mayor, y menos que (ii); en intensidad, queda por debajo de los dos, más cerca de (i). El 30-oct ya habían caído 49–65 mm, así que el suelo se parecía más al de (iii). Es una comparación gruesa: **la simulación con la lluvia medida está pendiente.**
+
+**¿Qué tan raros son estos escenarios?** No hay una serie medida larga en San Cristóbal, así que solo hay un orden de magnitud:
+- en la serie medida de Puerto Ayora (FCD, 61 años), 100 mm en un día vuelven cada 4–5 años y 179 mm, cada 18–33 años;
+- el reanálisis GAR corregido por su sesgo en la costa da ≈10 años para 100 mm.
+
+El escenario (i) corresponde, por tanto, a un evento de **años**. El (ii), la tormenta de Santa Cruz trasladada, a uno de **decenas de años o más**. GAR no muestra que la parte alta de la isla tenga máximos diarios mayores que la costa, así que la lluvia uniforme es una hipótesis razonable para este nivel de análisis.
 
 ![Calado máximo en Puerto Baquerizo Moreno con la tormenta de Los Guayabillos trasladada (malla de 15 m). Morado: zona donde el agua de la quebrada del campus supera los 2 cm (trazador).](figuras/f_modelo2d_guayabillos_15m_ciudad.png)
 
@@ -102,12 +110,14 @@ Con trazadores, el modelo **no reproduce que Divino Niño «se separe de la Gal�
 - **Lluvia sobre la malla.** Cada celda recibe la lluvia neta SCS-CN según su cobertura: natural CN 60, agrícola CN 76, poblado CN 90 (AMC II). Así la infiltración queda distribuida.
 - **Manning:** natural 0,08; agrícola 0,06; poblado 0,04; cauces D8 de ≥ 0,2 km², 0,045.
 - **Dominio.** Las cuencas que drenan a Puerto Baquerizo Moreno y a El Progreso (14,6 km²) más un margen de 150 m: en total, 18 km². El mar y el borde del dominio absorben el agua. El error del balance de masa es menor del 0,01 %.
+- **Mar.** El agua sale libremente al mar, sin nivel de marea. Para las desembocaduras de playa (Barrio Frío, Playa de Oro) es un supuesto favorable. La mañana del 31-oct, el mar en Puerto Baquerizo Moreno estaba, según una estimación, entre +1,2 m (pleamar hacia las 06:00) y −0,4 m (bajamar hacia las 12:20) sobre el nivel medio [E]. No hay mareógrafo en la isla: el nivel se trasladó desde Puerto Ayora, con un error de ±0,1–0,2 m y ±30 min.
 - **Trazador.** La lluvia neta que cae en la cuenca de la quebrada del campus, aguas arriba del rellano (0,28 km²), se marca y se sigue aguas abajo. Así se distingue el agua de la quebrada de la lluvia local. Otros trazadores marcan el agua de la Galápagos y la de Divino Niño (escenarios `traz_galapagos_15m`, `traz_divinonino_15m` y `traz_galapagos_100mm_15m`).
 - **Qué no representa el modelo:** red pluvial, alcantarillas, puentes, muros, cauces de menos de 30 m de ancho y transporte de sedimentos. En la ciudad, el agua «ve» manzanas de 30 m, no calles.
 
 ## Limitaciones
 
 - Sin calibración: no hay niveles, caudales ni marcas del evento en San Cristóbal.
+- La lluvia medida el 31-oct (estaciones USFQ-GSC) está fuera del dominio y solo es horaria. No se ha simulado.
 - El DSM incluye techos y vegetación: crea obstáculos y depresiones falsas, y retiene agua en la parte alta.
 - La lluvia de los escenarios (ii) a (iv) viene de otra isla y está truncada a las 21:25. La lluvia real en San Cristóbal pudo ser muy distinta (ver [La lluvia](../lluvia/)).
 - No hay red pluvial ni alcantarillas: en el centro urbano el modelo sobrestima el encharcamiento si los sumideros funcionan, y lo subestima si los pasos se obstruyen.

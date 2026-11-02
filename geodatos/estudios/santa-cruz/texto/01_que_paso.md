@@ -4,13 +4,13 @@ Intro: Cómo fue el evento del 30–31 de octubre de 2026 en Santa Cruz: la aler
 
 - **Hubo tres meses de alerta oficial alta, pero genérica.** El único pronóstico específico para esos días no anticipaba lluvia fuerte en Santa Cruz.
 - **La lluvia llegó en dos pulsos**, la tarde y la noche del 30 de octubre. El más fuerte, entre las 18:00 y las 21:25, cayó sobre la parte media de la isla.
-- **Las dos estaciones que medían la tormenta dejaron de transmitir a las 21:22–21:25**, en plena lluvia intensa. Lo que llovió después no se midió.
+- **Las dos estaciones que medían la tormenta dejaron de transmitir a las 21:22–21:25**, en plena lluvia intensa. Lo que llovió después en la parte media no se midió. En Puerto Ayora, el pluviómetro M0191 del INAMHI sí siguió: **135 mm entre las 22:00 y las 03:00**.
 - Hubo **una persona fallecida** por el desbordamiento de la cañada El Aguacatal, en Bellavista, e inundaciones en La Cascada y otros barrios de Puerto Ayora.
 - La medición en tiempo casi real mostró la tormenta con 1–2 h de margen. **No consta que ninguna institución la vigilara.**
 
-Todas las horas están en **hora de Galápagos (UTC−6)**. Muchas fuentes nacionales (SNGR, INAMHI y prensa continental) no indican el huso. En esos casos se asume la hora continental (UTC−5), se resta una hora y la cifra se marca como incierta. Distinguimos lo **[M] medido** (pluviómetros de la red IERSE-WSN), lo **[E] estimado** (modelos) y lo **[R] reportado** (informes oficiales y prensa); más detalle en [Métodos](../metodos/).
+Todas las horas están en **hora de Galápagos (UTC−6)**. Muchas fuentes nacionales (SNGR, INAMHI y prensa continental) no indican el huso. En esos casos se asume la hora continental (UTC−5), se resta una hora y la cifra se marca como incierta. Distinguimos lo **[M] medido** (pluviómetros de la red IERSE-WSN y del INAMHI), lo **[E] estimado** (modelos) y lo **[R] reportado** (informes oficiales y prensa); más detalle en [Métodos](../metodos/).
 
-**Qué falta.** No se encontraron las horas de varios hechos clave: el desbordamiento de cada cañada, el fallecimiento, las primeras evacuaciones ni la sesión del COE cantonal. Las horas de la lluvia sí están medidas, pero solo en dos estaciones y solo hasta las 21:25 del 30 de octubre.
+**Qué falta.** No se encontraron las horas de varios hechos clave: el desbordamiento de cada cañada, el fallecimiento, las primeras evacuaciones ni la sesión del COE cantonal. Las horas de la lluvia sí están medidas: en la parte media, solo en dos estaciones y solo hasta las 21:25 del 30 de octubre; en Puerto Ayora, hora a hora toda la noche.
 
 # Antes: una alerta larga y genérica
 
@@ -57,7 +57,9 @@ Las dos estaciones que medían la tormenta **dejaron de transmitir a la vez** [M
 
 ELECGALÁPAGOS informó de que el alimentador 203, que abastece la zona rural (Bellavista, Santa Rosa, Aguacatal), quedó fuera de servicio, con 3 689 usuarios afectados. No se conoce la hora del corte [R].
 
-Por eso **no se midió nada de la lluvia posterior a las 21:25**: ni su final ni una posible continuación en la madrugada.
+Por eso **no se midió la lluvia de la parte media posterior a las 21:25**: ni su final ni una posible continuación en la madrugada.
+
+En la costa sí se midió. El pluviómetro M0191 del INAMHI, en Puerto Ayora, registró **135 mm entre las 22:00 y las 03:00**, con 36,8 mm entre las 00:00 y las 01:00 [M]. No se sabe si esa lluvia cayó también en la parte media (ver [La lluvia](../lluvia/)).
 
 ## Lo que se reportó [R]
 
@@ -89,7 +91,7 @@ Son estimaciones sin calibrar con caudales, pero su cronología coincide con la 
 
 ## Los modelos de pronóstico llegaron tarde
 
-El modelo ECMWF de 9 km situaba el máximo a las 05–06 h del 31 de octubre, unas 9 h después de lo medido, y con menos lluvia en la parte media [E]. La prensa habló de lluvia «entre las 22:00 y las 06:00» sin indicar el huso [R]. **Lo medido coincide con la SNGR: «tarde y noche del 30».**
+El modelo ECMWF de 9 km situaba el máximo a las 05–06 h del 31 de octubre, unas 9 h después de lo medido, y con menos lluvia en la parte media [E]. La prensa habló de lluvia «entre las 22:00 y las 06:00» sin indicar el huso [R]; en Puerto Ayora, el M0191 midió lluvia fuerte de 22:00 a 03:00 [M]. **Lo medido coincide con la SNGR: «tarde y noche del 30».**
 
 # Después: del 31 de octubre al 2 de noviembre
 
@@ -155,7 +157,7 @@ Se podría reconstruir con entrevistas y registros:
 - cuándo llegó el agua a La Cascada y hasta qué altura;
 - si hubo avisos informales (redes sociales, llamadas) y cuándo;
 - la hora de la sesión del COE cantonal y de la declaratoria;
-- si la lluvia continuó tras las 21:25;
+- si la lluvia continuó tras las 21:25 en la parte media (en Puerto Ayora sí continuó);
 - la situación de las dos personas reportadas como desaparecidas.
 
 ## Archivos

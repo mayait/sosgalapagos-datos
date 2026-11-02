@@ -13,7 +13,7 @@ Intro: Si el agua de la quebrada de Playa Mann puede llegar al campus de la USFQ
 
 **Lectura.** Con estos datos, el campus no está expuesto a una crecida de gran caudal, sino a **escorrentía concentrada de una cuenca pequeña y empinada** que llega en menos de una hora y cruza la Vía Universidad sin un paso conocido. Basta para inundar un paso de vía sin alcantarilla y para arrastrar sedimento hacia los edificios bajos.
 
-Las cotas marcadas con * proceden del DSM, con un error de ±2–4 m y un sesgo local de ≈ +1,5 m frente a los puntos acotados del IGM en Puerto Baquerizo Moreno (ver [Métodos](../metodos/)). No hay lluvia medida en San Cristóbal: los caudales son escenarios de orden de magnitud (ver [La lluvia](../lluvia/)).
+Las cotas marcadas con * proceden del DSM, con un error de ±2–4 m y un sesgo local de ≈ +1,5 m frente a los puntos acotados del IGM en Puerto Baquerizo Moreno (ver [Métodos](../metodos/)). No hay lluvia medida en el campus ni en la ciudad (la del 31-oct se midió en la parte alta): los caudales son escenarios de orden de magnitud (ver [La lluvia](../lluvia/)).
 
 # De dónde viene la quebrada
 
@@ -146,7 +146,7 @@ Tabla: Puntos de atención y vacíos de información en el campus.
 | Edificios más cercanos al cauce | Laboratorio de Salud Animal y edificaciones a menos de 25 m | Están a 14–26 m de la línea D8 de la rejilla original | La cota de sus accesos y de sus plantas bajas |
 | Desvío de encañadas vecinas por las calles | Divino Niño y Escuela Alvear, hacia el norte | El D8 sigue el terreno y no las calzadas | Si su agua se desvía hacia el campus cuando sus pasos se obstruyen |
 | Ocupación junto al cauce | Franja de 15 m a cada lado del cauce | El cauce del campus no tiene franja normativa | Si hay construcciones o cerramientos que estrechen el paso |
-| Lluvia | Campus y ladera | No hay lluvia medida en San Cristóbal | La intensidad real del 30–31 de octubre en el campus |
+| Lluvia | Campus y ladera | No hay lluvia medida en la ciudad; las estaciones USFQ-GSC están en la parte alta | La intensidad real del 30–31 de octubre en el campus |
 
 \* Cota del DSM (±2–4 m), orientativa.
 

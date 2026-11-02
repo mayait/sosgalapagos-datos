@@ -56,7 +56,7 @@ Tabla: Obstáculos identificados sobre la salida natural.
 | Umbral en la cabecera de Marchena | 1 | +3 m; una parte puede ser efecto de los techos en el DSM |
 | Cruces de vías | 16 | 11 calles y la Av. Charles Darwin (3 cruces). Se desconocen las rasantes, los bordillos y los pasos bajo la vía |
 | Edificaciones sobre la línea de flujo | 28 | Hay muros y cerramientos sin cartografiar |
-| Desembocadura | 1 | Tramo plano a 3–4 m de cota, edificado y con influencia de la marea |
+| Desembocadura | 1 | Tramo plano a 3–4 m de cota, edificado y con influencia de la marea. Con El Niño, el mar está ≈0,4–0,5 m sobre su marea y las pleamares llegan a 1,1–1,4 m (mareógrafo de Puerto Ayora, oct-2026). El 30-oct el pico llegó con el mar bajando (ver [Modelo 2D](../modelo-2d/)) |
 
 * Cota del DSM (±2–4 m), orientativa.
 

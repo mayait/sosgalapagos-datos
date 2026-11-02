@@ -10,6 +10,7 @@ El 30 de octubre, la red IERSE-WSN (Universidad del Azuay) midió [M]:
 Casi todo cayó entre las 14:00 y las 21:25. Los máximos fueron de **61–66 mm en una hora de reloj** (20–21 h), **64–73 mm en 60 minutos móviles** y **138–139 mm en 3 horas**.
 
 - **Los totales son mínimos.** Las dos estaciones dejaron de transmitir a las 21:22–21:25, en plena lluvia intensa.
+- **En la costa siguió lloviendo.** El pluviómetro M0191 del INAMHI, en Puerto Ayora (6 m), midió **118,5 mm el 30-oct y 110,5 mm el 31-oct**. Entre las 22:00 y las 03:00, ya sin datos de IERSE, cayeron allí **135 mm** [M].
 - **Para la parte media es la mayor lluvia de octubre o noviembre** en más de 30 años de registros cercanos: triplica el récord anterior.
 - **Los modelos fallaron.** El ECMWF de 9 km situó el máximo **unas 9 horas tarde**, con **la mitad de la intensidad horaria** y apenas un 10 % de la lluvia en la ventana en que realmente llovió. Los demás modelos se quedaron entre 4 y 85 veces por debajo, según la ventana de tiempo.
 
@@ -40,7 +41,8 @@ Tabla: Resumen por estación (red IERSE-WSN). Cobertura = registros recibidos so
 
 - **Los Guayabillos y Santa Rosa** dejaron de transmitir a la vez (21:25 y 21:22 del 30-oct) y volvieron a la vez (18:45 y 18:42 del 31-oct): unas **21,3 horas sin datos**.
   - Cuando se cortaron, llovía a 38–55 mm/h.
-  - La lluvia de ese tramo **no se midió**. No queda acumulada en ningún registro posterior: el primer registro tras el regreso marca 0,0 mm.
+  - La lluvia de ese tramo **no se midió en la parte media**. No queda acumulada en ningún registro posterior: el primer registro tras el regreso marca 0,0 mm.
+  - En la costa sí se midió (ver «En Puerto Ayora», más abajo).
   - La simultaneidad apunta a una causa común (energía o comunicaciones), sin verificar.
 - **Cerro Crocker** tiene un hueco **todas las noches**, de ≈01:00 a 05:30. Eso explica su cobertura del 79–81 %; no es un efecto del evento.
 - **Militar** transmitió sin cortes.
@@ -61,6 +63,20 @@ La lluvia tuvo tres fases:
 3. **Segundo pulso (18:00–21:25):** unos 140 mm en las dos estaciones. El corte de la medición llegó antes de que terminara.
 
 La relación de la lluvia con los hechos reportados está en [Qué pasó el 30 de octubre](../que-paso/).
+
+## En Puerto Ayora: el pluviómetro M0191 del INAMHI
+
+El M0191 (estación Charles Darwin, 6 m) mide cada hora. Su historial horario del INAMHI cubre del 16-oct al 2-nov, con un 97 % de las horas [M]. La hora del INAMHI es la continental (UTC−5) y aquí se pasó a la de Galápagos.
+
+- **16:00–18:00 del 30-oct: 44,6 mm.** Coincide con el primer pulso de Santa Rosa.
+- **18:00–22:00: solo 7,4 mm.** En la costa llovió poco cuando caía el máximo en la parte media.
+- **22:00–03:00: 135,1 mm**, con 24,7, 24,9, 36,8, 34,9 y 13,8 mm por hora. Es la lluvia que la red IERSE ya no registró.
+
+Una estación particular de Puerto Ayora (Tempest, en Punta Estrada) da la misma secuencia, con su máximo entre las 00:10 y las 01:10. Su sensor mide un tercio de lo del M0191 (34,9 y 38,0 mm el 30 y el 31-oct), así que sirve para la hora, no para la cantidad.
+
+**Lo que no se sabe es si la lluvia de 22:00 a 03:00 cayó también en la parte media de la cuenca.** Si fue así, La Cascada siguió recibiendo agua después del máximo que da el [Modelo 2D](../modelo-2d/).
+
+![Lluvia horaria medida (IERSE-WSN, INAMHI M0191 y Tempest de Punta Estrada) y nivel del mar en Puerto Ayora, del 28-oct al 2-nov. En gris, el corte de IERSE; en rojo, de la llegada del agua a La Cascada al pico de salida al mar en el modelo 2D (juego b).](figuras/mareas_lluvia_28oct_2nov.png)
 
 ![Lluvia horaria medida (red IERSE-WSN) y estimada por ECMWF 9 km del 30-oct 12:00 al 2-nov 13:00, hora de Galápagos. En gris, el corte de transmisión de Los Guayabillos y Santa Rosa.](figuras/f_lluvia_medida.png)
 
@@ -137,8 +153,8 @@ Tabla: Lluvia medida frente a estimada en la celda de cada estación (mm). Model
 **Cantidad.**
 
 - En 48 horas, el ECMWF de 9 km (170–186 mm) queda **por debajo** del mínimo medido en Santa Rosa (≥251) y cerca del de Los Guayabillos (≥179).
-- **No puede comprobarse si llovió en la madrugada del 31**, que es cuando el ECMWF pone su máximo, porque las dos estaciones estaban cortadas.
-- Hay indicios débiles de que no llovió mucho en esas horas: Militar no registró lluvia y Cerro Crocker estaba en su hueco nocturno.
+- **En la parte media no puede comprobarse si llovió en la madrugada del 31**, que es cuando el ECMWF pone su máximo, porque las dos estaciones estaban cortadas.
+- **En la costa sí llovió fuerte esa madrugada:** el M0191 de Puerto Ayora midió 85,5 mm entre las 00:00 y las 03:00 del 31-oct [M]. Es antes del máximo del ECMWF (05–06 h). Militar, en Baltra, no registró lluvia, y Cerro Crocker estaba en su hueco nocturno.
 - La prensa habla de lluvia «hasta las 06:00» y de «15 horas» de lluvia, sin indicar el huso [R].
 - **Conclusión:** la afirmación previa de que «ECMWF sobrestima la lámina» **no se sostiene**. Lo medido iguala o supera al ECMWF en 24–48 h.
 
@@ -160,7 +176,7 @@ Tabla: Lluvia del evento frente a los registros históricos (mm).
 |---|---|---|---|
 | Media de octubre (1991–2019/2020) | 63,7 | 10,9 | Octubre de 2026: **≥340,4** en Los Guayabillos (5,3 veces la media de Bellavista) y ≥520,6 en Santa Rosa |
 | Octubre más lluvioso (1991–2019/2020) | 143,2 | 29,6 | — |
-| Máximo diario de octubre o noviembre | **59,5** (16-nov-1997) | 104,3 (2-oct-2023) | **178,8** (Los Guayabillos) y **237,6** (Santa Rosa), mínimos |
+| Máximo diario de octubre o noviembre | **59,5** (16-nov-1997) | 104,3 (2-oct-2023) | **178,8** (Los Guayabillos) y **237,6** (Santa Rosa), mínimos; 118,5 en Puerto Ayora (INAMHI M0191) |
 | Máximos diarios de cualquier mes | 490,0, 280,0 y 202,0 (marzo de 2008)†; 164,1 (12-mar-2005); 130,0 (29-abr-1998) | 312,0 (31-mar-2022); 215,0 (22-feb-2024); 186,3 (30-abr-1997) | — |
 
 *† La FCD advierte que los datos publicados de Bellavista fueron «ajustados» por los digitalizadores. El episodio de marzo de 2008 (770 mm en 3 días) está por verificar con la serie original.*
@@ -169,6 +185,8 @@ Tabla: Lluvia del evento frente a los registros históricos (mm).
 - **Para cualquier época del año, no necesariamente.**
   - 178,8 mm ocuparía el 4.º lugar de la serie de Bellavista, y el 1.º si se excluye el episodio dudoso de 2008.
   - 237,6 mm ocuparía el 3.º lugar.
+- **En Puerto Ayora**, los 118,5 mm del M0191 superan el máximo de octubre o noviembre de la serie de la FCD (104,3 mm). Son pluviómetros distintos y con días de lectura distintos, así que la comparación es aproximada.
+- **Frente a los grandes El Niño.** Durante El Niño 1997–98, el día más lluvioso medido en Bellavista fue de 130 mm (29-abr-1998). En Puerto Ayora, los días más lluviosos fueron de 138 mm entre sep-1982 y ago-1983 y de 167 mm entre jun-1997 y jul-1998 (FCD). Los ≥179 mm de Los Guayabillos superan todos esos días. En 61 años de Puerto Ayora solo hay tres días por encima, los tres en la estación cálida: 312 mm (31-mar-2022), 215 mm (22-feb-2024) y 186 mm (30-abr-1997).
 - **Santa Rosa** no tiene una serie histórica larga en ese punto, así que no se puede hablar de récord local.
 - **La intensidad horaria** (61–66 mm/h) no se puede comparar: no hay series horarias históricas públicas en Santa Cruz.
 - Que un evento así ocurra a finales de octubre, en plena estación de garúa, es coherente con El Niño en curso:
@@ -186,6 +204,23 @@ Tabla: Periodo de retorno indicativo de la lluvia diaria en Bellavista (régimen
 |---|---|---|---|
 | 179 mm (Los Guayabillos) | ≈23 años | ≈16 años | 1 de 31 |
 | 238 mm (Santa Rosa) | ≈110 años | ≈40 años | 1 de 31 |
+
+**Contraste con otras dos fuentes.**
+
+Tabla: Periodo de retorno indicativo según la fuente (régimen anual; Gumbel y, entre paréntesis, GEV).
+
+| Fuente | Años | 179 mm | 238 mm |
+|---|---|---|---|
+| Pluviómetro de Bellavista (FCD) [M] | 31 | ≈23 años (≈16) | ≈110 años (≈40) |
+| Pluviómetro de Puerto Ayora (FCD) [M], en la costa | 61 | ≈33 años (≈18) | ≈150 años (≈40) |
+| Reanálisis GAR [E], celdas de Bellavista y Los Guayabillos | 46 | ≈7–9 años | ≈20–40 años |
+
+- En Puerto Ayora, 100 mm en un día vuelven cada 4–5 años (FCD, 1965–2025).
+- El reanálisis GAR (TU Berlín; modelo WRF de 2 km forzado con ERA5, 1980–2025; Schmidt et al. 2025) es **lluvia modelada**. Acierta qué años son lluviosos y el nivel medio de los máximos, pero no los días concretos, y su cola alta es más pesada que la medida.
+- En la celda de Santa Rosa, GAR supera los 179 mm en 21 de 46 años. En el modelo es la zona de lluvias extremas más intensas de la isla, pero no hay ninguna serie medida larga allí para comprobarlo.
+- Ninguna fuente cambia la conclusión: **años a decenas de años en régimen anual, y sin precedentes para octubre o noviembre.**
+
+![Máximo diario de cada año en Santa Cruz: reanálisis GAR (modelado) frente a los pluviómetros de la FCD. Sombreado: años El Niño.](figuras/marburg_max_anual_santa_cruz.png)
 
 **Estos valores no son de diseño**, por varias razones:
 
@@ -259,8 +294,8 @@ Lo que confirmaría o descartaría el fallo en cada una: el estado del embudo y 
 
 ## Limitaciones
 
-- Solo dos pluviómetros fiables midieron el evento, y ninguno en Puerto Ayora, El Aguacatal ni el sector Tomás de Berlanga.
-- Las dos estaciones se cortaron antes del final de la lluvia.
+- En la parte media, solo dos pluviómetros fiables midieron el evento. En Puerto Ayora midió el M0191 del INAMHI, pero solo se conserva su dato horario. No hay ninguno en El Aguacatal ni en el sector Tomás de Berlanga.
+- Las dos estaciones de la parte media se cortaron antes del final de la lluvia.
 - Los pluviómetros de balancín subestiman las intensidades altas.
 - El sensor de Cerro Crocker parece obstruido, y Militar es dudoso.
 - La climatología horaria no existe en abierto.
@@ -274,8 +309,8 @@ Tabla: Datos de lluvia que faltan y en manos de quién están.
 | Registros en memoria local de las estaciones durante los cortes, si existen | Recuperar la lluvia del 30-oct desde las 21:25 hasta el 31-oct a las 18:45 | IERSE (Universidad del Azuay) |
 | Estado en campo de Cerro Crocker y Los Guayabillos; causa del corte simultáneo | Saber qué registros son fiables y por qué se cortó la medición | IERSE (Universidad del Azuay) |
 | Lectura diaria de la estación Charles Darwin del 15-oct al 2-nov | Tener un dato de lluvia en Puerto Ayora | FCD (datazone@fcdarwin.org.ec) |
-| Datos de M0191 (Puerto Ayora), Bellavista y Baltra; curvas IDF, si existen | Completar la red y estimar periodos de retorno de la intensidad | INAMHI |
-| Series de 10 min de las estaciones automáticas de Santa Rosa, Cerro Crocker, Puerto Ayora y Minas Rojas (octubre y noviembre de 2026), y radar (MRR) en Cerro Crocker | Contrastar la red IERSE-WSN y la lluvia en la cumbre | Proyecto DARWIN (U. de Marburgo; contacto: N. Turini) |
+| Datos de 5 o 10 min del M0191 (Puerto Ayora) del 30–31 oct, si se guardan; Bellavista y Baltra; curvas IDF, si existen | Intensidad real en la costa; completar la red y estimar periodos de retorno de la intensidad | INAMHI |
+| Series de 10 min del proyecto DARWIN de Santa Rosa, Cerro Crocker, Militar, Puerto Ayora y Minas Rojas del 15-oct al 2-nov de 2026, y radar vertical (MRR) de Cerro Crocker | **Recuperar la lluvia del corte de IERSE**: Santa Rosa, Cerro Crocker y Militar tienen las mismas coordenadas en las dos redes. Comprobar el pluviómetro de Cerro Crocker. Primera curva IDF de corta duración con 2022–2026 | Proyecto DARWIN (U. de Marburgo; contacto: N. Turini). Su acuerdo de uso exige permiso y autoría compartida para publicar |
 | Lluvia estimada por satélite (GPM IMERG) | Ver la distribución espacial de la tormenta | NASA Earthdata (cuenta gratuita) |
 | Pluviómetros privados y marcas de agua del evento | Cubrir zonas sin estación | Fincas, hoteles y escuelas de Bellavista y Santa Rosa; marcas de agua, en campo |
 
@@ -288,11 +323,17 @@ Tabla: Fuentes de lluvia medida en Santa Cruz y su estado al 2 de noviembre de 2
 | Red IERSE-WSN (U. del Azuay, con FCD, DPNG y MAG), cada 5 min | Los Guayabillos, Santa Rosa, Cerro Crocker, Militar (Baltra) | Desde abr–may de 2026 | **Sí**, con cortes (ver «Cortes de transmisión») |
 | FCD, estación Charles Darwin, Puerto Ayora (diaria, manual) | Puerto Ayora, 2 m | 1965 a 3-jun-2026 | **No.** El archivo del dataZone se actualizó el 29-oct, pero sus datos siguen terminando el 3-jun-2026 |
 | FCD / INAMHI, Bellavista (diaria) | Bellavista, 223 m | 1987 a 2019 (publicado) | No; sirve de climatología |
-| INAMHI (M0191 Puerto Ayora y otras) | — | Sin portal público operativo (HTTP 500) | No disponible |
-| Proyecto DARWIN (U. de Marburgo): estaciones automáticas y radar | Santa Rosa, Cerro Crocker, Puerto Ayora, Minas Rojas, Militar | Últimos datos publicados entre oct-2025 y may-2026; acceso con registro y acuerdo de uso | No publicado aún |
+| INAMHI, M0191 Puerto Ayora (Charles Darwin), automática | Puerto Ayora, 6 m | Historial horario del 16-oct al 2-nov (el INAMHI guarda 90 días); cada 5 min desde el 1-nov | **Sí**, hora a hora |
+| Estación particular (Tempest), cada minuto | Punta Estrada, Puerto Ayora, 8 m | 1-sep a 2-nov | Sí, pero mide un tercio de lo del M0191: sirve para la hora |
+| Proyecto DARWIN (U. de Marburgo y U. del Azuay): estaciones automáticas de 10 min y radar vertical (MRR) | Puerto Ayora, Militar, Santa Rosa, Minas Rojas y Cerro Crocker. Santa Rosa, Cerro Crocker y Militar tienen **las mismas coordenadas** que las estaciones IERSE-WSN | Desde mar-2022. Lo publicado termina entre oct-2025 y may-2026 | **No publicado.** La descarga exige un acuerdo de uso que prohíbe redistribuir. Podría tener la lluvia del corte de IERSE |
 | METAR del aeropuerto de Baltra (SEGS) | Baltra | Continuo | Solo dice **si** llueve, no cuánto |
+
+Las estaciones DARWIN miden la lluvia sobre todo con un sensor de radar, que subestima mucho la garúa. En Cerro Crocker, de abril de 2022 a marzo de 2023, midió 283 mm frente a 1 707 mm de un balancín (Schmidt et al. 2025). El inventario público del portal (34 conjuntos de datos) está en `geodatos/datos/marburg_darwin/inventario_darwin.csv` del repositorio; las series no se publican aquí.
+
+![Portal de datos del proyecto DARWIN: periodo publicado de cada serie, según sus metadatos públicos. Ninguna estación propia llega al 30-oct-2026.](figuras/marburg_inventario.png)
 
 ## Archivos
 
 - Datos: `datos/lluvias/` (cortes en `cortes_transmision.csv`; hietograma a 5 minutos en `hietograma_5min.csv`; horario en `hietograma_1h.csv`, donde la columna `completa` marca las horas con 11 o más registros; mayores días en `mayores_dias_por_estacion.csv`; Cerro Crocker en `verificacion_cerro_crocker.csv` y `cerro_crocker_mensual.csv`).
-- Scripts: `scripts/15_lluvias_openmeteo.py` y `scripts/16_lluvias_ierse_evento.py`.
+- Lluvia del INAMHI, de IERSE y del Tempest, con el nivel del mar: `datos/lluvia_mareas_horaria.csv` (hora a hora), `lluvia_mareas_diaria.csv` (por día, y el total del M0191 de 22:00 a 03:00), `lluvia_mareas_inventario.csv` y `lluvia_mareas_eventos.csv`.
+- Scripts: `scripts/15_lluvias_openmeteo.py`, `scripts/16_lluvias_ierse_evento.py`, `scripts/29_marburg_darwin.py` (DARWIN, GAR y FCD) y `scripts/30_lluvia_mareas.py` (lluvia y marea).

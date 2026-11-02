@@ -133,7 +133,7 @@ El umbral está entre ambos casos: del orden de **20–25 mm/h sostenidos durant
 
 ## Lluvia medida el 30 de octubre
 
-La red IERSE-WSN (Universidad del Azuay) registró la tormenta cada ~5 minutos, en hora de Galápagos (UTC−6). Los totales son **mínimos**: Los Guayabillos y Santa Rosa dejaron de transmitir a las 21:22–21:25, cuando todavía llovía a unos 5 mm cada 5 minutos. El análisis completo de la lluvia está en [La lluvia](../lluvia/).
+La red IERSE-WSN (Universidad del Azuay) registró la tormenta cada ~5 minutos, en hora de Galápagos (UTC−6). Los totales son **mínimos**: Los Guayabillos y Santa Rosa dejaron de transmitir a las 21:22–21:25, cuando todavía llovía a unos 5 mm cada 5 minutos. En la costa, el pluviómetro M0191 del INAMHI, en Puerto Ayora, midió 135 mm más entre las 22:00 y las 03:00; el modelo agregado no incluye esa lluvia, porque no se sabe si cayó también sobre la cuenca. El análisis completo de la lluvia está en [La lluvia](../lluvia/).
 
 Tabla: Lluvia medida el 30 de octubre de 2026 (red IERSE-WSN; hora UTC−6).
 

@@ -66,6 +66,7 @@ La lectura conjunta de las medidas del plan está en [El Plan de Acción de la U
 - Cuál de estos cauces es cada cañada del plan, y si La Hormiga es una obra.
 - La topografía real del trazado, con un levantamiento GNSS.
 - El destino aguas abajo del agua desviada.
+- Cuánto llovió en Floreana el 30–31 de octubre. El proyecto DARWIN (U. de Marburgo) tiene desde el 23-ene-2026 una estación automática en **Wittmer (335 m)**, con lluvia por radar, rayos y niebla. Lo publicado llega al 1-oct-2026. Es la única serie reciente de la isla; el tramo de octubre y noviembre está en manos del proyecto, bajo su acuerdo de uso.
 
 ## Archivos
 

@@ -101,7 +101,11 @@ Las tomas son represas pequeñas o captaciones de cañada en laderas empinadas. 
 
 ## Cuencas de captación y crecidas frente a lo captado
 
-Las cuencas se calcularon con el D8 sobre el DSM GLO-30 de 30 m, y los caudales son SCS-CN de orden de magnitud: **no hay lluvia ni caudales medidos.** El método está al final de la página.
+Las cuencas se calcularon con el D8 sobre el DSM GLO-30 de 30 m, y los caudales son SCS-CN de orden de magnitud: **no hay caudales medidos.** El método está al final de la página.
+
+**La lluvia sí se midió cerca de las tomas [M].** La estación USFQ-GSC de El Junco está a ≈0,3–0,5 km de las cuencas de El Chino y Los Americanos, y la de Cerro Alto, a ≈0,1 km de la de AG-10. El 31-oct midieron **155,2 y 149,9 mm**, con hasta 39,1 mm en una hora, y el 30-oct, 92,0 y 65,3 mm. Es más que el escenario de 100 mm de la tabla, sobre suelo ya húmedo (más cerca de AMC III), aunque con menos intensidad horaria que la tormenta trasladada (63 mm/h). Las crecidas de las tomas con esa lluvia no se han calculado (ver [La lluvia](../lluvia/)).
+
+**En el reanálisis GAR [E]**, las celdas de las tomas (Cerro Gato, Los Americanos, La Toma y El Chino; 300–410 m) tienen máximos diarios de 0,6–0,8 veces los de Puerto Baquerizo Moreno y totales anuales algo mayores. Es lluvia modelada y sin validar en la isla.
 
 **Casi ninguna toma cae sobre un cauce del DSM.** Solo El Chino (AG-04; 4,7 km²) y la captación AG-09 (0,13 km²) quedan sobre una cañada a ≤ 60 m.
 
@@ -192,7 +196,7 @@ Tabla: Riesgos y observaciones del sistema de agua potable.
 
 **El evento de octubre de 2026.** No se encontró **ninguna información pública** sobre afectaciones al sistema de agua potable de San Cristóbal (búsqueda del 2-nov-2026). Lo que sí está documentado:
 
-- hubo lluvia fuerte en la isla el 30 y el 31-oct (ver [lluvia](../lluvia/));
+- hubo lluvia fuerte en la isla el 30 y el 31-oct: 92 y 155 mm en El Junco, junto a las tomas (ver [lluvia](../lluvia/));
 - el CGREG trabajó con maquinaria en varias encañadas (prensa del 1-nov);
 - en Santa Cruz se suspendió el suministro de agua en Puerto Ayora.
 
@@ -205,6 +209,7 @@ Tabla: Riesgos y observaciones del sistema de agua potable.
 - No se sabe qué tomas están en servicio en 2026 ni si las dos líneas «en construcción» del IGM son las que hoy funcionan (dato en manos del GAD).
 - No hay trazado cartografiado de la conducción desde Los Americanos ni de la que une la planta El Progreso con Puerto Baquerizo Moreno.
 - No hay datos de profundidad ni de protección de las tuberías en los cruces con cañadas.
+- La garúa que recarga los manantiales: el proyecto DARWIN tiene un colector de niebla en El Junco (hasta may-2026), con datos bajo acuerdo de uso.
 
 # Método y confianza de las cuencas
 

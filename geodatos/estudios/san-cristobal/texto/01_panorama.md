@@ -2,12 +2,13 @@ Intro: Qué se sabe de la lluvia y los desbordes del 30–31 de octubre de 2026 
 
 # Lo que se sabe del evento
 
-En San Cristóbal **no hay lluvia medida pública** del evento [M]. No se sabe qué intensidad desbordó las cañadas, de modo que los caudales del análisis son escenarios, no reconstrucciones (ver [La lluvia](../lluvia/)).
+**Sí hay lluvia medida del evento, pero solo en la parte alta** [M]. Las cuatro estaciones USFQ-GSC midieron el 31-oct entre **82 y 155 mm** (155,2 en El Junco, 149,9 en Cerro Alto, 91,1 en El Mirador y 82,3 en Merceditas), con hasta **39,1 mm en una hora** entre las 08:00 y las 10:00. En la ciudad no hay dato, y ninguna estación está dentro de las cuencas urbanas. Los caudales del análisis siguen siendo escenarios: lo medido se parece más al de 100 mm que a la tormenta de Santa Cruz trasladada, sobre todo en intensidad, pero el modelo no se ha corrido con esa lluvia (ver [La lluvia](../lluvia/)).
 
 - **Abril de 2026 (UGR) [R].** Desbordes en El Manzanillo, a 100 m del puente, con destrucción de viviendas, calles y redes, y en La Planada.
 - **16 de octubre de 2026 (SitRep 67) [R].** Se habilitó un refugio temporal en el barrio Estación Terrena, **antes del evento**. Estaba cerrado al 1 de noviembre. Las fuentes no indican el motivo. Por sí solo no identifica una zona afectada.
 - **30 de octubre [M].** Los METAR del aeropuerto registran lluvia entre las 14 y las 16 h, con **lluvia fuerte a las 15 h**.
-- **31 de octubre, por la mañana [M] [R].** Lluvia continua de 08:00 a 14:00 en el aeropuerto. La SNGR (SitRep n.º 01, corte del 31-oct a las 15:30) reporta:
+- **30 de octubre, tarde y noche [M].** En la parte alta llovió de forma moderada y casi continua: 36–92 mm en el día, según la estación.
+- **31 de octubre, por la mañana [M] [R].** Lluvia continua de 08:00 a 14:00 en el aeropuerto, y el máximo de la parte alta entre las 08:00 y las 10:00. La SNGR (SitRep n.º 01, corte del 31-oct a las 15:30) reporta:
   - el desbordamiento de las cañadas **Barrio Frío y Divino Niño**, con varias calles anegadas en el casco urbano y afectación a varias familias;
   - que la desembocadura afectaba la playa «Los Marinos», con riesgo de arrastrar embarcaciones;
   - la cañada Barrio Frío en monitoreo desde el 31-oct.
@@ -38,7 +39,9 @@ El plan de la UGR documenta además **daños acumulados** que siguen sin reparar
 
 # Qué no sabemos todavía
 
-- **Cuánto llovió.** Los modelos estiman entre 18 y 58 mm en Puerto Baquerizo Moreno para el 30 y el 31-oct [E], pero en Santa Cruz esos mismos modelos subestimaron la intensidad horaria entre 2 y 74 veces. Son un mínimo de error desconocido.
+- **Cuánto llovió en la ciudad.** En la parte alta se midieron 82–155 mm el 31-oct. En Puerto Baquerizo Moreno no hay dato: los modelos estiman 18–58 mm para el 30 y el 31-oct [E], pero en la parte alta se quedaron varias veces por debajo de lo medido.
+- **Qué caudal tuvo cada cañada.** Correr el modelo 2D con la lluvia medida está pendiente.
+- **Si la marea frenó la salida al mar.** No hay mareógrafo en la isla. Según una estimación, la lluvia más intensa empezó unas 2 h después de una pleamar alta (≈ +1,2 m) y siguió con el mar bajando. El desborde se reportó sin hora, así que no se puede comprobar (ver [Riesgos y observaciones](../riesgos/)).
 - **Por dónde corrió el agua.** Ningún punto se ha visitado. No hay marcas de agua, niveles ni caudales del evento para calibrar el modelo, que indica por dónde y en qué orden circula el agua, pero no sirve para delimitar zonas ni dimensionar obras.
 - **Dónde están varios lugares del plan de la UGR**: 16 de los 47 no figuran en ninguna fuente (ver [El Plan de Acción de la UGR](../plan-ugr/)).
 

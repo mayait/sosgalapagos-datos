@@ -63,7 +63,7 @@
  },
  "san-cristobal": {
   "titulo": "Estudio de inundaciones del 30–31-oct: San Cristóbal",
-  "descripcion": "Capas del estudio de puntos potenciales de inundación en San Cristóbal (Puerto Baquerizo Moreno, El Progreso, campus USFQ y tomas de agua) y su contraste con el Plan de Acción de la UGR. No hay lluvia medida en San Cristóbal: el modelo usa la tormenta de Santa Cruz trasladada. Ningún punto se ha visitado. Cotas del DSM con error de ±2–4 m.",
+  "descripcion": "Capas del estudio de puntos potenciales de inundación en San Cristóbal (Puerto Baquerizo Moreno, El Progreso, campus USFQ y tomas de agua) y su contraste con el Plan de Acción de la UGR. No hay lluvia medida en la ciudad (la del 31-oct se midió en la parte alta y no se ha simulado): el modelo usa escenarios y la tormenta de Santa Cruz trasladada. Ningún punto se ha visitado. Cotas del DSM con error de ±2–4 m.",
   "enlace": {"url": "/estudios/san-cristobal/", "texto": "Leer el estudio de San Cristóbal"},
   "capas": {
    "Modelo 2D (15 m): calado máximo, tormenta del 30-oct trasladada": {

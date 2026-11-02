@@ -135,7 +135,7 @@ Las fuentes son OSM, la toponimia y las capas del IGM 1:25 000, las localidades 
 
 # Qué harían las actuaciones del plan
 
-El plan no da trazados: los que aquí se describen son **aproximaciones sobre cauces D8**. Cada actuación se lee por sus efectos: qué resolvería, a dónde lleva el agua, qué mantenimiento implica y qué permisos rigen. Ninguna se ha evaluado con diseño ni en campo, y sin curvas IDF ni lluvia medida en la isla no hay base para dimensionarlas.
+El plan no da trazados: los que aquí se describen son **aproximaciones sobre cauces D8**. Cada actuación se lee por sus efectos: qué resolvería, a dónde lleva el agua, qué mantenimiento implica y qué permisos rigen. Ninguna se ha evaluado con diseño ni en campo, y sin curvas IDF ni series largas de lluvia en la isla no hay base para dimensionarlas.
 
 ## Zanja de 1 040 m en Manzanillo (la plantea el plan)
 
@@ -197,7 +197,7 @@ Son observaciones, no evaluaciones del plan:
 - **El collado entre la Galápagos y Divino Niño.** Un relleno o una obstrucción en ese tramo bastaría para facilitar el paso de la cañada mayor hacia el hospital (ver arriba).
 - **La ubicación de las instalaciones críticas respecto de los cauces** y la exposición de los dos refugios oficiales urbanos y periurbanos (ver [Riesgos y observaciones](../riesgos/)).
 - **Tomas de agua del acueducto.** Algunas cañadas que el plan señala en los recintos de El Progreso (Cerro Gato, El Chino y Las Goteras) nacen en las **cuencas de captación del agua potable**. La misma tormenta que inunda los recintos arrastra sedimento hacia las tomas, que están aguas arriba, como ocurrió en Los Americanos en abril de 2023 (ver [Tomas de agua](../agua/)).
-- **Lluvia medida.** San Cristóbal no tiene lluvia medida pública. Sin ella, el plan no puede activarse por umbrales.
+- **Lluvia medida.** Las cuatro estaciones USFQ-GSC de la parte alta midieron el evento (82–155 mm el 31-oct), pero no hay pluviómetro en la ciudad ni umbrales definidos. Sin ellos, el plan no puede activarse por umbrales.
 - **Dengue.** El plan ya advierte el riesgo. El ciclo del mosquito es de unos 7 días: una zanja, cuneta, desembocadura o depósito que retenga agua más tiempo puede convertirse en criadero (ver [Riesgos y observaciones](../riesgos/)).
 
 ## Qué falta saber

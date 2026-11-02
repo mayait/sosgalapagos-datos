@@ -22,8 +22,10 @@ Cada especialista trabajó con los mismos datos. Sus discrepancias se resolviero
 - **Edificios:** OSM y Google Open Buildings.
 - **Población:** INEC.
 - **Registros y capas de riesgo:** SNGR y CGREG.
-- **Lluvia medida:** red IERSE-WSN de la Universidad del Azuay, con cuatro estaciones en Santa Cruz, una medición cada 5 minutos y datos desde abril de 2026.
-- **Climatología:** Fundación Charles Darwin, 1965–2026.
+- **Lluvia medida:** red IERSE-WSN de la Universidad del Azuay, con cuatro estaciones en Santa Cruz, una medición cada 5 minutos y datos desde abril de 2026. Además, el pluviómetro M0191 del INAMHI en Puerto Ayora (historial horario del 16-oct al 2-nov) y una estación particular (Tempest) en Punta Estrada, solo para la hora.
+- **Nivel del mar:** mareógrafos de Puerto Ayora y Baltra (IOC, operados por el INOCAR), llevados al nivel medio de 2017–2024 de la UHSLC. Marea astronómica calculada con UTide.
+- **Climatología:** Fundación Charles Darwin, 1965–2026. Como contraste, el reanálisis GAR (TU Berlín, 1980–2025), que es lluvia modelada.
+- **Proyecto DARWIN (U. de Marburgo):** solo su inventario y sus metadatos públicos. Sus series no se descargaron ni se publican: su acuerdo de uso prohíbe redistribuirlas.
 - **Lluvia estimada por modelos:** Open-Meteo (ECMWF y otros).
 
 ## Convenciones
@@ -42,13 +44,13 @@ Tabla: Datos faltantes y la pregunta que resuelve cada uno.
 | Dato | Pregunta que resuelve |
 |---|---|
 | **Marcas de agua del evento** (GNSS), en el barrio y en la salida | Calibra la lámina y el frente de desborde. Si el agua llegó a ≈13 m, se confirma el vaso lleno hasta el umbral; una cota mucho mayor indicaría obstrucción o un caudal muy superior |
-| **Pluviómetros del 30–31 de octubre** (FCD, INAMHI, privados) y GPM IMERG | Decide entre ECMWF de 9 km (≈110 mm) y los demás modelos (6–27 mm), fija la hora real y es la base de las curvas IDF |
+| **Pluviómetros del 30–31 de octubre** (FCD, INAMHI de 5 min, DARWIN, privados) y GPM IMERG | Decide entre ECMWF de 9 km (≈110 mm) y los demás modelos (6–27 mm), fija la hora real y es la base de las curvas IDF. DARWIN podría tener la lluvia de la parte media después de las 21:25 |
 | **Modelo del terreno de dron o LiDAR** (≤ 1 m, 5–10 km²) | Confirma o descarta el rebose a 12,95 m, los umbrales del cauce de OSM y la pendiente del interceptor en sus primeros 2,5 km (criterio C4) |
 | **Huellas de crecida o aforos** en las quebradas | Calibran el CN y el tc. Si el caudal real es mucho menor que el calculado, domina la infiltración en el lecho de lava |
 | **Ensayos de infiltración y geología** (grietas, tubos de lava) | Valida o descarta la alternativa G y el CN del Parque |
 | **Catastro y red de sumideros** con cotas de fondo | Cuantifica la capacidad real de la salida urbana (alternativas C y D) |
 | **Historial de OSM y fotografías aéreas históricas** del IGM | Confirma o refuta un drenaje histórico hacia el este y fecha la urbanización del borde del escarpe |
-| **Datum vertical** del IGM frente a EGM2008 en la isla | Explica el sesgo de −2 m y fija las cotas absolutas respecto del mar |
+| **Datum vertical** del IGM frente a EGM2008 en la isla, y enlace del mareógrafo de Puerto Ayora con ese datum | Explica el sesgo de −2 m, fija las cotas absolutas respecto del mar y dice qué nivel del mar poner en el modelo 2D |
 
 Las alternativas C, D y G y el criterio C4 se describen en [La Cascada: opciones que aparecen en el análisis](../la-cascada-opciones/).
 
@@ -106,6 +108,8 @@ Tabla: Archivos de datos del análisis de La Cascada (`estudios/la-cascada/datos
 | `urbano/` | Salida urbana, obstáculos, zona baja, franja del cauce, cifras de exposición |
 | `resumen.json` | Todas las cifras clave |
 
+La lluvia del INAMHI y la marea se rehacen con `scripts/30_lluvia_mareas.py`; el inventario DARWIN, el reanálisis GAR y su contraste con la FCD, con `scripts/29_marburg_darwin.py` (salidas en `geodatos/datos/mareas/` y `geodatos/datos/marburg_darwin/`).
+
 Los datos crudos (`descargas/`) no se publican porque pesan unos 430 MB y algunas capas oficiales contienen datos personales. Se regeneran con los scripts `01`–`07` del proyecto `geodatos`.
 
 ## Descargas
@@ -126,6 +130,13 @@ Todas las fuentes en línea se consultaron el 2 de noviembre de 2026.
 - Google Open Buildings v3: https://sites.research.google/open-buildings/
 - Red IERSE-WSN, Universidad del Azuay: pluviómetros de Santa Cruz.
 - Fundación Charles Darwin, Galapagos Climatology Database (CC BY-NC-SA 4.0): https://datazone.darwinfoundation.org/en/climate/puerto-ayora
+- INAMHI: pluviómetro M0191 (Puerto Ayora), historial horario consultado el 2-nov-2026.
+- IOC/UNESCO, Sea Level Station Monitoring Facility: mareógrafos de Puerto Ayora y Baltra (operador INOCAR).
+- University of Hawaii Sea Level Center (UHSLC), series *fast delivery*: https://uhslc.soest.hawaii.edu/
+- Codiga, D. L. (2011). *Unified tidal analysis and prediction using the UTide Matlab functions*. URI/GSO Technical Report 2011-01 (UTide, versión de Python).
+- Proyecto DARWIN (LCRS, U. de Marburgo): se consultaron solo los metadatos públicos (2-nov-2026). Bendix, J. (2024). *Darwin Project – Darwin Measurement Network*. doi:10.5678/h2a6-er62. Subconjuntos procesados: Santa Rosa 10.5678/h2a6-er62; Cerro Crocker 10.5678/zayn-fw96; Minas Rojas 10.5678/9vnj-tg93; Puerto Ayora 10.5678/asch-3t49; Militar 10.5678/n592-wf85.
+- Schmidt, B. et al. (2025). Analysis of the meso-scale climate of the Galápagos Archipelago by dynamical downscaling of reanalysis data. *Int. J. Climatol.* 45(13): e8924. https://doi.org/10.1002/joc.8924. Datos GAR v1 (CC BY 4.0): https://data.klima.tu-berlin.de/GAR/
+- Tenelanda, P. et al. (2025). The diurnal cycle and event-scale precipitation characteristics in Galápagos at different altitudes during ENSO 2022–2024. *Erdkunde* 79: 43–65. https://doi.org/10.3112/erdkunde.2025.01.03
 - Open-Meteo, Forecast y Historical API: https://open-meteo.com/
 - NOAA OISST v2.1 (ERDDAP CoastWatch): https://coastwatch.pfeg.noaa.gov/erddap/griddap/ncdcOisst21NrtAgg.html
 - NOAA CPC, índices semanales Niño y discusión diagnóstica ENSO (8-oct-2026): https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml

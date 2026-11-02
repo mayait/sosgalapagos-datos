@@ -534,7 +534,7 @@ def fig_san_cristobal(AM, RT):
     ax.set_ylabel("Lluvia diaria (mm)")
     ax.set_title("Lluvia diaria por periodo de retorno (Gumbel)", fontsize=10)
     ax.grid(alpha=0.3, which="both")
-    fig.suptitle("San Cristóbal: lluvia diaria extrema MODELADA por GAR, 1980–2025 (no hay serie medida pública)", fontsize=10.5)
+    fig.suptitle("San Cristóbal: lluvia diaria extrema MODELADA por GAR, 1980–2025 (sin validar en la isla: no hay serie medida larga pública)", fontsize=10.5)
     fig.text(0.01, 0.01, NOTA + "Escenario, no dato de diseño: en la costa GAR da ≈1 270 mm/año frente a ≈500 publicados (Paltán et al. 2021).",
              fontsize=7, color="0.35")
     fig.tight_layout(rect=(0, 0.03, 1, 0.95))

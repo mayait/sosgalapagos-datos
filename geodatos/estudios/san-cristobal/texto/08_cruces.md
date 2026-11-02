@@ -2,7 +2,7 @@ Intro: Dónde cruzan las quebradas de San Cristóbal con calles y caminos, cuál
 
 # Lo que muestran los datos
 
-Es un inventario hecho con un modelo de superficie (DSM) de 30 m y cartografía abierta. **En San Cristóbal no hay lluvia medida del evento**: los caudales corresponden a un escenario de 100 mm y son valores bajos (ver «Método»).
+Es un inventario hecho con un modelo de superficie (DSM) de 30 m y cartografía abierta. **No hay lluvia medida del evento en la ciudad ni en sus cuencas**: los caudales corresponden a un escenario de 100 mm y son valores bajos (ver «Método»). En la parte alta, las estaciones USFQ-GSC midieron 82–155 mm el 31-oct (ver [La lluvia](../lluvia/)).
 
 **721 intersecciones de quebradas con vías quedan en 325 cruces:**
 
@@ -55,7 +55,7 @@ Las cotas de la tabla son solo descriptivas. Proceden del DSM, con un error de �
 - **«Ninguna estructura cartografiada» no quiere decir que no haya alcantarilla.** No hay inventario de pasos bajo las vías.
 - El D8 se desplaza en las zonas llanas y edificadas.
 - Los caudales no tienen en cuenta la reducción areal, la laminación ni la infiltración.
-- **La lluvia de diseño se trasladó desde Santa Cruz.** No hay lluvia medida en la parte alta de San Cristóbal (El Junco y El Progreso) ni en el puerto (ver [La lluvia](../lluvia/)).
+- **La lluvia de diseño se trasladó desde Santa Cruz.** En San Cristóbal hay lluvia horaria del evento medida en la parte alta (estaciones USFQ-GSC), pero no intensidades de minutos ni una serie larga publicada. En el puerto no hay (ver [La lluvia](../lluvia/)).
 
 # Método
 

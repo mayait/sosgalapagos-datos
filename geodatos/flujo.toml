@@ -68,6 +68,22 @@ nota = "Modelos y METAR del aeropuerto (el METAR se baja solo si falta el archiv
 entradas = ["estudios/san-cristobal/datos/lluvias/modelos_*.csv", "estudios/san-cristobal/datos/lluvias/crudo/metar_*.csv"]
 salidas = ["estudios/san-cristobal/datos/lluvias/metar_lluvia_observada.csv", "estudios/san-cristobal/datos/lluvias/resumen_modelos.csv"]
 
+[pasos.lluvia_mareas]
+script = "30_lluvia_mareas.py"
+nota = "Lluvia INAMHI (M0191) y USFQ-GSC, mareógrafos y marea; contraste con el 2D de Santa Cruz (la descarga, con --bajar, va aparte)"
+entradas = ["../clima/datos/ierse-wsn/serie_5min.csv.gz", "../clima/datos/inamhi/historial/*.json", "../clima/datos/uhslc/global_hourly_fast_*.csv.gz",
+            "descargas/lluvia_mareas/*", "descargas/dem_recortes/santa_cruz_dem.tif", "estudios/santa-cruz/datos/modelo2d/b_central/calado_max_m.tif"]
+salidas = ["datos/mareas/*", "estudios/santa-cruz/datos/lluvia_mareas_*.csv", "estudios/san-cristobal/datos/lluvia_mareas_*.csv",
+           "estudios/santa-cruz/figuras/mareas_*.png", "estudios/san-cristobal/figuras/mareas_*.png"]
+
+[pasos.marburg_darwin]
+script = "29_marburg_darwin.py"
+nota = "Inventario DARWIN (solo metadatos públicos), reanálisis GAR y contraste con la FCD (la descarga, con --descargar, va aparte)"
+entradas = ["datos/marburg_darwin/bruto/*.html", "datos/marburg_darwin/bruto/metadatos/*", "datos/marburg_darwin/bruto/gar/*",
+            "../clima/datos/fcd/*.csv"]
+salidas = ["datos/marburg_darwin/*.csv", "datos/marburg_darwin/resumen_marburg.json",
+           "estudios/santa-cruz/figuras/marburg_*.png", "estudios/san-cristobal/figuras/marburg_*.png"]
+
 # ------------------------------------------------------------------ Santa Cruz: hidrología, puntos y cruces
 [pasos.cascada]
 script = "12_cascada_analisis.py"

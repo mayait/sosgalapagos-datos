@@ -2,7 +2,7 @@ Intro: Lo que todavía no se sabe sobre las inundaciones en Santa Cruz: datos qu
 
 # Cómo aportar
 
-Esta página reúne los pendientes abiertos del proyecto que tocan a Santa Cruz: **21 propios de la isla** y **27 comunes a las islas**. Se arma sola a partir de los [issues de GitHub](https://github.com/mayait/sosgalapagos-datos/issues) (última descarga: 2026-11-02) y se ordena por prioridad: la prioridad 1 cambia decisiones de esta emergencia; la 2 mejora mucho el análisis; la 3 es deseable.
+Esta página reúne los pendientes abiertos del proyecto que tocan a Santa Cruz: **23 propios de la isla** y **27 comunes a las islas**. Se arma sola a partir de los [issues de GitHub](https://github.com/mayait/sosgalapagos-datos/issues) (última descarga: 2026-11-02) y se ordena por prioridad: la prioridad 1 cambia decisiones de esta emergencia; la 2 mejora mucho el análisis; la 3 es deseable.
 
 Si tienes un dato que ayude (fotos o videos con fecha, hora y lugar, marcas de agua, lluvia medida, planos de obras, registros de daños), escríbelo en los comentarios de la sección que corresponda o en el issue de GitHub. Los comentarios son públicos: no pongas nombres, teléfonos ni datos de otras personas.
 
@@ -15,7 +15,7 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
 - **[Marcas de agua del evento con GNSS (barrio La Cascada y su salida)](https://github.com/mayait/sosgalapagos-datos/issues/2)** (#2 · prioridad 1 · 2 comentarios)  
     **Quién lo tiene o puede levantarlo:** GAD Santa Cruz, academia, sociedad civil  
     **Para qué sirve:** Calibrar la lámina y el rebose del vaso de La Cascada (≈12–13 m)
-- **[Lluvia medida en Puerto Ayora el 30–31-oct: incorporar INAMHI M0191 al estudio de La Cascada](https://github.com/mayait/sosgalapagos-datos/issues/3)** (#3 · prioridad 1 · 1 comentario)  
+- **[Lluvia medida en Puerto Ayora el 30–31-oct: incorporar INAMHI M0191 al estudio de La Cascada](https://github.com/mayait/sosgalapagos-datos/issues/3)** (#3 · prioridad 1 · 2 comentarios)  
     **Novedad (2-nov):** la estación INAMHI M0191 (Puerto Ayora, 6 m, a 1,4 km de La Cascada) registró 93,6 mm el 30-oct y 135,4 mm el 31-oct (días en UTC−5), con un pico de ~37 mm/h. El recolector de clima ya la recoge.  
     **Dato:** **Lluvia medida el 30–31-oct** en Puerto Ayora (no hay estación allí)  
     **Quién lo tiene o puede levantarlo:** FCD, INAMHI, aeropuerto, pluviómetros privados  
@@ -51,6 +51,8 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
     **Sale de:** 07_riesgos.md  
     https://sosgalapagos.org/estudios/santa-cruz/riesgos/  
     Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Series del proyecto DARWIN (U. de Marburgo) del 15-oct al 2-nov y permiso para publicar derivados](https://github.com/mayait/sosgalapagos-datos/issues/76)** (#76 · prioridad 1)  
+    Tres estaciones de DARWIN parecen compartir sitio con estaciones IERSE-WSN de Santa Cruz (Santa Rosa, Cerro Crocker, Militar) y podrían tener la lluvia que IERSE perdió entre las 21:25 del 30-oct y las 18:45 del 31-oct; también hay estaciones en San Cristóbal (Puerto Baquerizo Moreno, La Galapaguera, El Junco). Lo publicado llega a 2025–may-2026 y el acuerdo de uso prohíbe redistribuir: hay que pedir las series del evento y permiso para publicar derivados (con coautoría si lo piden). Lo pide el responsable del proyecto. Relacionado con [#61](https://github.com/mayait/sosgalapagos-datos/issues/61) y [#62](https://github.com/mayait/sosgalapagos-datos/issues/62).
 - **[Lectura diaria de la estación Charles Darwin (FCD) del 15-oct al 2-nov](https://github.com/mayait/sosgalapagos-datos/issues/63)** (#63 · prioridad 2)  
     Es un dato de lluvia en Puerto Ayora, independiente de M0191 ([#3](https://github.com/mayait/sosgalapagos-datos/issues/3)). Dato en manos de la FCD (dataZone).  
     **Isla:** Santa Cruz  
@@ -70,6 +72,9 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
     https://sosgalapagos.org/estudios/santa-cruz/que-paso/  
     https://sosgalapagos.org/estudios/santa-cruz/riesgos/  
     Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Enlazar el mareógrafo de Puerto Ayora con el datum del DSM y del IGM](https://github.com/mayait/sosgalapagos-datos/issues/75)** (#75 · prioridad 2)  
+    El modelo 2D de Santa Cruz usa un nivel del mar fijo de +0,75 m. A la hora del pico (22:12–22:34 del 30-oct) el mar observado estaba en +0,13 a +0,05 m sobre el nivel medio 2017–2024, pero solo es comparable si el cero del DSM coincide con el nivel medio del mar, lo que no está verificado. Hace falta el enlace del mareógrafo (INOCAR/IOC) con el datum del IGM y del Copernicus GLO-30. Relacionado con [#12](https://github.com/mayait/sosgalapagos-datos/issues/12).  
+    https://sosgalapagos.org/estudios/santa-cruz/modelo-2d/
 - **[Fotografías aéreas históricas del IGM e historial de OSM](https://github.com/mayait/sosgalapagos-datos/issues/11)** (#11 · prioridad 3)  
     **Quién lo tiene o puede levantarlo:** IGM  
     **Para qué sirve:** Drenajes históricos y fecha de urbanización del escarpe
@@ -200,6 +205,8 @@ Acuerdos, permisos y reglas para que los datos lleguen, se compartan y se manten
     **Sale de:** 01_que_paso.md, tabla «Qué señales había»  
     https://sosgalapagos.org/estudios/santa-cruz/que-paso/  
     Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Series del proyecto DARWIN (U. de Marburgo) del 15-oct al 2-nov y permiso para publicar derivados](https://github.com/mayait/sosgalapagos-datos/issues/76)** (#76 · prioridad 1)  
+    Tres estaciones de DARWIN parecen compartir sitio con estaciones IERSE-WSN de Santa Cruz (Santa Rosa, Cerro Crocker, Militar) y podrían tener la lluvia que IERSE perdió entre las 21:25 del 30-oct y las 18:45 del 31-oct; también hay estaciones en San Cristóbal (Puerto Baquerizo Moreno, La Galapaguera, El Junco). Lo publicado llega a 2025–may-2026 y el acuerdo de uso prohíbe redistribuir: hay que pedir las series del evento y permiso para publicar derivados (con coautoría si lo piden). Lo pide el responsable del proyecto. Relacionado con [#61](https://github.com/mayait/sosgalapagos-datos/issues/61) y [#62](https://github.com/mayait/sosgalapagos-datos/issues/62).
 
 ## Comunes a las islas
 

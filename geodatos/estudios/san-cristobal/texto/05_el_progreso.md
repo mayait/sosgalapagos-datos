@@ -87,7 +87,7 @@ Tabla: Edificios de El Progreso según el calado máximo en la celda de su centr
 
 - Si las depresiones de 1–5 m son terreno real o vegetación: el DSM tiene ±5 m en El Progreso.
 - El estado de cunetas y bordillos en los sectores bajos, que el DSM no ve.
-- La lluvia real: no hay lluvia medida en San Cristóbal, y la tormenta trasladada es la de Santa Cruz.
+- La lluvia real en El Progreso: las estaciones USFQ-GSC más cercanas (Cerro Alto y El Mirador, a ≈1,5–2 km del borde de sus cuencas) midieron 91–150 mm el 31-oct, pero no se ha simulado esa lluvia. La tormenta trasladada es la de Santa Cruz.
 - La población real expuesta: la del INEC por manzana no coincide con la del plan.
 
 ## Archivos

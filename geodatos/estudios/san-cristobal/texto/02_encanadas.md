@@ -2,7 +2,7 @@ Intro: Qué encañadas atraviesan Puerto Baquerizo Moreno, cuánta agua les lleg
 
 # Lo que muestran los datos
 
-Es un diagnóstico de gabinete con un modelo de superficie (DSM) de 30 m, OpenStreetMap (OSM), Open Buildings e INEC. **No hay lluvia medida en San Cristóbal**: los caudales corresponden a un escenario de 100 mm (ver [La lluvia](../lluvia/)). Los nombres de las encañadas siguen la correspondencia con el Plan de Acción SC-4-09-2026 de la UGR del GAD San Cristóbal, que es una hipótesis; la tabla de correspondencia está en [El Plan de Acción de la UGR](../plan-ugr/). El Progreso tiene su propia página: [El Progreso](../el-progreso/).
+Es un diagnóstico de gabinete con un modelo de superficie (DSM) de 30 m, OpenStreetMap (OSM), Open Buildings e INEC. **No hay lluvia medida dentro de las cuencas de la ciudad**: los caudales corresponden a un escenario de 100 mm. La lluvia del 31-oct medida en la parte alta (82–155 mm, estaciones USFQ-GSC) no se ha pasado por estos cálculos (ver [La lluvia](../lluvia/)). Los nombres de las encañadas siguen la correspondencia con el Plan de Acción SC-4-09-2026 de la UGR del GAD San Cristóbal, que es una hipótesis; la tabla de correspondencia está en [El Plan de Acción de la UGR](../plan-ugr/). El Progreso tiene su propia página: [El Progreso](../el-progreso/).
 
 ![Puerto Baquerizo Moreno: cauces D8 de ≥ 0,5 km², franja del CGREG, edificaciones y cruces priorizados.](figuras/f_urbano_pbm.png)
 
