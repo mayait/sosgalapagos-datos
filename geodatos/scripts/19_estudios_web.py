@@ -279,7 +279,7 @@ def pagina(sid, cfg):
 <section id="comentarios-generales" data-seccion="general"><h1>Comentarios generales</h1><p>¿Viviste la inundación, tienes datos (fotos con hora, marcas de agua, lluvia medida) o ves un error? Escríbelo aquí. Los comentarios son públicos.</p><div class="com abierto" data-seccion="general"></div></section>
 </main></div>
 <footer class="pie"><p>SOS Galápagos · Coordinación de respuesta USFQ Galápagos · Desarrollado por <a href="https://iahumana.org">IA Humana</a> · <a href="/privacidad">Privacidad</a></p>
-<p class="muted">Datos: Copernicus GLO-30, IGM, © colaboradores de OpenStreetMap (ODbL), INEC, SNGR, CGREG, FCD, red IERSE-WSN (Universidad del Azuay), Open-Meteo/ECMWF. Código y datos: geodatos/ en github.com/mayait/RESPONSEGRID_GALAPAGOS.</p></footer>
+<p class="muted">Datos: Copernicus GLO-30, IGM, © colaboradores de OpenStreetMap (ODbL), INEC, SNGR, CGREG, FCD, red IERSE-WSN (Universidad del Azuay), Open-Meteo/ECMWF. Código y datos: geodatos/ en github.com/mayait/sosgalapagos-datos.</p></footer>
 <div id="visor" class="visor" hidden><img alt=""><button aria-label="Cerrar">×</button></div>
 <script>window.ESTUDIO={json.dumps({"pagina": sid, "capas": capas, "mapa": cfg.get("mapa", {}).get("vista", {}), "plotly": PLOTLY, "v3d": bool(cfg.get("vista3d"))}, ensure_ascii=False)};</script>
 <script>{JS}</script></body></html>"""
