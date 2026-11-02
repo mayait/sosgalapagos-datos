@@ -44,6 +44,8 @@ INEC MGN 2026, OpenStreetMap (31-oct-2026), Google Open Buildings y Copernicus G
 Preparado por SOS Galápagos (https://sosgalapagos.org) para la respuesta a las inundaciones
 de El Niño, oct-nov 2026. Responsable: Human Centric SAS BIC (IA Humana).
 """
+# Capas que se publican completas (islas enteras) también en la cobertura «Zona poblada»
+SIEMPRE_COMPLETAS = {"quebradas.geojson"}
 # Capas que no están en el manifiesto de la app pero se publican aquí
 EXTRA = {
     "id": "otras", "titulo": "Otras capas",
@@ -191,6 +193,8 @@ def main():
         todo_shp = zipfile.ZipFile(d_desc / f"todo-{var}-shp.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
         todo_gj = zipfile.ZipFile(d_desc / f"todo-{var}-geojson.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
         for gj in sorted(src.glob("*.geojson")):
+            if var == "zona" and gj.name in SIEMPRE_COMPLETAS:
+                gj = VARIANTES["completo"] / gj.name          # sin recorte también en «Zona poblada»
             data = json.loads(gj.read_text())
             feats = [f for f in data["features"] if f.get("geometry")]
             shutil.copy(gj, d_datos / gj.name)
@@ -211,6 +215,8 @@ def main():
                     for r in rutas:
                         z.write(r, r.name); todo_shp.write(r, f"{var}/{r.name}")
                 extra = ("\nNombres de campo acortados (límite de 10 caracteres del formato Shapefile):\n" + "\n".join(mapas) + "\n") if mapas else ""
+                if var == "zona" and gj.name in SIEMPRE_COMPLETAS:
+                    extra = "\nEsta capa va completa (todas las islas, sin recorte) también en la cobertura «Zona poblada».\n" + extra
                 txt = leeme(titulo, gj.name, var, len(feats), extra)
                 z.writestr("LEEME.txt", txt)
             todo_gj.write(gj, f"{var}/{gj.name}")
