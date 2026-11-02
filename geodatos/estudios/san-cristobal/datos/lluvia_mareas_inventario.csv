@@ -1,0 +1,6 @@
+clave,estacion,isla,fuente,cota_m,lat,lon,resolucion,desde_utc6,hasta_utc6,cobertura_horaria_pct,"huecos_mayores_que_2,5_pasos",hueco_mayor_h,hueco_mayor_desde_utc6,lluvia_total_periodo_mm,calidad
+M5300,Merceditas (M5300),San Cristóbal,USFQ-GSC vía INAMHI,100,-0.8897,-89.442,1 h (historial); 5 min (GSC) desde el 1-nov,2026-10-16 07:00,2026-11-02 16:00,99.7,0,0.0,,285.1,Hora continental UTC−5 convertida a UTC−6
+M5301,El Junco (M5301),San Cristóbal,USFQ-GSC vía INAMHI,584,-0.8965,-89.4816,1 h (historial); 5 min (GSC) desde el 1-nov,2026-10-16 07:00,2026-11-02 16:00,99.8,0,0.0,,648.5,Hora continental UTC−5 convertida a UTC−6
+M5302,Cerro Alto (M5302),San Cristóbal,USFQ-GSC vía INAMHI,517,-0.887,-89.531,1 h (historial); 5 min (GSC) desde el 1-nov,2026-10-16 07:00,2026-11-02 16:00,99.8,0,0.0,,505.3,Hora continental UTC−5 convertida a UTC−6
+M5303,El Mirador (M5303),San Cristóbal,USFQ-GSC vía INAMHI,387,-0.8862,-89.5396,1 h (historial); 5 min (GSC) desde el 1-nov,2026-10-16 07:00,2026-11-02 16:00,99.8,0,0.0,,306.4,Hora continental UTC−5 convertida a UTC−6
+M0221,Puerto Baquerizo Moreno (M0221),San Cristóbal,INAMHI,6,-0.9041,-89.6143,5 min,2026-11-02 08:05,2026-11-02 15:55,96.9,0,0.0,,11.8,Solo desde el 2-nov-2026 14:05 UTC; no está en el historial horario

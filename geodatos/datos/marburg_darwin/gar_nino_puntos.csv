@@ -1,0 +1,57 @@
+punto,isla,evento,total_mm,max_diario_mm,fecha_max,dias_ge_60mm,dias_ge_100mm
+Puerto Ayora (CDRS/DARWIN),Santa Cruz,1982-83,2291,184.9,1983-06-22,7,3
+Puerto Ayora (CDRS/DARWIN),Santa Cruz,1997-98,2843,163.9,1997-12-14,14,7
+Puerto Ayora (CDRS/DARWIN),Santa Cruz,2015-16,388,60.6,2016-03-27,1,0
+Puerto Ayora (CDRS/DARWIN),Santa Cruz,2023-24,310,25.4,2024-02-18,0,0
+Bellavista (FCD),Santa Cruz,1982-83,3946,157.6,1983-06-26,14,6
+Bellavista (FCD),Santa Cruz,1997-98,3792,200.8,1997-11-12,15,11
+Bellavista (FCD),Santa Cruz,2015-16,790,74.2,2016-03-27,1,0
+Bellavista (FCD),Santa Cruz,2023-24,615,54.8,2024-03-09,0,0
+Los Guayabillos (IERSE),Santa Cruz,1982-83,4665,209.9,1983-06-08,18,7
+Los Guayabillos (IERSE),Santa Cruz,1997-98,3873,175.1,1998-01-07,19,9
+Los Guayabillos (IERSE),Santa Cruz,2015-16,968,96.4,2016-03-27,1,0
+Los Guayabillos (IERSE),Santa Cruz,2023-24,742,78.2,2024-03-09,1,0
+Santa Rosa (DARWIN/IERSE),Santa Cruz,1982-83,10909,332.0,1983-06-18,60,43
+Santa Rosa (DARWIN/IERSE),Santa Cruz,1997-98,5914,245.4,1998-03-16,33,17
+Santa Rosa (DARWIN/IERSE),Santa Cruz,2015-16,1708,131.1,2016-03-22,4,1
+Santa Rosa (DARWIN/IERSE),Santa Cruz,2023-24,1557,119.0,2024-03-08,7,3
+Minas Rojas (DARWIN),Santa Cruz,1982-83,9616,238.5,1983-06-18,64,33
+Minas Rojas (DARWIN),Santa Cruz,1997-98,4332,208.0,1998-02-21,25,10
+Minas Rojas (DARWIN),Santa Cruz,2015-16,913,124.5,2016-03-20,5,1
+Minas Rojas (DARWIN),Santa Cruz,2023-24,1017,186.0,2024-02-11,4,2
+Cerro Crocker (DARWIN),Santa Cruz,1982-83,7750,221.0,1983-06-18,39,21
+Cerro Crocker (DARWIN),Santa Cruz,1997-98,5258,299.3,1998-04-19,28,16
+Cerro Crocker (DARWIN),Santa Cruz,2015-16,1508,98.6,2016-03-27,4,0
+Cerro Crocker (DARWIN),Santa Cruz,2023-24,1068,55.5,2024-03-08,0,0
+"Militar, Baltra (DARWIN)",Santa Cruz,1982-83,2688,196.0,1982-12-17,9,3
+"Militar, Baltra (DARWIN)",Santa Cruz,1997-98,2501,219.0,1998-02-13,13,4
+"Militar, Baltra (DARWIN)",Santa Cruz,2015-16,166,53.7,2016-03-27,0,0
+"Militar, Baltra (DARWIN)",Santa Cruz,2023-24,277,48.7,2024-02-17,0,0
+Puerto Baquerizo Moreno,San Cristóbal,1982-83,8550,317.1,1983-06-18,47,20
+Puerto Baquerizo Moreno,San Cristóbal,1997-98,5369,232.0,1998-03-12,30,17
+Puerto Baquerizo Moreno,San Cristóbal,2015-16,447,111.8,2016-03-27,1,1
+Puerto Baquerizo Moreno,San Cristóbal,2023-24,1608,238.1,2024-02-23,8,6
+El Progreso,San Cristóbal,1982-83,11023,548.6,1983-06-18,58,28
+El Progreso,San Cristóbal,1997-98,6424,207.7,1998-01-17,41,17
+El Progreso,San Cristóbal,2015-16,1198,136.5,2016-03-27,3,2
+El Progreso,San Cristóbal,2023-24,1543,221.1,2024-02-20,7,2
+El Junco,San Cristóbal,1982-83,10133,661.2,1983-06-19,42,21
+El Junco,San Cristóbal,1997-98,5981,345.8,1997-12-14,30,12
+El Junco,San Cristóbal,2015-16,1885,100.9,2016-03-27,3,1
+El Junco,San Cristóbal,2023-24,1478,93.5,2024-02-20,2,0
+Toma Cerro Gato,San Cristóbal,1982-83,8926,819.2,1983-06-19,37,17
+Toma Cerro Gato,San Cristóbal,1997-98,5351,256.9,1997-12-14,25,12
+Toma Cerro Gato,San Cristóbal,2015-16,1661,117.6,2016-03-27,1,1
+Toma Cerro Gato,San Cristóbal,2023-24,1250,88.3,2024-02-20,2,0
+Toma Los Americanos,San Cristóbal,1982-83,8926,819.2,1983-06-19,37,17
+Toma Los Americanos,San Cristóbal,1997-98,5351,256.9,1997-12-14,25,12
+Toma Los Americanos,San Cristóbal,2015-16,1661,117.6,2016-03-27,1,1
+Toma Los Americanos,San Cristóbal,2023-24,1250,88.3,2024-02-20,2,0
+Toma La Toma (El Progreso),San Cristóbal,1982-83,10348,725.2,1983-06-19,49,24
+Toma La Toma (El Progreso),San Cristóbal,1997-98,6155,310.8,1997-12-14,25,12
+Toma La Toma (El Progreso),San Cristóbal,2015-16,1987,140.2,2016-03-27,3,1
+Toma La Toma (El Progreso),San Cristóbal,2023-24,1459,115.0,2024-02-20,2,1
+Manantial El Chino,San Cristóbal,1982-83,8927,700.4,1983-06-19,39,18
+Manantial El Chino,San Cristóbal,1997-98,5560,346.2,1997-12-14,26,13
+Manantial El Chino,San Cristóbal,2015-16,1477,73.7,2016-03-27,2,0
+Manantial El Chino,San Cristóbal,2023-24,1117,77.2,2024-02-20,1,0
