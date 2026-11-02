@@ -610,6 +610,36 @@
           "color": "#00acc1",
           "relleno": 0.08,
           "grosor": 1.5
+        },
+        {
+          "nombre": "Plan UGR: lugares y sectores afectados",
+          "archivo": "estudios/san-cristobal/datos/ugr/lugares_plan.geojson",
+          "color": "#6a1b9a",
+          "radio": 7,
+          "grosor": 2.5,
+          "relleno": 0.1,
+          "colores": {
+            "campo": "prioridad_ugr",
+            "valores": {
+              "máxima": "#c2185b",
+              "maxima": "#c2185b",
+              "normal": "#8e24aa"
+            }
+          }
+        },
+        {
+          "nombre": "Plan UGR: medidas propuestas (ubicación aproximada)",
+          "archivo": "estudios/san-cristobal/datos/ugr/medidas_plan.geojson",
+          "color": "#ff6f00",
+          "grosor": 3,
+          "radio": 6,
+          "discontinua": true
+        },
+        {
+          "nombre": "Cañadas oficiales (UGR) asignadas a cauces",
+          "archivo": "estudios/san-cristobal/datos/cañadas_oficiales.geojson",
+          "color": "#0d47a1",
+          "grosor": 3
         }
       ]
     },
@@ -661,6 +691,11 @@
         "dir": "estudios/san-cristobal/datos/modelo2d",
         "patron": "*.geojson",
         "prefijo": "san-cristobal/modelo2d/"
+      },
+      {
+        "dir": "estudios/san-cristobal/datos/ugr",
+        "patron": "*.*",
+        "prefijo": "san-cristobal/ugr/"
       }
     ]
   }
