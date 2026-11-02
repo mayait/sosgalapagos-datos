@@ -1,14 +1,14 @@
 """Genera el sitio estático sosgalapagos.org/estudios/ a partir de los textos y datos de geodatos/estudios/.
 
-Cada estudio es una página larga con:
-- aviso de estudio preliminar;
-- índice lateral;
+Cada isla tiene un índice (/estudios/<isla>/) con un panorama y tarjetas, y varias páginas temáticas cortas
+(/estudios/<isla>/<slug>/, definidas en «paginas» de estudios.json), cada una con:
+- etiqueta «Datos preliminares» y entradilla (primera línea «Intro: …» del archivo Markdown);
+- índice lateral de la página y enlaces a la página anterior, la siguiente y el índice de la isla;
 - secciones (Markdown) con figuras ampliables;
-- mapa interactivo (Leaflet);
-- vista 3D interactiva (Plotly, carga diferida);
-- línea del tiempo;
-- descargas de datos;
-- comentarios por sección (API en /estudios/api, ver app/deploy/sosgalapagos/comentarios).
+- mapa interactivo (Leaflet), vista 3D (Plotly), línea del tiempo y descargas solo donde el texto
+  pone [[MAPA]], [[3D]], [[LINEA_TIEMPO]] o [[DESCARGAS]];
+- comentarios por sección (API en /estudios/api, ver app/deploy/sosgalapagos/comentarios). La API solo
+  admite pagina = isla; cada sección usa la clave «<slug>--<sección>» y cada página la clave «<slug>».
 
 Uso:     .venv/bin/python -I scripts/19_estudios_web.py
 Publicar: scripts/publicar_estudios.sh
@@ -22,7 +22,6 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 EST = ROOT / "estudios"
 OUT = ROOT / "publicar" / "estudios"
 HOY = datetime.date.today()
-VERSION = "0.2 preliminar"
 
 LEAFLET = ('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">'
            '<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>')
@@ -56,6 +55,20 @@ def copiar_imagen(src: pathlib.Path, dst_dir: pathlib.Path):
     return web.name, big.name, w.size
 
 
+LISTA = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s")
+
+
+def separar_listas(texto):
+    """Python-Markdown exige una línea en blanco antes de una lista; la añade cuando un párrafo va pegado a ella."""
+    lineas, previa = [], ""
+    for ln in texto.split("\n"):
+        if LISTA.match(ln) and previa.strip() and not LISTA.match(previa) and not previa.startswith(("|", "    ")) and not previa.lstrip().startswith(("-", "*", "+")):
+            lineas.append("")
+        lineas.append(ln)
+        previa = ln
+    return "\n".join(lineas)
+
+
 def md_a_html(texto, base_dirs, dst_fig, figs, tabs):
     """Convierte el Markdown del proyecto (con «Tabla:», figuras y [[SALTO]]) a HTML."""
     texto = texto.replace("[[SALTO]]", "")
@@ -79,7 +92,7 @@ def md_a_html(texto, base_dirs, dst_fig, figs, tabs):
                        f'alt="{html.escape(re.sub("<[^>]+>", "", cap_html))}"></a><figcaption><b>Figura {figs[0]}.</b> {cap_html}</figcaption></figure>\n')
             continue
         out.append(ln)
-    h = markdown.markdown("\n".join(out), extensions=["tables", "sane_lists"], output_format="html5")
+    h = markdown.markdown(separar_listas("\n".join(out)), extensions=["tables", "sane_lists"], output_format="html5")
     h = re.sub(r"<table>", '<div class="tabla"><table>', h).replace("</table>", "</table></div>")
     h = re.sub(r'(https?://[^\s<"\)]+)(?![^<]*</a>)', r'<a href="\1" rel="noopener" target="_blank">\1</a>', h)
     return h
@@ -229,77 +242,129 @@ def mapa_capas(cfg, dst):
 # ---------------------------------------------------------------- plantilla
 CSS = (ROOT / "web" / "estudios.css").read_text()
 JS = (ROOT / "web" / "estudios.js").read_text()
+MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+FECHA = f"{HOY.day}-{MESES[HOY.month - 1]}-{HOY.year}"
+ETIQUETA = f'<p class="etiqueta">Datos preliminares · {FECHA}</p>'
+PIE = ('<footer class="pie"><p>SOS Galápagos · Coordinación de respuesta USFQ Galápagos · Responsable: Julián Maya · <a href="/privacidad">Privacidad</a></p>'
+       '<p class="muted">Datos: Copernicus GLO-30, IGM, © colaboradores de OpenStreetMap (ODbL), INEC, SNGR, CGREG, FCD, red IERSE-WSN (Universidad del Azuay), '
+       'Open-Meteo/ECMWF. Código y datos: geodatos/ en github.com/mayait/sosgalapagos-datos.</p></footer>')
 
 
-def pagina(sid, cfg):
-    dst = OUT / sid
-    if dst.exists(): shutil.rmtree(dst)
+def cabeza(titulo, descripcion, leaflet=False):
+    return (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+            f'<title>{html.escape(titulo)}</title><meta name="description" content="{html.escape(descripcion)}">'
+            f'<meta name="robots" content="index,follow"><link rel="icon" href="/favicon.ico">{LEAFLET if leaflet else ""}<style>{CSS}</style></head>')
+
+
+def leer_pagina(p):
+    """Devuelve (intro, texto) de un archivo de página: la primera línea «Intro: …» es la entradilla."""
+    txt = p.read_text(encoding="utf-8")
+    m = re.match(r"\s*Intro:\s*(.*)\n", txt)
+    return (m.group(1).strip(), txt[m.end():]) if m else ("", txt)
+
+
+def comentarios_js(sid, cfg, capas=None, v3d=False):
+    return (f'<script>window.ESTUDIO={json.dumps({"pagina": sid, "capas": capas or [], "mapa": cfg.get("mapa", {}).get("vista", {}), "plotly": PLOTLY, "v3d": v3d}, ensure_ascii=False)};</script>'
+            f'<script>{JS}</script>')
+
+
+def resumen_tarjeta(intro):
+    """Primera frase de la entradilla, sin enlaces ni marcas Markdown, para las tarjetas del índice."""
+    t = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", intro)
+    t = re.sub(r"[*_`]", "", t).strip()
+    m = re.match(r"(.+?[.:;])(\s|$)", t)
+    return (m.group(1) if m else t).rstrip(":;") + ("" if (m and m.group(1).endswith(".")) else ".") if t else ""
+
+
+def subpagina(sid, cfg, i, pg, paginas):
+    """Una página temática: /estudios/<isla>/<slug>/."""
+    dst = OUT / sid / pg["slug"]
     (dst / "figuras").mkdir(parents=True)
-    figs, tabs, cuerpo = [0], [0], ""
+    figs, tabs = [0], [0]
     bases = [ROOT / b for b in cfg.get("bases", [])]
-    for t in cfg["textos"]:
-        p = ROOT / t["archivo"]
+    intro, cuerpo = pg.get("intro", ""), ""
+    for archivo in pg["textos"]:
+        p = ROOT / archivo
         if not p.exists():
-            nombre = t.get("titulo") or pathlib.Path(t["archivo"]).stem.split("_", 1)[-1].replace("_", " ").capitalize()
-            cuerpo += f'\n<h1>{t.get("n", "")}{"." if t.get("n") else ""} {html.escape(nombre)}</h1>\n<p class="pendiente">Sección en preparación.</p>\n'
-            continue
-        txt = renumerar(p.read_text(encoding="utf-8"), t.get("n"), cfg.get("refs_mapas", {}).get(t.get("refs")), t.get("titulo"))
-        cuerpo += md_a_html(txt, [p.parent.parent, p.parent] + bases, dst / "figuras", figs, tabs)
+            cuerpo += '<h1>En preparación</h1>\n<p class="pendiente">Página en preparación.</p>\n'; continue
+        ent, txt = leer_pagina(p)
+        intro = intro or ent
+        cuerpo += md_a_html(renumerar(txt, None, None), [p.parent.parent, p.parent] + bases, dst / "figuras", figs, tabs)
     secs = secciones(cuerpo)
-    capas = mapa_capas(cfg, dst)
-    if cfg.get("vista3d"): dem_json(cfg, dst)
-    lt = linea_tiempo(cfg); desc = descargas(cfg, dst)
-    especiales = {"[[MAPA]]": '<div id="mapa" class="mapa"></div><p class="muted">Capas preliminares. Cotas del DSM ±2–4 m. Haz clic en un elemento para ver sus atributos.</p>',
-                  "[[3D]]": '<div class="v3d"><button id="cargar3d" class="boton">Cargar vista 3D interactiva (≈4 MB)</button><div id="vista3d"></div></div>'
-                            '<p class="muted">Arrastra para girar, rueda para acercar. Exageración vertical para que se lea el relieve.</p>',
-                  "[[LINEA_TIEMPO]]": lt, "[[DESCARGAS]]": desc}
+    capas, v3d, especiales = [], False, {}
+    if "[[MAPA]]" in cuerpo:
+        capas = mapa_capas(cfg, dst)
+        especiales["[[MAPA]]"] = '<div id="mapa" class="mapa"></div><p class="muted">Cotas del DSM con error de ±2–4 m. Haz clic en un elemento para ver sus atributos.</p>'
+    if "[[3D]]" in cuerpo and cfg.get("vista3d"):
+        dem_json(cfg, dst); v3d = True
+        especiales["[[3D]]"] = ('<div class="v3d"><button id="cargar3d" class="boton">Cargar vista 3D interactiva (≈4 MB)</button><div id="vista3d"></div></div>'
+                                '<p class="muted">Arrastra para girar, rueda para acercar. Exageración vertical para que se lea el relieve.</p>')
+    if "[[LINEA_TIEMPO]]" in cuerpo: especiales["[[LINEA_TIEMPO]]"] = linea_tiempo(cfg)
+    if "[[DESCARGAS]]" in cuerpo: especiales["[[DESCARGAS]]"] = descargas(cfg, dst)
     toc, html_secs = [], []
-    n = 0
     for sec_id, tit, body, subs in secs:
         for k, v in especiales.items():
             body = body.replace(f"<p>{k}</p>", v)
+        clave = f'{pg["slug"]}--{sec_id}'[:80]
         if tit:
-            n += 1 if not tit.lower().startswith(("resumen", "anexo", "fuentes")) else 0
-            sub_toc = "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in subs)
+            sub_toc = "".join(f'<li><a href="#{a}">{t}</a></li>' for a, t in subs)
             toc.append(f'<li><a href="#{sec_id}">{tit}</a>{f"<ul>{sub_toc}</ul>" if sub_toc else ""}</li>')
-        html_secs.append(f'<section id="{sec_id}" data-seccion="{sec_id}">{f"<h1>{tit}</h1>" if tit else ""}{body}'
-                         f'<div class="com" data-seccion="{sec_id}"></div></section>')
-    doc = f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(cfg["titulo_corto"])} · Estudio preliminar · SOS Galápagos</title>
-<meta name="description" content="{html.escape(cfg["descripcion"])}">
-<meta name="robots" content="index,follow"><link rel="icon" href="/favicon.ico">
-{LEAFLET}<style>{CSS}</style></head>
-<body data-pagina="{sid}">
-<div class="preliminar-barra">ESTUDIO PRELIMINAR · NO ES UN DISEÑO DE INGENIERÍA NI UN MAPA OFICIAL DE AMENAZA · v{VERSION} · {HOY.strftime('%d-%m-%Y')}</div>
-<header class="cab"><div class="cab-in"><a class="volver" href="/estudios/">← Estudios</a>
-<p class="serie">{html.escape(cfg["serie"])}</p><h1 class="titulo">{html.escape(cfg["titulo"])}</h1><p class="sub">{html.escape(cfg["subtitulo"])}</p>
-<div class="aviso"><b>Totalmente preliminar.</b> Análisis de reconocimiento hecho en pocos días con datos públicos: un modelo de superficie de 30 m (error vertical ±2–4 m), lluvia medida por una red de estaciones con cortes de transmisión y lluvia estimada por modelos. Lo elaboró un comité de agentes de inteligencia artificial (Claude, de Anthropic) para la coordinación de respuesta de USFQ Galápagos y <b>no lo han revisado profesionales habilitados</b>. Sirve para ordenar preguntas y prioridades, <b>no para decidir obras, permisos ni reasentamientos</b>. Las cifras cambiarán con datos de campo. Tus comentarios ayudan a corregirlo.</div></div></header>
-<div class="cuerpo"><nav class="indice" aria-label="Índice"><button class="indice-boton" aria-expanded="false">Índice</button><ol>{"".join(toc)}</ol></nav>
-<main>{"".join(html_secs)}
-<section id="comentarios-generales" data-seccion="general"><h1>Comentarios generales</h1><p>¿Viviste la inundación, tienes datos (fotos con hora, marcas de agua, lluvia medida) o ves un error? Escríbelo aquí. Los comentarios son públicos.</p><div class="com abierto" data-seccion="general"></div></section>
-</main></div>
-<footer class="pie"><p>SOS Galápagos · Coordinación de respuesta USFQ Galápagos · Responsable: Julián Maya · <a href="/privacidad">Privacidad</a></p>
-<p class="muted">Datos: Copernicus GLO-30, IGM, © colaboradores de OpenStreetMap (ODbL), INEC, SNGR, CGREG, FCD, red IERSE-WSN (Universidad del Azuay), Open-Meteo/ECMWF. Código y datos: geodatos/ en github.com/mayait/sosgalapagos-datos.</p></footer>
-<div id="visor" class="visor" hidden><img alt=""><button aria-label="Cerrar">×</button></div>
-<script>window.ESTUDIO={json.dumps({"pagina": sid, "capas": capas, "mapa": cfg.get("mapa", {}).get("vista", {}), "plotly": PLOTLY, "v3d": bool(cfg.get("vista3d"))}, ensure_ascii=False)};</script>
-<script>{JS}</script></body></html>"""
+        html_secs.append(f'<section id="{sec_id}" data-seccion="{clave}">{f"<h1>{tit}</h1>" if tit else ""}{body}'
+                         f'<div class="com" data-seccion="{clave}"></div></section>')
+    ant = paginas[i - 1] if i > 0 else None
+    sig = paginas[i + 1] if i + 1 < len(paginas) else None
+    nav = ('<nav class="nav-pag" aria-label="Páginas del estudio">'
+           + (f'<a class="ant" href="../{ant["slug"]}/"><span>← Anterior</span>{html.escape(ant["titulo"])}</a>' if ant else '<span></span>')
+           + f'<a class="ind" href="../"><span>Índice</span>{html.escape(cfg["titulo_corto"])}</a>'
+           + (f'<a class="sig" href="../{sig["slug"]}/"><span>Siguiente →</span>{html.escape(sig["titulo"])}</a>' if sig else '<span></span>')
+           + '</nav>')
+    doc = (cabeza(f'{pg["titulo"]} · {cfg["titulo_corto"]} · SOS Galápagos', intro or cfg["descripcion"], leaflet=bool(capas))
+           + f'<body data-pagina="{sid}">'
+           + f'<header class="cab"><div class="cab-in"><a class="volver" href="../">← {html.escape(cfg["titulo_corto"])}</a>'
+           + f'<p class="serie">{html.escape(cfg["serie"])} · {i + 1} de {len(paginas)}</p><h1 class="titulo">{html.escape(pg["titulo"])}</h1>'
+           + (f'<p class="sub">{html.escape(intro)}</p>' if intro else "") + ETIQUETA + '</div></header>'
+           + f'<div class="cuerpo"><nav class="indice" aria-label="En esta página"><button class="indice-boton" aria-expanded="false">En esta página</button><ol>{"".join(toc)}</ol></nav>'
+           + f'<main>{"".join(html_secs)}'
+           + f'<section id="comentarios-pagina" data-seccion="{pg["slug"]}"><h1>Comentarios sobre esta página</h1><p>¿Viviste la inundación, tienes datos (fotos con hora, marcas de agua, lluvia medida) o ves un error? Escríbelo aquí. Los comentarios son públicos.</p><div class="com abierto" data-seccion="{pg["slug"]}"></div></section>'
+           + f'{nav}</main></div>{PIE}<div id="visor" class="visor" hidden><img alt=""><button aria-label="Cerrar">×</button></div>'
+           + comentarios_js(sid, cfg, capas, v3d) + '</body></html>')
     (dst / "index.html").write_text(doc, encoding="utf-8")
-    print(f"  {sid}: {len(secs)} secciones, {figs[0]} figuras, {tabs[0]} tablas, {len(capas)} capas")
+    return intro, len(secs), figs[0], tabs[0]
+
+
+def pagina(sid, cfg):
+    """Índice de una isla (/estudios/<isla>/) y sus páginas temáticas."""
+    dst = OUT / sid
+    if dst.exists(): shutil.rmtree(dst)
+    dst.mkdir(parents=True)
+    paginas = cfg["paginas"]
+    for i, pg in enumerate(paginas):
+        intro, ns, nf, nt = subpagina(sid, cfg, i, pg, paginas)
+        pg["_intro"] = intro
+        print(f"  {sid}/{pg['slug']}: {ns} secciones, {nf} figuras, {nt} tablas")
+    tarjetas = "".join(
+        f'<a class="tarjeta" href="{pg["slug"]}/"><span class="serie">{i + 1:02d}</span><h2>{html.escape(pg["titulo"])}</h2>'
+        f'<p>{html.escape(resumen_tarjeta(pg.get("_intro", "")))}</p><span class="mas">Leer →</span></a>' for i, pg in enumerate(paginas))
+    panorama = markdown.markdown(separar_listas(cfg.get("panorama", "")), extensions=["sane_lists"], output_format="html5")
+    doc = (cabeza(f'{cfg["titulo_corto"]} · SOS Galápagos', cfg["descripcion"])
+           + f'<body data-pagina="{sid}"><header class="cab"><div class="cab-in"><a class="volver" href="/estudios/">← Estudios</a>'
+           + f'<p class="serie">{html.escape(cfg["serie"])}</p><h1 class="titulo">{html.escape(cfg["titulo"])}</h1><p class="sub">{html.escape(cfg["subtitulo"])}</p>{ETIQUETA}</div></header>'
+           + f'<main class="indice-isla"><div class="panorama">{panorama}</div><h2 class="temas">Temas</h2><div class="tarjetas">{tarjetas}</div>'
+           + '<section id="comentarios-generales" data-seccion="general"><h1>Comentarios generales</h1><p>¿Viviste la inundación, tienes datos (fotos con hora, marcas de agua, lluvia medida) o ves un error? Escríbelo aquí. Los comentarios son públicos.</p><div class="com abierto" data-seccion="general"></div></section></main>'
+           + PIE + comentarios_js(sid, cfg) + '</body></html>')
+    (dst / "index.html").write_text(doc, encoding="utf-8")
 
 
 def portada():
     tarjetas = "".join(
         f'<a class="tarjeta" href="{sid}/"><span class="serie">{html.escape(c["serie"])}</span><h2>{html.escape(c["titulo"])}</h2><p>{html.escape(c["descripcion"])}</p><span class="mas">Ver estudio →</span></a>'
         for sid, c in ESTUDIOS.items())
-    doc = f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Estudios preliminares · SOS Galápagos</title><meta name="description" content="Estudios técnicos preliminares sobre las inundaciones de El Niño 2026 en Galápagos.">
-<style>{CSS}</style></head><body data-pagina="estudios">
-<div class="preliminar-barra">ESTUDIOS PRELIMINARES · EN REVISIÓN · {HOY.strftime('%d-%m-%Y')}</div>
-<header class="cab"><div class="cab-in"><a class="volver" href="/">← SOS Galápagos</a><p class="serie">Emergencia El Niño 2026 · Galápagos</p><h1 class="titulo">Estudios técnicos preliminares</h1>
-<p class="sub">Análisis topográficos e hidrológicos de reconocimiento sobre las inundaciones de octubre y noviembre de 2026, para ordenar preguntas, datos y prioridades.</p>
-<div class="aviso"><b>Todo lo publicado aquí es preliminar.</b> Son análisis rápidos con datos públicos, hechos con asistencia de inteligencia artificial y sin revisión profesional. No sustituyen estudios de ingeniería ni mapas oficiales de amenaza. Cada estudio admite comentarios: si tienes datos o ves errores, escríbelos.</div></div></header>
-<main class="portada">{tarjetas}</main>
-<footer class="pie"><p>SOS Galápagos · Coordinación de respuesta USFQ Galápagos · Responsable: Julián Maya · <a href="/privacidad">Privacidad</a></p></footer></body></html>"""
+    doc = (cabeza("Estudios · SOS Galápagos", "Estudios técnicos sobre las inundaciones de El Niño 2026 en Galápagos.")
+           + '<body data-pagina="estudios"><header class="cab"><div class="cab-in"><a class="volver" href="/">← SOS Galápagos</a>'
+           + '<p class="serie">Emergencia El Niño 2026 · Galápagos</p><h1 class="titulo">Estudios técnicos</h1>'
+           + '<p class="sub">Análisis topográficos e hidrológicos de reconocimiento sobre las inundaciones de octubre y noviembre de 2026 en Santa Cruz y San Cristóbal. Cada página admite comentarios.</p>'
+           + ETIQUETA + '</div></header>'
+           + f'<main class="portada">{tarjetas}</main>' + PIE.split('<p class="muted">')[0] + '</footer></body></html>')
     (OUT / "index.html").write_text(doc, encoding="utf-8")
 
 

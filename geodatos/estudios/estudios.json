@@ -1,121 +1,92 @@
 {
   "santa-cruz": {
-    "serie": "Estudio preliminar · Santa Cruz · Emergencia El Niño 2026",
+    "serie": "Santa Cruz · Emergencia El Niño 2026",
     "titulo": "Inundaciones del 30 de octubre de 2026 en Santa Cruz",
     "titulo_corto": "Santa Cruz: inundaciones del 30-oct-2026",
-    "subtitulo": "Qué pasó, cuánto llovió, por qué se inunda La Cascada, dónde más puede inundarse (parte alta, Tomás de Berlanga y cruces de quebradas con vías) y qué se puede hacer.",
-    "descripcion": "Estudio preliminar de las inundaciones del 30-oct-2026 en Santa Cruz: cronología, lluvia medida, La Cascada, parte alta, Tomás de Berlanga, cruces de quebradas con vías y propuestas.",
+    "subtitulo": "Qué pasó, cuánto llovió, por qué se inunda La Cascada, dónde más puede inundarse y qué riesgos quedan abiertos.",
+    "descripcion": "Inundaciones del 30-oct-2026 en Santa Cruz: cronología, lluvia medida, La Cascada, parte alta, Tomás de Berlanga, cruces de quebradas con vías, riesgos y observaciones.",
     "bases": [
       "estudios/la-cascada",
       "estudios/santa-cruz"
     ],
-    "refs_mapas": {
-      "lc": {
-        "2": "1",
-        "3": "3",
-        "4": "5",
-        "5": "6",
-        "6": "7",
-        "7": "11",
-        "8": "12",
-        "9": "13",
-        "10": "14"
-      },
-      "sc": {
-        "2": "2",
-        "3": "3",
-        "4": "8",
-        "5": "10",
-        "6": "9",
-        "7": "11",
-        "8": "12",
-        "9": "13"
-      }
-    },
-    "textos": [
+    "panorama": "La tarde y la noche del 30 de octubre de 2026 llovió muy fuerte en Santa Cruz: al menos 179 mm en Los Guayabillos y 238 mm en Santa Rosa, con 61–66 mm en una hora. Es el día más lluvioso desde que funciona la red IERSE-WSN (abril de 2026), y los pronósticos no lo anticiparon.\n\nLa Cascada recibe el agua de 42 km² y ocupa un vaso cerrado al pie de un escarpe, sin cauce hasta el mar. Fuera de La Cascada, el análisis señala 121 puntos potenciales de inundación (11 de prioridad alta) y 687 cruces de quebradas con vías, de los que solo 2 tienen una estructura cartografiada.\n\nCada tema está en una página corta. Empieza por [qué pasó](que-paso/) o por los [riesgos y observaciones](riesgos/).",
+    "paginas": [
       {
-        "archivo": "estudios/santa-cruz/texto/00_resumen.md"
+        "slug": "que-paso",
+        "titulo": "Qué pasó el 30 de octubre",
+        "textos": [
+          "estudios/santa-cruz/texto/01_que_paso.md"
+        ]
       },
       {
-        "archivo": "estudios/santa-cruz/texto/01_alcance.md",
-        "n": 1
+        "slug": "lluvia",
+        "titulo": "La lluvia: lo que se midió y lo que estimaron los modelos",
+        "textos": [
+          "estudios/santa-cruz/texto/02_lluvia.md"
+        ]
       },
       {
-        "archivo": "estudios/santa-cruz/texto/02_cronologia.md",
-        "n": 2,
-        "refs": "sc"
+        "slug": "la-cascada",
+        "titulo": "La Cascada: por qué se inunda y qué está expuesto",
+        "textos": [
+          "estudios/santa-cruz/texto/03_la_cascada.md"
+        ]
       },
       {
-        "archivo": "estudios/santa-cruz/texto/02b_linea_tiempo.md"
+        "slug": "la-cascada-opciones",
+        "titulo": "La Cascada: opciones que aparecen en el análisis",
+        "textos": [
+          "estudios/santa-cruz/texto/04_la_cascada_opciones.md"
+        ]
       },
       {
-        "archivo": "estudios/santa-cruz/texto/03_lluvias.md",
-        "n": 3,
-        "refs": "sc"
+        "slug": "parte-alta",
+        "titulo": "Tomás de Berlanga, Bellavista y resto de la isla",
+        "textos": [
+          "estudios/santa-cruz/texto/05_parte_alta.md"
+        ]
       },
       {
-        "archivo": "estudios/santa-cruz/texto/04_mapa_3d.md",
-        "n": 4
+        "slug": "cruces",
+        "titulo": "Cruces de quebradas con vías",
+        "textos": [
+          "estudios/santa-cruz/texto/06_cruces.md"
+        ]
       },
       {
-        "archivo": "estudios/la-cascada/texto/04_hidrologia.md",
-        "n": 5,
-        "refs": "lc",
-        "titulo": "La Cascada: análisis topográfico e hidrológico"
+        "slug": "riesgos",
+        "titulo": "Riesgos y observaciones",
+        "textos": [
+          "estudios/santa-cruz/texto/07_riesgos.md"
+        ]
       },
       {
-        "archivo": "estudios/santa-cruz/texto/05b_modelo2d.md",
-        "titulo": "Modelo hidrodinámico 2D del 30 de octubre",
-        "n": "5b"
+        "slug": "mapa",
+        "titulo": "Mapa interactivo y vistas 3D",
+        "textos": [
+          "estudios/santa-cruz/texto/08_mapa.md"
+        ]
       },
       {
-        "archivo": "estudios/la-cascada/texto/05_desvio.md",
-        "n": 6,
-        "refs": "lc",
-        "titulo": "La Cascada: ¿es posible desviar las quebradas?"
+        "slug": "modelo-2d",
+        "titulo": "Modelo 2D del 30 de octubre",
+        "textos": [
+          "estudios/santa-cruz/texto/09_modelo2d.md"
+        ]
       },
       {
-        "archivo": "estudios/la-cascada/texto/06_urbano.md",
-        "n": 7,
-        "refs": "lc",
-        "titulo": "La Cascada: diagnóstico urbano"
+        "slug": "hidrologia",
+        "titulo": "La Cascada: cuenca, vaso y crecida (detalle técnico)",
+        "textos": [
+          "estudios/santa-cruz/texto/10_hidrologia.md"
+        ]
       },
       {
-        "archivo": "estudios/santa-cruz/texto/04_parte_alta.md",
-        "n": 8,
-        "refs": "sc"
-      },
-      {
-        "archivo": "estudios/santa-cruz/texto/06_tomas_de_berlanga.md",
-        "n": 9,
-        "refs": "sc"
-      },
-      {
-        "archivo": "estudios/santa-cruz/texto/05_cruces.md",
-        "n": 10,
-        "refs": "sc"
-      },
-      {
-        "archivo": "estudios/santa-cruz/texto/07_riesgo.md",
-        "n": 11,
-        "refs": "sc"
-      },
-      {
-        "archivo": "estudios/santa-cruz/texto/08_alternativas.md",
-        "n": 12,
-        "refs": "lc"
-      },
-      {
-        "archivo": "estudios/la-cascada/texto/09_hoja_de_ruta.md",
-        "n": 13,
-        "refs": "lc"
-      },
-      {
-        "archivo": "estudios/santa-cruz/texto/90_descargas.md"
-      },
-      {
-        "archivo": "estudios/la-cascada/texto/10_referencias.md",
-        "refs": "lc"
+        "slug": "metodos",
+        "titulo": "Métodos, datos y descargas",
+        "textos": [
+          "estudios/santa-cruz/texto/11_metodos.md"
+        ]
       }
     ],
     "linea_tiempo": "estudios/santa-cruz/datos/linea_tiempo.csv",
@@ -358,75 +329,107 @@
     ]
   },
   "san-cristobal": {
-    "serie": "Estudio preliminar · San Cristóbal · Emergencia El Niño 2026",
+    "serie": "San Cristóbal · Emergencia El Niño 2026",
     "titulo": "Puntos potenciales de inundación en San Cristóbal",
     "titulo_corto": "San Cristóbal: puntos potenciales de inundación",
-    "subtitulo": "Cuencas que llegan a Puerto Baquerizo Moreno y El Progreso, vasos, cruces de quebradas con vías y la quebrada que llega al campus de la USFQ.",
-    "descripcion": "Estudio preliminar de los puntos potenciales de inundación en San Cristóbal (Puerto Baquerizo Moreno, El Progreso y el campus USFQ / Galapagos Science Center).",
+    "subtitulo": "Cuencas que llegan a Puerto Baquerizo Moreno y El Progreso, contraste con el plan de la UGR, campus de la USFQ, tomas de agua y Floreana.",
+    "descripcion": "Puntos potenciales de inundación en San Cristóbal: Puerto Baquerizo Moreno, El Progreso, campus USFQ / Galapagos Science Center, tomas de agua del acueducto y Floreana.",
     "bases": [
       "estudios/san-cristobal",
       "estudios/la-cascada"
     ],
-    "textos": [
+    "panorama": "En San Cristóbal **no hay lluvia medida pública** del 30–31 de octubre de 2026. El aeropuerto observó lluvia fuerte el 30-oct a las 15 h y lluvia continua el 31-oct de 08:00 a 14:00, cuando la SNGR reportó el desbordamiento de las cañadas Barrio Frío y Divino Niño.\n\nPuerto Baquerizo Moreno recibe el agua de unos 11 km², sobre todo por la cañada Galápagos o de Barrio Frío. El riesgo es el agua que atraviesa la ciudad, no la que se acumula. Estas páginas contrastan el análisis con el Plan de Acción de la UGR y revisan el campus USFQ / GSC (resultado no concluyente), El Progreso, las tomas de agua y Floreana.\n\nEmpieza por el [panorama](panorama/) o por los [riesgos y observaciones](riesgos/).",
+    "paginas": [
       {
-        "archivo": "estudios/san-cristobal/texto/00_resumen.md"
+        "slug": "panorama",
+        "titulo": "Panorama: lo que se sabe del 30–31 de octubre",
+        "textos": [
+          "estudios/san-cristobal/texto/01_panorama.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/00b_plan_ugr.md"
+        "slug": "encanadas",
+        "titulo": "Encañadas de Puerto Baquerizo Moreno",
+        "textos": [
+          "estudios/san-cristobal/texto/02_encanadas.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/01_alcance.md",
-        "n": 1
+        "slug": "plan-ugr",
+        "titulo": "El Plan de Acción de la UGR frente al análisis",
+        "textos": [
+          "estudios/san-cristobal/texto/03_plan_ugr.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/02_mapa_3d.md",
-        "n": 2
+        "slug": "campus",
+        "titulo": "Campus USFQ / Galapagos Science Center",
+        "textos": [
+          "estudios/san-cristobal/texto/04_campus.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/03_lluvias.md",
-        "n": 3
+        "slug": "el-progreso",
+        "titulo": "El Progreso",
+        "textos": [
+          "estudios/san-cristobal/texto/05_el_progreso.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/04_hidrologia.md",
-        "n": 4
+        "slug": "agua",
+        "titulo": "Tomas de agua del acueducto",
+        "textos": [
+          "estudios/san-cristobal/texto/06_agua.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/04b_modelo2d.md",
-        "titulo": "Modelo hidrodinámico 2D",
-        "n": "4b"
+        "slug": "floreana",
+        "titulo": "Floreana",
+        "textos": [
+          "estudios/san-cristobal/texto/07_floreana.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/04c_floreana.md",
-        "n": "4c"
+        "slug": "cruces",
+        "titulo": "Cruces de quebradas con vías",
+        "textos": [
+          "estudios/san-cristobal/texto/08_cruces.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/05_cruces.md",
-        "n": 5
+        "slug": "riesgos",
+        "titulo": "Riesgos y observaciones",
+        "textos": [
+          "estudios/san-cristobal/texto/09_riesgos.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/06_urbano.md",
-        "n": 6
+        "slug": "mapa",
+        "titulo": "Mapa interactivo y vistas 3D",
+        "textos": [
+          "estudios/san-cristobal/texto/10_mapa.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/06b_plan_ugr_ubicacion.md",
-        "n": "6b",
-        "titulo": "Plan de Acción de la UGR: ubicación de sectores y medidas, y contraste urbano"
+        "slug": "lluvia",
+        "titulo": "La lluvia: lo observado y lo estimado",
+        "textos": [
+          "estudios/san-cristobal/texto/11_lluvia.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/07_riesgo.md",
-        "n": 7
+        "slug": "modelo-2d",
+        "titulo": "Modelo 2D de lluvia sobre la malla",
+        "textos": [
+          "estudios/san-cristobal/texto/12_modelo2d.md"
+        ]
       },
       {
-        "archivo": "estudios/san-cristobal/texto/09_agua_potable.md",
-        "titulo": "Tomas de agua del acueducto: ubicación, infraestructura, riesgos y cuencas",
-        "n": 8
-      },
-      {
-        "archivo": "estudios/san-cristobal/texto/08_recomendaciones.md",
-        "n": 9
-      },
-      {
-        "archivo": "estudios/san-cristobal/texto/90_descargas.md"
+        "slug": "metodos",
+        "titulo": "Métodos, datos y descargas",
+        "textos": [
+          "estudios/san-cristobal/texto/13_metodos.md"
+        ]
       }
     ],
     "mapa": {
