@@ -4,11 +4,14 @@ datos listos, visor, capturas, código y parche para ResponseGrid, y el catálog
 Los documentos escritos a mano (00-LEEME.md, documentacion/02-05, para-responsegrid/*.md) no se tocan.
 Uso: .venv/bin/python -I scripts/09_entregable.py   (después de 08)
 """
-import json, pathlib, shutil, collections, datetime
+import json, os, pathlib, shutil, collections, datetime
 
 G = pathlib.Path(__file__).resolve().parents[1]
 ROOT = G.parent
-APP = ROOT / "app"
+# La app ResponseGrid vive en otro repositorio. Ruta configurable con SOSGALAPAGOS_APP.
+APP = pathlib.Path(os.environ.get("SOSGALAPAGOS_APP", pathlib.Path.home() / "dev/RESPONSEGRID_GALAPAGOS/app")).expanduser()
+if not (APP / "apps/web").is_dir():
+    raise SystemExit(f"No encuentro la app ResponseGrid en {APP}. Define SOSGALAPAGOS_APP=/ruta/a/app")
 E = ROOT / "mapas-galapagos"
 SRC = G / "export" / "galapagos"
 
