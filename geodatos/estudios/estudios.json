@@ -130,7 +130,7 @@
       "capas": [
         {
           "nombre": "Modelo 2D: calado máximo el 30-oct",
-          "archivo": "estudios/santa-cruz/datos/modelo2d/central_calado_max_clases.geojson",
+          "archivo": "estudios/santa-cruz/datos/modelo2d/central/calado_max_clases.geojson",
           "color": "#2171b5",
           "relleno": 0.6,
           "grosor": 0,
@@ -321,7 +321,7 @@
           ]
         }
       ],
-      "calado": "estudios/santa-cruz/datos/modelo2d/central_calado_max.tif",
+      "calado": "estudios/santa-cruz/datos/modelo2d/central/calado_max_m.tif",
       "calado_titulo": "Calado máximo el 30-oct (modelo 2D)"
     },
     "descargas": [
@@ -349,6 +349,11 @@
         "dir": "estudios/la-cascada/datos",
         "patron": "*.csv",
         "prefijo": "la-cascada/"
+      },
+      {
+        "dir": "estudios/santa-cruz/datos/modelo2d/central",
+        "patron": "*.*[!z]",
+        "prefijo": "santa-cruz/modelo2d/"
       }
     ]
   },
