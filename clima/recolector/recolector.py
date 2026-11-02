@@ -412,9 +412,16 @@ LEEME_DESCARGA = """Datos meteorológicos de Galápagos recopilados por SOS Gal�
 Actualizado: {generado} (se regenera cada hora)
 
 USO RESTRINGIDO: enlace privado para investigación. No redistribuir ni publicar los datos
-crudos sin autorización de cada operador. Citar a cada operador: IERSE-WSN (Universidad del
-Azuay), GSC-USFQ (Galapagos Science Center), INAMHI, IOC (mareógrafos), METAR de los
-aeropuertos.
+crudos sin autorización de cada operador.
+
+CÓMO CITAR
+- IERSE-WSN (Santa Cruz). Licencia CC BY-NC-ND 4.0 (atribución, no comercial, sin
+  obras derivadas): Orellana-Samaniego, M.L., Cabrera-Lituma, A., Omar, D., Célleri, R.,
+  Bendix, J., y Ballari, D. 2023. Proyecto DARWIN. Versión 2023.1. IERSE, Universidad del
+  Azuay. <http://opengeodata.uazuay.edu.ec/EstudioDarwin/>, fecha de acceso.
+- GSC-USFQ (San Cristóbal): Universidad San Francisco de Quito; Galapagos Science Center.
+  (2026). Weather Data - GSC. Recuperado el <fecha> de https://weathergsc.usfq.edu.ec/
+- INAMHI, IOC (mareógrafos), METAR de los aeropuertos y WeatherLink: citar al operador.
 
 csv/clima_galapagos_AAAA-MM.csv.gz   todas las observaciones del mes
     ts_utc     hora en UTC (Galápagos = UTC-6)

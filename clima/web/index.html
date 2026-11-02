@@ -167,6 +167,9 @@ details.um table{margin-top:6px;font-size:12px}
   <h2>Fuentes</h2>
   <div class="fuentes" id="fuentes"></div>
   <p class="note">Datos de terceros, tal como llegan y sin control de calidad. La estacionalidad usa además series diarias de la Fundación Charles Darwin (Puerto Ayora desde 1965, Bellavista 1987–2019).</p>
+  <h3>Cómo citar</h3>
+  <p class="note" style="color:var(--ink2)"><b>IERSE-WSN.</b> Orellana-Samaniego, M.L., Cabrera-Lituma, A., Omar, D., Célleri, R., Bendix, J., y Ballari, D. 2023. Proyecto DARWIN. Versión 2023.1. IERSE, Universidad del Azuay. &lt;http://opengeodata.uazuay.edu.ec/EstudioDarwin/&gt;, <span class="hoy"></span>. Licencia CC BY-NC-ND 4.0.</p>
+  <p class="note" style="color:var(--ink2)"><b>GSC-USFQ.</b> Universidad San Francisco de Quito; Galapagos Science Center. (2026). Weather Data - GSC. Recuperado el <span class="hoy"></span> de https://weathergsc.usfq.edu.ec/</p>
 </section>
 
 </div>
@@ -637,6 +640,7 @@ document.getElementById("comparar").onchange = ev => { S.cmp = ev.target.value; 
 });
 document.getElementById("irEvento").onclick = () => { S.desde = "2026-10-29"; S.hasta = "2026-11-01"; S.g = 1; S.cmp = ""; document.getElementById("comparar").value = ""; explorador(); document.getElementById("explorador").scrollIntoView({behavior: "smooth"}); };
 
+document.querySelectorAll(".hoy").forEach(x => x.textContent = new Intl.DateTimeFormat("es-EC", {timeZone: TZ, day: "numeric", month: "long", year: "numeric"}).format(new Date()));
 cargar();
 setInterval(cargar, 5 * 60 * 1000);
 </script>
