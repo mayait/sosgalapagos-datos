@@ -1,0 +1,139 @@
+{
+ "_nota": "Capas de los estudios de inundaciones (estudios/estudios.json → mapa.capas) que 10_publicar_web.py añade a sosgalapagos.org/mapas/. La clave de cada capa es su «nombre» en estudios.json. «extra» son capas que no están en el mapa del estudio. Las explicaciones son neutras: describen lo que muestra la capa y sus límites.",
+ "santa-cruz": {
+  "titulo": "Estudio de inundaciones del 30-oct: Santa Cruz",
+  "descripcion": "Capas del estudio de las inundaciones del 30 de octubre de 2026 en Santa Cruz (La Cascada, parte alta y cruces con vías). Son un análisis de gabinete sobre un modelo de superficie de 30 m: sirven para decidir dónde mirar primero en campo, no para dimensionar obras. Ningún punto se ha visitado. Cotas del DSM con error de ±2–4 m.",
+  "enlace": {"url": "/estudios/santa-cruz/", "texto": "Leer el estudio de Santa Cruz"},
+  "capas": {
+   "Modelo 2D: calado máximo el 30-oct": {
+    "id": "sc_modelo2d", "titulo": "Modelo 2D: profundidad máxima del agua el 30-oct",
+    "descripcion": "Profundidad máxima del agua que simuló el modelo 2D con la lluvia medida el 30 de octubre (juego de parámetros principal). Muestra por dónde corrió y se acumuló el agua; explica el mecanismo, pero no sirve todavía para dimensionar obras.",
+    "popup": {"titulo": "clase", "campos": {"area_ha": "Área (ha)", "escenario": "Escenario"}}},
+   "Cuenca que drena a La Cascada": {
+    "id": "sc_cuenca_cascada", "titulo": "Cuenca que drena a La Cascada",
+    "descripcion": "Las ramas de la cuenca de unos 42 km² que llevan el agua de la parte alta al barrio La Cascada.",
+    "popup": {"titulo": "subcuenca", "campos": {"area_km2": "Área (km²)", "cota_max_m": "Cota máxima (m)", "cota_entrada_m": "Cota de entrada al barrio (m)", "pendiente_media_pct": "Pendiente media (%)", "rumbo_desde_barrio": "Rumbo desde el barrio"}}},
+   "Llenado del vaso hasta ≈13 m": {
+    "id": "sc_vaso_13m", "titulo": "La Cascada: vaso lleno hasta ≈13 m",
+    "descripcion": "Zona que queda bajo el agua si el vaso de La Cascada se llena hasta unos 13 m de cota, por encima de su rebose (≈12–13,25 m). Es un llenado tipo bañera: no simula el flujo ni el tiempo.",
+    "popup": {"titulo_defecto": "Vaso de La Cascada", "campos": {"cota_m": "Cota del agua (m)", "area_m2": "Área (m²)", "volumen_m3": "Volumen (m³)", "edificios": "Edificios", "poblacion_estimada": "Población estimada"}}},
+   "Salida natural del agua (La Cascada → mar)": {
+    "id": "sc_salida_cascada", "titulo": "La Cascada: salida natural del agua hasta el mar",
+    "descripcion": "Recorrido que sigue el agua desde La Cascada hasta el mar según el relieve. No hay cauce cartografiado: pasa por calles, lotes y techos.",
+    "popup": {"titulo": "nombre", "campos": {"largo_m": "Largo (m)", "cota_ini_m": "Cota inicial (m)", "cota_fin_m": "Cota final (m)", "edificios_atravesados": "Edificios atravesados", "pct_longitud_sobre_techos": "Longitud sobre techos (%)", "nota": "Nota"}}},
+   "Interceptor hipotético al este (no demostrado)": {
+    "id": "sc_interceptor", "titulo": "La Cascada: interceptor hipotético al este (no demostrado)",
+    "descripcion": "Trazado hipotético de un canal que desviaría parte del agua antes de llegar al barrio. Aparece en el análisis como opción sin evaluar: no está demostrado que funcione ni que sea viable.",
+    "popup": {"titulo": "rama", "campos": {"longitud_km": "Longitud (km)", "cota_toma_m": "Cota de la toma (m)", "corte_max_m": "Corte máximo (m)", "area_captada_km2": "Área captada (km²)", "pct_parque": "En el Parque Nacional (%)", "cruces_vias": "Cruces con vías", "edificios_a_menos_de_20m": "Edificios a < 20 m"}}},
+   "Vasos (depresiones) de prioridad alta o media": {
+    "id": "sc_vasos", "titulo": "Vasos: depresiones donde se acumula el agua",
+    "descripcion": "Depresiones cerradas del relieve que tocan zonas pobladas, de prioridad alta o media. Las de 1–2 m entre edificios pueden ser artefactos del modelo de superficie.",
+    "popup": {"titulo": "id", "campos": {"sector": "Sector", "localidad": "Localidad", "prioridad": "Prioridad", "vol_vaso_m3": "Volumen (m³)", "prof_max_m": "Profundidad máxima (m)", "cota_rebose_m": "Cota de rebose (m)", "edificios": "Edificios", "se_llena_30oct": "Se llenó el 30-oct"}}},
+   "Puntos potenciales de inundación": {
+    "id": "sc_puntos", "titulo": "Puntos potenciales de inundación (prioridad alta y media)",
+    "descripcion": "Vasos, llegadas de flujo a zonas pobladas y pies de ladera fuera de La Cascada, por prioridad. Sirven para priorizar inspecciones, no para delimitar zonas. Caudales de un modelo sin calibrar.",
+    "popup": {"titulo": "id", "campos": {"tipo": "Tipo", "sector": "Sector", "prioridad": "Prioridad", "edificios": "Edificios expuestos", "area_km2": "Área aportante (km²)", "q30_temez_m3s": "Q 30-oct, Témez (m³/s)", "q30_kirpich_m3s": "Q 30-oct, Kirpich (m³/s)", "hora_pico_30oct": "Hora del pico (30-oct)", "evidencia": "Evidencia histórica"}}},
+   "Cruces quebrada–vía (prioridad alta)": {
+    "id": "sc_cruces_alta", "titulo": "Cruces de quebradas con vías: prioridad alta",
+    "descripcion": "Puntos donde un cauce corta una calle o carretera. «Ninguna estructura cartografiada» no quiere decir que no haya alcantarilla: falta un inventario de campo. Los caudales son valores bajos.",
+    "popup": {"titulo": "id", "campos": {"lugar": "Lugar", "via_nombre": "Vía", "via_otras": "Otras vías", "area_km2": "Área drenada (km²)", "q100": "Q con 100 mm (m³/s)", "q30oct": "Q 30-oct (m³/s)", "estructura": "Estructura", "edificios_50m": "Edificios a ≤ 50 m", "cota_dsm_m": "Cota DSM (m)"}}},
+   "Cruces quebrada–vía (prioridad media)": {
+    "id": "sc_cruces_media", "titulo": "Cruces de quebradas con vías: prioridad media",
+    "descripcion": "Cruces de cauce con vía de prioridad media. Mismo método y mismos límites que los de prioridad alta.",
+    "popup": {"titulo": "id", "campos": {"lugar": "Lugar", "via_nombre": "Vía", "area_km2": "Área drenada (km²)", "q100": "Q con 100 mm (m³/s)", "q30oct": "Q 30-oct (m³/s)", "estructura": "Estructura", "edificios_50m": "Edificios a ≤ 50 m"}}},
+   "Estaciones de lluvia IERSE-WSN": {
+    "id": "sc_estaciones", "titulo": "Estaciones de lluvia de la red IERSE-WSN",
+    "descripcion": "Estaciones de la red IERSE-WSN (Universidad del Azuay) que midieron la lluvia del 30 de octubre. Dejaron de transmitir hacia las 21:25, así que los totales medidos son mínimos.",
+    "popup": {"titulo": "nombre", "campos": {"altitud_m_dem": "Altitud (m)", "desde": "Datos desde", "hasta": "Datos hasta", "registros": "Registros", "fuente": "Fuente"}}}
+  },
+  "extra": [
+   {"despues_de": "Puntos potenciales de inundación",
+    "archivo": "estudios/santa-cruz/datos/urbano/tomas_de_berlanga_cauces.geojson",
+    "id": "sc_tdb_cauces", "titulo": "Tomás de Berlanga: cauces sin cartografiar", "tipo": "linea",
+    "descripcion": "Cauces del relieve que atraviesan el sector Tomás de Berlanga y siguen hacia La Cascada. No figuran en el IGM ni en OSM. Su posición tiene un error de decenas de metros.",
+    "estilo": {"color": "#0d47a1", "weight": 3.5},
+    "popup": {"titulo_defecto": "Cauce (D8)", "campos": {"area_drenada_km2": "Área drenada (km²)", "fuente": "Fuente"}}},
+   {"despues_de": "Puntos potenciales de inundación",
+    "archivo": "estudios/santa-cruz/datos/urbano/tomas_de_berlanga_edificios.geojson",
+    "id": "sc_tdb_edificios", "titulo": "Tomás de Berlanga: edificios junto a los cauces", "tipo": "poligono",
+    "descripcion": "Edificios a 30 m o menos de los cauces mayores del sector; algunos quedan sobre la línea del cauce.",
+    "estilo": {"color": "#9a3412", "weight": 0.8, "fillColor": "#f97316", "fillOpacity": 0.6},
+    "popup": {"titulo_defecto": "Edificio", "campos": {"dist_cauce_m": "Distancia al cauce (m)", "sobre_linea": "Sobre la línea del cauce", "fuente": "Fuente"}}}
+  ]
+ },
+ "san-cristobal": {
+  "titulo": "Estudio de inundaciones del 30–31-oct: San Cristóbal",
+  "descripcion": "Capas del estudio de puntos potenciales de inundación en San Cristóbal (Puerto Baquerizo Moreno, El Progreso, campus USFQ y tomas de agua) y su contraste con el Plan de Acción de la UGR. No hay lluvia medida en San Cristóbal: el modelo usa la tormenta de Santa Cruz trasladada. Ningún punto se ha visitado. Cotas del DSM con error de ±2–4 m.",
+  "enlace": {"url": "/estudios/san-cristobal/", "texto": "Leer el estudio de San Cristóbal"},
+  "capas": {
+   "Modelo 2D (15 m): calado máximo, tormenta del 30-oct trasladada": {
+    "id": "sx_modelo2d_guayabillos", "titulo": "Modelo 2D: profundidad máxima con la tormenta del 30-oct trasladada",
+    "descripcion": "Profundidad máxima del agua con la lluvia medida el 30-oct en Los Guayabillos (Santa Cruz) aplicada a San Cristóbal, en una malla de 15 m. Es un escenario, no el evento real de San Cristóbal.",
+    "popup": {"titulo": "clase", "campos": {"escenario": "Escenario"}}},
+   "Modelo 2D: calado máximo con 100 mm (SCS II)": {
+    "id": "sx_modelo2d_100mm", "titulo": "Modelo 2D: profundidad máxima con 100 mm",
+    "descripcion": "Profundidad máxima del agua con una tormenta tipo de 100 mm en 24 h (SCS tipo II).",
+    "popup": {"titulo": "clase", "campos": {"escenario": "Escenario"}}},
+   "Cuencas que llegan a zonas pobladas": {
+    "id": "sx_cuencas", "titulo": "Cuencas que llegan a zonas pobladas",
+    "descripcion": "Área que drena a cada punto donde un cauce entra en Puerto Baquerizo Moreno o El Progreso.",
+    "popup": {"titulo": "id", "campos": {"zona": "Zona", "cañada_oficial": "Cañada (nombre oficial)", "area_km2": "Área (km²)", "q_pico_100mm_CN70_m3s": "Q con 100 mm, CN 70 (m³/s)", "cota_entrada_m": "Cota de entrada (m)", "edificios_franja_45m_en_zona": "Edificios en franja de 45 m"}}},
+   "Cauces principales (D8)": {
+    "id": "sx_cauces", "titulo": "Cauces principales (relieve)",
+    "descripcion": "Cauce principal de cada cuenca de llegada, trazado sobre el relieve (D8).",
+    "popup": {"titulo": "id", "campos": {"zona": "Zona", "cañada_oficial": "Cañada (nombre oficial)", "longitud_km": "Longitud (km)", "con_cauce_mapeado_en_zona": "Con cauce cartografiado en la zona"}}},
+   "Recorrido del agua hasta el mar (D8)": {
+    "id": "sx_recorrido_mar", "titulo": "Recorrido del agua hasta el mar",
+    "descripcion": "Camino que sigue el agua desde la entrada a la zona poblada hasta el mar, según el relieve.",
+    "popup": {"titulo": "id", "campos": {"zona": "Zona", "longitud_m": "Longitud (m)", "llega_al_mar": "Llega al mar", "salida_mar_con_cauce_mapeado": "Sale al mar por cauce cartografiado"}}},
+   "Quebrada y cuenca del campus USFQ": {
+    "id": "sx_quebrada_usfq", "titulo": "Quebrada y cuenca del campus USFQ",
+    "descripcion": "Quebrada que pasa junto al campus USFQ / Galapagos Science Center y su cuenca. El resultado sobre el campus es no concluyente.",
+    "popup": {"titulo": "elemento", "campos": {"area_km2": "Área (km²)", "longitud_m": "Longitud (m)", "cruza_el_campus": "Cruza el campus", "dist_min_al_campus_m": "Distancia mínima al campus (m)"}}},
+   "Campus USFQ / GSC (OSM)": {
+    "id": "sx_campus", "titulo": "Campus USFQ / Galapagos Science Center",
+    "descripcion": "Contorno del campus según OpenStreetMap.",
+    "popup": {"titulo": "name", "campos": {"operator": "Operador", "fuente": "Fuente"}}},
+   "Vasos (depresiones)": {
+    "id": "sx_vasos", "titulo": "Vasos: depresiones donde se acumula el agua",
+    "descripcion": "Depresiones cerradas del relieve en zonas pobladas o junto a ellas.",
+    "popup": {"titulo": "id", "campos": {"zonas": "Zona", "volumen_m3": "Volumen (m³)", "prof_max_m": "Profundidad máxima (m)", "cota_rebose_m": "Cota de rebose (m)", "edificios_intersecan": "Edificios", "robusto": "Robusto", "nota": "Nota"}}},
+   "Puntos potenciales de inundación": {
+    "id": "sx_puntos", "titulo": "Puntos potenciales de inundación",
+    "descripcion": "Llegadas de quebradas y vasos en zonas pobladas, ordenados por puntuación. Sirven para priorizar inspecciones.",
+    "popup": {"titulo": "id", "campos": {"tipo": "Tipo", "zona": "Zona", "cañada_oficial": "Cañada (nombre oficial)", "ranking": "Ranking", "puntuacion": "Puntuación", "edificios": "Edificios", "area_aportante_km2": "Área aportante (km²)", "q_pico_100mm_CN70_m3s": "Q con 100 mm, CN 70 (m³/s)", "descripcion": "Descripción"}}},
+   "Cruces quebrada–vía (prioridad alta)": {
+    "id": "sx_cruces_alta", "titulo": "Cruces de quebradas con vías: prioridad alta",
+    "descripcion": "Puntos donde un cauce corta una calle o carretera. «Ninguna estructura cartografiada» no quiere decir que no haya alcantarilla: falta un inventario de campo.",
+    "popup": {"titulo": "id", "campos": {"lugar": "Lugar", "via_nombre": "Vía", "area_km2": "Área drenada (km²)", "q100": "Q con 100 mm (m³/s)", "estructura": "Estructura", "edificios_50m": "Edificios a ≤ 50 m", "cota_dsm_m": "Cota DSM (m)"}}},
+   "Cruces quebrada–vía (prioridad media)": {
+    "id": "sx_cruces_media", "titulo": "Cruces de quebradas con vías: prioridad media",
+    "descripcion": "Cruces de cauce con vía de prioridad media. Mismo método y mismos límites que los de prioridad alta.",
+    "popup": {"titulo": "id", "campos": {"lugar": "Lugar", "via_nombre": "Vía", "area_km2": "Área drenada (km²)", "q100": "Q con 100 mm (m³/s)", "estructura": "Estructura"}}},
+   "Tomas de agua y acueducto": {
+    "id": "sx_tomas", "titulo": "Tomas de agua y acueducto",
+    "descripcion": "Tomas, manantiales, reservorios, tanques y plantas que abastecen a Puerto Baquerizo Moreno y El Progreso. Varias ubicaciones son aproximadas.",
+    "popup": {"titulo": "nombre", "campos": {"categoria": "Categoría", "tipo": "Tipo", "operador": "Operador", "abastece": "Abastece", "caudal_ls": "Caudal (l/s)", "confianza": "Confianza de la ubicación", "aproximada": "Ubicación aproximada", "notas": "Notas"}}},
+   "Conducciones de agua": {
+    "id": "sx_conducciones", "titulo": "Conducciones de agua",
+    "descripcion": "Tuberías del acueducto según el IGM, con sus cruces con cauces y vías.",
+    "popup": {"titulo": "nombre", "campos": {"estado_igm": "Estado (IGM)", "ubicacion_igm": "Ubicación (IGM)", "largo_m": "Largo (m)", "cruces_cauce": "Cruces con cauces", "cruce_mayor_km2": "Cauce mayor cruzado (km²)", "en_riesgo_cgreg": "Zona de riesgo del CGREG"}}},
+   "Cuencas de captación de las tomas": {
+    "id": "sx_cuencas_tomas", "titulo": "Cuencas de captación de las tomas",
+    "descripcion": "Área que drena a cada toma de agua. Una crecida en estas cuencas puede llevar sedimento a la toma.",
+    "popup": {"titulo": "nombre", "campos": {"elemento": "Elemento", "area_km2": "Área (km²)", "uso_agricola_pct": "Uso agrícola (%)", "uso_parque_pct": "Parque Nacional (%)", "riesgo_turbidez": "Riesgo de turbidez"}}},
+   "Plan UGR: lugares y sectores afectados": {
+    "id": "sx_ugr_lugares", "titulo": "Plan de la UGR: lugares y sectores afectados",
+    "descripcion": "Lugares y sectores que cita el Plan de Acción SC-4-09-2026 de la UGR (GAD San Cristóbal), ubicados por el análisis. La ubicación es aproximada.",
+    "popup": {"titulo": "nombre", "campos": {"tipo": "Tipo", "prioridad_ugr": "Prioridad en el plan", "afectacion_reportada": "Afectación reportada", "confianza": "Confianza de la ubicación"}}},
+   "Plan UGR: medidas propuestas (ubicación aproximada)": {
+    "id": "sx_ugr_medidas", "titulo": "Plan de la UGR: medidas del plan (ubicación aproximada)",
+    "descripcion": "Medidas que propone el Plan de Acción de la UGR, trazadas por el análisis. El plan no da los trazados: la ubicación es una hipótesis.",
+    "popup": {"titulo": "nombre", "campos": {"cañada": "Cañada", "longitud_plan_m": "Longitud en el plan (m)", "hipotesis": "Hipótesis de trazado", "incertidumbre": "Incertidumbre", "confianza": "Confianza"}}},
+   "Cañadas oficiales (UGR) asignadas a cauces": {
+    "id": "sx_canadas", "titulo": "Cañadas con nombre oficial (UGR)",
+    "descripcion": "Cañadas que nombra la UGR, asignadas a los cauces del relieve, con su nivel de confianza.",
+    "popup": {"titulo": "cañada_oficial", "campos": {"confianza": "Confianza", "area_d8_km2": "Área (km²)", "longitud_d8_km": "Longitud (km)", "nota": "Nota"}}}
+  }
+ }
+}
