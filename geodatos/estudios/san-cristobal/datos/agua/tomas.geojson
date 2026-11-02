@@ -1,0 +1,385 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "titulo": "Tomas y fuentes del acueducto de San Cristóbal (PRELIMINAR, sin verificación de campo)",
+  "confianza": "Ninguna ubicación se ha verificado en campo. Cada punto registra sus fuentes y una confianza en la\nubicación (alta / media / baja) con este criterio:\n  alta   el objeto está cartografiado como tal (IGM, OSM o capa FCD/CGREG) y otra fuente independiente lo confirma\n         a ≤ 350 m;\n  media  el punto se infiere de una sola fuente cartográfica (p. ej., el inicio de la tubería IGM) o de una coordenada\n         administrativa (registro SNGR) coherente con la toponimia;\n  baja   solo hay toponimia o descripción textual.",
+  "cota": "Cota del DSM Copernicus GLO-30: ±2–4 m, sesgo ≈ −2 m; descriptiva"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.4787,
+     -0.92
+    ]
+   },
+   "properties": {
+    "id": "AG-01",
+    "nombre": "Cerro Gato",
+    "categoria": "toma",
+    "tipo": "captación de manantial / cañada (tipo exacto no documentado)",
+    "operador": "GAD Municipal de San Cristóbal",
+    "abastece": "Planta Las Palmeras → Puerto Baquerizo Moreno (USFQ); según el CGREG 2015, fuente de la planta municipal",
+    "caudal_ls": "27 (CGREG 2015)",
+    "confianza": "media",
+    "aproximada": true,
+    "fuentes": "IGM acueducto «Proyecto de agua Cerro Gato» (inicio de la línea, 16,7 km hasta Las Palmeras); IGM tanque de agua a 10 m; IGM topónimo «Cerro Gato» a 0,4–0,7 km; CGREG2015; USFQ; GC2024",
+    "notas": "Punto = inicio de la conducción IGM y tanque IGM. La USFQ da 164 m de cota; el DSM da ≈267 m en este punto: no se ha resuelto la discrepancia.",
+    "cota_dsm_m": 267,
+    "fuentes_url": "https://www.gobiernogalapagos.gob.ec/wp-content/uploads/downloads/2015/07/LINK-3.1Proyecto-H%C3%ADdrico-Planificaci%C3%B3n_-VS8.pdf; https://revistas.usfq.edu.ec/index.php/esferas/article/download/2026/2344?inline=1; https://www.galapagos.org/newsroom/remarkable-benefits-of-reviving-a-critical-water-source/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.48728,
+     -0.91339
+    ]
+   },
+   "properties": {
+    "id": "AG-02",
+    "nombre": "Los Americanos (toma / represa)",
+    "categoria": "toma",
+    "tipo": "represa pequeña sobre cañada alimentada por manantial",
+    "operador": "GAD Municipal de San Cristóbal",
+    "abastece": "Sistema de agua potable de Puerto Baquerizo Moreno (SITREP 2023: 112 familias afectadas por el corte)",
+    "caudal_ls": "19 (CGREG 2015)",
+    "confianza": "media",
+    "aproximada": true,
+    "fuentes": "SNGR eventos históricos 2023 (coordenada del registro del aluvión, comunidad «El Junco – Finca Las Carmelitas»); SITREP01; SITREP03; CGREG2015",
+    "notas": "Coordenada administrativa de un registro de evento, no un levantamiento. Está a 370 m del topónimo IGM «Cerro Gato», a 1,2 km del punto AG-01 y a ≈170 m de la quebrada IGM más cercana; el D8 no muestra cauce en el punto, por lo que la represa puede estar a decenas o centenas de metros. No hay conducción cartografiada desde aquí.",
+    "cota_dsm_m": 407,
+    "fuentes_url": "https://www.gobiernogalapagos.gob.ec/wp-content/uploads/downloads/2015/07/LINK-3.1Proyecto-H%C3%ADdrico-Planificaci%C3%B3n_-VS8.pdf; https://www.gestionderiesgos.gob.ec/wp-content/uploads/2023/06/SITREP_Nr.-01_Epoca_Lluviosa_01012023_-Galapagos-.-..pdf; https://www.gestionderiesgos.gob.ec/wp-content/uploads/2023/09/SITREP_Nr.-03_Epoca_Lluviosa_01012023_a_31082023-1.pdf"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.50639,
+     -0.91162
+    ]
+   },
+   "properties": {
+    "id": "AG-03",
+    "nombre": "La Toma (El Progreso)",
+    "categoria": "toma",
+    "tipo": "captación con reservorio (IGM «Reservorio»; zanjas perennes IGM)",
+    "operador": "GAD Municipal de San Cristóbal (por confirmar)",
+    "abastece": "Planta de tratamiento El Progreso (USFQ) → El Progreso y, según la USFQ, también Puerto Baquerizo Moreno",
+    "caudal_ls": "no documentado",
+    "confianza": "alta",
+    "aproximada": false,
+    "fuentes": "FCD/CGREG captación (punto); IGM estanque «Reservorio» a 250 m; IGM topónimo «LA TOMA» a 330 m; IGM acueducto «Proyección Agua Potable Pampas Mías» termina a 150 m; USFQ",
+    "notas": "La USFQ da 150 m de cota; el DSM da ≈500 m. Discrepancia no resuelta.",
+    "cota_dsm_m": 503,
+    "fuentes_url": "https://revistas.usfq.edu.ec/index.php/esferas/article/download/2026/2344?inline=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.4571,
+     -0.9019
+    ]
+   },
+   "properties": {
+    "id": "AG-04",
+    "nombre": "El Chino (manantial)",
+    "categoria": "toma",
+    "tipo": "manantial",
+    "operador": "no documentado",
+    "abastece": "Red rural (conducción IGM enterrada hacia el sureste, 3,3 km); destino no documentado",
+    "caudal_ls": "20 (CGREG 2015)",
+    "confianza": "media",
+    "aproximada": false,
+    "fuentes": "IGM manantial (sin nombre); IGM acueducto enterrado «funcionando» que nace en el manantial; topónimo IGM «EL CHINO» a 0,9 km; FCD captación sin nombre a 275 m; CGREG2015 (El Chino 20 l/s)",
+    "notas": "La asignación del nombre «El Chino» es por proximidad.",
+    "cota_dsm_m": 296,
+    "fuentes_url": "https://www.gobiernogalapagos.gob.ec/wp-content/uploads/downloads/2015/07/LINK-3.1Proyecto-H%C3%ADdrico-Planificaci%C3%B3n_-VS8.pdf"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.46266,
+     -0.89869
+    ]
+   },
+   "properties": {
+    "id": "AG-05",
+    "nombre": "El Chino (poza FCD)",
+    "categoria": "reservorio",
+    "tipo": "poza de almacenamiento superficial",
+    "operador": "no documentado",
+    "abastece": "no documentado",
+    "caudal_ls": "—",
+    "confianza": "alta",
+    "aproximada": false,
+    "fuentes": "FCD/CGREG captación «EL CHINO» (POZA ALMACENAMIENTO SUPERFICIAL)",
+    "notas": "",
+    "cota_dsm_m": 393,
+    "fuentes_url": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.47007,
+     -0.88992
+    ]
+   },
+   "properties": {
+    "id": "AG-06",
+    "nombre": "J Chico",
+    "categoria": "reservorio",
+    "tipo": "poza de almacenamiento superficial / reservorio",
+    "operador": "no documentado",
+    "abastece": "no documentado",
+    "caudal_ls": "—",
+    "confianza": "alta",
+    "aproximada": false,
+    "fuentes": "FCD/CGREG captación «J CHICO»; IGM estanque «Reservorio» en el mismo punto",
+    "notas": "",
+    "cota_dsm_m": 561,
+    "fuentes_url": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.49446,
+     -0.90581
+    ]
+   },
+   "properties": {
+    "id": "AG-07",
+    "nombre": "La Piscina",
+    "categoria": "reservorio",
+    "tipo": "poza de almacenamiento superficial",
+    "operador": "no documentado",
+    "abastece": "no documentado",
+    "caudal_ls": "—",
+    "confianza": "alta",
+    "aproximada": false,
+    "fuentes": "FCD/CGREG captación «LA PISCINA»",
+    "notas": "",
+    "cota_dsm_m": 451,
+    "fuentes_url": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.4771,
+     -0.8842
+    ]
+   },
+   "properties": {
+    "id": "AG-08",
+    "nombre": "Vertiente Las Goteras",
+    "categoria": "manantial",
+    "tipo": "manantial",
+    "operador": "no documentado",
+    "abastece": "no documentado",
+    "caudal_ls": "no documentado (CGREG 2015 la cita sin caudal)",
+    "confianza": "alta",
+    "aproximada": false,
+    "fuentes": "IGM manantial «Vertiente Las Goteras»; CGREG2015",
+    "notas": "No consta que sea toma del acueducto público.",
+    "cota_dsm_m": 581,
+    "fuentes_url": "https://www.gobiernogalapagos.gob.ec/wp-content/uploads/downloads/2015/07/LINK-3.1Proyecto-H%C3%ADdrico-Planificaci%C3%B3n_-VS8.pdf"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.51953,
+     -0.91846
+    ]
+   },
+   "properties": {
+    "id": "AG-09",
+    "nombre": "Captación FCD sin nombre (oeste de La Toma)",
+    "categoria": "toma",
+    "tipo": "captación (FCD)",
+    "operador": "no documentado",
+    "abastece": "no documentado",
+    "caudal_ls": "—",
+    "confianza": "media",
+    "aproximada": false,
+    "fuentes": "FCD/CGREG captación (sin nombre)",
+    "notas": "Podría corresponder a El Plátano/Platanal, La Policía, La Honda o Chuquimarca: no hay fuente que lo confirme.",
+    "cota_dsm_m": 358,
+    "fuentes_url": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.53797,
+     -0.89193
+    ]
+   },
+   "properties": {
+    "id": "AG-10",
+    "nombre": "Captación FCD sin nombre (noroeste de El Progreso)",
+    "categoria": "toma",
+    "tipo": "captación (FCD)",
+    "operador": "no documentado",
+    "abastece": "no documentado",
+    "caudal_ls": "—",
+    "confianza": "media",
+    "aproximada": false,
+    "fuentes": "FCD/CGREG captación (sin nombre)",
+    "notas": "Ídem.",
+    "cota_dsm_m": 422,
+    "fuentes_url": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.45469,
+     -0.90246
+    ]
+   },
+   "properties": {
+    "id": "AG-11",
+    "nombre": "Captación FCD sin nombre (El Chino sur)",
+    "categoria": "toma",
+    "tipo": "captación (FCD)",
+    "operador": "no documentado",
+    "abastece": "no documentado",
+    "caudal_ls": "—",
+    "confianza": "media",
+    "aproximada": false,
+    "fuentes": "FCD/CGREG captación (sin nombre), a 275 m del manantial IGM AG-04",
+    "notas": "Probablemente el mismo sistema que AG-04.",
+    "cota_dsm_m": 326,
+    "fuentes_url": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.5576,
+     -0.9063
+    ]
+   },
+   "properties": {
+    "id": "AG-P1",
+    "nombre": "Planta de tratamiento El Progreso",
+    "categoria": "planta",
+    "tipo": "planta potabilizadora",
+    "operador": "GAD Municipal de San Cristóbal",
+    "abastece": "El Progreso y Puerto Baquerizo Moreno (USFQ)",
+    "caudal_ls": "—",
+    "confianza": "alta",
+    "aproximada": false,
+    "fuentes": "IGM tanques «Planta de agua potable»; OSM man_made=water_works (way 1548803171); USFQ",
+    "notas": "",
+    "cota_dsm_m": 339,
+    "fuentes_url": "https://revistas.usfq.edu.ec/index.php/esferas/article/download/2026/2344?inline=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.5951,
+     -0.9094
+    ]
+   },
+   "properties": {
+    "id": "AG-P2",
+    "nombre": "Planta / tanques Las Palmeras",
+    "categoria": "planta",
+    "tipo": "planta potabilizadora y tanques",
+    "operador": "GAD Municipal de San Cristóbal",
+    "abastece": "Puerto Baquerizo Moreno",
+    "caudal_ls": "—",
+    "confianza": "alta",
+    "aproximada": false,
+    "fuentes": "IGM tanques de agua (4); OSM man_made=storage_tank (4); fin de la línea IGM «Proyecto de agua Cerro Gato»; topónimo IGM «Las Palmeras» a 250 m; USFQ",
+    "notas": "",
+    "cota_dsm_m": 82,
+    "fuentes_url": "https://revistas.usfq.edu.ec/index.php/esferas/article/download/2026/2344?inline=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.6037,
+     -0.9055
+    ]
+   },
+   "properties": {
+    "id": "AG-T1",
+    "nombre": "Tanque Cerro Patricia",
+    "categoria": "tanque",
+    "tipo": "tanque de distribución",
+    "operador": "GAD Municipal (por confirmar)",
+    "abastece": "Puerto Baquerizo Moreno (red baja)",
+    "caudal_ls": "—",
+    "confianza": "media",
+    "aproximada": false,
+    "fuentes": "IGM tanques de agua (2); topónimo IGM «Cerro Patricia»; inicio de una línea IGM de 1,5 km hacia el puerto",
+    "notas": "Una fuente secundaria cita un «Cerro Patricio» como destino del agua de Cerro Gato.",
+    "cota_dsm_m": 56,
+    "fuentes_url": ""
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.4371,
+     -0.8852
+    ]
+   },
+   "properties": {
+    "id": "AG-T2",
+    "nombre": "Tanques de Cerro Verde",
+    "categoria": "tanque",
+    "tipo": "tanques de agua",
+    "operador": "no documentado",
+    "abastece": "Cerro Verde (por confirmar)",
+    "caudal_ls": "—",
+    "confianza": "alta",
+    "aproximada": false,
+    "fuentes": "IGM tanques de agua (2); fin de una línea IGM enterrada de 9,7 km",
+    "notas": "",
+    "cota_dsm_m": 281,
+    "fuentes_url": ""
+   }
+  }
+ ]
+}

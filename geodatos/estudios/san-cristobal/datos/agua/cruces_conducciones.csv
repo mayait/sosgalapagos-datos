@@ -1,0 +1,96 @@
+conduccion,extremo_inicial,lon,lat,area_km2,cauce,cota_dsm_m
+(sin nombre),—,-89.61333,-0.90287,11.0,D8 GLO-30,2
+(sin nombre),—,-89.61306,-0.90317,10.85,D8 GLO-30,3
+(sin nombre),—,-89.5237,-0.8478,4.57,IGM 1:25 000,83
+(sin nombre),—,-89.53357,-0.84833,1.14,D8 GLO-30,59
+(sin nombre),—,-89.53293,-0.84833,1.11,D8 GLO-30,62
+(sin nombre),—,-89.5314,-0.84833,1.08,D8 GLO-30,67
+(sin nombre),—,-89.52889,-0.84857,0.85,D8 GLO-30,72
+(sin nombre),—,-89.3089,-0.79056,16.96,D8 GLO-30,9
+(sin nombre),—,-89.31352,-0.78944,15.62,D8 GLO-30,32
+(sin nombre),—,-89.31394,-0.78911,15.6,D8 GLO-30,33
+(sin nombre),—,-89.31484,-0.78889,15.57,D8 GLO-30,35
+(sin nombre),—,-89.31548,-0.78861,15.56,D8 GLO-30,37
+(sin nombre),—,-89.31584,-0.7886,0.63,D8 GLO-30,37
+(sin nombre),AG-T1 Tanque Cerro Patricia (221 m),-89.61261,-0.90424,10.48,OSM,10
+(sin nombre),AG-T1 Tanque Cerro Patricia (221 m),-89.61244,-0.90528,10.47,OSM,11
+(sin nombre),AG-T1 Tanque Cerro Patricia (221 m),-89.61212,-0.90578,10.46,OSM,12
+(sin nombre),AG-T1 Tanque Cerro Patricia (221 m),-89.61155,-0.90641,9.72,OSM,15
+(sin nombre),AG-T1 Tanque Cerro Patricia (221 m),-89.61028,-0.90776,9.69,D8 GLO-30,21
+(sin nombre),AG-T1 Tanque Cerro Patricia (221 m),-89.6108,-0.9073,9.69,OSM,19
+(sin nombre),AG-T1 Tanque Cerro Patricia (221 m),-89.60616,-0.90829,9.4,D8 GLO-30,41
+(sin nombre),AG-T1 Tanque Cerro Patricia (221 m),-89.60966,-0.90818,0.23,OSM,24
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.52083,-0.9124,1.39,D8 GLO-30,426
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.50749,-0.91138,1.28,D8 GLO-30,495
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.5073,-0.9102,1.26,D8 GLO-30,503
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.52026,-0.91248,0.95,D8 GLO-30,434
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.5196,-0.9125,0.82,D8 GLO-30,434
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.53083,-0.91129,0.69,D8 GLO-30,390
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.52806,-0.91155,0.38,D8 GLO-30,385
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.55103,-0.90925,0.22,D8 GLO-30,324
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.55211,-0.90933,0.22,D8 GLO-30,320
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.52749,-0.91165,0.2,D8 GLO-30,388
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.53125,-0.91125,0.2,D8 GLO-30,388
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.54846,-0.9093,0.15,D8 GLO-30,348
+Proyección Agua Potable Pampas Mías,AG-P1 Planta de tratamiento El Progreso (16 m),-89.511,-0.9125,0.03,IGM 1:25 000,489
+(sin nombre),—,-89.4545,-0.905,5.11,IGM 1:25 000,251
+(sin nombre),—,-89.4571,-0.9019,4.75,Encañada de Franco,296
+(sin nombre),—,-89.43669,-0.91602,1.19,OSM,111
+(sin nombre),—,-89.43917,-0.9118,0.84,D8 GLO-30,156
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.49268,-0.9299,7.06,D8 GLO-30,91
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.52528,-0.9367,4.29,D8 GLO-30,139
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.53863,-0.93335,2.71,D8 GLO-30,146
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.49774,-0.93142,2.24,D8 GLO-30,122
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.5625,-0.93304,2.0,D8 GLO-30,114
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.47626,-0.92486,1.93,D8 GLO-30,151
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.49389,-0.93023,1.82,D8 GLO-30,123
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.4935,-0.9301,1.82,IGM 1:25 000,118
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.4751,-0.92323,1.74,D8 GLO-30,161
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.55434,-0.93427,1.65,D8 GLO-30,116
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.59541,-0.91015,1.6,D8 GLO-30,83
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.57042,-0.92848,1.49,D8 GLO-30,99
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.51518,-0.9351,1.09,D8 GLO-30,127
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.53251,-0.9336,1.07,D8 GLO-30,137
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.50976,-0.9333,0.97,D8 GLO-30,128
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.55197,-0.93447,0.89,D8 GLO-30,115
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.51667,-0.9353,0.89,D8 GLO-30,133
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.47583,-0.92231,0.89,D8 GLO-30,173
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.57361,-0.9268,0.71,D8 GLO-30,105
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.58317,-0.92194,0.61,D8 GLO-30,104
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.50854,-0.93229,0.5,D8 GLO-30,136
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.48028,-0.92745,0.48,D8 GLO-30,156
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.54194,-0.93347,0.44,D8 GLO-30,146
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.50251,-0.9314,0.43,D8 GLO-30,137
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.54904,-0.93487,0.34,D8 GLO-30,117
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.57806,-0.92518,0.32,D8 GLO-30,119
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.53472,-0.93349,0.32,D8 GLO-30,144
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.57846,-0.92488,0.31,D8 GLO-30,118
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.48972,-0.9299,0.3,D8 GLO-30,138
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.56361,-0.93231,0.27,D8 GLO-30,115
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.5817,-0.92306,0.24,D8 GLO-30,104
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.50694,-0.9318,0.23,D8 GLO-30,145
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.55705,-0.93483,0.22,D8 GLO-30,119
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.56573,-0.931,0.16,D8 GLO-30,118
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.52148,-0.93686,0.14,D8 GLO-30,138
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.48694,-0.92964,0.14,D8 GLO-30,138
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.54389,-0.93401,0.13,D8 GLO-30,131
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.56139,-0.93386,0.13,D8 GLO-30,110
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.56694,-0.93043,0.11,D8 GLO-30,117
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.48361,-0.92761,0.11,D8 GLO-30,150
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.4988,-0.932,0.07,IGM 1:25 000,131
+Proyecto de agua Cerro Gato,AG-01 Cerro Gato (0 m),-89.4771,-0.9214,0.01,IGM 1:25 000,214
+(sin nombre),—,-89.45901,-0.91111,2.26,D8 GLO-30,227
+(sin nombre),—,-89.47087,-0.88833,1.41,D8 GLO-30,529
+(sin nombre),—,-89.43704,-0.88111,1.14,D8 GLO-30,290
+(sin nombre),—,-89.43738,-0.87957,0.75,D8 GLO-30,305
+(sin nombre),—,-89.46632,-0.89528,0.65,D8 GLO-30,424
+(sin nombre),—,-89.4576,-0.90851,0.5,D8 GLO-30,241
+(sin nombre),—,-89.45811,-0.9105,0.39,D8 GLO-30,227
+(sin nombre),—,-89.44582,-0.87585,0.25,D8 GLO-30,366
+(sin nombre),—,-89.47218,-0.88444,0.22,D8 GLO-30,518
+(sin nombre),—,-89.4359,-0.88472,0.2,D8 GLO-30,268
+(sin nombre),—,-89.45017,-0.87583,0.15,D8 GLO-30,400
+(sin nombre),—,-89.45087,-0.8758,0.14,D8 GLO-30,401
+(sin nombre),—,-89.45713,-0.87602,0.13,D8 GLO-30,437
+(sin nombre),—,-89.4735,-0.8812,0.09,IGM 1:25 000,533
+(sin nombre),—,-89.4713,-0.8871,0.05,IGM 1:25 000,522
