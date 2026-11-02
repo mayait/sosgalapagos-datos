@@ -159,11 +159,25 @@ FUENTES_EXTRA = {"inamhi": fuente_inamhi, "ioc": fuente_ioc, "metar": fuente_met
 # El mapa público solo da el valor actual y la lluvia acumulada del día (se reinicia a medianoche
 # de Galápagos). Se guarda el acumulado tal cual (lluvia_dia_acum_mm) y la lluvia de cada intervalo
 # como la diferencia con la consulta anterior del mismo día.
-WEATHERLINK_EST = {  # id público del mapa: (código, nombre, isla, lat, lon, altitud)
-    # Estación particular: mientras no conste el consentimiento del propietario, no se publica su
-    # nombre y la ubicación va redondeada a ~1 km (la exacta queda solo en el id del mapa).
-    "ID_RETIRADO": ("pa_weatherlink", "Puerto Ayora (WeatherLink)", "Santa Cruz", -0.75, -90.31, 10),
+# Estaciones: CLIMA_WEATHERLINK_ESTACIONES (privado/fuentes.env) = "id_publico_del_mapa:codigo[,…]".
+# Los identificadores no se versionan: delatan a estaciones particulares. Mientras no conste el
+# consentimiento del propietario, se publican sin nombre y con la ubicación redondeada a ~1 km.
+WEATHERLINK_META = {  # código: (nombre, isla, lat, lon, altitud)
+    "pa_weatherlink": ("Puerto Ayora (WeatherLink)", "Santa Cruz", -0.75, -90.31, 10),
 }
+
+
+def _weatherlink_estaciones():
+    import os
+    out = {}
+    for par in os.environ.get("CLIMA_WEATHERLINK_ESTACIONES", "").split(","):
+        if ":" in par:
+            wid, cod = par.strip().split(":", 1)
+            if cod in WEATHERLINK_META:
+                out[wid] = (cod, *WEATHERLINK_META[cod])
+    if not out:
+        raise RuntimeError("Falta CLIMA_WEATHERLINK_ESTACIONES en privado/fuentes.env")
+    return out
 MAX_MM_H = 100  # filtro de saltos: un incremento por encima de esta intensidad se descarta
 GALAPAGOS = dt.timezone(dt.timedelta(hours=-6))
 
@@ -171,7 +185,7 @@ GALAPAGOS = dt.timezone(dt.timedelta(hours=-6))
 def fuente_weatherlink(con):
     api = endpoint("CLIMA_WEATHERLINK_API")
     filas = []
-    for wid, (cod, nom, isla, lat, lon, alt) in WEATHERLINK_EST.items():
+    for wid, (cod, nom, isla, lat, lon, alt) in _weatherlink_estaciones().items():
         estacion(con, "weatherlink", cod, nom, isla, lat, lon, alt, "WeatherLink")
         d = http_json(f"{api}/{wid}")
         if "lastTimestamp" not in d or d.get("dailyRain") in (None, "", "--"):
