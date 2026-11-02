@@ -257,54 +257,75 @@ FUENTES_EXTRA["weatherlink"] = fuente_weatherlink
 #   [0] época, [2] viento medio m/s, [6] presión de la estación hPa, [7] temperatura °C, [8] HR %,
 #   [12] lluvia del minuto mm. Se agregan en bloques de 5 min, como el resto de fuentes.
 TEMPEST_META = {  # código: (nombre, isla, lat, lon, altitud)
-    "punta_estrada": ("Punta Estrada", "Santa Cruz", -0.7499, -90.31081, 5),
+    "punta_estrada": ("Punta Estrada", "Santa Cruz", -0.7499, -90.31081, 8),
 }
 
 
-def fuente_tempest(con):
+def _tempest_equipos():
     import os
-    api, token = endpoint("CLIMA_TEMPEST_API"), endpoint("CLIMA_TEMPEST_TOKEN")
     equipos = [p.split(":", 1) for p in os.environ.get("CLIMA_TEMPEST_EQUIPOS", "").split(",") if ":" in p]
     if not equipos:
         raise RuntimeError("Falta CLIMA_TEMPEST_EQUIPOS en privado/fuentes.env")
-    ahora = dt.datetime.now(UTC)
-    filas = []
-    for dev, cod in equipos:
-        if cod not in TEMPEST_META:
-            continue
-        nom, isla, lat, lon, alt = TEMPEST_META[cod]
-        ult = con.execute("SELECT MAX(ts) FROM obs WHERE fuente='tempest' AND estacion=?", (cod,)).fetchone()[0]
-        # desde el último bloque guardado (para rellenar cortes), como máximo 3 días atrás
-        desde = ahora - dt.timedelta(days=3)
-        if ult:
-            desde = max(desde, dt.datetime.fromisoformat(ult.replace("Z", "+00:00")) - dt.timedelta(minutes=10))
-        q = urllib.parse.urlencode({"token": token, "time_start": int(desde.timestamp()), "time_end": int(ahora.timestamp())})
+    return [(d, c) for d, c in equipos if c in TEMPEST_META]
+
+
+def _tempest_bajar(con, dev, cod, desde, hasta):
+    """Baja obs_st entre desde y hasta (en tramos de 1 día) y devuelve filas en bloques de 5 min."""
+    api, token = endpoint("CLIMA_TEMPEST_API"), endpoint("CLIMA_TEMPEST_TOKEN")
+    nom, isla, lat, lon, alt = TEMPEST_META[cod]
+    estacion(con, "tempest", cod, nom, isla, lat, lon, alt, "Tempest")
+    bloques, t0 = {}, desde
+    while t0 < hasta:
+        t1 = min(hasta, t0 + dt.timedelta(days=1))
+        q = urllib.parse.urlencode({"token": token, "time_start": int(t0.timestamp()), "time_end": int(t1.timestamp())})
         d = http_json(f"{api}/observations/device/{dev}?{q}", timeout=90)
         obs = d.get("obs") or []
         if not isinstance(obs, list):
             raise ValueError(f"respuesta inesperada de {cod}: {str(d)[:200]}")
-        estacion(con, "tempest", cod, nom, isla, lat, lon, alt, "Tempest")
-        bloques = {}
         for o in obs:
             if not isinstance(o, list) or len(o) < 13 or o[0] is None:
                 continue
             t = dt.datetime.fromtimestamp(int(o[0]), UTC)
             b = t.replace(minute=t.minute - t.minute % 5, second=0)
-            g = bloques.setdefault(b, {"lluvia": 0.0, "n": 0, "temp": [], "hr": [], "p": [], "v": []})
-            g["n"] += 1
+            g = bloques.setdefault(b, {"lluvia": 0.0, "temp": [], "hr": [], "p": [], "v": []})
             if o[12] is not None:
                 g["lluvia"] += float(o[12])
             for k, i in (("v", 2), ("p", 6), ("temp", 7), ("hr", 8)):
                 if o[i] is not None:
                     g[k].append(float(o[i]))
-        for b, g in bloques.items():
-            if b + dt.timedelta(minutes=5) > ahora:
-                continue  # bloque en curso: se guarda en la próxima corrida
-            filas.append((cod, "lluvia_mm", b, round(g["lluvia"], 2)))
-            for k, var in (("temp", "temp_c"), ("hr", "hr_pct"), ("p", "presion_hpa"), ("v", "viento_ms")):
-                if g[k]:
-                    filas.append((cod, var, b, round(sum(g[k]) / len(g[k]), 2)))
+        t0 = t1
+    ahora = dt.datetime.now(UTC)
+    filas = []
+    for b, g in bloques.items():
+        if b + dt.timedelta(minutes=5) > ahora:
+            continue  # bloque en curso: se guarda en la próxima corrida
+        filas.append((cod, "lluvia_mm", b, round(g["lluvia"], 2)))
+        for k, var in (("temp", "temp_c"), ("hr", "hr_pct"), ("p", "presion_hpa"), ("v", "viento_ms")):
+            if g[k]:
+                filas.append((cod, var, b, round(sum(g[k]) / len(g[k]), 2)))
+    return filas
+
+
+def fuente_tempest(con):
+    ahora = dt.datetime.now(UTC)
+    filas = []
+    for dev, cod in _tempest_equipos():
+        ult = con.execute("SELECT MAX(ts) FROM obs WHERE fuente='tempest' AND estacion=?", (cod,)).fetchone()[0]
+        # desde el último bloque guardado (para rellenar cortes), como máximo 3 días atrás
+        desde = ahora - dt.timedelta(days=3)
+        if ult:
+            desde = max(desde, dt.datetime.fromisoformat(ult.replace("Z", "+00:00")) - dt.timedelta(minutes=10))
+        filas += _tempest_bajar(con, dev, cod, desde, ahora)
     return guardar(con, "tempest", filas)
+
+
+def tempest_historico(con, desde):
+    """Carga puntual de un rango largo (p. ej. el evento del 30–31 oct)."""
+    n = 0
+    for dev, cod in _tempest_equipos():
+        n += guardar(con, "tempest", _tempest_bajar(con, dev, cod, desde, dt.datetime.now(UTC)))
+    con.commit()
+    return n
 
 
 FUENTES_EXTRA["tempest"] = fuente_tempest

@@ -509,6 +509,7 @@ def main():
     ap.add_argument("--importar-ierse")
     ap.add_argument("--importar-gsc-historico", action="store_true")
     ap.add_argument("--importar-inamhi", metavar="JSON", help="historial horario archivado del INAMHI")
+    ap.add_argument("--tempest-desde", metavar="AAAA-MM-DD", help="carga histórica de Tempest desde esa fecha (UTC)")
     ap.add_argument("--emitir", metavar="FUENTE")
     ap.add_argument("--horas", type=int, default=6)
     ap.add_argument("--recibir", action="store_true")
@@ -527,7 +528,11 @@ def main():
         from fuentes_extra import inamhi_historial
         print(f"INAMHI: {inamhi_historial(con, archivo=a.importar_inamhi)} registros importados")
         con.commit()
-    if not (a.solo_exportar or a.importar_ierse or a.importar_gsc_historico or a.importar_inamhi):
+    if a.tempest_desde:
+        from fuentes_extra import tempest_historico
+        desde = dt.datetime.fromisoformat(a.tempest_desde).replace(tzinfo=UTC)
+        print(f"Tempest: {tempest_historico(con, desde)} registros importados")
+    if not (a.solo_exportar or a.importar_ierse or a.importar_gsc_historico or a.importar_inamhi or a.tempest_desde):
         env = [x for x in os.environ.get("CLIMA_FUENTES", "").split(",") if x]
         correr(con, a.fuentes or env or list(FUENTES))
     exportar(con)
