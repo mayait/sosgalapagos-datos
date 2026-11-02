@@ -1,0 +1,4675 @@
+{
+ "estudio": "San Cristóbal: inundación pluvial, análisis preliminar con DSM de 30 m",
+ "parametros": {
+  "dem": "Copernicus GLO-30 (DSM) reproyectado a UTM 16S, 30 m, bilineal",
+  "epsg": 32716,
+  "area_min_llegada_km2": 0.05,
+  "franja_edificios_m": 20,
+  "franja_incertidumbre_m": 45,
+  "dist_cauce_mapeado_m": 30,
+  "prof_robusta_vaso_m": 1.0,
+  "vol_min_vaso_m3": 300,
+  "cn_por_clase_supuesto": {
+   "parque / vegetación natural sobre lava": 60,
+   "zona agrícola": 76,
+   "urbano": 90
+  }
+ },
+ "codigos_zonas": {
+  "Puerto Baquerizo Moreno": "PBM",
+  "El Progreso": "PRO",
+  "Huella edificada cerca de Cerro Verde": "Z1",
+  "Huella edificada cerca de Cerro Verde (2)": "Z2",
+  "Huella edificada cerca de El Progreso": "Z3",
+  "Huella edificada cerca de El Progreso (2)": "Z4"
+ },
+ "zonas": {
+  "Puerto Baquerizo Moreno": {
+   "area_zona_ha": 271.0,
+   "area_aportante_total_km2": 11.13,
+   "sensibilidad_sin_quemar_km2": 11.49,
+   "celdas_comunes_con_y_sin_quemar_km2": 11.13,
+   "fraccion_en_depresiones_>1m": 0.0063,
+   "cota_min_zona_m": 1.1,
+   "cota_mediana_zona_m": 38.0,
+   "cota_max_zona_m": 99.0,
+   "exposicion_zona": {
+    "edificios_intersecan": 3003,
+    "edificios_centroide": 2988,
+    "poblacion": 7284,
+    "viviendas": 2229
+   },
+   "llegadas": [
+    {
+     "id": "PBM-L01",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 5.417,
+     "cota_max_m": 525.5,
+     "cota_min_m": 82.4,
+     "cota_entrada_m": 82.4,
+     "pendiente_media_pct": 10.4,
+     "pendiente_mediana_pct": 8.7,
+     "entrada_lonlat": [
+      -89.59376,
+      -0.90615
+     ],
+     "fraccion_en_depresiones_>1m": 0.0108,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 0.42,
+     "f_agricola": 0.566,
+     "f_urbano": 0.014,
+     "cn_amc_ii": 69.5,
+     "cn_amc_iii": 84.0,
+     "cauce_longitud_km": 8.9,
+     "cauce_cota_cabecera_m": 512.5,
+     "cauce_pendiente_pct": 4.83,
+     "tc_kirpich_h": 1.147,
+     "tc_temez_h": 2.809,
+     "tc_scs_lag_h": {
+      "CN60": 4.23,
+      "CN70": 3.26,
+      "CN80": 2.44
+     },
+     "tc_tr55_h": 2.849,
+     "tc_manning_h": 1.001,
+     "tc_rango_h": [
+      1.0,
+      4.23
+     ],
+     "q_pico_100mm_CN70_m3s": 11.38,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      5.5,
+      35.19
+     ],
+     "recorrido_total_m": 2861,
+     "recorrido_en_zona_m": 2788,
+     "edificios_franja_20m_en_zona": 110,
+     "edificios_franja_45m_en_zona": 255,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.52,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 2788,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 110,
+     "edificios_franja_45m_tramo_propio": 255,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.52,
+     "inicio_en_flujo_lodo_o_franja_cgreg": true,
+     "pendiente_entrada_pct": 3.0,
+     "eventos_sngr_250m": [
+      "Inundación 2019-4 Barrio Manzanillo",
+      "Inundación 2024-2 Barrio Frio"
+     ]
+    },
+    {
+     "id": "PBM-L02",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 1.82,
+     "cota_max_m": 294.0,
+     "cota_min_m": 89.5,
+     "cota_entrada_m": 89.5,
+     "pendiente_media_pct": 8.9,
+     "pendiente_mediana_pct": 7.3,
+     "entrada_lonlat": [
+      -89.59188,
+      -0.91157
+     ],
+     "fraccion_en_depresiones_>1m": 0.003,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 0.575,
+     "f_agricola": 0.425,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 66.8,
+     "cn_amc_iii": 82.2,
+     "cauce_longitud_km": 3.74,
+     "cauce_cota_cabecera_m": 288.0,
+     "cauce_pendiente_pct": 5.3,
+     "tc_kirpich_h": 0.568,
+     "tc_temez_h": 1.43,
+     "tc_scs_lag_h": {
+      "CN60": 2.29,
+      "CN70": 1.76,
+      "CN80": 1.32
+     },
+     "tc_tr55_h": 1.03,
+     "tc_manning_h": 0.362,
+     "tc_rango_h": [
+      0.36,
+      2.29
+     ],
+     "q_pico_100mm_CN70_m3s": 6.15,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      2.86,
+      19.32
+     ],
+     "recorrido_total_m": 3180,
+     "recorrido_en_zona_m": 3120,
+     "edificios_franja_20m_en_zona": 154,
+     "edificios_franja_45m_en_zona": 318,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.38,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 904,
+     "se_une_a": "PBM-L01",
+     "edificios_franja_20m_tramo_propio": 45,
+     "edificios_franja_45m_tramo_propio": 65,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 2.6,
+     "eventos_sngr_250m": [
+      "Inundación 2019-4 Barrio Manzanillo",
+      "Inundación 2023-4 EL MANZANILLO",
+      "Inundación 2025-4 LA PLANADA"
+     ]
+    },
+    {
+     "id": "PBM-L03",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.987,
+     "cota_max_m": 139.3,
+     "cota_min_m": 36.9,
+     "cota_entrada_m": 36.9,
+     "pendiente_media_pct": 6.4,
+     "pendiente_mediana_pct": 5.8,
+     "entrada_lonlat": [
+      -89.60345,
+      -0.89963
+     ],
+     "fraccion_en_depresiones_>1m": 0.0036,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 2.17,
+     "cauce_cota_cabecera_m": 135.9,
+     "cauce_pendiente_pct": 4.55,
+     "tc_kirpich_h": 0.396,
+     "tc_temez_h": 0.973,
+     "tc_scs_lag_h": {
+      "CN60": 1.74,
+      "CN70": 1.34,
+      "CN80": 1.01
+     },
+     "tc_tr55_h": 0.594,
+     "tc_manning_h": 0.209,
+     "tc_rango_h": [
+      0.21,
+      1.74
+     ],
+     "q_pico_100mm_CN70_m3s": 4.29,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      1.97,
+      13.46
+     ],
+     "recorrido_total_m": 825,
+     "recorrido_en_zona_m": 752,
+     "edificios_franja_20m_en_zona": 66,
+     "edificios_franja_45m_en_zona": 140,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.18,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.60992,
+      -0.89936
+     ],
+     "salida_mar_con_cauce_mapeado": false,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 752,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 66,
+     "edificios_franja_45m_tramo_propio": 140,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.18,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 3.8,
+     "eventos_sngr_250m": [
+      "Inundación 2023-4 PLAYA MAN",
+      "Inundación 2024-3 AV. ANTONIO GIL"
+     ]
+    },
+    {
+     "id": "PBM-L04",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.451,
+     "cota_max_m": 121.7,
+     "cota_min_m": 27.0,
+     "cota_entrada_m": 27.0,
+     "pendiente_media_pct": 8.6,
+     "pendiente_mediana_pct": 7.9,
+     "entrada_lonlat": [
+      -89.6048,
+      -0.89746
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 1.68,
+     "cauce_cota_cabecera_m": 120.4,
+     "cauce_pendiente_pct": 5.56,
+     "tc_kirpich_h": 0.301,
+     "tc_temez_h": 0.771,
+     "tc_scs_lag_h": {
+      "CN60": 1.23,
+      "CN70": 0.94,
+      "CN80": 0.71
+     },
+     "tc_tr55_h": 0.413,
+     "tc_manning_h": 0.145,
+     "tc_rango_h": [
+      0.14,
+      1.23
+     ],
+     "q_pico_100mm_CN70_m3s": 2.28,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      1.07,
+      7.14
+     ],
+     "recorrido_total_m": 595,
+     "recorrido_en_zona_m": 505,
+     "edificios_franja_20m_en_zona": 13,
+     "edificios_franja_45m_en_zona": 35,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.60992,
+      -0.898
+     ],
+     "salida_mar_con_cauce_mapeado": false,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 505,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 13,
+     "edificios_franja_45m_tramo_propio": 35,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 4.0,
+     "eventos_sngr_250m": [
+      "Inundación 2023-4 PLAYA MAN"
+     ]
+    },
+    {
+     "id": "PBM-L05",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.312,
+     "cota_max_m": 78.4,
+     "cota_min_m": 19.1,
+     "cota_entrada_m": 19.1,
+     "pendiente_media_pct": 8.1,
+     "pendiente_mediana_pct": 6.9,
+     "entrada_lonlat": [
+      -89.60695,
+      -0.89611
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 1.29,
+     "cauce_cota_cabecera_m": 78.0,
+     "cauce_pendiente_pct": 4.57,
+     "tc_kirpich_h": 0.265,
+     "tc_temez_h": 0.654,
+     "tc_scs_lag_h": {
+      "CN60": 1.02,
+      "CN70": 0.79,
+      "CN80": 0.59
+     },
+     "tc_tr55_h": 0.349,
+     "tc_manning_h": 0.123,
+     "tc_rango_h": [
+      0.12,
+      1.02
+     ],
+     "q_pico_100mm_CN70_m3s": 1.82,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.82,
+      5.23
+     ],
+     "recorrido_total_m": 547,
+     "recorrido_en_zona_m": 457,
+     "edificios_franja_20m_en_zona": 24,
+     "edificios_franja_45m_en_zona": 51,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.60992,
+      -0.898
+     ],
+     "salida_mar_con_cauce_mapeado": false,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 175,
+     "se_une_a": "PBM-L04",
+     "edificios_franja_20m_tramo_propio": 12,
+     "edificios_franja_45m_tramo_propio": 25,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 3.2,
+     "eventos_sngr_250m": [
+      "Inundación 2023-4 PLAYA MAN"
+     ]
+    },
+    {
+     "id": "PBM-L06",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.295,
+     "cota_max_m": 72.9,
+     "cota_min_m": 17.7,
+     "cota_entrada_m": 17.7,
+     "pendiente_media_pct": 7.1,
+     "pendiente_mediana_pct": 2.3,
+     "entrada_lonlat": [
+      -89.61316,
+      -0.9083
+     ],
+     "fraccion_en_depresiones_>1m": 0.0091,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 1.73,
+     "cauce_cota_cabecera_m": 95.1,
+     "cauce_pendiente_pct": 4.49,
+     "tc_kirpich_h": 0.334,
+     "tc_temez_h": 0.819,
+     "tc_scs_lag_h": {
+      "CN60": 1.38,
+      "CN70": 1.06,
+      "CN80": 0.8
+     },
+     "tc_tr55_h": 0.697,
+     "tc_manning_h": 0.245,
+     "tc_rango_h": [
+      0.24,
+      1.38
+     ],
+     "q_pico_100mm_CN70_m3s": 1.47,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.66,
+      4.35
+     ],
+     "recorrido_total_m": 735,
+     "recorrido_en_zona_m": 675,
+     "edificios_franja_20m_en_zona": 28,
+     "edificios_franja_45m_en_zona": 78,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.46,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 277,
+     "se_une_a": "PBM-L01",
+     "edificios_franja_20m_tramo_propio": 9,
+     "edificios_franja_45m_tramo_propio": 25,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.05,
+     "inicio_en_flujo_lodo_o_franja_cgreg": true,
+     "pendiente_entrada_pct": 0.7,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "PBM-L07",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.197,
+     "cota_max_m": 105.2,
+     "cota_min_m": 80.4,
+     "cota_entrada_m": 80.4,
+     "pendiente_media_pct": 3.9,
+     "pendiente_mediana_pct": 3.6,
+     "entrada_lonlat": [
+      -89.59376,
+      -0.90805
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 0.87,
+     "cauce_cota_cabecera_m": 103.6,
+     "cauce_pendiente_pct": 2.66,
+     "tc_kirpich_h": 0.242,
+     "tc_temez_h": 0.54,
+     "tc_scs_lag_h": {
+      "CN60": 1.08,
+      "CN70": 0.83,
+      "CN80": 0.62
+     },
+     "tc_tr55_h": 0.358,
+     "tc_manning_h": 0.126,
+     "tc_rango_h": [
+      0.13,
+      1.08
+     ],
+     "q_pico_100mm_CN70_m3s": 1.31,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.59,
+      3.44
+     ],
+     "recorrido_total_m": 2746,
+     "recorrido_en_zona_m": 2673,
+     "edificios_franja_20m_en_zona": 110,
+     "edificios_franja_45m_en_zona": 255,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.55,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 90,
+     "se_une_a": "PBM-L01",
+     "edificios_franja_20m_tramo_propio": 0,
+     "edificios_franja_45m_tramo_propio": 0,
+     "fraccion_tramo_propio_con_cauce_mapeado": 1.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": true,
+     "pendiente_entrada_pct": 2.7,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "PBM-L08",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.162,
+     "cota_max_m": 110.2,
+     "cota_min_m": 90.4,
+     "cota_entrada_m": 90.4,
+     "pendiente_media_pct": 3.5,
+     "pendiente_mediana_pct": 3.1,
+     "entrada_lonlat": [
+      -89.59619,
+      -0.91347
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 0.89,
+     "cauce_cota_cabecera_m": 110.2,
+     "cauce_pendiente_pct": 2.21,
+     "tc_kirpich_h": 0.264,
+     "tc_temez_h": 0.569,
+     "tc_scs_lag_h": {
+      "CN60": 1.16,
+      "CN70": 0.89,
+      "CN80": 0.67
+     },
+     "tc_tr55_h": 0.342,
+     "tc_manning_h": 0.12,
+     "tc_rango_h": [
+      0.12,
+      1.16
+     ],
+     "q_pico_100mm_CN70_m3s": 1.03,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.48,
+      2.72
+     ],
+     "recorrido_total_m": 2730,
+     "recorrido_en_zona_m": 2670,
+     "edificios_franja_20m_en_zona": 114,
+     "edificios_franja_45m_en_zona": 259,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.45,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 689,
+     "se_une_a": "PBM-L01",
+     "edificios_franja_20m_tramo_propio": 21,
+     "edificios_franja_45m_tramo_propio": 51,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 3.2,
+     "eventos_sngr_250m": [
+      "Inundación 2019-4 Barrio Manzanillo",
+      "Inundación 2023-4 EL MANZANILLO"
+     ]
+    },
+    {
+     "id": "PBM-L09",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.157,
+     "cota_max_m": 95.6,
+     "cota_min_m": 74.1,
+     "cota_entrada_m": 74.1,
+     "pendiente_media_pct": 5.5,
+     "pendiente_mediana_pct": 4.6,
+     "entrada_lonlat": [
+      -89.59996,
+      -0.91211
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 0.59,
+     "cauce_cota_cabecera_m": 95.2,
+     "cauce_pendiente_pct": 3.57,
+     "tc_kirpich_h": 0.16,
+     "tc_temez_h": 0.379,
+     "tc_scs_lag_h": {
+      "CN60": 0.66,
+      "CN70": 0.51,
+      "CN80": 0.38
+     },
+     "tc_tr55_h": 0.189,
+     "tc_manning_h": 0.066,
+     "tc_rango_h": [
+      0.07,
+      0.66
+     ],
+     "q_pico_100mm_CN70_m3s": 1.35,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.62,
+      3.17
+     ],
+     "recorrido_total_m": 2146,
+     "recorrido_en_zona_m": 2086,
+     "edificios_franja_20m_en_zona": 100,
+     "edificios_franja_45m_en_zona": 215,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.57,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 429,
+     "se_une_a": "PBM-L01",
+     "edificios_franja_20m_tramo_propio": 8,
+     "edificios_franja_45m_tramo_propio": 14,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 3.2,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "PBM-L10",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.148,
+     "cota_max_m": 96.5,
+     "cota_min_m": 28.8,
+     "cota_entrada_m": 28.8,
+     "pendiente_media_pct": 9.7,
+     "pendiente_mediana_pct": 9.5,
+     "entrada_lonlat": [
+      -89.60939,
+      -0.91319
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 0.83,
+     "cauce_cota_cabecera_m": 95.1,
+     "cauce_pendiente_pct": 8.0,
+     "tc_kirpich_h": 0.152,
+     "tc_temez_h": 0.421,
+     "tc_scs_lag_h": {
+      "CN60": 0.66,
+      "CN70": 0.51,
+      "CN80": 0.38
+     },
+     "tc_tr55_h": 0.173,
+     "tc_manning_h": 0.061,
+     "tc_rango_h": [
+      0.06,
+      0.66
+     ],
+     "q_pico_100mm_CN70_m3s": 1.18,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.55,
+      3.01
+     ],
+     "recorrido_total_m": 1632,
+     "recorrido_en_zona_m": 1365,
+     "edificios_franja_20m_en_zona": 33,
+     "edificios_franja_45m_en_zona": 100,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.23,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 30,
+     "se_une_a": "PBM-L06",
+     "edificios_franja_20m_tramo_propio": 0,
+     "edificios_franja_45m_tramo_propio": 0,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 9.2,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "PBM-L11",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.141,
+     "cota_max_m": 111.7,
+     "cota_min_m": 64.3,
+     "cota_entrada_m": 64.3,
+     "pendiente_media_pct": 4.3,
+     "pendiente_mediana_pct": 4.2,
+     "entrada_lonlat": [
+      -89.60022,
+      -0.90397
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 1.18,
+     "cauce_cota_cabecera_m": 110.3,
+     "cauce_pendiente_pct": 3.9,
+     "tc_kirpich_h": 0.263,
+     "tc_temez_h": 0.63,
+     "tc_scs_lag_h": {
+      "CN60": 1.31,
+      "CN70": 1.01,
+      "CN80": 0.75
+     },
+     "tc_tr55_h": 0.361,
+     "tc_manning_h": 0.127,
+     "tc_rango_h": [
+      0.13,
+      1.31
+     ],
+     "q_pico_100mm_CN70_m3s": 0.84,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.38,
+      2.37
+     ],
+     "recorrido_total_m": 1429,
+     "recorrido_en_zona_m": 1369,
+     "edificios_franja_20m_en_zona": 71,
+     "edificios_franja_45m_en_zona": 156,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.1,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.60992,
+      -0.89936
+     ],
+     "salida_mar_con_cauce_mapeado": false,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 749,
+     "se_une_a": "PBM-L03",
+     "edificios_franja_20m_tramo_propio": 21,
+     "edificios_franja_45m_tramo_propio": 49,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 7.8,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "PBM-L12",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.098,
+     "cota_max_m": 50.0,
+     "cota_min_m": 13.9,
+     "cota_entrada_m": 13.9,
+     "pendiente_media_pct": 11.5,
+     "pendiente_mediana_pct": 9.9,
+     "entrada_lonlat": [
+      -89.60937,
+      -0.89366
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 0.56,
+     "cauce_cota_cabecera_m": 50.0,
+     "cauce_pendiente_pct": 6.4,
+     "tc_kirpich_h": 0.123,
+     "tc_temez_h": 0.328,
+     "tc_scs_lag_h": {
+      "CN60": 0.44,
+      "CN70": 0.34,
+      "CN80": 0.26
+     },
+     "tc_tr55_h": 0.132,
+     "tc_manning_h": 0.046,
+     "tc_rango_h": [
+      0.05,
+      0.44
+     ],
+     "q_pico_100mm_CN70_m3s": 0.9,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.43,
+      2.09
+     ],
+     "recorrido_total_m": 157,
+     "recorrido_en_zona_m": 85,
+     "edificios_franja_20m_en_zona": 0,
+     "edificios_franja_45m_en_zona": 2,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61045,
+      -0.89448
+     ],
+     "salida_mar_con_cauce_mapeado": false,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 85,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 0,
+     "edificios_franja_45m_tramo_propio": 2,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 3.4,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "PBM-L13",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.057,
+     "cota_max_m": 48.2,
+     "cota_min_m": 25.5,
+     "cota_entrada_m": 25.5,
+     "pendiente_media_pct": 6.1,
+     "pendiente_mediana_pct": 6.0,
+     "entrada_lonlat": [
+      -89.60507,
+      -0.89719
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 0.46,
+     "cauce_cota_cabecera_m": 47.5,
+     "cauce_pendiente_pct": 4.72,
+     "tc_kirpich_h": 0.119,
+     "tc_temez_h": 0.299,
+     "tc_scs_lag_h": {
+      "CN60": 0.52,
+      "CN70": 0.4,
+      "CN80": 0.3
+     },
+     "tc_tr55_h": 0.123,
+     "tc_manning_h": 0.043,
+     "tc_rango_h": [
+      0.04,
+      0.52
+     ],
+     "q_pico_100mm_CN70_m3s": 0.56,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.27,
+      1.21
+     ],
+     "recorrido_total_m": 577,
+     "recorrido_en_zona_m": 475,
+     "edificios_franja_20m_en_zona": 13,
+     "edificios_franja_45m_en_zona": 35,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.60992,
+      -0.898
+     ],
+     "salida_mar_con_cauce_mapeado": false,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 0,
+     "se_une_a": "PBM-L04",
+     "edificios_franja_20m_tramo_propio": 0,
+     "edificios_franja_45m_tramo_propio": 0,
+     "fraccion_tramo_propio_con_cauce_mapeado": null,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 4.6,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "PBM-L14",
+     "zona": "Puerto Baquerizo Moreno",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.054,
+     "cota_max_m": 115.0,
+     "cota_min_m": 99.0,
+     "cota_entrada_m": 99.0,
+     "pendiente_media_pct": 3.2,
+     "pendiente_mediana_pct": 3.2,
+     "entrada_lonlat": [
+      -89.59323,
+      -0.91374
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 1.0,
+     "f_agricola": 0.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 60.0,
+     "cn_amc_iii": 77.5,
+     "cauce_longitud_km": 0.51,
+     "cauce_cota_cabecera_m": 110.5,
+     "cauce_pendiente_pct": 2.28,
+     "tc_kirpich_h": 0.169,
+     "tc_temez_h": 0.367,
+     "tc_scs_lag_h": {
+      "CN60": 0.77,
+      "CN70": 0.59,
+      "CN80": 0.44
+     },
+     "tc_tr55_h": 0.194,
+     "tc_manning_h": 0.068,
+     "tc_rango_h": [
+      0.07,
+      0.77
+     ],
+     "q_pico_100mm_CN70_m3s": 0.47,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.22,
+      1.08
+     ],
+     "recorrido_total_m": 3270,
+     "recorrido_en_zona_m": 3198,
+     "edificios_franja_20m_en_zona": 151,
+     "edificios_franja_45m_en_zona": 311,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.37,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 192,
+     "se_une_a": "PBM-L02",
+     "edificios_franja_20m_tramo_propio": 0,
+     "edificios_franja_45m_tramo_propio": 3,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 1.8,
+     "eventos_sngr_250m": [
+      "Inundación 2025-4 LA PLANADA"
+     ]
+    }
+   ],
+   "escorrentia_de_ladera_km2": 0.834,
+   "n_llegadas": 14
+  },
+  "El Progreso": {
+   "area_zona_ha": 34.9,
+   "area_aportante_total_km2": 1.11,
+   "sensibilidad_sin_quemar_km2": 1.23,
+   "celdas_comunes_con_y_sin_quemar_km2": 1.11,
+   "fraccion_en_depresiones_>1m": 0.0106,
+   "cota_min_zona_m": 299.5,
+   "cota_mediana_zona_m": 316.9,
+   "cota_max_zona_m": 339.4,
+   "exposicion_zona": {
+    "edificios_intersecan": 207,
+    "edificios_centroide": 206,
+    "poblacion": 276,
+    "viviendas": 120
+   },
+   "llegadas": [
+    {
+     "id": "PRO-L01",
+     "zona": "El Progreso",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.989,
+     "cota_max_m": 525.5,
+     "cota_min_m": 314.6,
+     "cota_entrada_m": 314.6,
+     "pendiente_media_pct": 14.0,
+     "pendiente_mediana_pct": 13.2,
+     "entrada_lonlat": [
+      -89.55282,
+      -0.90618
+     ],
+     "fraccion_en_depresiones_>1m": 0.0118,
+     "fraccion_tambien_sin_quemar": 0.999,
+     "f_natural": 0.0,
+     "f_agricola": 1.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 76.0,
+     "cn_amc_iii": 87.9,
+     "cauce_longitud_km": 3.24,
+     "cauce_cota_cabecera_m": 512.5,
+     "cauce_pendiente_pct": 6.11,
+     "tc_kirpich_h": 0.481,
+     "tc_temez_h": 1.246,
+     "tc_scs_lag_h": {
+      "CN60": 1.62,
+      "CN70": 1.25,
+      "CN80": 0.94
+     },
+     "tc_tr55_h": 0.838,
+     "tc_manning_h": 0.295,
+     "tc_rango_h": [
+      0.29,
+      1.62
+     ],
+     "q_pico_100mm_CN70_m3s": 3.65,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      1.7,
+      11.79
+     ],
+     "recorrido_total_m": 8520,
+     "recorrido_en_zona_m": 0,
+     "edificios_franja_20m_en_zona": 0,
+     "edificios_franja_45m_en_zona": 0,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": null,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.61315,
+      -0.90234
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [
+      "Puerto Baquerizo Moreno"
+     ],
+     "tramo_propio_en_zona_m": 0,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 2,
+     "edificios_franja_45m_tramo_propio": 3,
+     "fraccion_tramo_propio_con_cauce_mapeado": null,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 6.2,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "PRO-L02",
+     "zona": "El Progreso",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.057,
+     "cota_max_m": 375.5,
+     "cota_min_m": 318.9,
+     "cota_entrada_m": 319.6,
+     "pendiente_media_pct": 13.3,
+     "pendiente_mediana_pct": 8.2,
+     "entrada_lonlat": [
+      -89.55336,
+      -0.90889
+     ],
+     "fraccion_en_depresiones_>1m": 0.0,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 0.0,
+     "f_agricola": 1.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 76.0,
+     "cn_amc_iii": 87.9,
+     "cauce_longitud_km": 0.59,
+     "cauce_cota_cabecera_m": 375.5,
+     "cauce_pendiente_pct": 9.44,
+     "tc_kirpich_h": 0.11,
+     "tc_temez_h": 0.315,
+     "tc_scs_lag_h": {
+      "CN60": 0.43,
+      "CN70": 0.33,
+      "CN80": 0.25
+     },
+     "tc_tr55_h": 0.129,
+     "tc_manning_h": 0.045,
+     "tc_rango_h": [
+      0.04,
+      0.43
+     ],
+     "q_pico_100mm_CN70_m3s": 0.53,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.26,
+      1.23
+     ],
+     "recorrido_total_m": 5640,
+     "recorrido_en_zona_m": 350,
+     "edificios_franja_20m_en_zona": 7,
+     "edificios_franja_45m_en_zona": 10,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.57682,
+      -0.94195
+     ],
+     "salida_mar_con_cauce_mapeado": false,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 350,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 7,
+     "edificios_franja_45m_tramo_propio": 10,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 4.7,
+     "eventos_sngr_250m": [
+      "Inundación 2016-1 Vía El Progreso - Cerro Verde"
+     ]
+    }
+   ],
+   "escorrentia_de_ladera_km2": 0.061,
+   "n_llegadas": 2
+  },
+  "Huella edificada cerca de Cerro Verde": {
+   "area_zona_ha": 2.3,
+   "area_aportante_total_km2": 0.4,
+   "sensibilidad_sin_quemar_km2": 0.41,
+   "celdas_comunes_con_y_sin_quemar_km2": 0.4,
+   "fraccion_en_depresiones_>1m": 0.009,
+   "cota_min_zona_m": 244.2,
+   "cota_mediana_zona_m": 265.4,
+   "cota_max_zona_m": 277.8,
+   "exposicion_zona": {
+    "edificios_intersecan": 17,
+    "edificios_centroide": 17,
+    "poblacion": 0,
+    "viviendas": 0
+   },
+   "llegadas": [
+    {
+     "id": "Z1-L01",
+     "zona": "Huella edificada cerca de Cerro Verde",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.364,
+     "cota_max_m": 409.4,
+     "cota_min_m": 280.8,
+     "cota_entrada_m": 280.8,
+     "pendiente_media_pct": 11.3,
+     "pendiente_mediana_pct": 10.1,
+     "entrada_lonlat": [
+      -89.44506,
+      -0.90137
+     ],
+     "fraccion_en_depresiones_>1m": 0.0099,
+     "fraccion_tambien_sin_quemar": 0.995,
+     "f_natural": 0.0,
+     "f_agricola": 1.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 76.0,
+     "cn_amc_iii": 87.9,
+     "cauce_longitud_km": 1.76,
+     "cauce_cota_cabecera_m": 409.4,
+     "cauce_pendiente_pct": 7.33,
+     "tc_kirpich_h": 0.28,
+     "tc_temez_h": 0.756,
+     "tc_scs_lag_h": {
+      "CN60": 1.11,
+      "CN70": 0.85,
+      "CN80": 0.64
+     },
+     "tc_tr55_h": 0.374,
+     "tc_manning_h": 0.131,
+     "tc_rango_h": [
+      0.13,
+      1.11
+     ],
+     "q_pico_100mm_CN70_m3s": 1.88,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.87,
+      5.96
+     ],
+     "recorrido_total_m": 3935,
+     "recorrido_en_zona_m": 210,
+     "edificios_franja_20m_en_zona": 5,
+     "edificios_franja_45m_en_zona": 11,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.42999,
+      -0.92579
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 210,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 5,
+     "edificios_franja_45m_tramo_propio": 11,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 7.8,
+     "eventos_sngr_250m": []
+    }
+   ],
+   "escorrentia_de_ladera_km2": 0.037,
+   "n_llegadas": 1
+  },
+  "Huella edificada cerca de Cerro Verde (2)": {
+   "area_zona_ha": 1.0,
+   "area_aportante_total_km2": 0.32,
+   "sensibilidad_sin_quemar_km2": 0.32,
+   "celdas_comunes_con_y_sin_quemar_km2": 0.32,
+   "fraccion_en_depresiones_>1m": 0.0197,
+   "cota_min_zona_m": 208.2,
+   "cota_mediana_zona_m": 215.1,
+   "cota_max_zona_m": 221.7,
+   "exposicion_zona": {
+    "edificios_intersecan": 13,
+    "edificios_centroide": 12,
+    "poblacion": 0,
+    "viviendas": 0
+   },
+   "llegadas": [
+    {
+     "id": "Z2-L01",
+     "zona": "Huella edificada cerca de Cerro Verde (2)",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.266,
+     "cota_max_m": 324.3,
+     "cota_min_m": 219.8,
+     "cota_entrada_m": 219.8,
+     "pendiente_media_pct": 13.7,
+     "pendiente_mediana_pct": 13.2,
+     "entrada_lonlat": [
+      -89.44237,
+      -0.90598
+     ],
+     "fraccion_en_depresiones_>1m": 0.0236,
+     "fraccion_tambien_sin_quemar": 0.997,
+     "f_natural": 0.0,
+     "f_agricola": 0.946,
+     "f_urbano": 0.054,
+     "cn_amc_ii": 76.8,
+     "cn_amc_iii": 88.4,
+     "cauce_longitud_km": 0.97,
+     "cauce_cota_cabecera_m": 321.7,
+     "cauce_pendiente_pct": 10.49,
+     "tc_kirpich_h": 0.155,
+     "tc_temez_h": 0.45,
+     "tc_scs_lag_h": {
+      "CN60": 0.63,
+      "CN70": 0.48,
+      "CN80": 0.36
+     },
+     "tc_tr55_h": 0.175,
+     "tc_manning_h": 0.062,
+     "tc_rango_h": [
+      0.06,
+      0.63
+     ],
+     "q_pico_100mm_CN70_m3s": 2.02,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.94,
+      5.38
+     ],
+     "recorrido_total_m": 2920,
+     "recorrido_en_zona_m": 30,
+     "edificios_franja_20m_en_zona": 2,
+     "edificios_franja_45m_en_zona": 6,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 1.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.42999,
+      -0.92579
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 30,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 2,
+     "edificios_franja_45m_tramo_propio": 6,
+     "fraccion_tramo_propio_con_cauce_mapeado": 1.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 15.5,
+     "eventos_sngr_250m": []
+    }
+   ],
+   "escorrentia_de_ladera_km2": 0.054,
+   "n_llegadas": 1
+  },
+  "Huella edificada cerca de El Progreso": {
+   "area_zona_ha": 1.2,
+   "area_aportante_total_km2": 1.94,
+   "sensibilidad_sin_quemar_km2": 1.94,
+   "celdas_comunes_con_y_sin_quemar_km2": 1.94,
+   "fraccion_en_depresiones_>1m": 0.0051,
+   "cota_min_zona_m": 347.8,
+   "cota_mediana_zona_m": 352.9,
+   "cota_max_zona_m": 358.6,
+   "exposicion_zona": {
+    "edificios_intersecan": 5,
+    "edificios_centroide": 5,
+    "poblacion": 0,
+    "viviendas": 0
+   },
+   "llegadas": [
+    {
+     "id": "Z3-L01",
+     "zona": "Huella edificada cerca de El Progreso",
+     "tipo": "cuenca de llegada",
+     "area_km2": 1.111,
+     "cota_max_m": 634.5,
+     "cota_min_m": 350.7,
+     "cota_entrada_m": 350.7,
+     "pendiente_media_pct": 15.5,
+     "pendiente_mediana_pct": 14.9,
+     "entrada_lonlat": [
+      -89.54689,
+      -0.8994
+     ],
+     "fraccion_en_depresiones_>1m": 0.0016,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 0.0,
+     "f_agricola": 1.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 76.0,
+     "cn_amc_iii": 87.9,
+     "cauce_longitud_km": 3.52,
+     "cauce_cota_cabecera_m": 592.0,
+     "cauce_pendiente_pct": 6.85,
+     "tc_kirpich_h": 0.492,
+     "tc_temez_h": 1.301,
+     "tc_scs_lag_h": {
+      "CN60": 1.65,
+      "CN70": 1.27,
+      "CN80": 0.95
+     },
+     "tc_tr55_h": 0.812,
+     "tc_manning_h": 0.285,
+     "tc_rango_h": [
+      0.28,
+      1.65
+     ],
+     "q_pico_100mm_CN70_m3s": 3.96,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      1.86,
+      12.94
+     ],
+     "recorrido_total_m": 5856,
+     "recorrido_en_zona_m": 72,
+     "edificios_franja_20m_en_zona": 1,
+     "edificios_franja_45m_en_zona": 2,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.58215,
+      -0.87226
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 72,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 1,
+     "edificios_franja_45m_tramo_propio": 2,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 4.8,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "Z3-L02",
+     "zona": "Huella edificada cerca de El Progreso",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.48,
+     "cota_max_m": 505.9,
+     "cota_min_m": 355.5,
+     "cota_entrada_m": 355.5,
+     "pendiente_media_pct": 12.7,
+     "pendiente_mediana_pct": 12.4,
+     "entrada_lonlat": [
+      -89.54608,
+      -0.90022
+     ],
+     "fraccion_en_depresiones_>1m": 0.0056,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 0.0,
+     "f_agricola": 1.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 76.0,
+     "cn_amc_iii": 87.9,
+     "cauce_longitud_km": 1.65,
+     "cauce_cota_cabecera_m": 495.4,
+     "cauce_pendiente_pct": 8.46,
+     "tc_kirpich_h": 0.253,
+     "tc_temez_h": 0.703,
+     "tc_scs_lag_h": {
+      "CN60": 1.0,
+      "CN70": 0.77,
+      "CN80": 0.58
+     },
+     "tc_tr55_h": 0.359,
+     "tc_manning_h": 0.126,
+     "tc_rango_h": [
+      0.13,
+      1.0
+     ],
+     "q_pico_100mm_CN70_m3s": 2.6,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      1.21,
+      8.21
+     ],
+     "recorrido_total_m": 5874,
+     "recorrido_en_zona_m": 90,
+     "edificios_franja_20m_en_zona": 1,
+     "edificios_franja_45m_en_zona": 2,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.58215,
+      -0.87226
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 60,
+     "se_une_a": "Z3-L01",
+     "edificios_franja_20m_tramo_propio": 1,
+     "edificios_franja_45m_tramo_propio": 2,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 8.0,
+     "eventos_sngr_250m": []
+    },
+    {
+     "id": "Z3-L03",
+     "zona": "Huella edificada cerca de El Progreso",
+     "tipo": "cuenca de llegada",
+     "area_km2": 0.288,
+     "cota_max_m": 443.7,
+     "cota_min_m": 357.6,
+     "cota_entrada_m": 357.6,
+     "pendiente_media_pct": 10.0,
+     "pendiente_mediana_pct": 9.7,
+     "entrada_lonlat": [
+      -89.54689,
+      -0.90184
+     ],
+     "fraccion_en_depresiones_>1m": 0.0187,
+     "fraccion_tambien_sin_quemar": 1.0,
+     "f_natural": 0.0,
+     "f_agricola": 1.0,
+     "f_urbano": 0.0,
+     "cn_amc_ii": 76.0,
+     "cn_amc_iii": 87.9,
+     "cauce_longitud_km": 1.45,
+     "cauce_cota_cabecera_m": 442.5,
+     "cauce_pendiente_pct": 5.88,
+     "tc_kirpich_h": 0.263,
+     "tc_temez_h": 0.68,
+     "tc_scs_lag_h": {
+      "CN60": 1.01,
+      "CN70": 0.78,
+      "CN80": 0.58
+     },
+     "tc_tr55_h": 0.358,
+     "tc_manning_h": 0.126,
+     "tc_rango_h": [
+      0.13,
+      1.01
+     ],
+     "q_pico_100mm_CN70_m3s": 1.63,
+     "q_pico_100mm_CN60_80_rango_m3s": [
+      0.74,
+      4.84
+     ],
+     "recorrido_total_m": 5954,
+     "recorrido_en_zona_m": 115,
+     "edificios_franja_20m_en_zona": 3,
+     "edificios_franja_45m_en_zona": 5,
+     "fraccion_recorrido_en_zona_con_cauce_mapeado": 0.0,
+     "llega_al_mar": true,
+     "salida_mar_lonlat": [
+      -89.58215,
+      -0.87226
+     ],
+     "salida_mar_con_cauce_mapeado": true,
+     "zonas_atravesadas_aguas_abajo": [],
+     "tramo_propio_en_zona_m": 115,
+     "se_une_a": null,
+     "edificios_franja_20m_tramo_propio": 3,
+     "edificios_franja_45m_tramo_propio": 5,
+     "fraccion_tramo_propio_con_cauce_mapeado": 0.0,
+     "inicio_en_flujo_lodo_o_franja_cgreg": false,
+     "pendiente_entrada_pct": 4.6,
+     "eventos_sngr_250m": []
+    }
+   ],
+   "escorrentia_de_ladera_km2": 0.063,
+   "n_llegadas": 3
+  },
+  "Huella edificada cerca de El Progreso (2)": {
+   "area_zona_ha": 1.0,
+   "area_aportante_total_km2": 0.06,
+   "sensibilidad_sin_quemar_km2": 0.06,
+   "celdas_comunes_con_y_sin_quemar_km2": 0.06,
+   "fraccion_en_depresiones_>1m": 0.0294,
+   "cota_min_zona_m": 326.9,
+   "cota_mediana_zona_m": 333.7,
+   "cota_max_zona_m": 339.7,
+   "exposicion_zona": {
+    "edificios_intersecan": 11,
+    "edificios_centroide": 11,
+    "poblacion": 0,
+    "viviendas": 0
+   },
+   "llegadas": [],
+   "escorrentia_de_ladera_km2": 0.061,
+   "n_llegadas": 0
+  }
+ },
+ "vasos": {
+  "metodo": "Relleno global priority-flood desde el mar sobre el DSM crudo (8 vecinos); vaso = componente con lámina > 1 mm. Robusto si prof. máx. ≥ 1 m y persiste (≥ 0,3 m) con el proxy de suelo (mínimo 3×3). Sin ventana: no hay bordes artificiales. Exposición solo bajo la cota de rebose.",
+  "n": 24,
+  "n_robustos": 5,
+  "nota_eventos": "6 eventos SNGR de inundación/deslizamiento con coordenada genérica excluidos de la proximidad",
+  "lista": [
+   {
+    "id": "V01",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 3.6,
+    "volumen_m3": 61420,
+    "prof_max_m": 4.61,
+    "cota_fondo_m": 298.54,
+    "cota_rebose_m": 303.15,
+    "fondo_lonlat": [
+     -89.55766,
+     -0.90373
+    ],
+    "vertido_lonlat": [
+     -89.5582,
+     -0.90455
+    ],
+    "area_aportante_km2": 1.57,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.94,
+    "robusto": true,
+    "edificios_intersecan": 2,
+    "edificios_centroide": 2,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 112
+   },
+   {
+    "id": "V02",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 1.89,
+    "volumen_m3": 34457,
+    "prof_max_m": 5.08,
+    "cota_fondo_m": 308.26,
+    "cota_rebose_m": 313.34,
+    "fondo_lonlat": [
+     -89.55282,
+     -0.91214
+    ],
+    "vertido_lonlat": [
+     -89.55282,
+     -0.91241
+    ],
+    "area_aportante_km2": 0.261,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 0,
+    "edificios_centroide": 0,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 414,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V03",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.9,
+    "volumen_m3": 7111,
+    "prof_max_m": 2.19,
+    "cota_fondo_m": 310.89,
+    "cota_rebose_m": 313.08,
+    "fondo_lonlat": [
+     -89.55551,
+     -0.90997
+    ],
+    "vertido_lonlat": [
+     -89.55524,
+     -0.91051
+    ],
+    "area_aportante_km2": 0.133,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 1.43,
+    "robusto": true,
+    "edificios_intersecan": 7,
+    "edificios_centroide": 3,
+    "poblacion": 4,
+    "viviendas": 2,
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso",
+     "Inundación 2024-2 MANUEL JULIAN COBOS Y MATEO BENAVIDES"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 301
+   },
+   {
+    "id": "V04",
+    "tipo": "vaso",
+    "zonas": [
+     "Huella edificada cerca de El Progreso"
+    ],
+    "area_ha": 0.63,
+    "volumen_m3": 6741,
+    "prof_max_m": 1.86,
+    "cota_fondo_m": 347.77,
+    "cota_rebose_m": 349.63,
+    "fondo_lonlat": [
+     -89.54689,
+     -0.89994
+    ],
+    "vertido_lonlat": [
+     -89.54769,
+     -0.89994
+    ],
+    "area_aportante_km2": 1.973,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.62,
+    "robusto": true,
+    "edificios_intersecan": 1,
+    "edificios_centroide": 0,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 25
+   },
+   {
+    "id": "V05",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.99,
+    "volumen_m3": 6642,
+    "prof_max_m": 1.45,
+    "cota_fondo_m": 311.2,
+    "cota_rebose_m": 312.65,
+    "fondo_lonlat": [
+     -89.55498,
+     -0.91133
+    ],
+    "vertido_lonlat": [
+     -89.55444,
+     -0.91187
+    ],
+    "area_aportante_km2": 0.256,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 7,
+    "edificios_centroide": 5,
+    "poblacion": 4,
+    "viviendas": 2,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 277,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V06",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.72,
+    "volumen_m3": 6117,
+    "prof_max_m": 1.6,
+    "cota_fondo_m": 314.45,
+    "cota_rebose_m": 316.05,
+    "fondo_lonlat": [
+     -89.55767,
+     -0.90889
+    ],
+    "vertido_lonlat": [
+     -89.5574,
+     -0.90943
+    ],
+    "area_aportante_km2": 0.029,
+    "edificios_a_20m_del_vertido": 1,
+    "vias_a_20m_del_vertido": 1,
+    "prof_max_proxy_suelo_m": 0.34,
+    "robusto": true,
+    "edificios_intersecan": 11,
+    "edificios_centroide": 8,
+    "poblacion": 4,
+    "viviendas": 2,
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso",
+     "Inundación 2024-2 MANUEL JULIAN COBOS Y MATEO BENAVIDES"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 445,
+    "nota": "El umbral de vertido está junto a edificios o vías: puede ser un techo/terraplén del DSM (artefacto) o un cierre real con alcantarilla. Verificar en campo."
+   },
+   {
+    "id": "V07",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.63,
+    "volumen_m3": 3409,
+    "prof_max_m": 1.1,
+    "cota_fondo_m": 313.77,
+    "cota_rebose_m": 314.87,
+    "fondo_lonlat": [
+     -89.55255,
+     -0.91024
+    ],
+    "vertido_lonlat": [
+     -89.55282,
+     -0.91079
+    ],
+    "area_aportante_km2": 0.232,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 1,
+    "edificios_centroide": 1,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [
+     "Inundación 2016-1 Vía El Progreso - Cerro Verde"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 381,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V08",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.9,
+    "volumen_m3": 2906,
+    "prof_max_m": 0.87,
+    "cota_fondo_m": 315.12,
+    "cota_rebose_m": 315.99,
+    "fondo_lonlat": [
+     -89.55578,
+     -0.90807
+    ],
+    "vertido_lonlat": [
+     -89.55605,
+     -0.90862
+    ],
+    "area_aportante_km2": 0.05,
+    "edificios_a_20m_del_vertido": 1,
+    "vias_a_20m_del_vertido": 1,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 15,
+    "edificios_centroide": 11,
+    "poblacion": 12,
+    "viviendas": 5,
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso",
+     "Inundación 2024-2 MANUEL JULIAN COBOS Y MATEO BENAVIDES"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 299,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V09",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.54,
+    "volumen_m3": 2125,
+    "prof_max_m": 0.78,
+    "cota_fondo_m": 318.86,
+    "cota_rebose_m": 319.64,
+    "fondo_lonlat": [
+     -89.55309,
+     -0.90889
+    ],
+    "vertido_lonlat": [
+     -89.55336,
+     -0.90889
+    ],
+    "area_aportante_km2": 0.049,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 1,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 5,
+    "edificios_centroide": 5,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [
+     "Inundación 2016-1 Vía El Progreso - Cerro Verde"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 232,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V10",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.36,
+    "volumen_m3": 1942,
+    "prof_max_m": 1.02,
+    "cota_fondo_m": 312.17,
+    "cota_rebose_m": 313.19,
+    "fondo_lonlat": [
+     -89.55794,
+     -0.91024
+    ],
+    "vertido_lonlat": [
+     -89.5574,
+     -0.91078
+    ],
+    "area_aportante_km2": 0.014,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 0,
+    "edificios_centroide": 0,
+    "poblacion": 1,
+    "viviendas": 1,
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 302,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V11",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.27,
+    "volumen_m3": 1749,
+    "prof_max_m": 1.3,
+    "cota_fondo_m": 311.75,
+    "cota_rebose_m": 313.05,
+    "fondo_lonlat": [
+     -89.55686,
+     -0.90997
+    ],
+    "vertido_lonlat": [
+     -89.55713,
+     -0.91051
+    ],
+    "area_aportante_km2": 0.05,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 1,
+    "prof_max_proxy_suelo_m": 0.41,
+    "robusto": true,
+    "edificios_intersecan": 0,
+    "edificios_centroide": 0,
+    "poblacion": 2,
+    "viviendas": 1,
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso",
+     "Inundación 2024-2 MANUEL JULIAN COBOS Y MATEO BENAVIDES"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 323,
+    "nota": "El umbral de vertido está junto a edificios o vías: puede ser un techo/terraplén del DSM (artefacto) o un cierre real con alcantarilla. Verificar en campo."
+   },
+   {
+    "id": "V12",
+    "tipo": "vaso",
+    "zonas": [
+     "Puerto Baquerizo Moreno"
+    ],
+    "area_ha": 0.45,
+    "volumen_m3": 1543,
+    "prof_max_m": 0.51,
+    "cota_fondo_m": 7.35,
+    "cota_rebose_m": 7.86,
+    "fondo_lonlat": [
+     -89.61046,
+     -0.90234
+    ],
+    "vertido_lonlat": [
+     -89.611,
+     -0.90207
+    ],
+    "area_aportante_km2": 0.075,
+    "edificios_a_20m_del_vertido": 8,
+    "vias_a_20m_del_vertido": 2,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 14,
+    "edificios_centroide": 8,
+    "poblacion": 14,
+    "viviendas": 8,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 186,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V13",
+    "tipo": "vaso",
+    "zonas": [
+     "Puerto Baquerizo Moreno"
+    ],
+    "area_ha": 0.18,
+    "volumen_m3": 1322,
+    "prof_max_m": 0.85,
+    "cota_fondo_m": 4.28,
+    "cota_rebose_m": 5.13,
+    "fondo_lonlat": [
+     -89.61153,
+     -0.90207
+    ],
+    "vertido_lonlat": [
+     -89.61207,
+     -0.90234
+    ],
+    "area_aportante_km2": 0.009,
+    "edificios_a_20m_del_vertido": 7,
+    "vias_a_20m_del_vertido": 2,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 12,
+    "edificios_centroide": 5,
+    "poblacion": 8,
+    "viviendas": 5,
+    "eventos_sngr_250m": [
+     "Inundación 2024-2 Barrio Frio"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 95,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V14",
+    "tipo": "vaso",
+    "zonas": [
+     "Huella edificada cerca de El Progreso"
+    ],
+    "area_ha": 0.27,
+    "volumen_m3": 1312,
+    "prof_max_m": 1.0,
+    "cota_fondo_m": 356.83,
+    "cota_rebose_m": 357.83,
+    "fondo_lonlat": [
+     -89.5477,
+     -0.90184
+    ],
+    "vertido_lonlat": [
+     -89.5477,
+     -0.90157
+    ],
+    "area_aportante_km2": 0.018,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 0,
+    "edificios_centroide": 0,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 200,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V15",
+    "tipo": "vaso",
+    "zonas": [
+     "Puerto Baquerizo Moreno"
+    ],
+    "area_ha": 0.45,
+    "volumen_m3": 1143,
+    "prof_max_m": 0.38,
+    "cota_fondo_m": 87.46,
+    "cota_rebose_m": 87.85,
+    "fondo_lonlat": [
+     -89.59323,
+     -0.91157
+    ],
+    "vertido_lonlat": [
+     -89.59349,
+     -0.9113
+    ],
+    "area_aportante_km2": 1.981,
+    "edificios_a_20m_del_vertido": 4,
+    "vias_a_20m_del_vertido": 2,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 8,
+    "edificios_centroide": 7,
+    "poblacion": 10,
+    "viviendas": 3,
+    "eventos_sngr_250m": [
+     "Inundación 2025-4 LA PLANADA"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 376,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V16",
+    "tipo": "vaso",
+    "zonas": [
+     "Puerto Baquerizo Moreno"
+    ],
+    "area_ha": 0.18,
+    "volumen_m3": 883,
+    "prof_max_m": 0.68,
+    "cota_fondo_m": 77.23,
+    "cota_rebose_m": 77.91,
+    "fondo_lonlat": [
+     -89.597,
+     -0.91184
+    ],
+    "vertido_lonlat": [
+     -89.597,
+     -0.91157
+    ],
+    "area_aportante_km2": 0.237,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 0,
+    "edificios_centroide": 0,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 EL MANZANILLO"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 426,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V17",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.18,
+    "volumen_m3": 861,
+    "prof_max_m": 0.58,
+    "cota_fondo_m": 314.59,
+    "cota_rebose_m": 315.17,
+    "fondo_lonlat": [
+     -89.55282,
+     -0.90618
+    ],
+    "vertido_lonlat": [
+     -89.55336,
+     -0.90618
+    ],
+    "area_aportante_km2": 1.009,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 2,
+    "edificios_centroide": 1,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 0,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V18",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.18,
+    "volumen_m3": 712,
+    "prof_max_m": 0.68,
+    "cota_fondo_m": 322.51,
+    "cota_rebose_m": 323.19,
+    "fondo_lonlat": [
+     -89.55228,
+     -0.90753
+    ],
+    "vertido_lonlat": [
+     -89.55282,
+     -0.90699
+    ],
+    "area_aportante_km2": 0.013,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 1,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 0,
+    "edificios_centroide": 0,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [
+     "Inundación 2016-1 Vía El Progreso - Cerro Verde"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 84,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V19",
+    "tipo": "vaso",
+    "zonas": [
+     "Puerto Baquerizo Moreno"
+    ],
+    "area_ha": 0.45,
+    "volumen_m3": 712,
+    "prof_max_m": 0.31,
+    "cota_fondo_m": 18.63,
+    "cota_rebose_m": 18.93,
+    "fondo_lonlat": [
+     -89.61531,
+     -0.90993
+    ],
+    "vertido_lonlat": [
+     -89.61477,
+     -0.90966
+    ],
+    "area_aportante_km2": 0.021,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.08,
+    "robusto": false,
+    "edificios_intersecan": 1,
+    "edificios_centroide": 1,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 472,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V20",
+    "tipo": "vaso",
+    "zonas": [
+     "Huella edificada cerca de El Progreso"
+    ],
+    "area_ha": 0.09,
+    "volumen_m3": 697,
+    "prof_max_m": 0.78,
+    "cota_fondo_m": 355.18,
+    "cota_rebose_m": 355.96,
+    "fondo_lonlat": [
+     -89.54662,
+     -0.90157
+    ],
+    "vertido_lonlat": [
+     -89.54689,
+     -0.9013
+    ],
+    "area_aportante_km2": 0.311,
+    "edificios_a_20m_del_vertido": 2,
+    "vias_a_20m_del_vertido": 1,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 0,
+    "edificios_centroide": 0,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 200,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V21",
+    "tipo": "vaso",
+    "zonas": [
+     "Puerto Baquerizo Moreno"
+    ],
+    "area_ha": 0.27,
+    "volumen_m3": 617,
+    "prof_max_m": 0.49,
+    "cota_fondo_m": 51.65,
+    "cota_rebose_m": 52.13,
+    "fondo_lonlat": [
+     -89.60211,
+     -0.90343
+    ],
+    "vertido_lonlat": [
+     -89.60211,
+     -0.90316
+    ],
+    "area_aportante_km2": 0.281,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 0,
+    "edificios_centroide": 0,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 349,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V22",
+    "tipo": "vaso",
+    "zonas": [
+     "Puerto Baquerizo Moreno"
+    ],
+    "area_ha": 0.18,
+    "volumen_m3": 539,
+    "prof_max_m": 0.37,
+    "cota_fondo_m": 1.76,
+    "cota_rebose_m": 2.13,
+    "fondo_lonlat": [
+     -89.61315,
+     -0.90288
+    ],
+    "vertido_lonlat": [
+     -89.61315,
+     -0.90261
+    ],
+    "area_aportante_km2": 10.587,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 0,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 2,
+    "edificios_centroide": 1,
+    "poblacion": 1,
+    "viviendas": 0,
+    "eventos_sngr_250m": [
+     "Inundación 2024-2 Barrio Frio"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": true,
+    "dist_cauce_mapeado_m": 48,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V23",
+    "tipo": "vaso",
+    "zonas": [
+     "El Progreso"
+    ],
+    "area_ha": 0.09,
+    "volumen_m3": 427,
+    "prof_max_m": 0.48,
+    "cota_fondo_m": 316.07,
+    "cota_rebose_m": 316.55,
+    "fondo_lonlat": [
+     -89.55901,
+     -0.9078
+    ],
+    "vertido_lonlat": [
+     -89.55928,
+     -0.9078
+    ],
+    "area_aportante_km2": 0.012,
+    "edificios_a_20m_del_vertido": 0,
+    "vias_a_20m_del_vertido": 1,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 1,
+    "edificios_centroide": 1,
+    "poblacion": 0,
+    "viviendas": 0,
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso"
+    ],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 514,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   },
+   {
+    "id": "V24",
+    "tipo": "vaso",
+    "zonas": [
+     "Puerto Baquerizo Moreno"
+    ],
+    "area_ha": 0.09,
+    "volumen_m3": 345,
+    "prof_max_m": 0.38,
+    "cota_fondo_m": 11.89,
+    "cota_rebose_m": 12.27,
+    "fondo_lonlat": [
+     -89.61127,
+     -0.90478
+    ],
+    "vertido_lonlat": [
+     -89.61154,
+     -0.90505
+    ],
+    "area_aportante_km2": 0.002,
+    "edificios_a_20m_del_vertido": 7,
+    "vias_a_20m_del_vertido": 1,
+    "prof_max_proxy_suelo_m": 0.0,
+    "robusto": false,
+    "edificios_intersecan": 7,
+    "edificios_centroide": 4,
+    "poblacion": 12,
+    "viviendas": 4,
+    "eventos_sngr_250m": [],
+    "en_flujo_lodo_o_franja_cgreg": false,
+    "dist_cauce_mapeado_m": 85,
+    "nota": "Profundidad < 1 m o no persiste con el proxy de suelo: dentro del ruido del DSM."
+   }
+  ]
+ },
+ "puntos_inundacion": {
+  "criterios": {
+   "A_area_aportante": "0: < 0,1 km²; 1: 0,1–0,5; 2: 0,5–2; 3: ≥ 2 km²",
+   "E_exposicion": "edificios en la franja de 20 m del tramo propio dentro de la zona poblada (llegadas: hasta unirse a una llegada mayor), a ≤ 45 m del tramo final (salidas) o que intersecan el vaso: 0: < 5; 1: 5–24; 2: 25–99; 3: ≥ 100",
+   "C_confinamiento": "1 si la llegada recorre su tramo propio sin cauce cartografiado en más de la mitad, si la salida al mar no tiene cauce cartografiado, o si el vaso es robusto (≥ 1 m y persiste con el proxy de suelo)",
+   "H_antecedente": "1 si hay un evento SNGR de inundación, deslizamiento o socavamiento a ≤ 250 m (reportado, no verificado; se excluyen los eventos con coordenada genérica repetida)",
+   "L_cgreg": "1 si los primeros ~300 m del recorrido (llegadas), el tramo final (salidas) o el vaso tocan una zona CGREG de flujos de lodo y escombros por El Niño o una franja CGREG de quebrada",
+   "total": "suma A + E + C + H + L (máximo 9); desempate por área aportante × edificios"
+  },
+  "salidas_al_mar": [
+   {
+    "id": "PBM-S01",
+    "tipo": "salida al mar con cauce cartografiado",
+    "tc_kirpich_h": 1.477,
+    "tc_temez_h": 3.535,
+    "cauce_longitud_km": 11.73,
+    "q_pico_100mm_CN70_m3s": 18.78,
+    "q_pico_100mm_CN60_80_rango_m3s": [
+     9.21,
+     58.4
+    ],
+    "caudales_tormenta_tipo_II": [
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 60,
+      "escorrentia_mm": 1.4,
+      "coef_escorrentia": 0.028,
+      "volumen_m3": 14858,
+      "q_pico_m3s_tc_temez": 0.39,
+      "q_pico_m3s_tc_kirpich": 0.43
+     },
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 70,
+      "escorrentia_mm": 5.8,
+      "coef_escorrentia": 0.116,
+      "volumen_m3": 61543,
+      "q_pico_m3s_tc_temez": 2.49,
+      "q_pico_m3s_tc_kirpich": 4.09
+     },
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 80,
+      "escorrentia_mm": 13.8,
+      "coef_escorrentia": 0.276,
+      "volumen_m3": 146135,
+      "q_pico_m3s_tc_temez": 7.62,
+      "q_pico_m3s_tc_kirpich": 13.97
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 60,
+      "escorrentia_mm": 18.6,
+      "coef_escorrentia": 0.186,
+      "volumen_m3": 196656,
+      "q_pico_m3s_tc_temez": 9.21,
+      "q_pico_m3s_tc_kirpich": 16.37
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 70,
+      "escorrentia_mm": 32.7,
+      "coef_escorrentia": 0.327,
+      "volumen_m3": 346328,
+      "q_pico_m3s_tc_temez": 18.78,
+      "q_pico_m3s_tc_kirpich": 34.88
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 80,
+      "escorrentia_mm": 50.5,
+      "coef_escorrentia": 0.505,
+      "volumen_m3": 535087,
+      "q_pico_m3s_tc_temez": 31.19,
+      "q_pico_m3s_tc_kirpich": 58.4
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 60,
+      "escorrentia_mm": 47.2,
+      "coef_escorrentia": 0.315,
+      "volumen_m3": 500214,
+      "q_pico_m3s_tc_temez": 26.9,
+      "q_pico_m3s_tc_kirpich": 49.85
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 70,
+      "escorrentia_mm": 69.4,
+      "coef_escorrentia": 0.462,
+      "volumen_m3": 734280,
+      "q_pico_m3s_tc_temez": 42.31,
+      "q_pico_m3s_tc_kirpich": 79.31
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 80,
+      "escorrentia_mm": 93.9,
+      "coef_escorrentia": 0.626,
+      "volumen_m3": 993973,
+      "q_pico_m3s_tc_temez": 58.91,
+      "q_pico_m3s_tc_kirpich": 109.77
+     }
+    ],
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61315,
+     -0.90261
+    ],
+    "area_aportante_km2": 10.588,
+    "edificios": 25,
+    "llegadas": [
+     "PBM-L01",
+     "PBM-L02",
+     "PBM-L06",
+     "PBM-L07",
+     "PBM-L08",
+     "PBM-L09",
+     "PBM-L10",
+     "PBM-L14"
+    ],
+    "descripcion": "Último tramo (≈150 m) del recorrido D8 antes del mar; edificios a ≤ 45 m. Recibe las llegadas PBM-L01, PBM-L02, PBM-L06, PBM-L07, PBM-L08, PBM-L09, PBM-L10, PBM-L14.",
+    "eventos_sngr_250m": [
+     "Inundación 2024-2 Barrio Frio"
+    ],
+    "criterios": {
+     "A": 3,
+     "E": 2,
+     "C": 0,
+     "H": 1,
+     "L": 1
+    },
+    "puntuacion": 7,
+    "ranking": 2
+   },
+   {
+    "id": "PBM-S02",
+    "tipo": "salida al mar sin cauce cartografiado",
+    "tc_kirpich_h": 0.507,
+    "tc_temez_h": 1.237,
+    "cauce_longitud_km": 2.97,
+    "q_pico_100mm_CN70_m3s": 5.72,
+    "q_pico_100mm_CN60_80_rango_m3s": [
+     2.66,
+     17.77
+    ],
+    "caudales_tormenta_tipo_II": [
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 60,
+      "escorrentia_mm": 1.4,
+      "coef_escorrentia": 0.028,
+      "volumen_m3": 2162,
+      "q_pico_m3s_tc_temez": 0.06,
+      "q_pico_m3s_tc_kirpich": 0.07
+     },
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 70,
+      "escorrentia_mm": 5.8,
+      "coef_escorrentia": 0.116,
+      "volumen_m3": 8956,
+      "q_pico_m3s_tc_temez": 0.65,
+      "q_pico_m3s_tc_kirpich": 1.12
+     },
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 80,
+      "escorrentia_mm": 13.8,
+      "coef_escorrentia": 0.276,
+      "volumen_m3": 21266,
+      "q_pico_m3s_tc_temez": 2.29,
+      "q_pico_m3s_tc_kirpich": 4.35
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 60,
+      "escorrentia_mm": 18.6,
+      "coef_escorrentia": 0.186,
+      "volumen_m3": 28619,
+      "q_pico_m3s_tc_temez": 2.66,
+      "q_pico_m3s_tc_kirpich": 4.98
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 70,
+      "escorrentia_mm": 32.7,
+      "coef_escorrentia": 0.327,
+      "volumen_m3": 50400,
+      "q_pico_m3s_tc_temez": 5.72,
+      "q_pico_m3s_tc_kirpich": 10.74
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 80,
+      "escorrentia_mm": 50.5,
+      "coef_escorrentia": 0.505,
+      "volumen_m3": 77870,
+      "q_pico_m3s_tc_temez": 9.58,
+      "q_pico_m3s_tc_kirpich": 17.77
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 60,
+      "escorrentia_mm": 47.2,
+      "coef_escorrentia": 0.315,
+      "volumen_m3": 72795,
+      "q_pico_m3s_tc_temez": 8.17,
+      "q_pico_m3s_tc_kirpich": 15.39
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 70,
+      "escorrentia_mm": 69.4,
+      "coef_escorrentia": 0.462,
+      "volumen_m3": 106858,
+      "q_pico_m3s_tc_temez": 13.01,
+      "q_pico_m3s_tc_kirpich": 24.14
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 80,
+      "escorrentia_mm": 93.9,
+      "coef_escorrentia": 0.626,
+      "volumen_m3": 144651,
+      "q_pico_m3s_tc_temez": 18.0,
+      "q_pico_m3s_tc_kirpich": 33.34
+     }
+    ],
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60965,
+     -0.89936
+    ],
+    "area_aportante_km2": 1.541,
+    "edificios": 32,
+    "llegadas": [
+     "PBM-L03",
+     "PBM-L11"
+    ],
+    "descripcion": "Último tramo (≈150 m) del recorrido D8 antes del mar; edificios a ≤ 45 m. Recibe las llegadas PBM-L03, PBM-L11.",
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 PLAYA MAN"
+    ],
+    "criterios": {
+     "A": 2,
+     "E": 2,
+     "C": 1,
+     "H": 1,
+     "L": 1
+    },
+    "puntuacion": 7,
+    "ranking": 3
+   },
+   {
+    "id": "PBM-S03",
+    "tipo": "salida al mar sin cauce cartografiado",
+    "tc_kirpich_h": 0.385,
+    "tc_temez_h": 0.972,
+    "cauce_longitud_km": 2.25,
+    "q_pico_100mm_CN70_m3s": 4.22,
+    "q_pico_100mm_CN60_80_rango_m3s": [
+     1.96,
+     13.65
+    ],
+    "caudales_tormenta_tipo_II": [
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 60,
+      "escorrentia_mm": 1.4,
+      "coef_escorrentia": 0.028,
+      "volumen_m3": 1372,
+      "q_pico_m3s_tc_temez": 0.04,
+      "q_pico_m3s_tc_kirpich": 0.05
+     },
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 70,
+      "escorrentia_mm": 5.8,
+      "coef_escorrentia": 0.116,
+      "volumen_m3": 5686,
+      "q_pico_m3s_tc_temez": 0.47,
+      "q_pico_m3s_tc_kirpich": 0.88
+     },
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 80,
+      "escorrentia_mm": 13.8,
+      "coef_escorrentia": 0.276,
+      "volumen_m3": 13502,
+      "q_pico_m3s_tc_temez": 1.68,
+      "q_pico_m3s_tc_kirpich": 3.35
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 60,
+      "escorrentia_mm": 18.6,
+      "coef_escorrentia": 0.186,
+      "volumen_m3": 18171,
+      "q_pico_m3s_tc_temez": 1.96,
+      "q_pico_m3s_tc_kirpich": 3.82
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 70,
+      "escorrentia_mm": 32.7,
+      "coef_escorrentia": 0.327,
+      "volumen_m3": 32000,
+      "q_pico_m3s_tc_temez": 4.22,
+      "q_pico_m3s_tc_kirpich": 8.32
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 80,
+      "escorrentia_mm": 50.5,
+      "coef_escorrentia": 0.505,
+      "volumen_m3": 49442,
+      "q_pico_m3s_tc_temez": 7.1,
+      "q_pico_m3s_tc_kirpich": 13.65
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 60,
+      "escorrentia_mm": 47.2,
+      "coef_escorrentia": 0.315,
+      "volumen_m3": 46220,
+      "q_pico_m3s_tc_temez": 6.03,
+      "q_pico_m3s_tc_kirpich": 11.9
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 70,
+      "escorrentia_mm": 69.4,
+      "coef_escorrentia": 0.462,
+      "volumen_m3": 67847,
+      "q_pico_m3s_tc_temez": 9.64,
+      "q_pico_m3s_tc_kirpich": 18.61
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 80,
+      "escorrentia_mm": 93.9,
+      "coef_escorrentia": 0.626,
+      "volumen_m3": 91843,
+      "q_pico_m3s_tc_temez": 13.35,
+      "q_pico_m3s_tc_kirpich": 25.38
+     }
+    ],
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60965,
+     -0.898
+    ],
+    "area_aportante_km2": 0.978,
+    "edificios": 8,
+    "llegadas": [
+     "PBM-L04",
+     "PBM-L05",
+     "PBM-L13"
+    ],
+    "descripcion": "Último tramo (≈150 m) del recorrido D8 antes del mar; edificios a ≤ 45 m. Recibe las llegadas PBM-L04, PBM-L05, PBM-L13.",
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 PLAYA MAN"
+    ],
+    "criterios": {
+     "A": 2,
+     "E": 1,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "puntuacion": 5,
+    "ranking": 7
+   },
+   {
+    "id": "PBM-S04",
+    "tipo": "salida al mar sin cauce cartografiado",
+    "tc_kirpich_h": 0.141,
+    "tc_temez_h": 0.379,
+    "cauce_longitud_km": 0.69,
+    "q_pico_100mm_CN70_m3s": 0.87,
+    "q_pico_100mm_CN60_80_rango_m3s": [
+     0.4,
+     2.08
+    ],
+    "caudales_tormenta_tipo_II": [
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 60,
+      "escorrentia_mm": 1.4,
+      "coef_escorrentia": 0.028,
+      "volumen_m3": 141,
+      "q_pico_m3s_tc_temez": 0.0,
+      "q_pico_m3s_tc_kirpich": 0.01
+     },
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 70,
+      "escorrentia_mm": 5.8,
+      "coef_escorrentia": 0.116,
+      "volumen_m3": 585,
+      "q_pico_m3s_tc_temez": 0.09,
+      "q_pico_m3s_tc_kirpich": 0.17
+     },
+     {
+      "lluvia_24h_mm": 50,
+      "CN": 80,
+      "escorrentia_mm": 13.8,
+      "coef_escorrentia": 0.276,
+      "volumen_m3": 1391,
+      "q_pico_m3s_tc_temez": 0.35,
+      "q_pico_m3s_tc_kirpich": 0.56
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 60,
+      "escorrentia_mm": 18.6,
+      "coef_escorrentia": 0.186,
+      "volumen_m3": 1872,
+      "q_pico_m3s_tc_temez": 0.4,
+      "q_pico_m3s_tc_kirpich": 0.7
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 70,
+      "escorrentia_mm": 32.7,
+      "coef_escorrentia": 0.327,
+      "volumen_m3": 3297,
+      "q_pico_m3s_tc_temez": 0.87,
+      "q_pico_m3s_tc_kirpich": 1.34
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 80,
+      "escorrentia_mm": 50.5,
+      "coef_escorrentia": 0.505,
+      "volumen_m3": 5094,
+      "q_pico_m3s_tc_temez": 1.42,
+      "q_pico_m3s_tc_kirpich": 2.08
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 60,
+      "escorrentia_mm": 47.2,
+      "coef_escorrentia": 0.315,
+      "volumen_m3": 4762,
+      "q_pico_m3s_tc_temez": 1.24,
+      "q_pico_m3s_tc_kirpich": 1.94
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 70,
+      "escorrentia_mm": 69.4,
+      "coef_escorrentia": 0.462,
+      "volumen_m3": 6990,
+      "q_pico_m3s_tc_temez": 1.94,
+      "q_pico_m3s_tc_kirpich": 2.86
+     },
+     {
+      "lluvia_24h_mm": 150,
+      "CN": 80,
+      "escorrentia_mm": 93.9,
+      "coef_escorrentia": 0.626,
+      "volumen_m3": 9463,
+      "q_pico_m3s_tc_temez": 2.64,
+      "q_pico_m3s_tc_kirpich": 3.79
+     }
+    ],
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61018,
+     -0.89448
+    ],
+    "area_aportante_km2": 0.101,
+    "edificios": 6,
+    "llegadas": [
+     "PBM-L12"
+    ],
+    "descripcion": "Último tramo (≈150 m) del recorrido D8 antes del mar; edificios a ≤ 45 m. Recibe las llegadas PBM-L12.",
+    "eventos_sngr_250m": [],
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "puntuacion": 3,
+    "ranking": 20
+   }
+  ],
+  "ranking": [
+   {
+    "ranking": 1,
+    "id": "PBM-L01",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.59376,
+     -0.90615
+    ],
+    "area_aportante_km2": 5.417,
+    "edificios": 110,
+    "puntuacion": 8,
+    "criterios": {
+     "A": 3,
+     "E": 3,
+     "C": 0,
+     "H": 1,
+     "L": 1
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2019-4 Barrio Manzanillo",
+     "Inundación 2024-2 Barrio Frio"
+    ]
+   },
+   {
+    "ranking": 2,
+    "id": "PBM-S01",
+    "tipo": "salida al mar con cauce cartografiado",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61315,
+     -0.90261
+    ],
+    "area_aportante_km2": 10.588,
+    "edificios": 25,
+    "puntuacion": 7,
+    "criterios": {
+     "A": 3,
+     "E": 2,
+     "C": 0,
+     "H": 1,
+     "L": 1
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2024-2 Barrio Frio"
+    ]
+   },
+   {
+    "ranking": 3,
+    "id": "PBM-S02",
+    "tipo": "salida al mar sin cauce cartografiado",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60965,
+     -0.89936
+    ],
+    "area_aportante_km2": 1.541,
+    "edificios": 32,
+    "puntuacion": 7,
+    "criterios": {
+     "A": 2,
+     "E": 2,
+     "C": 1,
+     "H": 1,
+     "L": 1
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 PLAYA MAN"
+    ]
+   },
+   {
+    "ranking": 4,
+    "id": "PBM-L02",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.59188,
+     -0.91157
+    ],
+    "area_aportante_km2": 1.82,
+    "edificios": 45,
+    "puntuacion": 6,
+    "criterios": {
+     "A": 2,
+     "E": 2,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2019-4 Barrio Manzanillo",
+     "Inundación 2023-4 EL MANZANILLO",
+     "Inundación 2025-4 LA PLANADA"
+    ]
+   },
+   {
+    "ranking": 5,
+    "id": "PBM-L03",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60345,
+     -0.89963
+    ],
+    "area_aportante_km2": 0.987,
+    "edificios": 66,
+    "puntuacion": 6,
+    "criterios": {
+     "A": 2,
+     "E": 2,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 PLAYA MAN",
+     "Inundación 2024-3 AV. ANTONIO GIL"
+    ]
+   },
+   {
+    "ranking": 6,
+    "id": "V22",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61315,
+     -0.90288
+    ],
+    "area_aportante_km2": 10.587,
+    "edificios": 2,
+    "puntuacion": 5,
+    "criterios": {
+     "A": 3,
+     "E": 0,
+     "C": 0,
+     "H": 1,
+     "L": 1
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2024-2 Barrio Frio"
+    ]
+   },
+   {
+    "ranking": 7,
+    "id": "PBM-S03",
+    "tipo": "salida al mar sin cauce cartografiado",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60965,
+     -0.898
+    ],
+    "area_aportante_km2": 0.978,
+    "edificios": 8,
+    "puntuacion": 5,
+    "criterios": {
+     "A": 2,
+     "E": 1,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 PLAYA MAN"
+    ]
+   },
+   {
+    "ranking": 8,
+    "id": "V15",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.59323,
+     -0.91157
+    ],
+    "area_aportante_km2": 1.981,
+    "edificios": 8,
+    "puntuacion": 4,
+    "criterios": {
+     "A": 2,
+     "E": 1,
+     "C": 0,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2025-4 LA PLANADA"
+    ]
+   },
+   {
+    "ranking": 9,
+    "id": "PBM-L04",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.6048,
+     -0.89746
+    ],
+    "area_aportante_km2": 0.451,
+    "edificios": 13,
+    "puntuacion": 4,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 PLAYA MAN"
+    ]
+   },
+   {
+    "ranking": 10,
+    "id": "PBM-L05",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60695,
+     -0.89611
+    ],
+    "area_aportante_km2": 0.312,
+    "edificios": 12,
+    "puntuacion": 4,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 PLAYA MAN"
+    ]
+   },
+   {
+    "ranking": 11,
+    "id": "PBM-L08",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.59619,
+     -0.91347
+    ],
+    "area_aportante_km2": 0.162,
+    "edificios": 21,
+    "puntuacion": 4,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2019-4 Barrio Manzanillo",
+     "Inundación 2023-4 EL MANZANILLO"
+    ]
+   },
+   {
+    "ranking": 12,
+    "id": "PBM-L06",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61316,
+     -0.9083
+    ],
+    "area_aportante_km2": 0.295,
+    "edificios": 9,
+    "puntuacion": 4,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 0,
+     "L": 1
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 13,
+    "id": "V03",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55551,
+     -0.90997
+    ],
+    "area_aportante_km2": 0.133,
+    "edificios": 7,
+    "puntuacion": 4,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso",
+     "Inundación 2024-2 MANUEL JULIAN COBOS Y MATEO BENAVIDES"
+    ]
+   },
+   {
+    "ranking": 14,
+    "id": "V01",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55766,
+     -0.90373
+    ],
+    "area_aportante_km2": 1.57,
+    "edificios": 2,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 2,
+     "E": 0,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 15,
+    "id": "PBM-L11",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60022,
+     -0.90397
+    ],
+    "area_aportante_km2": 0.141,
+    "edificios": 21,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 16,
+    "id": "V04",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "Huella edificada cerca de El Progreso",
+    "lonlat": [
+     -89.54689,
+     -0.89994
+    ],
+    "area_aportante_km2": 1.973,
+    "edificios": 1,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 2,
+     "E": 0,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 17,
+    "id": "Z1-L01",
+    "tipo": "llegada de quebrada",
+    "zona": "Huella edificada cerca de Cerro Verde",
+    "lonlat": [
+     -89.44506,
+     -0.90137
+    ],
+    "area_aportante_km2": 0.364,
+    "edificios": 5,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 18,
+    "id": "PBM-L09",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.59996,
+     -0.91211
+    ],
+    "area_aportante_km2": 0.157,
+    "edificios": 8,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 19,
+    "id": "Z3-L01",
+    "tipo": "llegada de quebrada",
+    "zona": "Huella edificada cerca de El Progreso",
+    "lonlat": [
+     -89.54689,
+     -0.8994
+    ],
+    "area_aportante_km2": 1.111,
+    "edificios": 1,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 2,
+     "E": 0,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 20,
+    "id": "PBM-S04",
+    "tipo": "salida al mar sin cauce cartografiado",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61018,
+     -0.89448
+    ],
+    "area_aportante_km2": 0.101,
+    "edificios": 6,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 21,
+    "id": "PRO-L02",
+    "tipo": "llegada de quebrada",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55336,
+     -0.90889
+    ],
+    "area_aportante_km2": 0.057,
+    "edificios": 7,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 0,
+     "E": 1,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2016-1 Vía El Progreso - Cerro Verde"
+    ]
+   },
+   {
+    "ranking": 22,
+    "id": "V06",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55767,
+     -0.90889
+    ],
+    "area_aportante_km2": 0.029,
+    "edificios": 11,
+    "puntuacion": 3,
+    "criterios": {
+     "A": 0,
+     "E": 1,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso",
+     "Inundación 2024-2 MANUEL JULIAN COBOS Y MATEO BENAVIDES"
+    ]
+   },
+   {
+    "ranking": 23,
+    "id": "V17",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55282,
+     -0.90618
+    ],
+    "area_aportante_km2": 1.009,
+    "edificios": 2,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 2,
+     "E": 0,
+     "C": 0,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 24,
+    "id": "PRO-L01",
+    "tipo": "llegada de quebrada",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55282,
+     -0.90618
+    ],
+    "area_aportante_km2": 0.989,
+    "edificios": 2,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 2,
+     "E": 0,
+     "C": 0,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 25,
+    "id": "V05",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55498,
+     -0.91133
+    ],
+    "area_aportante_km2": 0.256,
+    "edificios": 7,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 1,
+     "E": 1,
+     "C": 0,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 26,
+    "id": "Z3-L03",
+    "tipo": "llegada de quebrada",
+    "zona": "Huella edificada cerca de El Progreso",
+    "lonlat": [
+     -89.54689,
+     -0.90184
+    ],
+    "area_aportante_km2": 0.288,
+    "edificios": 3,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 1,
+     "E": 0,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 27,
+    "id": "V08",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55578,
+     -0.90807
+    ],
+    "area_aportante_km2": 0.05,
+    "edificios": 15,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 0,
+     "E": 1,
+     "C": 0,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso",
+     "Inundación 2024-2 MANUEL JULIAN COBOS Y MATEO BENAVIDES"
+    ]
+   },
+   {
+    "ranking": 28,
+    "id": "Z3-L02",
+    "tipo": "llegada de quebrada",
+    "zona": "Huella edificada cerca de El Progreso",
+    "lonlat": [
+     -89.54608,
+     -0.90022
+    ],
+    "area_aportante_km2": 0.48,
+    "edificios": 1,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 1,
+     "E": 0,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 29,
+    "id": "V09",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55309,
+     -0.90889
+    ],
+    "area_aportante_km2": 0.049,
+    "edificios": 5,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 0,
+     "E": 1,
+     "C": 0,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2016-1 Vía El Progreso - Cerro Verde"
+    ]
+   },
+   {
+    "ranking": 30,
+    "id": "V07",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55255,
+     -0.91024
+    ],
+    "area_aportante_km2": 0.232,
+    "edificios": 1,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 1,
+     "E": 0,
+     "C": 0,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2016-1 Vía El Progreso - Cerro Verde"
+    ]
+   },
+   {
+    "ranking": 31,
+    "id": "PBM-L07",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.59376,
+     -0.90805
+    ],
+    "area_aportante_km2": 0.197,
+    "edificios": 0,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 1,
+     "E": 0,
+     "C": 0,
+     "H": 0,
+     "L": 1
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 32,
+    "id": "PBM-L10",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60939,
+     -0.91319
+    ],
+    "area_aportante_km2": 0.148,
+    "edificios": 0,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 1,
+     "E": 0,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 33,
+    "id": "V13",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61153,
+     -0.90207
+    ],
+    "area_aportante_km2": 0.009,
+    "edificios": 12,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 0,
+     "E": 1,
+     "C": 0,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2024-2 Barrio Frio"
+    ]
+   },
+   {
+    "ranking": 34,
+    "id": "PBM-L14",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.59323,
+     -0.91374
+    ],
+    "area_aportante_km2": 0.054,
+    "edificios": 0,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 0,
+     "E": 0,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2025-4 LA PLANADA"
+    ]
+   },
+   {
+    "ranking": 35,
+    "id": "V11",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55686,
+     -0.90997
+    ],
+    "area_aportante_km2": 0.05,
+    "edificios": 0,
+    "puntuacion": 2,
+    "criterios": {
+     "A": 0,
+     "E": 0,
+     "C": 1,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso",
+     "Inundación 2024-2 MANUEL JULIAN COBOS Y MATEO BENAVIDES"
+    ]
+   },
+   {
+    "ranking": 36,
+    "id": "V12",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61046,
+     -0.90234
+    ],
+    "area_aportante_km2": 0.075,
+    "edificios": 14,
+    "puntuacion": 1,
+    "criterios": {
+     "A": 0,
+     "E": 1,
+     "C": 0,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 37,
+    "id": "Z2-L01",
+    "tipo": "llegada de quebrada",
+    "zona": "Huella edificada cerca de Cerro Verde (2)",
+    "lonlat": [
+     -89.44237,
+     -0.90598
+    ],
+    "area_aportante_km2": 0.266,
+    "edificios": 2,
+    "puntuacion": 1,
+    "criterios": {
+     "A": 1,
+     "E": 0,
+     "C": 0,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 38,
+    "id": "PBM-L12",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60937,
+     -0.89366
+    ],
+    "area_aportante_km2": 0.098,
+    "edificios": 0,
+    "puntuacion": 1,
+    "criterios": {
+     "A": 0,
+     "E": 0,
+     "C": 1,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 39,
+    "id": "V24",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61127,
+     -0.90478
+    ],
+    "area_aportante_km2": 0.002,
+    "edificios": 7,
+    "puntuacion": 1,
+    "criterios": {
+     "A": 0,
+     "E": 1,
+     "C": 0,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 40,
+    "id": "V23",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "El Progreso",
+    "lonlat": [
+     -89.55901,
+     -0.9078
+    ],
+    "area_aportante_km2": 0.012,
+    "edificios": 1,
+    "puntuacion": 1,
+    "criterios": {
+     "A": 0,
+     "E": 0,
+     "C": 0,
+     "H": 1,
+     "L": 0
+    },
+    "eventos_sngr_250m": [
+     "Inundación 2021-3 sector el progreso"
+    ]
+   },
+   {
+    "ranking": 41,
+    "id": "PBM-L13",
+    "tipo": "llegada de quebrada",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.60507,
+     -0.89719
+    ],
+    "area_aportante_km2": 0.057,
+    "edificios": 0,
+    "puntuacion": 0,
+    "criterios": {
+     "A": 0,
+     "E": 0,
+     "C": 0,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   },
+   {
+    "ranking": 42,
+    "id": "V19",
+    "tipo": "vaso (depresión cerrada)",
+    "zona": "Puerto Baquerizo Moreno",
+    "lonlat": [
+     -89.61531,
+     -0.90993
+    ],
+    "area_aportante_km2": 0.021,
+    "edificios": 1,
+    "puntuacion": 0,
+    "criterios": {
+     "A": 0,
+     "E": 0,
+     "C": 0,
+     "H": 0,
+     "L": 0
+    },
+    "eventos_sngr_250m": []
+   }
+  ]
+ },
+ "usfq": {
+  "punto": [
+   -89.6089,
+   -0.8955
+  ],
+  "campus_aproximado": {
+   "definicion": "Envolvente convexa del polígono OSM «GAIAS Campus USFQ» y de los edificios OSM con building=university a < 150 m (USFQ Extension Galapagos, Galapagos Science Center, Laboratorio de Salud Animal) + 15 m. El límite real del campus no está cartografiado.",
+   "area_ha": 0.77,
+   "edificios_universitarios": [
+    "USFQ Extension Galapagos",
+    "Galapagos Science Center",
+    "Laboratorio de Salud Animal"
+   ],
+   "edificios_en_campus": 4,
+   "cota_dsm_edificios_m": [
+    10.57,
+    14.51
+   ],
+   "dist_mar_m": 90
+  },
+  "recorridos_d8_a_menos_de_400m": [
+   {
+    "salida_mar_lonlat": [
+     -89.61045,
+     -0.89448
+    ],
+    "dist_min_al_campus_m": 137,
+    "area_en_punto_mas_cercano_km2": 0.1,
+    "area_en_desembocadura_km2": 0.101,
+    "punto_mas_cercano_lonlat": [
+     -89.60991,
+     -0.89421
+    ]
+   },
+   {
+    "salida_mar_lonlat": [
+     -89.60992,
+     -0.898
+    ],
+    "dist_min_al_campus_m": 157,
+    "area_en_punto_mas_cercano_km2": 0.284,
+    "area_en_desembocadura_km2": 0.978,
+    "punto_mas_cercano_lonlat": [
+     -89.60695,
+     -0.89556
+    ]
+   },
+   {
+    "salida_mar_lonlat": [
+     -89.60992,
+     -0.89936
+    ],
+    "dist_min_al_campus_m": 349,
+    "area_en_punto_mas_cercano_km2": 1.511,
+    "area_en_desembocadura_km2": 1.541,
+    "punto_mas_cercano_lonlat": [
+     -89.6083,
+     -0.89909
+    ]
+   }
+  ],
+  "criterio_seleccion": "Quebrada del campus = recorrido D8 con ≥ 0.2 km² que pasa más cerca del campus aproximado. Dos puntos de control: (1) celda más cercana al campus; (2) última celda en tierra antes del mar.",
+  "quebrada": {
+   "puntos_de_control": {
+    "1_mas_cercano_al_campus": {
+     "lonlat": [
+      -89.60695,
+      -0.89556
+     ],
+     "cota_m": 19.8,
+     "area_km2": 0.284,
+     "area_sin_quemar_km2": 0.284,
+     "cota_max_cuenca_m": 78.4,
+     "pendiente_media_cuenca_pct": 8.3,
+     "fraccion_en_depresiones_>1m": 0.0,
+     "cauce": {
+      "L_km": 1.23,
+      "desnivel_m": 58.2,
+      "S_pct": 4.74,
+      "kirpich_h": 0.252,
+      "temez_h": 0.626,
+      "scs_lag_h": {
+       "CN60": 0.97,
+       "CN70": 0.75,
+       "CN80": 0.56
+      },
+      "tr55_flujo_concentrado_h": 0.328,
+      "manning_cauce_h": 0.115
+     },
+     "tc_rango_h": [
+      0.115,
+      0.97
+     ],
+     "cn": {
+      "f_natural": 1.0,
+      "f_agricola": 0.0,
+      "f_urbano": 0.0,
+      "cn_amc_ii": 60.0,
+      "cn_amc_iii": 77.5
+     },
+     "caudales_tormenta_tipo_II": [
+      {
+       "lluvia_24h_mm": 50,
+       "CN": 60,
+       "escorrentia_mm": 1.4,
+       "coef_escorrentia": 0.028,
+       "volumen_m3": 399,
+       "q_pico_m3s_tc_temez": 0.01,
+       "q_pico_m3s_tc_kirpich": 0.01
+      },
+      {
+       "lluvia_24h_mm": 50,
+       "CN": 70,
+       "escorrentia_mm": 5.8,
+       "coef_escorrentia": 0.116,
+       "volumen_m3": 1653,
+       "q_pico_m3s_tc_temez": 0.18,
+       "q_pico_m3s_tc_kirpich": 0.34
+      },
+      {
+       "lluvia_24h_mm": 50,
+       "CN": 80,
+       "escorrentia_mm": 13.8,
+       "coef_escorrentia": 0.276,
+       "volumen_m3": 3925,
+       "q_pico_m3s_tc_temez": 0.69,
+       "q_pico_m3s_tc_kirpich": 1.23
+      },
+      {
+       "lluvia_24h_mm": 100,
+       "CN": 60,
+       "escorrentia_mm": 18.6,
+       "coef_escorrentia": 0.186,
+       "volumen_m3": 5282,
+       "q_pico_m3s_tc_temez": 0.78,
+       "q_pico_m3s_tc_kirpich": 1.48
+      },
+      {
+       "lluvia_24h_mm": 100,
+       "CN": 70,
+       "escorrentia_mm": 32.7,
+       "coef_escorrentia": 0.327,
+       "volumen_m3": 9302,
+       "q_pico_m3s_tc_temez": 1.71,
+       "q_pico_m3s_tc_kirpich": 3.01
+      },
+      {
+       "lluvia_24h_mm": 100,
+       "CN": 80,
+       "escorrentia_mm": 50.5,
+       "coef_escorrentia": 0.505,
+       "volumen_m3": 14373,
+       "q_pico_m3s_tc_temez": 2.81,
+       "q_pico_m3s_tc_kirpich": 4.88
+      },
+      {
+       "lluvia_24h_mm": 150,
+       "CN": 60,
+       "escorrentia_mm": 47.2,
+       "coef_escorrentia": 0.315,
+       "volumen_m3": 13436,
+       "q_pico_m3s_tc_temez": 2.45,
+       "q_pico_m3s_tc_kirpich": 4.32
+      },
+      {
+       "lluvia_24h_mm": 150,
+       "CN": 70,
+       "escorrentia_mm": 69.4,
+       "coef_escorrentia": 0.462,
+       "volumen_m3": 19723,
+       "q_pico_m3s_tc_temez": 3.84,
+       "q_pico_m3s_tc_kirpich": 6.67
+      },
+      {
+       "lluvia_24h_mm": 150,
+       "CN": 80,
+       "escorrentia_mm": 93.9,
+       "coef_escorrentia": 0.626,
+       "volumen_m3": 26699,
+       "q_pico_m3s_tc_temez": 5.24,
+       "q_pico_m3s_tc_kirpich": 9.02
+      }
+     ]
+    },
+    "2_desembocadura": {
+     "lonlat": [
+      -89.60965,
+      -0.898
+     ],
+     "cota_m": 2.6,
+     "area_km2": 0.978,
+     "area_sin_quemar_km2": 0.978,
+     "cota_max_cuenca_m": 121.7,
+     "pendiente_media_cuenca_pct": 7.8,
+     "fraccion_en_depresiones_>1m": 0.0,
+     "cauce": {
+      "L_km": 2.25,
+      "desnivel_m": 117.8,
+      "S_pct": 5.24,
+      "kirpich_h": 0.385,
+      "temez_h": 0.972,
+      "scs_lag_h": {
+       "CN60": 1.63,
+       "CN70": 1.25,
+       "CN80": 0.94
+      },
+      "tr55_flujo_concentrado_h": 0.576,
+      "manning_cauce_h": 0.202
+     },
+     "tc_rango_h": [
+      0.202,
+      1.63
+     ],
+     "cn": {
+      "f_natural": 0.875,
+      "f_agricola": 0.0,
+      "f_urbano": 0.125,
+      "cn_amc_ii": 63.8,
+      "cn_amc_iii": 80.2
+     },
+     "caudales_tormenta_tipo_II": [
+      {
+       "lluvia_24h_mm": 50,
+       "CN": 60,
+       "escorrentia_mm": 1.4,
+       "coef_escorrentia": 0.028,
+       "volumen_m3": 1372,
+       "q_pico_m3s_tc_temez": 0.04,
+       "q_pico_m3s_tc_kirpich": 0.05
+      },
+      {
+       "lluvia_24h_mm": 50,
+       "CN": 70,
+       "escorrentia_mm": 5.8,
+       "coef_escorrentia": 0.116,
+       "volumen_m3": 5686,
+       "q_pico_m3s_tc_temez": 0.47,
+       "q_pico_m3s_tc_kirpich": 0.88
+      },
+      {
+       "lluvia_24h_mm": 50,
+       "CN": 80,
+       "escorrentia_mm": 13.8,
+       "coef_escorrentia": 0.276,
+       "volumen_m3": 13502,
+       "q_pico_m3s_tc_temez": 1.68,
+       "q_pico_m3s_tc_kirpich": 3.35
+      },
+      {
+       "lluvia_24h_mm": 100,
+       "CN": 60,
+       "escorrentia_mm": 18.6,
+       "coef_escorrentia": 0.186,
+       "volumen_m3": 18171,
+       "q_pico_m3s_tc_temez": 1.96,
+       "q_pico_m3s_tc_kirpich": 3.82
+      },
+      {
+       "lluvia_24h_mm": 100,
+       "CN": 70,
+       "escorrentia_mm": 32.7,
+       "coef_escorrentia": 0.327,
+       "volumen_m3": 32000,
+       "q_pico_m3s_tc_temez": 4.22,
+       "q_pico_m3s_tc_kirpich": 8.32
+      },
+      {
+       "lluvia_24h_mm": 100,
+       "CN": 80,
+       "escorrentia_mm": 50.5,
+       "coef_escorrentia": 0.505,
+       "volumen_m3": 49442,
+       "q_pico_m3s_tc_temez": 7.1,
+       "q_pico_m3s_tc_kirpich": 13.65
+      },
+      {
+       "lluvia_24h_mm": 150,
+       "CN": 60,
+       "escorrentia_mm": 47.2,
+       "coef_escorrentia": 0.315,
+       "volumen_m3": 46220,
+       "q_pico_m3s_tc_temez": 6.03,
+       "q_pico_m3s_tc_kirpich": 11.9
+      },
+      {
+       "lluvia_24h_mm": 150,
+       "CN": 70,
+       "escorrentia_mm": 69.4,
+       "coef_escorrentia": 0.462,
+       "volumen_m3": 67847,
+       "q_pico_m3s_tc_temez": 9.64,
+       "q_pico_m3s_tc_kirpich": 18.61
+      },
+      {
+       "lluvia_24h_mm": 150,
+       "CN": 80,
+       "escorrentia_mm": 93.9,
+       "coef_escorrentia": 0.626,
+       "volumen_m3": 91843,
+       "q_pico_m3s_tc_temez": 13.35,
+       "q_pico_m3s_tc_kirpich": 25.38
+      }
+     ]
+    }
+   },
+   "dist_minima_al_campus_m": 157,
+   "entra_al_campus_segun_d8": false,
+   "entrada_al_campus_lonlat": null,
+   "edificios_campus_franja_20m": [],
+   "edificios_campus_franja_45m": [],
+   "desnivel_edificios_campus_sobre_cauce": [
+    {
+     "edificio": "USFQ Extension Galapagos",
+     "dist_quebrada_m": 215,
+     "cota_proxy_suelo_m": 7.8,
+     "cota_cauce_mas_cercano_m": 19.8,
+     "desnivel_sobre_cauce_m": -12.0
+    },
+    {
+     "edificio": "Galapagos Science Center",
+     "dist_quebrada_m": 190,
+     "cota_proxy_suelo_m": 11.4,
+     "cota_cauce_mas_cercano_m": 19.8,
+     "desnivel_sobre_cauce_m": -8.4
+    },
+    {
+     "edificio": "Laboratorio de Salud Animal",
+     "dist_quebrada_m": 204,
+     "cota_proxy_suelo_m": 8.7,
+     "cota_cauce_mas_cercano_m": 22.1,
+     "desnivel_sobre_cauce_m": -13.4
+    },
+    {
+     "edificio": "Open Buildings",
+     "dist_quebrada_m": 214,
+     "cota_proxy_suelo_m": 8.7,
+     "cota_cauce_mas_cercano_m": 22.1,
+     "desnivel_sobre_cauce_m": -13.4
+    }
+   ],
+   "vasos_a_menos_de_150m_del_campus": [],
+   "franjas_quebrada_cgreg_dist_al_campus_m": [
+    353
+   ],
+   "flujos_lodo_cgreg_dist_al_campus_m": [
+    303
+   ],
+   "quebrada_toca_franja_o_lodo_cgreg": false,
+   "aguas_abajo_del_campus": {
+    "recorrido_hasta_el_mar_m": 607,
+    "pendiente_media_pct": 2.8,
+    "fraccion_con_cauce_mapeado": 0.0,
+    "edificios_franja_20m": 29,
+    "salida_mar_lonlat": [
+     -89.60965,
+     -0.898
+    ],
+    "cruces_de_vias": [
+     "Avenida Alsacio Northia",
+     "Avenida Jaime Roldós Aguilera",
+     "track"
+    ],
+    "puentes_osm_igm_a_150m": 1,
+    "eventos_sngr_250m": [
+     "Inundación 2023-4 PLAYA MAN"
+    ]
+   },
+   "escorrentia_local_que_entra_al_campus": {
+    "area_km2": 0.0207,
+    "lonlat": [
+     -89.60911,
+     -0.89502
+    ],
+    "tc_h": {
+     "L_km": 0.26,
+     "desnivel_m": 17.2,
+     "S_pct": 6.5,
+     "kirpich_h": 0.068,
+     "temez_h": 0.184,
+     "scs_lag_h": {
+      "CN60": 0.34,
+      "CN70": 0.27,
+      "CN80": 0.2
+     },
+     "tr55_flujo_concentrado_h": 0.059,
+     "manning_cauce_h": 0.021
+    },
+    "caudales_100mm": [
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 60,
+      "escorrentia_mm": 18.6,
+      "coef_escorrentia": 0.186,
+      "volumen_m3": 384,
+      "q_pico_m3s_tc_temez": 0.17,
+      "q_pico_m3s_tc_kirpich": 0.17
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 70,
+      "escorrentia_mm": 32.7,
+      "coef_escorrentia": 0.327,
+      "volumen_m3": 677,
+      "q_pico_m3s_tc_temez": 0.31,
+      "q_pico_m3s_tc_kirpich": 0.31
+     },
+     {
+      "lluvia_24h_mm": 100,
+      "CN": 80,
+      "escorrentia_mm": 50.5,
+      "coef_escorrentia": 0.505,
+      "volumen_m3": 1046,
+      "q_pico_m3s_tc_temez": 0.46,
+      "q_pico_m3s_tc_kirpich": 0.46
+     }
+    ]
+   },
+   "monte_carlo_trazado": {
+    "metodo": "100 realizaciones por escenario: DSM quemado + ruido gaussiano (desv. típica sd, suavizado con filtro gaussiano de radio «corr» y reescalado), D8 recalculado en una ventana de ±2400 m; se sigue el flujo desde el inicio de la parte encauzada (≥ 0,05 km²) y se anota si pasa por el campus aproximado (+1 celda) y dónde llega al mar.",
+    "inicio_lonlat": [
+     -89.60156,
+     -0.89394
+    ],
+    "resultados": {
+     "sd1.0m_corr60m": {
+      "corridas": 100,
+      "fraccion_que_cruza_el_campus": 0.21,
+      "desembocaduras_mas_frecuentes": [
+       [
+        [
+         -89.60965,
+         -0.898
+        ],
+        66
+       ],
+       [
+        [
+         -89.60938,
+         -0.89529
+        ],
+        18
+       ],
+       [
+        [
+         -89.61018,
+         -0.89448
+        ],
+        8
+       ],
+       [
+        [
+         -89.61018,
+         -0.89421
+        ],
+        3
+       ]
+      ],
+      "entradas_al_campus_mas_frecuentes": [
+       [
+        [
+         -89.6083,
+         -0.89502
+        ],
+        19
+       ],
+       [
+        [
+         -89.60857,
+         -0.8961
+        ],
+        1
+       ],
+       [
+        [
+         -89.60857,
+         -0.89502
+        ],
+        1
+       ]
+      ]
+     },
+     "sd2.0m_corr0m": {
+      "corridas": 100,
+      "fraccion_que_cruza_el_campus": 0.12,
+      "desembocaduras_mas_frecuentes": [
+       [
+        [
+         -89.60965,
+         -0.898
+        ],
+        27
+       ],
+       [
+        [
+         -89.60965,
+         -0.89827
+        ],
+        13
+       ],
+       [
+        [
+         -89.60965,
+         -0.89909
+        ],
+        8
+       ],
+       [
+        [
+         -89.60965,
+         -0.89773
+        ],
+        8
+       ]
+      ],
+      "entradas_al_campus_mas_frecuentes": [
+       [
+        [
+         -89.6083,
+         -0.89502
+        ],
+        6
+       ],
+       [
+        [
+         -89.60884,
+         -0.89475
+        ],
+        2
+       ],
+       [
+        [
+         -89.60911,
+         -0.89475
+        ],
+        1
+       ]
+      ]
+     },
+     "sd2.0m_corr60m": {
+      "corridas": 100,
+      "fraccion_que_cruza_el_campus": 0.21,
+      "desembocaduras_mas_frecuentes": [
+       [
+        [
+         -89.60965,
+         -0.898
+        ],
+        54
+       ],
+       [
+        [
+         -89.60938,
+         -0.89529
+        ],
+        11
+       ],
+       [
+        [
+         -89.60965,
+         -0.89909
+        ],
+        6
+       ],
+       [
+        [
+         -89.61018,
+         -0.89421
+        ],
+        5
+       ]
+      ],
+      "entradas_al_campus_mas_frecuentes": [
+       [
+        [
+         -89.6083,
+         -0.89502
+        ],
+        9
+       ],
+       [
+        [
+         -89.60857,
+         -0.89475
+        ],
+        6
+       ],
+       [
+        [
+         -89.60857,
+         -0.89502
+        ],
+        4
+       ]
+      ]
+     },
+     "sd3.0m_corr60m": {
+      "corridas": 100,
+      "fraccion_que_cruza_el_campus": 0.23,
+      "desembocaduras_mas_frecuentes": [
+       [
+        [
+         -89.60965,
+         -0.898
+        ],
+        32
+       ],
+       [
+        [
+         -89.60938,
+         -0.89529
+        ],
+        9
+       ],
+       [
+        [
+         -89.60965,
+         -0.89773
+        ],
+        9
+       ],
+       [
+        [
+         -89.60965,
+         -0.89827
+        ],
+        6
+       ]
+      ],
+      "entradas_al_campus_mas_frecuentes": [
+       [
+        [
+         -89.6083,
+         -0.89502
+        ],
+        13
+       ],
+       [
+        [
+         -89.60857,
+         -0.89475
+        ],
+        4
+       ],
+       [
+        [
+         -89.60857,
+         -0.8961
+        ],
+        2
+       ]
+      ]
+     }
+    }
+   },
+   "sensibilidad_rejilla_nativa": {
+    "metodo": "Mismo DSM quemado y mismo algoritmo D8 (pysheds), pero en la rejilla geográfica original de 1″ (≈31 m) en vez de UTM 16S a 30 m.",
+    "cruza_el_campus": true,
+    "dist_min_al_campus_m": 6,
+    "salida_mar_lonlat": [
+     -89.60931,
+     -0.89514
+    ],
+    "longitud_desde_inicio_m": 1049
+   },
+   "transecto_control1_a_gsc": {
+    "longitud_m": 190,
+    "cota_inicio_m": 19.8,
+    "cota_fin_m": 15.9,
+    "pendiente_media_pct": 2.0,
+    "barrera_max_sobre_inicio_m": 1.6,
+    "cotas_cada_15m": [
+     19.8,
+     19.7,
+     19.6,
+     19.8,
+     20.0,
+     20.5,
+     21.1,
+     21.2,
+     21.4,
+     20.4,
+     19.5,
+     17.7,
+     15.9
+    ],
+    "pendiente_d8_en_el_tramo_de_control_pct": 3.2,
+    "nota": "Si el terreno baja del cauce al campus sin barrera, solo la elección D8 (ruido de ±2 m) separa la quebrada del campus."
+   },
+   "calado_ilustrativo_en_calle": {
+    "supuesto": "Calle rectangular de 8.0 m, n = 0.02, pendiente 2.8 % (tramo D8 aguas abajo del campus); sin red pluvial ni obstrucciones. Solo para dar escala.",
+    "casos": {
+     "Q 1 m³/s": {
+      "calado_m": 0.09,
+      "velocidad_ms": 1.4
+     },
+     "Q 2 m³/s": {
+      "calado_m": 0.13,
+      "velocidad_ms": 1.9
+     },
+     "Q 4 m³/s": {
+      "calado_m": 0.19,
+      "velocidad_ms": 2.6
+     },
+     "Q 8 m³/s": {
+      "calado_m": 0.29,
+      "velocidad_ms": 3.4
+     },
+     "Q 14 m³/s": {
+      "calado_m": 0.41,
+      "velocidad_ms": 4.3
+     },
+     "Q 25 m³/s": {
+      "calado_m": 0.59,
+      "velocidad_ms": 5.3
+     }
+    }
+   }
+  },
+  "lluvia_modelada_meteorologo": {
+   "fuente": "estudios/san-cristobal/datos/lluvias/modelos_horaria.csv",
+   "nota": "Lluvia de MODELO (Open-Meteo), no medida. Ventana de 24 h de máxima lluvia en la celda del punto usfq_gsc; caudal en la desembocadura de la quebrada.",
+   "area_km2": 0.978,
+   "por_modelo": {
+    "ecmwf_ifs": {
+     "inicio_ventana_24h": "2026-10-30T19:00",
+     "max_24h_mm": 39.5,
+     "max_1h_mm": 6.5,
+     "total_serie_mm": 68.7,
+     "serie": "2026-10-29T00:00 a 2026-11-02T00:00",
+     "CN60": {
+      "escorrentia_mm": 0.2,
+      "q_pico_m3s_temez": 0.02,
+      "q_pico_m3s_kirpich": 0.03
+     },
+     "CN70": {
+      "escorrentia_mm": 2.5,
+      "q_pico_m3s_temez": 0.14,
+      "q_pico_m3s_kirpich": 0.17
+     },
+     "CN80": {
+      "escorrentia_mm": 8.0,
+      "q_pico_m3s_temez": 0.29,
+      "q_pico_m3s_kirpich": 0.34
+     }
+    },
+    "ecmwf_ifs025": {
+     "inicio_ventana_24h": "2026-10-31T13:00",
+     "max_24h_mm": 58.8,
+     "max_1h_mm": 14.1,
+     "total_serie_mm": 103.5,
+     "serie": "2026-10-29T00:00 a 2026-11-02T00:00",
+     "CN60": {
+      "escorrentia_mm": 3.2,
+      "q_pico_m3s_temez": 0.46,
+      "q_pico_m3s_kirpich": 0.63
+     },
+     "CN70": {
+      "escorrentia_mm": 9.4,
+      "q_pico_m3s_temez": 1.18,
+      "q_pico_m3s_kirpich": 1.4
+     },
+     "CN80": {
+      "escorrentia_mm": 19.4,
+      "q_pico_m3s_temez": 2.06,
+      "q_pico_m3s_kirpich": 2.29
+     }
+    },
+    "gfs_seamless": {
+     "inicio_ventana_24h": "2026-10-30T16:00",
+     "max_24h_mm": 17.9,
+     "max_1h_mm": 2.1,
+     "total_serie_mm": 50.3,
+     "serie": "2026-10-29T00:00 a 2026-11-02T00:00",
+     "CN60": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     },
+     "CN70": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     },
+     "CN80": {
+      "escorrentia_mm": 0.4,
+      "q_pico_m3s_temez": 0.04,
+      "q_pico_m3s_kirpich": 0.04
+     }
+    },
+    "icon_seamless": {
+     "inicio_ventana_24h": "2026-10-30T12:00",
+     "max_24h_mm": 15.3,
+     "max_1h_mm": 1.3,
+     "total_serie_mm": 26.8,
+     "serie": "2026-10-29T00:00 a 2026-11-02T00:00",
+     "CN60": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     },
+     "CN70": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     },
+     "CN80": {
+      "escorrentia_mm": 0.1,
+      "q_pico_m3s_temez": 0.01,
+      "q_pico_m3s_kirpich": 0.01
+     }
+    },
+    "jma_seamless": {
+     "inicio_ventana_24h": "2026-10-30T13:00",
+     "max_24h_mm": 21.0,
+     "max_1h_mm": 1.6,
+     "total_serie_mm": 39.1,
+     "serie": "2026-10-29T00:00 a 2026-11-02T00:00",
+     "CN60": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     },
+     "CN70": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     },
+     "CN80": {
+      "escorrentia_mm": 1.0,
+      "q_pico_m3s_temez": 0.08,
+      "q_pico_m3s_kirpich": 0.09
+     }
+    },
+    "meteofrance_seamless": {
+     "inicio_ventana_24h": "2026-10-30T12:00",
+     "max_24h_mm": 41.0,
+     "max_1h_mm": 2.6,
+     "total_serie_mm": 69.0,
+     "serie": "2026-10-29T00:00 a 2026-11-02T00:00",
+     "CN60": {
+      "escorrentia_mm": 0.3,
+      "q_pico_m3s_temez": 0.03,
+      "q_pico_m3s_kirpich": 0.03
+     },
+     "CN70": {
+      "escorrentia_mm": 2.9,
+      "q_pico_m3s_temez": 0.15,
+      "q_pico_m3s_kirpich": 0.15
+     },
+     "CN80": {
+      "escorrentia_mm": 8.7,
+      "q_pico_m3s_temez": 0.31,
+      "q_pico_m3s_kirpich": 0.32
+     }
+    },
+    "ukmo_seamless": {
+     "inicio_ventana_24h": "2026-10-30T13:00",
+     "max_24h_mm": 13.1,
+     "max_1h_mm": 1.3,
+     "total_serie_mm": 22.2,
+     "serie": "2026-10-29T00:00 a 2026-11-02T00:00",
+     "CN60": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     },
+     "CN70": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     },
+     "CN80": {
+      "escorrentia_mm": 0.0,
+      "q_pico_m3s_temez": 0.0,
+      "q_pico_m3s_kirpich": 0.0
+     }
+    }
+   }
+  }
+ },
+ "validacion_dsm": {
+  "nota": "DSM (bilineal) − punto acotado IGM 1:25 000 (z entero). El punto IGM tiene su propio error.",
+  "isla": {
+   "n": 2087,
+   "media_m": -2.87,
+   "mediana_m": -2.13,
+   "desv_tipica_m": 6.27,
+   "rmse_m": 6.9,
+   "p05_m": -11.86,
+   "p95_m": 3.86
+  },
+  "pbm_5km": {
+   "n": 96,
+   "media_m": 1.53,
+   "mediana_m": 1.76,
+   "desv_tipica_m": 2.55,
+   "rmse_m": 2.97,
+   "p05_m": -3.16,
+   "p95_m": 5.37
+  },
+  "pbm_zona": {
+   "n": 21,
+   "media_m": 1.01,
+   "mediana_m": 1.13,
+   "desv_tipica_m": 2.83,
+   "rmse_m": 3.0,
+   "p05_m": -2.25,
+   "p95_m": 4.81
+  },
+  "progreso_2km": {
+   "n": 25,
+   "media_m": 1.92,
+   "mediana_m": 1.46,
+   "desv_tipica_m": 4.72,
+   "rmse_m": 5.1,
+   "p05_m": -5.53,
+   "p95_m": 9.25
+  },
+  "fuera_zonas_5km": {
+   "n": 75,
+   "media_m": 1.67,
+   "mediana_m": 1.96,
+   "desv_tipica_m": 2.45,
+   "rmse_m": 2.96,
+   "p05_m": -3.19,
+   "p95_m": 5.38
+  }
+ }
+}

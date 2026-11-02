@@ -1,0 +1,944 @@
+{
+ "metodo": "Tres tipos de punto, todos sobre Copernicus GLO-30 (DSM, 30 m) reproyectado a UTM 15S:\n  VASO     depresión cerrada del DSM crudo (relleno de depresiones) que toca zona poblada; cota de rebose = nivel de relleno.\n  LLEGADA  celda donde un flujo D8 (DSM con quebradas IGM quemadas) con área aportante >= A_LLEGADA_MIN_KM2 entra en zona poblada.\n  PIE      zona poblada casi plana (< PIE_PEND_MAX) al pie de una ladera (pendiente >= PIE_PEND_LADERA en 150 m) que recibe flujo.",
+ "criterios_prioridad": "puntaje = log10(1 + edificios expuestos) + log10(1 + Q pico 30-oct, Témez, m³/s) + 0,5 si hay evidencia histórica (SNGR inundación a < 300 m o zona de riesgo de inundación del CGREG) + 0,5 si es un vaso que el evento llenó. Alta >= 3,0; Media 2,0–3,0; Baja < 2,0. Edificios: dentro del vaso; franja de 300 m × 60 m aguas abajo de la llegada; zona de pie + 30 m.",
+ "parametros": {
+  "A_llegada_min_km2": 0.25,
+  "vaso_prof_min_m": 1.0,
+  "vaso_area_min_ha": 0.18,
+  "pie": [
+   2.0,
+   10.0,
+   0.05
+  ],
+  "CN": 76,
+  "lluvia_30oct": "IERSE-WSN; mezcla Los Guayabillos–Santa Rosa según la cota media de cada cuenca (178–416 m); totales mínimos"
+ },
+ "conteos": {
+  "VASO": {
+   "Alta": 7,
+   "Media": 19,
+   "Baja": 33
+  },
+  "LLEGADA": {
+   "Alta": 3,
+   "Media": 27,
+   "Baja": 29
+  },
+  "PIE": {
+   "Alta": 0,
+   "Media": 2,
+   "Baja": 0
+  }
+ },
+ "top": [
+  {
+   "id": "SC-001",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "PELIKAN BAY",
+   "lon": -90.309669,
+   "lat": -0.742954,
+   "area_km2": 44.085,
+   "edificios": 17,
+   "poblacion": 4,
+   "q30_temez_m3s": 348.5,
+   "q30_kirpich_m3s": 551.05,
+   "q100_temez_m3s": 96.78,
+   "puntaje": 4.8,
+   "prioridad": "Alta",
+   "evidencia": [
+    "CGREG: riesgo de inundación"
+   ]
+  },
+  {
+   "id": "SC-002",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "MATAZARNOS",
+   "lon": -90.312636,
+   "lat": -0.736178,
+   "area_km2": 42.468,
+   "edificios": 52,
+   "poblacion": 123,
+   "q30_temez_m3s": 349.75,
+   "q30_kirpich_m3s": 543.92,
+   "q100_temez_m3s": 97.48,
+   "puntaje": 4.77,
+   "prioridad": "Alta",
+   "evidencia": []
+  },
+  {
+   "id": "SC-003",
+   "tipo": "LLEGADA",
+   "localidad": "Bellavista",
+   "sector": "Bellavista",
+   "lon": -90.324511,
+   "lat": -0.692806,
+   "area_km2": 6.985,
+   "edificios": 50,
+   "poblacion": 73,
+   "q30_temez_m3s": 87.99,
+   "q30_kirpich_m3s": 118.19,
+   "q100_temez_m3s": 25.78,
+   "puntaje": 4.16,
+   "prioridad": "Alta",
+   "evidencia": [
+    "SNGR 2023-4 Barrio Central"
+   ]
+  },
+  {
+   "id": "SC-004",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "LOS CACTUS",
+   "lon": -90.315059,
+   "lat": -0.737264,
+   "area_km2": 1.297,
+   "edificios": 48,
+   "poblacion": 90,
+   "q30_temez_m3s": 15.18,
+   "q30_kirpich_m3s": 17.14,
+   "q100_temez_m3s": 5.99,
+   "puntaje": 3.9,
+   "prioridad": "Alta",
+   "evidencia": [
+    "SNGR 2025-3 VARIOS SECTORES",
+    "SNGR None-None VARIOS SECTORES"
+   ]
+  },
+  {
+   "id": "SC-005",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "LAS NINFAS",
+   "lon": -90.315053,
+   "lat": -0.747838,
+   "area_km2": 1.194,
+   "edificios": 41,
+   "poblacion": 25,
+   "q30_temez_m3s": 14.03,
+   "q30_kirpich_m3s": 15.82,
+   "q100_temez_m3s": 5.58,
+   "puntaje": 3.8,
+   "prioridad": "Alta",
+   "evidencia": [
+    "CGREG: riesgo de inundación"
+   ]
+  },
+  {
+   "id": "SC-006",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": "El Cedregal",
+   "lon": -90.32854,
+   "lat": -0.711787,
+   "area_km2": 8.146,
+   "edificios": 36,
+   "poblacion": 77,
+   "q30_temez_m3s": 83.87,
+   "q30_kirpich_m3s": 119.13,
+   "q100_temez_m3s": 23.57,
+   "puntaje": 3.5,
+   "prioridad": "Alta",
+   "evidencia": []
+  },
+  {
+   "id": "SC-007",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "PELIKAN BAY",
+   "lon": -90.312362,
+   "lat": -0.743498,
+   "area_km2": 0.64,
+   "edificios": 34,
+   "poblacion": 17,
+   "q30_temez_m3s": 7.82,
+   "q30_kirpich_m3s": 8.94,
+   "q100_temez_m3s": 3.4,
+   "puntaje": 3.49,
+   "prioridad": "Alta",
+   "evidencia": [
+    "CGREG: riesgo de inundación"
+   ]
+  },
+  {
+   "id": "SC-008",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": "Urbanización El Bosque",
+   "lon": -90.331238,
+   "lat": -0.70501,
+   "area_km2": 7.67,
+   "edificios": 20,
+   "poblacion": 42,
+   "q30_temez_m3s": 83.7,
+   "q30_kirpich_m3s": 116.01,
+   "q100_temez_m3s": 23.73,
+   "puntaje": 3.25,
+   "prioridad": "Alta",
+   "evidencia": []
+  },
+  {
+   "id": "SC-009",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "LOS CACTUS",
+   "lon": -90.317753,
+   "lat": -0.736724,
+   "area_km2": 1.234,
+   "edificios": 23,
+   "poblacion": 61,
+   "q30_temez_m3s": 14.78,
+   "q30_kirpich_m3s": 16.84,
+   "q100_temez_m3s": 6.05,
+   "puntaje": 3.08,
+   "prioridad": "Alta",
+   "evidencia": []
+  },
+  {
+   "id": "SC-010",
+   "tipo": "VASO",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.314778,
+   "lat": -0.756513,
+   "area_km2": 1.663,
+   "edificios": 14,
+   "poblacion": 2,
+   "q30_temez_m3s": 20.24,
+   "q30_kirpich_m3s": 22.43,
+   "q100_temez_m3s": 8.73,
+   "puntaje": 3.0,
+   "prioridad": "Alta",
+   "evidencia": []
+  },
+  {
+   "id": "SC-011",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "LAS NINFAS",
+   "lon": -90.316132,
+   "lat": -0.745127,
+   "area_km2": 0.12,
+   "edificios": 31,
+   "poblacion": 37,
+   "q30_temez_m3s": 1.77,
+   "q30_kirpich_m3s": 2.04,
+   "q100_temez_m3s": 1.22,
+   "puntaje": 2.95,
+   "prioridad": "Media",
+   "evidencia": [
+    "CGREG: riesgo de inundación"
+   ]
+  },
+  {
+   "id": "SC-012",
+   "tipo": "LLEGADA",
+   "localidad": "Puerto Ayora",
+   "sector": "LOS CACTUS",
+   "lon": -90.317753,
+   "lat": -0.736724,
+   "area_km2": 1.028,
+   "edificios": 57,
+   "poblacion": 206,
+   "q30_temez_m3s": 12.39,
+   "q30_kirpich_m3s": 14.23,
+   "q100_temez_m3s": 5.2,
+   "puntaje": 2.89,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-013",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.324499,
+   "lat": -0.715038,
+   "area_km2": 8.555,
+   "edificios": 7,
+   "poblacion": 0,
+   "q30_temez_m3s": 85.19,
+   "q30_kirpich_m3s": 122.75,
+   "q100_temez_m3s": 23.84,
+   "puntaje": 2.84,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-014",
+   "tipo": "VASO",
+   "localidad": "rural",
+   "sector": "Cascajo",
+   "lon": -90.272007,
+   "lat": -0.669189,
+   "area_km2": 0.656,
+   "edificios": 19,
+   "poblacion": 0,
+   "q30_temez_m3s": 9.64,
+   "q30_kirpich_m3s": 11.9,
+   "q100_temez_m3s": 3.74,
+   "puntaje": 2.83,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-015",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "PAMPAS COLORADAS",
+   "lon": -90.31775,
+   "lat": -0.741875,
+   "area_km2": 0.088,
+   "edificios": 27,
+   "poblacion": 57,
+   "q30_temez_m3s": 1.27,
+   "q30_kirpich_m3s": 1.46,
+   "q100_temez_m3s": 0.87,
+   "puntaje": 2.8,
+   "prioridad": "Media",
+   "evidencia": [
+    "SNGR 2015-4 :          Av. Baltra y Genovesa - Isla Duncan y Rodríguez Lara",
+    "SNGR 2021-2 Sector Alborada",
+    "SNGR 2023-4 CASCADA, UNIÓN, MATAZARNOS, ACACIAS, CENTRAL"
+   ]
+  },
+  {
+   "id": "SC-016",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.312125,
+   "lat": -0.68819,
+   "area_km2": 3.04,
+   "edificios": 12,
+   "poblacion": 0,
+   "q30_temez_m3s": 40.81,
+   "q30_kirpich_m3s": 53.87,
+   "q100_temez_m3s": 12.06,
+   "puntaje": 2.74,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-017",
+   "tipo": "VASO",
+   "localidad": "Bellavista",
+   "sector": "Bellavista",
+   "lon": -90.329896,
+   "lat": -0.69552,
+   "area_km2": 0.19,
+   "edificios": 12,
+   "poblacion": 10,
+   "q30_temez_m3s": 3.07,
+   "q30_kirpich_m3s": 3.37,
+   "q100_temez_m3s": 1.95,
+   "puntaje": 2.72,
+   "prioridad": "Media",
+   "evidencia": [
+    "SNGR 2024-2 El Aguacatal"
+   ]
+  },
+  {
+   "id": "SC-018",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": "El Cedregal",
+   "lon": -90.328811,
+   "lat": -0.709889,
+   "area_km2": 7.96,
+   "edificios": 5,
+   "poblacion": 2,
+   "q30_temez_m3s": 83.37,
+   "q30_kirpich_m3s": 117.33,
+   "q100_temez_m3s": 23.49,
+   "puntaje": 2.7,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-019",
+   "tipo": "VASO",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.284927,
+   "lat": -0.68221,
+   "area_km2": 2.759,
+   "edificios": 3,
+   "poblacion": 0,
+   "q30_temez_m3s": 37.36,
+   "q30_kirpich_m3s": 48.53,
+   "q100_temez_m3s": 12.3,
+   "puntaje": 2.69,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-020",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.39106,
+   "lat": -0.647835,
+   "area_km2": 3.454,
+   "edificios": 9,
+   "poblacion": 0,
+   "q30_temez_m3s": 46.78,
+   "q30_kirpich_m3s": 61.23,
+   "q100_temez_m3s": 13.39,
+   "puntaje": 2.68,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-021",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.286544,
+   "lat": -0.680042,
+   "area_km2": 2.325,
+   "edificios": 13,
+   "poblacion": 0,
+   "q30_temez_m3s": 32.86,
+   "q30_kirpich_m3s": 42.86,
+   "q100_temez_m3s": 10.89,
+   "puntaje": 2.68,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-022",
+   "tipo": "PIE",
+   "localidad": "Puerto Ayora",
+   "sector": "CONSEJO DE GOBIERNO",
+   "lon": -90.322058,
+   "lat": -0.742962,
+   "area_km2": 0.945,
+   "edificios": 35,
+   "poblacion": 2,
+   "q30_temez_m3s": 11.74,
+   "q30_kirpich_m3s": 13.52,
+   "q100_temez_m3s": 5.36,
+   "puntaje": 2.66,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-023",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": "Bellavista",
+   "lon": -90.315625,
+   "lat": -0.689276,
+   "area_km2": 1.194,
+   "edificios": 24,
+   "poblacion": 0,
+   "q30_temez_m3s": 16.92,
+   "q30_kirpich_m3s": 21.81,
+   "q100_temez_m3s": 5.84,
+   "puntaje": 2.65,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-024",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "CONSEJO DE GOBIERNO",
+   "lon": -90.320441,
+   "lat": -0.744859,
+   "area_km2": 1.024,
+   "edificios": 9,
+   "poblacion": 1,
+   "q30_temez_m3s": 12.43,
+   "q30_kirpich_m3s": 14.3,
+   "q100_temez_m3s": 5.33,
+   "puntaje": 2.63,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-025",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.286815,
+   "lat": -0.677602,
+   "area_km2": 1.599,
+   "edificios": 12,
+   "poblacion": 0,
+   "q30_temez_m3s": 23.63,
+   "q30_kirpich_m3s": 31.03,
+   "q100_temez_m3s": 7.76,
+   "puntaje": 2.51,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-026",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": "LOS TUNELES 2",
+   "lon": -90.315087,
+   "lat": -0.688192,
+   "area_km2": 1.153,
+   "edificios": 17,
+   "poblacion": 0,
+   "q30_temez_m3s": 16.5,
+   "q30_kirpich_m3s": 21.27,
+   "q100_temez_m3s": 5.8,
+   "puntaje": 2.5,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-027",
+   "tipo": "VASO",
+   "localidad": "Puerto Ayora",
+   "sector": "EL MIRADOR",
+   "lon": -90.321791,
+   "lat": -0.738624,
+   "area_km2": 0.234,
+   "edificios": 21,
+   "poblacion": 15,
+   "q30_temez_m3s": 3.27,
+   "q30_kirpich_m3s": 3.89,
+   "q100_temez_m3s": 1.98,
+   "puntaje": 2.47,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-028",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.311854,
+   "lat": -0.691714,
+   "area_km2": 3.199,
+   "edificios": 6,
+   "poblacion": 0,
+   "q30_temez_m3s": 41.59,
+   "q30_kirpich_m3s": 55.66,
+   "q100_temez_m3s": 12.24,
+   "puntaje": 2.47,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-029",
+   "tipo": "LLEGADA",
+   "localidad": "rural",
+   "sector": null,
+   "lon": -90.311854,
+   "lat": -0.690901,
+   "area_km2": 3.174,
+   "edificios": 6,
+   "poblacion": 0,
+   "q30_temez_m3s": 41.51,
+   "q30_kirpich_m3s": 55.43,
+   "q100_temez_m3s": 12.27,
+   "puntaje": 2.47,
+   "prioridad": "Media",
+   "evidencia": []
+  },
+  {
+   "id": "SC-030",
+   "tipo": "VASO",
+   "localidad": "rural",
+   "sector": "EL MIRADOR",
+   "lon": -90.324759,
+   "lat": -0.731034,
+   "area_km2": 0.507,
+   "edificios": 11,
+   "poblacion": 20,
+   "q30_temez_m3s": 6.56,
+   "q30_kirpich_m3s": 7.81,
+   "q100_temez_m3s": 3.55,
+   "puntaje": 2.46,
+   "prioridad": "Media",
+   "evidencia": []
+  }
+ ],
+ "tomas_de_berlanga": {
+  "punto": [
+   -90.3198,
+   -0.7109
+  ],
+  "cota_dsm_m": 127.9,
+  "prof_depresion_max_200m_m": 0.0,
+  "pendiente_local_pct": 3.9,
+  "area_aportante_punto_km2": 0.001,
+  "cauce_d8_cercano_lonlat": [
+   -90.31885,
+   -0.70988
+  ],
+  "dist_cauce_m": 155,
+  "area_km2": 9.432,
+  "L_km": 9.44,
+  "cota_media_cuenca_m": 387,
+  "lluvia_30oct_mm": 220.6,
+  "tc_kirpich_h": 1.01,
+  "tc_temez_h": 2.7,
+  "escorrentia_30oct_mm": 147.0,
+  "vol_escorrentia_30oct_m3": 1386338,
+  "q30_temez_m3s": 99.41,
+  "q30_kirpich_m3s": 139.05,
+  "hora_pico_30oct": "30-Oct 21:10 – 30-Oct 22:10",
+  "q100_temez_m3s": 28.23,
+  "q100_kirpich_m3s": 55.56,
+  "quebrada_cartografiada_a_100m": false,
+  "quebradas_cartografiadas_en_traza_m": 0,
+  "tramos_traza_con_quebrada": [],
+  "cruces_con_vias": [
+   {
+    "via": "residential",
+    "jerarquia": "Local",
+    "lonlat": [
+     -90.31787,
+     -0.71059
+    ],
+    "dist_al_punto_m": 218
+   },
+   {
+    "via": "residential",
+    "jerarquia": "Local",
+    "lonlat": [
+     -90.31967,
+     -0.70824
+    ],
+    "dist_al_punto_m": 294
+   },
+   {
+    "via": "residential",
+    "jerarquia": "Local",
+    "lonlat": [
+     -90.31965,
+     -0.70827
+    ],
+    "dist_al_punto_m": 291
+   },
+   {
+    "via": "residential",
+    "jerarquia": "Local",
+    "lonlat": [
+     -90.31945,
+     -0.70874
+    ],
+    "dist_al_punto_m": 243
+   },
+   {
+    "via": "residential",
+    "jerarquia": "Local",
+    "lonlat": [
+     -90.32069,
+     -0.70721
+    ],
+    "dist_al_punto_m": 420
+   },
+   {
+    "via": "track",
+    "jerarquia": "Camino de tierra",
+    "lonlat": [
+     -90.32114,
+     -0.70677
+    ],
+    "dist_al_punto_m": 481
+   },
+   {
+    "via": "track",
+    "jerarquia": "Camino de tierra",
+    "lonlat": [
+     -90.32159,
+     -0.70631
+    ],
+    "dist_al_punto_m": 545
+   },
+   {
+    "via": "tertiary",
+    "jerarquia": "Secundaria",
+    "lonlat": [
+     -90.32195,
+     -0.70595
+    ],
+    "dist_al_punto_m": 598
+   },
+   {
+    "via": "residential",
+    "jerarquia": "Local",
+    "lonlat": [
+     -90.31922,
+     -0.70896
+    ],
+    "dist_al_punto_m": 224
+   }
+  ],
+  "edificios_franja_60m_1200m": 8,
+  "poblacion_franja": 0,
+  "perfil_cauce": [
+   {
+    "dist_m": 0,
+    "cota_m": 139.4,
+    "area_km2": 8.65,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 30,
+    "cota_m": 139.1,
+    "area_km2": 8.65,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 60,
+    "cota_m": 139.5,
+    "area_km2": 8.65,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 90,
+    "cota_m": 137.7,
+    "area_km2": 8.77,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 120,
+    "cota_m": 136.7,
+    "area_km2": 8.77,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 150,
+    "cota_m": 135.3,
+    "area_km2": 8.78,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 180,
+    "cota_m": 134.1,
+    "area_km2": 8.81,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 210,
+    "cota_m": 134.1,
+    "area_km2": 8.81,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 240,
+    "cota_m": 133.8,
+    "area_km2": 8.81,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 270,
+    "cota_m": 130.6,
+    "area_km2": 8.82,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 300,
+    "cota_m": 127.8,
+    "area_km2": 8.82,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 330,
+    "cota_m": 126.3,
+    "area_km2": 8.83,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 360,
+    "cota_m": 125.8,
+    "area_km2": 8.85,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 390,
+    "cota_m": 125.6,
+    "area_km2": 8.85,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 420,
+    "cota_m": 125.7,
+    "area_km2": 9.23,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 450,
+    "cota_m": 125.0,
+    "area_km2": 9.23,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 480,
+    "cota_m": 125.5,
+    "area_km2": 9.42,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 510,
+    "cota_m": 125.6,
+    "area_km2": 9.42,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 540,
+    "cota_m": 122.1,
+    "area_km2": 9.42,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 570,
+    "cota_m": 120.6,
+    "area_km2": 9.43,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 600,
+    "cota_m": 119.5,
+    "area_km2": 9.43,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 630,
+    "cota_m": 117.6,
+    "area_km2": 9.46,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 660,
+    "cota_m": 116.3,
+    "area_km2": 9.47,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 690,
+    "cota_m": 115.4,
+    "area_km2": 9.53,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 720,
+    "cota_m": 114.3,
+    "area_km2": 9.53,
+    "en_zona_poblada": true
+   },
+   {
+    "dist_m": 750,
+    "cota_m": 113.1,
+    "area_km2": 9.54,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 780,
+    "cota_m": 112.2,
+    "area_km2": 9.54,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 810,
+    "cota_m": 110.5,
+    "area_km2": 9.54,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 840,
+    "cota_m": 108.8,
+    "area_km2": 9.58,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 870,
+    "cota_m": 107.1,
+    "area_km2": 9.58,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 900,
+    "cota_m": 104.7,
+    "area_km2": 9.59,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 930,
+    "cota_m": 104.3,
+    "area_km2": 9.6,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 960,
+    "cota_m": 103.7,
+    "area_km2": 10.56,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 990,
+    "cota_m": 103.6,
+    "area_km2": 10.57,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 1020,
+    "cota_m": 103.0,
+    "area_km2": 10.57,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 1050,
+    "cota_m": 102.4,
+    "area_km2": 10.57,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 1080,
+    "cota_m": 102.0,
+    "area_km2": 10.57,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 1110,
+    "cota_m": 101.2,
+    "area_km2": 10.58,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 1140,
+    "cota_m": 101.8,
+    "area_km2": 10.58,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 1170,
+    "cota_m": 101.1,
+    "area_km2": 10.59,
+    "en_zona_poblada": false
+   },
+   {
+    "dist_m": 1200,
+    "cota_m": 100.6,
+    "area_km2": 10.59,
+    "en_zona_poblada": false
+   }
+  ],
+  "cuenca_drena_a_la_cascada": "ver estudios/la-cascada (rama 2)",
+  "aguas_abajo": {
+   "llega_a_la_cascada": true,
+   "distancia_km": 4.14,
+   "punto_final_lonlat": [
+    -90.312907,
+    -0.732925
+   ]
+  },
+  "candidatos_a_500m": [
+   "SC-117 VASO"
+  ]
+ },
+ "salidas_d8": {
+  "acumulacion": "estudios/santa-cruz/datos/acumulacion_d8.tif",
+  "direcciones": "estudios/santa-cruz/datos/direcciones_d8.tif"
+ }
+}

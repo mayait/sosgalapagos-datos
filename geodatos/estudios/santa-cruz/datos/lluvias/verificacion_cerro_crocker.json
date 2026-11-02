@@ -1,0 +1,12 @@
+{
+ "historico_hasta": "2026-10-29",
+ "dias_SR_ge5_antes_11ago": 33,
+ "dias_SR_ge5_antes_con_crocker_ge1": 32,
+ "dias_SR_ge5_desde_11ago": 20,
+ "dias_SR_ge5_desde_con_crocker_ge1": 6,
+ "suma_crocker_antes": 403.6,
+ "suma_SR_antes": 475.4,
+ "suma_crocker_desde": 16.2,
+ "suma_SR_desde": 404.2,
+ "corr_diaria_guayabillos_santarosa": 0.37
+}

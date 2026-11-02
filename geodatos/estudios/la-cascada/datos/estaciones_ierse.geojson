@@ -1,0 +1,85 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.326,
+     -0.642398
+    ]
+   },
+   "properties": {
+    "estacion_id": "n_glps01",
+    "nombre": "Cerro Crocker",
+    "ubicacion": "Estación Cerro Crocker",
+    "altitud_m_dem": 861,
+    "desde": "2026-10-30T00:01:42",
+    "hasta": "2026-10-31T23:56:04",
+    "registros": 457,
+    "fuente": "IERSE-WSN, Universidad del Azuay"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.341962,
+     -0.699079
+    ]
+   },
+   "properties": {
+    "estacion_id": "n_glps05",
+    "nombre": "Los Guayabillos",
+    "ubicacion": "Estación Los Guayabillos",
+    "altitud_m_dem": 178,
+    "desde": "2026-10-30T00:04:30",
+    "hasta": "2026-10-31T23:58:30",
+    "registros": 319,
+    "fuente": "IERSE-WSN, Universidad del Azuay"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.2808,
+     -0.489962
+    ]
+   },
+   "properties": {
+    "estacion_id": "n_glps06",
+    "nombre": "Militar",
+    "ubicacion": "Estación Militar",
+    "altitud_m_dem": 14,
+    "desde": "2026-10-30T00:01:04",
+    "hasta": "2026-10-31T23:56:11",
+    "registros": 576,
+    "fuente": "IERSE-WSN, Universidad del Azuay"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.403519,
+     -0.654547
+    ]
+   },
+   "properties": {
+    "estacion_id": "n_glps09",
+    "nombre": "Santa Rosa",
+    "ubicacion": "Estación Santa Rosa",
+    "altitud_m_dem": 416,
+    "desde": "2026-10-30T00:00:18",
+    "hasta": "2026-10-31T23:56:16",
+    "registros": 312,
+    "fuente": "IERSE-WSN, Universidad del Azuay"
+   }
+  }
+ ]
+}

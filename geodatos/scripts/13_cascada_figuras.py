@@ -389,18 +389,33 @@ def fig_hidrogramas():
     ax.set_title("a) Escenarios de diseño"); ax.grid(alpha=0.25); ax.legend(fontsize=7, frameon=False)
     ax = axs[1]
     import datetime as dt, matplotlib.dates as mdates
-    t0 = dt.datetime(2026, 10, 30, 22)
-    T = [t0 + dt.timedelta(hours=float(x)) for x in t]
-    est = {"EVENTO31oct_ecmwf_ifs_9km_cota200_CN76": ("ECMWF 9 km, 110 mm, CN 76 (central)", C_BARRIO, "-", 2),
-           "EVENTO31oct_ecmwf_ifs_9km_cota200_CN83": ("ECMWF 9 km, 110 mm, CN 83 (suelo húmedo)", C_BARRIO, ":", 1.2),
-           "EVENTO31oct_ecmwf_ifs_9km_thiessen_CN83": ("ECMWF 9 km Thiessen, 117 mm, CN 83", "#7f0000", "--", 1.2),
-           "EVENTO31oct_ecmwf_ifs025_cota200_CN76": ("ECMWF 0,25°, 26 mm, CN 76", "#555", "-", 1.4)}
-    for k, (lab, c, ls, lw) in est.items():
-        if k in r[0]: ax.plot(T, num(r, k), color=c, ls=ls, lw=lw, label=lab)
-    ax.set_xlim(t0, t0 + dt.timedelta(hours=22))
+    re_ = rcsv("hidrogramas_evento_30oct.csv")
+    if re_:
+        Te = [dt.datetime.strptime("2026 " + x["fecha_hora_utc6"], "%Y %d-%b %H:%M") for x in re_]
+        est = {"MEDIDO30oct_G_uniforme_CN76_temez": ("Los Guayabillos, 179 mm, CN 76, tc Témez (central)", C_BARRIO, "-", 2.2),
+               "MEDIDO30oct_G_uniforme_CN76_kirpich": ("Los Guayabillos, 179 mm, CN 76, tc Kirpich", C_BARRIO, "--", 1.2),
+               "MEDIDO30oct_G_ARF_CN76_temez": ("Reducción areal, 152 mm, CN 76, Témez", "#555", "-", 1.2),
+               "MEDIDO30oct_gradiente_cota_G_SR_CN76_temez": ("Gradiente con la cota, 208 mm, CN 76, Témez", "#7f0000", "-", 1.2)}
+        for k, (lab, c, ls, lw) in est.items():
+            if k in re_[0]: ax.plot(Te, num(re_, k), color=c, ls=ls, lw=lw, label=lab)
+        # lluvia horaria medida en Los Guayabillos (barras en eje secundario, invertido)
+        ll = rcsv("lluvia_ierse_30oct_5min.csv"); hh = {}
+        for x in ll:
+            if x["estacion"] != "Los Guayabillos": continue
+            t_ = dt.datetime.fromisoformat(x["fecha_hora_local"]).replace(minute=0, second=0)
+            hh[t_] = hh.get(t_, 0.0) + float(x["lluvia_mm"] or 0)
+        ax2 = ax.twinx()
+        hs = sorted(k for k in hh if dt.datetime(2026, 10, 30, 6) <= k < dt.datetime(2026, 10, 31, 6))
+        ax2.bar([k + dt.timedelta(minutes=30) for k in hs], [hh[k] for k in hs], width=1 / 24 * 0.9, color=C_AGUA, alpha=0.45, label="Lluvia horaria medida, Los Guayabillos")
+        ax2.set_ylim(150, 0); ax2.set_ylabel("Lluvia (mm/h)", color=C_AGUA, fontsize=8); ax2.tick_params(axis="y", labelsize=7, colors=C_AGUA)
+        ax.axvline(dt.datetime(2026, 10, 30, 21, 25), color="#999", lw=0.8, ls=":")
+        ax.text(dt.datetime(2026, 10, 30, 21, 35), ax.get_ylim()[1] * 0.02 if False else 5, "fin de registro\n(21:25)", fontsize=6.5, color="#777")
+        ax.set_xlim(dt.datetime(2026, 10, 30, 6), dt.datetime(2026, 10, 31, 6)); ax.set_ylim(0, None)
+        h1, l1 = ax.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
+        ax.legend(h1 + h2, l1 + l2, fontsize=6.5, frameon=False, loc="center left")
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b\n%H:%M")); ax.tick_params(axis="x", labelsize=7)
-    ax.set_title("b) Evento 30–31 oct 2026 (lluvia de modelo)"); ax.set_xlabel("Hora de Galápagos (UTC−6)"); ax.grid(alpha=0.25); ax.legend(fontsize=7, frameon=False)
-    fuente(fig, "SCS-CN + hidrograma unitario SCS con tc de Témez (3,6 h); con tc de Kirpich (1,4 h) los picos serían ≈1,5–1,9 veces mayores. Sin calibrar: no hay aforos, pluviómetros del evento ni curvas IDF.", -0.06)
+    ax.set_title("b) Evento del 30 oct 2026 (lluvia medida, red IERSE-WSN)"); ax.set_xlabel("Hora de Galápagos (UTC−6)"); ax.set_ylabel("Caudal en la entrada al barrio (m³/s)", fontsize=8); ax.grid(alpha=0.25)
+    fuente(fig, "SCS-CN + hidrograma unitario SCS; tc de Témez (3,6 h) salvo indicación. Lluvia de la red IERSE-WSN (Universidad del Azuay): totales mínimos, las estaciones dejan de transmitir hacia las 21:25. Sin calibrar con caudales.", -0.06)
     fig.tight_layout(); fig.savefig(FIG / "f_hidrogramas.png"); plt.close(fig)
 
 

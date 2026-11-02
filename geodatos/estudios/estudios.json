@@ -1,0 +1,548 @@
+{
+  "santa-cruz": {
+    "serie": "Estudio preliminar · Santa Cruz · Emergencia El Niño 2026",
+    "titulo": "Inundaciones del 30 de octubre de 2026 en Santa Cruz",
+    "titulo_corto": "Santa Cruz: inundaciones del 30-oct-2026",
+    "subtitulo": "Qué pasó, cuánto llovió, por qué se inunda La Cascada, dónde más puede inundarse (parte alta, Tomás de Berlanga y cruces de quebradas con vías) y qué se puede hacer.",
+    "descripcion": "Estudio preliminar de las inundaciones del 30-oct-2026 en Santa Cruz: cronología, lluvia medida, La Cascada, parte alta, Tomás de Berlanga, cruces de quebradas con vías y propuestas.",
+    "bases": [
+      "estudios/la-cascada",
+      "estudios/santa-cruz"
+    ],
+    "refs_mapas": {
+      "lc": {
+        "2": "1",
+        "3": "3",
+        "4": "5",
+        "5": "6",
+        "6": "7",
+        "7": "11",
+        "8": "12",
+        "9": "13",
+        "10": "14"
+      },
+      "sc": {
+        "2": "2",
+        "3": "3",
+        "4": "8",
+        "5": "10",
+        "6": "9",
+        "7": "11",
+        "8": "12",
+        "9": "13"
+      }
+    },
+    "textos": [
+      {
+        "archivo": "estudios/santa-cruz/texto/00_resumen.md"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/01_alcance.md",
+        "n": 1
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/02_cronologia.md",
+        "n": 2,
+        "refs": "sc"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/02b_linea_tiempo.md"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/03_lluvias.md",
+        "n": 3,
+        "refs": "sc"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/04_mapa_3d.md",
+        "n": 4
+      },
+      {
+        "archivo": "estudios/la-cascada/texto/04_hidrologia.md",
+        "n": 5,
+        "refs": "lc",
+        "titulo": "La Cascada: análisis topográfico e hidrológico"
+      },
+      {
+        "archivo": "estudios/la-cascada/texto/05_desvio.md",
+        "n": 6,
+        "refs": "lc",
+        "titulo": "La Cascada: ¿es posible desviar las quebradas?"
+      },
+      {
+        "archivo": "estudios/la-cascada/texto/06_urbano.md",
+        "n": 7,
+        "refs": "lc",
+        "titulo": "La Cascada: diagnóstico urbano"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/04_parte_alta.md",
+        "n": 8,
+        "refs": "sc"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/06_tomas_de_berlanga.md",
+        "n": 9,
+        "refs": "sc"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/05_cruces.md",
+        "n": 10,
+        "refs": "sc"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/07_riesgo.md",
+        "n": 11,
+        "refs": "sc"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/08_alternativas.md",
+        "n": 12,
+        "refs": "lc"
+      },
+      {
+        "archivo": "estudios/la-cascada/texto/09_hoja_de_ruta.md",
+        "n": 13,
+        "refs": "lc"
+      },
+      {
+        "archivo": "estudios/santa-cruz/texto/90_descargas.md"
+      },
+      {
+        "archivo": "estudios/la-cascada/texto/10_referencias.md",
+        "refs": "lc"
+      }
+    ],
+    "linea_tiempo": "estudios/santa-cruz/datos/linea_tiempo.csv",
+    "mapa": {
+      "vista": {
+        "centro": [
+          -0.715,
+          -90.32
+        ],
+        "zoom": 13
+      },
+      "capas": [
+        {
+          "nombre": "Cuenca que drena a La Cascada",
+          "archivo": "estudios/la-cascada/datos/cuenca_cascada.geojson",
+          "color": "#111111",
+          "relleno": 0.03,
+          "grosor": 2
+        },
+        {
+          "nombre": "Llenado del vaso hasta ≈13 m",
+          "archivo": "estudios/la-cascada/datos/mancha_13m.geojson",
+          "color": "#2171b5",
+          "relleno": 0.45,
+          "grosor": 1
+        },
+        {
+          "nombre": "Salida natural del agua (La Cascada → mar)",
+          "archivo": "estudios/la-cascada/datos/urbano/ruta_salida_urbana.geojson",
+          "color": "#00897b",
+          "grosor": 3,
+          "discontinua": true
+        },
+        {
+          "nombre": "Interceptor hipotético al este (no demostrado)",
+          "archivo": "estudios/la-cascada/datos/rutas_desvio.geojson",
+          "color": "#7b2cbf",
+          "grosor": 3,
+          "visible": false,
+          "filtro": [
+            {
+              "campo": "lado",
+              "valores": [
+                "ESTE"
+              ]
+            },
+            {
+              "campo": "cota_toma_m",
+              "valores": [
+                "40"
+              ]
+            },
+            {
+              "campo": "rama",
+              "valores": [
+                "rama 2"
+              ]
+            },
+            {
+              "campo": "corte_max_admitido_m",
+              "valores": [
+                "3.0"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Vasos (depresiones) de prioridad alta o media",
+          "archivo": "estudios/santa-cruz/datos/vasos.geojson",
+          "color": "#6baed6",
+          "relleno": 0.35,
+          "grosor": 1,
+          "filtro": [
+            {
+              "campo": "prioridad",
+              "valores": [
+                "Alta",
+                "Media"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Puntos potenciales de inundación",
+          "archivo": "estudios/santa-cruz/datos/puntos_inundacion.geojson",
+          "color": "#e65100",
+          "radio": 7,
+          "colores": {
+            "campo": "prioridad",
+            "valores": {
+              "Alta": "#d62728",
+              "Media": "#ff9800",
+              "Baja": "#ffe082"
+            }
+          },
+          "filtro": [
+            {
+              "campo": "prioridad",
+              "valores": [
+                "Alta",
+                "Media"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Cruces quebrada–vía (prioridad alta)",
+          "archivo": "estudios/santa-cruz/datos/cruces.geojson",
+          "color": "#fdd835",
+          "radio": 5,
+          "filtro": [
+            {
+              "campo": "prioridad",
+              "valores": [
+                "alta"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Cruces quebrada–vía (prioridad media)",
+          "archivo": "estudios/santa-cruz/datos/cruces.geojson",
+          "color": "#fff59d",
+          "radio": 4,
+          "visible": false,
+          "filtro": [
+            {
+              "campo": "prioridad",
+              "valores": [
+                "media"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Estaciones de lluvia IERSE-WSN",
+          "archivo": "estudios/la-cascada/datos/estaciones_ierse.geojson",
+          "color": "#08306b",
+          "radio": 8
+        }
+      ]
+    },
+    "vista3d": {
+      "dem": "descargas/dem_recortes/santa_cruz_dem.tif",
+      "centro": [
+        -90.318,
+        -0.7
+      ],
+      "ancho_m": 10000,
+      "alto_m": 13000,
+      "celdas": 200,
+      "vexag": 3,
+      "titulo": "Santa Cruz: de la parte alta a Puerto Ayora (exageración vertical 3×)",
+      "capas": [
+        {
+          "nombre": "Cuenca de La Cascada",
+          "archivo": "estudios/la-cascada/datos/cuenca_cascada.geojson",
+          "color": "#111111",
+          "off": 15
+        },
+        {
+          "nombre": "Ruta de salida urbana",
+          "archivo": "estudios/la-cascada/datos/urbano/ruta_salida_urbana.geojson",
+          "color": "#00897b",
+          "off": 8
+        },
+        {
+          "nombre": "Estaciones de lluvia",
+          "archivo": "estudios/la-cascada/datos/estaciones_ierse.geojson",
+          "color": "#08306b",
+          "off": 25
+        },
+        {
+          "nombre": "Puntos de inundación (alta)",
+          "archivo": "estudios/santa-cruz/datos/puntos_inundacion.geojson",
+          "color": "#d62728",
+          "off": 12,
+          "filtro": [
+            {
+              "campo": "prioridad",
+              "valores": [
+                "Alta"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "descargas": [
+      {
+        "dir": "estudios/santa-cruz/datos",
+        "patron": "*.*json",
+        "prefijo": "santa-cruz/"
+      },
+      {
+        "dir": "estudios/santa-cruz/datos",
+        "patron": "*.csv",
+        "prefijo": "santa-cruz/"
+      },
+      {
+        "dir": "estudios/santa-cruz/datos/lluvias",
+        "patron": "*.csv",
+        "prefijo": "santa-cruz/lluvias/"
+      },
+      {
+        "dir": "estudios/la-cascada/datos",
+        "patron": "*.*json",
+        "prefijo": "la-cascada/"
+      },
+      {
+        "dir": "estudios/la-cascada/datos",
+        "patron": "*.csv",
+        "prefijo": "la-cascada/"
+      }
+    ]
+  },
+  "san-cristobal": {
+    "serie": "Estudio preliminar · San Cristóbal · Emergencia El Niño 2026",
+    "titulo": "Puntos potenciales de inundación en San Cristóbal",
+    "titulo_corto": "San Cristóbal: puntos potenciales de inundación",
+    "subtitulo": "Cuencas que llegan a Puerto Baquerizo Moreno y El Progreso, vasos, cruces de quebradas con vías y la quebrada que llega al campus de la USFQ.",
+    "descripcion": "Estudio preliminar de los puntos potenciales de inundación en San Cristóbal (Puerto Baquerizo Moreno, El Progreso y el campus USFQ / Galapagos Science Center).",
+    "bases": [
+      "estudios/san-cristobal",
+      "estudios/la-cascada"
+    ],
+    "refs_mapas": {
+      "scb": {
+        "3": "3",
+        "4": "4",
+        "5": "6",
+        "6": "7",
+        "7": "8",
+        "8": "9",
+        "9": "10"
+      }
+    },
+    "textos": [
+      {
+        "archivo": "estudios/san-cristobal/texto/00_resumen.md"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/01_alcance.md",
+        "n": 1
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/02_mapa_3d.md",
+        "n": 2
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/03_lluvias.md",
+        "n": 3,
+        "refs": "scb"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/04_hidrologia.md",
+        "n": 4,
+        "refs": "scb"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/05_cruces.md",
+        "n": 5,
+        "refs": "scb"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/06_urbano.md",
+        "n": 6,
+        "refs": "scb"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/07_riesgo.md",
+        "n": 7,
+        "refs": "scb"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/08_recomendaciones.md",
+        "n": 8,
+        "refs": "scb"
+      },
+      {
+        "archivo": "estudios/san-cristobal/texto/90_descargas.md"
+      }
+    ],
+    "mapa": {
+      "vista": {
+        "centro": [
+          -0.902,
+          -89.6
+        ],
+        "zoom": 14
+      },
+      "capas": [
+        {
+          "nombre": "Cuencas que llegan a zonas pobladas",
+          "archivo": "estudios/san-cristobal/datos/cuencas.geojson",
+          "color": "#111111",
+          "relleno": 0.03,
+          "grosor": 1.5,
+          "filtro": [
+            {
+              "campo": "tipo",
+              "valores": [
+                "cuenca de llegada"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Cauces principales (D8)",
+          "archivo": "estudios/san-cristobal/datos/cuencas.geojson",
+          "color": "#2171b5",
+          "grosor": 2,
+          "filtro": [
+            {
+              "campo": "tipo",
+              "valores": [
+                "cauce principal (D8)"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Recorrido del agua hasta el mar (D8)",
+          "archivo": "estudios/san-cristobal/datos/cuencas.geojson",
+          "color": "#00897b",
+          "grosor": 2,
+          "discontinua": true,
+          "visible": false,
+          "filtro": [
+            {
+              "campo": "tipo",
+              "valores": [
+                "recorrido D8 hasta el mar"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Quebrada y cuenca del campus USFQ",
+          "archivo": "estudios/san-cristobal/datos/quebrada_usfq.geojson",
+          "color": "#d62728",
+          "relleno": 0.06,
+          "grosor": 3
+        },
+        {
+          "nombre": "Campus USFQ / GSC (OSM)",
+          "archivo": "estudios/san-cristobal/datos/insumos/campus_usfq_osm.geojson",
+          "color": "#7b2cbf",
+          "relleno": 0.3,
+          "grosor": 1
+        },
+        {
+          "nombre": "Vasos (depresiones)",
+          "archivo": "estudios/san-cristobal/datos/vasos.geojson",
+          "color": "#6baed6",
+          "relleno": 0.35,
+          "grosor": 1
+        },
+        {
+          "nombre": "Puntos potenciales de inundación",
+          "archivo": "estudios/san-cristobal/datos/puntos_inundacion.geojson",
+          "color": "#e65100",
+          "radio": 7
+        },
+        {
+          "nombre": "Cruces quebrada–vía (prioridad alta)",
+          "archivo": "estudios/san-cristobal/datos/cruces.geojson",
+          "color": "#fdd835",
+          "radio": 5,
+          "filtro": [
+            {
+              "campo": "prioridad",
+              "valores": [
+                "alta"
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Cruces quebrada–vía (prioridad media)",
+          "archivo": "estudios/san-cristobal/datos/cruces.geojson",
+          "color": "#fff59d",
+          "radio": 4,
+          "visible": false,
+          "filtro": [
+            {
+              "campo": "prioridad",
+              "valores": [
+                "media"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "vista3d": {
+      "dem": "descargas/dem_recortes/san_cristobal_dem.tif",
+      "centro": [
+        -89.585,
+        -0.895
+      ],
+      "ancho_m": 9000,
+      "alto_m": 7000,
+      "celdas": 200,
+      "vexag": 4,
+      "titulo": "San Cristóbal: Puerto Baquerizo Moreno y su cuenca (exageración vertical 4×)",
+      "capas": [
+        {
+          "nombre": "Quebrada del campus USFQ",
+          "archivo": "estudios/san-cristobal/datos/quebrada_usfq.geojson",
+          "color": "#d62728",
+          "off": 8
+        },
+        {
+          "nombre": "Puntos de inundación",
+          "archivo": "estudios/san-cristobal/datos/puntos_inundacion.geojson",
+          "color": "#e65100",
+          "off": 12
+        }
+      ]
+    },
+    "descargas": [
+      {
+        "dir": "estudios/san-cristobal/datos",
+        "patron": "*.*json",
+        "prefijo": "san-cristobal/"
+      },
+      {
+        "dir": "estudios/san-cristobal/datos",
+        "patron": "*.csv",
+        "prefijo": "san-cristobal/"
+      }
+    ]
+  }
+}
