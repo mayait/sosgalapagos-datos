@@ -148,7 +148,7 @@ def dem_json(cfg, dst):
     for c in v.get("capas", []):
         p = ROOT / c["archivo"]
         if not p.exists(): continue
-        for f in filtrar(json.loads(p.read_text())["features"], c.get("filtro"))[: c.get("max", 999)]:
+        for f in filtrar([f for f in json.loads(p.read_text())["features"] if f.get("geometry")], c.get("filtro"))[: c.get("max", 999)]:
             g = f["geometry"]; geoms = [g["coordinates"]] if g["type"] in ("LineString", "Polygon") else g["coordinates"] if g["type"].startswith("Multi") else [[g["coordinates"]]]
             for coords in geoms:
                 ring = coords[0] if g["type"] in ("Polygon", "MultiPolygon") else coords
@@ -215,7 +215,7 @@ def mapa_capas(cfg, dst):
         nombre = slug(c["nombre"]) + ".geojson"
         (dst / "mapa").mkdir(parents=True, exist_ok=True)
         d = json.loads(p.read_text())
-        d["features"] = filtrar(d["features"], c.get("filtro"))
+        d["features"] = filtrar([f for f in d["features"] if f.get("geometry")], c.get("filtro"))
         txt = json.dumps(d, ensure_ascii=False, separators=(",", ":"))
         (dst / "mapa" / nombre).write_text(txt)
         out.append({**{k: v for k, v in c.items() if k not in ("archivo", "filtro")}, "url": f"mapa/{nombre}"})
