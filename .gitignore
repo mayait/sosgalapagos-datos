@@ -21,6 +21,8 @@ geodatos/descargas/
 geodatos/publicar/
 geodatos/export/galapagos-completo/
 geodatos/geoserver-local/
+# Estado local del flujo incremental (scripts/flujo.py): hashes y registros de corridas
+geodatos/.flujo/
 
 # Estudios: rasters intermedios y descargas crudas de APIs (se regeneran con los scripts)
 geodatos/estudios/**/*.tif

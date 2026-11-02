@@ -9,7 +9,7 @@
       "estudios/la-cascada",
       "estudios/santa-cruz"
     ],
-    "panorama": "La tarde y la noche del 30 de octubre de 2026 llovió muy fuerte en Santa Cruz: al menos 179 mm en Los Guayabillos y 238 mm en Santa Rosa, con 61–66 mm en una hora. Es el día más lluvioso desde que funciona la red IERSE-WSN (abril de 2026), y los pronósticos no lo anticiparon.\n\nLa Cascada recibe el agua de 42 km² y ocupa un vaso cerrado al pie de un escarpe, sin cauce hasta el mar. Fuera de La Cascada, el análisis señala 121 puntos potenciales de inundación (11 de prioridad alta) y 687 cruces de quebradas con vías, de los que solo 2 tienen una estructura cartografiada.\n\nCada tema está en una página corta. Empieza por [qué pasó](que-paso/) o por los [riesgos y observaciones](riesgos/).",
+    "panorama": "La tarde y la noche del 30 de octubre de 2026 llovió muy fuerte en Santa Cruz: al menos 179 mm en Los Guayabillos y 238 mm en Santa Rosa, con 61–66 mm en una hora. Es el día más lluvioso desde que funciona la red IERSE-WSN (abril de 2026), y los pronósticos no lo anticiparon.\n\nLa Cascada recibe el agua de 42 km² y ocupa un vaso cerrado al pie de un escarpe, sin cauce hasta el mar. Fuera de La Cascada, el análisis señala 121 puntos potenciales de inundación (11 de prioridad alta) y 687 cruces de quebradas con vías, de los que solo 2 tienen una estructura cartografiada.\n\nCada tema está en una página corta. Empieza por [qué pasó](que-paso/) o por los [riesgos y observaciones](riesgos/). Lo que todavía falta saber está en [pendientes y preguntas abiertas](pendientes/).",
     "paginas": [
       {
         "slug": "que-paso",
@@ -79,6 +79,13 @@
         "titulo": "La Cascada: cuenca, vaso y crecida (detalle técnico)",
         "textos": [
           "estudios/santa-cruz/texto/10_hidrologia.md"
+        ]
+      },
+      {
+        "slug": "pendientes",
+        "titulo": "Pendientes y preguntas abiertas",
+        "textos": [
+          "estudios/pendientes/santa-cruz.md"
         ]
       },
       {
@@ -338,7 +345,7 @@
       "estudios/san-cristobal",
       "estudios/la-cascada"
     ],
-    "panorama": "En San Cristóbal **no hay lluvia medida pública** del 30–31 de octubre de 2026. El aeropuerto observó lluvia fuerte el 30-oct a las 15 h y lluvia continua el 31-oct de 08:00 a 14:00, cuando la SNGR reportó el desbordamiento de las cañadas Barrio Frío y Divino Niño.\n\nPuerto Baquerizo Moreno recibe el agua de unos 11 km², sobre todo por la cañada Galápagos o de Barrio Frío. El riesgo es el agua que atraviesa la ciudad, no la que se acumula. Estas páginas contrastan el análisis con el Plan de Acción de la UGR y revisan el campus USFQ / GSC (resultado no concluyente), El Progreso, las tomas de agua y Floreana.\n\nEmpieza por el [panorama](panorama/) o por los [riesgos y observaciones](riesgos/).",
+    "panorama": "En San Cristóbal **no hay lluvia medida pública** del 30–31 de octubre de 2026. El aeropuerto observó lluvia fuerte el 30-oct a las 15 h y lluvia continua el 31-oct de 08:00 a 14:00, cuando la SNGR reportó el desbordamiento de las cañadas Barrio Frío y Divino Niño.\n\nPuerto Baquerizo Moreno recibe el agua de unos 11 km², sobre todo por la cañada Galápagos o de Barrio Frío. El riesgo es el agua que atraviesa la ciudad, no la que se acumula. Estas páginas contrastan el análisis con el Plan de Acción de la UGR y revisan el campus USFQ / GSC (resultado no concluyente), El Progreso, las tomas de agua y Floreana.\n\nEmpieza por el [panorama](panorama/) o por los [riesgos y observaciones](riesgos/). Lo que todavía falta saber está en [pendientes y preguntas abiertas](pendientes/).",
     "paginas": [
       {
         "slug": "panorama",
@@ -422,6 +429,13 @@
         "titulo": "Modelo 2D de lluvia sobre la malla",
         "textos": [
           "estudios/san-cristobal/texto/12_modelo2d.md"
+        ]
+      },
+      {
+        "slug": "pendientes",
+        "titulo": "Pendientes y preguntas abiertas",
+        "textos": [
+          "estudios/pendientes/san-cristobal.md"
         ]
       },
       {

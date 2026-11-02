@@ -32,4 +32,6 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 | Entender el modelo HAND | `docs/modelo-hand.md` |
 | Ver qué falta | [Issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues) (etiquetas P1–P3 y por tipo) |
 | Publicar o tocar un servidor | `servidores/README.md` |
+| Rehacer los estudios tras un dato nuevo | `geodatos/flujo.toml` + `geodatos/scripts/flujo.py --seco` |
+| Preparar y publicar /estudios (checklist, revisión) | `geodatos/estudios/PUBLICAR.md` |
 | Tocar el clima | `clima/LEEME.md` |
