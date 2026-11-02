@@ -1,0 +1,1414 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "titulo": "Lugares del Plan de Acción SC-4-09-2026 (UGR GAD San Cristóbal) — ubicación PRELIMINAR",
+  "criterio_confianza": "alta   el objeto está cartografiado con ese nombre (OSM, IGM, MSP/MINEDUC, INEC, FCD) y, si hay otra fuente, concuerda;\n  media  una sola fuente con el nombre, o un punto que representa a un barrio/sector extenso, o fuentes que discrepan;\n  baja   ubicación inferida del texto del plan + cartografía (p. ej., «punto final de la cañada Galápagos» = desembocadura\n         del cauce D8), o topónimo ambiguo."
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.61355,
+     -0.89877
+    ]
+   },
+   "properties": {
+    "nombre": "Bahía Naufragio",
+    "tipo": "bahía",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Desembocadura de las cañadas Galápagos (Barrio Frío) y Escuela Alvear",
+    "fuente_ubicacion": "OSM natural=bay «Wreck Bay» (n249407971); IGM texto «Bahía Naufragio»",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.61292,
+     -0.90319
+    ]
+   },
+   "properties": {
+    "nombre": "Playa y Poza de las Garzas (Barrio Frío)",
+    "tipo": "playa",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Desbordamiento y rompimiento de la playa; punto final de la cañada Galápagos; riesgo para embarcaciones varadas",
+    "fuente_ubicacion": "Inferido: desembocadura al mar del cauce D8 de Barrio Frío (estudios/san-cristobal/datos/urbano/cauces_urbanos.geojson, PBM-02), que el plan identifica como punto final de la cañada Galápagos",
+    "confianza": "baja",
+    "nota": "No hay topónimo «Garzas» en OSM ni en el IGM.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.60951,
+     -0.89986
+    ]
+   },
+   "properties": {
+    "nombre": "Playa de Oro",
+    "tipo": "playa",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Desembocadura de la cañada Divino Niño tapada con lodo y piedras",
+    "fuente_ubicacion": "OSM natural=beach «Playa de Oro» (w303563274); OSM vía peatonal «Vía Playa de Oro»",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.60936,
+     -0.89559
+    ]
+   },
+   "properties": {
+    "nombre": "Playa Mann",
+    "tipo": "playa",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Rejillas y alcantarillado pluvial taponados, vía adoquinada dañada, desbordamiento en la playa",
+    "fuente_ubicacion": "OSM natural=beach «Playa Mann» (w62331834); IGM texto «Playa Mann»",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.60965,
+     -0.8999
+    ]
+   },
+   "properties": {
+    "nombre": "Pasarela del muelle de pescadores",
+    "tipo": "infraestructura",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Por aquí desemboca la cañada de la Escuela Alejandro Alvear",
+    "fuente_ubicacion": "IGM muelle_l (muelle largo, sin nombre) más próximo a la salida del cauce Escuela Alvear",
+    "confianza": "baja",
+    "nota": "El IGM y OSM no nombran un muelle de pescadores; el IGM tiene un «Centro de acopio de pescadores» en -89,6060; -0,8986.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.60523,
+     -0.89986
+    ]
+   },
+   "properties": {
+    "nombre": "Hospital Oskar Jandl",
+    "tipo": "salud",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Muro de contención fracturado en 240 m; calle de emergencia obstruida; acceso cortado por el agua de la vía perimetral",
+    "fuente_ubicacion": "OSM amenity=hospital «Hospital Oskar Jandl» (n3077654455) y 3 edificios hospital",
+    "confianza": "media",
+    "nota": "El registro del MSP lo sitúa 1,3 km al suroeste (-89,6153; -0,9051). El plan lo asocia al barrio Divino Niño y al Colegio Ignacio Hernández, lo que favorece la ubicación de OSM.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.60401,
+     -0.90199
+    ]
+   },
+   "properties": {
+    "nombre": "Colegio Ignacio Hernández",
+    "tipo": "educación",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "El agua drena por la vía perimetral e impide el acceso al hospital",
+    "fuente_ubicacion": "OSM amenity=school (n14151166571); IGM edificio_a «Colegio Técnico Ignacio Hernández»; MINEDUC (-89,6045; -0,9018)",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.61238,
+     -0.91412
+    ]
+   },
+   "properties": {
+    "nombre": "Mina de Cerro Quemado",
+    "tipo": "mina",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Desembocadura de la cañada Cerro Quemado / Don García",
+    "fuente_ubicacion": "OSM man_made=mineshaft «Mina Cerro Quemado» (w144837057); IGM texto «Cerro Quemado» a 230 m",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.56667,
+     -0.88333
+    ]
+   },
+   "properties": {
+    "nombre": "Cerro Mundo",
+    "tipo": "cerro (PNG)",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Paso de la cañada Galápagos",
+    "fuente_ubicacion": "OSM natural=peak «Cerro Mundo» (n249411912); IGM texto (-89,5749; -0,8871)",
+    "confianza": "alta",
+    "nota": "El INEC tiene además una localidad «Cerro Mundo» en -89,5705; -0,9053.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.57818,
+     -0.91417
+    ]
+   },
+   "properties": {
+    "nombre": "Centro de Gestión de Residuos Sólidos (CGRS)",
+    "tipo": "infraestructura",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Cañada de 2,2 km con más de 20 ramificaciones",
+    "fuente_ubicacion": "OSM landuse=landfill «Centro de Gestión de Residuos Sólidos» (w1549052785); IGM edificio_a «Proyecto de gestión de residuos sólidos urbanos»",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.61372,
+     -0.90379
+    ]
+   },
+   "properties": {
+    "nombre": "Barrio Frío",
+    "tipo": "barrio",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Desbordamiento de la cañada Galápagos en la playa",
+    "fuente_ubicacion": "Coordenada del registro SNGR «Barrio Frío» (22-feb-2024)",
+    "confianza": "media",
+    "nota": "Punto representativo; no hay polígono de barrio.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.5997,
+     -0.9106
+    ]
+   },
+   "properties": {
+    "nombre": "Barrio Manzanillo",
+    "tipo": "barrio",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Desborde en abril de 2026 a 100 m del puente; destrucción de viviendas, calles, agua potable, alcantarillado y postes; requiere zanja de 1 040 m",
+    "fuente_ubicacion": "IGM poblado «Manzanillo»; registro SNGR «El Manzanillo» (2023) a 340 m",
+    "confianza": "media",
+    "nota": "Punto representativo.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.599397,
+     -0.908457
+    ]
+   },
+   "properties": {
+    "nombre": "Ciudadela El Gran Maestro (Manzanillo)",
+    "tipo": "barrio",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Incluida en el área afectada de Manzanillo",
+    "fuente_ubicacion": "Coordenada del registro SNGR de abril de 2019 «Barrio Manzanillo y Ciudadela El Maestro»",
+    "confianza": "baja",
+    "nota": "Una sola coordenada para dos sectores.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.6058,
+     -0.90819
+    ]
+   },
+   "properties": {
+    "nombre": "Puente de Manzanillo (Vía Perimetral)",
+    "tipo": "puente",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Referencia del desborde de abril de 2026 («a 100 m del puente»)",
+    "fuente_ubicacion": "OSM bridge=yes en la Av. Jaime Roldós / Vía Perimetral (w802657332), sobre el cauce de El Manzanillo (cruce CR-SCR-0011)",
+    "confianza": "baja",
+    "nota": "Se supone que «el puente» del plan es este; no está confirmado.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.6046,
+     -0.9009
+    ]
+   },
+   "properties": {
+    "nombre": "Barrio Divino Niño",
+    "tipo": "barrio",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Sectores Playa de Oro, Hospital y Colegio Ignacio Hernández afectados",
+    "fuente_ubicacion": "IGM edificio_p «Iglesia Divino Niño» como referencia del barrio",
+    "confianza": "media",
+    "nota": "Punto representativo.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.5932,
+     -0.9114
+    ]
+   },
+   "properties": {
+    "nombre": "Barrio Palmeras",
+    "tipo": "barrio",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Sector Los Arrayanes / La Picada: daños en calles y viviendas; la cañada cruza el centro del barrio",
+    "fuente_ubicacion": "IGM poblado «Las Palmeras»; INEC localidad «Las Palmeras» (-89,5887; -0,9066)",
+    "confianza": "media",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.6085,
+     -0.89667
+    ]
+   },
+   "properties": {
+    "nombre": "Barrio Playa Mann",
+    "tipo": "barrio",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "Rejillas y alcantarillado taponados; vía adoquinada dañada",
+    "fuente_ubicacion": "Inmediato a la playa (OSM); punto de «Casa Playa Mann» (n10229613402) como referencia",
+    "confianza": "media",
+    "nota": "Punto representativo.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.594043,
+     -0.911313
+    ]
+   },
+   "properties": {
+    "nombre": "Sector La Planada",
+    "tipo": "barrio",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "El sector más afectado en 2025–2026: 5 familias evacuadas en abril de 2025; nuevo desborde en abril de 2026",
+    "fuente_ubicacion": "Coordenada del registro SNGR «La Planada» (8-abr-2025)",
+    "confianza": "media",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.5031,
+     -0.9298
+    ]
+   },
+   "properties": {
+    "nombre": "Los Arroyos",
+    "tipo": "poblado",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Paso de la cañada Galápagos",
+    "fuente_ubicacion": "IGM poblado «Los Arroyos / Los Tres Palos»",
+    "confianza": "baja",
+    "nota": "El plan sitúa Los Arroyos aguas abajo de La Planada; el poblado IGM está 9 km al este, en la parte alta. Puede ser otro lugar homónimo.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -89.6057447,
+       -0.907752
+      ],
+      [
+       -89.6057953,
+       -0.9081496
+      ],
+      [
+       -89.6058057,
+       -0.9082316
+      ],
+      [
+       -89.6058355,
+       -0.908466
+      ],
+      [
+       -89.6058494,
+       -0.9085575
+      ],
+      [
+       -89.6059039,
+       -0.9087308
+      ],
+      [
+       -89.6060156,
+       -0.9089316
+      ],
+      [
+       -89.6062137,
+       -0.9091052
+      ],
+      [
+       -89.6065303,
+       -0.9093825
+      ],
+      [
+       -89.6068547,
+       -0.9096476
+      ],
+      [
+       -89.6071741,
+       -0.9099267
+      ],
+      [
+       -89.6074942,
+       -0.9101949
+      ],
+      [
+       -89.6078041,
+       -0.910477
+      ],
+      [
+       -89.6081386,
+       -0.9107492
+      ],
+      [
+       -89.608628,
+       -0.9111718
+      ],
+      [
+       -89.6089634,
+       -0.9114464
+      ],
+      [
+       -89.6092524,
+       -0.9117076
+      ],
+      [
+       -89.6094235,
+       -0.9118641
+      ],
+      [
+       -89.609579,
+       -0.9119783
+      ],
+      [
+       -89.6096683,
+       -0.9119229
+      ],
+      [
+       -89.6101086,
+       -0.9114128
+      ],
+      [
+       -89.6103519,
+       -0.911044
+      ],
+      [
+       -89.6106861,
+       -0.9105002
+      ],
+      [
+       -89.6108013,
+       -0.9103204
+      ],
+      [
+       -89.6110371,
+       -0.9100221
+      ],
+      [
+       -89.6113447,
+       -0.9096331
+      ],
+      [
+       -89.6114536,
+       -0.9094901
+      ],
+      [
+       -89.6116504,
+       -0.9092737
+      ],
+      [
+       -89.6120653,
+       -0.9088176
+      ],
+      [
+       -89.6123613,
+       -0.9084922
+      ]
+     ],
+     [
+      [
+       -89.6094915,
+       -0.9072464
+      ],
+      [
+       -89.6089171,
+       -0.9073705
+      ],
+      [
+       -89.6086325,
+       -0.907445
+      ],
+      [
+       -89.6082198,
+       -0.9075493
+      ],
+      [
+       -89.607561,
+       -0.9077348
+      ],
+      [
+       -89.6069385,
+       -0.9079011
+      ],
+      [
+       -89.6064666,
+       -0.9078544
+      ],
+      [
+       -89.6057447,
+       -0.907752
+      ]
+     ],
+     [
+      [
+       -89.6079246,
+       -0.8964967
+      ],
+      [
+       -89.6075023,
+       -0.8974973
+      ],
+      [
+       -89.6073039,
+       -0.8979691
+      ],
+      [
+       -89.6071945,
+       -0.8982078
+      ],
+      [
+       -89.6069823,
+       -0.8986536
+      ],
+      [
+       -89.6066326,
+       -0.8991814
+      ]
+     ],
+     [
+      [
+       -89.6075317,
+       -0.8998245
+      ],
+      [
+       -89.6074236,
+       -0.8997453
+      ],
+      [
+       -89.6070563,
+       -0.8994835
+      ],
+      [
+       -89.6066326,
+       -0.8991814
+      ]
+     ],
+     [
+      [
+       -89.6066326,
+       -0.8991814
+      ],
+      [
+       -89.6065869,
+       -0.8992428
+      ],
+      [
+       -89.6064169,
+       -0.8994714
+      ],
+      [
+       -89.6062613,
+       -0.8996806
+      ],
+      [
+       -89.6060179,
+       -0.8999822
+      ],
+      [
+       -89.6057496,
+       -0.9003625
+      ],
+      [
+       -89.6053852,
+       -0.9009769
+      ],
+      [
+       -89.6051396,
+       -0.9014004
+      ],
+      [
+       -89.6050535,
+       -0.9015663
+      ],
+      [
+       -89.6048056,
+       -0.9019777
+      ],
+      [
+       -89.6046996,
+       -0.9022037
+      ],
+      [
+       -89.6048137,
+       -0.9029267
+      ],
+      [
+       -89.6048745,
+       -0.9034044
+      ],
+      [
+       -89.6049636,
+       -0.9038796
+      ],
+      [
+       -89.6049984,
+       -0.904198
+      ],
+      [
+       -89.6051355,
+       -0.9050501
+      ]
+     ],
+     [
+      [
+       -89.6053231,
+       -0.9050371
+      ],
+      [
+       -89.6055183,
+       -0.9061325
+      ],
+      [
+       -89.6056491,
+       -0.907039
+      ],
+      [
+       -89.6056727,
+       -0.9071825
+      ],
+      [
+       -89.6056952,
+       -0.907365
+      ],
+      [
+       -89.6057447,
+       -0.907752
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "nombre": "Av. Jaime Roldós Aguilera / Vía Perimetral",
+    "tipo": "vía",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "máxima",
+    "afectacion_reportada": "El agua de la cañada Divino Niño drena por la vía e impide el acceso al hospital; la cañada Cerro Quemado la bordea",
+    "fuente_ubicacion": "OSM highway=tertiary «Avenida Jaime Roldós Aguilera / Vía Perimetral» (varias vías unidas)",
+    "confianza": "alta",
+    "nota": "Geometría lineal.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -89.55491569,
+       -0.90594772
+      ],
+      [
+       -89.55479786,
+       -0.90609554
+      ],
+      [
+       -89.55478325,
+       -0.90626539
+      ],
+      [
+       -89.55466628,
+       -0.90658507
+      ],
+      [
+       -89.55466956,
+       -0.90719755
+      ],
+      [
+       -89.55468927,
+       -0.90719968
+      ],
+      [
+       -89.55466958,
+       -0.90724879
+      ],
+      [
+       -89.55432902,
+       -0.90878787
+      ],
+      [
+       -89.55431619,
+       -0.90884585
+      ],
+      [
+       -89.55422787,
+       -0.90889175
+      ],
+      [
+       -89.5541129,
+       -0.90891066
+      ],
+      [
+       -89.55411823,
+       -0.9091229
+      ],
+      [
+       -89.5541541,
+       -0.90916514
+      ],
+      [
+       -89.55434793,
+       -0.90924068
+      ],
+      [
+       -89.55459074,
+       -0.90932138
+      ],
+      [
+       -89.55507368,
+       -0.90946343
+      ],
+      [
+       -89.55524723,
+       -0.90956233
+      ],
+      [
+       -89.55530361,
+       -0.90960156
+      ],
+      [
+       -89.55533164,
+       -0.90962926
+      ],
+      [
+       -89.55475228,
+       -0.91052682
+      ],
+      [
+       -89.55567368,
+       -0.91056746
+      ],
+      [
+       -89.55594624,
+       -0.91055796
+      ],
+      [
+       -89.55600008,
+       -0.91056001
+      ],
+      [
+       -89.55684811,
+       -0.91052072
+      ],
+      [
+       -89.55729436,
+       -0.90961372
+      ],
+      [
+       -89.55736976,
+       -0.90952097
+      ],
+      [
+       -89.55745929,
+       -0.90953733
+      ],
+      [
+       -89.55746181,
+       -0.90953779
+      ],
+      [
+       -89.55792273,
+       -0.90952229
+      ],
+      [
+       -89.55859246,
+       -0.90917525
+      ],
+      [
+       -89.55861077,
+       -0.90910742
+      ],
+      [
+       -89.55867092,
+       -0.90911918
+      ],
+      [
+       -89.55895345,
+       -0.90924283
+      ],
+      [
+       -89.55909354,
+       -0.90871072
+      ],
+      [
+       -89.55919937,
+       -0.90871142
+      ],
+      [
+       -89.55922971,
+       -0.90868703
+      ],
+      [
+       -89.55949429,
+       -0.90868877
+      ],
+      [
+       -89.55946971,
+       -0.90836902
+      ],
+      [
+       -89.55951469,
+       -0.90836931
+      ],
+      [
+       -89.55946664,
+       -0.90802482
+      ],
+      [
+       -89.55951168,
+       -0.90788513
+      ],
+      [
+       -89.55964336,
+       -0.90788841
+      ],
+      [
+       -89.55974544,
+       -0.90706535
+      ],
+      [
+       -89.55907679,
+       -0.90697108
+      ],
+      [
+       -89.55899142,
+       -0.90691775
+      ],
+      [
+       -89.55893753,
+       -0.90692507
+      ],
+      [
+       -89.55891183,
+       -0.9068282
+      ],
+      [
+       -89.55887126,
+       -0.90646401
+      ],
+      [
+       -89.55887161,
+       -0.90639794
+      ],
+      [
+       -89.55879648,
+       -0.90631581
+      ],
+      [
+       -89.5587407,
+       -0.90633308
+      ],
+      [
+       -89.55824264,
+       -0.90648439
+      ],
+      [
+       -89.55810817,
+       -0.90650164
+      ],
+      [
+       -89.55792387,
+       -0.906408
+      ],
+      [
+       -89.55777117,
+       -0.90638743
+      ],
+      [
+       -89.55766523,
+       -0.90620429
+      ],
+      [
+       -89.55750917,
+       -0.90614498
+      ],
+      [
+       -89.55730851,
+       -0.90611545
+      ],
+      [
+       -89.55728142,
+       -0.90633855
+      ],
+      [
+       -89.55744457,
+       -0.90638541
+      ],
+      [
+       -89.55742852,
+       -0.90651185
+      ],
+      [
+       -89.5572587,
+       -0.90645894
+      ],
+      [
+       -89.5570656,
+       -0.90643988
+      ],
+      [
+       -89.55705402,
+       -0.90648198
+      ],
+      [
+       -89.55696148,
+       -0.90645727
+      ],
+      [
+       -89.55684422,
+       -0.90654115
+      ],
+      [
+       -89.55674142,
+       -0.90654002
+      ],
+      [
+       -89.55665485,
+       -0.90653368
+      ],
+      [
+       -89.55676034,
+       -0.90608655
+      ],
+      [
+       -89.55658901,
+       -0.90596134
+      ],
+      [
+       -89.55651721,
+       -0.90598292
+      ],
+      [
+       -89.5562223,
+       -0.90605185
+      ],
+      [
+       -89.55583759,
+       -0.90600053
+      ],
+      [
+       -89.55507436,
+       -0.90597391
+      ],
+      [
+       -89.55491569,
+       -0.90594772
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "nombre": "El Progreso (zona urbana)",
+    "tipo": "poblado",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "43 viviendas y 124 personas expuestas directamente; inundación por cunetas y bordillos en los sectores bajos",
+    "fuente_ubicacion": "CGREG suelo urbano El Progreso (polígono)",
+    "confianza": "alta",
+    "nota": "Geometría poligonal.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.44263,
+     -0.90209
+    ]
+   },
+   "properties": {
+    "nombre": "Cerro Verde (recinto)",
+    "tipo": "recinto",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Cañadas del recinto",
+    "fuente_ubicacion": "OSM place=hamlet (n3077654557); IGM poblado; INEC localidad",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.45909,
+     -0.91437
+    ]
+   },
+   "properties": {
+    "nombre": "El Chino (recinto)",
+    "tipo": "recinto",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Cañadas del recinto",
+    "fuente_ubicacion": "INEC localidad «El Chino»; IGM topónimo (-89,4658; -0,9019)",
+    "confianza": "media",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.44372,
+     -0.87737
+    ]
+   },
+   "properties": {
+    "nombre": "Las Goteras (recinto)",
+    "tipo": "recinto",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Cañadas del recinto",
+    "fuente_ubicacion": "INEC localidad «Las Goteras»",
+    "confianza": "media",
+    "nota": "El manantial IGM «Vertiente Las Goteras» está 3,4 km al oeste (-89,4771; -0,8842).",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.4843,
+     -0.9148
+    ]
+   },
+   "properties": {
+    "nombre": "Cerro Gato (recinto)",
+    "tipo": "recinto",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Cañadas del recinto",
+    "fuente_ubicacion": "IGM topónimo «Cerro Gato»; INEC localidades «Cerro Gato» (-89,4694; -0,9204) y (-89,4893; -0,9268)",
+    "confianza": "media",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.5535,
+     -0.9197
+    ]
+   },
+   "properties": {
+    "nombre": "Viveros del PNG",
+    "tipo": "infraestructura",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Cañadas de los viveros",
+    "fuente_ubicacion": "IGM edificio_p «Vivero El Progreso»",
+    "confianza": "baja",
+    "nota": "No consta que sea el vivero del PNG.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.43679,
+     -0.91365
+    ]
+   },
+   "properties": {
+    "nombre": "Galapaguera Cerro Colorado (Centro de Crianza David Rodríguez)",
+    "tipo": "infraestructura PNG",
+    "isla": "San Cristóbal",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Cañadas de la galapaguera",
+    "fuente_ubicacion": "OSM leisure=nature_reserve «Galapaguera de Cerro Colorado» (n3077654257); IGM topónimo (-89,4411; -0,9205)",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -90.4852,
+       -1.2746
+      ],
+      [
+       -90.4851,
+       -1.2747
+      ],
+      [
+       -90.4846,
+       -1.2749
+      ],
+      [
+       -90.4846,
+       -1.2759
+      ],
+      [
+       -90.4851,
+       -1.2771
+      ],
+      [
+       -90.4856,
+       -1.2768
+      ],
+      [
+       -90.4861,
+       -1.2766
+      ],
+      [
+       -90.4868,
+       -1.2763
+      ],
+      [
+       -90.4872,
+       -1.2772
+      ],
+      [
+       -90.488,
+       -1.2768
+      ],
+      [
+       -90.488,
+       -1.2767
+      ],
+      [
+       -90.488,
+       -1.2766
+      ],
+      [
+       -90.488,
+       -1.2765
+      ],
+      [
+       -90.488,
+       -1.2764
+      ],
+      [
+       -90.488,
+       -1.2763
+      ],
+      [
+       -90.488,
+       -1.2762
+      ],
+      [
+       -90.488,
+       -1.2761
+      ],
+      [
+       -90.488,
+       -1.276
+      ],
+      [
+       -90.488,
+       -1.2759
+      ],
+      [
+       -90.488,
+       -1.2758
+      ],
+      [
+       -90.4881,
+       -1.2758
+      ],
+      [
+       -90.4882,
+       -1.2757
+      ],
+      [
+       -90.4884,
+       -1.2757
+      ],
+      [
+       -90.488,
+       -1.2747
+      ],
+      [
+       -90.4879,
+       -1.2744
+      ],
+      [
+       -90.4876,
+       -1.2737
+      ],
+      [
+       -90.4876,
+       -1.2736
+      ],
+      [
+       -90.4873,
+       -1.2729
+      ],
+      [
+       -90.4875,
+       -1.2728
+      ],
+      [
+       -90.4879,
+       -1.2726
+      ],
+      [
+       -90.488,
+       -1.2726
+      ],
+      [
+       -90.4881,
+       -1.2725
+      ],
+      [
+       -90.4882,
+       -1.2724
+      ],
+      [
+       -90.4883,
+       -1.2721
+      ],
+      [
+       -90.4882,
+       -1.2718
+      ],
+      [
+       -90.487,
+       -1.2724
+      ],
+      [
+       -90.4872,
+       -1.2728
+      ],
+      [
+       -90.4863,
+       -1.2733
+      ],
+      [
+       -90.4866,
+       -1.274
+      ],
+      [
+       -90.4859,
+       -1.2743
+      ],
+      [
+       -90.4852,
+       -1.2746
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "nombre": "Puerto Velasco Ibarra (todo el poblado)",
+    "tipo": "poblado",
+    "isla": "Floreana",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Todo el poblado en riesgo; conectar las cañadas Hormiga y Varonesa con 500 m de excavación para proteger Playa Negra",
+    "fuente_ubicacion": "IGM zona_urbana «Puerto Velasco Ibarra» (polígono); OSM place (n249596983)",
+    "confianza": "alta",
+    "nota": "Geometría poligonal.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.48847,
+     -1.27649
+    ]
+   },
+   "properties": {
+    "nombre": "Playa Negra (Floreana)",
+    "tipo": "playa",
+    "isla": "Floreana",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "A proteger con la conexión de las cañadas",
+    "fuente_ubicacion": "OSM natural=beach «Playa Negra» (r2045693); IGM «Fondeadero Playa Negra»",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.48574,
+     -1.2752
+    ]
+   },
+   "properties": {
+    "nombre": "Dispensario médico (Floreana)",
+    "tipo": "salud",
+    "isla": "Floreana",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Lugar estratégico en riesgo",
+    "fuente_ubicacion": "OSM building=hospital «Dispensario Médico» (w155185461)",
+    "confianza": "alta",
+    "nota": "",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.48705,
+     -1.27634
+    ]
+   },
+   "properties": {
+    "nombre": "Empresa eléctrica (Floreana)",
+    "tipo": "energía",
+    "isla": "Floreana",
+    "prioridad_ugr": "normal",
+    "afectacion_reportada": "Lugar estratégico en riesgo",
+    "fuente_ubicacion": "OSM power=generator «Perla Solar» (w98735385)",
+    "confianza": "media",
+    "nota": "Es la central de generación; las oficinas de la empresa pueden estar en otro edificio.",
+    "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
+   }
+  }
+ ]
+}

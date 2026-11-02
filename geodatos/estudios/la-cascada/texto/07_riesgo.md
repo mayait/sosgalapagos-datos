@@ -22,7 +22,7 @@ El registro tiene dos límites:
 - Escuela Oswaldo Guayasamín (23–68 m; 0,9 m);
 - tres servicios de salud a 0–94 m del barrio;
 - Centro Médico Matazarnos (205 m);
-- Centro de Salud Santa Cruz del MSP (278 m; cota 16,3 m, por encima del rebose), con daños según el SitRep 01.
+- Centro de Salud Santa Cruz del MSP (278 m; cota 16,3 m): «incomunicado e inaccesible debido a la inundación» de sus instalaciones y accesos, según los SitRep 01 y 67.
 
 **Varios servicios de respuesta están en la zona baja o junto a ella.**
 
