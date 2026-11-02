@@ -79,6 +79,7 @@ GSC-USFQ (San Cristóbal) ──► servidor: sosgalapagos-clima.timer (cada 5 m
 | IOC | mareógrafos de Puerto Ayora y Baltra (nivel del mar) | servidor |
 | METAR | aeropuertos de Baltra y San Cristóbal (tiempo presente, temperatura, presión, viento) | servidor |
 | WeatherLink | estación de Erna en Puerto Ayora (Davis Vantage Vue, −0,7534 / −90,3120), pública en el mapa de WeatherLink; también GALAP1–5 en Puerto Baquerizo, hoy inactivas | servidor; da la lluvia acumulada del día y el intervalo se calcula por diferencia |
+| Tempest | Punta Estrada, Puerto Ayora (8 m), estación particular de Sebastián Cruz; registro por minuto, agregado a 5 min. Sensor de lluvia háptico: puede subestimar los chubascos intensos | servidor, con el token personal de solo lectura del dueño (privado/fuentes.env); `--tempest-desde AAAA-MM-DD` recupera días pasados |
 
 - **Nivel preliminar de inundación:** `recolector/inundacion.py` y `umbrales_inundacion.json`. Detalle en `docs/umbrales-la-cascada.md`.
 - **Estacionalidad:** `recolector/estacionalidad.py`. Usa las series diarias de la FCD (`datos/fcd/`, privadas; en el servidor, `/var/lib/sosgalapagos-clima/fcd`), el histórico diario del GSC y los días completos que va juntando el recolector. Calcula el rango mensual habitual, un compuesto de años El Niño, la probabilidad semanal y periodos de retorno con Gumbel.
