@@ -49,5 +49,5 @@ Después hay que copiar `mapas-galapagos/datos/` al lugar donde lo sirve Respons
 
 1. **Delimitación oficial de las zonas inundadas** del 30–31 de octubre (COE, SNGR o dron). Va a `areas_afectadas.geojson` con `estado: validada`.
 2. **Catastro municipal** de Santa Cruz, San Cristóbal e Isabela, para tener edificios y predios exactos.
-3. **Puntos de encuentro y albergues para inundación**, si el COE los define distintos de los de tsunami.
+3. **Puntos de encuentro y refugios para inundación**, si el COE los define distintos de los de tsunami.
 4. Un **modelo de terreno sin edificios** (DTM) o un levantamiento LiDAR o fotogramétrico de los pueblos. Mejoraría mucho la susceptibilidad.

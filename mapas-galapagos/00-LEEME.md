@@ -44,7 +44,7 @@ En el panel izquierdo:
 | **Quebradas y drenaje** | Cuencas completas que drenan a cada poblado, quebradas del IGM 1:25 000, cauces adicionales detectados en el relieve, franja de 20 m, subcuencas | IGM, CGREG, modelo |
 | **Zonas pobladas** | Límite urbano, barrios, población estimada por manzana | IGM, CGREG, INEC + SNGR |
 | **Vías y evacuación** | Vías por jerarquía, rutas de evacuación por tsunami | OSM, SNGR |
-| **Puntos clave** | Salud pública, albergues, zonas seguras, sirenas, colegios, policía y bomberos; agua, energía y transporte; alojamiento y comercio | MSP, SNGR, MINEDUC, IGM, OSM |
+| **Puntos clave** | Salud pública, refugios, zonas seguras, sirenas, colegios, policía y bomberos; agua, energía y transporte; alojamiento y comercio | MSP, SNGR, MINEDUC, IGM, OSM |
 | **Relieve** | Relieve sombreado, curvas cada 10 m, pendientes | Copernicus GLO-30 |
 
 **Área cubierta:** toda la zona agrícola y urbana, las **cuencas completas** que drenan hacia cada poblado (aunque suban al parque), 500 m alrededor de las zonas pobladas y 300 m alrededor de las vías. El resto del Parque Nacional aparece rayado en verde.
@@ -62,7 +62,7 @@ En el panel izquierdo:
 1. **No existe un mapa oficial de amenaza por inundación pluvial para Galápagos.** La capa «Susceptibilidad a inundación por quebradas» es un **modelo propio** sobre un modelo digital de superficie de 30 m. Sirve para **priorizar**, no para delimitar. En terreno muy plano, como Puerto Villamil, sobrestima.
 2. Las **áreas afectadas** actuales son provisionales: círculos aproximados, marcados «por validar». Hay que sustituirlas por las delimitaciones del COE, la SNGR o vuelos de dron (ver `05-como-actualizar.md`).
 3. Las rutas y zonas seguras de la SNGR son para **tsunami**, no para inundación por lluvia.
-4. Se quitaron datos personales (nombres y teléfonos de responsables de albergues y de las fuentes de los eventos de la SNGR). No publiques los datos crudos de `geodatos/descargas/`.
+4. Se quitaron datos personales (nombres y teléfonos de responsables de refugios y de las fuentes de los eventos de la SNGR). No publiques los datos crudos de `geodatos/descargas/`.
 
 ## Dónde está todo lo demás
 

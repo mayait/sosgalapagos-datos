@@ -766,7 +766,7 @@
    "capas": [
     {
      "id": "puntos_criticos",
-     "titulo": "Salud, albergues y seguridad",
+     "titulo": "Salud, refugios y seguridad",
      "archivo": "puntos_clave.geojson",
      "tipo": "punto",
      "visible": false,
@@ -775,7 +775,7 @@
       "propiedad": "categoria",
       "en": [
        "salud",
-       "albergue",
+       "refugio",
        "zona_segura",
        "sirena",
        "educacion",
@@ -793,10 +793,10 @@
         "fillColor": "#dc2626",
         "simbolo": "+"
        },
-       "albergue": {
-        "etiqueta": "Albergue",
+       "refugio": {
+        "etiqueta": "Refugio",
         "fillColor": "#16a34a",
-        "simbolo": "A"
+        "simbolo": "R"
        },
        "zona_segura": {
         "etiqueta": "Zona segura o punto de encuentro",

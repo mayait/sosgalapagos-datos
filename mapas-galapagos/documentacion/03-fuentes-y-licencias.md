@@ -8,7 +8,7 @@ Todas las fuentes se consultaron el **1 de noviembre de 2026**. Hay un catálogo
 |---|---|---|---|
 | **IGM**, cartografía 1:25 000 de Galápagos | Quebradas, límite urbano, terreno inundable, lagunas, poblados, vías y edificios | WFS `https://www.geoportaligm.gob.ec/galapagos25/ows` | Información pública del Estado ecuatoriano. Citar «Instituto Geográfico Militar del Ecuador (IGM), 1:25 000». |
 | **CGREG** (publicado en el GeoNode de la Fundación Charles Darwin) | Zonificación del PNG 2017, suelo urbano y rural, riesgo de inundación (Puerto Ayora y Puerto Villamil), flujos de lodo por El Niño, derrumbes, encañadas con buffer de 20 m y barrios | `https://geodata.fcdarwin.org.ec` | Uso con cita al CGREG y a la FCD. Para usos formales, confirmar la licencia con el CGREG. |
-| **SNGR** (servidor ArcGIS) | Inundación por tsunami (INOCAR), rutas de evacuación, zonas seguras, sirenas, albergues, eventos históricos y viviendas con población estimada | `https://sgrportal.gestionderiesgos.gob.ec/server/rest/services` | Servicio público; licencia no declarada. Citar a la SNGR y, para el tsunami, al INOCAR. |
+| **SNGR** (servidor ArcGIS) | Inundación por tsunami (INOCAR), rutas de evacuación, zonas seguras, sirenas, refugios, eventos históricos y viviendas con población estimada | `https://sgrportal.gestionderiesgos.gob.ec/server/rest/services` | Servicio público; licencia no declarada. Citar a la SNGR y, para el tsunami, al INOCAR. |
 | **MSP** (vía SNGR) | Establecimientos de salud, 2023 | Ídem | Citar al MSP. |
 | **MINEDUC** (vía SNGR) | Instituciones educativas, 2021; la lista está incompleta | Ídem | Citar al MINEDUC. |
 | **INEC**, Marco Geoestadístico 2026 | Manzanas y sectores censales | `https://idgn.ecuadorencifras.gob.ec` | Información pública. Citar al INEC. |
@@ -24,7 +24,7 @@ Todas las fuentes se consultaron el **1 de noviembre de 2026**. Hay un catálogo
 
 ## Datos personales y privacidad
 
-- **Eliminados** de las capas finales: nombres y teléfonos de responsables de albergues (SNGR), nombres y teléfonos de las fuentes de los eventos de la SNGR y responsables de actualización.
+- **Eliminados** de las capas finales: nombres y teléfonos de responsables de refugios (SNGR), nombres y teléfonos de las fuentes de los eventos de la SNGR y responsables de actualización.
 - Los datos crudos de `geodatos/descargas/oficiales/` **sí contienen** esos campos. **No publicarlos ni compartirlos.**
 - No hay datos de personas afectadas. La población es agregada por manzana.
 
