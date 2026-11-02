@@ -24,7 +24,7 @@ Las capas están en `datos/`. Todas usan GeoJSON EPSG:4326 con coordenadas a 5 d
 | Zonas pobladas | Población estimada por manzana | `manzanas_poblacion.geojson` | poligono | 820 | 0.28 MB |  |
 | Vías y evacuación | Vías | `vias.geojson` | linea | 1713 | 0.64 MB | sí |
 | Vías y evacuación | Rutas de evacuación por tsunami | `rutas_evacuacion_tsunami.geojson` | linea | 104 | 34 kB |  |
-| Puntos clave | Salud, albergues y seguridad | `puntos_clave.geojson` | punto | 125 | 0.16 MB |  |
+| Puntos clave | Salud, refugios y seguridad | `puntos_clave.geojson` | punto | 125 | 0.16 MB |  |
 | Puntos clave | Servicios: salud privada, agua, energía, transporte | `puntos_clave.geojson` | punto | 247 | 0.16 MB |  |
 | Puntos clave | Alojamiento, comercio y espacios de reunión | `puntos_clave.geojson` | punto | 307 | 0.16 MB |  |
 | Relieve | Relieve sombreado | `raster/*_relieve.png` | raster | — | — | sí |
@@ -158,12 +158,12 @@ Las capas están en `datos/`. Todas usan GeoJSON EPSG:4326 con coordenadas a 5 d
 - **Clasificación por `tipo`:** Principal; Secundaria
 - **Campos:** `isla` (ej.: Santa Cruz), `tipo` (ej.: Principal), `via` (ej.: JUAN MONTALVO), `fuente` (ej.: SNGR)
 
-### Salud, albergues y seguridad
+### Salud, refugios y seguridad
 
 - **Grupo:** Puntos clave · **id:** `puntos_criticos` · **tipo:** punto
 - **Fuente:** MSP, SNGR, MINEDUC, IGM y OSM
-- **Filtro:** `categoria` ∈ salud, albergue, zona_segura, sirena, educacion, emergencia
-- **Clasificación por `categoria`:** Salud pública, hospital o centro de salud; Albergue; Zona segura o punto de encuentro; Sirena de alerta; Centro educativo; Policía y bomberos
+- **Filtro:** `categoria` ∈ salud, refugio, zona_segura, sirena, educacion, emergencia
+- **Clasificación por `categoria`:** Salud pública, hospital o centro de salud; Refugio; Zona segura o punto de encuentro; Sirena de alerta; Centro educativo; Policía y bomberos
 - **Campos:** `categoria` (ej.: salud), `nombre` (ej.: Hospital General Oskar Jandal), `subtipo` (ej.: Hospital general), `fuente` (ej.: MSP 2023), `institucion` (ej.: MSP), `nivel` (ej.: NIVEL 2), `isla` (ej.: San Cristóbal), `en_zona_tsunami` (ej.: True), `en_susc_alta_media` (ej.: True), `capacidad_personas` (ej.: 89), `capacidad_familias` (ej.: 22), `capacidad` (ej.: 0)
 
 ### Servicios: salud privada, agua, energía, transporte

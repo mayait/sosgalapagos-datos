@@ -22,7 +22,7 @@ Leyenda: ✅ responde y descarga sin login · 🔒 requiere token o registro · 
 | Cartografía censal (manzanas, sectores, edificios) | INEC Marco Geoestadístico 2026 (`idgn.ecuadorencifras.gob.ec`) | ✅ |
 | Población | SNGR e INEC (población por sector y por vivienda), WorldPop R2025A, GHSL | ✅ |
 | Huellas de edificios | Google Open Buildings v3 ✅; Microsoft Global Buildings ❌ no cubre Galápagos | Google sí, Microsoft no |
-| Salud, educación, albergues, puntos de encuentro | SNGR (copias de MSP 2023, MINEDUC 2021, albergues 2025, zonas seguras) | ✅ |
+| Salud, educación, refugios, puntos de encuentro | SNGR (copias de MSP 2023, MINEDUC 2021, refugios 2025, zonas seguras) | ✅ |
 | Activaciones satelitales | No hay activaciones de Copernicus EMS ni del Charter para Galápagos (ni en 2026 ni en 2023) | ❌ |
 
 ---
@@ -239,7 +239,7 @@ Capas `galapagos50k:*` descargadas (con el bbox de las tres islas):
 2. **Los datos de tsunami son abundantes y están actualizados.** Ojo: las zonas seguras y rutas de tsunami no son necesariamente adecuadas para inundación pluvial, porque los puntos altos de evacuación por tsunami pueden estar en cauces de quebradas.
 3. **Seguridad:** el FeatureServer público `https://idgn.ecuadorencifras.gob.ec/server/rest/services/mgnwms2026/FeatureServer` declara las capacidades `Create, Update, Delete, Editing` sin token, y varias capas `Hosted/*` de la SNGR también (por ejemplo, `ALOJAMIENTOS_TEMPORALES_ACTIVOS` y `EVENT_ADV_HOST`). Aquí solo se hicieron **lecturas**. Conviene avisar a las dos instituciones y usar siempre los **MapServer** en modo de solo lectura.
 4. El servidor SNGR expone servicios **Survey123** con registros de asistencia humanitaria y formularios. **No se consultaron**, porque pueden contener datos personales.
-5. Las fechas de los datos varían: CONALI 2026, MGN 2021 a 2026, MSP 2023, MINEDUC 2021, albergues 2025, IGM 1:50k Galápagos de fecha no declarada y CGREG de 2020 a 2024.
+5. Las fechas de los datos varían: CONALI 2026, MGN 2021 a 2026, MSP 2023, MINEDUC 2021, refugios 2025, IGM 1:50k Galápagos de fecha no declarada y CGREG de 2020 a 2024.
 6. Todo el contenido descargado se trató como dato no confiable. No se ejecutó nada de lo descargado.
 
 ## 8. Endpoints que no respondieron (2026-11-01)

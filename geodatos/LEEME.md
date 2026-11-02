@@ -33,6 +33,7 @@ Mini proyecto para reunir, depurar y revisar la información geográfica de Sant
 .venv/bin/python -I scripts/07_oficiales.py    # SNGR/INEC/CGREG, edificios combinados y exposición
 .venv/bin/python -I scripts/07b_cuencas_aportantes.py  # cuencas completas que drenan a cada poblado
 .venv/bin/python -I scripts/08_exportar.py     # recorta al área de interés y genera export/galapagos + capas.json
+.venv/bin/python -I scripts/08b_nombres_vias.py # rótulos de nombres de calles (nombres_vias.geojson)
 .venv/bin/python -I scripts/09_entregable.py   # actualiza ../mapas-galapagos/ (entregable final)
 ```
 
@@ -76,5 +77,5 @@ El visor lee `export/galapagos/capas.json`, que es el mismo paquete que pasa al 
 - **No existe un mapa oficial de amenaza por inundación pluvial para Galápagos.** Las capas SNGR e INEC nacionales devuelven 0 entidades en las islas. La susceptibilidad HAND es un modelo propio sobre un DSM de 30 m que incluye edificios y vegetación, así que **sirve para priorizar, no para delimitar**. En terreno muy plano, como Puerto Villamil, sobrestima la susceptibilidad.
 - La población es una estimación de la SNGR por vivienda; no proviene del censo publicado por manzana.
 - La capa de rutas de evacuación es para **tsunami**, no para inundación por lluvia.
-- Privacidad: se eliminaron los nombres y teléfonos de los responsables de albergues y de las fuentes de los eventos de la SNGR. No subas `descargas/oficiales/` sin depurar.
+- Privacidad: se eliminaron los nombres y teléfonos de los responsables de refugios y de las fuentes de los eventos de la SNGR. No subas `descargas/oficiales/` sin depurar.
 - El CGREG (SIIG) y el catastro de los tres GAD municipales no se pueden descargar: hay que pedirlos.

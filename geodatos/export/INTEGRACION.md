@@ -44,4 +44,4 @@ Los estilos se cambian en `scripts/capas.json`, no en `export/`. Después de cam
 
 - La susceptibilidad, la costa baja, los cauces adicionales y las cuencas son un **modelo** sobre un DSM de 30 m. Hay que presentarlos como apoyo a la priorización, no como delimitación oficial.
 - `puntos_clave` marca con `en_susc_alta_media` y `en_zona_tsunami` los servicios que pueden quedar afectados. El visor les dibuja un anillo azul.
-- Se quitaron nombres y teléfonos personales (albergues y eventos de la SNGR). No copiar `descargas/oficiales/` al proyecto principal.
+- Se quitaron nombres y teléfonos personales (refugios y eventos de la SNGR). No copiar `descargas/oficiales/` al proyecto principal.

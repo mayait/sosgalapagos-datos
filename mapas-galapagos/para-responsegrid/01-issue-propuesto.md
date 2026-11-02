@@ -19,7 +19,7 @@ Durante las inundaciones por El Niño en Galápagos (30–31 oct 2026; barrio La
 el más afectado) los coordinadores necesitan ver, junto a los puntos de acopio y las necesidades, el
 contexto territorial: dónde están las quebradas y zonas inundables, qué cuencas drenan hacia cada
 pueblo, dónde está el límite del Parque Nacional y la zona agrícola, qué servicios críticos (salud,
-albergues, zonas seguras) caen en zona de riesgo, y la población expuesta.
+refugios, zonas seguras) caen en zona de riesgo, y la población expuesta.
 
 Hoy el mapa público solo tiene las teselas de OpenStreetMap. No hay forma de añadir capas de contexto
 por emergencia sin tocar código.
