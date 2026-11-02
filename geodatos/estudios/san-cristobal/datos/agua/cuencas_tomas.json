@@ -1,0 +1,830 @@
+{
+ "metodo": "Cuencas de captación de las tomas de agua de San Cristóbal (preliminar).\n\nPara cada punto con categoria = \"toma\" de estudios/san-cristobal/datos/agua/tomas.geojson (lo mantiene el especialista urbano):\n  1. Ajuste («snap») al cauce D8 de mayor área dentro de SNAP_M (60 m), sobre el DSM GLO-30 con las quebradas IGM quemadas\n     (UTM 16S, 30 m; mismo D8 que el script 17). Se documenta el desplazamiento y el área antes y después.\n  2. Cuenca D8 aguas arriba: área, cotas, pendiente, cauce principal (L, S) y tc (Kirpich y Témez).\n  3. Uso del suelo: Parque Nacional, zona agrícola, zona poblada (zonificación PNG 2017, zonas pobladas, manzanas INEC) y\n     edificios (OSM + Open Buildings).\n  4. Caudal de crecida (SCS-CN + hidrograma unitario SCS; CN por clase como en el script 17, AMC II y III) con\n     (a) 100 mm en 24 h, tipo II, y (b) la tormenta medida en Los Guayabillos el 30-oct trasladada (mismo hietograma que el\n     modelo 2D, script 25).\n  5. Fuentes potenciales de contaminación y de sedimento aguas arriba: edificios, superficie agrícola y poblada, longitud\n     de vías (OSM e IGM) y cruces vía–cauce (cauces D8 ≥ 0,05 km², cruces OSM/IGM agrupados a 40 m).\n  6. Índice EXPLÍCITO de riesgo de turbidez / arrastre (ver INDICE_TURBIDEZ).\n  7. Sensibilidad de la cota: la USFQ da 164 m (Cerro Gato) y 150 m (La Toma); el DSM da ≈267 y ≈500 m. Se busca dónde\n     alcanza esa cota el flujo D8 aguas abajo del punto y qué cuenca tendría la toma allí.",
+ "indice_turbidez": {
+  "P_pendiente": "pendiente media de la cuenca: 0 (< 10 %), 1 (10–20 %), 2 (≥ 20 %)",
+  "U_uso": "fracción agrícola + poblada: 0 (< 10 %), 1 (10–40 %), 2 (≥ 40 %)",
+  "V_vias": "vías dentro de la cuenca: 0 (ninguna), 1 (< 1 km), 2 (≥ 1 km o algún cruce vía–cauce)",
+  "Q_crecida": "caudal pico con 100 mm (CN AMC II, tc de Kirpich): 0 (< 1 m³/s), 1 (1–5), 2 (≥ 5)",
+  "clase": "suma 0–8: baja (0–2), media (3–4), alta (≥ 5)"
+ },
+ "tomas": {
+  "AG-01": {
+   "area_km2": 0.01,
+   "cota_max_m": 286.4,
+   "cota_media_m": 270.2,
+   "cota_toma_dsm_m": 254.1,
+   "pendiente_media_pct": 19.6,
+   "cauce_L_km": 0.17,
+   "cauce_S_pct": 18.5,
+   "tc_kirpich_min": 2,
+   "tc_temez_min": 7,
+   "uso_parque_pct": 0.0,
+   "uso_agricola_pct": 100.0,
+   "uso_poblado_pct": 0.0,
+   "uso_otro_pct": 0.0,
+   "cn_amc_ii": 76.0,
+   "edificios": 0,
+   "vias_osm_km": 0.0,
+   "vias_igm_km": 0.0,
+   "densidad_vias_km_km2": 0.0,
+   "cruces_via_cauce": 0,
+   "cruces_lonlat": [],
+   "quebradas_igm_km": 0.12,
+   "caudales": {
+    "100mm_tipoII_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 42.9,
+     "q_pico_m3s_temez": 0.18,
+     "q_pico_m3s_kirpich": 0.2
+    },
+    "100mm_tipoII_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 67.7,
+     "q_pico_m3s_temez": 0.27,
+     "q_pico_m3s_kirpich": 0.29
+    },
+    "guayabillos_30oct_trasladada_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 109.0,
+     "q_pico_m3s_temez": 0.17,
+     "q_pico_m3s_kirpich": 0.18
+    },
+    "guayabillos_30oct_trasladada_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 142.8,
+     "q_pico_m3s_temez": 0.2,
+     "q_pico_m3s_kirpich": 0.2
+    }
+   },
+   "q_especifico_100mm_m3s_km2": 20.2,
+   "indice_turbidez": {
+    "P": 1,
+    "U": 2,
+    "V": 0,
+    "Q": 0
+   },
+   "indice_turbidez_total": 3,
+   "riesgo_turbidez": "media",
+   "id": "AG-01",
+   "nombre": "Cerro Gato",
+   "confianza_ubicacion": "media",
+   "caudal_captado_ls": "27 (CGREG 2015)",
+   "snap_desplazamiento_m": 59,
+   "area_en_punto_original_km2": 0.001,
+   "punto_ajustado_lonlat": [
+    -89.47821,
+    -0.91979
+   ],
+   "sin_cauce_definido": true,
+   "sensibilidad_cota_usfq": {
+    "cota_usfq_m": 164,
+    "punto_d8_a_esa_cota_lonlat": [
+     -89.47525,
+     -0.92304
+    ],
+    "distancia_aguas_abajo_km": 0.51,
+    "area_alli_km2": 0.904,
+    "uso_agricola_pct": 98.6,
+    "uso_poblado_pct": 0.0,
+    "edificios": 1,
+    "q100_amc_ii_m3s": [
+     6.1,
+     12.84
+    ]
+   },
+   "canada_mas_cercana": {
+    "distancia_m": 88,
+    "lonlat": [
+     -89.47794,
+     -0.91979
+    ],
+    "area_km2": 0.595,
+    "cota_toma_dsm_m": 246.9,
+    "cota_max_m": 527.7,
+    "pendiente_media_pct": 26.9,
+    "uso_parque_pct": 0.0,
+    "uso_agricola_pct": 100.0,
+    "uso_poblado_pct": 0.0,
+    "edificios": 0,
+    "vias_osm_km": 0.0,
+    "vias_igm_km": 0.0,
+    "cruces_via_cauce": 0,
+    "cruces_lonlat": [],
+    "tc_kirpich_min": 13,
+    "tc_temez_min": 41,
+    "cauce_L_km": 1.83,
+    "cauce_S_pct": 15.4,
+    "riesgo_turbidez": "alta",
+    "indice_turbidez": {
+     "P": 2,
+     "U": 2,
+     "V": 0,
+     "Q": 2
+    },
+    "q100_amc_ii_m3s": [
+     4.66,
+     9.17
+    ],
+    "q100_amc_iii_m3s": [
+     7.54,
+     14.12
+    ],
+    "q_guayabillos_amc_ii_m3s": [
+     7.96,
+     10.16
+    ]
+   }
+  },
+  "AG-02": {
+   "area_km2": 0.029,
+   "cota_max_m": 452.0,
+   "cota_media_m": 427.3,
+   "cota_toma_dsm_m": 391.8,
+   "pendiente_media_pct": 23.0,
+   "cauce_L_km": 0.22,
+   "cauce_S_pct": 22.8,
+   "tc_kirpich_min": 2,
+   "tc_temez_min": 8,
+   "uso_parque_pct": 0.0,
+   "uso_agricola_pct": 100.0,
+   "uso_poblado_pct": 0.0,
+   "uso_otro_pct": 0.0,
+   "cn_amc_ii": 76.0,
+   "edificios": 0,
+   "vias_osm_km": 0.0,
+   "vias_igm_km": 0.0,
+   "densidad_vias_km_km2": 0.0,
+   "cruces_via_cauce": 0,
+   "cruces_lonlat": [],
+   "quebradas_igm_km": 0.0,
+   "caudales": {
+    "100mm_tipoII_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 42.9,
+     "q_pico_m3s_temez": 0.52,
+     "q_pico_m3s_kirpich": 0.59
+    },
+    "100mm_tipoII_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 67.7,
+     "q_pico_m3s_temez": 0.78,
+     "q_pico_m3s_kirpich": 0.83
+    },
+    "guayabillos_30oct_trasladada_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 109.0,
+     "q_pico_m3s_temez": 0.5,
+     "q_pico_m3s_kirpich": 0.51
+    },
+    "guayabillos_30oct_trasladada_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 142.8,
+     "q_pico_m3s_temez": 0.58,
+     "q_pico_m3s_kirpich": 0.59
+    }
+   },
+   "q_especifico_100mm_m3s_km2": 20.49,
+   "indice_turbidez": {
+    "P": 2,
+    "U": 2,
+    "V": 0,
+    "Q": 0
+   },
+   "indice_turbidez_total": 4,
+   "riesgo_turbidez": "media",
+   "id": "AG-02",
+   "nombre": "Los Americanos (toma / represa)",
+   "confianza_ubicacion": "media",
+   "caudal_captado_ls": "19 (CGREG 2015)",
+   "snap_desplazamiento_m": 53,
+   "area_en_punto_original_km2": 0.001,
+   "punto_ajustado_lonlat": [
+    -89.48683,
+    -0.91354
+   ],
+   "sin_cauce_definido": true,
+   "canada_mas_cercana": {
+    "distancia_m": 224,
+    "lonlat": [
+     -89.48925,
+     -0.913
+    ],
+    "area_km2": 0.622,
+    "cota_toma_dsm_m": 379.4,
+    "cota_max_m": 603.8,
+    "pendiente_media_pct": 23.0,
+    "uso_parque_pct": 0.0,
+    "uso_agricola_pct": 100.0,
+    "uso_poblado_pct": 0.0,
+    "edificios": 0,
+    "vias_osm_km": 0.23,
+    "vias_igm_km": 0.26,
+    "cruces_via_cauce": 1,
+    "cruces_lonlat": [
+     [
+      -89.48896,
+      -0.91244,
+      "track"
+     ]
+    ],
+    "tc_kirpich_min": 12,
+    "tc_temez_min": 38,
+    "cauce_L_km": 1.64,
+    "cauce_S_pct": 13.7,
+    "riesgo_turbidez": "alta",
+    "indice_turbidez": {
+     "P": 2,
+     "U": 2,
+     "V": 2,
+     "Q": 2
+    },
+    "q100_amc_ii_m3s": [
+     5.1,
+     9.77
+    ],
+    "q100_amc_iii_m3s": [
+     8.19,
+     15.06
+    ],
+    "q_guayabillos_amc_ii_m3s": [
+     8.42,
+     10.63
+    ]
+   }
+  },
+  "AG-03": {
+   "area_km2": 0.005,
+   "cota_max_m": 516.4,
+   "cota_media_m": 509.7,
+   "cota_toma_dsm_m": 504.2,
+   "pendiente_media_pct": 9.6,
+   "cauce_L_km": 0.14,
+   "cauce_S_pct": 8.4,
+   "tc_kirpich_min": 2,
+   "tc_temez_min": 7,
+   "uso_parque_pct": 0.0,
+   "uso_agricola_pct": 100.0,
+   "uso_poblado_pct": 0.0,
+   "uso_otro_pct": 0.0,
+   "cn_amc_ii": 76.0,
+   "edificios": 0,
+   "vias_osm_km": 0.03,
+   "vias_igm_km": 0.0,
+   "densidad_vias_km_km2": 6.12,
+   "cruces_via_cauce": 0,
+   "cruces_lonlat": [],
+   "quebradas_igm_km": 0.0,
+   "caudales": {
+    "100mm_tipoII_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 42.9,
+     "q_pico_m3s_temez": 0.1,
+     "q_pico_m3s_kirpich": 0.11
+    },
+    "100mm_tipoII_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 67.7,
+     "q_pico_m3s_temez": 0.15,
+     "q_pico_m3s_kirpich": 0.16
+    },
+    "guayabillos_30oct_trasladada_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 109.0,
+     "q_pico_m3s_temez": 0.09,
+     "q_pico_m3s_kirpich": 0.1
+    },
+    "guayabillos_30oct_trasladada_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 142.8,
+     "q_pico_m3s_temez": 0.11,
+     "q_pico_m3s_kirpich": 0.11
+    }
+   },
+   "q_especifico_100mm_m3s_km2": 20.37,
+   "indice_turbidez": {
+    "P": 0,
+    "U": 2,
+    "V": 1,
+    "Q": 0
+   },
+   "indice_turbidez_total": 3,
+   "riesgo_turbidez": "media",
+   "id": "AG-03",
+   "nombre": "La Toma (El Progreso)",
+   "confianza_ubicacion": "alta",
+   "caudal_captado_ls": "no documentado",
+   "snap_desplazamiento_m": 60,
+   "area_en_punto_original_km2": 0.002,
+   "punto_ajustado_lonlat": [
+    -89.50649,
+    -0.91109
+   ],
+   "sin_cauce_definido": true,
+   "sensibilidad_cota_usfq": {
+    "cota_usfq_m": 150,
+    "punto_d8_a_esa_cota_lonlat": [
+     -89.49896,
+     -0.92981
+    ],
+    "distancia_aguas_abajo_km": 2.62,
+    "area_alli_km2": 2.164,
+    "uso_agricola_pct": 100.0,
+    "uso_poblado_pct": 0.0,
+    "edificios": 1,
+    "q100_amc_ii_m3s": [
+     9.54,
+     19.72
+    ]
+   },
+   "canada_mas_cercana": {
+    "distancia_m": 94,
+    "lonlat": [
+     -89.50703,
+     -0.91217
+    ],
+    "area_km2": 1.257,
+    "cota_toma_dsm_m": 483.8,
+    "cota_max_m": 694.8,
+    "pendiente_media_pct": 13.6,
+    "uso_parque_pct": 0.0,
+    "uso_agricola_pct": 100.0,
+    "uso_poblado_pct": 0.0,
+    "edificios": 0,
+    "vias_osm_km": 2.02,
+    "vias_igm_km": 1.74,
+    "cruces_via_cauce": 0,
+    "cruces_lonlat": [],
+    "tc_kirpich_min": 23,
+    "tc_temez_min": 60,
+    "cauce_L_km": 2.45,
+    "cauce_S_pct": 6.2,
+    "riesgo_turbidez": "alta",
+    "indice_turbidez": {
+     "P": 1,
+     "U": 2,
+     "V": 2,
+     "Q": 2
+    },
+    "q100_amc_ii_m3s": [
+     7.43,
+     14.18
+    ],
+    "q100_amc_iii_m3s": [
+     12.1,
+     22.83
+    ],
+    "q_guayabillos_amc_ii_m3s": [
+     16.05,
+     19.72
+    ]
+   }
+  },
+  "AG-04": {
+   "area_km2": 4.748,
+   "cota_max_m": 716.3,
+   "cota_media_m": 514.4,
+   "cota_toma_dsm_m": 293.6,
+   "pendiente_media_pct": 18.0,
+   "cauce_L_km": 5.83,
+   "cauce_S_pct": 6.0,
+   "tc_kirpich_min": 46,
+   "tc_temez_min": 117,
+   "uso_parque_pct": 12.4,
+   "uso_agricola_pct": 87.2,
+   "uso_poblado_pct": 0.0,
+   "uso_otro_pct": 0.4,
+   "cn_amc_ii": 74.0,
+   "edificios": 21,
+   "vias_osm_km": 7.78,
+   "vias_igm_km": 6.85,
+   "densidad_vias_km_km2": 3.08,
+   "cruces_via_cauce": 5,
+   "cruces_lonlat": [
+    [
+     -89.481,
+     -0.88969,
+     "unclassified"
+    ],
+    [
+     -89.46723,
+     -0.88473,
+     "unclassified"
+    ],
+    [
+     -89.47578,
+     -0.88805,
+     "unclassified"
+    ],
+    [
+     -89.45732,
+     -0.90177,
+     "track"
+    ],
+    [
+     -89.47222,
+     -0.88938,
+     "REVESTIMIENTO SUELTO O LIGERO, 1 VÍA"
+    ]
+   ],
+   "quebradas_igm_km": 11.19,
+   "caudales": {
+    "100mm_tipoII_AMC_II": {
+     "CN": 74.0,
+     "escorrentia_mm": 39.3,
+     "q_pico_m3s_temez": 16.18,
+     "q_pico_m3s_kirpich": 30.75
+    },
+    "100mm_tipoII_AMC_III": {
+     "CN": 86.7,
+     "escorrentia_mm": 64.9,
+     "q_pico_m3s_temez": 28.03,
+     "q_pico_m3s_kirpich": 52.35
+    },
+    "guayabillos_30oct_trasladada_AMC_II": {
+     "CN": 74.0,
+     "escorrentia_mm": 103.4,
+     "q_pico_m3s_temez": 48.86,
+     "q_pico_m3s_kirpich": 60.89
+    },
+    "guayabillos_30oct_trasladada_AMC_III": {
+     "CN": 86.7,
+     "escorrentia_mm": 139.3,
+     "q_pico_m3s_temez": 58.47,
+     "q_pico_m3s_kirpich": 71.52
+    }
+   },
+   "q_especifico_100mm_m3s_km2": 6.48,
+   "indice_turbidez": {
+    "P": 1,
+    "U": 2,
+    "V": 2,
+    "Q": 2
+   },
+   "indice_turbidez_total": 7,
+   "riesgo_turbidez": "alta",
+   "id": "AG-04",
+   "nombre": "El Chino (manantial)",
+   "confianza_ubicacion": "media",
+   "caudal_captado_ls": "20 (CGREG 2015)",
+   "snap_desplazamiento_m": 37,
+   "area_en_punto_original_km2": 4.726,
+   "punto_ajustado_lonlat": [
+    -89.45692,
+    -0.90218
+   ],
+   "sin_cauce_definido": false
+  },
+  "AG-09": {
+   "area_km2": 0.131,
+   "cota_max_m": 454.0,
+   "cota_media_m": 413.7,
+   "cota_toma_dsm_m": 345.5,
+   "pendiente_media_pct": 19.6,
+   "cauce_L_km": 0.62,
+   "cauce_S_pct": 16.6,
+   "tc_kirpich_min": 6,
+   "tc_temez_min": 18,
+   "uso_parque_pct": 0.0,
+   "uso_agricola_pct": 100.0,
+   "uso_poblado_pct": 0.0,
+   "uso_otro_pct": 0.0,
+   "cn_amc_ii": 76.0,
+   "edificios": 0,
+   "vias_osm_km": 0.0,
+   "vias_igm_km": 0.0,
+   "densidad_vias_km_km2": 0.0,
+   "cruces_via_cauce": 0,
+   "cruces_lonlat": [],
+   "quebradas_igm_km": 0.5,
+   "caudales": {
+    "100mm_tipoII_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 42.9,
+     "q_pico_m3s_temez": 1.75,
+     "q_pico_m3s_kirpich": 2.49
+    },
+    "100mm_tipoII_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 67.7,
+     "q_pico_m3s_temez": 2.75,
+     "q_pico_m3s_kirpich": 3.68
+    },
+    "guayabillos_30oct_trasladada_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 109.0,
+     "q_pico_m3s_temez": 2.15,
+     "q_pico_m3s_kirpich": 2.29
+    },
+    "guayabillos_30oct_trasladada_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 142.8,
+     "q_pico_m3s_temez": 2.5,
+     "q_pico_m3s_kirpich": 2.64
+    }
+   },
+   "q_especifico_100mm_m3s_km2": 19.08,
+   "indice_turbidez": {
+    "P": 1,
+    "U": 2,
+    "V": 0,
+    "Q": 1
+   },
+   "indice_turbidez_total": 4,
+   "riesgo_turbidez": "media",
+   "id": "AG-09",
+   "nombre": "Captación FCD sin nombre (oeste de La Toma)",
+   "confianza_ubicacion": "media",
+   "caudal_captado_ls": "—",
+   "snap_desplazamiento_m": 48,
+   "area_en_punto_original_km2": 0.084,
+   "punto_ajustado_lonlat": [
+    -89.51915,
+    -0.91867
+   ],
+   "sin_cauce_definido": false
+  },
+  "AG-10": {
+   "area_km2": 0.006,
+   "cota_max_m": 436.9,
+   "cota_media_m": 426.0,
+   "cota_toma_dsm_m": 411.3,
+   "pendiente_media_pct": 18.2,
+   "cauce_L_km": 0.12,
+   "cauce_S_pct": 21.4,
+   "tc_kirpich_min": 1,
+   "tc_temez_min": 5,
+   "uso_parque_pct": 0.0,
+   "uso_agricola_pct": 100.0,
+   "uso_poblado_pct": 0.0,
+   "uso_otro_pct": 0.0,
+   "cn_amc_ii": 76.0,
+   "edificios": 0,
+   "vias_osm_km": 0.1,
+   "vias_igm_km": 0.1,
+   "densidad_vias_km_km2": 32.26,
+   "cruces_via_cauce": 0,
+   "cruces_lonlat": [],
+   "quebradas_igm_km": 0.0,
+   "caudales": {
+    "100mm_tipoII_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 42.9,
+     "q_pico_m3s_temez": 0.12,
+     "q_pico_m3s_kirpich": 0.13
+    },
+    "100mm_tipoII_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 67.7,
+     "q_pico_m3s_temez": 0.18,
+     "q_pico_m3s_kirpich": 0.18
+    },
+    "guayabillos_30oct_trasladada_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 109.0,
+     "q_pico_m3s_temez": 0.11,
+     "q_pico_m3s_kirpich": 0.11
+    },
+    "guayabillos_30oct_trasladada_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 142.8,
+     "q_pico_m3s_temez": 0.13,
+     "q_pico_m3s_kirpich": 0.13
+    }
+   },
+   "q_especifico_100mm_m3s_km2": 20.63,
+   "indice_turbidez": {
+    "P": 1,
+    "U": 2,
+    "V": 1,
+    "Q": 0
+   },
+   "indice_turbidez_total": 4,
+   "riesgo_turbidez": "media",
+   "id": "AG-10",
+   "nombre": "Captación FCD sin nombre (noroeste de El Progreso)",
+   "confianza_ubicacion": "media",
+   "caudal_captado_ls": "—",
+   "snap_desplazamiento_m": 57,
+   "area_en_punto_original_km2": 0.001,
+   "punto_ajustado_lonlat": [
+    -89.53826,
+    -0.89236
+   ],
+   "sin_cauce_definido": true,
+   "canada_mas_cercana": {
+    "distancia_m": 133,
+    "lonlat": [
+     -89.53799,
+     -0.89073
+    ],
+    "area_km2": 2.865,
+    "cota_toma_dsm_m": 400.1,
+    "cota_max_m": 720.9,
+    "pendiente_media_pct": 11.7,
+    "uso_parque_pct": 0.0,
+    "uso_agricola_pct": 100.0,
+    "uso_poblado_pct": 0.0,
+    "edificios": 21,
+    "vias_osm_km": 6.37,
+    "vias_igm_km": 2.11,
+    "cruces_via_cauce": 10,
+    "cruces_lonlat": [
+     [
+      -89.51833,
+      -0.88973,
+      "track"
+     ],
+     [
+      -89.52102,
+      -0.88932,
+      "track"
+     ],
+     [
+      -89.52588,
+      -0.89182,
+      "unclassified"
+     ],
+     [
+      -89.52651,
+      -0.89172,
+      "unclassified"
+     ],
+     [
+      -89.52164,
+      -0.8873,
+      "track"
+     ],
+     [
+      -89.52177,
+      -0.8883,
+      "track"
+     ],
+     [
+      -89.51725,
+      -0.88758,
+      "track"
+     ],
+     [
+      -89.51521,
+      -0.88885,
+      "track"
+     ],
+     [
+      -89.51016,
+      -0.89346,
+      "track"
+     ],
+     [
+      -89.52727,
+      -0.89155,
+      "CAMINO DE VERANO"
+     ]
+    ],
+    "tc_kirpich_min": 48,
+    "tc_temez_min": 115,
+    "cauce_L_km": 5.24,
+    "cauce_S_pct": 4.3,
+    "riesgo_turbidez": "alta",
+    "indice_turbidez": {
+     "P": 1,
+     "U": 2,
+     "V": 2,
+     "Q": 2
+    },
+    "q100_amc_ii_m3s": [
+     10.96,
+     19.96
+    ],
+    "q100_amc_iii_m3s": [
+     17.79,
+     32.3
+    ],
+    "q_guayabillos_amc_ii_m3s": [
+     30.75,
+     37.67
+    ]
+   }
+  },
+  "AG-11": {
+   "area_km2": 0.003,
+   "cota_max_m": 334.5,
+   "cota_media_m": 330.4,
+   "cota_toma_dsm_m": 325.8,
+   "pendiente_media_pct": 11.8,
+   "cauce_L_km": 0.07,
+   "cauce_S_pct": 12.0,
+   "tc_kirpich_min": 1,
+   "tc_temez_min": 4,
+   "uso_parque_pct": 0.0,
+   "uso_agricola_pct": 100.0,
+   "uso_poblado_pct": 0.0,
+   "uso_otro_pct": 0.0,
+   "cn_amc_ii": 76.0,
+   "edificios": 0,
+   "vias_osm_km": 0.03,
+   "vias_igm_km": 0.0,
+   "densidad_vias_km_km2": 11.73,
+   "cruces_via_cauce": 0,
+   "cruces_lonlat": [],
+   "quebradas_igm_km": 0.0,
+   "caudales": {
+    "100mm_tipoII_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 42.9,
+     "q_pico_m3s_temez": 0.05,
+     "q_pico_m3s_kirpich": 0.06
+    },
+    "100mm_tipoII_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 67.7,
+     "q_pico_m3s_temez": 0.08,
+     "q_pico_m3s_kirpich": 0.08
+    },
+    "guayabillos_30oct_trasladada_AMC_II": {
+     "CN": 76.0,
+     "escorrentia_mm": 109.0,
+     "q_pico_m3s_temez": 0.05,
+     "q_pico_m3s_kirpich": 0.05
+    },
+    "guayabillos_30oct_trasladada_AMC_III": {
+     "CN": 87.9,
+     "escorrentia_mm": 142.8,
+     "q_pico_m3s_temez": 0.05,
+     "q_pico_m3s_kirpich": 0.05
+    }
+   },
+   "q_especifico_100mm_m3s_km2": 22.22,
+   "indice_turbidez": {
+    "P": 1,
+    "U": 2,
+    "V": 1,
+    "Q": 0
+   },
+   "indice_turbidez_total": 4,
+   "riesgo_turbidez": "media",
+   "id": "AG-11",
+   "nombre": "Captación FCD sin nombre (El Chino sur)",
+   "confianza_ubicacion": "media",
+   "caudal_captado_ls": "—",
+   "snap_desplazamiento_m": 49,
+   "area_en_punto_original_km2": 0.001,
+   "punto_ajustado_lonlat": [
+    -89.45503,
+    -0.90218
+   ],
+   "sin_cauce_definido": true,
+   "canada_mas_cercana": {
+    "distancia_m": 132,
+    "lonlat": [
+     -89.45584,
+     -0.90218
+    ],
+    "area_km2": 0.158,
+    "cota_toma_dsm_m": 314.8,
+    "cota_max_m": 383.3,
+    "pendiente_media_pct": 10.0,
+    "uso_parque_pct": 0.0,
+    "uso_agricola_pct": 100.0,
+    "uso_poblado_pct": 0.0,
+    "edificios": 0,
+    "vias_osm_km": 0.0,
+    "vias_igm_km": 0.0,
+    "cruces_via_cauce": 0,
+    "cruces_lonlat": [],
+    "tc_kirpich_min": 9,
+    "tc_temez_min": 26,
+    "cauce_L_km": 0.86,
+    "cauce_S_pct": 8.0,
+    "riesgo_turbidez": "media",
+    "indice_turbidez": {
+     "P": 0,
+     "U": 2,
+     "V": 0,
+     "Q": 1
+    },
+    "q100_amc_ii_m3s": [
+     1.67,
+     2.72
+    ],
+    "q100_amc_iii_m3s": [
+     2.69,
+     4.14
+    ],
+    "q_guayabillos_amc_ii_m3s": [
+     2.39,
+     2.74
+    ]
+   }
+  }
+ },
+ "notas": {
+  "anidadas": [],
+  "cuencas_con_area_menor_a_0.1km2_tras_ajuste": [
+   "AG-01",
+   "AG-02",
+   "AG-03",
+   "AG-10",
+   "AG-11"
+  ]
+ }
+}
