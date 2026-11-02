@@ -2,7 +2,7 @@ Intro: Lo que todavía no se sabe sobre las inundaciones en San Cristóbal: dato
 
 # Cómo aportar
 
-Esta página reúne los pendientes abiertos del proyecto que tocan a San Cristóbal: **11 propios de la isla** y **27 comunes a las islas**. Se arma sola a partir de los [issues de GitHub](https://github.com/mayait/sosgalapagos-datos/issues) (última descarga: 2026-11-02) y se ordena por prioridad: la prioridad 1 cambia decisiones de esta emergencia; la 2 mejora mucho el análisis; la 3 es deseable.
+Esta página reúne los pendientes abiertos del proyecto que tocan a San Cristóbal: **18 propios de la isla** y **27 comunes a las islas**. Se arma sola a partir de los [issues de GitHub](https://github.com/mayait/sosgalapagos-datos/issues) (última descarga: 2026-11-02) y se ordena por prioridad: la prioridad 1 cambia decisiones de esta emergencia; la 2 mejora mucho el análisis; la 3 es deseable.
 
 Si tienes un dato que ayude (fotos o videos con fecha, hora y lugar, marcas de agua, lluvia medida, planos de obras, registros de daños), escríbelo en los comentarios de la sección que corresponda o en el issue de GitHub. Los comentarios son públicos: no pongas nombres, teléfonos ni datos de otras personas.
 
@@ -17,10 +17,47 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
     **Para qué sirve:** Exposición real por edificio en lugar de OSM + Open Buildings
 - **[Confirmar sobre qué cauce va la zanja de Manzanillo (alternativa A ≈6 m³/s o B ≈24 m³/s)](https://github.com/mayait/sosgalapagos-datos/issues/55)** (#55 · prioridad 1)  
     El caudal de diseño cambia unas cuatro veces según el cauce: ≈6 m³/s si es el A y ≈24 m³/s si es el B. Ver el estudio de San Cristóbal.
+- **[Cota del rellano y de la Vía Universidad frente al campus USFQ / GSC, y paso de la quebrada bajo la vía](https://github.com/mayait/sosgalapagos-datos/issues/58)** (#58 · prioridad 1)  
+    El resultado del campus es no concluyente: el resalte hacia el GSC (1,6 m) es menor que el error del DSM. Hace falta GNSS del rellano y de la vía, y saber si hay paso o alcantarilla en CR-SCR-0218 y qué capacidad tiene. También la cota de los accesos y de las plantas bajas de los edificios a menos de 25 m del cauce.  
+    **Isla:** San Cristóbal  
+    **Sale de:** san-cristobal/texto/04_campus.md, «Qué falta saber»  
+    https://sosgalapagos.org/estudios/san-cristobal/campus/  
+    Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Estado del agua potable de San Cristóbal tras el 30–31-oct](https://github.com/mayait/sosgalapagos-datos/issues/59)** (#59 · prioridad 1)  
+    No hay información pública sobre las tomas de Los Americanos y Cerro Gato ni sobre sus válvulas, ni datos de turbidez de las plantas El Progreso y Las Palmeras, ni del estado de los cruces de la línea de Cerro Gato con cauces de más de 2 km². Dato en manos del GAD.  
+    **Isla:** San Cristóbal  
+    **Sale de:** 06_agua.md, «Vacíos de información»  
+    https://sosgalapagos.org/estudios/san-cristobal/agua/  
+    Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Lluvia medida del 30–31-oct en San Cristóbal (proyecto DARWIN, GSC, INAMHI)](https://github.com/mayait/sosgalapagos-datos/issues/61)** (#61 · prioridad 1)  
+    No hay lluvia medida pública del evento. Las estaciones del proyecto DARWIN (U. de Marburgo: Puerto Baquerizo, El Junco, La Galapaguera) y las del GSC podrían tenerla. INAMHI M0221 y M0193 solo llegan hasta 2013. Sin estos datos, los caudales son escenarios. (Otro agente trabaja en el script 29 con datos de Marburgo: coordinar.)  
+    **Isla:** San Cristóbal  
+    **Sale de:** 11_lluvia.md, 01_panorama.md  
+    https://sosgalapagos.org/estudios/san-cristobal/lluvia/  
+    https://sosgalapagos.org/estudios/san-cristobal/panorama/  
+    Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Trazados de las obras del Plan de Acción de la UGR (zanja de 1 040 m, muro de 240 m, conexión de Floreana)](https://github.com/mayait/sosgalapagos-datos/issues/70)** (#70 · prioridad 1)  
+    Los trazados reales están en manos de la UGR. Sin ellos, el análisis supone ubicaciones. Complementa [#55](https://github.com/mayait/sosgalapagos-datos/issues/55).  
+    **Isla:** San Cristóbal  
+    **Sale de:** 03_plan_ugr.md, «Qué falta saber»  
+    https://sosgalapagos.org/estudios/san-cristobal/plan-ugr/  
+    Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
 - **[Ubicar los 16 lugares no localizados del Plan de Acción de la UGR de San Cristóbal](https://github.com/mayait/sosgalapagos-datos/issues/53)** (#53 · prioridad 2)  
     El estudio de San Cristóbal integra el Plan de Acción de la UGR, pero 16 lugares no se pudieron georreferenciar (`geodatos/estudios/san-cristobal/datos/ugr/no_localizados.csv`). Hay que confirmarlos con la UGR o en terreno.
 - **[Verificar en campo el collado Galápagos–Divino Niño (San Cristóbal)](https://github.com/mayait/sosgalapagos-datos/issues/54)** (#54 · prioridad 2)  
     El estudio lo plantea como **hipótesis** a partir del DEM de 30 m. Hay que verificar en terreno, o con GNSS o dron, si el agua puede pasar por ese collado.
+- **[Ubicación y trazado verificados de las tomas y conducciones del acueducto de San Cristóbal](https://github.com/mayait/sosgalapagos-datos/issues/60)** (#60 · prioridad 2)  
+    Qué tomas están en servicio en 2026; si las dos líneas «en construcción» del IGM son las actuales; trazado de las conducciones desde Los Americanos y entre la planta El Progreso y Puerto Baquerizo Moreno; profundidad y protección de las tuberías en los cruces; GNSS de tomas y represa.  
+    **Isla:** San Cristóbal  
+    **Sale de:** 06_agua.md  
+    https://sosgalapagos.org/estudios/san-cristobal/agua/  
+    Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Floreana: qué cauce es cada cañada del Plan de Acción y trazado de la conexión de ≈500 m](https://github.com/mayait/sosgalapagos-datos/issues/69)** (#69 · prioridad 2)  
+    No se sabe cuál de los tres cauces es La Hormiga, La Varonesa o La Lobería, ni si La Hormiga es una obra (cuneta perimetral). Hace falta la topografía GNSS del trazado y saber adónde va el agua desviada.  
+    **Isla:** San Cristóbal (Floreana)  
+    **Sale de:** 07_floreana.md  
+    https://sosgalapagos.org/estudios/san-cristobal/floreana/  
+    Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
 - **[Nivel del mar / mareógrafo (Puerto Ayora, Baquerizo)](https://github.com/mayait/sosgalapagos-datos/issues/13)** (#13 · prioridad 3)  
     **Novedad (2-nov):** el recolector de clima ya recoge el mareógrafo IOC de Puerto Ayora. Falta Puerto Baquerizo Moreno y la serie histórica.  
     **Quién lo tiene o puede levantarlo:** INOCAR  
@@ -33,7 +70,7 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
 - **[Delimitación oficial de las áreas inundadas del 30–31-oct-2026](https://github.com/mayait/sosgalapagos-datos/issues/1)** (#1 · prioridad 1)  
     **Quién lo tiene o puede levantarlo:** COE cantonal, SNGR, vuelo de dron  
     **Para qué sirve:** Validar el modelo HAND y la capa `areas_afectadas` (hoy por validar)
-- **[Red de drenaje urbano: sumideros, colectores, alcantarillas y pasos bajo vías con cotas de fondo](https://github.com/mayait/sosgalapagos-datos/issues/5)** (#5 · prioridad 1)  
+- **[Red de drenaje urbano: sumideros, colectores, alcantarillas y pasos bajo vías con cotas de fondo](https://github.com/mayait/sosgalapagos-datos/issues/5)** (#5 · prioridad 1 · 1 comentario)  
     **Quién lo tiene o puede levantarlo:** GAD (obras públicas), CGREG  
     **Para qué sirve:** Capacidad real de la salida urbana; cruces quebrada–vía
 - **[Refugios y puntos de encuentro para inundación (distintos de los de tsunami)](https://github.com/mayait/sosgalapagos-datos/issues/6)** (#6 · prioridad 1)  
@@ -64,7 +101,7 @@ Datos que existen, pero con un detalle que no alcanza para responder bien.
 
 ## En San Cristóbal
 
-- **[DTM ≤ 1 m de los poblados: Puerto Ayora y escarpe (5–10 km²), Bellavista, Puerto Baquerizo Moreno, Puerto…](https://github.com/mayait/sosgalapagos-datos/issues/16)** (#16 · prioridad 1)  
+- **[DTM ≤ 1 m de los poblados: Puerto Ayora y escarpe (5–10 km²), Bellavista, Puerto Baquerizo Moreno, Puerto…](https://github.com/mayait/sosgalapagos-datos/issues/16)** (#16 · prioridad 1 · 1 comentario)  
     **Hoy:** **DSM Copernicus GLO-30** (30 m, incluye edificios y árboles)  
     **Lo que necesitamos:** **DTM ≤ 1 m** de los poblados: Puerto Ayora y escarpe (5–10 km²), Bellavista, Puerto Baquerizo Moreno, Puerto Villamil  
     **Cómo:** Dron con fotogrametría (OpenDroneMap) + GNSS RTK; o LiDAR
@@ -134,6 +171,12 @@ Acuerdos, permisos y reglas para que los datos lleguen, se compartan y se manten
 ## En San Cristóbal
 
 - **[Pedir al GSC la licencia de sus datos meteorológicos](https://github.com/mayait/sosgalapagos-datos/issues/46)** (#46 · prioridad 2)
+- **[Clasificación del suelo del puerto de San Cristóbal (urbano o rural) en la capa del CGREG](https://github.com/mayait/sosgalapagos-datos/issues/72)** (#72 · prioridad 2)  
+    En la capa del CGREG solo El Progreso figura como suelo urbano, y el polígono del puerto aparece como «rural». Hay que confirmarlo con el GAD, porque condiciona qué norma se aplica.  
+    **Isla:** San Cristóbal  
+    **Sale de:** 02_encanadas.md  
+    https://sosgalapagos.org/estudios/san-cristobal/encanadas/  
+    Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
 
 ## Comunes a las islas
 
