@@ -154,7 +154,7 @@ def escribir_shp(feats, base: pathlib.Path):
             rec = []
             for k, t in tipos.items():
                 v = p.get(k)
-                if v is not None and t == "C" and not isinstance(v, str): v = str(v)
+                if t == "C": v = "" if v is None else v if isinstance(v, str) else str(v)   # pyshp escribiría «None»
                 rec.append(v)
             w.record(*rec)
         else: w.record(i + 1)
