@@ -210,8 +210,8 @@
     "prioridad_ugr": "normal",
     "afectacion_reportada": "Cañada de 2,2 km con más de 20 ramificaciones",
     "fuente_ubicacion": "OSM landuse=landfill «Centro de Gestión de Residuos Sólidos» (w1549052785); IGM edificio_a «Proyecto de gestión de residuos sólidos urbanos»",
-    "confianza": "alta",
-    "nota": "",
+    "confianza": "media",
+    "nota": "Dos fuentes cartográficas, pero sin confirmación del GAD; la hidrología (sección 4.6) no la da por confirmada.",
     "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
    }
   },
@@ -293,9 +293,9 @@
     "isla": "San Cristóbal",
     "prioridad_ugr": "máxima",
     "afectacion_reportada": "Referencia del desborde de abril de 2026 («a 100 m del puente»)",
-    "fuente_ubicacion": "OSM bridge=yes en la Av. Jaime Roldós / Vía Perimetral (w802657332), sobre el cauce de El Manzanillo (cruce CR-SCR-0011)",
+    "fuente_ubicacion": "OSM bridge=yes en la Av. Jaime Roldós / Vía Perimetral (w802657332), sobre el cauce D8 de la Galápagos, tramo medio (≈9,4 km²; cruce CR-SCR-0011)",
     "confianza": "baja",
-    "nota": "Se supone que «el puente» del plan es este; no está confirmado.",
+    "nota": "Se supone que «el puente» del plan es este; no está confirmado. El ramal Manzanillo–El Manantial de la hidrología se une a la Galápagos ≈360 m aguas arriba.",
     "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
    }
   },
@@ -1137,7 +1137,7 @@
     "afectacion_reportada": "Cañadas de los viveros",
     "fuente_ubicacion": "IGM edificio_p «Vivero El Progreso»",
     "confianza": "baja",
-    "nota": "No consta que sea el vivero del PNG.",
+    "nota": "No consta que sea el vivero del PNG. Ubicado pero no analizado (fuera de las zonas urbanas estudiadas).",
     "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
    }
   },
@@ -1158,7 +1158,7 @@
     "afectacion_reportada": "Cañadas de la galapaguera",
     "fuente_ubicacion": "OSM leisure=nature_reserve «Galapaguera de Cerro Colorado» (n3077654257); IGM topónimo (-89,4411; -0,9205)",
     "confianza": "alta",
-    "nota": "",
+    "nota": "Ubicada pero no analizada (fuera de las zonas urbanas estudiadas).",
     "fuente_listado": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal"
    }
   },

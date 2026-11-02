@@ -113,7 +113,7 @@ def tomas():
     (OUT / "tomas.geojson").write_text(json.dumps({"type": "FeatureCollection", "metadata": {
         "titulo": "Tomas y fuentes del acueducto de San Cristóbal (PRELIMINAR, sin verificación de campo)",
         "confianza": __doc__.split("Fuentes locales")[0].split("PRELIMINAR.")[1].strip(),
-        "cota": "Cota del DSM Copernicus GLO-30: ±2–4 m, sesgo ≈ −2 m; descriptiva"}, "features": feats}, ensure_ascii=False, indent=1), encoding="utf-8")
+        "cota": "Cota del DSM Copernicus GLO-30: ±2–4 m; sesgo local frente al IGM ≈ +1,5 m (Puerto Baquerizo) a +1,9 m (El Progreso), sección 4.5; descriptiva"}, "features": feats}, ensure_ascii=False, indent=1), encoding="utf-8")
     with open(OUT / "fuentes_agua.csv", "w", newline="", encoding="utf-8") as fh:
         cols = ["id", "nombre", "categoria", "lon", "lat", "cota_dsm_m", "tipo", "operador", "abastece", "caudal_ls", "confianza", "aproximada", "fuentes", "fuentes_url", "notas"]
         w = csv.DictWriter(fh, fieldnames=cols); w.writeheader()

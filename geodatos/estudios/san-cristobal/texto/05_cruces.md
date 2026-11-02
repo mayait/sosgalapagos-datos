@@ -15,6 +15,10 @@ El método es el mismo que en Santa Cruz (`scripts/16_cruces_quebradas_vias.py`)
   - El tiempo de concentración se calcula a partir del cauce más largo aguas arriba según el D8.
   - La intensidad I(tc) sale de la curva de intensidad máxima por duración medida el 30-oct en Los Guayabillos (Santa Cruz), escalada a 100 mm. Esto **supone que la tormenta tiene la misma estructura temporal**, un supuesto que no está verificado en San Cristóbal.
   - El coeficiente C es el volumétrico del SCS con CN 60, 70 u 80 (0,19 / 0,33 / 0,51).
+  - **Advertencia: este C subestima el caudal punta.** Es un coeficiente de la lámina total aplicado a la intensidad pico. Para medir la sensibilidad, el CSV trae dos columnas que no cambian la prioridad, ambas con CN 70:
+    - `q100_c_temez`, con el C de Témez, C(P/P0) con P0 = Ia: da Q ≈ 1,24 veces mayor;
+    - `q100_c_incremental`, con el C incremental del SCS al final de la lámina: da Q ≈ 2,0 veces mayor. Es la cota superior cuando el pico llega al final de la tormenta.
+  - Los Q100 de las tablas son, por tanto, **valores bajos**: el valor de referencia está entre 1,2 y 2 veces el tabulado.
 - **Prioridad:** puntaje de 0 a 11 con los mismos criterios que en Santa Cruz, que se resumen en la tabla siguiente. Aquí la vía principal es la terciaria de OSM, porque la isla no tiene vías clasificadas como `primary`.
 
 Tabla: Criterios de prioridad de los cruces.
@@ -41,33 +45,33 @@ Hay más cartografía que en Santa Cruz: 123 cruces tocan una quebrada del IGM o
 
 ## 5.2 Los puntos más prioritarios
 
-Los cruces de un mismo cauce que están juntos se agruparon; el detalle de cada uno está en `datos/cruces.csv`. Se propone una correspondencia con los nombres locales de las encañadas, siguiendo la sección 7, como hipótesis por verificar.
+Los cruces de un mismo cauce que están juntos se agruparon; el detalle de cada uno está en `datos/cruces.csv`. Los nombres de las encañadas siguen la correspondencia de la sección 4.6, que se basa en el Plan de Acción de la UGR y es una hipótesis por verificar.
 
 Tabla: Los grupos de cruces más prioritarios de San Cristóbal. Q100 en m³/s (central, CN 70; rango CN 60–80 en el CSV).
 
 | # | Cruce (n.º en el grupo) | Cauce (hipótesis) | Vías | Área (km²) | Q100 | Estructura | Edificios a ≤ 50 m (suma) | Cota* (m) |
 |---|---|---|---|---|---|---|---|---|
-| 1 | CR-SCR-0001 (4) | Barrio Frío, tramo bajo | Av. de la Armada Nacional, Colón, Av. Alsacio Northia | 10,4–11,0 | 27–28 | 2 puentes IGM y 1 puente OSM; un cruce sin estructura | 65 | 2–14 |
-| 2 | CR-SCR-0002 (5) | Barrio Frío, tramo medio / El Manzanillo | Azogues, Av. Jaime Roldós Aguilera / Vía Perimetral | 9,3–9,7 | 25 | 1 alcantarilla y 1 puente OSM; el resto sin estructura | 53 | 16–45 |
-| 3 | CR-SCR-0005 (2) | El Manzanillo, tramo alto | Calles sin nombre | 8,4–8,7 | 23–24 | Ninguna | 34 | 60–64 |
-| 4 | CR-SCR-0012 (3) | Afluente de El Manzanillo | **Vía Puerto Baquerizo Moreno–El Progreso** | 6,5–6,6 | 18 | Ninguna | 13 | 69–72 |
+| 1 | CR-SCR-0001 (4) | Galápagos / Barrio Frío, tramo bajo | Av. de la Armada Nacional, Colón, Av. Alsacio Northia | 10,4–11,0 | 27–28 | 2 puentes IGM y 1 puente OSM; un cruce sin estructura | 65 | 2–14 |
+| 2 | CR-SCR-0002 (5) | Galápagos / Barrio Frío, tramo medio | Azogues, Av. Jaime Roldós Aguilera / Vía Perimetral | 9,3–9,7 | 25 | 1 alcantarilla y 1 puente OSM; el resto sin estructura | 53 | 16–45 |
+| 3 | CR-SCR-0005 (2) | Galápagos, tramo alto (sector El Manzanillo) | Calles sin nombre | 8,4–8,7 | 23–24 | Ninguna | 34 | 60–64 |
+| 4 | CR-SCR-0012 (3) | Afluente de la Galápagos, tramo alto | **Vía Puerto Baquerizo Moreno–El Progreso** | 6,5–6,6 | 18 | Ninguna | 13 | 69–72 |
 | 5 | CR-SCR-0013 (4) | Divino Niño | Manuel Agama, Av. Alsacio Northia, Vía Playa de Oro, Av. Jaime Roldós | 1,5 | 5 | Ninguna | 53 | 6–15 |
-| 6 | CR-SCR-0015 | Afluente alto | Calle sin nombre | 1,6 | 5 | Ninguna | 10 | 86 |
+| 6 | CR-SCR-0015 | La Planada → Manzanillo–El Manantial (PBM-L02) | Calle sin nombre | 1,6 | 5 | Ninguna | 10 | 86 |
 | 7 | CR-SCR-0018 | Divino Niño, tramo alto | Calle sin nombre | 1,4 | 5 | Ninguna | 9 | 24 |
-| 8 | CR-SCR-0019 (2) | Afluente urbano | Calles sin nombre | 1,0 | 3 | Ninguna | 37 | 31–35 |
-| 9 | CR-SCR-0021 (2) | Afluente de Barrio Frío | Calles sin nombre | 0,7 | 2 | Ninguna | 7 | 15–18 |
+| 8 | CR-SCR-0019 (2) | Afluente de Divino Niño | Calles sin nombre | 1,0 | 3 | Ninguna | 37 | 31–35 |
+| 9 | CR-SCR-0021 (2) | Afluente de la Galápagos / Barrio Frío | Calles sin nombre | 0,7 | 2 | Ninguna | 7 | 15–18 |
 | 10 | CR-SCR-0024 (2) | Escuela Alvear | Av. Alsacio Northia, Av. Jaime Roldós | 0,7 | 2 | Ninguna | 20 | 10 |
-| 11 | CR-SCR-0026 (2) | Barrio Frío, desembocadura | Av. Charles Darwin, Av. Quito | 10,6–10,8 | 27 | Puente IGM | 20 | 4–5 |
-| 12 | CR-SCR-0028 (5) | El Manzanillo, borde urbano | Vía Perimetral y caminos | 9,0–9,4 | 25 | Un puente IGM; el resto sin estructura | 0 | 46–54 |
+| 11 | CR-SCR-0026 (2) | Galápagos / Barrio Frío, desembocadura | Av. Charles Darwin, Av. Quito | 10,6–10,8 | 27 | Puente IGM | 20 | 4–5 |
+| 12 | CR-SCR-0028 (5) | Galápagos, tramo alto (borde urbano) | Vía Perimetral y caminos | 9,0–9,4 | 25 | Un puente IGM; el resto sin estructura | 0 | 46–54 |
 | 13 | CR-SCR-0023 | Cerro Verde | Calle sin nombre | 0,7 | 2 | Ninguna | 4 | 211 |
 | 14 | CR-SCR-0033 | Ladera sur | Camino rural | 7,1 | 21 | Ninguna | 0 | 92 |
 | 15 | CR-SCR-0037 (2) | Cerro Verde | Camino rural | 6,0–6,2 | 16 | Ninguna | 0 | 148–166 |
 
-\* Cota del DSM: ±2–4 m, con un sesgo de unos −2 m frente al IGM; solo es descriptiva.
+\* Cota del DSM: ±2–4 m. Su sesgo local frente al IGM es de ≈ +1,5 m en Puerto Baquerizo Moreno y de ≈ +1,9 m en El Progreso (sección 4.5). Solo es descriptiva.
 
 **Lectura:**
 
-- **La encañada de Barrio Frío (≈10,5–11 km²) es la que más cruces de alto caudal tiene.** Es también la que tiene más estructuras cartografiadas: puentes en Colón, la Av. Alsacio Northia y la Av. Charles Darwin. Hay que verificar la **sección** de esas estructuras frente a un Q100 del orden de 25–40 m³/s.
+- **La encañada Galápagos / Barrio Frío es la que más cruces de alto caudal tiene**, entre el tramo alto (8–9 km², sector El Manzanillo) y la desembocadura (≈10,5–11 km²). Es también la que tiene más estructuras cartografiadas: puentes en Colón, la Av. Alsacio Northia y la Av. Charles Darwin. Hay que verificar la **sección** de esas estructuras frente a un Q100 de 25–40 m³/s, o más (ver la advertencia de la sección 5.1).
 - **La Vía Puerto Baquerizo Moreno–El Progreso** cruza un afluente de 6,5 km² (Q100 ≈ 18 m³/s) sin estructura cartografiada. Es la conexión con la parte alta.
 - **Divino Niño y Escuela Alvear** son cauces pequeños (0,7–1,6 km²; 2–5 m³/s), pero atraviesan zonas muy edificadas: unos 50 edificios a menos de 50 m. Ninguno de sus cruces tiene una estructura cartografiada.
 - **El cauce que pasa junto al campus de la USFQ** (0,3 km²; cruces CR-SCR-0218 en la Vía Universidad y CR-SCR-0222) queda en prioridad baja por su tamaño. Se trata en la sección 6.

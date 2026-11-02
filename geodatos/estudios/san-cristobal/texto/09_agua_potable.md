@@ -1,10 +1,10 @@
 [[SALTO]]
 
-# 9. Agua potable: tomas, conducciones y riesgos
+# 8. Agua potable: tomas, conducciones y riesgos
 
-> **PRELIMINAR.** Ninguna toma se ha visitado. Las ubicaciones se reconstruyeron cruzando la cartografía del IGM 1:25 000, la capa de captaciones de la FCD/CGREG, OSM, un registro de la SNGR y documentos técnicos. Cada punto lleva su fuente y una **confianza en la ubicación**. Las cotas proceden del DSM GLO-30 (±2–4 m; sesgo ≈ −2 m) y son solo descriptivas.
+> **PRELIMINAR.** Ninguna toma se ha visitado. Las ubicaciones se reconstruyeron cruzando la cartografía del IGM 1:25 000, la capa de captaciones de la FCD/CGREG, OSM, un registro de la SNGR y documentos técnicos. Cada punto lleva su fuente y una **confianza en la ubicación**. Las cotas proceden del DSM GLO-30 (±2–4 m; sesgo local frente al IGM de ≈ +1,5 m en Puerto Baquerizo Moreno y ≈ +1,9 m en El Progreso, sección 4.5) y son solo descriptivas.
 
-## 9.1 Ubicación de las tomas
+## 8.1 Ubicación de las tomas
 
 **Qué se sabe del sistema.** El sistema municipal de Puerto Baquerizo Moreno y El Progreso se abastece de **manantiales y cañadas de la parte alta**, en la vertiente sur de barlovento. No usa la laguna El Junco, que según la USFQ no es una fuente de consumo humano.
 
@@ -44,7 +44,7 @@ Tabla: Tomas y fuentes de agua localizadas (`datos/agua/tomas.geojson`, `fuentes
 2. **La ubicación de Los Americanos es frágil.** Viene de la coordenada de un registro de evento, a ≈170 m de la quebrada IGM más cercana, y el DSM no muestra un cauce en el punto. La represa puede estar a decenas o cientos de metros.
 3. **AG-01 es el inicio de una línea**, no una captación etiquetada como tal.
 
-## 9.2 Infraestructura
+## 8.2 Infraestructura
 
 **Conducciones cartografiadas.** El IGM registra 10 líneas de acueducto en la isla (`datos/agua/conducciones.geojson`). OSM no tiene tuberías.
 
@@ -56,7 +56,7 @@ Tabla: Conducciones del IGM y sus cruces con cauces y vías (cruces con cauces D
 | «Proyección Agua Potable Pampas Mías» | En construcción, enterrada | 6,0 km | La Toma (≈503 m) → planta El Progreso (≈333 m) | 13 (6) | 1,4 km² | 9 | 0,25 km | Ninguno |
 | Sin nombre (El Chino) | Funcionando, enterrada | 3,3 km | Manantial El Chino (≈296 m) → sureste (≈110 m) | 4 (4) | 5,1 km² | 4 | 0,04 km | Ninguno |
 | Sin nombre (Cerro Verde) | Funcionando, enterrada | 9,7 km | Origen sin identificar (≈223 m) → tanques de Cerro Verde | 15 (6) | 2,3 km² | 4 | 0,39 km | Ninguno |
-| **Sin nombre (red al puerto)** | Funcionando, en superficie | 1,5 km | Cerca del tanque Cerro Patricia (≈53 m) → Malecón (≈4 m) | 8 (7) | **10,5 km² (Barrio Frío)** | 8 | 1,27 km | **Flujos de lodo por El Niño: 1,45 km** |
+| **Sin nombre (red al puerto)** | Funcionando, en superficie | 1,5 km | Cerca del tanque Cerro Patricia (≈53 m) → Malecón (≈4 m) | 8 (7) | **10,5 km² (Galápagos / Barrio Frío)** | 8 | 1,27 km | **Flujos de lodo por El Niño: 1,45 km** |
 | Otras 5 líneas cortas (norte y este de la isla, desembocadura de Barrio Frío) | Funcionando | 0,1–1,5 km | Origen y destino no identificados | — | Hasta 17 km² | — | — | Desembocadura de Barrio Frío: 92 m en flujos de lodo |
 
 **Lo que no está cartografiado y se deja como desconocido** (sin geometría en `conducciones.geojson`):
@@ -77,7 +77,7 @@ No se inventó ningún trazado.
 
 Todas están en laderas con pendientes medias del 12–31 % (DSM). En 2012, el colapso de una alcantarilla en la «vía principal del sector Cerro Gato» cortó el acceso (registro de la SNGR). El acceso a las tomas en temporada de lluvias es, por tanto, un punto débil propio del sistema.
 
-## 9.3 Riesgos
+## 8.3 Riesgos
 
 **1. Aluvión en la toma.** **Ya ocurrió y dejó a la ciudad con agua racionada.**
 - El 15-abr-2023, un aluvión **arrastró lodo y lechuguines** (jacinto de agua) y **obstruyó una válvula de la represa de Los Americanos**.
@@ -88,7 +88,7 @@ Las tomas son represas pequeñas o captaciones de cañada en laderas empinadas. 
 **2. Cruces de las conducciones con las cañadas.**
 - La línea de Cerro Gato cruza **42 cauces**, 21 de ellos de 0,5 km² o más (hasta 7 km²), y discurre **1,65 km dentro de la franja de quebradas del CGREG**.
 - Una tubería enterrada que cruza una cañada queda expuesta donde la crecida socava el lecho. No hay datos de profundidad ni de protección en esos cruces.
-- **La red que baja al puerto discurre 1,45 km dentro del polígono de flujos de lodo del CGREG** y a lo largo de la encañada de Barrio Frío (10,5 km²). Es el tramo de mayor exposición a crecidas del sistema.
+- **La red que baja al puerto discurre 1,45 km dentro del polígono de flujos de lodo del CGREG** y a lo largo de la encañada Galápagos / Barrio Frío (10,5 km²). Es el tramo de mayor exposición a crecidas del sistema.
 
 **3. Plantas y tanques.**
 - **Las Palmeras** está a ≈150 m de un polígono de flujos de lodo y a ≈100 m de uno de contaminación de acuíferos, ambos del CGREG.
@@ -100,7 +100,7 @@ Las tomas son represas pequeñas o captaciones de cañada en laderas empinadas. 
 - En 2014, el GAD alertó de una presunta contaminación de la red de Puerto Baquerizo Moreno (SNGR).
 - Tras una crecida, la turbidez y la carga orgánica suben: **las plantas de coagulación y filtración pueden tener que parar**, aunque la toma no sufra daños.
 
-**5. Cuencas de captación.** Las tomas tienen cuencas pequeñas según el D8: 0,6 km² en Cerro Gato, 1,3 km² en La Toma y 4,9 km² en El Chino. En Los Americanos el D8 no muestra un cauce en el punto. Las cuencas están ocupadas en parte por fincas y pastos; Galápagos Conservancy financia la restauración de la cuenca de Cerro Gato con caña guadúa y *Miconia*. Su delimitación se trata en la subsección del hidrólogo.
+**5. Cuencas de captación.** Las tomas tienen cuencas pequeñas según el D8: 0,6 km² en Cerro Gato, 1,3 km² en La Toma y 4,75 km² en El Chino. En Los Americanos el D8 no muestra un cauce en el punto. Las cuencas están ocupadas en parte por fincas y pastos; Galápagos Conservancy financia la restauración de la cuenca de Cerro Gato con caña guadúa y *Miconia*. Su delimitación está en la sección 8.4.
 
 **El evento de octubre de 2026.** No se encontró **ninguna información pública** sobre afectaciones al sistema de agua potable de San Cristóbal (búsqueda del 2-nov-2026). Lo que sí está documentado:
 - hubo lluvia fuerte en la isla el 30 y el 31-oct (sección 3);
@@ -119,7 +119,7 @@ Las tomas son represas pequeñas o captaciones de cañada en laderas empinadas. 
    - mantener los accesos a las tomas transitables en temporada de lluvias.
 4. **Plan de contingencia:** reservas en tanques, distribución con tanqueros y comunicación de los horarios, a partir de lo aprendido en 2023.
 
-## 9.4 Cuencas de captación (hidrología)
+## 8.4 Cuencas de captación (hidrología)
 
 > Subsección del hidrólogo. Cuencas D8 sobre el DSM GLO-30 de 30 m (±2–4 m) y caudales SCS-CN de orden de magnitud: **no hay lluvia ni caudales medidos.** Se reproduce con `scripts/26_cuencas_tomas_san_cristobal.py`; los resultados están en `datos/agua/cuencas_tomas.geojson` y `cuencas_tomas.json`.
 
@@ -148,7 +148,7 @@ Tabla: Cuencas de captación. Para las tomas sin cauce a ≤ 60 m, se da la cañ
 | AG-10 (FCD) | * a 133 m | 2,87 | 400–721 | 12 % | 100 / 0 / 0 % | 21 | 8,5 | 10 | 11–20 | 18–32 | 31–38 |
 | AG-11 (FCD) | * a 132 m | 0,16 | 315–383 | 10 % | 100 / 0 / 0 % | 0 | 0 | 0 | 1,7–2,7 | 2,7–4,1 | 2,4–2,7 |
 
-\* Cota del DSM. Las áreas coinciden con las de la sección 8.3 (0,6 km² en Cerro Gato, 1,3 en La Toma y 4,9 en El Chino).
+\* Cota del DSM. Las áreas coinciden con las de la sección 8.3 (0,6 km² en Cerro Gato, 1,3 en La Toma y 4,75 en El Chino). Con un radio de búsqueda de 100 m en vez de 60 m, El Chino da 4,9 km²; se adopta 4,75 km².
 
 **Resultado 2: la crecida es entre 200 y más de 1 000 veces mayor que lo que se capta.**
 - Las tomas captan 19–27 l/s. Con 100 mm, la crecida de sus cañadas es de 5 a 30 m³/s, y llega en **10–60 min** (tc de Kirpich a Témez para cuencas de 0,6–1,3 km²).

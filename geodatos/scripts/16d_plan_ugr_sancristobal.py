@@ -36,12 +36,12 @@ L = [
  ("Colegio Ignacio Hernández", "educación", "San Cristóbal", MAX, "El agua drena por la vía perimetral e impide el acceso al hospital", -89.60401, -0.90199, "OSM amenity=school (n14151166571); IGM edificio_a «Colegio Técnico Ignacio Hernández»; MINEDUC (-89,6045; -0,9018)", "alta", ""),
  ("Mina de Cerro Quemado", "mina", "San Cristóbal", NOR, "Desembocadura de la cañada Cerro Quemado / Don García", -89.61238, -0.91412, "OSM man_made=mineshaft «Mina Cerro Quemado» (w144837057); IGM texto «Cerro Quemado» a 230 m", "alta", ""),
  ("Cerro Mundo", "cerro (PNG)", "San Cristóbal", NOR, "Paso de la cañada Galápagos", -89.56667, -0.88333, "OSM natural=peak «Cerro Mundo» (n249411912); IGM texto (-89,5749; -0,8871)", "alta", "El INEC tiene además una localidad «Cerro Mundo» en -89,5705; -0,9053."),
- ("Centro de Gestión de Residuos Sólidos (CGRS)", "infraestructura", "San Cristóbal", NOR, "Cañada de 2,2 km con más de 20 ramificaciones", -89.57818, -0.91417, "OSM landuse=landfill «Centro de Gestión de Residuos Sólidos» (w1549052785); IGM edificio_a «Proyecto de gestión de residuos sólidos urbanos»", "alta", ""),
+ ("Centro de Gestión de Residuos Sólidos (CGRS)", "infraestructura", "San Cristóbal", NOR, "Cañada de 2,2 km con más de 20 ramificaciones", -89.57818, -0.91417, "OSM landuse=landfill «Centro de Gestión de Residuos Sólidos» (w1549052785); IGM edificio_a «Proyecto de gestión de residuos sólidos urbanos»", "media", "Dos fuentes cartográficas, pero sin confirmación del GAD; la hidrología (sección 4.6) no la da por confirmada."),
  # --- barrios / sectores
  ("Barrio Frío", "barrio", "San Cristóbal", MAX, "Desbordamiento de la cañada Galápagos en la playa", -89.61372, -0.90379, "Coordenada del registro SNGR «Barrio Frío» (22-feb-2024)", "media", "Punto representativo; no hay polígono de barrio."),
  ("Barrio Manzanillo", "barrio", "San Cristóbal", MAX, "Desborde en abril de 2026 a 100 m del puente; destrucción de viviendas, calles, agua potable, alcantarillado y postes; requiere zanja de 1 040 m", -89.5997, -0.9106, "IGM poblado «Manzanillo»; registro SNGR «El Manzanillo» (2023) a 340 m", "media", "Punto representativo."),
  ("Ciudadela El Gran Maestro (Manzanillo)", "barrio", "San Cristóbal", MAX, "Incluida en el área afectada de Manzanillo", -89.599397, -0.908457, "Coordenada del registro SNGR de abril de 2019 «Barrio Manzanillo y Ciudadela El Maestro»", "baja", "Una sola coordenada para dos sectores."),
- ("Puente de Manzanillo (Vía Perimetral)", "puente", "San Cristóbal", MAX, "Referencia del desborde de abril de 2026 («a 100 m del puente»)", -89.6058, -0.90819, "OSM bridge=yes en la Av. Jaime Roldós / Vía Perimetral (w802657332), sobre el cauce de El Manzanillo (cruce CR-SCR-0011)", "baja", "Se supone que «el puente» del plan es este; no está confirmado."),
+ ("Puente de Manzanillo (Vía Perimetral)", "puente", "San Cristóbal", MAX, "Referencia del desborde de abril de 2026 («a 100 m del puente»)", -89.6058, -0.90819, "OSM bridge=yes en la Av. Jaime Roldós / Vía Perimetral (w802657332), sobre el cauce D8 de la Galápagos, tramo medio (≈9,4 km²; cruce CR-SCR-0011)", "baja", "Se supone que «el puente» del plan es este; no está confirmado. El ramal Manzanillo–El Manantial de la hidrología se une a la Galápagos ≈360 m aguas arriba."),
  ("Barrio Divino Niño", "barrio", "San Cristóbal", MAX, "Sectores Playa de Oro, Hospital y Colegio Ignacio Hernández afectados", -89.6046, -0.9009, "IGM edificio_p «Iglesia Divino Niño» como referencia del barrio", "media", "Punto representativo."),
  ("Barrio Palmeras", "barrio", "San Cristóbal", MAX, "Sector Los Arrayanes / La Picada: daños en calles y viviendas; la cañada cruza el centro del barrio", -89.5932, -0.9114, "IGM poblado «Las Palmeras»; INEC localidad «Las Palmeras» (-89,5887; -0,9066)", "media", ""),
  ("Barrio Playa Mann", "barrio", "San Cristóbal", MAX, "Rejillas y alcantarillado taponados; vía adoquinada dañada", -89.6085, -0.89667, "Inmediato a la playa (OSM); punto de «Casa Playa Mann» (n10229613402) como referencia", "media", "Punto representativo."),
@@ -54,8 +54,8 @@ L = [
  ("El Chino (recinto)", "recinto", "San Cristóbal", NOR, "Cañadas del recinto", -89.45909, -0.91437, "INEC localidad «El Chino»; IGM topónimo (-89,4658; -0,9019)", "media", ""),
  ("Las Goteras (recinto)", "recinto", "San Cristóbal", NOR, "Cañadas del recinto", -89.44372, -0.87737, "INEC localidad «Las Goteras»", "media", "El manantial IGM «Vertiente Las Goteras» está 3,4 km al oeste (-89,4771; -0,8842)."),
  ("Cerro Gato (recinto)", "recinto", "San Cristóbal", NOR, "Cañadas del recinto", -89.4843, -0.9148, "IGM topónimo «Cerro Gato»; INEC localidades «Cerro Gato» (-89,4694; -0,9204) y (-89,4893; -0,9268)", "media", ""),
- ("Viveros del PNG", "infraestructura", "San Cristóbal", NOR, "Cañadas de los viveros", -89.5535, -0.9197, "IGM edificio_p «Vivero El Progreso»", "baja", "No consta que sea el vivero del PNG."),
- ("Galapaguera Cerro Colorado (Centro de Crianza David Rodríguez)", "infraestructura PNG", "San Cristóbal", NOR, "Cañadas de la galapaguera", -89.43679, -0.91365, "OSM leisure=nature_reserve «Galapaguera de Cerro Colorado» (n3077654257); IGM topónimo (-89,4411; -0,9205)", "alta", ""),
+ ("Viveros del PNG", "infraestructura", "San Cristóbal", NOR, "Cañadas de los viveros", -89.5535, -0.9197, "IGM edificio_p «Vivero El Progreso»", "baja", "No consta que sea el vivero del PNG. Ubicado pero no analizado (fuera de las zonas urbanas estudiadas)."),
+ ("Galapaguera Cerro Colorado (Centro de Crianza David Rodríguez)", "infraestructura PNG", "San Cristóbal", NOR, "Cañadas de la galapaguera", -89.43679, -0.91365, "OSM leisure=nature_reserve «Galapaguera de Cerro Colorado» (n3077654257); IGM topónimo (-89,4411; -0,9205)", "alta", "Ubicada pero no analizada (fuera de las zonas urbanas estudiadas)."),
  # --- Floreana
  ("Puerto Velasco Ibarra (todo el poblado)", "poblado", "Floreana", NOR, "Todo el poblado en riesgo; conectar las cañadas Hormiga y Varonesa con 500 m de excavación para proteger Playa Negra", None, None, "IGM zona_urbana «Puerto Velasco Ibarra» (polígono); OSM place (n249596983)", "alta", "Geometría poligonal."),
  ("Playa Negra (Floreana)", "playa", "Floreana", NOR, "A proteger con la conexión de las cañadas", -90.48847, -1.27649, "OSM natural=beach «Playa Negra» (r2045693); IGM «Fondeadero Playa Negra»", "alta", ""),
@@ -76,7 +76,9 @@ NO = [
  ("Cañada perimetral La Hormiga (Floreana)", "Floreana", "A conectar con La Varonesa", "No figura en OSM ni IGM."),
  ("Cañada La Varonesa (Floreana)", "Floreana", "A conectar con La Hormiga", "No figura en OSM ni IGM («Casa de la Baronesa» de OSM está en la costa norte, 6 km al noreste)."),
  ("Desalinizadora (Floreana)", "Floreana", "Lugar estratégico en riesgo", "No figura en OSM ni IGM."),
- ("Bodega parroquial, ABG y oficinas del PNG (Floreana)", "Floreana", "Lugares estratégicos en riesgo", "No figuran en OSM ni IGM."),
+ ("Bodega parroquial (Floreana)", "Floreana", "Lugar estratégico en riesgo", "No figura en OSM ni IGM."),
+ ("ABG (Floreana)", "Floreana", "Lugar estratégico en riesgo", "No figura en OSM ni IGM."),
+ ("Oficinas del PNG (Floreana)", "Floreana", "Lugar estratégico en riesgo", "No figura en OSM ni IGM."),
 ]
 
 def cargar(rel, cond):
@@ -128,15 +130,32 @@ def medidas():
     def add(nombre, geom_utm, props):
         feats.append({"type": "Feature", "geometry": mapping(stransform(TI, geom_utm)) if geom_utm is not None else None,
                       "properties": dict(nombre=nombre, fuente_medida=PLAN, **props)})
-    # 1. Zanja de 1 040 m en Manzanillo: a lo largo del cauce D8 de El Manzanillo, terminando en el puente de la Vía Perimetral
+    # cañadas oficiales de la hidrología (sección 4.6); tramo propio = sin el curso compartido de la Galápagos
+    ofi = {f["properties"]["cañada_oficial"]: stransform(T, shape(f["geometry"])) for f in json.loads((ROOT / "estudios/san-cristobal/datos/cañadas_oficiales.geojson").read_text(encoding="utf-8"))["features"]}
+    gal = [v for k, v in ofi.items() if k.startswith("Galápagos")][0]
+    def tramo_propio(nombre):
+        g = linemerge(ofi[nombre].difference(gal.buffer(10)))
+        parts = list(getattr(g, "geoms", [g]))
+        ln = min(parts, key=lambda q: min(Point(q.coords[0]).distance(gal), Point(q.coords[-1]).distance(gal)))   # el que desemboca en la Galápagos
+        if Point(ln.coords[0]).distance(gal) < Point(ln.coords[-1]).distance(gal): ln = LineString(ln.coords[::-1])   # orientado aguas abajo
+        return ln
+    # 1A. Zanja de 1 040 m — Manzanillo–El Manantial (hipótesis principal)
+    mz = tramo_propio("Manzanillo – El Manantial")
+    zA = substring(mz, max(mz.length - 1040, 0), mz.length)
+    add("Zanja de 1 040 m — Manzanillo–El Manantial (hipótesis A)", zA, dict(tipo="línea", longitud_plan_m=1040, longitud_trazada_m=round(zA.length),
+        hipotesis="A (principal)", cañada="Manzanillo – El Manantial (ramales PBM-L02 tramo bajo, L08, L09; ≈1,8 km²)", q100_diseno_m3s="≈6 (3–19), sección 4.2",
+        metodo="Últimos 1 040 m del ramal de Manzanillo–El Manantial (cauce oficial de la hidrología) antes de unirse a la Galápagos",
+        incertidumbre="ALTA: el plan no da el trazado ni el ramal; desplazamiento lateral del D8 de ±30–60 m.", confianza="baja"))
+    # 1B. Alternativa: sobre la Galápagos (tramo alto), cauce de 8–9 km², aguas arriba del puente de la Vía Perimetral
     cell = celda_cauce(-89.6058, -0.90819, 7.0)
     ln, s0 = eje(cell)
     z = substring(ln, max(s0 - 1040, 0), s0)
-    add("Zanja de 1 040 m — barrio Manzanillo", z, dict(tipo="línea", longitud_plan_m=1040, longitud_trazada_m=round(z.length),
-        metodo="Cauce D8 de El Manzanillo (≈8–9 km²) aguas arriba del puente OSM de la Vía Perimetral, 1 040 m",
-        incertidumbre="ALTA: el plan no da el trazado. Posición a lo largo del cauce desconocida (podría empezar o terminar en otro punto) y desplazamiento lateral del D8 de ±30–60 m.",
-        confianza="baja"))
-    # 2. La Picada: 240 m urbanos + 170 m en el PNG, sobre el cauce que cruza el límite del PNG junto al barrio Palmeras
+    add("Zanja de 1 040 m — alternativa sobre la Galápagos, tramo alto (hipótesis B)", z, dict(tipo="línea", longitud_plan_m=1040, longitud_trazada_m=round(z.length),
+        hipotesis="B (alternativa)", cañada="Galápagos / Barrio Frío, tramo alto (8–9 km² en el D8 de este estudio)", q100_diseno_m3s="≈24 (14–38), sección 6.2",
+        metodo="Cauce D8 de 8–9 km² aguas arriba del puente OSM de la Vía Perimetral, 1 040 m (pasa junto a la Ciudadela El Gran Maestro)",
+        incertidumbre="ALTA: solo es válida si el plan llama «Manzanillo» a este tramo de la Galápagos; el caudal de diseño cuadruplica el de la hipótesis A.", confianza="baja"))
+    # 2. La Picada: 170 m en el PNG + 240 m urbanos. La cañada Palmeras–Arrayanes de la hidrología (PBM-L07) no toca el PNG,
+    #    así que se usa el único cauce que cruza el límite del PNG junto al barrio Palmeras (a 54 m): la Galápagos, tramo alto.
     lim = unary_union([stransform(T, g) for g, p in cargar("export/galapagos/limite_parque.geojson", lambda p: True)])
     pal = Point(T(-89.5932, -0.9114))
     cands = []
@@ -145,15 +164,15 @@ def medidas():
         if gu.distance(pal) < 500 and gu.intersects(lim):
             x = gu.intersection(lim); x = x if x.geom_type == "Point" else list(x.geoms)[0]
             cands.append((x.distance(pal), x, p["area_drenada_km2"]))
-    if cands:
-        d, x, A = min(cands, key=lambda t: t[0])
-        lon, lat = TI(x.x, x.y); cell = celda_cauce(lon, lat, 0.05, 3)
-        ln, s0 = eje(cell)
-        add("Limpieza de cauce — La Picada, tramo en el PNG (170 m)", substring(ln, max(s0 - 170, 0), s0), dict(tipo="línea", longitud_plan_m=170,
-            metodo=f"Cauce D8 (≈{A:.1f} km²) que cruza el límite del PNG a {d:.0f} m del punto del barrio Palmeras; 170 m aguas arriba del límite",
-            incertidumbre="MUY ALTA: La Picada no está localizada; se supone que es el cauce que entra al barrio Palmeras desde el PNG.", confianza="baja"))
-        add("Limpieza de cauce — La Picada, tramo urbano (240 m)", substring(ln, s0, s0 + 240), dict(tipo="línea", longitud_plan_m=240,
-            metodo="Mismo cauce, 240 m aguas abajo del límite del PNG", incertidumbre="MUY ALTA (ídem).", confianza="baja"))
+    d, x, A = min(cands, key=lambda t: t[0])
+    lon, lat = TI(x.x, x.y); cell = celda_cauce(lon, lat, 0.05, 3)
+    ln, s0 = eje(cell)
+    nota = (f"Cauce D8 (≈{A:.1f} km², Galápagos tramo alto) que cruza el límite del PNG a {d:.0f} m del punto del barrio Palmeras. "
+            "La cañada Palmeras–Arrayanes de la hidrología (PBM-L07, ≈0,2 km²) no toca el PNG, por lo que no admite «170 m en el PNG».")
+    add("Limpieza de cauce — La Picada, tramo en el PNG (170 m)", substring(ln, max(s0 - 170, 0), s0), dict(tipo="línea", longitud_plan_m=170,
+        metodo="170 m aguas arriba del límite del PNG. " + nota, incertidumbre="MUY ALTA: La Picada no está localizada.", confianza="baja"))
+    add("Limpieza de cauce — La Picada, tramo urbano (240 m)", substring(ln, s0, s0 + 240), dict(tipo="línea", longitud_plan_m=240,
+        metodo="240 m aguas abajo del límite del PNG. " + nota, incertidumbre="MUY ALTA (ídem).", confianza="baja"))
     # 3. Desembocadura de Playa de Oro
     cell = celda_cauce(-89.60951, -0.89986, 1.0)
     path = I.aguas_abajo(*cell)
@@ -183,6 +202,9 @@ def contraste(I):
     fr = I.franja
     lug = json.loads((OUT / "lugares_plan.geojson").read_text())["features"]
     cau = [(stransform(T, shape(f["geometry"])), f["properties"]) for f in json.loads((ROOT / "estudios/san-cristobal/datos/urbano/cauces_urbanos.geojson").read_text())["features"]]
+    ofi = {f["properties"]["cañada_oficial"]: stransform(T, shape(f["geometry"])) for f in json.loads((ROOT / "estudios/san-cristobal/datos/cañadas_oficiales.geojson").read_text(encoding="utf-8"))["features"]}
+    gal = [v for k, v in ofi.items() if k.startswith("Galápagos")][0]
+    propio = {k: (v if k.startswith("Galápagos") else v.difference(gal.buffer(10))) for k, v in ofi.items()}
     filas = []
     for f in lug:
         p = f["properties"]
@@ -196,7 +218,8 @@ def contraste(I):
                           cruces_con_estructura=sum(1 for r in crs if r["estructura"] != "ninguna cartografiada"),
                           cruces_ids=", ".join(r["id"] for r in crs), franja_cgreg_pct_150m=round(z.intersection(fr).area / z.area * 100, 1),
                           dist_franja_m=round(pt.distance(fr)), sistema_cauce_mas_cercano=sist[1]["id"], area_sistema_km2=sist[1]["area_salida_km2"],
-                          dist_sistema_m=round(sist[0])))
+                          dist_sistema_m=round(sist[0]),
+                          cañadas_oficiales_cercanas="; ".join(f"{k} ({d:.0f} m)" for d, k in sorted((g.distance(pt), k) for k, g in propio.items() if not g.is_empty)[:2])))
     json.dump(filas, open(OUT / "contraste_sectores.json", "w"), ensure_ascii=False, indent=1)
     for r in filas: print(r)
 

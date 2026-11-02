@@ -20,6 +20,8 @@ Encargo:
   4. Contraste DSM − puntos acotados IGM en San Cristóbal.
 
 Uso:  .venv/bin/python -I scripts/17_san_cristobal_inundacion.py      (desde geodatos/)
+      Después, scripts/27_canadas_oficiales_san_cristobal.py añade a cuencas.geojson y puntos_inundacion.geojson la propiedad
+      «cañada_oficial» (Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal).
 Salidas: estudios/san-cristobal/datos/  cuencas.geojson, puntos_inundacion.geojson, vasos.geojson, quebrada_usfq.geojson,
          perfil_quebrada_usfq.csv, resumen.json
 

@@ -29,6 +29,10 @@ Las intersecciones que quedan a menos de 40 m entre sí se fusionaron en un solo
   - 0,19 / 0,33 / 0,51 con 100 mm;
   - 0,38 / 0,52 / 0,67 con 178,8 mm.
 - **Validez:** por encima de unos 10–25 km² el método racional da solo una escala.
+- **Advertencia: el C volumétrico subestima el caudal punta.** Es un coeficiente de la lámina total aplicado a la intensidad pico. El CSV trae dos columnas de sensibilidad que no cambian la prioridad, ambas con CN 70:
+  - `*_c_temez`, con el C de Témez, C(P/P0) con P0 = Ia: Q ≈ 1,24 veces mayor con 100 mm y ≈ 1,17 veces con la lluvia del 30-oct;
+  - `*_c_incremental`, con el C incremental del SCS: Q ≈ 2,0 y ≈ 1,6 veces mayor. Es la cota superior cuando el pico llega al final de la tormenta, como ocurrió el 30-oct.
+  Por tanto, los caudales tabulados son **valores bajos**.
 
 **Contraste.** En el eje de La Cascada (43–44 km²) el método da **Q100 ≈ 100 m³/s** (58–159) y **Q 30-oct ≈ 290 m³/s** (210–377). Los del asesor hidrológico son 74–143 m³/s con 100 mm y CN 70, y **277–368 m³/s** el 30-oct con Témez y CN 68–83. La concordancia es razonable. El área drenada del D8 propio coincide con la del asesor (`acumulacion_d8.tif`) con una mediana de 0,98: el 71 % de los cruces queda dentro de ±25 %. Las discrepancias grandes son cruces donde los dos D8 trazan el cauce por celdas distintas.
 

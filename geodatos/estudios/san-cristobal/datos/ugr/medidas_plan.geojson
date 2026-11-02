@@ -7,6 +7,155 @@
     "type": "LineString",
     "coordinates": [
      [
+      -89.59118280779225,
+      -0.9115720000024525
+     ],
+     [
+      -89.59134,
+      -0.9115720000000029
+     ],
+     [
+      -89.59160900000002,
+      -0.9115720000000069
+     ],
+     [
+      -89.591879,
+      -0.9115720000000039
+     ],
+     [
+      -89.592148,
+      -0.9115720000000027
+     ],
+     [
+      -89.592418,
+      -0.9118429999999919
+     ],
+     [
+      -89.592687,
+      -0.911841999999995
+     ],
+     [
+      -89.59295600000002,
+      -0.9115710000000046
+     ],
+     [
+      -89.593225,
+      -0.9115709999999968
+     ],
+     [
+      -89.593495,
+      -0.9112999999999974
+     ],
+     [
+      -89.593764,
+      -0.911028000000003
+     ],
+     [
+      -89.594033,
+      -0.9110280000000059
+     ],
+     [
+      -89.594302,
+      -0.9107569999999977
+     ],
+     [
+      -89.594572,
+      -0.9107560000000021
+     ],
+     [
+      -89.594841,
+      -0.9107559999999973
+     ],
+     [
+      -89.595111,
+      -0.9110270000000025
+     ],
+     [
+      -89.59538000000002,
+      -0.9110269999999933
+     ],
+     [
+      -89.595649,
+      -0.910755999999995
+     ],
+     [
+      -89.595918,
+      -0.9107550000000008
+     ],
+     [
+      -89.596188,
+      -0.9107550000000018
+     ],
+     [
+      -89.596457,
+      -0.9107549999999924
+     ],
+     [
+      -89.59672700000002,
+      -0.9107550000000078
+     ],
+     [
+      -89.596996,
+      -0.9104840000000011
+     ],
+     [
+      -89.597265,
+      -0.9102120000000056
+     ],
+     [
+      -89.597265,
+      -0.9099409999999938
+     ],
+     [
+      -89.597534,
+      -0.9096699999999986
+     ],
+     [
+      -89.597534,
+      -0.9093989999999949
+     ],
+     [
+      -89.597533,
+      -0.9091270000000041
+     ],
+     [
+      -89.597533,
+      -0.908855999999993
+     ],
+     [
+      -89.597533,
+      -0.908584999999995
+     ],
+     [
+      -89.597802,
+      -0.9085849999999933
+     ],
+     [
+      -89.59798195418041,
+      -0.9084043793164981
+     ]
+    ]
+   },
+   "properties": {
+    "nombre": "Zanja de 1 040 m — Manzanillo–El Manantial (hipótesis A)",
+    "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
+    "tipo": "línea",
+    "longitud_plan_m": 1040,
+    "longitud_trazada_m": 1040,
+    "hipotesis": "A (principal)",
+    "cañada": "Manzanillo – El Manantial (ramales PBM-L02 tramo bajo, L08, L09; ≈1,8 km²)",
+    "q100_diseno_m3s": "≈6 (3–19), sección 4.2",
+    "metodo": "Últimos 1 040 m del ramal de Manzanillo–El Manantial (cauce oficial de la hidrología) antes de unirse a la Galápagos",
+    "incertidumbre": "ALTA: el plan no da el trazado ni el ramal; desplazamiento lateral del D8 de ±30–60 m.",
+    "confianza": "baja"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
       -89.59765278594026,
       -0.9082083415002612
      ],
@@ -133,13 +282,16 @@
     ]
    },
    "properties": {
-    "nombre": "Zanja de 1 040 m — barrio Manzanillo",
+    "nombre": "Zanja de 1 040 m — alternativa sobre la Galápagos, tramo alto (hipótesis B)",
     "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
     "tipo": "línea",
     "longitud_plan_m": 1040,
     "longitud_trazada_m": 1040,
-    "metodo": "Cauce D8 de El Manzanillo (≈8–9 km²) aguas arriba del puente OSM de la Vía Perimetral, 1 040 m",
-    "incertidumbre": "ALTA: el plan no da el trazado. Posición a lo largo del cauce desconocida (podría empezar o terminar en otro punto) y desplazamiento lateral del D8 de ±30–60 m.",
+    "hipotesis": "B (alternativa)",
+    "cañada": "Galápagos / Barrio Frío, tramo alto (8–9 km² en el D8 de este estudio)",
+    "q100_diseno_m3s": "≈24 (14–38), sección 6.2",
+    "metodo": "Cauce D8 de 8–9 km² aguas arriba del puente OSM de la Vía Perimetral, 1 040 m (pasa junto a la Ciudadela El Gran Maestro)",
+    "incertidumbre": "ALTA: solo es válida si el plan llama «Manzanillo» a este tramo de la Galápagos; el caudal de diseño cuadruplica el de la hipótesis A.",
     "confianza": "baja"
    }
   },
@@ -179,8 +331,8 @@
     "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
     "tipo": "línea",
     "longitud_plan_m": 170,
-    "metodo": "Cauce D8 (≈8.2 km²) que cruza el límite del PNG a 54 m del punto del barrio Palmeras; 170 m aguas arriba del límite",
-    "incertidumbre": "MUY ALTA: La Picada no está localizada; se supone que es el cauce que entra al barrio Palmeras desde el PNG.",
+    "metodo": "170 m aguas arriba del límite del PNG. Cauce D8 (≈8.2 km², Galápagos tramo alto) que cruza el límite del PNG a 54 m del punto del barrio Palmeras. La cañada Palmeras–Arrayanes de la hidrología (PBM-L07, ≈0,2 km²) no toca el PNG, por lo que no admite «170 m en el PNG».",
+    "incertidumbre": "MUY ALTA: La Picada no está localizada.",
     "confianza": "baja"
    }
   },
@@ -228,7 +380,7 @@
     "fuente_medida": "Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal",
     "tipo": "línea",
     "longitud_plan_m": 240,
-    "metodo": "Mismo cauce, 240 m aguas abajo del límite del PNG",
+    "metodo": "240 m aguas abajo del límite del PNG. Cauce D8 (≈8.2 km², Galápagos tramo alto) que cruza el límite del PNG a 54 m del punto del barrio Palmeras. La cañada Palmeras–Arrayanes de la hidrología (PBM-L07, ≈0,2 km²) no toca el PNG, por lo que no admite «170 m en el PNG».",
     "incertidumbre": "MUY ALTA (ídem).",
     "confianza": "baja"
    }

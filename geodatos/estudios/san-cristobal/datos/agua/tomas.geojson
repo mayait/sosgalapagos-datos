@@ -3,7 +3,7 @@
  "metadata": {
   "titulo": "Tomas y fuentes del acueducto de San Cristóbal (PRELIMINAR, sin verificación de campo)",
   "confianza": "Ninguna ubicación se ha verificado en campo. Cada punto registra sus fuentes y una confianza en la\nubicación (alta / media / baja) con este criterio:\n  alta   el objeto está cartografiado como tal (IGM, OSM o capa FCD/CGREG) y otra fuente independiente lo confirma\n         a ≤ 350 m;\n  media  el punto se infiere de una sola fuente cartográfica (p. ej., el inicio de la tubería IGM) o de una coordenada\n         administrativa (registro SNGR) coherente con la toponimia;\n  baja   solo hay toponimia o descripción textual.",
-  "cota": "Cota del DSM Copernicus GLO-30: ±2–4 m, sesgo ≈ −2 m; descriptiva"
+  "cota": "Cota del DSM Copernicus GLO-30: ±2–4 m; sesgo local frente al IGM ≈ +1,5 m (Puerto Baquerizo) a +1,9 m (El Progreso), sección 4.5; descriptiva"
  },
  "features": [
   {

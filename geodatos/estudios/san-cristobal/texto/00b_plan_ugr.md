@@ -69,7 +69,7 @@ Tabla: Medidas del plan de la UGR y lectura técnica preliminar (detalle en 7.4)
 
 ## Lo que falta ubicar
 
-De unos 45 lugares que nombra el plan, se ubicaron 31. **No se pudieron localizar 14**:
+De los 47 lugares que nombra el plan, se ubicaron 31. **No se pudieron localizar 16**:
 - **En San Cristóbal:** los talleres del Consejo de Gobierno, Estación Terrena (solo como hipótesis), El Manantial, los barrios San Francisco y Fragata, Los Arrayanes, La Picada, el patio de contenedores y el Parque Artesanal.
 - **En Floreana:** las cañadas La Hormiga y La Varonesa/Lobería, la desalinizadora y la bodega parroquial, la ABG y las oficinas del PNG.
 
