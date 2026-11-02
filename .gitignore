@@ -1,26 +1,23 @@
-# Sistema
+# Sistema y entornos
 .DS_Store
-
-# Secretos y registros locales (NO publicar)
-galapagos/credenciales-*.txt
-*.env
-.env*
+.venv/
+__pycache__/
+*.pyc
 logs/
 
-# Fork local de ResponseGrid (repositorio propio)
-app/
+# Secretos (NO publicar). Los endpoints de las fuentes de clima viven en clima/privado/
+*.env
+.env*
+!*.env.ejemplo
+privado/
+*.db
+*.db-*
 
 # Geodatos: descargas crudas (pesadas, regenerables y con datos personales
 # de fuentes oficiales: nombres y teléfonos de responsables). Ver geodatos/LEEME.md
 geodatos/descargas/
-geodatos/.venv/
-__pycache__/
-*.pyc
 
-# El bot de WhatsApp vive en un repositorio privado (mayait/sosgalapagos-bot)
-bot-whatsapp/
-
-# Página pública de mapas: se genera (10_publicar_web.py) y se sube con publicar_mapas.sh
+# Páginas públicas generadas (10_publicar_web.py, 19_estudios_web.py); se suben con servidores/publicar.sh
 geodatos/publicar/
 geodatos/export/galapagos-completo/
 geodatos/geoserver-local/
@@ -28,3 +25,6 @@ geodatos/geoserver-local/
 # Estudios: rasters intermedios y descargas crudas de APIs (se regeneran con los scripts)
 geodatos/estudios/**/*.tif
 geodatos/estudios/*/datos/lluvias/crudo/
+
+# Worktrees de equipos y agentes (ver CONTRIBUIR.md §4) por si se crean dentro
+.worktrees/
