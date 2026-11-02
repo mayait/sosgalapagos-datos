@@ -1,0 +1,625 @@
+{
+ "Puerto Baquerizo Moreno": {
+  "area_ha": 144.9,
+  "edificios": 2703,
+  "pob_inec": 6894,
+  "franja_cgreg_ha": 6.11,
+  "edificios_en_franja_cgreg": 97,
+  "pob_en_franja": 273,
+  "sistemas_de_cauce": [
+   {
+    "localidad": "Puerto Baquerizo Moreno",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 11.0,
+    "area_entrada_km2": 11.0,
+    "largo_m": 44,
+    "cota_ini_m": 2.1,
+    "cota_salida_m": 1.7,
+    "salida": [
+     -89.61319,
+     -0.90264
+    ],
+    "salida_al_mar": true,
+    "edif_15m": 0,
+    "edif_30m": 3,
+    "pob_30m": 2,
+    "edif_sobre_linea": 0,
+    "cobertura_franja_cgreg_30m_pct": 0,
+    "cruces": 0,
+    "cruces_con_estructura": 0,
+    "cruces_ids": "",
+    "tc_min": 214,
+    "q100_min": 16.0,
+    "q100": 28.1,
+    "q100_max": 43.5,
+    "i_q100_mmh": 22.4,
+    "id": "PBM-01"
+   },
+   {
+    "localidad": "Puerto Baquerizo Moreno",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 10.62,
+    "area_entrada_km2": 10.5,
+    "largo_m": 643,
+    "cota_ini_m": 17.3,
+    "cota_salida_m": 3.0,
+    "salida": [
+     -89.61292,
+     -0.90319
+    ],
+    "salida_al_mar": true,
+    "edif_15m": 24,
+    "edif_30m": 45,
+    "pob_30m": 102,
+    "edif_sobre_linea": 6,
+    "cobertura_franja_cgreg_30m_pct": 52,
+    "cruces": 5,
+    "cruces_con_estructura": 2,
+    "cruces_ids": "CR-SCR-0022, CR-SCR-0021, CR-SCR-0009, CR-SCR-0001, CR-SCR-0027",
+    "tc_min": 213,
+    "q100_min": 15.5,
+    "q100": 27.3,
+    "q100_max": 42.2,
+    "i_q100_mmh": 22.5,
+    "id": "PBM-02"
+   },
+   {
+    "localidad": "Puerto Baquerizo Moreno",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 8.72,
+    "area_entrada_km2": 8.72,
+    "largo_m": 304,
+    "cota_ini_m": 66.4,
+    "cota_salida_m": 60.0,
+    "salida": [
+     -89.60069,
+     -0.90875
+    ],
+    "salida_al_mar": false,
+    "edif_15m": 16,
+    "edif_30m": 33,
+    "pob_30m": 87,
+    "edif_sobre_linea": 6,
+    "cobertura_franja_cgreg_30m_pct": 7,
+    "cruces": 2,
+    "cruces_con_estructura": 0,
+    "cruces_ids": "CR-SCR-0005, CR-SCR-0006",
+    "tc_min": 186,
+    "q100_min": 13.8,
+    "q100": 24.3,
+    "q100_max": 37.5,
+    "i_q100_mmh": 25.0,
+    "id": "PBM-03"
+   },
+   {
+    "localidad": "Puerto Baquerizo Moreno",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 1.62,
+    "area_entrada_km2": 1.6,
+    "largo_m": 62,
+    "cota_ini_m": 80.5,
+    "cota_salida_m": 80.2,
+    "salida": [
+     -89.59597,
+     -0.91069
+    ],
+    "salida_al_mar": false,
+    "edif_15m": 0,
+    "edif_30m": 2,
+    "pob_30m": 0,
+    "edif_sobre_linea": 0,
+    "cobertura_franja_cgreg_30m_pct": 0,
+    "cruces": 0,
+    "cruces_con_estructura": 0,
+    "cruces_ids": "",
+    "tc_min": 101,
+    "q100_min": 2.8,
+    "q100": 5.0,
+    "q100_max": 7.7,
+    "i_q100_mmh": 30.3,
+    "id": "PBM-04"
+   },
+   {
+    "localidad": "Puerto Baquerizo Moreno",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 1.6,
+    "area_entrada_km2": 1.6,
+    "largo_m": 255,
+    "cota_ini_m": 86.5,
+    "cota_salida_m": 83.0,
+    "salida": [
+     -89.59542,
+     -0.91014
+    ],
+    "salida_al_mar": false,
+    "edif_15m": 15,
+    "edif_30m": 27,
+    "pob_30m": 77,
+    "edif_sobre_linea": 6,
+    "cobertura_franja_cgreg_30m_pct": 0,
+    "cruces": 4,
+    "cruces_con_estructura": 0,
+    "cruces_ids": "CR-SCR-0120, CR-SCR-0117, CR-SCR-0015, CR-SCR-0118",
+    "tc_min": 99,
+    "q100_min": 2.8,
+    "q100": 5.0,
+    "q100_max": 7.7,
+    "i_q100_mmh": 30.7,
+    "id": "PBM-05"
+   },
+   {
+    "localidad": "Puerto Baquerizo Moreno",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 1.57,
+    "area_entrada_km2": 1.56,
+    "largo_m": 87,
+    "cota_ini_m": 87.9,
+    "cota_salida_m": 87.2,
+    "salida": [
+     -89.59319,
+     -0.91042
+    ],
+    "salida_al_mar": false,
+    "edif_15m": 3,
+    "edif_30m": 10,
+    "pob_30m": 27,
+    "edif_sobre_linea": 1,
+    "cobertura_franja_cgreg_30m_pct": 0,
+    "cruces": 2,
+    "cruces_con_estructura": 0,
+    "cruces_ids": "CR-SCR-0119, CR-SCR-0120",
+    "tc_min": 93,
+    "q100_min": 2.9,
+    "q100": 5.0,
+    "q100_max": 7.8,
+    "i_q100_mmh": 31.9,
+    "id": "PBM-06"
+   },
+   {
+    "localidad": "Puerto Baquerizo Moreno",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 1.55,
+    "area_entrada_km2": 1.49,
+    "largo_m": 769,
+    "cota_ini_m": 34.5,
+    "cota_salida_m": 3.3,
+    "salida": [
+     -89.60958,
+     -0.89903
+    ],
+    "salida_al_mar": true,
+    "edif_15m": 60,
+    "edif_30m": 88,
+    "pob_30m": 236,
+    "edif_sobre_linea": 16,
+    "cobertura_franja_cgreg_30m_pct": 41,
+    "cruces": 7,
+    "cruces_con_estructura": 0,
+    "cruces_ids": "CR-SCR-0018, CR-SCR-0014, CR-SCR-0017, CR-SCR-0013, CR-SCR-0016, CR-SCR-0019, CR-SCR-0020",
+    "tc_min": 86,
+    "q100_min": 2.9,
+    "q100": 5.1,
+    "q100_max": 7.8,
+    "i_q100_mmh": 32.7,
+    "id": "PBM-07"
+   },
+   {
+    "localidad": "Puerto Baquerizo Moreno",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 0.7,
+    "area_entrada_km2": 0.7,
+    "largo_m": 391,
+    "cota_ini_m": 14.4,
+    "cota_salida_m": 2.5,
+    "salida": [
+     -89.60958,
+     -0.89792
+    ],
+    "salida_al_mar": true,
+    "edif_15m": 12,
+    "edif_30m": 23,
+    "pob_30m": 30,
+    "edif_sobre_linea": 2,
+    "cobertura_franja_cgreg_30m_pct": 0,
+    "cruces": 2,
+    "cruces_con_estructura": 0,
+    "cruces_ids": "CR-SCR-0025, CR-SCR-0024",
+    "tc_min": 60,
+    "q100_min": 1.4,
+    "q100": 2.4,
+    "q100_max": 3.7,
+    "i_q100_mmh": 35.4,
+    "id": "PBM-08"
+   }
+  ],
+  "edificios_30m_algun_cauce": 228,
+  "pob_30m_algun_cauce": 550,
+  "tramos_drenaje_derivado_0_3km2": [
+   {
+    "area_km2": 10.85,
+    "largo_m": 656,
+    "edif_15m": 63,
+    "edif_30m": 100,
+    "pob_30m": 192,
+    "punto_medio": [
+     -89.61111,
+     -0.90378
+    ]
+   },
+   {
+    "area_km2": 9.44,
+    "largo_m": 669,
+    "edif_15m": 45,
+    "edif_30m": 73,
+    "pob_30m": 265,
+    "punto_medio": [
+     -89.60742,
+     -0.90786
+    ]
+   },
+   {
+    "area_km2": 1.56,
+    "largo_m": 633,
+    "edif_15m": 39,
+    "edif_30m": 64,
+    "pob_30m": 138,
+    "punto_medio": [
+     -89.6075,
+     -0.89889
+    ]
+   },
+   {
+    "area_km2": 1.56,
+    "largo_m": 447,
+    "edif_15m": 36,
+    "edif_30m": 61,
+    "pob_30m": 243,
+    "punto_medio": [
+     -89.60881,
+     -0.90036
+    ]
+   },
+   {
+    "area_km2": 10.62,
+    "largo_m": 329,
+    "edif_15m": 36,
+    "edif_30m": 59,
+    "pob_30m": 144,
+    "punto_medio": [
+     -89.61185,
+     -0.90371
+    ]
+   },
+   {
+    "area_km2": 8.25,
+    "largo_m": 1197,
+    "edif_15m": 35,
+    "edif_30m": 60,
+    "pob_30m": 110,
+    "punto_medio": [
+     -89.59518,
+     -0.91038
+    ]
+   },
+   {
+    "area_km2": 8.37,
+    "largo_m": 285,
+    "edif_15m": 24,
+    "edif_30m": 41,
+    "pob_30m": 120,
+    "punto_medio": [
+     -89.59922,
+     -0.90806
+    ]
+   },
+   {
+    "area_km2": 10.46,
+    "largo_m": 346,
+    "edif_15m": 21,
+    "edif_30m": 40,
+    "pob_30m": 78,
+    "punto_medio": [
+     -89.61306,
+     -0.90462
+    ]
+   },
+   {
+    "area_km2": 1.01,
+    "largo_m": 981,
+    "edif_15m": 19,
+    "edif_30m": 26,
+    "pob_30m": 80,
+    "punto_medio": [
+     -89.60167,
+     -0.90027
+    ]
+   },
+   {
+    "area_km2": 0.39,
+    "largo_m": 1365,
+    "edif_15m": 19,
+    "edif_30m": 40,
+    "pob_30m": 94,
+    "punto_medio": [
+     -89.60139,
+     -0.90389
+    ]
+   },
+   {
+    "area_km2": 11.0,
+    "largo_m": 167,
+    "edif_15m": 17,
+    "edif_30m": 28,
+    "pob_30m": 49,
+    "punto_medio": [
+     -89.61347,
+     -0.9032
+    ]
+   },
+   {
+    "area_km2": 8.37,
+    "largo_m": 831,
+    "edif_15m": 16,
+    "edif_30m": 30,
+    "pob_30m": 82,
+    "punto_medio": [
+     -89.59786,
+     -0.91103
+    ]
+   },
+   {
+    "area_km2": 0.7,
+    "largo_m": 1215,
+    "edif_15m": 13,
+    "edif_30m": 29,
+    "pob_30m": 28,
+    "punto_medio": [
+     -89.60512,
+     -0.8975
+    ]
+   },
+   {
+    "area_km2": 9.01,
+    "largo_m": 577,
+    "edif_15m": 8,
+    "edif_30m": 14,
+    "pob_30m": 14,
+    "punto_medio": [
+     -89.60086,
+     -0.91081
+    ]
+   },
+   {
+    "area_km2": 0.71,
+    "largo_m": 1201,
+    "edif_15m": 7,
+    "edif_30m": 13,
+    "pob_30m": 36,
+    "punto_medio": [
+     -89.61333,
+     -0.91056
+    ]
+   },
+   {
+    "area_km2": 0.32,
+    "largo_m": 714,
+    "edif_15m": 3,
+    "edif_30m": 6,
+    "pob_30m": 0,
+    "punto_medio": [
+     -89.60704,
+     -0.8951
+    ]
+   },
+   {
+    "area_km2": 9.01,
+    "largo_m": 260,
+    "edif_15m": 2,
+    "edif_30m": 5,
+    "pob_30m": 11,
+    "punto_medio": [
+     -89.60133,
+     -0.90889
+    ]
+   },
+   {
+    "area_km2": 8.25,
+    "largo_m": 236,
+    "edif_15m": 1,
+    "edif_30m": 6,
+    "pob_30m": 2,
+    "punto_medio": [
+     -89.59722,
+     -0.90778
+    ]
+   },
+   {
+    "area_km2": 0.37,
+    "largo_m": 1546,
+    "edif_15m": 1,
+    "edif_30m": 1,
+    "pob_30m": 0,
+    "punto_medio": [
+     -89.61917,
+     -0.91136
+    ]
+   }
+  ]
+ },
+ "El Progreso": {
+  "area_ha": 22.9,
+  "edificios": 183,
+  "pob_inec": 250,
+  "franja_cgreg_ha": 0.0,
+  "edificios_en_franja_cgreg": 0,
+  "pob_en_franja": 0,
+  "sistemas_de_cauce": [
+   {
+    "localidad": "El Progreso",
+    "quebrada_igm_nombre": "",
+    "area_salida_km2": 1.14,
+    "area_entrada_km2": 1.14,
+    "largo_m": 87,
+    "cota_ini_m": 313.6,
+    "cota_salida_m": 313.5,
+    "salida": [
+     -89.55347,
+     -0.90569
+    ],
+    "salida_al_mar": false,
+    "edif_15m": 2,
+    "edif_30m": 2,
+    "pob_30m": 0,
+    "edif_sobre_linea": 0,
+    "cobertura_franja_cgreg_30m_pct": 0,
+    "cruces": 0,
+    "cruces_con_estructura": 0,
+    "cruces_ids": "",
+    "tc_min": 80,
+    "q100_min": 2.1,
+    "q100": 3.8,
+    "q100_max": 5.8,
+    "i_q100_mmh": 33.1,
+    "id": "ELP-01"
+   }
+  ],
+  "edificios_30m_algun_cauce": 2,
+  "pob_30m_algun_cauce": 0,
+  "tramos_drenaje_derivado_0_3km2": [
+   {
+    "area_km2": 0.74,
+    "largo_m": 675,
+    "edif_15m": 16,
+    "edif_30m": 25,
+    "pob_30m": 41,
+    "punto_medio": [
+     -89.55528,
+     -0.91103
+    ]
+   },
+   {
+    "area_km2": 0.98,
+    "largo_m": 2728,
+    "edif_15m": 4,
+    "edif_30m": 8,
+    "pob_30m": 0,
+    "punto_medio": [
+     -89.54159,
+     -0.90591
+    ]
+   },
+   {
+    "area_km2": 1.42,
+    "largo_m": 460,
+    "edif_15m": 3,
+    "edif_30m": 4,
+    "pob_30m": 0,
+    "punto_medio": [
+     -89.55439,
+     -0.905
+    ]
+   }
+  ]
+ },
+ "campus_USFQ_GSC": {
+  "celda_lonlat": [
+   -89.60931,
+   -0.89514
+  ],
+  "area_km2": 0.311,
+  "L_km": 1.59,
+  "J_pct": 4.3,
+  "cota_cabecera_m": 75,
+  "cota_campus_m": 7.5,
+  "tc_min": 47,
+  "q100_min": 0.6,
+  "q100": 1.1,
+  "q100_max": 1.7,
+  "i_q100_mmh": 36.3,
+  "q30oct_hipotetico": 3.0,
+  "franja_cgreg_cubre_cauce_pct": 0,
+  "franja_dist_campus_m": 372,
+  "cruces": [
+   {
+    "id": "CR-SCR-0222",
+    "via_nombre": "(sin nombre)",
+    "via_tipo": "rural",
+    "area_km2": "0.29",
+    "q100": "1.0",
+    "estructura": "ninguna cartografiada",
+    "cota_dsm_m": "19.4"
+   },
+   {
+    "id": "CR-SCR-0218",
+    "via_nombre": "Vía Universidad",
+    "via_tipo": "rural",
+    "area_km2": "0.31",
+    "q100": "1.1",
+    "estructura": "ninguna cartografiada",
+    "cota_dsm_m": "8.4"
+   }
+  ],
+  "edificios_campus_60m": [
+   {
+    "nombre": "USFQ Extension Galapagos",
+    "niveles": "2",
+    "dist_cauce_m": 33.9,
+    "cota_dsm_m": 13.0
+   },
+   {
+    "nombre": "yes",
+    "niveles": null,
+    "dist_cauce_m": 18.4,
+    "cota_dsm_m": 19.9
+   },
+   {
+    "nombre": "yes",
+    "niveles": null,
+    "dist_cauce_m": 13.7,
+    "cota_dsm_m": 19.5
+   },
+   {
+    "nombre": "yes",
+    "niveles": null,
+    "dist_cauce_m": 35.2,
+    "cota_dsm_m": 21.8
+   },
+   {
+    "nombre": "yes",
+    "niveles": null,
+    "dist_cauce_m": 49.9,
+    "cota_dsm_m": 23.8
+   },
+   {
+    "nombre": "yes",
+    "niveles": null,
+    "dist_cauce_m": 25.5,
+    "cota_dsm_m": 19.7
+   },
+   {
+    "nombre": "Galapagos Science Center",
+    "niveles": "3",
+    "dist_cauce_m": 39.7,
+    "cota_dsm_m": 13.0
+   },
+   {
+    "nombre": "yes",
+    "niveles": null,
+    "dist_cauce_m": 56.9,
+    "cota_dsm_m": 22.5
+   },
+   {
+    "nombre": "Laboratorio de Salud Animal",
+    "niveles": "1",
+    "dist_cauce_m": 21.1,
+    "cota_dsm_m": 10.8
+   }
+  ],
+  "edificios_15m": 4,
+  "edificios_30m": 11,
+  "pob_30m": 0,
+  "cuenca_huella_edificada_ha": 0.0,
+  "cuenca_ha": 31.0,
+  "cuenca_edificios": 9
+ }
+}

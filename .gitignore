@@ -24,3 +24,7 @@ bot-whatsapp/
 geodatos/publicar/
 geodatos/export/galapagos-completo/
 geodatos/geoserver-local/
+
+# Estudios: rasters intermedios y descargas crudas de APIs (se regeneran con los scripts)
+geodatos/estudios/**/*.tif
+geodatos/estudios/*/datos/lluvias/crudo/

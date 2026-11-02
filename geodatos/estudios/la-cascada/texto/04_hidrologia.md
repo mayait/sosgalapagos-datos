@@ -128,54 +128,97 @@ Tabla: Escenarios de diseño (tormenta tipo II de 24 h; cuenca de 42,4 km², inc
 
 > **Hallazgo central de la hidrología.** Según el método SCS-CN, y suponiendo que toda la escorrentía llega al barrio (sin pérdidas en cauces efímeros sobre basalto fracturado, grietas ni tubos de lava), **el vaso se llena con unos 25–50 mm de lluvia**. Con 100 mm, la escorrentía es de 13 a 50 veces su volumen. Lo que determina la altura del agua en el barrio es la **capacidad de salida**, no el almacenamiento.
 
-## 4.7 El evento del 30–31 de octubre de 2026
+## 4.7 El evento del 30 de octubre de 2026: recalibración con lluvia medida
 
-**Lluvia de entrada.** Se ponderó la lluvia de ECMWF de 9 km sobre la cuenca asignando la serie de la parte alta a la fracción situada por encima de 200 m (55 %). El resultado es **110 mm en 24 h** (117 mm con polígonos de Thiessen).
+**Lluvia medida.** La red IERSE-WSN (Universidad del Azuay) registró la tormenta cada ~5 minutos, en hora de Galápagos (UTC−6). Los totales son **mínimos**: Los Guayabillos y Santa Rosa dejaron de transmitir a las 21:22–21:25, cuando todavía llovía a unos 5 mm cada 5 minutos.
 
-**Condición de humedad previa.** El criterio del SCS usa la lluvia de los 5 días anteriores. Entre el 26 y el 30 de octubre, ECMWF de 9 km da 25,7 mm en la costa, 56,8 mm en la parte alta y 42,8 mm ponderados. Con los umbrales de la estación de crecimiento eso es **AMC II**, y con los de la estación latente, AMC III. Los demás modelos dan 2–18 mm, es decir, AMC I–II.
+Tabla: Lluvia medida el 30 de octubre de 2026 (red IERSE-WSN; hora UTC−6).
 
-Se adopta **CN 76 como valor central** (intermedio entre AMC II y III), con 83 y 68 como sensibilidad. El CN 55 del Parque es un supuesto: TR-55, matorral desértico, grupo hidrológico A por la permeabilidad del basalto fracturado. Si se clasificara el suelo somero como grupo D, el CN sería mucho mayor.
+| Estación | Cota (DEM) | Total 30-oct | Máximo en 1 h | Pulsos principales | Último registro |
+|---|---|---|---|---|---|
+| Los Guayabillos (parte media, a 370 m de la cuenca) | ≈178 m | **178,8 mm** | **61,0 mm** (20:00–21:00) | 15:00–16:00: 7,8 mm; 18:00–21:30: 143 mm | 21:25 |
+| Santa Rosa (oeste, fuera de la cuenca) | ≈416 m | **237,6 mm** | **66,4 mm** (20:00–21:00) | 15:00–16:00: 43 mm; 18:00–21:30: 140 mm | 21:22 |
+| Cerro Crocker (cumbre, borde norte de la cuenca) | ≈861 m | 5,0 mm (no fiable) | 0,8 mm | ninguno | 23:57 |
+| Militar (Baltra) | ≈14 m | 2,0 mm | 0,8 mm | ninguno | 23:57 |
 
-Como contraste se calculó también el escenario de ECMWF de 0,25° (26 mm).
+**Calidad de los pluviómetros** (serie IERSE del 23-abr al 2-nov).
+- *Cerro Crocker* casi seguro falla desde agosto. En junio midió 297 mm, pero en septiembre y octubre solo 9 y 18 mm, mientras Los Guayabillos medía 140 y 340 mm. Sus 5 mm del 30-oct no se usan.
+- *Los Guayabillos* marca 0 mm del 31-oct al 2-nov con cobertura completa, mientras Santa Rosa mide 13–43 mm al día. Probablemente el pluviómetro se obstruyó o se dañó durante el evento. Su registro del 30-oct es coherente con el de Santa Rosa y se mantiene, como total mínimo.
 
-Tabla: Escenarios del evento (lluvia de modelo; hora de Galápagos, UTC−6).
+**Lluvia areal sobre la cuenca (42,4 km²).** Se usaron tres métodos, todos con el hietograma de 10 min de las estaciones:
 
-| Escenario | Lluvia | CN | Volumen | Q pico (Témez – Kirpich) | Hora del pico | Vaso lleno a las |
+Tabla: Lluvia areal del 30-oct sobre la cuenca de La Cascada.
+
+| Método | Supuesto | Lluvia areal |
+|---|---|---|
+| Los Guayabillos con reducción areal | Factor 0,85 para una tormenta convectiva de 1–3 h sobre ~40 km² (curvas TP-29: 0,85–0,90) | 152 mm (cota inferior) |
+| **Los Guayabillos uniforme (central)** | La estación está a 178 m, cerca de la mediana de cota de la cuenca (225 m) | **179 mm** |
+| Gradiente con la cota (Guayabillos–Santa Rosa) | Interpolación lineal entre 178 y 416 m; Crocker descartado | 208 mm (cota superior) |
+
+Si la lluvia hubiera seguido 30 minutos más al ritmo de los últimos registros, el método central sumaría unos 26 mm (204 mm). Es solo una sensibilidad, no un dato. Si Crocker fuera correcto, un Thiessen con esa estación daría 127 mm; se conserva en `resumen.json` solo como referencia.
+
+**Condición de humedad previa.**
+- Los 5 días previos (25–29 de octubre) sumaron solo 12 mm en Los Guayabillos y 10 mm en Santa Rosa: AMC I–II según el criterio SCS.
+- Sin embargo, octubre fue húmedo (340 mm en Los Guayabillos) y el 30-oct ya habían caído unos 25 mm antes del pulso principal. Esa lluvia la recoge el propio método SCS-CN en la abstracción inicial.
+- Se mantiene **CN 76 como valor central**. CN 68 es igual de defendible, y CN 83 (AMC III) queda sin respaldo.
+- El CN 55 del Parque sigue siendo un supuesto (TR-55, matorral desértico, grupo hidrológico A).
+
+Tabla: Hidrogramas del evento medido en la entrada al barrio (CN 76; Témez – Kirpich; hora UTC−6).
+
+| Lluvia areal | Escorrentía | Volumen | Q pico | Hora del pico | Q > 1 m³/s desde | Vaso lleno a las |
 |---|---|---|---|---|---|---|
-| **ECMWF 9 km, central** | 110 mm | **76** | **2,13 hm³** (34–50× el vaso) | **119 – 186 m³/s** | 31-oct ≈07:30 | 05:10 |
-| ECMWF 9 km, suelo húmedo | 110 mm | 83 | 2,80 hm³ | 154 – 230 m³/s | 06:30–07:30 | 04:20 |
-| ECMWF 9 km, Thiessen | 117 mm | 83 | 3,04 hm³ | 166 – 245 m³/s | 06:30–07:30 | 04:10 |
-| ECMWF 0,25° | 26 mm | 83 | 0,15 hm³ (2,4× el vaso) | ≈ 3 m³/s | 15:20–16:10 | 13:20 |
+| Reducción areal, 152 mm | 85 mm (C = 0,56) | 3,59 hm³ | 260 – 401 m³/s | 21:40 – 22:50 | 15:50 – 16:20 | 17:45 – 19:10 |
+| **Los Guayabillos, 179 mm** | **108 mm (C = 0,61)** | **4,59 hm³ (74× el vaso)** | **325 – 497 m³/s** | **21:40 – 22:50** | 14:20 – 15:50 | **16:50 – 18:10** |
+| Gradiente con la cota, 208 mm | 134 mm (C = 0,65) | 5,69 hm³ | 362 – 549 m³/s | 21:30 – 22:40 | 10:30 – 14:50 | 15:40 – 16:30 |
 
-![Hidrogramas sintéticos: (a) escenarios de diseño; (b) evento del 30–31 de octubre con la lluvia de dos versiones del modelo ECMWF (CN 76 central; CN 83 como sensibilidad de suelo húmedo).](figuras/f_hidrogramas.png)
+Con CN 68, el pico del escenario central queda en 277–434 m³/s. El conjunto de los escenarios (152–208 mm, CN 68–76) da **215–549 m³/s**.
 
-**Comparación con la lámina observada.** La salida sobre el umbral se modeló como un vertedero de cresta ancha (C = 1,7) con el caudal pico. Con los caudales del escenario de suelo húmedo (154–230 m³/s) y según la longitud efectiva del desborde (30, 100 o 300 m, desconocida), la cota del agua sería de **13,4 a 15,7 m**; con CN 76 sería algo menor. La observada es de ≈12,5–13,0 m. Por tanto, con ECMWF de 9 km el modelo **la sobrestima en unos 0,4–1,7 m si el frente de desborde mide 100–300 m, y en unos 2–3 m si mide 30 m**. Con ECMWF de 0,25° el agua queda en unos 13,0 m.
+Son caudales específicos de 5–13 m³/s por km², propios de crecidas convectivas en cuencas pequeñas. Un modelo agregado, con lluvia uniforme y sin pérdidas en el cauce, puede sobrestimarlos; sin la estación de la cumbre no se sabe si la tormenta cubrió la parte alta. Los hidrogramas están en `datos/hidrogramas_evento_30oct.csv`.
 
-El vertedero libre es una simplificación: ignora el remanso aguas abajo, donde los primeros 400 m son casi planos y están edificados.
+![Hidrogramas sintéticos: (a) escenarios de diseño; (b) evento del 30 de octubre con la lluvia medida por la red IERSE-WSN (tres métodos de lluvia areal; CN 76), con la lluvia horaria de Los Guayabillos.](figuras/f_hidrogramas.png)
 
-**El orden de magnitud cierra, pero la comparación no discrimina entre escenarios.** Hay tres razones:
-1. el vaso se llena con cualquier lluvia de más de unos 25 mm en suelo húmedo;
-2. la diferencia es del orden del error vertical del DSM;
-3. no se conoce el punto exacto del testimonio.
+**Tránsito por el vaso y lámina.** El hidrograma se transitó por el vaso con:
+- la curva cota-volumen (sección 4.4);
+- una salida en vertedero de cresta ancha (C = 1,7) sobre el umbral de 12,95 m;
+- tres longitudes efectivas del frente de desborde: 100, 300 y 1 000 m.
 
-La sobrestimación es compatible con cualquiera de estas explicaciones, sin que se pueda elegir entre ellas:
-- que la lluvia real fuera menor que la de ECMWF de 9 km;
-- que la cuenca infiltrara más de lo que supone el CN;
-- que la salida tuviera más capacidad de la supuesta.
+Tabla: Lámina máxima simulada sobre el punto más bajo del DSM (≈10,5 m), con lluvia areal de 152–208 mm, CN 68–76 y tc de Témez a Kirpich.
+
+| Frente de desborde | Cota máxima del agua | Lámina sobre el fondo | Hora de la lámina máxima |
+|---|---|---|---|
+| 100 m | 14,1 – 15,1 m | 3,6 – 4,5 m | 21:50 – 23:10 |
+| 300 m | 13,5 – 14,0 m | 3,0 – 3,5 m | 21:40 – 23:00 |
+| 1 000 m | 13,2 – 13,4 m | 2,7 – 2,9 m | 21:40 – 22:55 |
+
+**Comparación con lo observado.**
+- *Hora.* La lluvia medida, el inicio de la escorrentía (10:30–18:00), el llenado del vaso (15:40–20:00) y el pico (21:30–22:50) coinciden con la SNGR, que sitúa las lluvias fuertes y las inundaciones en la «tarde y noche del 30/10». ECMWF situaba el máximo unas 8–9 horas más tarde y con menos lluvia areal (110 mm): **queda descartado como representación del evento**.
+- *Lámina.* El testimonio de agua «hasta dos metros» es compatible con el modelo si el frente de desborde fue de varios cientos de metros, es decir, si el agua se extendió sobre la zona baja urbana. También es compatible si el testigo estaba 0,5–1 m por encima del punto más bajo del DSM. Con un frente de 300–1 000 m, una vivienda situada 0,5–1 m sobre ese punto habría tenido entre 1,7 y 3,0 m de agua. La cifra de «unos 3 m», sin fuente, también cabe en el intervalo. La revisión de la fase anterior («ECMWF sobrestima la lámina») deja de ser aplicable.
+- *Vaciado.* La lámina vuelve a la cota de rebose entre las 00:00 y las 08:00 del 31-oct. Por debajo de ese nivel quedan retenidos **42 000–62 000 m³** sin salida por gravedad, que solo se pierden por infiltración o bombeo. Esto concuerda con el anuncio de la SNGR de que «se drenará el sector La Cascada».
+
+**Qué implica.**
+- **CN e infiltración.** La lámina es casi insensible a la lluvia y al CN: todos los escenarios caen en 13,5–14,0 m con un frente de 300 m. La razón es que la controla la cota del umbral más una carga que crece con Q^(2/3). Por eso **el testimonio no sirve para calibrar el CN ni la infiltración**. Para eso hacen falta huellas de crecida en las quebradas (método de sección y pendiente) o el volumen desbordado.
+- **Capacidad de salida.** Es la variable que gobierna la lámina. El caudal pico del evento, unos 300–500 m³/s en el escenario central, supera:
+  - unas 7–14 veces los 35–45 m³/s de la calle-canal propuesta;
+  - el caudal considerado para el interceptor en la sección 5 (150–230 m³/s). Conducir 325–497 m³/s exigiría 35–54 m de base al 0,5 %.
+- **Lo que no cambia.** El vaso se llenó horas antes del pico, como en cualquier escenario de más de ~25 mm. La lluvia medida refuerza la conclusión de que el problema es de salida y de exposición, no de almacenamiento.
 
 ## 4.8 Incertidumbre
 
 - **DSM frente a los puntos acotados del IGM.** La diferencia tiene una media de −2,1 m, una desviación típica de unos 2,0 m y un RMSE de 2,9 m; en zona poblada, −3,4 m. El sesgo negativo apunta a una diferencia de referencia vertical (EGM2008 frente al nivel medio del mar del IGM) que afecta menos a los desniveles locales que a las cotas absolutas. Sin embargo, la diferencia entre zona poblada (−3,4 m) y no poblada (≈−1,9 m) indica que **ninguna cota absoluta del DSM debe usarse como umbral normativo**.
 - **Errores locales del DSM.** Sobrestima el terreno bajo copas y techos, lo que puede crear umbrales falsos de varios metros. También suaviza los cauces y las grietas de menos de 30 m.
-- **Un error del orden de las magnitudes clave.** El error aleatorio de ±2 m es del mismo orden que la profundidad del vaso (2,4 m), que la diferencia entre lámina modelada y observada, y que el desnivel del interceptor en sus primeros 2,5 km.
-- **Hidrología.** Para 100 mm, el caudal pico varía unas 7 veces (36–239 m³/s) según el CN y el tc. La lluvia del evento, de menos de 1 a ≈130 mm según el modelo, es la mayor fuente de incertidumbre, junto con la condición de humedad previa (CN 68–83).
+- **Un error del orden de las magnitudes clave.** El error aleatorio de ±2 m es del mismo orden que la profundidad del vaso (2,4 m), que la lámina simulada y que el desnivel del interceptor en sus primeros 2,5 km.
+- **Lluvia del evento.** Está medida, pero solo en dos estaciones útiles, ambas fuera de la cuenca y con totales mínimos por el corte de transmisión. La estación de la cumbre falla desde agosto y la de Los Guayabillos dejó de medir después del evento. La lluvia areal va de 152 a 208 mm (reducción areal a gradiente con la cota). Los pluviómetros de balancín subestiman las intensidades de más de 50 mm/h.
+- **Hidrología.** Para el evento medido, el caudal pico varía de 215 a 549 m³/s (factor ~2,5) según la lluvia areal, el CN (68–76) y el tc (Témez–Kirpich). El modelo es agregado, con lluvia uniforme, sin pérdidas en el cauce y sin calibrar con caudales.
+- **Tránsito por el vaso.** El vertedero libre ignora el remanso aguas abajo, donde los primeros 400 m son casi planos y están edificados. La longitud efectiva del frente de desborde (100–1 000 m) es un supuesto.
 
 Tabla: Nivel de confianza de cada conclusión.
 
 | Conclusión | Confianza |
 |---|---|
 | Área de la cuenca (42,3 km²; idéntica con y sin quemar las quebradas) y sus dos ramas | Alta |
+| Hora del evento (tarde y noche del 30-oct; pico entre las 21:30 y las 23:00) | Alta (lluvia medida y SNGR) |
 | Existencia del vaso y rebose a ≈12–13,25 m; salida sin cauce por la ciudad | Media-alta |
+| El vaso se llenó horas antes del pico; la lámina la controla la salida | Media-alta |
+| Lluvia areal del evento (152–208 mm, totales mínimos) | Media-baja |
 | Corredor de desvío al este | Media-baja |
 | Caudales pico | Baja (solo orden de magnitud) |
-| Lluvia del evento | Muy baja |

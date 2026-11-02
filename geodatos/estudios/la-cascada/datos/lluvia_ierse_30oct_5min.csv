@@ -1,0 +1,1665 @@
+estacion_id,estacion,fecha_hora_local,lluvia_mm
+n_glps01,Cerro Crocker,2026-10-30T00:01:42,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:05:40,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:10:21,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:15:26,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:20:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:25:21,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:30:02,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:35:15,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:40:28,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:45:09,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:50:22,0.0
+n_glps01,Cerro Crocker,2026-10-30T00:55:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T05:34:31,0.0
+n_glps01,Cerro Crocker,2026-10-30T05:39:12,0.0
+n_glps01,Cerro Crocker,2026-10-30T05:44:25,0.0
+n_glps01,Cerro Crocker,2026-10-30T05:49:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T05:54:19,0.0
+n_glps01,Cerro Crocker,2026-10-30T05:59:32,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:04:14,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:09:26,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:14:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:19:21,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:24:29,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:29:10,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:34:23,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:39:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:44:30,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:49:12,0.2
+n_glps01,Cerro Crocker,2026-10-30T06:54:24,0.0
+n_glps01,Cerro Crocker,2026-10-30T06:59:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:04:19,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:09:24,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:14:31,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:19:13,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:24:26,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:30:00,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:34:58,0.2
+n_glps01,Cerro Crocker,2026-10-30T07:39:55,0.2
+n_glps01,Cerro Crocker,2026-10-30T07:44:41,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:49:38,0.0
+n_glps01,Cerro Crocker,2026-10-30T07:55:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:00:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:05:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:09:46,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:14:44,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:19:41,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:24:39,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:29:36,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:35:00,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:39:41,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:44:37,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:49:50,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:54:59,0.0
+n_glps01,Cerro Crocker,2026-10-30T08:59:06,0.2
+n_glps01,Cerro Crocker,2026-10-30T09:04:18,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:09:18,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:14:22,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:19:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:24:49,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:30:00,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:34:48,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:40:02,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:45:00,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:49:47,0.0
+n_glps01,Cerro Crocker,2026-10-30T09:54:45,0.2
+n_glps01,Cerro Crocker,2026-10-30T09:59:49,0.2
+n_glps01,Cerro Crocker,2026-10-30T10:04:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:09:29,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:14:02,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:19:30,0.2
+n_glps01,Cerro Crocker,2026-10-30T10:24:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:29:18,0.2
+n_glps01,Cerro Crocker,2026-10-30T10:34:02,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:39:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:44:27,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:48:25,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:53:14,0.0
+n_glps01,Cerro Crocker,2026-10-30T10:58:27,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:03:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:08:21,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:13:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:18:17,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:23:29,0.2
+n_glps01,Cerro Crocker,2026-10-30T11:28:22,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:33:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:38:17,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:43:29,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:48:11,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:53:24,0.0
+n_glps01,Cerro Crocker,2026-10-30T11:58:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:03:18,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:08:31,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:13:29,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:18:10,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:23:23,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:28:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:33:17,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:38:30,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:43:12,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:48:24,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:53:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T12:58:19,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:03:48,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:08:49,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:14:00,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:18:42,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:23:39,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:29:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:33:54,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:38:52,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:43:51,0.2
+n_glps01,Cerro Crocker,2026-10-30T13:48:32,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:53:17,0.0
+n_glps01,Cerro Crocker,2026-10-30T13:58:19,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:03:17,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:08:30,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:13:23,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:18:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:23:28,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:28:23,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:33:16,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:38:11,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:43:23,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:48:16,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:53:13,0.0
+n_glps01,Cerro Crocker,2026-10-30T14:58:12,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:03:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:08:16,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:13:02,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:18:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:23:21,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:28:03,0.2
+n_glps01,Cerro Crocker,2026-10-30T15:33:02,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:38:22,0.2
+n_glps01,Cerro Crocker,2026-10-30T15:43:21,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:48:21,0.4
+n_glps01,Cerro Crocker,2026-10-30T15:53:14,0.0
+n_glps01,Cerro Crocker,2026-10-30T15:58:09,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:03:18,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:08:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:13:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:18:06,0.2
+n_glps01,Cerro Crocker,2026-10-30T16:23:23,0.2
+n_glps01,Cerro Crocker,2026-10-30T16:28:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:33:15,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:38:27,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:43:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:48:19,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:53:22,0.0
+n_glps01,Cerro Crocker,2026-10-30T16:58:30,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:03:14,0.2
+n_glps01,Cerro Crocker,2026-10-30T17:08:32,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:13:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:18:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:23:19,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:28:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:33:10,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:38:18,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:43:30,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:48:25,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:53:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T17:58:32,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:03:24,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:08:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:13:18,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:18:31,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:23:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:28:28,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:32:19,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:37:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:42:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:47:30,0.0
+n_glps01,Cerro Crocker,2026-10-30T18:57:46,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:02:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:07:25,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:12:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:17:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:22:14,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:27:05,0.2
+n_glps01,Cerro Crocker,2026-10-30T19:32:15,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:37:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:42:17,0.0
+n_glps01,Cerro Crocker,2026-10-30T19:47:09,0.2
+n_glps01,Cerro Crocker,2026-10-30T19:52:04,0.2
+n_glps01,Cerro Crocker,2026-10-30T19:57:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:02:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:07:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:12:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:17:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:22:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:27:07,0.2
+n_glps01,Cerro Crocker,2026-10-30T20:32:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:37:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:42:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:47:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:52:02,0.0
+n_glps01,Cerro Crocker,2026-10-30T20:57:09,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:02:02,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:07:10,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:12:15,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:17:06,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:22:12,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:27:08,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:32:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:37:15,0.2
+n_glps01,Cerro Crocker,2026-10-30T21:42:14,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:47:12,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:52:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T21:57:21,0.0
+n_glps01,Cerro Crocker,2026-10-30T22:02:12,0.4
+n_glps01,Cerro Crocker,2026-10-30T22:12:33,0.0
+n_glps01,Cerro Crocker,2026-10-30T22:17:03,0.0
+n_glps01,Cerro Crocker,2026-10-30T22:22:11,0.0
+n_glps01,Cerro Crocker,2026-10-30T22:27:16,0.0
+n_glps01,Cerro Crocker,2026-10-30T22:32:20,0.0
+n_glps01,Cerro Crocker,2026-10-30T22:37:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T22:52:26,0.0
+n_glps01,Cerro Crocker,2026-10-30T22:57:19,0.0
+n_glps01,Cerro Crocker,2026-10-30T23:02:11,0.0
+n_glps01,Cerro Crocker,2026-10-30T23:17:19,0.2
+n_glps01,Cerro Crocker,2026-10-30T23:22:28,0.0
+n_glps01,Cerro Crocker,2026-10-30T23:27:07,0.0
+n_glps01,Cerro Crocker,2026-10-30T23:32:04,0.0
+n_glps01,Cerro Crocker,2026-10-30T23:37:22,0.0
+n_glps01,Cerro Crocker,2026-10-30T23:47:48,0.0
+n_glps01,Cerro Crocker,2026-10-30T23:52:05,0.0
+n_glps01,Cerro Crocker,2026-10-30T23:57:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:07:42,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:12:18,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:17:14,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:22:05,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:27:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:37:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:42:11,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:47:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T00:52:26,0.2
+n_glps01,Cerro Crocker,2026-10-31T00:57:21,0.2
+n_glps01,Cerro Crocker,2026-10-31T05:32:32,0.2
+n_glps01,Cerro Crocker,2026-10-31T05:37:05,0.4
+n_glps01,Cerro Crocker,2026-10-31T05:42:24,0.0
+n_glps01,Cerro Crocker,2026-10-31T05:47:06,0.2
+n_glps01,Cerro Crocker,2026-10-31T05:52:23,0.0
+n_glps01,Cerro Crocker,2026-10-31T05:57:28,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:02:09,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:07:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:12:04,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:17:27,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:22:09,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:27:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:32:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:37:16,0.2
+n_glps01,Cerro Crocker,2026-10-31T06:42:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:47:10,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:52:23,0.0
+n_glps01,Cerro Crocker,2026-10-31T06:57:05,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:02:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:07:27,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:12:09,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:17:08,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:22:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:27:25,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:32:06,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:37:18,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:42:30,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:47:12,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:52:27,0.0
+n_glps01,Cerro Crocker,2026-10-31T07:57:09,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:02:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:07:20,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:12:27,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:17:09,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:22:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:27:03,0.2
+n_glps01,Cerro Crocker,2026-10-31T08:32:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:37:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:42:11,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:47:31,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:52:13,0.0
+n_glps01,Cerro Crocker,2026-10-31T08:57:25,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:02:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:07:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:12:21,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:17:30,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:22:11,0.2
+n_glps01,Cerro Crocker,2026-10-31T09:27:32,0.2
+n_glps01,Cerro Crocker,2026-10-31T09:32:20,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:37:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:42:06,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:47:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:52:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T09:57:12,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:02:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:07:04,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:12:04,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:17:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:22:30,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:27:14,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:32:08,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:37:21,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:42:31,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:47:21,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:52:20,0.0
+n_glps01,Cerro Crocker,2026-10-31T10:57:12,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:02:25,0.2
+n_glps01,Cerro Crocker,2026-10-31T11:07:31,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:12:26,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:17:08,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:22:21,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:32:28,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:36:26,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:41:07,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:46:20,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:51:33,0.0
+n_glps01,Cerro Crocker,2026-10-31T11:56:14,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:01:27,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:06:02,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:11:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:16:11,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:21:48,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:27:40,0.2
+n_glps01,Cerro Crocker,2026-10-31T12:32:31,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:37:20,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:42:02,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:47:26,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:52:07,0.0
+n_glps01,Cerro Crocker,2026-10-31T12:57:18,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:02:14,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:07:12,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:12:07,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:17:05,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:22:23,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:27:04,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:32:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:37:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:42:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:47:28,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:52:19,0.0
+n_glps01,Cerro Crocker,2026-10-31T13:57:10,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:02:22,0.2
+n_glps01,Cerro Crocker,2026-10-31T14:07:08,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:12:11,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:17:06,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:22:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:27:13,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:32:06,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:37:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:42:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:47:13,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:52:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T14:57:12,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:02:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:07:13,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:12:33,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:17:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:22:08,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:27:23,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:32:25,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:37:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:42:12,0.4
+n_glps01,Cerro Crocker,2026-10-31T15:47:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:52:02,0.0
+n_glps01,Cerro Crocker,2026-10-31T15:57:18,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:02:31,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:07:08,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:12:21,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:17:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:22:04,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:27:11,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:32:23,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:37:05,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:42:18,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:47:07,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:52:20,0.0
+n_glps01,Cerro Crocker,2026-10-31T16:57:32,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:02:14,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:07:27,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:12:09,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:17:21,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:22:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:27:28,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:32:06,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:37:18,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:42:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:47:28,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:52:10,0.0
+n_glps01,Cerro Crocker,2026-10-31T17:57:23,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:02:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:07:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:12:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:17:30,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:22:04,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:27:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:32:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:37:11,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:42:23,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:47:05,0.2
+n_glps01,Cerro Crocker,2026-10-31T18:52:11,0.0
+n_glps01,Cerro Crocker,2026-10-31T18:57:33,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:02:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:07:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:12:12,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:17:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:22:07,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:27:27,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:32:12,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:37:25,0.2
+n_glps01,Cerro Crocker,2026-10-31T19:42:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:47:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:52:29,0.0
+n_glps01,Cerro Crocker,2026-10-31T19:57:11,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:02:24,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:07:05,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:12:27,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:17:23,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:22:10,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:27:21,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:32:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:37:26,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:42:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:47:25,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:52:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T20:57:05,0.2
+n_glps01,Cerro Crocker,2026-10-31T21:02:07,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:07:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:12:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:17:09,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:22:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:27:04,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:32:16,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:37:31,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:42:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:47:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:52:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T21:57:05,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:02:19,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:07:32,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:12:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:17:28,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:22:12,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:27:25,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:32:08,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:41:33,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:46:15,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:51:08,0.0
+n_glps01,Cerro Crocker,2026-10-31T22:56:21,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:01:03,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:06:17,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:11:30,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:16:13,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:21:26,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:26:09,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:31:22,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:36:18,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:41:31,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:46:14,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:51:28,0.0
+n_glps01,Cerro Crocker,2026-10-31T23:56:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:04:30,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:09:11,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:14:23,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:19:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:24:18,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:29:31,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:34:14,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:39:27,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:44:08,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:49:20,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:54:01,0.0
+n_glps05,Los Guayabillos,2026-10-30T00:59:14,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:04:26,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:09:07,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:14:18,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:19:31,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:24:12,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:29:24,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:33:23,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:38:03,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:43:16,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:48:29,0.2
+n_glps05,Los Guayabillos,2026-10-30T01:53:11,0.0
+n_glps05,Los Guayabillos,2026-10-30T01:58:03,0.4
+n_glps05,Los Guayabillos,2026-10-30T02:03:20,1.0
+n_glps05,Los Guayabillos,2026-10-30T02:08:09,0.2
+n_glps05,Los Guayabillos,2026-10-30T02:13:05,0.2
+n_glps05,Los Guayabillos,2026-10-30T02:18:19,0.0
+n_glps05,Los Guayabillos,2026-10-30T02:23:25,0.2
+n_glps05,Los Guayabillos,2026-10-30T02:28:06,0.0
+n_glps05,Los Guayabillos,2026-10-30T02:38:33,0.0
+n_glps05,Los Guayabillos,2026-10-30T02:43:13,0.0
+n_glps05,Los Guayabillos,2026-10-30T02:48:12,0.4
+n_glps05,Los Guayabillos,2026-10-30T02:53:07,0.2
+n_glps05,Los Guayabillos,2026-10-30T02:58:20,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:03:01,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:08:22,0.2
+n_glps05,Los Guayabillos,2026-10-30T03:13:03,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:18:16,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:23:10,0.4
+n_glps05,Los Guayabillos,2026-10-30T03:28:22,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:33:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:38:18,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:43:31,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:48:12,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:53:24,0.0
+n_glps05,Los Guayabillos,2026-10-30T03:58:06,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:03:18,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:08:26,0.2
+n_glps05,Los Guayabillos,2026-10-30T04:13:09,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:18:22,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:23:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:28:17,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:33:28,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:38:10,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:43:16,0.2
+n_glps05,Los Guayabillos,2026-10-30T04:48:30,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:53:12,0.0
+n_glps05,Los Guayabillos,2026-10-30T04:58:25,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:03:06,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:08:18,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:13:31,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:18:22,0.2
+n_glps05,Los Guayabillos,2026-10-30T05:23:24,0.4
+n_glps05,Los Guayabillos,2026-10-30T05:28:06,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:33:19,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:38:01,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:43:14,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:48:26,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:53:08,0.0
+n_glps05,Los Guayabillos,2026-10-30T05:58:20,0.0
+n_glps05,Los Guayabillos,2026-10-30T06:03:21,0.4
+n_glps05,Los Guayabillos,2026-10-30T06:08:21,0.8
+n_glps05,Los Guayabillos,2026-10-30T06:13:13,0.4
+n_glps05,Los Guayabillos,2026-10-30T06:18:15,0.4
+n_glps05,Los Guayabillos,2026-10-30T06:23:18,0.2
+n_glps05,Los Guayabillos,2026-10-30T06:28:29,0.2
+n_glps05,Los Guayabillos,2026-10-30T06:33:23,0.2
+n_glps05,Los Guayabillos,2026-10-30T06:38:17,0.6
+n_glps05,Los Guayabillos,2026-10-30T06:43:22,0.6
+n_glps05,Los Guayabillos,2026-10-30T06:48:24,0.4
+n_glps05,Los Guayabillos,2026-10-30T06:53:08,0.2
+n_glps05,Los Guayabillos,2026-10-30T06:58:20,0.0
+n_glps05,Los Guayabillos,2026-10-30T07:03:32,0.0
+n_glps05,Los Guayabillos,2026-10-30T07:08:25,0.2
+n_glps05,Los Guayabillos,2026-10-30T07:13:07,0.0
+n_glps05,Los Guayabillos,2026-10-30T07:18:19,0.0
+n_glps05,Los Guayabillos,2026-10-30T07:23:32,0.0
+n_glps05,Los Guayabillos,2026-10-30T07:28:26,0.2
+n_glps05,Los Guayabillos,2026-10-30T07:33:08,0.0
+n_glps05,Los Guayabillos,2026-10-30T07:38:13,0.2
+n_glps05,Los Guayabillos,2026-10-30T07:43:09,0.2
+n_glps05,Los Guayabillos,2026-10-30T07:48:21,0.0
+n_glps05,Los Guayabillos,2026-10-30T07:53:02,0.0
+n_glps05,Los Guayabillos,2026-10-30T07:58:14,0.0
+n_glps05,Los Guayabillos,2026-10-30T08:03:15,0.6
+n_glps05,Los Guayabillos,2026-10-30T08:08:19,1.2
+n_glps05,Los Guayabillos,2026-10-30T08:13:16,1.8
+n_glps05,Los Guayabillos,2026-10-30T08:18:10,0.8
+n_glps05,Los Guayabillos,2026-10-30T08:23:29,0.8
+n_glps05,Los Guayabillos,2026-10-30T08:28:23,0.8
+n_glps05,Los Guayabillos,2026-10-30T08:33:23,0.2
+n_glps05,Los Guayabillos,2026-10-30T08:38:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T08:43:13,0.2
+n_glps05,Los Guayabillos,2026-10-30T08:48:25,0.0
+n_glps05,Los Guayabillos,2026-10-30T08:53:08,0.0
+n_glps05,Los Guayabillos,2026-10-30T08:58:21,0.0
+n_glps05,Los Guayabillos,2026-10-30T09:03:03,0.0
+n_glps05,Los Guayabillos,2026-10-30T09:08:16,0.0
+n_glps05,Los Guayabillos,2026-10-30T09:13:19,0.2
+n_glps05,Los Guayabillos,2026-10-30T09:18:25,1.0
+n_glps05,Los Guayabillos,2026-10-30T09:23:05,0.8
+n_glps05,Los Guayabillos,2026-10-30T09:28:13,0.4
+n_glps05,Los Guayabillos,2026-10-30T09:33:25,0.0
+n_glps05,Los Guayabillos,2026-10-30T09:38:06,0.0
+n_glps05,Los Guayabillos,2026-10-30T09:43:19,0.0
+n_glps05,Los Guayabillos,2026-10-30T09:48:02,0.0
+n_glps05,Los Guayabillos,2026-10-30T09:53:14,0.0
+n_glps05,Los Guayabillos,2026-10-30T09:58:27,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:03:05,0.2
+n_glps05,Los Guayabillos,2026-10-30T10:08:22,0.2
+n_glps05,Los Guayabillos,2026-10-30T10:13:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:18:13,0.2
+n_glps05,Los Guayabillos,2026-10-30T10:23:26,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:28:09,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:33:21,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:38:03,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:43:15,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:48:29,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:53:10,0.0
+n_glps05,Los Guayabillos,2026-10-30T10:58:23,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:03:05,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:08:18,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:13:32,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:18:13,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:22:45,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:27:26,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:32:07,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:37:20,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:42:02,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:47:16,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:52:28,0.0
+n_glps05,Los Guayabillos,2026-10-30T11:57:09,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:02:21,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:07:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:12:15,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:17:28,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:22:11,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:27:24,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:32:07,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:37:18,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:42:31,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:47:12,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:52:25,0.0
+n_glps05,Los Guayabillos,2026-10-30T12:57:06,0.0
+n_glps05,Los Guayabillos,2026-10-30T13:02:18,0.0
+n_glps05,Los Guayabillos,2026-10-30T13:07:32,0.0
+n_glps05,Los Guayabillos,2026-10-30T13:12:15,0.0
+n_glps05,Los Guayabillos,2026-10-30T13:17:28,0.0
+n_glps05,Los Guayabillos,2026-10-30T13:22:09,0.0
+n_glps05,Los Guayabillos,2026-10-30T13:27:22,0.0
+n_glps05,Los Guayabillos,2026-10-30T13:32:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T13:37:15,0.2
+n_glps05,Los Guayabillos,2026-10-30T13:42:01,0.4
+n_glps05,Los Guayabillos,2026-10-30T13:47:27,0.6
+n_glps05,Los Guayabillos,2026-10-30T13:52:31,0.6
+n_glps05,Los Guayabillos,2026-10-30T13:57:13,0.0
+n_glps05,Los Guayabillos,2026-10-30T14:02:13,0.2
+n_glps05,Los Guayabillos,2026-10-30T14:07:27,0.0
+n_glps05,Los Guayabillos,2026-10-30T14:12:09,0.0
+n_glps05,Los Guayabillos,2026-10-30T14:17:21,0.0
+n_glps05,Los Guayabillos,2026-10-30T14:22:26,0.2
+n_glps05,Los Guayabillos,2026-10-30T14:27:23,0.2
+n_glps05,Los Guayabillos,2026-10-30T14:32:20,0.2
+n_glps05,Los Guayabillos,2026-10-30T14:37:32,0.0
+n_glps05,Los Guayabillos,2026-10-30T14:42:13,0.0
+n_glps05,Los Guayabillos,2026-10-30T14:47:26,0.0
+n_glps05,Los Guayabillos,2026-10-30T14:51:25,0.0
+n_glps05,Los Guayabillos,2026-10-30T14:56:30,0.4
+n_glps05,Los Guayabillos,2026-10-30T15:01:16,0.2
+n_glps05,Los Guayabillos,2026-10-30T15:06:29,0.0
+n_glps05,Los Guayabillos,2026-10-30T15:11:11,0.0
+n_glps05,Los Guayabillos,2026-10-30T15:16:23,0.0
+n_glps05,Los Guayabillos,2026-10-30T15:21:09,0.4
+n_glps05,Los Guayabillos,2026-10-30T15:26:02,1.6
+n_glps05,Los Guayabillos,2026-10-30T15:31:14,1.2
+n_glps05,Los Guayabillos,2026-10-30T15:36:26,0.4
+n_glps05,Los Guayabillos,2026-10-30T15:41:12,0.8
+n_glps05,Los Guayabillos,2026-10-30T15:46:09,2.0
+n_glps05,Los Guayabillos,2026-10-30T15:51:10,1.0
+n_glps05,Los Guayabillos,2026-10-30T15:56:27,0.2
+n_glps05,Los Guayabillos,2026-10-30T16:01:10,1.2
+n_glps05,Los Guayabillos,2026-10-30T16:06:24,0.8
+n_glps05,Los Guayabillos,2026-10-30T16:11:06,0.0
+n_glps05,Los Guayabillos,2026-10-30T16:16:30,0.2
+n_glps05,Los Guayabillos,2026-10-30T16:21:12,0.0
+n_glps05,Los Guayabillos,2026-10-30T16:26:09,0.2
+n_glps05,Los Guayabillos,2026-10-30T16:31:21,0.0
+n_glps05,Los Guayabillos,2026-10-30T16:36:06,0.2
+n_glps05,Los Guayabillos,2026-10-30T16:41:30,1.0
+n_glps05,Los Guayabillos,2026-10-30T16:46:13,1.0
+n_glps05,Los Guayabillos,2026-10-30T16:51:05,0.2
+n_glps05,Los Guayabillos,2026-10-30T16:56:21,0.4
+n_glps05,Los Guayabillos,2026-10-30T17:01:13,0.2
+n_glps05,Los Guayabillos,2026-10-30T17:06:23,0.6
+n_glps05,Los Guayabillos,2026-10-30T17:11:06,0.0
+n_glps05,Los Guayabillos,2026-10-30T17:16:10,0.2
+n_glps05,Los Guayabillos,2026-10-30T17:21:22,0.0
+n_glps05,Los Guayabillos,2026-10-30T17:26:04,0.0
+n_glps05,Los Guayabillos,2026-10-30T17:31:17,0.0
+n_glps05,Los Guayabillos,2026-10-30T17:36:29,0.0
+n_glps05,Los Guayabillos,2026-10-30T17:41:10,0.0
+n_glps05,Los Guayabillos,2026-10-30T17:46:23,0.0
+n_glps05,Los Guayabillos,2026-10-30T17:51:03,0.0
+n_glps05,Los Guayabillos,2026-10-30T17:56:16,0.0
+n_glps05,Los Guayabillos,2026-10-30T18:01:28,0.0
+n_glps05,Los Guayabillos,2026-10-30T18:06:28,0.2
+n_glps05,Los Guayabillos,2026-10-30T18:11:31,0.2
+n_glps05,Los Guayabillos,2026-10-30T18:16:09,1.2
+n_glps05,Los Guayabillos,2026-10-30T18:21:16,3.6
+n_glps05,Los Guayabillos,2026-10-30T18:26:08,4.6
+n_glps05,Los Guayabillos,2026-10-30T18:31:02,4.4
+n_glps05,Los Guayabillos,2026-10-30T18:36:13,4.8
+n_glps05,Los Guayabillos,2026-10-30T18:41:04,4.6
+n_glps05,Los Guayabillos,2026-10-30T18:46:03,4.2
+n_glps05,Los Guayabillos,2026-10-30T18:51:14,4.0
+n_glps05,Los Guayabillos,2026-10-30T18:56:18,3.2
+n_glps05,Los Guayabillos,2026-10-30T19:01:05,2.4
+n_glps05,Los Guayabillos,2026-10-30T19:06:25,2.0
+n_glps05,Los Guayabillos,2026-10-30T19:11:29,1.4
+n_glps05,Los Guayabillos,2026-10-30T19:16:18,0.2
+n_glps05,Los Guayabillos,2026-10-30T19:21:03,0.8
+n_glps05,Los Guayabillos,2026-10-30T19:26:02,1.6
+n_glps05,Los Guayabillos,2026-10-30T19:31:26,2.2
+n_glps05,Los Guayabillos,2026-10-30T19:36:04,2.0
+n_glps05,Los Guayabillos,2026-10-30T19:41:18,2.4
+n_glps05,Los Guayabillos,2026-10-30T19:46:20,2.2
+n_glps05,Los Guayabillos,2026-10-30T19:51:04,1.2
+n_glps05,Los Guayabillos,2026-10-30T19:56:14,2.8
+n_glps05,Los Guayabillos,2026-10-30T20:01:05,3.6
+n_glps05,Los Guayabillos,2026-10-30T20:06:03,4.2
+n_glps05,Los Guayabillos,2026-10-30T20:11:02,5.0
+n_glps05,Los Guayabillos,2026-10-30T20:16:01,5.6
+n_glps05,Los Guayabillos,2026-10-30T20:21:05,6.2
+n_glps05,Los Guayabillos,2026-10-30T20:26:04,6.4
+n_glps05,Los Guayabillos,2026-10-30T20:31:03,6.4
+n_glps05,Los Guayabillos,2026-10-30T20:36:08,6.4
+n_glps05,Los Guayabillos,2026-10-30T20:46:26,5.2
+n_glps05,Los Guayabillos,2026-10-30T20:51:09,6.0
+n_glps05,Los Guayabillos,2026-10-30T20:56:06,6.0
+n_glps05,Los Guayabillos,2026-10-30T21:01:07,6.0
+n_glps05,Los Guayabillos,2026-10-30T21:11:22,4.4
+n_glps05,Los Guayabillos,2026-10-30T21:16:07,5.4
+n_glps05,Los Guayabillos,2026-10-30T21:21:04,5.2
+n_glps05,Los Guayabillos,2026-10-30T21:25:27,4.6
+n_glps05,Los Guayabillos,2026-10-31T18:45:13,0.0
+n_glps05,Los Guayabillos,2026-10-31T18:50:26,0.0
+n_glps05,Los Guayabillos,2026-10-31T18:55:08,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:00:21,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:05:03,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:10:16,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:15:29,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:20:11,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:25:23,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:30:06,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:35:18,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:40:32,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:45:14,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:50:28,0.0
+n_glps05,Los Guayabillos,2026-10-31T19:55:10,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:00:23,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:05:04,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:10:17,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:15:30,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:20:12,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:25:25,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:30:07,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:35:21,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:40:04,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:45:17,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:50:30,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:55:13,0.0
+n_glps05,Los Guayabillos,2026-10-31T20:59:44,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:04:25,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:09:06,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:14:19,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:19:32,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:24:14,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:29:27,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:34:09,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:39:21,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:44:04,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:49:17,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:54:30,0.0
+n_glps05,Los Guayabillos,2026-10-31T21:59:12,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:03:43,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:08:24,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:13:06,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:18:20,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:23:32,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:28:14,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:33:27,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:38:09,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:43:23,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:48:05,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:53:17,0.0
+n_glps05,Los Guayabillos,2026-10-31T22:58:29,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:03:11,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:08:23,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:13:06,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:18:19,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:23:32,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:28:13,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:33:26,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:38:09,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:43:24,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:48:05,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:53:18,0.0
+n_glps05,Los Guayabillos,2026-10-31T23:58:30,0.0
+n_glps06,Militar,2026-10-30T00:01:04,0.0
+n_glps06,Militar,2026-10-30T00:06:15,0.0
+n_glps06,Militar,2026-10-30T00:11:27,0.0
+n_glps06,Militar,2026-10-30T00:16:08,0.0
+n_glps06,Militar,2026-10-30T00:21:19,0.0
+n_glps06,Militar,2026-10-30T00:26:32,0.0
+n_glps06,Militar,2026-10-30T00:31:13,0.0
+n_glps06,Militar,2026-10-30T00:36:25,0.0
+n_glps06,Militar,2026-10-30T00:41:06,0.0
+n_glps06,Militar,2026-10-30T00:46:19,0.0
+n_glps06,Militar,2026-10-30T00:51:32,0.0
+n_glps06,Militar,2026-10-30T00:56:13,0.0
+n_glps06,Militar,2026-10-30T01:01:25,0.0
+n_glps06,Militar,2026-10-30T01:06:07,0.0
+n_glps06,Militar,2026-10-30T01:10:36,0.0
+n_glps06,Militar,2026-10-30T01:15:16,0.0
+n_glps06,Militar,2026-10-30T01:20:29,0.0
+n_glps06,Militar,2026-10-30T01:25:10,0.0
+n_glps06,Militar,2026-10-30T01:30:23,0.0
+n_glps06,Militar,2026-10-30T01:34:20,0.0
+n_glps06,Militar,2026-10-30T01:39:31,0.0
+n_glps06,Militar,2026-10-30T01:44:13,0.0
+n_glps06,Militar,2026-10-30T01:49:25,0.0
+n_glps06,Militar,2026-10-30T01:54:07,0.0
+n_glps06,Militar,2026-10-30T01:59:19,0.0
+n_glps06,Militar,2026-10-30T02:04:31,0.0
+n_glps06,Militar,2026-10-30T02:09:13,0.0
+n_glps06,Militar,2026-10-30T02:14:24,0.0
+n_glps06,Militar,2026-10-30T02:19:06,0.0
+n_glps06,Militar,2026-10-30T02:24:17,0.0
+n_glps06,Militar,2026-10-30T02:29:29,0.0
+n_glps06,Militar,2026-10-30T02:34:10,0.0
+n_glps06,Militar,2026-10-30T02:39:22,0.0
+n_glps06,Militar,2026-10-30T02:44:03,0.0
+n_glps06,Militar,2026-10-30T02:49:15,0.0
+n_glps06,Militar,2026-10-30T02:54:28,0.0
+n_glps06,Militar,2026-10-30T02:59:10,0.0
+n_glps06,Militar,2026-10-30T03:04:23,0.0
+n_glps06,Militar,2026-10-30T03:09:04,0.0
+n_glps06,Militar,2026-10-30T03:14:18,0.0
+n_glps06,Militar,2026-10-30T03:19:30,0.0
+n_glps06,Militar,2026-10-30T03:24:12,0.0
+n_glps06,Militar,2026-10-30T03:29:24,0.0
+n_glps06,Militar,2026-10-30T03:34:06,0.0
+n_glps06,Militar,2026-10-30T03:39:18,0.0
+n_glps06,Militar,2026-10-30T03:44:29,0.0
+n_glps06,Militar,2026-10-30T03:49:11,0.0
+n_glps06,Militar,2026-10-30T03:54:23,0.0
+n_glps06,Militar,2026-10-30T03:59:04,0.0
+n_glps06,Militar,2026-10-30T04:04:16,0.0
+n_glps06,Militar,2026-10-30T04:09:27,0.0
+n_glps06,Militar,2026-10-30T04:14:09,0.0
+n_glps06,Militar,2026-10-30T04:19:22,0.0
+n_glps06,Militar,2026-10-30T04:24:03,0.0
+n_glps06,Militar,2026-10-30T04:29:15,0.0
+n_glps06,Militar,2026-10-30T04:34:26,0.0
+n_glps06,Militar,2026-10-30T04:39:08,0.0
+n_glps06,Militar,2026-10-30T04:44:20,0.0
+n_glps06,Militar,2026-10-30T04:49:01,0.0
+n_glps06,Militar,2026-10-30T04:54:14,0.0
+n_glps06,Militar,2026-10-30T04:59:25,0.0
+n_glps06,Militar,2026-10-30T05:04:07,0.0
+n_glps06,Militar,2026-10-30T05:09:19,0.0
+n_glps06,Militar,2026-10-30T05:14:31,0.0
+n_glps06,Militar,2026-10-30T05:19:13,0.0
+n_glps06,Militar,2026-10-30T05:24:25,0.0
+n_glps06,Militar,2026-10-30T05:29:06,0.0
+n_glps06,Militar,2026-10-30T05:34:18,0.0
+n_glps06,Militar,2026-10-30T05:39:30,0.0
+n_glps06,Militar,2026-10-30T05:44:11,0.0
+n_glps06,Militar,2026-10-30T05:49:22,0.0
+n_glps06,Militar,2026-10-30T05:54:04,0.0
+n_glps06,Militar,2026-10-30T05:59:16,0.0
+n_glps06,Militar,2026-10-30T06:04:27,0.0
+n_glps06,Militar,2026-10-30T06:09:08,0.0
+n_glps06,Militar,2026-10-30T06:14:20,0.0
+n_glps06,Militar,2026-10-30T06:19:32,0.0
+n_glps06,Militar,2026-10-30T06:24:14,0.0
+n_glps06,Militar,2026-10-30T06:29:25,0.0
+n_glps06,Militar,2026-10-30T06:34:07,0.0
+n_glps06,Militar,2026-10-30T06:39:19,0.0
+n_glps06,Militar,2026-10-30T06:44:31,0.0
+n_glps06,Militar,2026-10-30T06:49:12,0.0
+n_glps06,Militar,2026-10-30T06:54:23,0.0
+n_glps06,Militar,2026-10-30T06:59:04,0.0
+n_glps06,Militar,2026-10-30T07:04:16,0.0
+n_glps06,Militar,2026-10-30T07:09:28,0.0
+n_glps06,Militar,2026-10-30T07:14:09,0.0
+n_glps06,Militar,2026-10-30T07:19:21,0.0
+n_glps06,Militar,2026-10-30T07:24:02,0.0
+n_glps06,Militar,2026-10-30T07:29:14,0.0
+n_glps06,Militar,2026-10-30T07:34:26,0.0
+n_glps06,Militar,2026-10-30T07:39:09,0.0
+n_glps06,Militar,2026-10-30T07:44:21,0.0
+n_glps06,Militar,2026-10-30T07:49:02,0.0
+n_glps06,Militar,2026-10-30T07:54:15,0.0
+n_glps06,Militar,2026-10-30T07:59:26,0.0
+n_glps06,Militar,2026-10-30T08:04:07,0.0
+n_glps06,Militar,2026-10-30T08:09:13,0.0
+n_glps06,Militar,2026-10-30T08:14:14,0.0
+n_glps06,Militar,2026-10-30T08:19:26,0.0
+n_glps06,Militar,2026-10-30T08:24:07,0.0
+n_glps06,Militar,2026-10-30T08:29:18,0.0
+n_glps06,Militar,2026-10-30T08:34:31,0.0
+n_glps06,Militar,2026-10-30T08:39:12,0.0
+n_glps06,Militar,2026-10-30T08:44:24,0.0
+n_glps06,Militar,2026-10-30T08:49:06,0.0
+n_glps06,Militar,2026-10-30T08:54:18,0.0
+n_glps06,Militar,2026-10-30T08:59:31,0.0
+n_glps06,Militar,2026-10-30T09:04:13,0.0
+n_glps06,Militar,2026-10-30T09:09:25,0.0
+n_glps06,Militar,2026-10-30T09:14:07,0.0
+n_glps06,Militar,2026-10-30T09:19:19,0.0
+n_glps06,Militar,2026-10-30T09:24:32,0.0
+n_glps06,Militar,2026-10-30T09:29:13,0.0
+n_glps06,Militar,2026-10-30T09:34:25,0.0
+n_glps06,Militar,2026-10-30T09:39:06,0.0
+n_glps06,Militar,2026-10-30T09:44:18,0.0
+n_glps06,Militar,2026-10-30T09:49:31,0.0
+n_glps06,Militar,2026-10-30T09:54:11,0.0
+n_glps06,Militar,2026-10-30T09:59:24,0.0
+n_glps06,Militar,2026-10-30T10:04:06,0.0
+n_glps06,Militar,2026-10-30T10:09:17,0.0
+n_glps06,Militar,2026-10-30T10:14:29,0.0
+n_glps06,Militar,2026-10-30T10:19:10,0.0
+n_glps06,Militar,2026-10-30T10:24:22,0.0
+n_glps06,Militar,2026-10-30T10:29:03,0.0
+n_glps06,Militar,2026-10-30T10:34:14,0.0
+n_glps06,Militar,2026-10-30T10:39:27,0.0
+n_glps06,Militar,2026-10-30T10:44:07,0.0
+n_glps06,Militar,2026-10-30T10:49:20,0.0
+n_glps06,Militar,2026-10-30T10:54:01,0.0
+n_glps06,Militar,2026-10-30T10:59:14,0.0
+n_glps06,Militar,2026-10-30T11:04:26,0.0
+n_glps06,Militar,2026-10-30T11:09:07,0.0
+n_glps06,Militar,2026-10-30T11:14:20,0.0
+n_glps06,Militar,2026-10-30T11:19:16,0.0
+n_glps06,Militar,2026-10-30T11:24:14,0.0
+n_glps06,Militar,2026-10-30T11:29:22,0.0
+n_glps06,Militar,2026-10-30T11:34:05,0.0
+n_glps06,Militar,2026-10-30T11:39:30,0.0
+n_glps06,Militar,2026-10-30T11:44:13,0.0
+n_glps06,Militar,2026-10-30T11:49:07,0.0
+n_glps06,Militar,2026-10-30T11:54:06,0.0
+n_glps06,Militar,2026-10-30T11:59:23,0.0
+n_glps06,Militar,2026-10-30T12:04:05,0.0
+n_glps06,Militar,2026-10-30T12:09:17,0.0
+n_glps06,Militar,2026-10-30T12:14:31,0.0
+n_glps06,Militar,2026-10-30T12:19:13,0.0
+n_glps06,Militar,2026-10-30T12:24:24,0.0
+n_glps06,Militar,2026-10-30T12:29:06,0.0
+n_glps06,Militar,2026-10-30T12:34:15,0.0
+n_glps06,Militar,2026-10-30T12:39:01,0.0
+n_glps06,Militar,2026-10-30T12:44:13,0.0
+n_glps06,Militar,2026-10-30T12:49:13,0.0
+n_glps06,Militar,2026-10-30T12:54:05,0.0
+n_glps06,Militar,2026-10-30T12:59:24,0.0
+n_glps06,Militar,2026-10-30T13:04:06,0.0
+n_glps06,Militar,2026-10-30T13:09:19,0.0
+n_glps06,Militar,2026-10-30T13:14:31,0.0
+n_glps06,Militar,2026-10-30T13:19:12,0.0
+n_glps06,Militar,2026-10-30T13:24:26,0.0
+n_glps06,Militar,2026-10-30T13:29:07,0.0
+n_glps06,Militar,2026-10-30T13:34:20,0.0
+n_glps06,Militar,2026-10-30T13:39:02,0.0
+n_glps06,Militar,2026-10-30T13:44:14,0.0
+n_glps06,Militar,2026-10-30T13:49:28,0.0
+n_glps06,Militar,2026-10-30T13:54:08,0.0
+n_glps06,Militar,2026-10-30T13:59:22,0.0
+n_glps06,Militar,2026-10-30T14:04:04,0.0
+n_glps06,Militar,2026-10-30T14:09:16,0.0
+n_glps06,Militar,2026-10-30T14:14:29,0.0
+n_glps06,Militar,2026-10-30T14:19:12,0.0
+n_glps06,Militar,2026-10-30T14:24:25,0.0
+n_glps06,Militar,2026-10-30T14:29:07,0.0
+n_glps06,Militar,2026-10-30T14:34:20,0.0
+n_glps06,Militar,2026-10-30T14:39:09,0.2
+n_glps06,Militar,2026-10-30T14:44:21,0.2
+n_glps06,Militar,2026-10-30T14:49:03,0.2
+n_glps06,Militar,2026-10-30T14:54:22,0.2
+n_glps06,Militar,2026-10-30T14:59:04,0.0
+n_glps06,Militar,2026-10-30T15:04:16,0.0
+n_glps06,Militar,2026-10-30T15:09:29,0.0
+n_glps06,Militar,2026-10-30T15:14:11,0.0
+n_glps06,Militar,2026-10-30T15:19:23,0.0
+n_glps06,Militar,2026-10-30T15:24:05,0.0
+n_glps06,Militar,2026-10-30T15:29:17,0.0
+n_glps06,Militar,2026-10-30T15:34:31,0.0
+n_glps06,Militar,2026-10-30T15:39:13,0.0
+n_glps06,Militar,2026-10-30T15:44:26,0.0
+n_glps06,Militar,2026-10-30T15:49:08,0.0
+n_glps06,Militar,2026-10-30T15:54:20,0.0
+n_glps06,Militar,2026-10-30T15:59:02,0.0
+n_glps06,Militar,2026-10-30T16:04:14,0.0
+n_glps06,Militar,2026-10-30T16:09:27,0.0
+n_glps06,Militar,2026-10-30T16:14:08,0.0
+n_glps06,Militar,2026-10-30T16:19:20,0.0
+n_glps06,Militar,2026-10-30T16:24:02,0.0
+n_glps06,Militar,2026-10-30T16:29:14,0.0
+n_glps06,Militar,2026-10-30T16:34:27,0.0
+n_glps06,Militar,2026-10-30T16:39:09,0.0
+n_glps06,Militar,2026-10-30T16:44:24,0.0
+n_glps06,Militar,2026-10-30T16:49:06,0.0
+n_glps06,Militar,2026-10-30T16:54:18,0.0
+n_glps06,Militar,2026-10-30T16:59:29,0.0
+n_glps06,Militar,2026-10-30T17:04:11,0.0
+n_glps06,Militar,2026-10-30T17:09:22,0.0
+n_glps06,Militar,2026-10-30T17:14:04,0.0
+n_glps06,Militar,2026-10-30T17:19:16,0.0
+n_glps06,Militar,2026-10-30T17:24:28,0.0
+n_glps06,Militar,2026-10-30T17:29:10,0.0
+n_glps06,Militar,2026-10-30T17:34:21,0.0
+n_glps06,Militar,2026-10-30T17:39:02,0.0
+n_glps06,Militar,2026-10-30T17:44:14,0.0
+n_glps06,Militar,2026-10-30T17:54:27,0.0
+n_glps06,Militar,2026-10-30T17:59:07,0.0
+n_glps06,Militar,2026-10-30T18:04:19,0.0
+n_glps06,Militar,2026-10-30T18:09:01,0.0
+n_glps06,Militar,2026-10-30T18:14:14,0.0
+n_glps06,Militar,2026-10-30T18:19:26,0.0
+n_glps06,Militar,2026-10-30T18:24:07,0.0
+n_glps06,Militar,2026-10-30T18:29:20,0.0
+n_glps06,Militar,2026-10-30T18:34:01,0.0
+n_glps06,Militar,2026-10-30T18:39:13,0.0
+n_glps06,Militar,2026-10-30T18:44:25,0.0
+n_glps06,Militar,2026-10-30T18:49:06,0.0
+n_glps06,Militar,2026-10-30T18:54:19,0.0
+n_glps06,Militar,2026-10-30T18:59:30,0.0
+n_glps06,Militar,2026-10-30T19:04:21,0.0
+n_glps06,Militar,2026-10-30T19:09:24,0.2
+n_glps06,Militar,2026-10-30T19:14:15,0.0
+n_glps06,Militar,2026-10-30T19:19:04,0.0
+n_glps06,Militar,2026-10-30T19:24:23,0.0
+n_glps06,Militar,2026-10-30T19:29:06,0.0
+n_glps06,Militar,2026-10-30T19:34:17,0.0
+n_glps06,Militar,2026-10-30T19:39:07,0.0
+n_glps06,Militar,2026-10-30T19:44:02,0.0
+n_glps06,Militar,2026-10-30T19:49:10,0.0
+n_glps06,Militar,2026-10-30T19:54:03,0.2
+n_glps06,Militar,2026-10-30T19:59:24,0.0
+n_glps06,Militar,2026-10-30T20:04:21,0.0
+n_glps06,Militar,2026-10-30T20:09:02,0.0
+n_glps06,Militar,2026-10-30T20:14:16,0.0
+n_glps06,Militar,2026-10-30T20:19:19,0.0
+n_glps06,Militar,2026-10-30T20:24:09,0.2
+n_glps06,Militar,2026-10-30T20:29:11,0.0
+n_glps06,Militar,2026-10-30T20:34:22,0.0
+n_glps06,Militar,2026-10-30T20:39:03,0.0
+n_glps06,Militar,2026-10-30T20:44:27,0.0
+n_glps06,Militar,2026-10-30T20:49:16,0.0
+n_glps06,Militar,2026-10-30T20:54:11,0.0
+n_glps06,Militar,2026-10-30T20:59:02,0.0
+n_glps06,Militar,2026-10-30T21:04:11,0.0
+n_glps06,Militar,2026-10-30T21:09:08,0.0
+n_glps06,Militar,2026-10-30T21:14:08,0.0
+n_glps06,Militar,2026-10-30T21:19:24,0.0
+n_glps06,Militar,2026-10-30T21:24:28,0.0
+n_glps06,Militar,2026-10-30T21:29:17,0.0
+n_glps06,Militar,2026-10-30T21:34:25,0.0
+n_glps06,Militar,2026-10-30T21:39:26,0.0
+n_glps06,Militar,2026-10-30T21:44:17,0.0
+n_glps06,Militar,2026-10-30T21:49:03,0.0
+n_glps06,Militar,2026-10-30T21:54:23,0.0
+n_glps06,Militar,2026-10-30T21:59:23,0.0
+n_glps06,Militar,2026-10-30T22:04:18,0.0
+n_glps06,Militar,2026-10-30T22:09:30,0.0
+n_glps06,Militar,2026-10-30T22:14:11,0.2
+n_glps06,Militar,2026-10-30T22:19:10,0.0
+n_glps06,Militar,2026-10-30T22:24:21,0.0
+n_glps06,Militar,2026-10-30T22:29:06,0.0
+n_glps06,Militar,2026-10-30T22:34:30,0.2
+n_glps06,Militar,2026-10-30T22:39:12,0.0
+n_glps06,Militar,2026-10-30T22:44:11,0.0
+n_glps06,Militar,2026-10-30T22:49:03,0.0
+n_glps06,Militar,2026-10-30T22:54:18,0.0
+n_glps06,Militar,2026-10-30T22:58:49,0.0
+n_glps06,Militar,2026-10-30T23:02:47,0.0
+n_glps06,Militar,2026-10-30T23:07:27,0.0
+n_glps06,Militar,2026-10-30T23:12:09,0.0
+n_glps06,Militar,2026-10-30T23:17:23,0.0
+n_glps06,Militar,2026-10-30T23:22:04,0.0
+n_glps06,Militar,2026-10-30T23:27:18,0.0
+n_glps06,Militar,2026-10-30T23:32:31,0.2
+n_glps06,Militar,2026-10-30T23:37:12,0.0
+n_glps06,Militar,2026-10-30T23:42:24,0.0
+n_glps06,Militar,2026-10-30T23:47:04,0.0
+n_glps06,Militar,2026-10-30T23:52:16,0.0
+n_glps06,Militar,2026-10-30T23:57:29,0.0
+n_glps06,Militar,2026-10-31T00:02:11,0.0
+n_glps06,Militar,2026-10-31T00:07:25,0.0
+n_glps06,Militar,2026-10-31T00:12:07,0.0
+n_glps06,Militar,2026-10-31T00:17:21,0.0
+n_glps06,Militar,2026-10-31T00:22:02,0.0
+n_glps06,Militar,2026-10-31T00:27:15,0.4
+n_glps06,Militar,2026-10-31T00:32:29,0.0
+n_glps06,Militar,2026-10-31T00:37:10,0.0
+n_glps06,Militar,2026-10-31T00:42:23,0.0
+n_glps06,Militar,2026-10-31T00:47:05,0.0
+n_glps06,Militar,2026-10-31T00:52:18,0.0
+n_glps06,Militar,2026-10-31T00:57:31,0.0
+n_glps06,Militar,2026-10-31T01:02:13,0.0
+n_glps06,Militar,2026-10-31T01:07:26,0.0
+n_glps06,Militar,2026-10-31T01:12:08,0.0
+n_glps06,Militar,2026-10-31T01:17:21,0.0
+n_glps06,Militar,2026-10-31T01:22:03,0.0
+n_glps06,Militar,2026-10-31T01:27:16,0.0
+n_glps06,Militar,2026-10-31T01:32:30,0.0
+n_glps06,Militar,2026-10-31T01:37:12,0.0
+n_glps06,Militar,2026-10-31T01:42:24,0.0
+n_glps06,Militar,2026-10-31T01:47:07,0.0
+n_glps06,Militar,2026-10-31T01:52:20,0.0
+n_glps06,Militar,2026-10-31T01:57:03,0.0
+n_glps06,Militar,2026-10-31T02:02:17,0.0
+n_glps06,Militar,2026-10-31T02:07:29,0.0
+n_glps06,Militar,2026-10-31T02:12:12,0.0
+n_glps06,Militar,2026-10-31T02:17:24,0.0
+n_glps06,Militar,2026-10-31T02:22:07,0.0
+n_glps06,Militar,2026-10-31T02:27:20,0.0
+n_glps06,Militar,2026-10-31T02:32:02,0.0
+n_glps06,Militar,2026-10-31T02:37:14,0.0
+n_glps06,Militar,2026-10-31T02:42:27,0.0
+n_glps06,Militar,2026-10-31T02:47:09,0.0
+n_glps06,Militar,2026-10-31T02:52:25,0.0
+n_glps06,Militar,2026-10-31T02:57:06,0.0
+n_glps06,Militar,2026-10-31T03:02:19,0.0
+n_glps06,Militar,2026-10-31T03:07:32,0.0
+n_glps06,Militar,2026-10-31T03:12:14,0.0
+n_glps06,Militar,2026-10-31T03:17:10,0.0
+n_glps06,Militar,2026-10-31T03:22:22,0.0
+n_glps06,Militar,2026-10-31T03:27:03,0.0
+n_glps06,Militar,2026-10-31T03:32:16,0.0
+n_glps06,Militar,2026-10-31T03:37:29,0.0
+n_glps06,Militar,2026-10-31T03:42:12,0.0
+n_glps06,Militar,2026-10-31T03:47:25,0.0
+n_glps06,Militar,2026-10-31T03:52:06,0.0
+n_glps06,Militar,2026-10-31T03:57:18,0.0
+n_glps06,Militar,2026-10-31T04:02:30,0.0
+n_glps06,Militar,2026-10-31T04:07:12,0.0
+n_glps06,Militar,2026-10-31T04:12:25,0.0
+n_glps06,Militar,2026-10-31T04:17:06,0.0
+n_glps06,Militar,2026-10-31T04:22:19,0.0
+n_glps06,Militar,2026-10-31T04:27:30,0.0
+n_glps06,Militar,2026-10-31T04:32:12,0.0
+n_glps06,Militar,2026-10-31T04:37:25,0.0
+n_glps06,Militar,2026-10-31T04:42:06,0.0
+n_glps06,Militar,2026-10-31T04:47:18,0.0
+n_glps06,Militar,2026-10-31T04:52:30,0.0
+n_glps06,Militar,2026-10-31T04:57:13,0.0
+n_glps06,Militar,2026-10-31T05:02:27,0.0
+n_glps06,Militar,2026-10-31T05:07:08,0.0
+n_glps06,Militar,2026-10-31T05:12:22,0.0
+n_glps06,Militar,2026-10-31T05:17:03,0.0
+n_glps06,Militar,2026-10-31T05:22:15,0.0
+n_glps06,Militar,2026-10-31T05:27:28,0.0
+n_glps06,Militar,2026-10-31T05:32:10,0.0
+n_glps06,Militar,2026-10-31T05:37:23,0.0
+n_glps06,Militar,2026-10-31T05:42:04,0.0
+n_glps06,Militar,2026-10-31T05:47:16,0.0
+n_glps06,Militar,2026-10-31T05:52:30,0.0
+n_glps06,Militar,2026-10-31T05:57:10,0.0
+n_glps06,Militar,2026-10-31T06:02:28,0.0
+n_glps06,Militar,2026-10-31T06:07:10,0.0
+n_glps06,Militar,2026-10-31T06:12:22,0.0
+n_glps06,Militar,2026-10-31T06:17:04,0.0
+n_glps06,Militar,2026-10-31T06:22:17,0.0
+n_glps06,Militar,2026-10-31T06:27:28,0.0
+n_glps06,Militar,2026-10-31T06:32:10,0.0
+n_glps06,Militar,2026-10-31T06:37:21,0.0
+n_glps06,Militar,2026-10-31T06:42:03,0.0
+n_glps06,Militar,2026-10-31T06:47:16,0.0
+n_glps06,Militar,2026-10-31T06:52:28,0.0
+n_glps06,Militar,2026-10-31T06:57:11,0.0
+n_glps06,Militar,2026-10-31T07:02:24,0.0
+n_glps06,Militar,2026-10-31T07:07:07,0.0
+n_glps06,Militar,2026-10-31T07:12:21,0.0
+n_glps06,Militar,2026-10-31T07:17:02,0.0
+n_glps06,Militar,2026-10-31T07:22:16,0.0
+n_glps06,Militar,2026-10-31T07:27:29,0.0
+n_glps06,Militar,2026-10-31T07:32:10,0.0
+n_glps06,Militar,2026-10-31T07:37:23,0.0
+n_glps06,Militar,2026-10-31T07:42:04,0.0
+n_glps06,Militar,2026-10-31T07:47:16,0.0
+n_glps06,Militar,2026-10-31T07:52:27,0.0
+n_glps06,Militar,2026-10-31T07:57:08,0.0
+n_glps06,Militar,2026-10-31T08:02:21,0.0
+n_glps06,Militar,2026-10-31T08:07:03,0.0
+n_glps06,Militar,2026-10-31T08:12:16,0.0
+n_glps06,Militar,2026-10-31T08:17:28,0.0
+n_glps06,Militar,2026-10-31T08:22:09,0.0
+n_glps06,Militar,2026-10-31T08:27:21,0.0
+n_glps06,Militar,2026-10-31T08:32:02,0.0
+n_glps06,Militar,2026-10-31T08:37:15,0.0
+n_glps06,Militar,2026-10-31T08:42:29,0.0
+n_glps06,Militar,2026-10-31T08:47:09,0.0
+n_glps06,Militar,2026-10-31T08:52:21,0.0
+n_glps06,Militar,2026-10-31T08:57:02,0.0
+n_glps06,Militar,2026-10-31T09:02:14,0.0
+n_glps06,Militar,2026-10-31T09:07:26,0.0
+n_glps06,Militar,2026-10-31T09:12:08,0.0
+n_glps06,Militar,2026-10-31T09:17:20,0.0
+n_glps06,Militar,2026-10-31T09:22:01,0.0
+n_glps06,Militar,2026-10-31T09:27:13,0.0
+n_glps06,Militar,2026-10-31T09:32:02,0.0
+n_glps06,Militar,2026-10-31T09:37:14,0.0
+n_glps06,Militar,2026-10-31T09:42:26,0.0
+n_glps06,Militar,2026-10-31T09:47:06,0.0
+n_glps06,Militar,2026-10-31T09:52:18,0.0
+n_glps06,Militar,2026-10-31T09:57:31,0.0
+n_glps06,Militar,2026-10-31T10:02:12,0.0
+n_glps06,Militar,2026-10-31T10:07:24,0.0
+n_glps06,Militar,2026-10-31T10:12:07,0.0
+n_glps06,Militar,2026-10-31T10:17:20,0.0
+n_glps06,Militar,2026-10-31T10:21:20,0.0
+n_glps06,Militar,2026-10-31T10:26:31,0.0
+n_glps06,Militar,2026-10-31T10:31:12,0.0
+n_glps06,Militar,2026-10-31T10:36:25,0.0
+n_glps06,Militar,2026-10-31T10:41:06,0.0
+n_glps06,Militar,2026-10-31T10:46:18,0.0
+n_glps06,Militar,2026-10-31T10:51:31,0.0
+n_glps06,Militar,2026-10-31T10:56:11,0.0
+n_glps06,Militar,2026-10-31T11:01:23,0.0
+n_glps06,Militar,2026-10-31T11:06:05,0.0
+n_glps06,Militar,2026-10-31T11:11:17,0.0
+n_glps06,Militar,2026-10-31T11:16:29,0.0
+n_glps06,Militar,2026-10-31T11:21:11,0.0
+n_glps06,Militar,2026-10-31T11:26:24,0.0
+n_glps06,Militar,2026-10-31T11:31:06,0.0
+n_glps06,Militar,2026-10-31T11:36:17,0.0
+n_glps06,Militar,2026-10-31T11:41:30,0.0
+n_glps06,Militar,2026-10-31T11:46:10,0.0
+n_glps06,Militar,2026-10-31T11:51:22,0.0
+n_glps06,Militar,2026-10-31T11:56:02,0.0
+n_glps06,Militar,2026-10-31T12:01:14,0.0
+n_glps06,Militar,2026-10-31T12:06:26,0.0
+n_glps06,Militar,2026-10-31T12:11:06,0.0
+n_glps06,Militar,2026-10-31T12:16:18,0.0
+n_glps06,Militar,2026-10-31T12:21:30,0.0
+n_glps06,Militar,2026-10-31T12:26:11,0.0
+n_glps06,Militar,2026-10-31T12:31:22,0.0
+n_glps06,Militar,2026-10-31T12:36:04,0.0
+n_glps06,Militar,2026-10-31T12:41:16,0.0
+n_glps06,Militar,2026-10-31T12:46:28,0.0
+n_glps06,Militar,2026-10-31T12:51:10,0.0
+n_glps06,Militar,2026-10-31T12:56:22,0.0
+n_glps06,Militar,2026-10-31T13:01:04,0.0
+n_glps06,Militar,2026-10-31T13:06:15,0.0
+n_glps06,Militar,2026-10-31T13:11:28,0.0
+n_glps06,Militar,2026-10-31T13:16:08,0.0
+n_glps06,Militar,2026-10-31T13:21:20,0.0
+n_glps06,Militar,2026-10-31T13:26:32,0.0
+n_glps06,Militar,2026-10-31T13:31:12,0.0
+n_glps06,Militar,2026-10-31T13:36:24,0.0
+n_glps06,Militar,2026-10-31T13:41:05,0.0
+n_glps06,Militar,2026-10-31T13:46:07,0.0
+n_glps06,Militar,2026-10-31T13:51:23,0.0
+n_glps06,Militar,2026-10-31T13:56:09,0.0
+n_glps06,Militar,2026-10-31T14:01:11,0.0
+n_glps06,Militar,2026-10-31T14:06:26,0.0
+n_glps06,Militar,2026-10-31T14:11:03,0.0
+n_glps06,Militar,2026-10-31T14:16:16,0.0
+n_glps06,Militar,2026-10-31T14:21:15,0.0
+n_glps06,Militar,2026-10-31T14:26:27,0.0
+n_glps06,Militar,2026-10-31T14:31:08,0.0
+n_glps06,Militar,2026-10-31T14:36:20,0.0
+n_glps06,Militar,2026-10-31T14:41:01,0.0
+n_glps06,Militar,2026-10-31T14:46:14,0.0
+n_glps06,Militar,2026-10-31T14:51:28,0.0
+n_glps06,Militar,2026-10-31T14:56:08,0.0
+n_glps06,Militar,2026-10-31T15:01:03,0.0
+n_glps06,Militar,2026-10-31T15:06:28,0.0
+n_glps06,Militar,2026-10-31T15:11:23,0.0
+n_glps06,Militar,2026-10-31T15:16:17,0.0
+n_glps06,Militar,2026-10-31T15:21:02,0.0
+n_glps06,Militar,2026-10-31T15:26:25,0.2
+n_glps06,Militar,2026-10-31T15:31:21,0.0
+n_glps06,Militar,2026-10-31T15:36:12,0.0
+n_glps06,Militar,2026-10-31T15:41:29,0.2
+n_glps06,Militar,2026-10-31T15:46:10,0.0
+n_glps06,Militar,2026-10-31T15:51:20,0.0
+n_glps06,Militar,2026-10-31T15:56:32,0.0
+n_glps06,Militar,2026-10-31T16:01:12,0.0
+n_glps06,Militar,2026-10-31T16:06:25,0.0
+n_glps06,Militar,2026-10-31T16:11:08,0.0
+n_glps06,Militar,2026-10-31T16:16:19,0.0
+n_glps06,Militar,2026-10-31T16:21:31,0.0
+n_glps06,Militar,2026-10-31T16:26:13,0.0
+n_glps06,Militar,2026-10-31T16:31:25,0.0
+n_glps06,Militar,2026-10-31T16:36:07,0.0
+n_glps06,Militar,2026-10-31T16:41:19,0.0
+n_glps06,Militar,2026-10-31T16:46:32,0.0
+n_glps06,Militar,2026-10-31T16:51:13,0.0
+n_glps06,Militar,2026-10-31T16:56:26,0.0
+n_glps06,Militar,2026-10-31T17:01:08,0.0
+n_glps06,Militar,2026-10-31T17:06:21,0.0
+n_glps06,Militar,2026-10-31T17:11:02,0.0
+n_glps06,Militar,2026-10-31T17:16:15,0.0
+n_glps06,Militar,2026-10-31T17:21:27,0.0
+n_glps06,Militar,2026-10-31T17:26:08,0.0
+n_glps06,Militar,2026-10-31T17:31:20,0.0
+n_glps06,Militar,2026-10-31T17:36:02,0.0
+n_glps06,Militar,2026-10-31T17:41:15,0.0
+n_glps06,Militar,2026-10-31T17:46:26,0.0
+n_glps06,Militar,2026-10-31T17:51:08,0.0
+n_glps06,Militar,2026-10-31T17:56:19,0.0
+n_glps06,Militar,2026-10-31T18:01:31,0.0
+n_glps06,Militar,2026-10-31T18:06:12,0.0
+n_glps06,Militar,2026-10-31T18:11:26,0.0
+n_glps06,Militar,2026-10-31T18:16:07,0.0
+n_glps06,Militar,2026-10-31T18:21:19,0.0
+n_glps06,Militar,2026-10-31T18:26:31,0.0
+n_glps06,Militar,2026-10-31T18:31:12,0.0
+n_glps06,Militar,2026-10-31T18:36:24,0.0
+n_glps06,Militar,2026-10-31T18:41:05,0.0
+n_glps06,Militar,2026-10-31T18:46:17,0.0
+n_glps06,Militar,2026-10-31T18:51:29,0.0
+n_glps06,Militar,2026-10-31T18:56:11,0.0
+n_glps06,Militar,2026-10-31T19:01:22,0.0
+n_glps06,Militar,2026-10-31T19:06:03,0.0
+n_glps06,Militar,2026-10-31T19:11:15,0.0
+n_glps06,Militar,2026-10-31T19:16:28,0.0
+n_glps06,Militar,2026-10-31T19:21:29,0.0
+n_glps06,Militar,2026-10-31T19:26:07,0.0
+n_glps06,Militar,2026-10-31T19:31:15,0.0
+n_glps06,Militar,2026-10-31T19:36:27,0.0
+n_glps06,Militar,2026-10-31T19:41:09,0.0
+n_glps06,Militar,2026-10-31T19:46:22,0.0
+n_glps06,Militar,2026-10-31T19:51:04,0.0
+n_glps06,Militar,2026-10-31T19:56:17,0.0
+n_glps06,Militar,2026-10-31T20:01:29,0.0
+n_glps06,Militar,2026-10-31T20:06:11,0.0
+n_glps06,Militar,2026-10-31T20:11:23,0.0
+n_glps06,Militar,2026-10-31T20:16:04,0.0
+n_glps06,Militar,2026-10-31T20:21:16,0.0
+n_glps06,Militar,2026-10-31T20:26:27,0.0
+n_glps06,Militar,2026-10-31T20:31:09,0.0
+n_glps06,Militar,2026-10-31T20:36:22,0.0
+n_glps06,Militar,2026-10-31T20:41:12,0.0
+n_glps06,Militar,2026-10-31T20:46:24,0.0
+n_glps06,Militar,2026-10-31T20:51:21,0.0
+n_glps06,Militar,2026-10-31T20:56:02,0.0
+n_glps06,Militar,2026-10-31T21:01:14,0.0
+n_glps06,Militar,2026-10-31T21:06:26,0.0
+n_glps06,Militar,2026-10-31T21:11:07,0.0
+n_glps06,Militar,2026-10-31T21:16:18,0.0
+n_glps06,Militar,2026-10-31T21:21:30,0.0
+n_glps06,Militar,2026-10-31T21:26:12,0.0
+n_glps06,Militar,2026-10-31T21:31:25,0.0
+n_glps06,Militar,2026-10-31T21:36:07,0.0
+n_glps06,Militar,2026-10-31T21:41:19,0.0
+n_glps06,Militar,2026-10-31T21:46:30,0.0
+n_glps06,Militar,2026-10-31T21:51:12,0.0
+n_glps06,Militar,2026-10-31T21:56:25,0.0
+n_glps06,Militar,2026-10-31T22:01:06,0.0
+n_glps06,Militar,2026-10-31T22:06:19,0.0
+n_glps06,Militar,2026-10-31T22:11:31,0.0
+n_glps06,Militar,2026-10-31T22:16:12,0.0
+n_glps06,Militar,2026-10-31T22:21:23,0.0
+n_glps06,Militar,2026-10-31T22:26:05,0.0
+n_glps06,Militar,2026-10-31T22:31:18,0.0
+n_glps06,Militar,2026-10-31T22:36:31,0.0
+n_glps06,Militar,2026-10-31T22:41:12,0.0
+n_glps06,Militar,2026-10-31T22:46:24,0.0
+n_glps06,Militar,2026-10-31T22:51:06,0.0
+n_glps06,Militar,2026-10-31T22:56:20,0.0
+n_glps06,Militar,2026-10-31T23:01:01,0.0
+n_glps06,Militar,2026-10-31T23:06:14,0.0
+n_glps06,Militar,2026-10-31T23:11:26,0.0
+n_glps06,Militar,2026-10-31T23:16:08,0.0
+n_glps06,Militar,2026-10-31T23:21:20,0.0
+n_glps06,Militar,2026-10-31T23:26:01,0.0
+n_glps06,Militar,2026-10-31T23:31:13,0.0
+n_glps06,Militar,2026-10-31T23:36:26,0.0
+n_glps06,Militar,2026-10-31T23:41:06,0.0
+n_glps06,Militar,2026-10-31T23:46:18,0.0
+n_glps06,Militar,2026-10-31T23:51:30,0.0
+n_glps06,Militar,2026-10-31T23:56:11,0.0
+n_glps09,Santa Rosa,2026-10-30T00:00:18,0.4
+n_glps09,Santa Rosa,2026-10-30T00:05:04,0.0
+n_glps09,Santa Rosa,2026-10-30T00:10:17,0.0
+n_glps09,Santa Rosa,2026-10-30T00:15:29,0.0
+n_glps09,Santa Rosa,2026-10-30T00:20:09,0.0
+n_glps09,Santa Rosa,2026-10-30T00:25:21,0.0
+n_glps09,Santa Rosa,2026-10-30T00:30:02,0.0
+n_glps09,Santa Rosa,2026-10-30T00:35:14,0.0
+n_glps09,Santa Rosa,2026-10-30T00:40:25,0.0
+n_glps09,Santa Rosa,2026-10-30T00:45:07,0.0
+n_glps09,Santa Rosa,2026-10-30T00:50:19,0.0
+n_glps09,Santa Rosa,2026-10-30T00:55:08,0.0
+n_glps09,Santa Rosa,2026-10-30T01:00:20,0.0
+n_glps09,Santa Rosa,2026-10-30T01:05:32,0.0
+n_glps09,Santa Rosa,2026-10-30T01:10:13,0.0
+n_glps09,Santa Rosa,2026-10-30T01:15:24,0.0
+n_glps09,Santa Rosa,2026-10-30T01:25:30,0.0
+n_glps09,Santa Rosa,2026-10-30T01:30:10,0.0
+n_glps09,Santa Rosa,2026-10-30T01:35:22,0.0
+n_glps09,Santa Rosa,2026-10-30T01:40:03,0.0
+n_glps09,Santa Rosa,2026-10-30T01:45:15,0.0
+n_glps09,Santa Rosa,2026-10-30T01:50:01,0.0
+n_glps09,Santa Rosa,2026-10-30T01:55:13,0.0
+n_glps09,Santa Rosa,2026-10-30T02:00:25,0.0
+n_glps09,Santa Rosa,2026-10-30T02:05:31,0.2
+n_glps09,Santa Rosa,2026-10-30T02:10:11,0.0
+n_glps09,Santa Rosa,2026-10-30T02:15:23,0.0
+n_glps09,Santa Rosa,2026-10-30T02:20:04,0.0
+n_glps09,Santa Rosa,2026-10-30T02:24:33,0.0
+n_glps09,Santa Rosa,2026-10-30T02:29:17,0.0
+n_glps09,Santa Rosa,2026-10-30T02:34:29,0.0
+n_glps09,Santa Rosa,2026-10-30T02:39:14,0.0
+n_glps09,Santa Rosa,2026-10-30T02:44:25,0.0
+n_glps09,Santa Rosa,2026-10-30T02:49:06,0.0
+n_glps09,Santa Rosa,2026-10-30T02:54:18,0.0
+n_glps09,Santa Rosa,2026-10-30T02:59:30,0.0
+n_glps09,Santa Rosa,2026-10-30T03:04:10,0.0
+n_glps09,Santa Rosa,2026-10-30T03:09:22,0.0
+n_glps09,Santa Rosa,2026-10-30T03:14:03,0.0
+n_glps09,Santa Rosa,2026-10-30T03:19:15,0.0
+n_glps09,Santa Rosa,2026-10-30T03:24:26,0.0
+n_glps09,Santa Rosa,2026-10-30T03:29:07,0.0
+n_glps09,Santa Rosa,2026-10-30T03:34:19,0.0
+n_glps09,Santa Rosa,2026-10-30T03:39:30,0.0
+n_glps09,Santa Rosa,2026-10-30T03:44:11,0.0
+n_glps09,Santa Rosa,2026-10-30T03:49:23,0.0
+n_glps09,Santa Rosa,2026-10-30T03:54:04,0.0
+n_glps09,Santa Rosa,2026-10-30T03:59:15,0.0
+n_glps09,Santa Rosa,2026-10-30T04:04:27,0.0
+n_glps09,Santa Rosa,2026-10-30T04:09:08,0.0
+n_glps09,Santa Rosa,2026-10-30T04:14:20,0.0
+n_glps09,Santa Rosa,2026-10-30T04:19:31,0.0
+n_glps09,Santa Rosa,2026-10-30T04:24:12,0.0
+n_glps09,Santa Rosa,2026-10-30T04:29:24,0.0
+n_glps09,Santa Rosa,2026-10-30T04:34:04,0.0
+n_glps09,Santa Rosa,2026-10-30T04:39:16,0.0
+n_glps09,Santa Rosa,2026-10-30T04:49:33,0.0
+n_glps09,Santa Rosa,2026-10-30T04:54:13,0.0
+n_glps09,Santa Rosa,2026-10-30T04:59:25,0.0
+n_glps09,Santa Rosa,2026-10-30T05:04:06,0.0
+n_glps09,Santa Rosa,2026-10-30T05:09:17,0.0
+n_glps09,Santa Rosa,2026-10-30T05:14:29,0.0
+n_glps09,Santa Rosa,2026-10-30T05:19:10,0.0
+n_glps09,Santa Rosa,2026-10-30T05:24:22,0.0
+n_glps09,Santa Rosa,2026-10-30T05:34:26,0.2
+n_glps09,Santa Rosa,2026-10-30T05:39:22,0.2
+n_glps09,Santa Rosa,2026-10-30T05:44:03,0.0
+n_glps09,Santa Rosa,2026-10-30T05:49:14,0.0
+n_glps09,Santa Rosa,2026-10-30T05:54:26,0.0
+n_glps09,Santa Rosa,2026-10-30T05:59:07,0.0
+n_glps09,Santa Rosa,2026-10-30T06:04:19,0.0
+n_glps09,Santa Rosa,2026-10-30T06:09:32,0.2
+n_glps09,Santa Rosa,2026-10-30T06:14:16,0.0
+n_glps09,Santa Rosa,2026-10-30T06:19:04,0.2
+n_glps09,Santa Rosa,2026-10-30T06:24:27,0.2
+n_glps09,Santa Rosa,2026-10-30T06:29:09,0.0
+n_glps09,Santa Rosa,2026-10-30T06:34:22,0.2
+n_glps09,Santa Rosa,2026-10-30T06:39:03,0.0
+n_glps09,Santa Rosa,2026-10-30T06:44:21,0.2
+n_glps09,Santa Rosa,2026-10-30T06:49:02,0.0
+n_glps09,Santa Rosa,2026-10-30T06:54:24,0.2
+n_glps09,Santa Rosa,2026-10-30T06:59:06,0.0
+n_glps09,Santa Rosa,2026-10-30T07:04:17,0.0
+n_glps09,Santa Rosa,2026-10-30T07:14:34,0.0
+n_glps09,Santa Rosa,2026-10-30T07:19:14,0.0
+n_glps09,Santa Rosa,2026-10-30T07:24:20,0.4
+n_glps09,Santa Rosa,2026-10-30T07:29:05,0.4
+n_glps09,Santa Rosa,2026-10-30T07:34:04,0.4
+n_glps09,Santa Rosa,2026-10-30T07:39:17,0.0
+n_glps09,Santa Rosa,2026-10-30T07:44:09,0.4
+n_glps09,Santa Rosa,2026-10-30T07:49:08,0.2
+n_glps09,Santa Rosa,2026-10-30T07:54:30,0.2
+n_glps09,Santa Rosa,2026-10-30T07:59:11,0.0
+n_glps09,Santa Rosa,2026-10-30T08:04:24,0.2
+n_glps09,Santa Rosa,2026-10-30T08:09:14,0.2
+n_glps09,Santa Rosa,2026-10-30T08:14:06,0.4
+n_glps09,Santa Rosa,2026-10-30T08:19:08,1.0
+n_glps09,Santa Rosa,2026-10-30T08:24:12,0.6
+n_glps09,Santa Rosa,2026-10-30T08:29:17,0.4
+n_glps09,Santa Rosa,2026-10-30T08:34:08,0.6
+n_glps09,Santa Rosa,2026-10-30T08:39:24,0.6
+n_glps09,Santa Rosa,2026-10-30T08:44:10,0.8
+n_glps09,Santa Rosa,2026-10-30T08:49:28,2.2
+n_glps09,Santa Rosa,2026-10-30T08:54:10,1.8
+n_glps09,Santa Rosa,2026-10-30T08:59:10,1.8
+n_glps09,Santa Rosa,2026-10-30T09:04:22,1.4
+n_glps09,Santa Rosa,2026-10-30T09:09:20,0.2
+n_glps09,Santa Rosa,2026-10-30T09:14:06,1.4
+n_glps09,Santa Rosa,2026-10-30T09:18:44,0.4
+n_glps09,Santa Rosa,2026-10-30T09:23:21,0.2
+n_glps09,Santa Rosa,2026-10-30T09:28:01,0.0
+n_glps09,Santa Rosa,2026-10-30T09:33:13,0.0
+n_glps09,Santa Rosa,2026-10-30T09:38:21,1.0
+n_glps09,Santa Rosa,2026-10-30T09:43:19,0.4
+n_glps09,Santa Rosa,2026-10-30T09:48:05,0.2
+n_glps09,Santa Rosa,2026-10-30T09:53:11,0.4
+n_glps09,Santa Rosa,2026-10-30T09:58:10,0.4
+n_glps09,Santa Rosa,2026-10-30T10:03:17,0.2
+n_glps09,Santa Rosa,2026-10-30T10:08:30,0.0
+n_glps09,Santa Rosa,2026-10-30T10:13:17,0.2
+n_glps09,Santa Rosa,2026-10-30T10:17:45,0.0
+n_glps09,Santa Rosa,2026-10-30T10:22:25,0.0
+n_glps09,Santa Rosa,2026-10-30T10:27:09,0.0
+n_glps09,Santa Rosa,2026-10-30T10:32:21,0.0
+n_glps09,Santa Rosa,2026-10-30T10:37:06,0.6
+n_glps09,Santa Rosa,2026-10-30T10:42:17,0.4
+n_glps09,Santa Rosa,2026-10-30T10:47:17,0.8
+n_glps09,Santa Rosa,2026-10-30T10:52:10,0.6
+n_glps09,Santa Rosa,2026-10-30T10:57:17,0.8
+n_glps09,Santa Rosa,2026-10-30T11:02:28,0.4
+n_glps09,Santa Rosa,2026-10-30T11:07:09,0.0
+n_glps09,Santa Rosa,2026-10-30T11:12:22,0.0
+n_glps09,Santa Rosa,2026-10-30T11:17:02,0.0
+n_glps09,Santa Rosa,2026-10-30T11:22:14,0.0
+n_glps09,Santa Rosa,2026-10-30T11:27:27,0.0
+n_glps09,Santa Rosa,2026-10-30T11:32:08,0.0
+n_glps09,Santa Rosa,2026-10-30T11:37:20,0.0
+n_glps09,Santa Rosa,2026-10-30T11:42:31,0.0
+n_glps09,Santa Rosa,2026-10-30T11:47:14,0.0
+n_glps09,Santa Rosa,2026-10-30T11:52:27,0.0
+n_glps09,Santa Rosa,2026-10-30T11:57:08,0.0
+n_glps09,Santa Rosa,2026-10-30T12:02:20,0.0
+n_glps09,Santa Rosa,2026-10-30T12:07:32,0.0
+n_glps09,Santa Rosa,2026-10-30T12:12:13,0.0
+n_glps09,Santa Rosa,2026-10-30T12:17:24,0.0
+n_glps09,Santa Rosa,2026-10-30T12:22:06,0.0
+n_glps09,Santa Rosa,2026-10-30T12:27:18,0.0
+n_glps09,Santa Rosa,2026-10-30T12:32:29,0.0
+n_glps09,Santa Rosa,2026-10-30T12:37:11,0.0
+n_glps09,Santa Rosa,2026-10-30T12:42:23,0.0
+n_glps09,Santa Rosa,2026-10-30T12:47:04,0.0
+n_glps09,Santa Rosa,2026-10-30T12:52:16,0.0
+n_glps09,Santa Rosa,2026-10-30T12:57:31,0.0
+n_glps09,Santa Rosa,2026-10-30T13:02:12,0.0
+n_glps09,Santa Rosa,2026-10-30T13:07:24,0.0
+n_glps09,Santa Rosa,2026-10-30T13:12:04,0.0
+n_glps09,Santa Rosa,2026-10-30T13:17:16,0.0
+n_glps09,Santa Rosa,2026-10-30T13:22:28,0.0
+n_glps09,Santa Rosa,2026-10-30T13:27:08,0.0
+n_glps09,Santa Rosa,2026-10-30T13:32:23,0.4
+n_glps09,Santa Rosa,2026-10-30T13:37:05,0.0
+n_glps09,Santa Rosa,2026-10-30T13:42:05,0.2
+n_glps09,Santa Rosa,2026-10-30T13:47:03,0.4
+n_glps09,Santa Rosa,2026-10-30T13:52:03,0.4
+n_glps09,Santa Rosa,2026-10-30T13:57:10,0.8
+n_glps09,Santa Rosa,2026-10-30T14:02:14,0.6
+n_glps09,Santa Rosa,2026-10-30T14:07:32,0.4
+n_glps09,Santa Rosa,2026-10-30T14:12:22,0.4
+n_glps09,Santa Rosa,2026-10-30T14:17:11,0.6
+n_glps09,Santa Rosa,2026-10-30T14:22:16,0.4
+n_glps09,Santa Rosa,2026-10-30T14:27:02,1.6
+n_glps09,Santa Rosa,2026-10-30T14:32:07,1.2
+n_glps09,Santa Rosa,2026-10-30T14:37:21,2.2
+n_glps09,Santa Rosa,2026-10-30T14:42:22,2.8
+n_glps09,Santa Rosa,2026-10-30T14:47:02,2.2
+n_glps09,Santa Rosa,2026-10-30T14:52:03,2.2
+n_glps09,Santa Rosa,2026-10-30T14:57:06,1.8
+n_glps09,Santa Rosa,2026-10-30T15:02:10,3.0
+n_glps09,Santa Rosa,2026-10-30T15:07:03,4.6
+n_glps09,Santa Rosa,2026-10-30T15:12:02,5.4
+n_glps09,Santa Rosa,2026-10-30T15:17:18,2.8
+n_glps09,Santa Rosa,2026-10-30T15:22:12,4.4
+n_glps09,Santa Rosa,2026-10-30T15:27:20,3.8
+n_glps09,Santa Rosa,2026-10-30T15:32:09,3.0
+n_glps09,Santa Rosa,2026-10-30T15:37:07,3.8
+n_glps09,Santa Rosa,2026-10-30T15:42:30,2.8
+n_glps09,Santa Rosa,2026-10-30T15:47:15,2.8
+n_glps09,Santa Rosa,2026-10-30T15:52:02,2.2
+n_glps09,Santa Rosa,2026-10-30T15:57:14,4.6
+n_glps09,Santa Rosa,2026-10-30T16:02:30,1.4
+n_glps09,Santa Rosa,2026-10-30T16:07:07,0.2
+n_glps09,Santa Rosa,2026-10-30T16:12:12,1.2
+n_glps09,Santa Rosa,2026-10-30T16:17:21,3.0
+n_glps09,Santa Rosa,2026-10-30T16:27:30,1.0
+n_glps09,Santa Rosa,2026-10-30T16:32:14,0.6
+n_glps09,Santa Rosa,2026-10-30T16:37:28,0.2
+n_glps09,Santa Rosa,2026-10-30T16:47:49,0.4
+n_glps09,Santa Rosa,2026-10-30T16:52:18,0.4
+n_glps09,Santa Rosa,2026-10-30T16:57:11,0.4
+n_glps09,Santa Rosa,2026-10-30T17:02:19,0.2
+n_glps09,Santa Rosa,2026-10-30T17:07:11,0.2
+n_glps09,Santa Rosa,2026-10-30T17:12:11,0.4
+n_glps09,Santa Rosa,2026-10-30T17:17:25,0.0
+n_glps09,Santa Rosa,2026-10-30T17:22:10,0.0
+n_glps09,Santa Rosa,2026-10-30T17:27:10,0.2
+n_glps09,Santa Rosa,2026-10-30T17:32:22,0.0
+n_glps09,Santa Rosa,2026-10-30T17:37:04,0.0
+n_glps09,Santa Rosa,2026-10-30T17:42:05,0.6
+n_glps09,Santa Rosa,2026-10-30T17:47:31,0.6
+n_glps09,Santa Rosa,2026-10-30T17:52:15,0.0
+n_glps09,Santa Rosa,2026-10-30T17:57:05,0.2
+n_glps09,Santa Rosa,2026-10-30T18:02:13,0.4
+n_glps09,Santa Rosa,2026-10-30T18:07:25,0.0
+n_glps09,Santa Rosa,2026-10-30T18:12:27,0.2
+n_glps09,Santa Rosa,2026-10-30T18:17:08,0.0
+n_glps09,Santa Rosa,2026-10-30T18:22:23,0.0
+n_glps09,Santa Rosa,2026-10-30T18:27:06,0.0
+n_glps09,Santa Rosa,2026-10-30T18:32:19,0.0
+n_glps09,Santa Rosa,2026-10-30T18:37:09,0.2
+n_glps09,Santa Rosa,2026-10-30T18:42:20,0.6
+n_glps09,Santa Rosa,2026-10-30T18:47:28,0.8
+n_glps09,Santa Rosa,2026-10-30T18:52:06,1.0
+n_glps09,Santa Rosa,2026-10-30T18:57:05,5.6
+n_glps09,Santa Rosa,2026-10-30T19:02:03,2.8
+n_glps09,Santa Rosa,2026-10-30T19:07:03,2.6
+n_glps09,Santa Rosa,2026-10-30T19:12:09,3.4
+n_glps09,Santa Rosa,2026-10-30T19:17:17,4.2
+n_glps09,Santa Rosa,2026-10-30T19:22:04,3.0
+n_glps09,Santa Rosa,2026-10-30T19:27:01,5.6
+n_glps09,Santa Rosa,2026-10-30T19:32:11,4.4
+n_glps09,Santa Rosa,2026-10-30T19:37:12,1.8
+n_glps09,Santa Rosa,2026-10-30T19:42:09,3.6
+n_glps09,Santa Rosa,2026-10-30T19:47:05,3.2
+n_glps09,Santa Rosa,2026-10-30T19:52:14,3.4
+n_glps09,Santa Rosa,2026-10-30T19:57:06,5.0
+n_glps09,Santa Rosa,2026-10-30T20:02:04,4.2
+n_glps09,Santa Rosa,2026-10-30T20:07:25,3.0
+n_glps09,Santa Rosa,2026-10-30T20:12:05,2.4
+n_glps09,Santa Rosa,2026-10-30T20:17:04,6.8
+n_glps09,Santa Rosa,2026-10-30T20:22:04,7.8
+n_glps09,Santa Rosa,2026-10-30T20:27:05,8.2
+n_glps09,Santa Rosa,2026-10-30T20:32:02,9.4
+n_glps09,Santa Rosa,2026-10-30T20:37:07,8.4
+n_glps09,Santa Rosa,2026-10-30T20:42:08,4.6
+n_glps09,Santa Rosa,2026-10-30T20:47:19,3.6
+n_glps09,Santa Rosa,2026-10-30T20:52:12,3.4
+n_glps09,Santa Rosa,2026-10-30T20:57:05,4.6
+n_glps09,Santa Rosa,2026-10-30T21:02:06,5.8
+n_glps09,Santa Rosa,2026-10-30T21:07:14,4.6
+n_glps09,Santa Rosa,2026-10-30T21:12:04,3.4
+n_glps09,Santa Rosa,2026-10-30T21:17:08,4.6
+n_glps09,Santa Rosa,2026-10-30T21:22:05,3.2
+n_glps09,Santa Rosa,2026-10-31T18:42:24,0.0
+n_glps09,Santa Rosa,2026-10-31T18:47:04,0.0
+n_glps09,Santa Rosa,2026-10-31T18:52:16,0.0
+n_glps09,Santa Rosa,2026-10-31T19:07:32,0.0
+n_glps09,Santa Rosa,2026-10-31T19:12:09,0.2
+n_glps09,Santa Rosa,2026-10-31T19:17:14,0.2
+n_glps09,Santa Rosa,2026-10-31T19:22:25,0.8
+n_glps09,Santa Rosa,2026-10-31T19:27:26,0.6
+n_glps09,Santa Rosa,2026-10-31T19:32:19,1.4
+n_glps09,Santa Rosa,2026-10-31T19:37:18,1.8
+n_glps09,Santa Rosa,2026-10-31T19:42:17,1.6
+n_glps09,Santa Rosa,2026-10-31T19:47:17,1.8
+n_glps09,Santa Rosa,2026-10-31T19:52:19,1.2
+n_glps09,Santa Rosa,2026-10-31T19:57:32,0.8
+n_glps09,Santa Rosa,2026-10-31T20:02:06,0.2
+n_glps09,Santa Rosa,2026-10-31T20:07:18,0.0
+n_glps09,Santa Rosa,2026-10-31T20:12:31,0.0
+n_glps09,Santa Rosa,2026-10-31T20:22:29,0.0
+n_glps09,Santa Rosa,2026-10-31T20:27:10,0.0
+n_glps09,Santa Rosa,2026-10-31T20:32:18,0.2
+n_glps09,Santa Rosa,2026-10-31T20:37:30,0.0
+n_glps09,Santa Rosa,2026-10-31T20:42:10,0.0
+n_glps09,Santa Rosa,2026-10-31T20:47:28,0.2
+n_glps09,Santa Rosa,2026-10-31T20:52:27,0.2
+n_glps09,Santa Rosa,2026-10-31T20:57:20,0.6
+n_glps09,Santa Rosa,2026-10-31T21:02:02,0.0
+n_glps09,Santa Rosa,2026-10-31T21:07:13,0.0
+n_glps09,Santa Rosa,2026-10-31T21:12:25,0.0
+n_glps09,Santa Rosa,2026-10-31T21:17:04,0.2
+n_glps09,Santa Rosa,2026-10-31T21:22:16,0.0
+n_glps09,Santa Rosa,2026-10-31T21:27:07,0.2
+n_glps09,Santa Rosa,2026-10-31T21:32:06,0.2
+n_glps09,Santa Rosa,2026-10-31T21:37:02,0.2
+n_glps09,Santa Rosa,2026-10-31T21:42:14,0.0
+n_glps09,Santa Rosa,2026-10-31T21:47:26,0.0
+n_glps09,Santa Rosa,2026-10-31T21:52:18,0.2
+n_glps09,Santa Rosa,2026-10-31T21:57:07,0.0
+n_glps09,Santa Rosa,2026-10-31T22:02:19,0.0
+n_glps09,Santa Rosa,2026-10-31T22:07:21,0.2
+n_glps09,Santa Rosa,2026-10-31T22:12:02,0.0
+n_glps09,Santa Rosa,2026-10-31T22:17:13,0.0
+n_glps09,Santa Rosa,2026-10-31T22:22:25,0.0
+n_glps09,Santa Rosa,2026-10-31T22:27:06,0.0
+n_glps09,Santa Rosa,2026-10-31T22:37:18,0.2
+n_glps09,Santa Rosa,2026-10-31T22:42:17,0.2
+n_glps09,Santa Rosa,2026-10-31T22:47:28,0.0
+n_glps09,Santa Rosa,2026-10-31T22:52:09,0.0
+n_glps09,Santa Rosa,2026-10-31T22:57:30,0.0
+n_glps09,Santa Rosa,2026-10-31T23:02:11,0.0
+n_glps09,Santa Rosa,2026-10-31T23:07:22,0.0
+n_glps09,Santa Rosa,2026-10-31T23:12:11,0.0
+n_glps09,Santa Rosa,2026-10-31T23:17:23,0.0
+n_glps09,Santa Rosa,2026-10-31T23:22:28,0.0
+n_glps09,Santa Rosa,2026-10-31T23:27:12,0.0
+n_glps09,Santa Rosa,2026-10-31T23:32:24,0.0
+n_glps09,Santa Rosa,2026-10-31T23:36:28,0.0
+n_glps09,Santa Rosa,2026-10-31T23:41:08,0.0
+n_glps09,Santa Rosa,2026-10-31T23:46:20,0.0
+n_glps09,Santa Rosa,2026-10-31T23:51:31,0.0
+n_glps09,Santa Rosa,2026-10-31T23:56:16,0.0

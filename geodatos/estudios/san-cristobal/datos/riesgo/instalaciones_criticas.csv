@@ -1,0 +1,87 @@
+isla,parroquia,tipo,nombre,fuente,lon,lat,cota_dsm_m,depresion_dsm_m,dist_quebrada_igm_osm_m,dist_drenaje_dsm_m,area_drenada_km2_cauce_cercano,area_drenada_max_150m_km2,susceptibilidad_hand,flujo_lodo_cgreg,franja20m_cgreg,zona_tsunami_inocar
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:HOSPITAL GENERAL,HOSPITAL GENERAL OSKAR JANDAL,MSP vía SNGR 2023,-89.615336,-0.905125,13.2,0.0,302,237,11.0,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,salud_msp:CENTRO DE SALUD TIPO A,PROGRESO,MSP vía SNGR 2023,-89.556243,-0.906028,314.9,0.0,171,200,1.42,1.42,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CENTRO DE SALUD TIPO A,CENTRO DE SALUD SAN CRISTOBAL,MSP vía SNGR 2023,-89.615336,-0.905152,13.2,0.0,302,240,11.0,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,CONSULTORIO GENERAL BASCRI,MSP vía SNGR 2023,-89.6121,-0.9058,12.7,0.0,1,14,10.46,10.85,"Media (HAND 1–2,5 m)",True,True,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CENTRO DE SALUD TIPO A,CENTRO DE SALUD A - SAN CRISTÓBAL,MSP vía SNGR 2023,-89.606638,-0.900744,23.0,0.0,751,66,1.56,1.56,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:PUESTO DE SALUD,GORDON AGAMA ROSSANA FERNANDA,MSP vía SNGR 2023,-89.611673,-0.903446,9.3,0.0,116,34,10.62,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,MORETA RAMIREZ GLORIA EMPERATRIZ,MSP vía SNGR 2023,-89.61033,-0.90436,14.1,0.0,253,19,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,salud_msp:PUESTO DE SALUD,DISPENSARIO UNION Y PROGRESO,MSP vía SNGR 2023,-89.535706,-0.896162,462.9,0.0,224,192,1.24,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,salud_msp:PUESTO DE SALUD,PUESTO DE SALUD SAN CRISTOBAL,MSP vía SNGR 2023,-89.555,-0.9082,316.8,0.0,317,103,0.74,0.74,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO DE ESPECIALIDAD,BAQUERIZO PAYE EDUARDO ALBERTO,MSP vía SNGR 2023,-89.609871,-0.905953,20.3,0.0,174,167,10.85,0.71,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,REGATO SANCHEZ ALEXANDRA ANNABELLE,MSP vía SNGR 2023,-89.611093,-0.901717,7.9,0.0,290,117,10.85,10.85,fuera de zona evaluada / sin clase,False,False,True
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,COLOMA RODRIGUEZ LUIS ENRIQUE,MSP vía SNGR 2023,-89.610769,-0.90503,14.8,0.0,168,69,10.62,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CENTRO DE ESPECIALIDADES,SALAZAR MERELO ZOILA ELEOCADIA,MSP vía SNGR 2023,-89.61166,-0.905624,14.8,0.0,50,67,10.46,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO DE ESPECIALIDAD,VEGA ALMEIDA WALTER,MSP vía SNGR 2023,-89.611203,-0.902831,8.1,0.0,195,6,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,MOREANO ALCIVAR MELISA ALEJANDRA,MSP vía SNGR 2023,-89.611927,-0.903277,8.1,0.0,100,28,10.62,11.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,COLOMA HERRERA JUAN ENRIQUE,MSP vía SNGR 2023,-89.610759,-0.904939,14.1,0.0,176,70,10.62,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,PUGA REYES DENIS GICELA,MSP vía SNGR 2023,-89.610019,-0.90169,8.3,0.0,376,171,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,CORPORACION NACIONAL DE TELECOMUNICACIONES - CNT EP,MSP vía SNGR 2023,-89.61055,-0.905313,15.9,0.0,165,100,10.62,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,DIRECCION DISTRITAL 20D01 - SAN CRISTOBAL - SANTA CRUZ - ISABELA - EDUCACION,MSP vía SNGR 2023,-89.612145,-0.906874,16.0,0.0,83,46,0.71,10.46,"Media (HAND 1–2,5 m)",False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:AMBULANCIA DE SOPORTE VITAL AVANZADO,AMBULANCIA - ASVB-WEA0092-HOSPITAL OSKAR JANDL,MSP vía SNGR 2023,-89.615336,-0.905125,13.2,0.0,302,237,11.0,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,CARCELEN CARRANZA PIEDAD ESPAÑA,MSP vía SNGR 2023,-89.611278,-0.907729,20.4,0.0,71,114,9.44,9.44,"Baja (HAND 2,5–5 m)",False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO GENERAL,MOREANO ALCIVAR MELISA ALEJANDRA,MSP vía SNGR 2023,-89.61206,-0.903569,8.1,0.0,71,6,10.62,11.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:LABORATORIO DE ANALISIS CLINICO,MARTINEZ ESPINOZA ADELA SUANY,MSP vía SNGR 2023,-89.611074,-0.903528,10.4,0.0,178,4,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,salud_msp:AMBULANCIA DE SOPORTE VITAL AVANZADO,CUERPO DE BOMBEROS DEL CANTON SAN CRISTOBAL DE LA PROVINCIA DE GALAPAGOS,MSP vía SNGR 2023,-89.5568,-0.908,318.8,0.0,382,85,0.74,0.74,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:CONSULTORIO DE ESPECIALIDAD,GARCIA MACIAS DARWIN GUSTAVO,MSP vía SNGR 2023,-89.607702,-0.900129,17.3,0.0,686,52,1.56,1.56,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud_msp:LABORATORIO DE ANALISIS CLINICO,BALLESTEROS JIMENEZ ROSARIO DEL CARMEN,MSP vía SNGR 2023,-89.606697,-0.91,44.5,0.0,197,181,9.44,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,educacion_mineduc,UNIDAD EDUCATIVA SAN CRISTOBAL,MINEDUC vía SNGR 2021,-89.540889,-0.887833,373.1,0.0,240,204,3.08,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion_mineduc,ALEJANDRO ALVEAR,MINEDUC vía SNGR 2021,-89.610326,-0.902069,8.0,0.5,323,117,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,educacion_mineduc,UNIDAD EDUCATIVA LICEO GALAPAGOS,MINEDUC vía SNGR 2021,-89.613813,-0.90707,17.8,0.0,236,86,0.71,10.46,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion_mineduc,IGNACIO HERNANDEZ,MINEDUC vía SNGR 2021,-89.60447,-0.901815,40.7,0.0,699,204,1.01,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,educacion_mineduc,CARLOS DARWIN,MINEDUC vía SNGR 2021,-89.555875,-0.908104,315.8,0.4,353,37,0.74,0.74,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion_mineduc,UNIDAD DE EDUCACION ESPECIALIZADA CORAZONES UNIDOS,MINEDUC vía SNGR 2021,-89.611839,-0.908182,20.4,0.0,151,143,0.71,0.71,"Baja (HAND 2,5–5 m)",False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud:hospital,,OSM,-89.611508,-0.904092,11.0,0.0,124,18,10.62,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,emergencia:police,Comando de Policia Galapagos No. 20,OSM,-89.611116,-0.900991,6.2,0.0,357,195,1.56,1.56,fuera de zona evaluada / sin clase,False,False,True
+San Cristóbal,PUERTO BAQUERIZO MORENO,emergencia:police,,OSM,-89.605004,-0.905321,52.3,0.0,310,340,9.44,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,energia:fuel,Petroecuador,OSM,-89.602986,-0.906287,55.5,0.0,290,257,9.04,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:school,Escuela de Educación Básica Alejandro Alvear,OSM,-89.608045,-0.897441,16.3,0.0,873,49,0.7,0.7,fuera de zona evaluada / sin clase,False,False,True
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud:hospital,Hospital Oskar Jandl,OSM,-89.605233,-0.89986,26.7,0.0,915,7,1.01,1.56,"Media (HAND 1–2,5 m)",False,False,False
+San Cristóbal,EL PROGRESO,energia:generator,Generador Eólico,OSM,-89.497942,-0.89174,677.7,0.0,165,487,0.75,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,energia:generator,Generador Eólico,OSM,-89.499001,-0.891752,675.4,0.0,116,544,0.75,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,energia:generator,Generador Eólico,OSM,-89.500074,-0.891851,668.5,0.0,167,543,0.75,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:school,UNIVERSIDAD SAN FRANCISCO DE QUITO,OSM,-89.608839,-0.895533,12.4,0.0,1011,249,0.7,0.7,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,gobierno:government,Parque Nacional Galapagos,OSM,-89.608239,-0.895911,20.0,0.0,1004,207,0.7,0.7,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:school,Escuela San Cristobal,OSM,-89.613845,-0.906015,15.1,0.0,176,144,10.46,10.62,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:school,Unidad Educativa Fiscomisional San Cristòbal,OSM,-89.608685,-0.90366,23.3,0.0,442,56,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,gobierno:government,Procuraduria General del Estado,OSM,-89.609608,-0.904267,17.3,0.0,321,20,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,salud:clinic,,OSM,-89.610272,-0.904319,14.9,0.0,261,11,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,emergencia:fire_hydrant,,OSM,-89.610869,-0.903158,9.0,0.0,211,27,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,emergencia:police,Armada De Ecuador Captania Del Puerto - Puerto Baquerizo Moreno,OSM,-89.612573,-0.902524,4.2,0.0,144,28,10.85,11.0,fuera de zona evaluada / sin clase,True,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,gobierno:townhall,San Cristobal Alcaldia,OSM,-89.612087,-0.902669,5.6,0.0,142,12,10.85,11.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,gobierno:government,Tenencia Política El Progreso,OSM,-89.556911,-0.907125,321.8,0.0,310,161,0.74,1.42,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:school,Colegio Ignacio Hernandez,OSM,-89.604008,-0.90199,43.2,0.0,685,220,1.01,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,gobierno:government,Agencia Nacional de Transito ANT,OSM,-89.607865,-0.901775,19.9,0.0,579,104,1.56,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:university,USFQ Extension Galapagos,OSM,-89.608816,-0.895486,12.4,0.0,1017,254,0.7,0.7,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,emergencia:police,UPD Unidad de Policia Comunitaria,OSM,-89.556858,-0.907359,321.0,0.0,327,136,0.74,1.42,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,refugio:shelter,,OSM,-89.611028,-0.900564,6.9,0.0,403,150,1.56,1.56,fuera de zona evaluada / sin clase,False,False,True
+San Cristóbal,PUERTO BAQUERIZO MORENO,refugio:shelter,,OSM,-89.610648,-0.900315,7.0,0.0,448,105,1.56,1.56,fuera de zona evaluada / sin clase,False,False,True
+San Cristóbal,EL PROGRESO,energia:plant,,OSM,-89.615045,-0.909298,19.0,0.1,502,160,0.71,0.0,Alta (HAND ≤ 1 m),False,False,False
+San Cristóbal,EL PROGRESO,salud:clinic,Puesto de Salud El Progreso,OSM,-89.556826,-0.906926,322.2,0.0,287,175,0.74,1.42,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,refugio:shelter,,OSM,-89.55655,-0.906892,321.7,0.0,265,167,0.74,1.42,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,educacion:school,Escuela de Educación Básica Carlos Darwin,OSM,-89.555662,-0.908178,315.9,1.4,354,47,0.74,0.74,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,educacion:centro educacional,Escuela Sergio Quirola,IGM 1:25 000,-89.5503,-0.9209,237.9,0.0,1075,58,1.74,1.74,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,educacion:centro educacional,Escuela Alejandro Humboldt,IGM 1:25 000,-89.5408,-0.8878,374.5,0.0,244,203,3.08,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:centro educacional,Centro de educación ambiental CEA,IGM 1:25 000,-89.6083,-0.9032,26.9,0.0,489,113,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:centro educacional,Escuela Alejandro Alvear,IGM 1:25 000,-89.6081,-0.8975,14.9,0.0,864,40,0.7,0.7,fuera de zona evaluada / sin clase,False,False,True
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:centro educacional,Escuela Fiscal Mixta Alejandro Alvear,IGM 1:25 000,-89.6102,-0.9021,8.0,0.5,333,126,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:centro educacional,Escuela Fiscal Mixta Alejandro Alvear,IGM 1:25 000,-89.6102,-0.9022,8.0,0.5,327,120,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:centro educacional,Escuela Fiscal Mixta Alejandro Alvear,IGM 1:25 000,-89.6102,-0.9023,8.1,0.0,321,115,10.85,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:universidad,Universidad San Francisco,IGM 1:25 000,-89.6089,-0.8954,8.8,0.0,1022,263,0.7,0.7,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:universidad,Universidad San Francisco,IGM 1:25 000,-89.6089,-0.8955,8.8,0.0,1012,252,0.7,0.7,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,educacion:universidad,Universidad San Francisco,IGM 1:25 000,-89.6089,-0.8957,8.6,0.0,992,230,0.7,0.7,fuera de zona evaluada / sin clase,False,False,True
+San Cristóbal,EL PROGRESO,educacion:liceo,Liceo Naval Galápagos,IGM 1:25 000,-89.6141,-0.9078,18.8,0.0,313,90,0.71,0.71,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,refugio_oficial_sngr,Estaio Juan Olaya Mora (cap. 89 pers.),"SNGR, registro de refugios activos 2025",-89.555682,-0.907767,317.1,0.2,311,79,0.74,0.74,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,refugio_oficial_sngr,Fnca Santa Monica (cap. 90 pers.),"SNGR, registro de refugios activos 2025",-89.542518,-0.907313,400.7,0.0,120,164,0.98,0.98,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,refugio_oficial_sngr,Estadio Olimpico Ing Luis Cruz Sayo (cap. 147 pers.),"SNGR, registro de refugios activos 2025",-89.608321,-0.901426,18.5,0.0,550,66,1.56,10.85,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,refugio_oficial_sngr,Escuela Alejandto Humboldt (cap. 32 pers.),"SNGR, registro de refugios activos 2025",-89.541111,-0.887577,375.8,0.0,269,241,3.08,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,zona_segura_tsunami,UNIDAD EDUCATIVA FISCAL IGNACIO HERNÁNDEZ,SNGR,-89.604054,-0.901746,42.6,0.0,711,193,1.01,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,zona_segura_tsunami,LICEO NAVAL,SNGR,-89.612676,-0.905289,12.0,0.0,25,7,10.46,10.85,"Media (HAND 1–2,5 m)",True,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,zona_segura_tsunami,CONSEJO DE GOBIERNO DEL RÉGIMEN ESPECIAL DE GALÁPAGOS,SNGR,-89.603636,-0.906592,54.5,0.0,216,225,9.04,9.44,"Baja (HAND 2,5–5 m)",False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,zona_segura_tsunami,CERCA A ESC. SAN CRISTÓBAL,SNGR,-89.614026,-0.906711,17.6,0.0,234,122,0.71,10.46,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,zona_segura_tsunami,LAS TIJERETAS,SNGR,-89.610127,-0.890703,19.4,0.0,1480,784,0.7,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,EL PROGRESO,zona_segura_tsunami,LA GALAPAGUERA,SNGR,-89.436859,-0.913583,126.8,0.0,53,184,1.25,1.25,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,zona_segura_tsunami,PARQUE MARTHA BUCARAM DE ROLDÓS,SNGR,-89.60671,-0.899188,15.4,0.0,837,33,1.56,1.56,"Media (HAND 1–2,5 m)",True,True,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,zona_segura_tsunami,CUARTEL DE LA POLICÍA NACIONAL,SNGR,-89.602328,-0.906662,56.1,0.0,324,222,9.04,0.0,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,zona_segura_tsunami,PARQUE RECREACIONAL CIUDAD DE LA ALEGRÍA,SNGR,-89.609446,-0.90912,27.4,0.0,107,152,9.44,9.44,fuera de zona evaluada / sin clase,False,False,False
+San Cristóbal,PUERTO BAQUERIZO MORENO,universidad,USFQ / Galapagos Science Center (punto del encargo),coordinador,-89.6089,-0.8955,8.8,0.0,1012,252,0.7,0.7,fuera de zona evaluada / sin clase,False,False,False

@@ -67,6 +67,16 @@ AMC_UMBRALES_MM = {"estacion_de_crecimiento": (35.6, 53.3), "estacion_latente": 
 RESGUARDO_M = 0.5
 OBS_LAMINA_M = (1.5, 2.0); OBS_FONDO_M = (10.5, 11.0)   # prensa: agua «hasta dos metros» (por validar)
 VERTEDERO_C = 1.7; VERTEDERO_L_M = (30, 100, 300)       # vertedero de cresta ancha en el umbral de rebose (longitud efectiva supuesta)
+# --- evento MEDIDO 30-oct-2026 (red IERSE-WSN, Universidad del Azuay; hora de Galápagos UTC-6; registros ~5 min)
+IERSE_CSV = OUT / "lluvia_ierse_30oct_5min.csv"         # copia de clima/datos/ierse-wsn/serie_5min.csv.gz (30–31 oct)
+IERSE_EST = OUT / "estaciones_ierse.geojson"
+MEDIDO_INICIO = "2026-10-30T00:00"; MEDIDO_HORAS_SIM = 48
+COTA_G, COTA_SR = 178.0, 416.0                          # Los Guayabillos y Santa Rosa (altitud DEM de la red)
+CONTINUACION_MIN = 30                                   # sensibilidad: la lluvia siguió tras el corte de transmisión (~21:30)
+ARF = 0.85                                              # factor de reducción areal (TP-29: ~0,85–0,90 para 1–3 h y ~40 km²): cota inferior
+IERSE_DIARIO = OUT / "lluvia_ierse_diaria.csv"          # copia de clima/datos/ierse-wsn/diario.csv (23-abr a 2-nov-2026)
+L_ROUTING_M = (100, 300, 1000)                          # longitud efectiva del frente de desborde para el tránsito por el vaso
+HITOS_CSV = ROOT / "estudios/santa-cruz/datos/hitos_hidrologicos.csv"
 DT_H = 1 / 6                              # paso de 10 min
 DURACION_SIM_H = 48
 IA_RATIO = 0.2                            # abstracción inicial Ia = 0,2 S (TR-55)
@@ -717,6 +727,135 @@ if EVENTO_CSV.exists() and not LLUVIA_EVENTO_MM:
                    "vertedero_en_umbral_de_rebose": verted}
             R["evento_31oct"]["escenarios"].append(row); cols.append((nm, q))
             print("   evento", nm, {k_: row[k_] for k_ in ("lluvia_ponderada_mm", "escorrentia_mm", "volumen_escorrentia_m3", "q_pico_m3s_tc_temez", "q_pico_m3s_tc_kirpich", "hora_pico_local_temez", "hora_local_vaso_lleno")}, verted)
+# --- evento MEDIDO 30-oct-2026: lluvia areal desde las estaciones IERSE y tránsito por el vaso
+if IERSE_CSV.exists():
+    import datetime as _dt
+    est = {f["properties"]["nombre"]: (f["geometry"]["coordinates"], f["properties"]["altitud_m_dem"]) for f in json.loads(IERSE_EST.read_text())["features"]}
+    t0m = _dt.datetime.fromisoformat(MEDIDO_INICIO)
+    tm = np.arange(0, MEDIDO_HORAS_SIM + 1e-9, DT_H)
+    nb_ = len(tm)
+    serie = {}
+    ultimo = {}
+    for f in csv.DictReader(open(IERSE_CSV)):
+        ts = _dt.datetime.fromisoformat(f["fecha_hora_local"]); k = int((ts - t0m).total_seconds() // (DT_H * 3600))
+        if 0 <= k < nb_:
+            serie.setdefault(f["estacion"], np.zeros(nb_))[k] += float(f["lluvia_mm"] or 0)
+            if ts.date() == t0m.date(): ultimo[f["estacion"]] = (ts, float(f["lluvia_mm"] or 0))
+    G_, C_, SR_ = serie["Los Guayabillos"], serie["Cerro Crocker"], serie["Santa Rosa"]
+    # pesos sobre la cuenca
+    xy_c = np.array(TR * (cc[cu] + .5, rr[cu] + .5))
+    exy = {n_: np.array(T(*v_[0][:2])) for n_, v_ in est.items()}
+    dmat = np.array([np.hypot(*(xy_c - exy[n_][:, None])) for n_ in est])
+    near = np.array(list(est))[dmat.argmin(0)]
+    w_th = {n_: float((near == n_).mean()) for n_ in est}
+    alfa = float(np.clip((dem[cu] - COTA_G) / (COTA_SR - COTA_G), 0, 1).mean())
+    areal = {"G_uniforme": G_.copy(),
+             "G_ARF": ARF * G_,
+             "thiessen_con_Crocker": sum(w_th[n_] * serie[n_] for n_ in est),
+             "gradiente_cota_G_SR": (1 - alfa) * G_ + alfa * SR_}
+    # sensibilidad: continuación de la tormenta tras el corte, al ritmo de los últimos 3 registros de Los Guayabillos
+    cont = areal["G_uniforme"].copy()
+    tg_, _ = ultimo["Los Guayabillos"]; kk = int((tg_ - t0m).total_seconds() // (DT_H * 3600)) + 1
+    tasa = float(np.mean(G_[kk - 3:kk]))                          # mm por paso de 10 min
+    cont[kk:kk + int(CONTINUACION_MIN / 60 / DT_H)] += tasa
+    areal["G_uniforme_mas_continuacion"] = cont
+    R["evento_30oct_medido"] = {
+        "fuente": "Red IERSE-WSN, Universidad del Azuay (pluviómetros de balancín, 0,2 mm). Totales MÍNIMOS: las estaciones dejan de transmitir hacia las 21:25–21:30.",
+        "totales_estacion_30oct_mm": {n_: round(float(serie[n_][:int(24 / DT_H)].sum()), 1) for n_ in serie},
+        "ultimo_registro": {n_: v_[0].strftime("%H:%M") for n_, v_ in ultimo.items()},
+        "pesos_thiessen_cuenca": {n_: round(v_, 3) for n_, v_ in w_th.items()},
+        "fraccion_gradiente_alfa": round(alfa, 3),
+        "metodos_lluvia_areal": {"G_uniforme": "central: Los Guayabillos (178 m, a 370 m del límite oeste de la cuenca; cota cercana a la mediana de la cuenca, 225 m)",
+                                 "G_ARF": f"cota inferior: Los Guayabillos × factor de reducción areal {ARF} (TP-29, tormenta de 1–3 h sobre ~40 km²)",
+                                 "thiessen_con_Crocker": "solo si Crocker fuera correcto (casi seguro falla desde agosto: 9 y 18 mm en sep y oct frente a 140 y 340 en Los Guayabillos)",
+                                 "gradiente_cota_G_SR": "interpolación lineal con la cota entre Los Guayabillos y Santa Rosa, constante fuera de 178–416 m (Crocker descartado)",
+                                 "G_uniforme_mas_continuacion": f"sensibilidad: {CONTINUACION_MIN} min más al ritmo de los últimos registros ({tasa:.1f} mm/10 min)"},
+        "pluviometros_calidad": {},
+        "crocker": "Registra 0,2–0,8 mm/h de forma casi constante antes, durante y después de la tormenta (también el 31-oct), sin respuesta "
+                   "a los pulsos de 43–66 mm/h de las otras estaciones y sin caída térmica. Compatible con una tormenta de cotas medias bajo la "
+                   "inversión o con un embudo obstruido que drena lento; no se puede decidir con dos días de datos.",
+        "escenarios": []}
+    if IERSE_DIARIO.exists():
+        dd_ = list(csv.DictReader(open(IERSE_DIARIO)))
+        mes = {}
+        for f in dd_: mes.setdefault((f["estacion"], f["fecha"][:7]), 0.0); mes[(f["estacion"], f["fecha"][:7])] += float(f["lluvia_mm"] or 0)
+        r5 = {n_: round(sum(float(f["lluvia_mm"] or 0) for f in dd_ if f["estacion"] == n_ and "2026-10-25" <= f["fecha"] <= "2026-10-29"), 1) for n_ in est}
+        R["evento_30oct_medido"]["pluviometros_calidad"] = {
+            "mensual_mm": {f"{n_} {m_}": round(v_, 1) for (n_, m_), v_ in sorted(mes.items()) if m_ >= "2026-06"},
+            "crocker": "casi seguro falla desde agosto (jun 297 mm; sep 9 y oct 18 mm frente a 140 y 340 mm en Los Guayabillos)",
+            "los_guayabillos": "marca 0 mm del 31-oct al 2-nov con cobertura completa mientras Santa Rosa mide 13–43 mm/día: probable obstrucción o daño durante el evento; no afecta al 30-oct",
+            "lluvia_5_dias_previos_25_29oct_mm": r5,
+            "amc": "5 días previos ≈10–12 mm (AMC I–II por el criterio SCS), pero octubre fue húmedo (340 mm en Los Guayabillos) y el 30-oct ya habían caído ~25 mm antes del pulso principal: CN 76 central; 68 igual de defendible; 83 sin respaldo."}
+    # curva de almacenamiento para el tránsito (llenado conectado; por encima del rebose, ventana de RADIO_MANCHA_M)
+    cv = sorted({(round(c_[0], 3), c_[2]) for c_ in curva} | {(round(cota_rebose, 3), vaso[8]["volumen_m3"])})
+    cv_h = np.array([a_ for a_, _ in cv]); cv_v = np.array([b_ for _, b_ in cv], float)
+    fondo = float(dem[r_lo, c_lo])
+    hora_m = lambda x: (t0m + _dt.timedelta(hours=float(x))).strftime("%d-%b %H:%M")
+    filas_hid = {}
+    for met, hy in areal.items():
+        Pc = np.cumsum(hy)
+        for cn in (round(cn_ii, 1), round((cn_ii + cn_iii) / 2, 1), round(cn_iii, 1)):
+            for tc_nm, tc_v in (("temez", tc_c), ("kirpich", tc_k)):
+                exc, Qmm = escorrentia(None, cn, Pc)
+                q = np.convolve(exc, hu(tc_v))[:nb_]
+                nm = f"MEDIDO30oct_{met}_CN{cn:.0f}_{tc_nm}"
+                filas_hid[nm] = q
+                V = float(Qmm) / 1000 * area_km2 * 1e6
+                # tránsito por el vaso (paso de 1 min)
+                ruteo = {}
+                tt = np.arange(0, tm[-1], 1 / 60); qi = np.interp(tt, tm, q)
+                for Lw in L_ROUTING_M:
+                    S_ = 0.0; hs = np.empty_like(tt); qo = np.empty_like(tt)
+                    for i_, qin in enumerate(qi):
+                        h_ = float(np.interp(S_, cv_v, cv_h)) if S_ > 0 else fondo
+                        qout = VERTEDERO_C * Lw * max(0.0, h_ - cota_rebose) ** 1.5
+                        S_ = max(0.0, S_ + (qin - qout) * 60); hs[i_] = h_; qo[i_] = qout
+                    im = int(hs.argmax())
+                    lleno = np.argmax(hs >= cota_rebose - 0.005) if (hs >= cota_rebose - 0.005).any() else None
+                    baja = im + int(np.argmax(hs[im:] <= cota_rebose + 0.05)) if (hs[im:] <= cota_rebose + 0.05).any() else None
+                    ruteo[f"L{Lw}m"] = {"cota_max_m": round(float(hs.max()), 2), "lamina_max_sobre_fondo_m": round(float(hs.max()) - fondo, 2),
+                                        "hora_lamina_max": hora_m(tt[im]), "hora_vaso_lleno": hora_m(tt[lleno]) if lleno is not None else None,
+                                        "hora_baja_a_rebose_mas_5cm": hora_m(tt[baja]) if baja is not None else None,
+                                        "q_salida_max_m3s": round(float(qo.max()), 1)}
+                sig = np.argmax(q > 1.0) if (q > 1.0).any() else None
+                R["evento_30oct_medido"]["escenarios"].append({
+                    "escenario": nm, "lluvia_areal": met, "CN": cn, "tc": tc_nm, "lluvia_mm": round(float(Pc[-1]), 1),
+                    "max_10min_mm": round(float(hy.max()), 1), "escorrentia_mm": round(float(Qmm), 1), "coef_escorrentia": round(float(Qmm) / float(Pc[-1]), 3),
+                    "volumen_m3": int(V), "veces_vaso": round(V / vol_rebose, 1), "q_pico_m3s": round(float(q.max()), 1), "hora_pico": hora_m(tm[q.argmax()]),
+                    "hora_inicio_escorrentia_q>1m3s": hora_m(tm[sig]) if sig is not None else None, "transito_vaso": ruteo})
+    guardar_csv("hidrogramas_evento_30oct.csv", ["fecha_hora_utc6"] + list(filas_hid),
+                [[hora_m(x_)] + [round(float(v_[i_]), 2) for v_ in filas_hid.values()] for i_, x_ in enumerate(tm)])
+    guardar_csv("lluvia_areal_30oct_10min.csv", ["fecha_hora_utc6"] + list(areal), [[hora_m(x_)] + [round(float(v_[i_]), 2) for v_ in areal.values()] for i_, x_ in enumerate(tm) if x_ < 24])
+    esc = {e_["escenario"]: e_ for e_ in R["evento_30oct_medido"]["escenarios"]}
+    for e_ in R["evento_30oct_medido"]["escenarios"]:
+        print("   medido", e_["escenario"], e_["lluvia_mm"], e_["escorrentia_mm"], e_["q_pico_m3s"], e_["hora_pico"], e_["hora_inicio_escorrentia_q>1m3s"],
+              {k_: (v_["cota_max_m"], v_["lamina_max_sobre_fondo_m"], v_["hora_lamina_max"], v_["hora_vaso_lleno"], v_["hora_baja_a_rebose_mas_5cm"]) for k_, v_ in e_["transito_vaso"].items()})
+    # hitos (escenario central: G uniforme, CN intermedio; rangos con Témez–Kirpich, CN 68–83 y L 100–1000 m)
+    cn_c = round((cn_ii + cn_iii) / 2); base = f"MEDIDO30oct_G_uniforme_CN{cn_c}"
+    sel_ = [e_ for e_ in R["evento_30oct_medido"]["escenarios"] if e_["lluvia_areal"] == "G_uniforme"]
+    ct, ck = esc[base + "_temez"], esc[base + "_kirpich"]
+    rng = lambda key: sorted({e_[key] for e_ in sel_ if e_[key]})
+    tv = lambda e_, k_: [v_[k_] for v_ in e_["transito_vaso"].values() if v_[k_]]
+    hitos = [
+        [ck["hora_inicio_escorrentia_q>1m3s"], "Inicio de escorrentía significativa en la entrada al barrio (Q > 1 m³/s)", "",
+         f"{min(rng('hora_inicio_escorrentia_q>1m3s'))} a {max(rng('hora_inicio_escorrentia_q>1m3s'))} según CN y tc"],
+        [ct["transito_vaso"]["L300m"]["hora_vaso_lleno"], "Vaso de La Cascada lleno hasta el rebose (≈12,95 m DSM)", f"{vol_rebose} m³",
+         f"{min(tv(ck, 'hora_vaso_lleno') + tv(ct, 'hora_vaso_lleno'))} a {max(tv(ck, 'hora_vaso_lleno') + tv(ct, 'hora_vaso_lleno'))} (Kirpich–Témez); volumen 42 000–62 000 m³"],
+        [ck["hora_pico"], "Caudal pico en la entrada al barrio (tc Kirpich)", f"{ck['q_pico_m3s']} m³/s", f"CN 68–83: {min(e_['q_pico_m3s'] for e_ in sel_ if e_['tc'] == 'kirpich')}–{max(e_['q_pico_m3s'] for e_ in sel_ if e_['tc'] == 'kirpich')} m³/s"],
+        [ct["hora_pico"], "Caudal pico en la entrada al barrio (tc Témez)", f"{ct['q_pico_m3s']} m³/s", f"CN 68–83: {min(e_['q_pico_m3s'] for e_ in sel_ if e_['tc'] == 'temez')}–{max(e_['q_pico_m3s'] for e_ in sel_ if e_['tc'] == 'temez')} m³/s"],
+        [ct["transito_vaso"]["L300m"]["hora_lamina_max"], "Lámina máxima en el barrio (tránsito por el vaso, frente de desborde 300 m)",
+         f"{ct['transito_vaso']['L300m']['lamina_max_sobre_fondo_m']} m sobre el fondo DSM (cota {ct['transito_vaso']['L300m']['cota_max_m']} m)",
+         "frente 100–1000 m y Kirpich–Témez: " + ", ".join(f"{v_['lamina_max_sobre_fondo_m']} m" for e_ in (ct, ck) for v_ in e_["transito_vaso"].values()) + "; DSM ±2–4 m"],
+        [ct["transito_vaso"]["L300m"]["hora_baja_a_rebose_mas_5cm"], "La lámina vuelve a la cota de rebose (+5 cm); por debajo, el vaso solo se vacía por infiltración o bombeo",
+         f"{vol_rebose} m³ retenidos", "sin salida por gravedad bajo el rebose; la SNGR anunció que se drenaría el sector"]]
+    HITOS_CSV.parent.mkdir(parents=True, exist_ok=True)
+    previos = []
+    if HITOS_CSV.exists():
+        previos = [r_ for r_ in csv.reader(open(HITOS_CSV)) if r_ and not r_[1].startswith(("Inicio de escorrentía significativa en la entrada al barrio", "Vaso de La Cascada", "Caudal pico en la entrada al barrio", "Lámina máxima en el barrio", "La lámina vuelve a la cota"))][1:]
+    with open(HITOS_CSV, "w", newline="") as fh:
+        w_ = csv.writer(fh); w_.writerow(["fecha_hora_utc6", "hito", "valor", "incertidumbre"])
+        for h_ in hitos: w_.writerow(["2026-" + _dt.datetime.strptime(h_[0], "%d-%b %H:%M").strftime("%m-%dT%H:%M") if h_[0] else "", "La Cascada: " + h_[1], h_[2], h_[3]])
+        for r_ in previos: w_.writerow(r_)
 guardar_csv("hidrogramas.csv", ["tiempo_h"] + [c[0] for c in cols],
             [[round(float(tt), 3)] + [round(float(c[1][i]), 2) for c in cols] for i, tt in enumerate(t)])
 R["hidrologia"] = {

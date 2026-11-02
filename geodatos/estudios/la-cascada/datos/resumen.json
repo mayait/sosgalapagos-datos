@@ -2324,6 +2324,1305 @@
   },
   "cn_eleccion": "Central CN intermedio II–III: con ECMWF 9 km la lluvia de 5 días ponderada es AMC II con los umbrales de la estación de crecimiento y AMC III con los de la estación latente; los demás modelos dan AMC I–II. CN 83 (AMC III) y CN 68 (AMC II) quedan como sensibilidad."
  },
+ "evento_30oct_medido": {
+  "fuente": "Red IERSE-WSN, Universidad del Azuay (pluviómetros de balancín, 0,2 mm). Totales MÍNIMOS: las estaciones dejan de transmitir hacia las 21:25–21:30.",
+  "totales_estacion_30oct_mm": {
+   "Cerro Crocker": 5.0,
+   "Los Guayabillos": 178.8,
+   "Militar": 2.0,
+   "Santa Rosa": 237.6
+  },
+  "ultimo_registro": {
+   "Cerro Crocker": "23:57",
+   "Los Guayabillos": "21:25",
+   "Militar": "23:57",
+   "Santa Rosa": "21:22"
+  },
+  "pesos_thiessen_cuenca": {
+   "Cerro Crocker": 0.305,
+   "Los Guayabillos": 0.695,
+   "Militar": 0.0,
+   "Santa Rosa": 0.0
+  },
+  "fraccion_gradiente_alfa": 0.399,
+  "metodos_lluvia_areal": {
+   "G_uniforme": "central: Los Guayabillos (178 m, a 370 m del límite oeste de la cuenca; cota cercana a la mediana de la cuenca, 225 m)",
+   "G_ARF": "cota inferior: Los Guayabillos × factor de reducción areal 0.85 (TP-29, tormenta de 1–3 h sobre ~40 km²)",
+   "thiessen_con_Crocker": "solo si Crocker fuera correcto (casi seguro falla desde agosto: 9 y 18 mm en sep y oct frente a 140 y 340 en Los Guayabillos)",
+   "gradiente_cota_G_SR": "interpolación lineal con la cota entre Los Guayabillos y Santa Rosa, constante fuera de 178–416 m (Crocker descartado)",
+   "G_uniforme_mas_continuacion": "sensibilidad: 30 min más al ritmo de los últimos registros (8.5 mm/10 min)"
+  },
+  "pluviometros_calidad": {
+   "mensual_mm": {
+    "Cerro Crocker 2026-06": 296.6,
+    "Cerro Crocker 2026-07": 141.4,
+    "Cerro Crocker 2026-08": 33.2,
+    "Cerro Crocker 2026-09": 8.8,
+    "Cerro Crocker 2026-10": 17.6,
+    "Cerro Crocker 2026-11": 4.0,
+    "Los Guayabillos 2026-06": 190.4,
+    "Los Guayabillos 2026-07": 103.4,
+    "Los Guayabillos 2026-08": 59.4,
+    "Los Guayabillos 2026-09": 140.0,
+    "Los Guayabillos 2026-10": 340.4,
+    "Los Guayabillos 2026-11": 0.0,
+    "Militar 2026-06": 1.4,
+    "Militar 2026-07": 0.6,
+    "Militar 2026-08": 0.0,
+    "Militar 2026-09": 0.0,
+    "Militar 2026-10": 3.2,
+    "Militar 2026-11": 0.2,
+    "Santa Rosa 2026-06": 290.6,
+    "Santa Rosa 2026-07": 162.0,
+    "Santa Rosa 2026-08": 118.2,
+    "Santa Rosa 2026-09": 188.4,
+    "Santa Rosa 2026-10": 520.6,
+    "Santa Rosa 2026-11": 76.8
+   },
+   "crocker": "casi seguro falla desde agosto (jun 297 mm; sep 9 y oct 18 mm frente a 140 y 340 mm en Los Guayabillos)",
+   "los_guayabillos": "marca 0 mm del 31-oct al 2-nov con cobertura completa mientras Santa Rosa mide 13–43 mm/día: probable obstrucción o daño durante el evento; no afecta al 30-oct",
+   "lluvia_5_dias_previos_25_29oct_mm": {
+    "Cerro Crocker": 0.4,
+    "Los Guayabillos": 12.4,
+    "Militar": 0.0,
+    "Santa Rosa": 10.2
+   },
+   "amc": "5 días previos ≈10–12 mm (AMC I–II por el criterio SCS), pero octubre fue húmedo (340 mm en Los Guayabillos) y el 30-oct ya habían caído ~25 mm antes del pulso principal: CN 76 central; 68 igual de defendible; 83 sin respaldo."
+  },
+  "crocker": "Registra 0,2–0,8 mm/h de forma casi constante antes, durante y después de la tormenta (también el 31-oct), sin respuesta a los pulsos de 43–66 mm/h de las otras estaciones y sin caída térmica. Compatible con una tormenta de cotas medias bajo la inversión o con un embudo obstruido que drena lento; no se puede decidir con dos días de datos.",
+  "escenarios": [
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_CN68_temez",
+    "lluvia_areal": "G_uniforme",
+    "CN": 68.3,
+    "tc": "temez",
+    "lluvia_mm": 178.8,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 88.2,
+    "coef_escorrentia": 0.493,
+    "volumen_m3": 3741407,
+    "veces_vaso": 60.4,
+    "q_pico_m3s": 277.3,
+    "hora_pico": "30-Oct 22:50",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 17:00",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.31,
+      "lamina_max_sobre_fondo_m": 3.78,
+      "hora_lamina_max": "30-Oct 23:07",
+      "hora_vaso_lleno": "30-Oct 19:37",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:38",
+      "q_salida_max_m3s": 269.4
+     },
+     "L300m": {
+      "cota_max_m": 13.61,
+      "lamina_max_sobre_fondo_m": 3.09,
+      "hora_lamina_max": "30-Oct 22:55",
+      "hora_vaso_lleno": "30-Oct 19:37",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:18",
+      "q_salida_max_m3s": 276.1
+     },
+     "L1000m": {
+      "cota_max_m": 13.25,
+      "lamina_max_sobre_fondo_m": 2.72,
+      "hora_lamina_max": "30-Oct 22:52",
+      "hora_vaso_lleno": "30-Oct 19:37",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:20",
+      "q_salida_max_m3s": 276.9
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_CN68_kirpich",
+    "lluvia_areal": "G_uniforme",
+    "CN": 68.3,
+    "tc": "kirpich",
+    "lluvia_mm": 178.8,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 88.2,
+    "coef_escorrentia": 0.493,
+    "volumen_m3": 3741407,
+    "veces_vaso": 60.4,
+    "q_pico_m3s": 433.7,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 16:10",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.76,
+      "lamina_max_sobre_fondo_m": 4.23,
+      "hora_lamina_max": "30-Oct 21:59",
+      "hora_vaso_lleno": "30-Oct 18:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:47",
+      "q_salida_max_m3s": 412.5
+     },
+     "L300m": {
+      "cota_max_m": 13.84,
+      "lamina_max_sobre_fondo_m": 3.32,
+      "hora_lamina_max": "30-Oct 21:50",
+      "hora_vaso_lleno": "30-Oct 18:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:07",
+      "q_salida_max_m3s": 431.4
+     },
+     "L1000m": {
+      "cota_max_m": 13.35,
+      "lamina_max_sobre_fondo_m": 2.82,
+      "hora_lamina_max": "30-Oct 21:44",
+      "hora_vaso_lleno": "30-Oct 18:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:07",
+      "q_salida_max_m3s": 432.8
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_CN76_temez",
+    "lluvia_areal": "G_uniforme",
+    "CN": 75.7,
+    "tc": "temez",
+    "lluvia_mm": 178.8,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 108.2,
+    "coef_escorrentia": 0.605,
+    "volumen_m3": 4588765,
+    "veces_vaso": 74.1,
+    "q_pico_m3s": 324.7,
+    "hora_pico": "30-Oct 22:50",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 15:50",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.47,
+      "lamina_max_sobre_fondo_m": 3.94,
+      "hora_lamina_max": "30-Oct 23:03",
+      "hora_vaso_lleno": "30-Oct 18:12",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:46",
+      "q_salida_max_m3s": 317.1
+     },
+     "L300m": {
+      "cota_max_m": 13.69,
+      "lamina_max_sobre_fondo_m": 3.16,
+      "hora_lamina_max": "30-Oct 22:52",
+      "hora_vaso_lleno": "30-Oct 18:12",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:29",
+      "q_salida_max_m3s": 323.9
+     },
+     "L1000m": {
+      "cota_max_m": 13.28,
+      "lamina_max_sobre_fondo_m": 2.75,
+      "hora_lamina_max": "30-Oct 22:51",
+      "hora_vaso_lleno": "30-Oct 18:12",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:32",
+      "q_salida_max_m3s": 324.6
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_CN76_kirpich",
+    "lluvia_areal": "G_uniforme",
+    "CN": 75.7,
+    "tc": "kirpich",
+    "lluvia_mm": 178.8,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 108.2,
+    "coef_escorrentia": 0.605,
+    "volumen_m3": 4588765,
+    "veces_vaso": 74.1,
+    "q_pico_m3s": 496.7,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 14:20",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.93,
+      "lamina_max_sobre_fondo_m": 4.41,
+      "hora_lamina_max": "30-Oct 21:56",
+      "hora_vaso_lleno": "30-Oct 16:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:50",
+      "q_salida_max_m3s": 474.5
+     },
+     "L300m": {
+      "cota_max_m": 13.93,
+      "lamina_max_sobre_fondo_m": 3.4,
+      "hora_lamina_max": "30-Oct 21:45",
+      "hora_vaso_lleno": "30-Oct 16:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:10",
+      "q_salida_max_m3s": 493.5
+     },
+     "L1000m": {
+      "cota_max_m": 13.39,
+      "lamina_max_sobre_fondo_m": 2.86,
+      "hora_lamina_max": "30-Oct 21:42",
+      "hora_vaso_lleno": "30-Oct 16:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:11",
+      "q_salida_max_m3s": 495.6
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_CN83_temez",
+    "lluvia_areal": "G_uniforme",
+    "CN": 83.2,
+    "tc": "temez",
+    "lluvia_mm": 178.8,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 129.2,
+    "coef_escorrentia": 0.723,
+    "volumen_m3": 5480190,
+    "veces_vaso": 88.5,
+    "q_pico_m3s": 368.1,
+    "hora_pico": "30-Oct 22:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 09:30",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.6,
+      "lamina_max_sobre_fondo_m": 4.07,
+      "hora_lamina_max": "30-Oct 23:01",
+      "hora_vaso_lleno": "30-Oct 15:47",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:51",
+      "q_salida_max_m3s": 359.7
+     },
+     "L300m": {
+      "cota_max_m": 13.75,
+      "lamina_max_sobre_fondo_m": 3.23,
+      "hora_lamina_max": "30-Oct 22:51",
+      "hora_vaso_lleno": "30-Oct 15:47",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:38",
+      "q_salida_max_m3s": 367.1
+     },
+     "L1000m": {
+      "cota_max_m": 13.31,
+      "lamina_max_sobre_fondo_m": 2.78,
+      "hora_lamina_max": "30-Oct 22:44",
+      "hora_vaso_lleno": "30-Oct 15:47",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:41",
+      "q_salida_max_m3s": 367.7
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_CN83_kirpich",
+    "lluvia_areal": "G_uniforme",
+    "CN": 83.2,
+    "tc": "kirpich",
+    "lluvia_mm": 178.8,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 129.2,
+    "coef_escorrentia": 0.723,
+    "volumen_m3": 5480190,
+    "veces_vaso": 88.5,
+    "q_pico_m3s": 550.1,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 08:40",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 15.07,
+      "lamina_max_sobre_fondo_m": 4.55,
+      "hora_lamina_max": "30-Oct 21:54",
+      "hora_vaso_lleno": "30-Oct 14:36",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:52",
+      "q_salida_max_m3s": 526.3
+     },
+     "L300m": {
+      "cota_max_m": 14.0,
+      "lamina_max_sobre_fondo_m": 3.47,
+      "hora_lamina_max": "30-Oct 21:43",
+      "hora_vaso_lleno": "30-Oct 14:36",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:12",
+      "q_salida_max_m3s": 547.2
+     },
+     "L1000m": {
+      "cota_max_m": 13.42,
+      "lamina_max_sobre_fondo_m": 2.89,
+      "hora_lamina_max": "30-Oct 21:41",
+      "hora_vaso_lleno": "30-Oct 14:36",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:14",
+      "q_salida_max_m3s": 549.2
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_ARF_CN68_temez",
+    "lluvia_areal": "G_ARF",
+    "CN": 68.3,
+    "tc": "temez",
+    "lluvia_mm": 152.0,
+    "max_10min_mm": 10.9,
+    "escorrentia_mm": 66.9,
+    "coef_escorrentia": 0.44,
+    "volumen_m3": 2838984,
+    "veces_vaso": 45.8,
+    "q_pico_m3s": 214.8,
+    "hora_pico": "30-Oct 22:50",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 18:00",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.1,
+      "lamina_max_sobre_fondo_m": 3.57,
+      "hora_lamina_max": "30-Oct 23:09",
+      "hora_vaso_lleno": "30-Oct 20:02",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:22",
+      "q_salida_max_m3s": 208.4
+     },
+     "L300m": {
+      "cota_max_m": 13.51,
+      "lamina_max_sobre_fondo_m": 2.98,
+      "hora_lamina_max": "30-Oct 22:57",
+      "hora_vaso_lleno": "30-Oct 20:02",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 04:58",
+      "q_salida_max_m3s": 213.6
+     },
+     "L1000m": {
+      "cota_max_m": 13.2,
+      "lamina_max_sobre_fondo_m": 2.67,
+      "hora_lamina_max": "30-Oct 22:53",
+      "hora_vaso_lleno": "30-Oct 20:02",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:00",
+      "q_salida_max_m3s": 214.4
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_ARF_CN68_kirpich",
+    "lluvia_areal": "G_ARF",
+    "CN": 68.3,
+    "tc": "kirpich",
+    "lluvia_mm": 152.0,
+    "max_10min_mm": 10.9,
+    "escorrentia_mm": 66.9,
+    "coef_escorrentia": 0.44,
+    "volumen_m3": 2838984,
+    "veces_vaso": 45.8,
+    "q_pico_m3s": 339.9,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 16:50",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.48,
+      "lamina_max_sobre_fondo_m": 3.96,
+      "hora_lamina_max": "30-Oct 22:00",
+      "hora_vaso_lleno": "30-Oct 19:11",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:40",
+      "q_salida_max_m3s": 323.2
+     },
+     "L300m": {
+      "cota_max_m": 13.71,
+      "lamina_max_sobre_fondo_m": 3.18,
+      "hora_lamina_max": "30-Oct 21:51",
+      "hora_vaso_lleno": "30-Oct 19:11",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:59",
+      "q_salida_max_m3s": 338.7
+     },
+     "L1000m": {
+      "cota_max_m": 13.29,
+      "lamina_max_sobre_fondo_m": 2.76,
+      "hora_lamina_max": "30-Oct 21:48",
+      "hora_vaso_lleno": "30-Oct 19:11",
+      "hora_baja_a_rebose_mas_5cm": "30-Oct 23:59",
+      "q_salida_max_m3s": 339.7
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_ARF_CN76_temez",
+    "lluvia_areal": "G_ARF",
+    "CN": 75.7,
+    "tc": "temez",
+    "lluvia_mm": 152.0,
+    "max_10min_mm": 10.9,
+    "escorrentia_mm": 84.7,
+    "coef_escorrentia": 0.558,
+    "volumen_m3": 3593993,
+    "veces_vaso": 58.0,
+    "q_pico_m3s": 259.5,
+    "hora_pico": "30-Oct 22:50",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 16:20",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.25,
+      "lamina_max_sobre_fondo_m": 3.72,
+      "hora_lamina_max": "30-Oct 23:06",
+      "hora_vaso_lleno": "30-Oct 19:10",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:32",
+      "q_salida_max_m3s": 252.3
+     },
+     "L300m": {
+      "cota_max_m": 13.59,
+      "lamina_max_sobre_fondo_m": 3.06,
+      "hora_lamina_max": "30-Oct 22:53",
+      "hora_vaso_lleno": "30-Oct 19:10",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:12",
+      "q_salida_max_m3s": 258.5
+     },
+     "L1000m": {
+      "cota_max_m": 13.24,
+      "lamina_max_sobre_fondo_m": 2.71,
+      "hora_lamina_max": "30-Oct 22:51",
+      "hora_vaso_lleno": "30-Oct 19:10",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:14",
+      "q_salida_max_m3s": 259.3
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_ARF_CN76_kirpich",
+    "lluvia_areal": "G_ARF",
+    "CN": 75.7,
+    "tc": "kirpich",
+    "lluvia_mm": 152.0,
+    "max_10min_mm": 10.9,
+    "escorrentia_mm": 84.7,
+    "coef_escorrentia": 0.558,
+    "volumen_m3": 3593993,
+    "veces_vaso": 58.0,
+    "q_pico_m3s": 400.6,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 15:50",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.66,
+      "lamina_max_sobre_fondo_m": 4.13,
+      "hora_lamina_max": "30-Oct 21:57",
+      "hora_vaso_lleno": "30-Oct 17:43",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:44",
+      "q_salida_max_m3s": 380.8
+     },
+     "L300m": {
+      "cota_max_m": 13.8,
+      "lamina_max_sobre_fondo_m": 3.27,
+      "hora_lamina_max": "30-Oct 21:47",
+      "hora_vaso_lleno": "30-Oct 17:43",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:04",
+      "q_salida_max_m3s": 397.8
+     },
+     "L1000m": {
+      "cota_max_m": 13.33,
+      "lamina_max_sobre_fondo_m": 2.8,
+      "hora_lamina_max": "30-Oct 21:43",
+      "hora_vaso_lleno": "30-Oct 17:43",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:04",
+      "q_salida_max_m3s": 399.6
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_ARF_CN83_temez",
+    "lluvia_areal": "G_ARF",
+    "CN": 83.2,
+    "tc": "temez",
+    "lluvia_mm": 152.0,
+    "max_10min_mm": 10.9,
+    "escorrentia_mm": 104.1,
+    "coef_escorrentia": 0.685,
+    "volumen_m3": 4413276,
+    "veces_vaso": 71.3,
+    "q_pico_m3s": 301.6,
+    "hora_pico": "30-Oct 22:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 10:10",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.39,
+      "lamina_max_sobre_fondo_m": 3.87,
+      "hora_lamina_max": "30-Oct 23:02",
+      "hora_vaso_lleno": "30-Oct 17:13",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:40",
+      "q_salida_max_m3s": 294.6
+     },
+     "L300m": {
+      "cota_max_m": 13.65,
+      "lamina_max_sobre_fondo_m": 3.13,
+      "hora_lamina_max": "30-Oct 22:51",
+      "hora_vaso_lleno": "30-Oct 17:13",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:22",
+      "q_salida_max_m3s": 300.9
+     },
+     "L1000m": {
+      "cota_max_m": 13.27,
+      "lamina_max_sobre_fondo_m": 2.74,
+      "hora_lamina_max": "30-Oct 22:47",
+      "hora_vaso_lleno": "30-Oct 17:13",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:25",
+      "q_salida_max_m3s": 301.4
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_ARF_CN83_kirpich",
+    "lluvia_areal": "G_ARF",
+    "CN": 83.2,
+    "tc": "kirpich",
+    "lluvia_mm": 152.0,
+    "max_10min_mm": 10.9,
+    "escorrentia_mm": 104.1,
+    "coef_escorrentia": 0.685,
+    "volumen_m3": 4413276,
+    "veces_vaso": 71.3,
+    "q_pico_m3s": 454.2,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 08:50",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.82,
+      "lamina_max_sobre_fondo_m": 4.29,
+      "hora_lamina_max": "30-Oct 21:55",
+      "hora_vaso_lleno": "30-Oct 16:11",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:47",
+      "q_salida_max_m3s": 433.9
+     },
+     "L300m": {
+      "cota_max_m": 13.87,
+      "lamina_max_sobre_fondo_m": 3.34,
+      "hora_lamina_max": "30-Oct 21:44",
+      "hora_vaso_lleno": "30-Oct 16:11",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:07",
+      "q_salida_max_m3s": 451.4
+     },
+     "L1000m": {
+      "cota_max_m": 13.36,
+      "lamina_max_sobre_fondo_m": 2.84,
+      "hora_lamina_max": "30-Oct 21:42",
+      "hora_vaso_lleno": "30-Oct 16:11",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:08",
+      "q_salida_max_m3s": 453.3
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_thiessen_con_Crocker_CN68_temez",
+    "lluvia_areal": "thiessen_con_Crocker",
+    "CN": 68.3,
+    "tc": "temez",
+    "lluvia_mm": 126.9,
+    "max_10min_mm": 8.9,
+    "escorrentia_mm": 48.3,
+    "coef_escorrentia": 0.38,
+    "volumen_m3": 2048111,
+    "veces_vaso": 33.1,
+    "q_pico_m3s": 155.3,
+    "hora_pico": "30-Oct 22:50",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 19:00",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 13.88,
+      "lamina_max_sobre_fondo_m": 3.35,
+      "hora_lamina_max": "30-Oct 23:09",
+      "hora_vaso_lleno": "30-Oct 20:26",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:19",
+      "q_salida_max_m3s": 151.6
+     },
+     "L300m": {
+      "cota_max_m": 13.4,
+      "lamina_max_sobre_fondo_m": 2.87,
+      "hora_lamina_max": "30-Oct 23:01",
+      "hora_vaso_lleno": "30-Oct 20:26",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 04:36",
+      "q_salida_max_m3s": 154.4
+     },
+     "L1000m": {
+      "cota_max_m": 13.15,
+      "lamina_max_sobre_fondo_m": 2.63,
+      "hora_lamina_max": "30-Oct 22:54",
+      "hora_vaso_lleno": "30-Oct 20:26",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:37",
+      "q_salida_max_m3s": 155.0
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_thiessen_con_Crocker_CN68_kirpich",
+    "lluvia_areal": "thiessen_con_Crocker",
+    "CN": 68.3,
+    "tc": "kirpich",
+    "lluvia_mm": 126.9,
+    "max_10min_mm": 8.9,
+    "escorrentia_mm": 48.3,
+    "coef_escorrentia": 0.38,
+    "volumen_m3": 2048111,
+    "veces_vaso": 33.1,
+    "q_pico_m3s": 249.9,
+    "hora_pico": "30-Oct 21:50",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 18:40",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.19,
+      "lamina_max_sobre_fondo_m": 3.67,
+      "hora_lamina_max": "30-Oct 22:02",
+      "hora_vaso_lleno": "30-Oct 19:27",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:49",
+      "q_salida_max_m3s": 235.6
+     },
+     "L300m": {
+      "cota_max_m": 13.57,
+      "lamina_max_sobre_fondo_m": 3.04,
+      "hora_lamina_max": "30-Oct 21:52",
+      "hora_vaso_lleno": "30-Oct 19:27",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:52",
+      "q_salida_max_m3s": 248.2
+     },
+     "L1000m": {
+      "cota_max_m": 13.23,
+      "lamina_max_sobre_fondo_m": 2.7,
+      "hora_lamina_max": "30-Oct 21:51",
+      "hora_vaso_lleno": "30-Oct 19:27",
+      "hora_baja_a_rebose_mas_5cm": "30-Oct 23:50",
+      "q_salida_max_m3s": 249.7
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_thiessen_con_Crocker_CN76_temez",
+    "lluvia_areal": "thiessen_con_Crocker",
+    "CN": 75.7,
+    "tc": "temez",
+    "lluvia_mm": 126.9,
+    "max_10min_mm": 8.9,
+    "escorrentia_mm": 63.7,
+    "coef_escorrentia": 0.502,
+    "volumen_m3": 2701448,
+    "veces_vaso": 43.6,
+    "q_pico_m3s": 195.8,
+    "hora_pico": "30-Oct 22:50",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 17:00",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.03,
+      "lamina_max_sobre_fondo_m": 3.5,
+      "hora_lamina_max": "30-Oct 23:06",
+      "hora_vaso_lleno": "30-Oct 19:46",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:43",
+      "q_salida_max_m3s": 190.8
+     },
+     "L300m": {
+      "cota_max_m": 13.48,
+      "lamina_max_sobre_fondo_m": 2.95,
+      "hora_lamina_max": "30-Oct 22:55",
+      "hora_vaso_lleno": "30-Oct 19:46",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 04:53",
+      "q_salida_max_m3s": 194.7
+     },
+     "L1000m": {
+      "cota_max_m": 13.19,
+      "lamina_max_sobre_fondo_m": 2.66,
+      "hora_lamina_max": "30-Oct 22:52",
+      "hora_vaso_lleno": "30-Oct 19:46",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:54",
+      "q_salida_max_m3s": 195.5
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_thiessen_con_Crocker_CN76_kirpich",
+    "lluvia_areal": "thiessen_con_Crocker",
+    "CN": 75.7,
+    "tc": "kirpich",
+    "lluvia_mm": 126.9,
+    "max_10min_mm": 8.9,
+    "escorrentia_mm": 63.7,
+    "coef_escorrentia": 0.502,
+    "volumen_m3": 2701448,
+    "veces_vaso": 43.6,
+    "q_pico_m3s": 304.8,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 16:10",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.38,
+      "lamina_max_sobre_fondo_m": 3.85,
+      "hora_lamina_max": "30-Oct 21:59",
+      "hora_vaso_lleno": "30-Oct 18:58",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:55",
+      "q_salida_max_m3s": 289.3
+     },
+     "L300m": {
+      "cota_max_m": 13.66,
+      "lamina_max_sobre_fondo_m": 3.13,
+      "hora_lamina_max": "30-Oct 21:51",
+      "hora_vaso_lleno": "30-Oct 18:58",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:58",
+      "q_salida_max_m3s": 302.8
+     },
+     "L1000m": {
+      "cota_max_m": 13.27,
+      "lamina_max_sobre_fondo_m": 2.74,
+      "hora_lamina_max": "30-Oct 21:44",
+      "hora_vaso_lleno": "30-Oct 18:58",
+      "hora_baja_a_rebose_mas_5cm": "30-Oct 23:56",
+      "q_salida_max_m3s": 304.1
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_thiessen_con_Crocker_CN83_temez",
+    "lluvia_areal": "thiessen_con_Crocker",
+    "CN": 83.2,
+    "tc": "temez",
+    "lluvia_mm": 126.9,
+    "max_10min_mm": 8.9,
+    "escorrentia_mm": 81.1,
+    "coef_escorrentia": 0.639,
+    "volumen_m3": 3437788,
+    "veces_vaso": 55.5,
+    "q_pico_m3s": 235.4,
+    "hora_pico": "30-Oct 22:50",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 15:30",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.17,
+      "lamina_max_sobre_fondo_m": 3.64,
+      "hora_lamina_max": "30-Oct 23:04",
+      "hora_vaso_lleno": "30-Oct 18:05",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 08:01",
+      "q_salida_max_m3s": 229.4
+     },
+     "L300m": {
+      "cota_max_m": 13.55,
+      "lamina_max_sobre_fondo_m": 3.02,
+      "hora_lamina_max": "30-Oct 22:52",
+      "hora_vaso_lleno": "30-Oct 18:05",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:06",
+      "q_salida_max_m3s": 234.9
+     },
+     "L1000m": {
+      "cota_max_m": 13.22,
+      "lamina_max_sobre_fondo_m": 2.69,
+      "hora_lamina_max": "30-Oct 22:51",
+      "hora_vaso_lleno": "30-Oct 18:05",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:08",
+      "q_salida_max_m3s": 235.4
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_thiessen_con_Crocker_CN83_kirpich",
+    "lluvia_areal": "thiessen_con_Crocker",
+    "CN": 83.2,
+    "tc": "kirpich",
+    "lluvia_mm": 126.9,
+    "max_10min_mm": 8.9,
+    "escorrentia_mm": 81.1,
+    "coef_escorrentia": 0.639,
+    "volumen_m3": 3437788,
+    "veces_vaso": 55.5,
+    "q_pico_m3s": 357.0,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 10:00",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.54,
+      "lamina_max_sobre_fondo_m": 4.01,
+      "hora_lamina_max": "30-Oct 21:56",
+      "hora_vaso_lleno": "30-Oct 16:45",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:00",
+      "q_salida_max_m3s": 340.1
+     },
+     "L300m": {
+      "cota_max_m": 13.73,
+      "lamina_max_sobre_fondo_m": 3.21,
+      "hora_lamina_max": "30-Oct 21:45",
+      "hora_vaso_lleno": "30-Oct 16:45",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:02",
+      "q_salida_max_m3s": 354.5
+     },
+     "L1000m": {
+      "cota_max_m": 13.3,
+      "lamina_max_sobre_fondo_m": 2.78,
+      "hora_lamina_max": "30-Oct 21:42",
+      "hora_vaso_lleno": "30-Oct 16:45",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:01",
+      "q_salida_max_m3s": 356.2
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_gradiente_cota_G_SR_CN68_temez",
+    "lluvia_areal": "gradiente_cota_G_SR",
+    "CN": 68.3,
+    "tc": "temez",
+    "lluvia_mm": 207.6,
+    "max_10min_mm": 14.8,
+    "escorrentia_mm": 112.2,
+    "coef_escorrentia": 0.54,
+    "volumen_m3": 4758180,
+    "veces_vaso": 76.8,
+    "q_pico_m3s": 317.8,
+    "hora_pico": "30-Oct 22:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 15:40",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.44,
+      "lamina_max_sobre_fondo_m": 3.92,
+      "hora_lamina_max": "30-Oct 23:01",
+      "hora_vaso_lleno": "30-Oct 17:16",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:41",
+      "q_salida_max_m3s": 309.9
+     },
+     "L300m": {
+      "cota_max_m": 13.68,
+      "lamina_max_sobre_fondo_m": 3.15,
+      "hora_lamina_max": "30-Oct 22:50",
+      "hora_vaso_lleno": "30-Oct 17:16",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:25",
+      "q_salida_max_m3s": 316.8
+     },
+     "L1000m": {
+      "cota_max_m": 13.28,
+      "lamina_max_sobre_fondo_m": 2.75,
+      "hora_lamina_max": "30-Oct 22:44",
+      "hora_vaso_lleno": "30-Oct 17:16",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:27",
+      "q_salida_max_m3s": 317.4
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_gradiente_cota_G_SR_CN68_kirpich",
+    "lluvia_areal": "gradiente_cota_G_SR",
+    "CN": 68.3,
+    "tc": "kirpich",
+    "lluvia_mm": 207.6,
+    "max_10min_mm": 14.8,
+    "escorrentia_mm": 112.2,
+    "coef_escorrentia": 0.54,
+    "volumen_m3": 4758180,
+    "veces_vaso": 76.8,
+    "q_pico_m3s": 491.5,
+    "hora_pico": "30-Oct 21:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 15:10",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.92,
+      "lamina_max_sobre_fondo_m": 4.39,
+      "hora_lamina_max": "30-Oct 21:52",
+      "hora_vaso_lleno": "30-Oct 16:13",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:46",
+      "q_salida_max_m3s": 468.8
+     },
+     "L300m": {
+      "cota_max_m": 13.92,
+      "lamina_max_sobre_fondo_m": 3.4,
+      "hora_lamina_max": "30-Oct 21:42",
+      "hora_vaso_lleno": "30-Oct 16:13",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:06",
+      "q_salida_max_m3s": 489.4
+     },
+     "L1000m": {
+      "cota_max_m": 13.39,
+      "lamina_max_sobre_fondo_m": 2.86,
+      "hora_lamina_max": "30-Oct 21:41",
+      "hora_vaso_lleno": "30-Oct 16:13",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:07",
+      "q_salida_max_m3s": 491.1
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_gradiente_cota_G_SR_CN76_temez",
+    "lluvia_areal": "gradiente_cota_G_SR",
+    "CN": 75.7,
+    "tc": "temez",
+    "lluvia_mm": 207.6,
+    "max_10min_mm": 14.8,
+    "escorrentia_mm": 134.2,
+    "coef_escorrentia": 0.646,
+    "volumen_m3": 5689536,
+    "veces_vaso": 91.9,
+    "q_pico_m3s": 362.4,
+    "hora_pico": "30-Oct 22:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 14:50",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.58,
+      "lamina_max_sobre_fondo_m": 4.05,
+      "hora_lamina_max": "30-Oct 22:58",
+      "hora_vaso_lleno": "30-Oct 16:33",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:47",
+      "q_salida_max_m3s": 353.3
+     },
+     "L300m": {
+      "cota_max_m": 13.74,
+      "lamina_max_sobre_fondo_m": 3.22,
+      "hora_lamina_max": "30-Oct 22:46",
+      "hora_vaso_lleno": "30-Oct 16:33",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:34",
+      "q_salida_max_m3s": 361.1
+     },
+     "L1000m": {
+      "cota_max_m": 13.31,
+      "lamina_max_sobre_fondo_m": 2.78,
+      "hora_lamina_max": "30-Oct 22:42",
+      "hora_vaso_lleno": "30-Oct 16:33",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:36",
+      "q_salida_max_m3s": 361.9
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_gradiente_cota_G_SR_CN76_kirpich",
+    "lluvia_areal": "gradiente_cota_G_SR",
+    "CN": 75.7,
+    "tc": "kirpich",
+    "lluvia_mm": 207.6,
+    "max_10min_mm": 14.8,
+    "escorrentia_mm": 134.2,
+    "coef_escorrentia": 0.646,
+    "volumen_m3": 5689536,
+    "veces_vaso": 91.9,
+    "q_pico_m3s": 549.2,
+    "hora_pico": "30-Oct 21:30",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 10:30",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 15.07,
+      "lamina_max_sobre_fondo_m": 4.54,
+      "hora_lamina_max": "30-Oct 21:51",
+      "hora_vaso_lleno": "30-Oct 15:39",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:49",
+      "q_salida_max_m3s": 525.4
+     },
+     "L300m": {
+      "cota_max_m": 14.0,
+      "lamina_max_sobre_fondo_m": 3.47,
+      "hora_lamina_max": "30-Oct 21:41",
+      "hora_vaso_lleno": "30-Oct 15:39",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:09",
+      "q_salida_max_m3s": 548.1
+     },
+     "L1000m": {
+      "cota_max_m": 13.42,
+      "lamina_max_sobre_fondo_m": 2.89,
+      "hora_lamina_max": "30-Oct 21:38",
+      "hora_vaso_lleno": "30-Oct 15:39",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:11",
+      "q_salida_max_m3s": 549.0
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_gradiente_cota_G_SR_CN83_temez",
+    "lluvia_areal": "gradiente_cota_G_SR",
+    "CN": 83.2,
+    "tc": "temez",
+    "lluvia_mm": 207.6,
+    "max_10min_mm": 14.8,
+    "escorrentia_mm": 156.7,
+    "coef_escorrentia": 0.755,
+    "volumen_m3": 6644206,
+    "veces_vaso": 107.3,
+    "q_pico_m3s": 400.4,
+    "hora_pico": "30-Oct 22:40",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 09:40",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.69,
+      "lamina_max_sobre_fondo_m": 4.17,
+      "hora_lamina_max": "30-Oct 22:56",
+      "hora_vaso_lleno": "30-Oct 13:19",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 07:52",
+      "q_salida_max_m3s": 391.0
+     },
+     "L300m": {
+      "cota_max_m": 13.8,
+      "lamina_max_sobre_fondo_m": 3.27,
+      "hora_lamina_max": "30-Oct 22:43",
+      "hora_vaso_lleno": "30-Oct 13:19",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:41",
+      "q_salida_max_m3s": 399.2
+     },
+     "L1000m": {
+      "cota_max_m": 13.33,
+      "lamina_max_sobre_fondo_m": 2.8,
+      "hora_lamina_max": "30-Oct 22:41",
+      "hora_vaso_lleno": "30-Oct 13:19",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:43",
+      "q_salida_max_m3s": 400.0
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_gradiente_cota_G_SR_CN83_kirpich",
+    "lluvia_areal": "gradiente_cota_G_SR",
+    "CN": 83.2,
+    "tc": "kirpich",
+    "lluvia_mm": 207.6,
+    "max_10min_mm": 14.8,
+    "escorrentia_mm": 156.7,
+    "coef_escorrentia": 0.755,
+    "volumen_m3": 6644206,
+    "veces_vaso": 107.3,
+    "q_pico_m3s": 598.8,
+    "hora_pico": "30-Oct 21:30",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 09:00",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 15.2,
+      "lamina_max_sobre_fondo_m": 4.67,
+      "hora_lamina_max": "30-Oct 21:50",
+      "hora_vaso_lleno": "30-Oct 11:26",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 02:51",
+      "q_salida_max_m3s": 572.0
+     },
+     "L300m": {
+      "cota_max_m": 14.06,
+      "lamina_max_sobre_fondo_m": 3.53,
+      "hora_lamina_max": "30-Oct 21:41",
+      "hora_vaso_lleno": "30-Oct 11:26",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:11",
+      "q_salida_max_m3s": 594.3
+     },
+     "L1000m": {
+      "cota_max_m": 13.45,
+      "lamina_max_sobre_fondo_m": 2.92,
+      "hora_lamina_max": "30-Oct 21:34",
+      "hora_vaso_lleno": "30-Oct 11:26",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:13",
+      "q_salida_max_m3s": 597.7
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_mas_continuacion_CN68_temez",
+    "lluvia_areal": "G_uniforme_mas_continuacion",
+    "CN": 68.3,
+    "tc": "temez",
+    "lluvia_mm": 204.4,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 109.5,
+    "coef_escorrentia": 0.536,
+    "volumen_m3": 4642146,
+    "veces_vaso": 74.9,
+    "q_pico_m3s": 330.2,
+    "hora_pico": "30-Oct 23:10",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 17:00",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.48,
+      "lamina_max_sobre_fondo_m": 3.96,
+      "hora_lamina_max": "30-Oct 23:27",
+      "hora_vaso_lleno": "30-Oct 19:37",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 08:12",
+      "q_salida_max_m3s": 322.4
+     },
+     "L300m": {
+      "cota_max_m": 13.7,
+      "lamina_max_sobre_fondo_m": 3.17,
+      "hora_lamina_max": "30-Oct 23:15",
+      "hora_vaso_lleno": "30-Oct 19:37",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 05:56",
+      "q_salida_max_m3s": 329.0
+     },
+     "L1000m": {
+      "cota_max_m": 13.29,
+      "lamina_max_sobre_fondo_m": 2.76,
+      "hora_lamina_max": "30-Oct 23:12",
+      "hora_vaso_lleno": "30-Oct 19:37",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:59",
+      "q_salida_max_m3s": 329.8
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_mas_continuacion_CN68_kirpich",
+    "lluvia_areal": "G_uniforme_mas_continuacion",
+    "CN": 68.3,
+    "tc": "kirpich",
+    "lluvia_mm": 204.4,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 109.5,
+    "coef_escorrentia": 0.536,
+    "volumen_m3": 4642146,
+    "veces_vaso": 74.9,
+    "q_pico_m3s": 470.7,
+    "hora_pico": "30-Oct 22:10",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 16:10",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.88,
+      "lamina_max_sobre_fondo_m": 4.36,
+      "hora_lamina_max": "30-Oct 22:22",
+      "hora_vaso_lleno": "30-Oct 18:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:17",
+      "q_salida_max_m3s": 456.9
+     },
+     "L300m": {
+      "cota_max_m": 13.9,
+      "lamina_max_sobre_fondo_m": 3.37,
+      "hora_lamina_max": "30-Oct 22:13",
+      "hora_vaso_lleno": "30-Oct 18:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:37",
+      "q_salida_max_m3s": 468.4
+     },
+     "L1000m": {
+      "cota_max_m": 13.37,
+      "lamina_max_sobre_fondo_m": 2.85,
+      "hora_lamina_max": "30-Oct 22:11",
+      "hora_vaso_lleno": "30-Oct 18:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:38",
+      "q_salida_max_m3s": 469.9
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_mas_continuacion_CN76_temez",
+    "lluvia_areal": "G_uniforme_mas_continuacion",
+    "CN": 75.7,
+    "tc": "temez",
+    "lluvia_mm": 204.4,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 131.2,
+    "coef_escorrentia": 0.642,
+    "volumen_m3": 5564760,
+    "veces_vaso": 89.8,
+    "q_pico_m3s": 378.9,
+    "hora_pico": "30-Oct 23:10",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 15:50",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.63,
+      "lamina_max_sobre_fondo_m": 4.1,
+      "hora_lamina_max": "30-Oct 23:24",
+      "hora_vaso_lleno": "30-Oct 18:12",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 08:18",
+      "q_salida_max_m3s": 370.4
+     },
+     "L300m": {
+      "cota_max_m": 13.77,
+      "lamina_max_sobre_fondo_m": 3.24,
+      "hora_lamina_max": "30-Oct 23:13",
+      "hora_vaso_lleno": "30-Oct 18:12",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 06:06",
+      "q_salida_max_m3s": 377.9
+     },
+     "L1000m": {
+      "cota_max_m": 13.32,
+      "lamina_max_sobre_fondo_m": 2.79,
+      "hora_lamina_max": "30-Oct 23:11",
+      "hora_vaso_lleno": "30-Oct 18:12",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 04:09",
+      "q_salida_max_m3s": 378.6
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_mas_continuacion_CN76_kirpich",
+    "lluvia_areal": "G_uniforme_mas_continuacion",
+    "CN": 75.7,
+    "tc": "kirpich",
+    "lluvia_mm": 204.4,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 131.2,
+    "coef_escorrentia": 0.642,
+    "volumen_m3": 5564760,
+    "veces_vaso": 89.8,
+    "q_pico_m3s": 525.4,
+    "hora_pico": "30-Oct 22:10",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 14:20",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 15.04,
+      "lamina_max_sobre_fondo_m": 4.51,
+      "hora_lamina_max": "30-Oct 22:20",
+      "hora_vaso_lleno": "30-Oct 16:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:19",
+      "q_salida_max_m3s": 512.8
+     },
+     "L300m": {
+      "cota_max_m": 13.97,
+      "lamina_max_sobre_fondo_m": 3.44,
+      "hora_lamina_max": "30-Oct 22:12",
+      "hora_vaso_lleno": "30-Oct 16:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:39",
+      "q_salida_max_m3s": 524.1
+     },
+     "L1000m": {
+      "cota_max_m": 13.41,
+      "lamina_max_sobre_fondo_m": 2.88,
+      "hora_lamina_max": "30-Oct 22:11",
+      "hora_vaso_lleno": "30-Oct 16:51",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:41",
+      "q_salida_max_m3s": 525.1
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_mas_continuacion_CN83_temez",
+    "lluvia_areal": "G_uniforme_mas_continuacion",
+    "CN": 83.2,
+    "tc": "temez",
+    "lluvia_mm": 204.4,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 153.6,
+    "coef_escorrentia": 0.751,
+    "volumen_m3": 6512947,
+    "veces_vaso": 105.2,
+    "q_pico_m3s": 421.5,
+    "hora_pico": "30-Oct 23:00",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 09:30",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 14.76,
+      "lamina_max_sobre_fondo_m": 4.23,
+      "hora_lamina_max": "30-Oct 23:22",
+      "hora_vaso_lleno": "30-Oct 15:47",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 08:22",
+      "q_salida_max_m3s": 413.5
+     },
+     "L300m": {
+      "cota_max_m": 13.83,
+      "lamina_max_sobre_fondo_m": 3.3,
+      "hora_lamina_max": "30-Oct 23:11",
+      "hora_vaso_lleno": "30-Oct 15:47",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 06:12",
+      "q_salida_max_m3s": 420.9
+     },
+     "L1000m": {
+      "cota_max_m": 13.34,
+      "lamina_max_sobre_fondo_m": 2.82,
+      "hora_lamina_max": "30-Oct 23:07",
+      "hora_vaso_lleno": "30-Oct 15:47",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 04:16",
+      "q_salida_max_m3s": 421.3
+     }
+    }
+   },
+   {
+    "escenario": "MEDIDO30oct_G_uniforme_mas_continuacion_CN83_kirpich",
+    "lluvia_areal": "G_uniforme_mas_continuacion",
+    "CN": 83.2,
+    "tc": "kirpich",
+    "lluvia_mm": 204.4,
+    "max_10min_mm": 12.8,
+    "escorrentia_mm": 153.6,
+    "coef_escorrentia": 0.751,
+    "volumen_m3": 6512947,
+    "veces_vaso": 105.2,
+    "q_pico_m3s": 570.4,
+    "hora_pico": "30-Oct 22:00",
+    "hora_inicio_escorrentia_q>1m3s": "30-Oct 08:40",
+    "transito_vaso": {
+     "L100m": {
+      "cota_max_m": 15.16,
+      "lamina_max_sobre_fondo_m": 4.64,
+      "hora_lamina_max": "30-Oct 22:17",
+      "hora_vaso_lleno": "30-Oct 14:36",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 03:21",
+      "q_salida_max_m3s": 559.4
+     },
+     "L300m": {
+      "cota_max_m": 14.03,
+      "lamina_max_sobre_fondo_m": 3.5,
+      "hora_lamina_max": "30-Oct 22:11",
+      "hora_vaso_lleno": "30-Oct 14:36",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 01:41",
+      "q_salida_max_m3s": 569.2
+     },
+     "L1000m": {
+      "cota_max_m": 13.43,
+      "lamina_max_sobre_fondo_m": 2.91,
+      "hora_lamina_max": "30-Oct 22:05",
+      "hora_vaso_lleno": "30-Oct 14:36",
+      "hora_baja_a_rebose_mas_5cm": "31-Oct 00:43",
+      "q_salida_max_m3s": 570.2
+     }
+    }
+   }
+  ]
+ },
  "hidrologia": {
   "metodo": "SCS-CN (Ia = 0,2 S) + hidrograma unitario adimensional SCS (Tlag = 0,6 tc, dt = 10 min); tormenta SCS tipo II de 24 h; cuenca agregada, lluvia uniforme, sin flujo base ni tránsito por depresiones.",
   "area_km2": 42.41,

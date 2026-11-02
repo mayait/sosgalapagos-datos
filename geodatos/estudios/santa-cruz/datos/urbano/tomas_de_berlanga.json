@@ -1,0 +1,301 @@
+{
+ "punto": [
+  -90.3198,
+  -0.7109
+ ],
+ "barrio_cgreg_ha": 36.0,
+ "suelo_cgreg_en_el_punto": [
+  "Suelo rural"
+ ],
+ "barrio_cgreg": {
+  "area_ha": 36.0,
+  "edificios": 117,
+  "pob_inec": 98,
+  "viviendas_sngr": 51,
+  "pob_sngr": 147
+ },
+ "radio_500m": {
+  "area_ha": 78.4,
+  "edificios": 160,
+  "pob_inec": 40,
+  "viviendas_sngr": 54,
+  "pob_sngr": 129
+ },
+ "radio_300m": {
+  "area_ha": 28.2,
+  "edificios": 52,
+  "pob_inec": 0,
+  "viviendas_sngr": 12,
+  "pob_sngr": 23
+ },
+ "cauces": [
+  {
+   "area_km2": 10.65,
+   "largo_en_zona_m": 784,
+   "cota_ini": 128.0,
+   "cota_fin": 103.0,
+   "edif_15m": 7,
+   "edif_30m": 12,
+   "pob_30m": 0,
+   "edif_sobre_linea": 1,
+   "cruces": 4,
+   "cruces_ids": "CR-SCZ-0083, CR-SCZ-0085, CR-SCZ-0084, CR-SCZ-0086",
+   "tc_min": 175,
+   "q100_min": 16.4,
+   "q100": 28.9,
+   "q100_max": 44.7,
+   "i_q100_mmh": 24.6,
+   "q30oct_min": 59.1,
+   "q30oct": 82.0,
+   "q30oct_max": 106.3,
+   "i_q30oct_mmh": 44.1
+  },
+  {
+   "area_km2": 8.48,
+   "largo_en_zona_m": 162,
+   "cota_ini": 122.5,
+   "cota_fin": 116.6,
+   "edif_15m": 0,
+   "edif_30m": 2,
+   "pob_30m": 8,
+   "edif_sobre_linea": 0,
+   "cruces": 1,
+   "cruces_ids": "CR-SCZ-0041",
+   "tc_min": 180,
+   "q100_min": 13.2,
+   "q100": 23.3,
+   "q100_max": 36.0,
+   "i_q100_mmh": 24.8,
+   "q30oct_min": 47.7,
+   "q30oct": 66.1,
+   "q30oct_max": 85.7,
+   "i_q30oct_mmh": 44.3
+  }
+ ],
+ "cauces_mayores_5km2": {
+  "tramos": 7,
+  "areas_km2": [
+   8.76,
+   8.93,
+   9.3,
+   9.66,
+   10.79
+  ],
+  "largo_en_zona_m": 2332,
+  "edif_15m": 15,
+  "edif_30m": 30,
+  "pob_inec_30m": 15,
+  "edif_sobre_linea": 6
+ },
+ "escuela": [
+  {
+   "nombre": "Tomás de Berlanga",
+   "dist_cauce_mayor_m": 140,
+   "cota_dsm_m": 127.9
+  },
+  {
+   "nombre": "UNIDAD EDUCATIVA TOMÁS DE BERLANGA",
+   "dist_cauce_mayor_m": 37,
+   "cota_dsm_m": 119.8
+  }
+ ],
+ "vias_m": [
+  {
+   "nombre": "(sin nombre)",
+   "highway": "residential",
+   "superficie": "",
+   "metros": 2338
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "cycleway",
+   "superficie": "asphalt",
+   "metros": 1096
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "tertiary",
+   "superficie": "compacted",
+   "metros": 1041
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "residential",
+   "superficie": "gravel",
+   "metros": 799
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "residential",
+   "superficie": "compacted",
+   "metros": 748
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "residential",
+   "superficie": "dirt",
+   "metros": 558
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "unclassified",
+   "superficie": "gravel",
+   "metros": 526
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "track",
+   "superficie": "dirt",
+   "metros": 468
+  },
+  {
+   "nombre": "Avenida Padre Julio Herrera",
+   "highway": "primary",
+   "superficie": "asphalt",
+   "metros": 283
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "unclassified",
+   "superficie": "",
+   "metros": 251
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "unclassified",
+   "superficie": "dirt",
+   "metros": 72
+  },
+  {
+   "nombre": "(sin nombre)",
+   "highway": "track",
+   "superficie": "",
+   "metros": 56
+  }
+ ],
+ "cruces": [
+  {
+   "id": "CR-SCZ-0016",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "9.65",
+   "q100": "25.9",
+   "q30oct": "73.6",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "114.4"
+  },
+  {
+   "id": "CR-SCZ-0017",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "9.53",
+   "q100": "25.7",
+   "q30oct": "72.9",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "124.6"
+  },
+  {
+   "id": "CR-SCZ-0018",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "9.51",
+   "q100": "25.7",
+   "q30oct": "72.8",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "126.0"
+  },
+  {
+   "id": "CR-SCZ-0020",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "8.89",
+   "q100": "23.9",
+   "q30oct": "67.8",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "129.9"
+  },
+  {
+   "id": "CR-SCZ-0041",
+   "via_nombre": "Avenida Padre Julio Herrera",
+   "via_tipo": "carretera Puerto Ayora–Baltra",
+   "area_km2": "8.48",
+   "q100": "23.2",
+   "q30oct": "65.9",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "120.8"
+  },
+  {
+   "id": "CR-SCZ-0083",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "0.81",
+   "q100": "2.7",
+   "q30oct": "7.6",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "113.8"
+  },
+  {
+   "id": "CR-SCZ-0085",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "0.8",
+   "q100": "2.6",
+   "q30oct": "7.5",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "122.2"
+  },
+  {
+   "id": "CR-SCZ-0084",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "0.8",
+   "q100": "2.6",
+   "q30oct": "7.4",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "125.3"
+  },
+  {
+   "id": "CR-SCZ-0086",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "0.76",
+   "q100": "2.5",
+   "q30oct": "7.1",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "alta",
+   "cota_dsm_m": "128.0"
+  },
+  {
+   "id": "CR-SCZ-0210",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "urbana",
+   "area_km2": "0.36",
+   "q100": "1.3",
+   "q30oct": "3.7",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "media",
+   "cota_dsm_m": "129.8"
+  },
+  {
+   "id": "CR-SCZ-0231",
+   "via_nombre": "(sin nombre)",
+   "via_tipo": "principal urbana",
+   "area_km2": "0.18",
+   "q100": "0.7",
+   "q30oct": "1.9",
+   "estructura": "ninguna cartografiada",
+   "prioridad": "media",
+   "cota_dsm_m": "122.7"
+  }
+ ],
+ "franja_cgreg_dist_m": 2142,
+ "dentro_cuenca_la_cascada": true
+}
