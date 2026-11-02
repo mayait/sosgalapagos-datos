@@ -245,3 +245,66 @@ def fuente_weatherlink(con):
 
 
 FUENTES_EXTRA["weatherlink"] = fuente_weatherlink
+
+
+# ---------------------------------------------------------------- Tempest (WeatherFlow)
+# API oficial de WeatherFlow con el token personal (solo lectura) que genera el dueño de la estación
+# en tempestwx.com → Settings → Data Authorizations. Variables en privado/fuentes.env:
+#   CLIMA_TEMPEST_API      endpoint REST
+#   CLIMA_TEMPEST_TOKEN    token personal
+#   CLIMA_TEMPEST_EQUIPOS  "id_dispositivo:codigo[,…]" (el dispositivo ST de la estación)
+# /observations/device/{id}?time_start&time_end devuelve obs_st (1 registro por minuto):
+#   [0] época, [2] viento medio m/s, [6] presión de la estación hPa, [7] temperatura °C, [8] HR %,
+#   [12] lluvia del minuto mm. Se agregan en bloques de 5 min, como el resto de fuentes.
+TEMPEST_META = {  # código: (nombre, isla, lat, lon, altitud)
+    "punta_estrada": ("Punta Estrada", "Santa Cruz", -0.7499, -90.31081, 5),
+}
+
+
+def fuente_tempest(con):
+    import os
+    api, token = endpoint("CLIMA_TEMPEST_API"), endpoint("CLIMA_TEMPEST_TOKEN")
+    equipos = [p.split(":", 1) for p in os.environ.get("CLIMA_TEMPEST_EQUIPOS", "").split(",") if ":" in p]
+    if not equipos:
+        raise RuntimeError("Falta CLIMA_TEMPEST_EQUIPOS en privado/fuentes.env")
+    ahora = dt.datetime.now(UTC)
+    filas = []
+    for dev, cod in equipos:
+        if cod not in TEMPEST_META:
+            continue
+        nom, isla, lat, lon, alt = TEMPEST_META[cod]
+        ult = con.execute("SELECT MAX(ts) FROM obs WHERE fuente='tempest' AND estacion=?", (cod,)).fetchone()[0]
+        # desde el último bloque guardado (para rellenar cortes), como máximo 3 días atrás
+        desde = ahora - dt.timedelta(days=3)
+        if ult:
+            desde = max(desde, dt.datetime.fromisoformat(ult.replace("Z", "+00:00")) - dt.timedelta(minutes=10))
+        q = urllib.parse.urlencode({"token": token, "time_start": int(desde.timestamp()), "time_end": int(ahora.timestamp())})
+        d = http_json(f"{api}/observations/device/{dev}?{q}", timeout=90)
+        obs = d.get("obs") or []
+        if not isinstance(obs, list):
+            raise ValueError(f"respuesta inesperada de {cod}: {str(d)[:200]}")
+        estacion(con, "tempest", cod, nom, isla, lat, lon, alt, "Tempest")
+        bloques = {}
+        for o in obs:
+            if not isinstance(o, list) or len(o) < 13 or o[0] is None:
+                continue
+            t = dt.datetime.fromtimestamp(int(o[0]), UTC)
+            b = t.replace(minute=t.minute - t.minute % 5, second=0)
+            g = bloques.setdefault(b, {"lluvia": 0.0, "n": 0, "temp": [], "hr": [], "p": [], "v": []})
+            g["n"] += 1
+            if o[12] is not None:
+                g["lluvia"] += float(o[12])
+            for k, i in (("v", 2), ("p", 6), ("temp", 7), ("hr", 8)):
+                if o[i] is not None:
+                    g[k].append(float(o[i]))
+        for b, g in bloques.items():
+            if b + dt.timedelta(minutes=5) > ahora:
+                continue  # bloque en curso: se guarda en la próxima corrida
+            filas.append((cod, "lluvia_mm", b, round(g["lluvia"], 2)))
+            for k, var in (("temp", "temp_c"), ("hr", "hr_pct"), ("p", "presion_hpa"), ("v", "viento_ms")):
+                if g[k]:
+                    filas.append((cod, var, b, round(sum(g[k]) / len(g[k]), 2)))
+    return guardar(con, "tempest", filas)
+
+
+FUENTES_EXTRA["tempest"] = fuente_tempest
