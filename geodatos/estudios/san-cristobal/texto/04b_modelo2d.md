@@ -23,7 +23,7 @@ Tabla: Escenarios simulados (lluvia uniforme sobre el dominio).
 | Escenario | Lluvia | Máx. 1 h | Suelo | Malla |
 |---|---|---|---|---|
 | (i) `scs100` | 100 mm en 24 h, SCS tipo II | 45 mm | AMC II | 30 m |
-| (ii) `guayabillos` | **Medida el 30-oct en Los Guayabillos (Santa Cruz) y trasladada**: 178,8 mm, 95 mm a las 20:00 y fin del registro a las 21:25 | 63 mm (20–21 h) | AMC II | 30 m |
+| (ii) `guayabillos` | **Medida el 30-oct en Los Guayabillos (Santa Cruz) y trasladada**: 178,8 mm en total, 95 mm acumulados a las 20:00 y fin del registro a las 21:25 | 63 mm (20–21 h) | AMC II | 30 m |
 | (iii) `guayabillos_amc3` | Igual que (ii) | 63 mm | AMC III (húmedo) | 30 m |
 | (iv) **`guayabillos_15m`** (principal) | Igual que (ii) | 63 mm | AMC II | 15 m (DSM remuestreado) |
 
@@ -49,12 +49,13 @@ Tabla: Caudal pico por sección (m³/s; hora de Galápagos en los escenarios con
 - **Orden de llegada con la tormenta trasladada (iv).**
   - El Progreso es lo primero que se encharca: hay ≥ 0,3 m junto a la Escuela Carlos Darwin desde las 18:30.
   - En Barrio Frío el caudal supera los 5 m³/s a las 18:40 y los 20 m³/s a las 20:15. La desembocadura alcanza ≥ 0,3 m de calado a las 20:35.
-  - **Entre el inicio del pulso fuerte (≈18:00) y el desborde de la desembocadura pasan unas 2,5 h.** Es una ventana de alerta, si se mide la lluvia en la parte alta.
+  - **No hay una ventana de alerta de horas.** Las 2,5 h que pasan entre el inicio del pulso de las 18:00 y el desborde son un artefacto del hietograma trasladado, con dos pulsos. El desborde de la desembocadura (20:35) ocurre **dentro de la hora de máxima lluvia** (20–21 h). El margen real desde la lluvia intensa es, por tanto, **menor de 1 h**.
+  - Además, el limitador de Froude (Fr ≤ 1) frena el flujo supercrítico de los tramos empinados. Por eso las horas de llegada del modelo están **sesgadas hacia tarde**, y el margen real puede ser aún menor.
 - **Magnitud.**
   - En la desembocadura de Barrio Frío el calado es de 0,6–0,9 m y la velocidad de 1,2–3,2 m/s.
-  - Junto al registro de El Manzanillo de 2019, el calado es de 0,5–0,7 m.
+  - Junto al registro SNGR de El Manzanillo de 2019, sobre la Galápagos (tramo alto), el calado es de 0,5–0,7 m.
   - Con 100 mm, los mismos puntos se quedan en 0,3 m y 0,1 m.
-- **Coherencia con el método agregado.** Con 100 mm, el pico de Barrio Frío (18 m³/s) coincide con la estimación SCS de la sección 4 (19 m³/s, con un rango de 9–58).
+- **Comparación con el método agregado (no es una validación).** Con 100 mm, el pico de Barrio Frío (18 m³/s) es parecido a la estimación SCS de la sección 4 (19 m³/s, con un rango de 9–58). Pero la coincidencia no valida nada: los dos métodos usan la misma lluvia de diseño, CN distintos (70 agregado frente a 60/76/90 distribuidos) y transformaciones distintas.
   - En las cuencas altas el 2D da caudales menores, porque llena primero las microdepresiones del DSM (copas y ruido).
   - En la quebrada de El Progreso, 0,6 m³/s frente a 1,7–12 m³/s.
   - Ese almacenamiento es en parte artificial, así que con poca lluvia el modelo **subestima** los caudales de la parte alta.
@@ -74,22 +75,27 @@ Tabla: Edificios de cada zona según el calado máximo en la celda de su centroi
 
 ![Entorno del campus (malla de 15 m): calado máximo y zona donde el agua de la quebrada supera los 2 cm (contorno morado).](figuras/f_modelo2d_guayabillos_15m_campus.png)
 
-Tabla: Agua que entra al campus aproximado (0,8 ha).
+Tabla: Agua que entra al «campus» del modelo (0,8 ha). Ese campus es la envolvente de las huellas de edificios universitarios de OSM (+15 m); en el DSM, esas huellas son techos. La entrada total incluye la lluvia de la propia ladera; el aporte de la quebrada se distingue con el trazador.
 
 | | (i) 100 mm | (ii) Trasladada, 30 m | (iii) Húmedo | (iv) Trasladada, 15 m |
 |---|---|---|---|---|
-| Volumen total que entra (m³) | 1 300 | 4 400 | 7 200 | 3 500 |
+| Volumen total que entra (m³), con la lluvia de la ladera | 1 300 | 4 400 | 7 200 | 3 500 |
 | Del cual, de la quebrada (m³) | 380 | 1 840 | 3 250 | 920 |
-| Fracción de la escorrentía de la quebrada que entra | 7 % | 10 % | 10 % | 5 % |
-| Caudal máximo de entrada (m³/s) | 0,23 | 0,70 | 0,98 | 0,60 |
+| Fracción del **volumen** de escorrentía de la quebrada que entra | 7 % | 10 % | 10 % | 5 % |
+| Caudal máximo de entrada total (m³/s) | 0,23 | 0,70 | 0,98 | 0,60 |
 | Del cual, de la quebrada (m³/s) | 0,02 | 0,31 | 0,47 | 0,18 |
 | Calado máximo en el campus (m) | 0,02 | 0,04 | 0,05 | 0,05 |
 
 **Respuesta**
-- **Sí entra agua de la quebrada, pero como desborde somero, no como cauce.**
-  - En el rellano a ≈20 m*, la quebrada se reparte: el 90–95 % sigue hacia la Escuela Alvear y Playa Mann, y un 5–10 % se derrama hacia el oeste y cruza el campus por la esquina noreste, junto a la Vía Universidad, hacia la costa.
-  - Sobre el campus hay una lámina de 2–5 cm. El resto del agua que entra es lluvia de la propia ladera.
-- **Con 100 mm, el aporte de la quebrada es despreciable** (0,02 m³/s).
+- **Con la tormenta trasladada, sí entra agua de la quebrada, pero como desborde somero, no como cauce.**
+  - En el rellano a ≈20 m*, la quebrada se reparte. En **volumen**, el 90–95 % sigue hacia Alvear (boca D8 al sur de Playa Mann) y un 5–10 % se derrama hacia el oeste y cruza el campus por la esquina noreste, junto a la Vía Universidad, hacia la costa.
+  - Hay que separar dos cosas:
+    - la **entrada total** al campus es de 0,6–1,0 m³/s (0,98 con AMC III) e incluye la lluvia de la propia ladera;
+    - el **aporte de la quebrada** es de 0,18–0,47 m³/s.
+  - Sobre el campus hay una lámina de 2–5 cm.
+- **Con 100 mm, el aporte de la quebrada es pequeño en el modelo (0,02 m³/s), pero el modelo subestima la quebrada: no es concluyente.**
+  - El 2D da 0,2 m³/s en el rellano, frente a 1,7–3,0 m³/s del SCS (sección 4.4): unas 10 veces menos.
+  - La diferencia se debe a que el 2D llena las microdepresiones del DSM antes de que el agua corra.
 - Esto concilia los resultados de la sección 4.4:
   - el D8 en UTM no entraba;
   - el D8 en la rejilla original sí entraba;
@@ -105,11 +111,12 @@ El Plan de Acción SC-4-09-2026 de la UGR del GAD San Cristóbal [R] da los nomb
 
 **Sectores que el 2D reproduce.** Con la tormenta trasladada y la malla de 15 m:
 - **la playa de Barrio Frío:** 1,4 m de calado máximo;
-- **el entorno del puente de la perimetral sobre la Galápagos**, donde el plan sitúa el desborde de El Manzanillo de abril de 2026: 0,86 m y 10 edificios con ≥ 0,3 m;
-- **La Planada:** 0,94 m y 15 edificios;
-- **San Francisco, Fragata y Estación Terrena**, sobre el tramo urbano de la Galápagos: 1,25 m y 54 edificios.
+- **el entorno del puente de la perimetral sobre la Galápagos (tramo alto)**, donde el plan sitúa el desborde de El Manzanillo de abril de 2026: 0,86 m y 10 edificios con ≥ 0,3 m;
+- **La Planada:** 0,94 m y 15 edificios.
 
-Con 100 mm solo destacan Barrio Frío y La Planada (0,5–0,8 m). El desborde de abril de 2026 junto al puente apunta, por tanto, a una lluvia mayor de 100 mm o a una obstrucción.
+**San Francisco, Fragata y Estación Terrena:** sin ubicación fiable, no evaluados. Solo hay comercios homónimos en OSM.
+
+Con 100 mm (malla de 30 m) solo destacan Barrio Frío y La Planada (0,5–0,8 m). El desborde de abril de 2026 junto al puente apunta, por tanto, a una lluvia mayor de 100 mm o a una obstrucción.
 
 **Sectores que el 2D no reproduce.**
 - El muro del Hospital Oskar Jandl (0,34 m) y la vía Jaime Roldós junto al Colegio Ignacio Hernández (0,19 m).
@@ -121,16 +128,16 @@ Son procesos de calle, de obra y de sedimento que una malla de 15–30 m sin red
 
 Tabla: Por dónde sale al mar el agua marcada (porcentaje de su lluvia neta; el resto queda almacenado en el dominio).
 
-| Agua marcada | Barrio Frío | Centro (muelles) | Playa de Oro (Divino Niño) | Playa Mann sur (Alvear) | Frente al campus |
+| Agua marcada | Barrio Frío | Centro (muelles) | Playa de Oro (Divino Niño) | Boca D8 de Alvear (sur de Playa Mann) | Frente al campus |
 |---|---|---|---|---|---|
 | Galápagos, tormenta trasladada | 67 % | 0 % | 0,03 % | 0 % | 0 % |
 | Galápagos, 100 mm | 48 % | 0 % | 0,02 % | 0 % | 0 % |
 | Divino Niño, tormenta trasladada | 1,7 % | 0 % | 75 % | 0,9 % | 0 % |
 
 **Respuesta**
-- **El modelo no reproduce que Divino Niño «se separe de la Galápagos».** En el collado donde podría ocurrir (466 m entre ambos cauces y solo 1,2 m* de resalte; sección 4.6), el calado de la Galápagos es de 0,65 m con la tormenta trasladada: insuficiente en el modelo.
+- **El modelo no reproduce que Divino Niño «se separe de la Galápagos».** En el tramo donde podría ocurrir (una recta de 466 m entre ambos cauces, con ≈1,2 m* de resalte en el DSM; sección 4.6), el calado de la Galápagos es de 0,65 m con la tormenta trasladada. Harían falta ≈0,55 m más, y el resalte real probablemente es mayor que el del DSM.
 - **El paso de Divino Niño a Alvear es marginal** (≈1 %).
-- Ambas bifurcaciones son topográficamente posibles dentro del error del DSM y con obstrucciones o rellenos. Que el modelo no las vea **no las descarta**. Si existen, la mancha inundable real de Divino Niño y Alvear sería mayor que la de este modelo, porque recibirían agua de una cuenca de 10 km² en lugar de 1 km².
+- Ambas conexiones son topográficamente posibles dentro del error del DSM y con obstrucciones o rellenos. Que el modelo no las vea **no las descarta**: es una **hipótesis de confianza media-baja y consecuencia alta**. Si existen, la mancha inundable real de Divino Niño y Alvear sería mayor que la de este modelo.
 
 ## 4b.5 Limitaciones y confianza
 
@@ -146,9 +153,9 @@ Tabla: Nivel de confianza.
 |---|---|
 | La Galápagos (Barrio Frío) concentra el mayor caudal y la desembocadura es el punto más expuesto | Media-alta |
 | El 2D no reproduce la separación de Divino Niño desde la Galápagos que describe el plan | Media (es un resultado del modelo, no de la realidad) |
-| Orden de llegada: El Progreso primero; Barrio Frío ≈2,5 h después del inicio del pulso fuerte | Media |
+| Orden de llegada: El Progreso primero; Barrio Frío desborda dentro de la hora de máxima lluvia (margen < 1 h) | Media (horas sesgadas hacia tarde por el limitador de Froude) |
 | Caudales y calados (orden de magnitud) | Baja |
-| La quebrada del campus se reparte en el rellano y entra en el campus como una lámina de pocos centímetros | Media-baja |
+| La quebrada del campus se reparte en el rellano y entra en el campus como una lámina de pocos centímetros (tormenta trasladada; con 100 mm, no concluyente) | Media-baja |
 | Calados en El Progreso | Baja (dependen de las depresiones del DSM) |
 
 **Archivos** (`datos/modelo2d/`, para cada escenario):

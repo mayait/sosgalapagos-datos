@@ -1,21 +1,26 @@
-"""Modelo hidrodinámico 2D «rain-on-grid» del evento del 30-oct-2026: cuenca de La Cascada y Puerto Ayora hasta el mar.
+"""Modelo hidrodinámico 2D «rain-on-grid» de la cuenca de La Cascada y Puerto Ayora hasta el mar (Santa Cruz).
 
-Motor: ANUGA 4.1 (volúmenes finitos sobre malla triangular, ecuaciones de aguas someras, algoritmo DE0, OpenMP).
-  - Dominio: cuenca completa de Puerto Ayora (D8, 47 km²) ∪ cuenca de La Cascada, con margen de 150 m y una franja de mar.
-  - Malla: triángulos de ≤ AREA_GENERAL m² (≈ celdas de 40–60 m) y ≤ AREA_URBANA m² (≈ 20–30 m) en Puerto Ayora, La Cascada
-    y Tomás de Berlanga. Cotas del DSM Copernicus GLO-30 (incluye techos y vegetación; ±2–4 m).
-  - Lluvia: red IERSE-WSN (Universidad del Azuay), hietograma de 10 min. Crocker excluido. Escenarios: central (Los Guayabillos
-    uniforme), bajo (× factor de reducción areal 0,85) y alto (gradiente con la cota entre Los Guayabillos y Santa Rosa).
-  - Pérdidas: SCS-CN distribuido por cobertura (Parque 55, agrícola 76, urbano 90 en AMC II), con un factor sobre S calibrado
-    para que la escorrentía total de la cuenca de La Cascada iguale la del modelo agregado (CN 76 central; CN 68 en sensibilidad).
-    La lluvia de 00:00–12:00 entra en las abstracciones; la simulación empieza a las 12:00. Sin reinfiltración del agua encharcada.
-  - Rugosidad de Manning por cobertura (urbano 0,08; agrícola 0,06; natural 0,08; mar 0,03), con sensibilidad ×0,6 y ×1,4.
-  - Contorno: mar con nivel fijo NIVEL_MAR (sin dato de marea verificado); resto del contorno reflectivo (pared).
-
-Uso:  .venv/bin/python -I -W ignore scripts/24_modelo2d_santa_cruz.py [escenario] [--horas H]
-      escenarios: central (defecto), bajo, alto, manning_bajo, manning_alto, cn68
-Salidas: estudios/santa-cruz/datos/modelo2d/<escenario>/ y figuras en estudios/santa-cruz/figuras/
-Tiempo de ejecución: ver tiempo_ejecucion_s en resumen_<escenario>.json (Mac Apple Silicon, 10 núcleos).
+Dos motores en el mismo script:
+  --motor lisflood  (principal) esquema inercial local de Bates et al. (2010) (LISFLOOD-FP «acc») con la ponderación θ = 0,8 de
+                    de Almeida et al. (2012), en numpy; malla regular de 30 m (≈58 000 celdas, 52 km²), α = 0,7.
+                    TIEMPO DE EJECUCIÓN: ≈ 1 min por evento de 20 h (Mac Apple Silicon); ≈ 2 min el de 38 h (3–4 oct).
+  --motor anuga     (contraste) ANUGA 4.1, volúmenes finitos DE0 sobre malla triangular (AREA_GEN/AREA_URB m²).
+                    Con 47 000 triángulos tarda ≈ 13 min por hora simulada en plena crecida: solo para contraste.
+Dominio: cuenca completa de Puerto Ayora (D8, 47 km²) ∪ cuenca de La Cascada + 150 m + franja de mar. Terreno: DSM GLO-30
+(incluye techos y vegetación; ±2–4 m). Mar con nivel fijo NIVEL_MAR (marea no verificada). Contorno de tierra: pared.
+Lluvia: red IERSE-WSN (Universidad del Azuay), 10 min; central = Los Guayabillos uniforme; bajo = × 0,85 (reducción areal);
+alto = gradiente con la cota entre Los Guayabillos y Santa Rosa. Crocker excluido.
+Pérdidas, dos juegos:
+  (a) «scs»:  SCS-CN distribuido (Parque 55, agrícola 76, urbano 90) con un factor sobre S calibrado para igualar la escorrentía
+              del modelo agregado (CN 76) en la cuenca de La Cascada.
+  (b) «ilcl»: pérdida inicial (20 mm; urbano 5 mm) + pérdida constante (25 mm/h; urbano 5 mm/h) aplicada a la lluvia y al agua
+              que escurre (pérdidas de transmisión). Reproduce el 30-oct y deja sin inundación el 3–4 oct (sin inundación
+              reportada, por confirmar).
+Uso:  .venv/bin/python -I -W ignore scripts/24_modelo2d_santa_cruz.py <escenario> --motor lisflood [--horas H]
+      escenarios: central, bajo, alto, manning_bajo, manning_alto, cn68, a_03oct, a_23oct (juego a);
+                  b_central, b_bajo, b_alto, b_manning_bajo, b_manning_alto, b_03oct, b_23oct (juego b)
+      barrido: F_PERM=… [IL_PERM=…] (salida con sufijo); figuras: «figuras <escenario>»; «validacion»
+Salidas: estudios/santa-cruz/datos/modelo2d/<escenario>/ y estudios/santa-cruz/figuras/
 """
 import csv, json, math, os, pathlib, sys, time, datetime as dt, warnings
 warnings.filterwarnings("ignore")
@@ -85,6 +90,39 @@ def figuras(esc="central"):
     print("figuras:", fg)
 
 
+def figura_validacion():
+    """Series en La Cascada (centro y punto bajo) para los juegos (a) y (b): 30-oct y 3-oct, con la lluvia de Los Guayabillos."""
+    import matplotlib; matplotlib.use("Agg")
+    import matplotlib.pyplot as plt, matplotlib.dates as mdates
+    base = ROOT / "estudios/santa-cruz/datos/modelo2d"; fg = ROOT / "estudios/santa-cruz/figuras"
+    fig, axs = plt.subplots(1, 2, figsize=(11, 4), sharey=True)
+    for ax, (ev, ja, jb, t0, t1, lluv) in zip(axs, (("30 de octubre (inundación reportada)", "central", "b_central", dt.datetime(2026, 10, 30, 12), dt.datetime(2026, 10, 31, 8), "lluvia_ierse_30oct_5min.csv"),
+                                                  ("3–4 de octubre (sin inundación reportada; por confirmar)", "a_03oct", "b_03oct", dt.datetime(2026, 10, 3, 10), dt.datetime(2026, 10, 5, 0), "lluvia_ierse_validacion_5min.csv"))):
+        for esc, col, lab in ((ja, "#d62728", "juego (a): SCS-CN calibrado al agregado"), (jb, "#1f78b4", "juego (b): IL 20 mm + pérdida 25 mm/h")):
+            rows = [r for r in csv.DictReader(open(base / esc / "series_puntos.csv"))]
+            for pt, ls in (("La Cascada (centro)", "-"), ("La Cascada (punto bajo)", ":")):
+                rr_ = [r for r in rows if r["punto"] == pt]
+                ax.plot([dt.datetime.fromisoformat(r["fecha_hora_utc6"]) for r in rr_], [float(r["calado_m"]) for r in rr_], color=col, ls=ls, lw=1.6,
+                        label=f"{lab}, {pt.split('(')[1][:-1]}")
+        ax2 = ax.twinx(); hh = {}
+        for r in csv.DictReader(open(LC / lluv)):
+            if r["estacion"] != "Los Guayabillos": continue
+            t_ = dt.datetime.fromisoformat(r["fecha_hora_local"]).replace(minute=0, second=0)
+            if t0 <= t_ < t1: hh[t_] = hh.get(t_, 0) + float(r["lluvia_mm"] or 0)
+        ax2.bar([k + dt.timedelta(minutes=30) for k in hh], list(hh.values()), width=1 / 24 * 0.9, color="#888", alpha=0.35)
+        ax2.set_ylim(150, 0); ax2.set_ylabel("Lluvia horaria, Los Guayabillos (mm)", fontsize=8)
+        ax.axhline(2.0, color="#555", lw=0.7, ls="--"); ax.text(t0, 2.05, " testimonio ≈2 m", fontsize=7, color="#555")
+        ax.set_xlim(t0, t1); ax.set_title(ev, fontsize=10); ax.grid(alpha=0.25)
+        ax.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b\n%H:%M")); ax.tick_params(axis="x", labelsize=7)
+    axs[0].set_ylabel("Calado simulado (m)"); axs[0].legend(fontsize=6.5, frameon=False, loc="upper left")
+    fig.text(0.01, -0.02, "Modelo 2D LISFLOOD-ACC, 30 m, DSM GLO-30. «Centro» = celda del centroide del barrio; «punto bajo» = celda más baja del DSM (≈10,5 m). Hora UTC−6.", fontsize=7, color="#555")
+    fig.tight_layout(); fig.savefig(fg / "m2d_validacion.png", dpi=170, bbox_inches="tight"); plt.close(fig)
+    print("figura de validación lista")
+
+
+if len(sys.argv) > 1 and sys.argv[1] == "validacion":
+    import matplotlib
+    LC = ROOT / "estudios/la-cascada/datos"; figura_validacion(); sys.exit(0)
 if len(sys.argv) > 1 and sys.argv[1] == "figuras":
     import matplotlib
     exec_figs = True
@@ -94,10 +132,10 @@ LC = ROOT / "estudios/la-cascada/datos"
 ESC = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("--") and sys.argv[1] != "figuras" else "central"
 HORAS_ARG = float(sys.argv[sys.argv.index("--horas") + 1]) if "--horas" in sys.argv else None
 MOTOR = sys.argv[sys.argv.index("--motor") + 1] if "--motor" in sys.argv else "anuga"
-OUT = ROOT / "estudios/santa-cruz/datos/modelo2d" / (ESC + ("_anuga" if MOTOR == "anuga" else "")); OUT.mkdir(parents=True, exist_ok=True)
+
 FIG = ROOT / "estudios/santa-cruz/figuras"; FIG.mkdir(parents=True, exist_ok=True)
 EPSG = 32715; CELDA = 30.0
-AREA_GENERAL = 2500.0; AREA_URBANA = 500.0
+AREA_GENERAL = float(os.environ.get("AREA_GEN", 2500.0)); AREA_URBANA = float(os.environ.get("AREA_URB", 500.0))
 NIVEL_MAR = 0.75                         # m sobre el cero del DSM (EGM2008); marea no verificada
 FONDO_MAR = -3.0
 EVENTOS = {"30oct": (dt.datetime(2026, 10, 30, 12, 0), 20.0, "lluvia_ierse_30oct_5min.csv"),          # inicio de la simulación, horas, lluvia
@@ -110,6 +148,11 @@ CN_II = {"parque": 55, "agricola": 76, "urbano": 90}
 # juego (b): pérdida inicial + pérdida constante (IL–CL), aplicada también al agua que escurre (pérdidas de transmisión en el basalto)
 IL_MM = {"parque": 20.0, "agricola": 20.0, "urbano": 5.0}
 F_MMH = {"parque": 25.0, "agricola": 25.0, "urbano": 5.0}
+if os.environ.get("F_PERM"):                                   # barrido de calibración: F_PERM=… IL_PERM=… (salida con sufijo)
+    F_MMH["parque"] = F_MMH["agricola"] = float(os.environ["F_PERM"])
+if os.environ.get("IL_PERM"):
+    IL_MM["parque"] = IL_MM["agricola"] = float(os.environ["IL_PERM"])
+SUFIJO = (f"_F{os.environ['F_PERM']}" if os.environ.get("F_PERM") else "") + (f"_IL{os.environ['IL_PERM']}" if os.environ.get("IL_PERM") else "")
 N_MANNING = {"parque": 0.08, "agricola": 0.06, "urbano": 0.08, "mar": 0.03}
 CN_OBJETIVO = 76
 _A = dict(perdidas="scs", fn=1.0, cn=76); _B = dict(perdidas="ilcl", fn=1.0, cn=None)
@@ -122,6 +165,10 @@ ESCENARIOS = {"central": dict(_A, lluvia="G", evento="30oct"), "bajo": dict(_A, 
               "b_manning_bajo": dict(_B, lluvia="G", fn=0.6, evento="30oct"), "b_manning_alto": dict(_B, lluvia="G", fn=1.4, evento="30oct")}
 CFG = ESCENARIOS[ESC]
 INICIO, HORAS, LLUVIA_CSV = EVENTOS[CFG["evento"]]
+if os.environ.get("INICIO_H"):                                  # recorte de la ventana (p. ej. contraste ANUGA desde las 17:00)
+    _h0 = float(os.environ["INICIO_H"]); HORAS -= _h0 - INICIO.hour; INICIO = INICIO.replace(hour=int(_h0))
+    SUFIJO = SUFIJO + f"_desde{int(_h0)}h"
+OUT = ROOT / "estudios/santa-cruz/datos/modelo2d" / (ESC + SUFIJO + ("_anuga" if MOTOR == "anuga" else "")); OUT.mkdir(parents=True, exist_ok=True)
 HORAS = HORAS_ARG or HORAS
 T_ANTECEDENTE = INICIO.replace(hour=0, minute=0)
 T = Transformer.from_crs(4326, EPSG, always_xy=True).transform
@@ -175,6 +222,7 @@ interiores = [[[(x - X0, y - Y0) for x, y in list(gp.exterior.coords)[:-1]], ARE
 if MOTOR == "lisflood":
     # ============================================================ motor inercial local (Bates et al. 2010; LISFLOOD-FP «acc»), numpy
     G_ACC = 9.81; ALFA = 0.7; DX = float(os.environ.get("CELDA_2D", CELDA)); H_MIN = 1e-3
+    THETA = 0.8                                                     # ponderación de de Almeida et al. (2012): amortigua oscilaciones en aguas profundas
     gx0, gy0, gx1, gy1 = dom.bounds
     Wg = int(math.ceil((gx1 - gx0) / DX)); Hg = int(math.ceil((gy1 - gy0) / DX))
     gtr = rasterio.Affine(DX, 0, gx0, 0, -DX, gy1)
@@ -268,6 +316,7 @@ if MOTOR == "lisflood":
         nf = 0.5 * (nman[:, :-1] + nman[:, 1:])
         Sx = (eta[:, 1:] - eta[:, :-1]) / DX
         q = qx[:, 1:-1]
+        qp = np.pad(q, ((0, 0), (1, 1))); q = THETA * q + (1 - THETA) / 2 * (qp[:, :-2] + qp[:, 2:])
         ok_ = wx & (hf > H_MIN)
         hfs = np.where(ok_, hf, 1.0)
         qn = (q - G_ACC * hfs * dt_ * Sx) / (1 + G_ACC * dt_ * nf ** 2 * np.abs(q) / hfs ** (7 / 3))
@@ -276,6 +325,7 @@ if MOTOR == "lisflood":
         nf = 0.5 * (nman[:-1, :] + nman[1:, :])
         Sy = (eta[1:, :] - eta[:-1, :]) / DX                      # fila creciente = hacia el sur
         q = qy[1:-1, :]
+        qp = np.pad(q, ((1, 1), (0, 0))); q = THETA * q + (1 - THETA) / 2 * (qp[:-2, :] + qp[2:, :])
         ok_ = wy & (hf > H_MIN)
         hfs = np.where(ok_, hf, 1.0)
         qn = (q - G_ACC * hfs * dt_ * Sy) / (1 + G_ACC * dt_ * nf ** 2 * np.abs(q) / hfs ** (7 / 3))
@@ -347,7 +397,7 @@ if MOTOR == "lisflood":
                 "hora_llegada_0.1m": reloj(s_[np.argmax(s_[:, 1] >= H_LLEGADA), 0]) if (s_[:, 1] >= H_LLEGADA).any() else None,
                 "velocidad_max_ms": round(float(s_[:, 3].max()), 2)}
     ient = int(S_[:, 1].argmax())
-    res = {"escenario": ESC, "config": CFG, "motor": "LISFLOOD-ACC (Bates et al. 2010), numpy", "celdas": int(act.sum()), "celda_m": DX,
+    res = {"escenario": ESC, "config": CFG, "motor": "LISFLOOD-ACC (Bates et al. 2010; θ = 0,8 de Almeida et al. 2012), numpy", "celdas": int(act.sum()), "celda_m": DX,
            "area_km2": round(act.sum() * DX * DX / 1e6, 2), "nivel_mar_m": NIVEL_MAR, "evento": CFG["evento"], "inicio": INICIO.isoformat(),
            "factor_S_calibrado": round(K_S, 3) if K_S else None, "escorrentia_objetivo_mm": round(objetivo, 1) if objetivo else None,
            "perdidas_ilcl": {"IL_mm": IL_MM, "F_mmh": F_MMH} if CFG["perdidas"] == "ilcl" else None,

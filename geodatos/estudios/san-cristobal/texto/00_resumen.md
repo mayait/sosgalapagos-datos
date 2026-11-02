@@ -4,14 +4,17 @@
 
 ## Hallazgos principales
 
-- **Puerto Baquerizo Moreno recibe el agua de unos 11 km²** a través de varias quebradas («encañadas»). La principal es **El Manzanillo → Barrio Frío**: 5,4 km² al entrar en la ciudad y 10,6 km² en su salida por el Malecón. Con 100 mm de lluvia daría un caudal del orden de 19 m³/s (rango de 9 a 58 m³/s).
-- **El riesgo en Puerto Baquerizo Moreno es el agua que atraviesa la ciudad.** A diferencia de La Cascada, no hay vasos profundos donde se acumule: los que hay tienen 0,3–0,85 m. Las encañadas de **Divino Niño** y **Escuela Alvear** llegan al mar en Playa Mann sin cauce cartografiado.
+- **Puerto Baquerizo Moreno recibe el agua de unos 11 km²** a través de varias quebradas («encañadas»). La principal es la **cañada Galápagos o de Barrio Frío**: 5,4 km² al entrar en la ciudad y 10,6 km² en su salida por el Malecón, en la playa de Barrio Frío. Con 100 mm de lluvia daría un caudal del orden de 19 m³/s (rango de 9 a 58 m³/s).
+- **El riesgo en Puerto Baquerizo Moreno es el agua que atraviesa la ciudad.** A diferencia de La Cascada, no hay vasos profundos donde se acumule: los que hay tienen 0,3–0,85 m. La encañada de **Divino Niño** desemboca en **Playa de Oro**, cuya boca estaba tapada según la UGR, y la de **Alejandro Alvear** junto al muelle de pescadores. El último tramo de ninguna de las dos tiene cauce cartografiado.
   - Divino Niño es el cauce más ocupado: 16 edificaciones sobre la línea del agua y 7 cruces de vías sin estructura cartografiada.
   - El registro de la SNGR tiene 16 inundaciones en San Cristóbal, más que en Santa Cruz.
 - **El Progreso** está aguas arriba de Puerto Baquerizo Moreno y su agua acaba en la cuenca de Barrio Frío. Tiene **5 vasos** cerca de puntos ya inundados en 2021 y 2024, lo que sugiere un mal drenaje local.
 - **Campus USFQ / Galapagos Science Center.**
   - Junto al campus pasa una quebrada pequeña (0,3 km², ≈1–5 m³/s con 100 mm) que **no tiene franja de protección** y cruza la Vía Universidad sin un paso conocido.
-  - **Según el modelo 2D (malla de 15 m), entra agua al campus como desborde somero, no como cauce.** Con la tormenta trasladada, un 5–10 % del caudal de la quebrada cruza la esquina noreste del campus junto a la Vía Universidad. Deja una lámina de 2–5 cm, con una entrada máxima de 0,6–1,0 m³/s. Con 100 mm, el aporte de la quebrada es despreciable. Hay que verificarlo en campo.
+  - **Según el modelo 2D (malla de 15 m), entra agua al campus como desborde somero.** Con la tormenta trasladada, un 5–10 % del **volumen** de la quebrada cruza la esquina noreste junto a la Vía Universidad y deja una lámina de 2–5 cm.
+    - Entrada total: 0,6–1,0 m³/s, incluida la lluvia de la ladera.
+    - Aporte de la quebrada: 0,2–0,5 m³/s.
+  - **El resultado no es concluyente.** El modelo subestima unas 10 veces el caudal de esta quebrada pequeña: con 100 mm da 0,2 m³/s, frente a 1,7–3,0 m³/s del método SCS. Además, el «campus» del modelo son huellas de edificios que en el DSM aparecen como techos. Hay que verificarlo en campo.
   - Los edificios del campus están 8–13 m por debajo del rellano por el que baja la quebrada.
 - **Cruces de quebradas con vías:** 325 en total, 25 de prioridad alta y 11 con estructura cartografiada. La vía Puerto Baquerizo Moreno–El Progreso cruza un afluente de 6,5 km² sin estructura conocida.
 - **Lluvia del 30–31 de octubre.** Las observaciones del aeropuerto (METAR) registran lluvia fuerte el 30-oct a las 15 h y lluvia continua el 31-oct de 08:00 a 14:00. Coincide con el reporte de la SNGR de desbordamientos en Barrio Frío y Divino Niño. **Si la tormenta medida en Santa Cruz hubiera caído sobre San Cristóbal**, el modelo 2D da en Barrio Frío ≈95–127 m³/s, frente a ≈18 m³/s con 100 mm (sección 4b).

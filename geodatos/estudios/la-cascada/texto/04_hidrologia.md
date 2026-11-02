@@ -77,7 +77,7 @@ El umbral del proxy de suelo coincide con el punto Isla Santiago – Karl Angerm
 
 Hasta el rebose, el vaso almacena **42 000–62 000 m³ en 3,7–6,2 ha**, con una profundidad máxima de 2,4 m. El rango depende de si un paso diagonal a ≈12,85 m une una segunda poza.
 
-**Conciliación con el criterio de gestión de riesgos.** El especialista en gestión de riesgos obtuvo 14 ha y 125 000 m³ con otro criterio: todas las depresiones de más de 0,2 m situadas a menos de 400 m. El cálculo se reproduce exactamente, pero ese conjunto agrupa 19 vasos independientes con cotas de rebose de 11,4 a 34,9 m. La diferencia viene del dominio y de la conectividad, no del umbral. Como almacenamiento físico del barrio se adopta el rango de 50 000–62 000 m³.
+**Conciliación con el criterio de gestión de riesgos.** El especialista en gestión de riesgos obtuvo 14 ha y 125 000 m³ con otro criterio: todas las depresiones de más de 0,2 m situadas a menos de 400 m. El cálculo se reproduce exactamente, pero ese conjunto agrupa 19 vasos independientes con cotas de rebose de 11,4 a 34,9 m. La diferencia viene del dominio y de la conectividad, no del umbral. Como almacenamiento físico del barrio se adopta el rango de 42 000–62 000 m³.
 
 ![Perfiles norte–sur y este–oeste de ±600 m por el barrio. La línea discontinua marca la cota de rebose del vaso (≈13,0 m).](figuras/f_secciones.png)
 

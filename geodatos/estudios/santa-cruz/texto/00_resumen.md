@@ -18,10 +18,10 @@
 ## Por qué se inunda La Cascada
 
 1. **Recibe el agua de 42 km²**, casi toda la cuenca de Puerto Ayora, incluida la parte alta.
-2. **Ocupa un vaso cerrado al pie de un escarpe** que almacena solo 42 000–62 000 m³. Con la lluvia medida, el vaso se habría llenado entre la media tarde y las 20:00. La crecida estimada alcanzó **215–549 m³/s** entre las 21:30 y las 22:50 (modelo sin calibrar).
+2. **Ocupa un vaso cerrado al pie de un escarpe** que almacena solo 42 000–62 000 m³. El **modelo hidrodinámico 2D** con la lluvia medida reproduce el evento. El agua empieza a acumularse en el punto más bajo a media tarde y alcanza su máximo hacia las **22:00–22:30**, con **≈1,8 m en el centro del barrio** (1,4–2,7 m según los parámetros). La crecida que entra al barrio va de ≈47 a ≈319 m³/s según los parámetros (central, ≈147 m³/s), así que el modelo **no sirve todavía para dimensionar obras**.
 3. **El agua no tiene por dónde salir.** La quebrada termina en el barrio. La salida hacia el mar recorre 1,2 km de calles casi planas, sin cauce, sobre edificaciones y con 16 cruces de vías.
 
-La lámina modelada, de 2,7–3,5 m sobre el punto más bajo, es **compatible** con el único testimonio con fuente («hasta dos metros»), pero no lo valida.
+La lámina modelada es **compatible** con el único testimonio con fuente («hasta dos metros»), pero no lo valida. **Lo que manda es la intensidad de la lluvia, no el volumen.** El 3-oct cayeron 68 mm en Los Guayabillos, con un máximo de 12,6 mm/h, y no hay inundación reportada (por confirmar con el GAD/COE). El 30-oct llovió durante 3 h a 21–61 mm/h. El umbral empírico es del orden de 20–25 mm/h sostenidos más de una hora.
 
 **Desviar las quebradas hacia el este no es descartable, pero no está demostrado.** El canal iría por el Parque Nacional y exigiría excavar más de 3 m en basalto o levantar un terraplén alto sobre el barrio. Hacia el oeste no es viable.
 

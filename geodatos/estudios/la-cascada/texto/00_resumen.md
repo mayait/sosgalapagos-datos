@@ -15,7 +15,7 @@ El análisis lo hizo un comité de agentes de IA especializados en hidrología, 
 1. **El problema es sobre todo la forma del terreno.**
    - La Cascada recibe el agua de **42 km²**, casi toda la cuenca de Puerto Ayora. El agua entra por dos quebradas que bajan el escarpe por el norte y el noroeste.
    - El barrio ocupa un **vaso cerrado al pie de escarpes**. El fondo está a ≈10,5 m y el agua rebosa entre 12,0 y 12,95 m (cota del DSM; sin precisión GNSS).
-   - El vaso almacena solo **42 000–62 000 m³**. Con el método SCS-CN y sin pérdidas en los cauces, **bastan unos 25–50 mm de lluvia sobre suelo húmedo para llenarlo**. Una lluvia de 100 mm genera de 13 a 50 veces su volumen.
+   - El vaso almacena solo **42 000–62 000 m³**. El método SCS-CN agregado dice que bastarían 25–50 mm para llenarlo, pero la lluvia medida en octubre no lo respalda: el 3-oct cayeron 68 mm (máximo de 12,6 mm/h) sin inundación reportada. **Lo que manda es la intensidad**: por encima de unos 20–25 mm/h sostenidos más de una hora.
    - Por eso la altura del agua en el barrio depende de **cuánta agua puede salir**, no de cuánta cabe.
 2. **El agua no tiene por dónde salir.**
    - La quebrada cartografiada pasa a 28 m del borde norte del barrio. **Entre el barrio y el mar no hay ningún cauce cartografiado.**

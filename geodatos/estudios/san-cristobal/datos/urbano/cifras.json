@@ -444,7 +444,100 @@
      -0.91136
     ]
    }
-  ]
+  ],
+  "cañadas_oficiales_en_zona": [
+   {
+    "cañada_oficial": "Galápagos / Barrio Frío",
+    "largo_en_zona_m": 1187,
+    "edif_15m": 78,
+    "edif_30m": 150,
+    "pob_30m": 437,
+    "sobre_linea": 19,
+    "franja_directa_m": 403,
+    "franja_30m_m": 1063
+   },
+   {
+    "cañada_oficial": "Divino Niño",
+    "largo_en_zona_m": 795,
+    "edif_15m": 64,
+    "edif_30m": 108,
+    "pob_30m": 365,
+    "sobre_linea": 14,
+    "franja_directa_m": 76,
+    "franja_30m_m": 137
+   },
+   {
+    "cañada_oficial": "Alejandro Alvear",
+    "largo_en_zona_m": 205,
+    "edif_15m": 11,
+    "edif_30m": 17,
+    "pob_30m": 17,
+    "sobre_linea": 4,
+    "franja_directa_m": 0,
+    "franja_30m_m": 0
+   },
+   {
+    "cañada_oficial": "Playa Mann",
+    "largo_en_zona_m": 335,
+    "edif_15m": 19,
+    "edif_30m": 32,
+    "pob_30m": 53,
+    "sobre_linea": 6,
+    "franja_directa_m": 0,
+    "franja_30m_m": 0
+   },
+   {
+    "cañada_oficial": "Manzanillo – El Manantial",
+    "largo_en_zona_m": 1475,
+    "edif_15m": 108,
+    "edif_30m": 202,
+    "pob_30m": 554,
+    "sobre_linea": 29,
+    "franja_directa_m": 403,
+    "franja_30m_m": 1063
+   },
+   {
+    "cañada_oficial": "La Planada",
+    "largo_en_zona_m": 1319,
+    "edif_15m": 93,
+    "edif_30m": 175,
+    "pob_30m": 492,
+    "sobre_linea": 23,
+    "franja_directa_m": 403,
+    "franja_30m_m": 1063
+   },
+   {
+    "cañada_oficial": "Palmeras – Arrayanes",
+    "largo_en_zona_m": 1187,
+    "edif_15m": 78,
+    "edif_30m": 150,
+    "pob_30m": 437,
+    "sobre_linea": 19,
+    "franja_directa_m": 403,
+    "franja_30m_m": 1063
+   },
+   {
+    "cañada_oficial": "Cerro Quemado / Don García",
+    "largo_en_zona_m": 506,
+    "edif_15m": 22,
+    "edif_30m": 42,
+    "pob_30m": 92,
+    "sobre_linea": 6,
+    "franja_directa_m": 0,
+    "franja_30m_m": 263
+   },
+   {
+    "cañada_oficial": "Centro de Gestión de Residuos Sólidos (CGRS)",
+    "largo_en_zona_m": 1187,
+    "edif_15m": 78,
+    "edif_30m": 150,
+    "pob_30m": 437,
+    "sobre_linea": 19,
+    "franja_directa_m": 403,
+    "franja_30m_m": 1063
+   }
+  ],
+  "definicion_zona": "límite urbano IGM ∪ huella edificada a < 2,5 km del centro"
  },
  "El Progreso": {
   "area_ha": 22.9,
@@ -519,7 +612,20 @@
      -0.905
     ]
    }
-  ]
+  ],
+  "cañadas_oficiales_en_zona": [
+   {
+    "cañada_oficial": "Galápagos / Barrio Frío",
+    "largo_en_zona_m": 26,
+    "edif_15m": 2,
+    "edif_30m": 2,
+    "pob_30m": 0,
+    "sobre_linea": 0,
+    "franja_directa_m": 0,
+    "franja_30m_m": 0
+   }
+  ],
+  "definicion_zona": "suelo urbano CGREG ∪ huella edificada a < 300 m"
  },
  "campus_USFQ_GSC": {
   "celda_lonlat": [
