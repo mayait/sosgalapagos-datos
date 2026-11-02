@@ -23,12 +23,20 @@ Cada archivo generado sale de un único script. Si no sabes cuál, búscalo con 
 | **Entregable** | `mapas-galapagos/` (lo genera `09_entregable.py`) | — |
 | **Servidores** | `servidores/` (índice y publicación) | invoca los scripts de cada dominio |
 
-**Archivos calientes** (los toca casi todo el mundo): `geodatos/scripts/capas.json`, `geodatos/estudios/estudios.json`, `README.md` y `PENDIENTES.md`. En ellos:
+**Archivos calientes** (los toca casi todo el mundo): `geodatos/scripts/capas.json`, `geodatos/estudios/estudios.json`, y `README.md`. En ellos:
 - edita **solo tu bloque** (tu capa, tu estudio, tu fila);
 - no reordenes ni reformatees el archivo;
 - haz *rebase* sobre `main` justo antes de abrir el PR.
 
-## 3. Ramas
+## 3. Qué hay por hacer: issues
+
+Todo lo pendiente está en los [issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues). Cada uno lleva una etiqueta de prioridad y otra de tipo:
+- **P1**: cambia decisiones de esta emergencia. **P2**: mejora mucho el análisis. **P3**: deseable.
+- **Tipo**: `datos-faltantes`, `mas-resolucion`, `procesos`, `plataforma` y `gobernanza`.
+
+Antes de empezar, asígnate el issue (o comenta en él) y ponle la etiqueta `en curso`. La rama lleva el número del issue, por ejemplo `datos/12-catastro-santa-cruz`. Si descubres algo nuevo que falta, abre un issue en lugar de anotarlo en un archivo.
+
+## 3b. Ramas
 
 ```
 main                         siempre publicable; solo se despliega desde aquí
@@ -70,7 +78,7 @@ ln -s ~/dev/sosgalapagos-datos/clima/.venv        clima/.venv
 3. Regístrala en el manifiesto `geodatos/scripts/capas.json` (grupo, estilo, fuente, `visible`).
 4. Documenta la fuente, la fecha y la licencia en `geodatos/docs/fuentes-oficiales.md`. Si es un modelo propio, explica el método en `mapas-galapagos/documentacion/02-metodologia.md`.
 5. **Datos personales:** quita nombres, teléfonos y cédulas antes de guardar en `capas/`. Lo crudo se queda en `descargas/`.
-6. Actualiza `PENDIENTES.md` si cierras o abres algo.
+6. Cierra o abre el issue que corresponda (menciónalo en el PR con `Cierra #N`).
 
 ### Actualizar las áreas afectadas (lo más frecuente)
 Ver `geodatos/docs/05-como-actualizar.md`, apartado A. Se reemplaza `geodatos/capas/operativas/areas_afectadas.geojson` y se publica.
@@ -105,5 +113,5 @@ El script se niega a publicar fuera de `main` o con cambios sin commit. En el se
 - [ ] No subo `descargas/`, `.venv/`, `privado/`, credenciales ni bases SQLite.
 - [ ] No hay datos personales (nombres, teléfonos, cédulas) ni URLs de fuentes de clima.
 - [ ] Los generados que subo salen del script, no de ediciones a mano.
-- [ ] Actualicé la documentación y `PENDIENTES.md`.
+- [ ] Actualicé la documentación y enlacé el issue (`Cierra #N`).
 - [ ] Se dice «refugio», nunca «albergue».

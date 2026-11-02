@@ -66,4 +66,4 @@ launchctl list | grep sosgalapagos      # puente IERSE en la Mac
 
 ## Pendientes de servidor
 
-Están en [PENDIENTES.md §4](../PENDIENTES.md#4-plataforma-y-servidores): respaldo fuera del servidor, aviso si el recolector se cae, publicación automática desde `main` y WMS/WFS en producción.
+Están en los [issues de plataforma](https://github.com/mayait/sosgalapagos-datos/issues?q=is%3Aopen+label%3Aplataforma): respaldo fuera del servidor, aviso si el recolector se cae, publicación automática desde `main` y WMS/WFS en producción.
