@@ -35,7 +35,7 @@ def utm(g):
 
 def gj(p):
     p = pathlib.Path(p)
-    return json.loads(p.read_text())["features"] if p.exists() else []
+    return [f for f in json.loads(p.read_text())["features"] if f.get("geometry")] if p.exists() else []
 
 
 def dem(isla):
