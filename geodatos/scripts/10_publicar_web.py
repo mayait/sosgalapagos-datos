@@ -79,6 +79,71 @@ EXTRA = {
 }
 
 
+# ---------------------------------------------------------------- capas de los estudios de inundaciones
+ESTUDIOS = ROOT / "estudios" / "estudios.json"
+CAPAS_ESTUDIOS = ROOT / "scripts" / "capas_estudios.json"
+TMP_ESTUDIOS = ROOT / "publicar" / "_estudios"
+TIPO_GEOM = {"Point": "punto", "MultiPoint": "punto", "LineString": "linea", "MultiLineString": "linea",
+             "Polygon": "poligono", "MultiPolygon": "poligono"}
+
+
+def capa_de_estudio(c, cfg, destino):
+    """Convierte una capa del mapa de un estudio (estudios.json) al manifiesto del visor y escribe su GeoJSON filtrado."""
+    data = json.loads((ROOT / c["archivo"]).read_text())
+    feats = [f for f in data["features"] if f.get("geometry")]
+    for flt in c.get("filtro") or []:
+        feats = [f for f in feats if str(f["properties"].get(flt["campo"])) in flt["valores"]]
+    if not feats: return None
+    archivo = f"estudio_{cfg['id']}.geojson"
+    (destino / archivo).write_text(json.dumps({"type": "FeatureCollection", "features": feats}, ensure_ascii=False, separators=(",", ":")))
+    tipos = [TIPO_GEOM.get(f["geometry"]["type"]) for f in feats]
+    tipo = cfg.get("tipo") or max(set(tipos), key=tipos.count)
+    color = c.get("color", "#2563eb")
+    estilo = cfg.get("estilo") or {k: v for k, v in {
+        "color": color, "fillColor": color, "weight": c.get("grosor", 2 if tipo == "linea" else 1),
+        "fillOpacity": c.get("relleno", 0.3), "radius": c.get("radio", 6),
+        "dashArray": "6 4" if c.get("discontinua") else None}.items() if v is not None}
+    capa = {"id": cfg["id"], "titulo": cfg.get("titulo", c.get("nombre")), "archivo": archivo, "tipo": tipo,
+            "visible": False, "fuente": cfg.get("fuente", "Estudio SOS Galápagos"), "descripcion": cfg.get("descripcion", ""),
+            "estilo": estilo, "popup": cfg.get("popup", {})}
+    col = c.get("colores")
+    if col:
+        presentes = {str(f["properties"].get(col["campo"])) for f in feats}
+        valores, vistos = {}, set()
+        for v, cc in col["valores"].items():
+            if v not in presentes: continue
+            k = {"etiqueta": v, "color": cc, "fillColor": cc}
+            if (v, cc) in vistos: continue
+            vistos.add((v, cc)); valores[v] = k
+        capa["clasificar"] = {"propiedad": col["campo"], "valores": valores}
+    return capa
+
+
+def grupos_estudios():
+    """Grupos del manifiesto con las capas de los estudios (una isla por grupo). Devuelve (grupos, archivos)."""
+    if TMP_ESTUDIOS.exists(): shutil.rmtree(TMP_ESTUDIOS)
+    TMP_ESTUDIOS.mkdir(parents=True)
+    estudios = json.loads(ESTUDIOS.read_text()); conf = json.loads(CAPAS_ESTUDIOS.read_text())
+    grupos = []
+    for isla, e in estudios.items():
+        ci = conf.get(isla)
+        if not ci: continue
+        extra = {}
+        for x in ci.get("extra", []): extra.setdefault(x.get("despues_de"), []).append(x)
+        capas = []
+        for c in e.get("mapa", {}).get("capas", []):
+            cfg = ci["capas"].get(c["nombre"])
+            if cfg and (ROOT / c["archivo"]).exists():
+                capa = capa_de_estudio(c, cfg, TMP_ESTUDIOS)
+                if capa: capas.append(capa)
+            for x in extra.pop(c["nombre"], []):
+                capa = capa_de_estudio({"archivo": x["archivo"]}, x, TMP_ESTUDIOS)
+                if capa: capas.append(capa)
+        grupos.append({"id": f"estudio_{isla}", "titulo": ci["titulo"], "descripcion": ci.get("descripcion", ""),
+                       "enlace": ci.get("enlace"), "capas": capas})
+    return grupos, sorted(TMP_ESTUDIOS.glob("*.geojson"))
+
+
 def tam(n):
     return f"{n / 1e6:.1f} MB" if n >= 1e6 else f"{max(1, round(n / 1e3))} kB"
 
@@ -179,7 +244,10 @@ def main():
     if OUT.exists(): shutil.rmtree(OUT)
     (OUT / "datos").mkdir(parents=True); (OUT / "descargas").mkdir()
     man = json.loads(MANIFIESTO.read_text())
-    man["grupos"].append(EXTRA)
+    g_est, f_est = grupos_estudios()
+    # Los estudios van justo después de «Emergencia en curso» (o al principio si no existe ese grupo)
+    i = next((n + 1 for n, g in enumerate(man["grupos"]) if g.get("id") == "emergencia"), 0)
+    man["grupos"] = man["grupos"][:i] + g_est + man["grupos"][i:] + [EXTRA]
     man["mapas_base"] = [b for b in man.get("mapas_base", []) if b["id"] != "claro"]
     titulos = {}
     for g in man["grupos"]:
@@ -195,7 +263,7 @@ def main():
         info = {"titulo": TITULO_VAR[var], "archivos": {}}
         todo_shp = zipfile.ZipFile(d_desc / f"todo-{var}-shp.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
         todo_gj = zipfile.ZipFile(d_desc / f"todo-{var}-geojson.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
-        for gj in sorted(src.glob("*.geojson")):
+        for gj in sorted(src.glob("*.geojson")) + f_est:
             if var == "zona" and gj.name in SIEMPRE_COMPLETAS:
                 gj = ROOT / "export" / "galapagos-completo" / gj.name   # sin recorte también en «Zona poblada»
             data = json.loads(gj.read_text())
@@ -254,6 +322,7 @@ def main():
         (d_datos / "resumen_exposicion.json").write_text((src / "resumen_exposicion.json").read_text())
         indice["variantes"][var] = info
     if tmp.exists(): shutil.rmtree(tmp)
+    if TMP_ESTUDIOS.exists(): shutil.rmtree(TMP_ESTUDIOS)
     (OUT / "capas.json").write_text(json.dumps(man, ensure_ascii=False, separators=(",", ":")))
     (OUT / "descargas.json").write_text(json.dumps(indice, ensure_ascii=False, separators=(",", ":")))
     html = (ROOT / "web" / "index.html").read_text().replace("__VERSION__", HOY.replace("-", "") + datetime.datetime.now().strftime("%H%M"))
