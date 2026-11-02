@@ -1,0 +1,155 @@
+{
+ "escenario": "b_bajo",
+ "config": {
+  "perdidas": "ilcl",
+  "fn": 1.0,
+  "cn": null,
+  "lluvia": "ARF",
+  "evento": "30oct"
+ },
+ "motor": "LISFLOOD-ACC (Bates et al. 2010), numpy",
+ "celdas": 57955,
+ "celda_m": 30.0,
+ "area_km2": 52.16,
+ "nivel_mar_m": 0.75,
+ "evento": "30oct",
+ "inicio": "2026-10-30T12:00:00",
+ "factor_S_calibrado": null,
+ "escorrentia_objetivo_mm": null,
+ "perdidas_ilcl": {
+  "IL_mm": {
+   "parque": 20.0,
+   "agricola": 20.0,
+   "urbano": 5.0
+  },
+  "F_mmh": {
+   "parque": 25.0,
+   "agricola": 25.0,
+   "urbano": 5.0
+  }
+ },
+ "pasos": 17986,
+ "tiempo_ejecucion_s": 48,
+ "puntos": {
+  "La Cascada (punto bajo)": {
+   "calado_max_m": 3.61,
+   "nivel_max_m": 14.36,
+   "hora_calado_max": "2026-10-30T22:47",
+   "hora_llegada_0.1m": "2026-10-30T18:23",
+   "velocidad_max_ms": 0.06
+  },
+  "La Cascada (centro)": {
+   "calado_max_m": 1.46,
+   "nivel_max_m": 14.36,
+   "hora_calado_max": "2026-10-30T22:46",
+   "hora_llegada_0.1m": "2026-10-30T21:20",
+   "velocidad_max_ms": 0.09
+  },
+  "La Cascada (entrada rama N)": {
+   "calado_max_m": 0.38,
+   "nivel_max_m": 16.55,
+   "hora_calado_max": "2026-10-30T21:59",
+   "hora_llegada_0.1m": "2026-10-30T21:14",
+   "velocidad_max_ms": 2.59
+  },
+  "Tomás de Berlanga (escuela)": {
+   "calado_max_m": 0.0,
+   "nivel_max_m": 127.24,
+   "hora_calado_max": "2026-10-30T20:40",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  },
+  "Tomás de Berlanga (cauce)": {
+   "calado_max_m": 0.29,
+   "nivel_max_m": 119.84,
+   "hora_calado_max": "2026-10-30T21:32",
+   "hora_llegada_0.1m": "2026-10-30T20:18",
+   "velocidad_max_ms": 1.33
+  },
+  "Bellavista (centro, llegada SC-003)": {
+   "calado_max_m": 0.46,
+   "nivel_max_m": 187.39,
+   "hora_calado_max": "2026-10-30T20:56",
+   "hora_llegada_0.1m": "2026-10-30T18:51",
+   "velocidad_max_ms": 0.81
+  },
+  "Matazarnos (vaso SC-002)": {
+   "calado_max_m": 2.87,
+   "nivel_max_m": 13.57,
+   "hora_calado_max": "2026-10-30T22:54",
+   "hora_llegada_0.1m": "2026-10-30T18:26",
+   "velocidad_max_ms": 0.2
+  },
+  "Pelican Bay (vaso SC-001)": {
+   "calado_max_m": 0.42,
+   "nivel_max_m": 1.23,
+   "hora_calado_max": "2026-10-30T23:01",
+   "hora_llegada_0.1m": "2026-10-30T20:41",
+   "velocidad_max_ms": 1.97
+  },
+  "Cruce CR-SCZ-0010 (Avenida Charles Darwin, 44.4 km²)": {
+   "calado_max_m": 1.36,
+   "nivel_max_m": 4.44,
+   "hora_calado_max": "2026-10-30T23:00",
+   "hora_llegada_0.1m": "2026-10-30T19:06",
+   "velocidad_max_ms": 0.82
+  },
+  "Cruce CR-SCZ-0011 (Juan León Mera, 43.1 km²)": {
+   "calado_max_m": 0.38,
+   "nivel_max_m": 11.83,
+   "hora_calado_max": "2026-10-30T22:57",
+   "hora_llegada_0.1m": "2026-10-30T22:10",
+   "velocidad_max_ms": 0.53
+  },
+  "Cruce CR-SCZ-0001 (Calle C, 43.0 km²)": {
+   "calado_max_m": 0.93,
+   "nivel_max_m": 14.12,
+   "hora_calado_max": "2026-10-30T22:50",
+   "hora_llegada_0.1m": "2026-10-30T21:40",
+   "velocidad_max_ms": 0.63
+  },
+  "Cruce CR-SCZ-0016 ((sin nombre), 9.7 km²)": {
+   "calado_max_m": 0.43,
+   "nivel_max_m": 115.52,
+   "hora_calado_max": "2026-10-30T21:32",
+   "hora_llegada_0.1m": "2026-10-30T19:14",
+   "velocidad_max_ms": 1.79
+  },
+  "Cruce CR-SCZ-0020 ((sin nombre), 8.9 km²)": {
+   "calado_max_m": 0.36,
+   "nivel_max_m": 130.34,
+   "hora_calado_max": "2026-10-30T21:30",
+   "hora_llegada_0.1m": "2026-10-30T20:10",
+   "velocidad_max_ms": 1.45
+  },
+  "Cruce CR-SCZ-0019 ((sin nombre), 8.9 km²)": {
+   "calado_max_m": 0.02,
+   "nivel_max_m": 112.62,
+   "hora_calado_max": "2026-10-30T20:40",
+   "hora_llegada_0.1m": null,
+   "velocidad_max_ms": 0.0
+  }
+ },
+ "entrada_la_cascada": {
+  "q_max_m3s": 68.3,
+  "hora_q_max": "2026-10-30T22:38",
+  "volumen_m3": 601698
+ },
+ "salida_mar": {
+  "q_max_m3s": 74.8,
+  "hora": "2026-10-30T23:00",
+  "volumen_m3": 710109
+ },
+ "balance_m3": {
+  "lluvia_neta_aplicada": 6817438,
+  "perdida_constante": 5299980,
+  "al_mar": 710109,
+  "en_tierra_final": 807349
+ },
+ "area_inundada_ha": {
+  "0,1–0,5 m": 358.8,
+  "0,5–1 m": 73.3,
+  "1–2 m": 40.9,
+  "> 2 m": 16.9
+ }
+}
