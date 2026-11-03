@@ -1,0 +1,119 @@
+{
+ "_nota": "Ajustes del visor público sosgalapagos.org/mapas/ (10_publicar_web.py los aplica sobre el manifiesto de la app y las capas de los estudios). No cambian el mapa de la app ResponseGrid. Orden de los grupos, qué se ve al abrir, colores de riesgo, capas fusionadas o divididas, plano de dibujo («pane») e índice del buscador. Si un id no existe, el script falla: así un cambio de nombre no borra un ajuste sin avisar.",
+ "_colores": "Riesgo de inundación por lluvia: rojo oscuro = alta, naranja = media, amarillo = baja (secuencia de luminosidad creciente, legible con daltonismo). Sin verde: «baja» sigue siendo zona susceptible. El agua simulada (modelo 2D) va en azul porque es profundidad, no prioridad.",
+
+ "fusionar": [
+  {"id": "cruces_alta", "de": ["sc_cruces_alta", "sx_cruces_alta"], "archivo": "cruces_quebrada_via_alta.geojson",
+   "titulo": "Cruces de quebradas con vías: prioridad alta",
+   "fuente": "Estudios SOS Galápagos (Santa Cruz y San Cristóbal)"},
+  {"id": "cruces_media", "de": ["sc_cruces_media", "sx_cruces_media"], "archivo": "cruces_quebrada_via_media.geojson",
+   "titulo": "Cruces de quebradas con vías: prioridad media",
+   "fuente": "Estudios SOS Galápagos (Santa Cruz y San Cristóbal)"}
+ ],
+
+ "dividir": {
+  "oficiales": [
+   {"id": "oficiales_lluvia", "titulo": "Peligros oficiales por lluvia: flujos de lodo, derrumbes e inundación (CGREG)",
+    "valores": ["Flujos lodo y escombros (El Niño)", "Derrumbes", "Riesgo de inundación"],
+    "descripcion": "Zonas que el CGREG marca por flujos de lodo y escombros (El Niño), derrumbes y riesgo de inundación. Son datos oficiales, no del modelo."},
+   {"id": "oficiales", "titulo": "Terreno inundable, lagunas y riesgos antrópicos (IGM, CGREG)", "resto": true,
+    "descripcion": "Terreno inundable y lagunas del IGM 1:25 000 (sobre todo costa y marea alta) y zonas de riesgo antrópico del CGREG (combustible, residuos, acuíferos). No describen la inundación por lluvia."}
+  ]
+ },
+
+ "grupos": [
+  {"id": "emergencia", "titulo": "Emergencia en curso", "capas": ["areas_afectadas"]},
+  {"id": "lluvia", "titulo": "Riesgo de inundación por lluvia",
+   "descripcion": "Lo que conviene mirar ahora. La susceptibilidad, los puntos y los cruces salen de modelos propios sobre un relieve de 30 m: sirven para priorizar inspecciones, no son delimitaciones oficiales.",
+   "capas": ["susceptibilidad", "sc_puntos", "sx_puntos", "cruces_alta", "cruces_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
+  {"id": "hidrografia", "titulo": "Quebradas y drenaje", "capas": ["quebradas", "sx_canadas"]},
+  {"id": "puntos", "titulo": "Puntos clave: refugios, salud y servicios"},
+  {"id": "vias", "titulo": "Vías y calles", "capas": ["vias", "nombres_vias"]},
+  {"id": "poblacion", "titulo": "Zonas pobladas", "capas": ["barrios", "limite_urbano", "manzanas"]},
+  {"id": "territorio", "titulo": "Parque Nacional y zona agrícola", "capas": ["limite_parque", "parque", "zona_agricola"]},
+  {"id": "relieve", "titulo": "Relieve"},
+  {"id": "inundacion", "titulo": "Otros peligros (no son de lluvia): marea, oleaje y tsunami",
+   "descripcion": "Apagadas al abrir: describen la marea alta, el oleaje, el tsunami y riesgos antrópicos, no la inundación por lluvia de esta emergencia.",
+   "capas": ["oficiales", "costa_baja", "tsunami", "rutas"]},
+  {"id": "estudio_santa-cruz"},
+  {"id": "estudio_san-cristobal"},
+  {"id": "otras"}
+ ],
+
+ "capas": {
+  "areas_afectadas": {"visible": true, "pane": "emergencia",
+   "estilo": {"weight": 3, "fillOpacity": 0.06},
+   "clasificar": {"propiedad": "tipo", "valores": {
+    "inundacion": {"etiqueta": "Área inundada (reportes)", "color": "#86198f", "fillColor": "#a21caf"},
+    "servicio": {"etiqueta": "Corte de servicios", "color": "#4b5563", "fillColor": "#6b7280", "fillOpacity": 0.03, "weight": 2},
+    "deslave": {"etiqueta": "Deslave", "color": "#451a03", "fillColor": "#78350f"},
+    "riesgo": {"etiqueta": "Riesgo inminente", "color": "#111827", "fillColor": "#111827", "fillOpacity": 0.12}}}},
+
+  "susceptibilidad": {"visible": true, "pane": "riesgo",
+   "titulo": "Susceptibilidad a inundación por quebradas (modelo)",
+   "estilo": {"weight": 0.4, "fillOpacity": 0.3},
+   "clasificar": {"propiedad": "nivel", "valores": {
+    "3": {"etiqueta": "Alta: hasta 1 m sobre el cauce", "color": "#800026", "fillColor": "#bd0026", "fillOpacity": 0.5},
+    "2": {"etiqueta": "Media: hasta 2,5 m", "color": "#c2410c", "fillColor": "#fd8d3c", "fillOpacity": 0.42},
+    "1": {"etiqueta": "Baja: hasta 5 m (sigue siendo susceptible)", "color": "#ca8a04", "fillColor": "#fed976", "fillOpacity": 0.38}}}},
+
+  "sc_puntos": {"corto": "Punto de inundación", "visible": true, "pane": "riesgo_pt",
+   "titulo": "Puntos potenciales de inundación · Santa Cruz",
+   "clasificar": {"propiedad": "prioridad", "valores": {
+    "Alta": {"etiqueta": "Prioridad alta", "fillColor": "#bd0026", "simbolo": "!"},
+    "Media": {"etiqueta": "Prioridad media", "fillColor": "#ea580c", "simbolo": "!"}}}},
+  "sx_puntos": {"corto": "Punto de inundación", "visible": true, "pane": "riesgo_pt",
+   "titulo": "Puntos potenciales de inundación · San Cristóbal",
+   "descripcion": "Llegadas de quebradas, vasos y salidas al mar en zonas pobladas. El estudio los ordena por puntuación (ver el ranking en cada punto) y no les asigna prioridad alta o media. Sirven para priorizar inspecciones.",
+   "clasificar": {"propiedad": "_", "valores": {}, "otro": {"etiqueta": "Punto ordenado por puntuación (sin prioridad asignada)", "fillColor": "#7c2d12", "simbolo": "!"}}},
+  "cruces_alta": {"corto": "Cruce quebrada–vía (alta)", "visible": true, "pane": "riesgo_pt",
+   "estilo": {"fillColor": "#bd0026", "color": "#ffffff", "radius": 6}},
+  "cruces_media": {"corto": "Cruce quebrada–vía (media)", "visible": false, "pane": "riesgo_pt",
+   "estilo": {"fillColor": "#ea580c", "color": "#ffffff", "radius": 4.5}},
+  "sc_vasos": {"titulo": "Vasos (depresiones donde se acumula el agua) · Santa Cruz"},
+  "sx_vasos": {"titulo": "Vasos (depresiones donde se acumula el agua) · San Cristóbal"},
+  "oficiales_lluvia": {"visible": false, "pane": "riesgo"},
+  "oficiales": {"visible": false, "pane": "riesgo"},
+  "franja": {"visible": false},
+  "sc_modelo2d": {"titulo": "Modelo 2D · Santa Cruz: profundidad máxima del agua el 30-oct", "pane": "riesgo",
+   "clasificar": {"propiedad": "clase", "valores": {
+    "0,1–0,5 m": {"etiqueta": "0,1–0,5 m", "color": "#c6dbef", "fillColor": "#c6dbef"},
+    "0,5–1 m": {"etiqueta": "0,5–1 m", "color": "#6baed6", "fillColor": "#6baed6"},
+    "1–2 m": {"etiqueta": "1–2 m", "color": "#2171b5", "fillColor": "#2171b5"},
+    "> 2 m": {"etiqueta": "Más de 2 m", "color": "#08306b", "fillColor": "#08306b"}}}},
+  "sx_modelo2d_guayabillos": {"titulo": "Modelo 2D · San Cristóbal: tormenta del 30-oct trasladada", "pane": "riesgo"},
+  "sx_modelo2d_100mm": {"titulo": "Modelo 2D · San Cristóbal: tormenta de 100 mm", "pane": "riesgo"},
+
+  "quebradas": {"corto": "Quebrada", "visible": true},
+  "cuencas_localidad": {"visible": false},
+  "drenaje": {"visible": false},
+  "barrios": {"visible": true, "estilo": {"color": "#1f2937", "weight": 1, "opacity": 0.6, "fill": true, "fillOpacity": 0}},
+  "parque": {"visible": false},
+  "limite_parque": {"corto": "Límite del Parque", "visible": true},
+  "zona_agricola": {"visible": false},
+  "vias": {"corto": "Vía", "clasificar": {"propiedad": "jerarquia", "valores": {
+   "Principal": {"etiqueta": "Principal", "color": "#111827", "weight": 3.6},
+   "Secundaria": {"etiqueta": "Secundaria", "color": "#374151", "weight": 2.6},
+   "Local": {"etiqueta": "Local", "color": "#6b7280", "weight": 1.5},
+   "Camino de tierra": {"etiqueta": "Camino de tierra", "color": "#a8a29e", "weight": 1.4, "dashArray": "5 3"}}}},
+  "costa_baja": {"visible": false, "pane": "riesgo",
+   "clasificar": {"propiedad": "cota_max_m", "valores": {
+    "3": {"etiqueta": "0–3 m", "color": "#5b3a1a", "fillColor": "#7c4a1e"},
+    "5": {"etiqueta": "3–5 m", "color": "#8a5a2b", "fillColor": "#b07a45"},
+    "10": {"etiqueta": "5–10 m", "color": "#b08d62", "fillColor": "#d8bf98"}}}},
+  "tsunami": {"visible": false, "pane": "riesgo"}
+ },
+
+ "buscar": [
+  {"archivo": "vias.geojson", "campos": ["nombre"], "tipo": "Calle", "detalle": ["isla"], "agrupar": true},
+  {"archivo": "barrios.geojson", "campos": ["nombre"], "tipo": "Barrio", "detalle": ["isla"]},
+  {"archivo": "puntos_clave.geojson", "campos": ["nombre"], "tipo": "Lugar", "detalle": ["subtipo", "isla"]},
+  {"archivo": "cruces_quebrada_via_alta.geojson", "campos": ["id", "via_nombre", "lugar"], "tipo": "Cruce quebrada–vía (alta)", "detalle": ["via_nombre", "lugar"]},
+  {"archivo": "cruces_quebrada_via_media.geojson", "campos": ["id", "via_nombre", "lugar"], "tipo": "Cruce quebrada–vía (media)", "detalle": ["via_nombre", "lugar"]},
+  {"archivo": "estudio_sc_puntos.geojson", "campos": ["id", "sector", "localidad"], "tipo": "Punto de inundación", "detalle": ["sector", "localidad"]},
+  {"archivo": "estudio_sx_puntos.geojson", "campos": ["id", "zona", "cañada_oficial"], "tipo": "Punto de inundación", "detalle": ["cañada_oficial", "zona"]},
+  {"archivo": "estudio_sx_canadas.geojson", "campos": ["cañada_oficial"], "tipo": "Cañada (UGR)", "detalle": []},
+  {"archivo": "estudio_sx_ugr_lugares.geojson", "campos": ["nombre"], "tipo": "Lugar del plan UGR", "detalle": ["tipo", "isla"]},
+  {"archivo": "estudio_sx_tomas.geojson", "campos": ["nombre", "id"], "tipo": "Toma de agua", "detalle": ["tipo"]}
+ ]
+}

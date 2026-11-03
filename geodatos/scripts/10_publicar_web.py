@@ -144,6 +144,81 @@ def grupos_estudios():
     return grupos, sorted(TMP_ESTUDIOS.glob("*.geojson"))
 
 
+# ---------------------------------------------------------------- ajustes propios del visor público
+VISOR = ROOT / "scripts" / "visor_mapas.json"
+
+
+def aplicar_visor(man):
+    """Aplica scripts/visor_mapas.json: fusiona y divide capas, reordena grupos, cambia visibilidad, estilos y plano
+    de dibujo, y deja el índice del buscador. Falla si un id no existe (un ajuste nunca se pierde en silencio)."""
+    cfg = json.loads(VISOR.read_text())
+    capas = {c["id"]: c for g in man["grupos"] for c in g["capas"]}
+    donde = {c["id"]: g["id"] for g in man["grupos"] for c in g["capas"]}
+    grupos = {g["id"]: g for g in man["grupos"]}
+
+    def exige(i, que):
+        if i not in capas: raise SystemExit(f"visor_mapas.json: {que} «{i}» no existe en el manifiesto")
+
+    # 1. Fusionar capas de varias islas en una sola (un archivo nuevo en la carpeta temporal de los estudios)
+    for fu in cfg.get("fusionar", []):
+        for i in fu["de"]: exige(i, "capa a fusionar")
+        base = capas[fu["de"][0]]
+        feats = []
+        for i in fu["de"]:
+            src = TMP_ESTUDIOS / capas[i]["archivo"]
+            feats += json.loads(src.read_text())["features"]
+            src.unlink()
+        (TMP_ESTUDIOS / fu["archivo"]).write_text(json.dumps({"type": "FeatureCollection", "features": feats}, ensure_ascii=False, separators=(",", ":")))
+        nueva = {**base, "id": fu["id"], "archivo": fu["archivo"], "titulo": fu["titulo"], "fuente": fu.get("fuente", base.get("fuente"))}
+        g = grupos[donde[fu["de"][0]]]
+        g["capas"][g["capas"].index(base)] = nueva
+        for i in fu["de"]:
+            gg = grupos[donde[i]]; gg["capas"] = [c for c in gg["capas"] if c["id"] != i]; del capas[i]
+        capas[fu["id"]] = nueva; donde[fu["id"]] = g["id"]
+
+    # 2. Dividir una capa por valores de su clasificación (misma descarga, varias capas en el visor)
+    for i, partes in cfg.get("dividir", {}).items():
+        exige(i, "capa a dividir")
+        orig = capas[i]; g = grupos[donde[i]]; pos = g["capas"].index(orig)
+        prop = orig["clasificar"]["propiedad"]; todos = list(orig["clasificar"]["valores"])
+        usados = [v for p in partes if not p.get("resto") for v in p["valores"]]
+        nuevas = []
+        for p in partes:
+            vals = [v for v in todos if v not in usados] if p.get("resto") else p["valores"]
+            c = json.loads(json.dumps(orig))
+            c.update({"id": p["id"], "titulo": p["titulo"], "filtro": {"propiedad": prop, "en": vals}})
+            if p.get("descripcion"): c["descripcion"] = p["descripcion"]
+            c["clasificar"]["valores"] = {v: orig["clasificar"]["valores"][v] for v in vals if v in orig["clasificar"]["valores"]}
+            if not p.get("resto"): c["clasificar"].pop("otro", None)
+            nuevas.append(c)
+        g["capas"][pos:pos + 1] = nuevas
+        del capas[i]
+        for c in nuevas: capas[c["id"]] = c; donde[c["id"]] = g["id"]
+
+    # 3. Ajustes por capa (reemplazo superficial de cada clave)
+    for i, aj in cfg.get("capas", {}).items():
+        exige(i, "capa a ajustar")
+        capas[i].update(json.loads(json.dumps(aj)))
+
+    # 4. Grupos: orden, títulos y capas que se mueven entre grupos
+    movidas = {i for gc in cfg["grupos"] for i in gc.get("capas", [])}
+    for i in movidas: exige(i, "capa a mover")
+    faltan = set(grupos) - {gc["id"] for gc in cfg["grupos"]}
+    if faltan: raise SystemExit(f"visor_mapas.json: faltan los grupos {sorted(faltan)} en «grupos»")
+    salida = []
+    for gc in cfg["grupos"]:
+        g = grupos.get(gc["id"], {"id": gc["id"], "capas": []})
+        primero = [capas[i] for i in gc.get("capas", [])]
+        resto = [c for c in g["capas"] if c["id"] not in movidas]
+        ng = {**{k: v for k, v in g.items() if k != "capas"}, **{k: v for k, v in gc.items() if k != "capas"}, "capas": primero + resto}
+        if ng["capas"]: salida.append(ng)
+    man["grupos"] = salida
+
+    # 5. Índice del buscador (solo archivos que se publican)
+    man["buscar"] = cfg.get("buscar", [])
+    return man
+
+
 def tam(n):
     return f"{n / 1e6:.1f} MB" if n >= 1e6 else f"{max(1, round(n / 1e3))} kB"
 
@@ -248,6 +323,11 @@ def main():
     # Los estudios van justo después de «Emergencia en curso» (o al principio si no existe ese grupo)
     i = next((n + 1 for n, g in enumerate(man["grupos"]) if g.get("id") == "emergencia"), 0)
     man["grupos"] = man["grupos"][:i] + g_est + man["grupos"][i:] + [EXTRA]
+    man = aplicar_visor(man)
+    f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
+    publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
+    for b in man["buscar"]:
+        if b["archivo"] not in publicados: raise SystemExit(f"visor_mapas.json: el buscador usa {b['archivo']}, que no se publica")
     man["mapas_base"] = [b for b in man.get("mapas_base", []) if b["id"] != "claro"]
     titulos = {}
     for g in man["grupos"]:
