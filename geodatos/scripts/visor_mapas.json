@@ -84,6 +84,8 @@
   "sx_modelo2d_guayabillos": {"titulo": "Modelo 2D · San Cristóbal: tormenta del 30-oct trasladada", "pane": "riesgo"},
   "sx_modelo2d_100mm": {"titulo": "Modelo 2D · San Cristóbal: tormenta de 100 mm", "pane": "riesgo"},
 
+  "puntos_criticos": {"visible": true},
+
   "quebradas": {"corto": "Quebrada", "visible": true},
   "cuencas_localidad": {"visible": false},
   "drenaje": {"visible": false},
