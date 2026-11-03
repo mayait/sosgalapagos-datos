@@ -313,6 +313,6 @@ salidas = []
 [pasos.mapas]
 script = "10_publicar_web.py"
 nota = "Genera publicar/mapas con las capas de los estudios (no publica)"
-entradas = ["estudios/estudios.json", "scripts/capas_estudios.json", "web/index.html", "export/galapagos/*", "export/galapagos-completo/*.geojson",
+entradas = ["estudios/estudios.json", "scripts/capas_estudios.json", "scripts/visor_mapas.json", "web/index.html", "export/galapagos/*", "export/galapagos-completo/*.geojson",
             "estudios/*/datos/*.geojson", "estudios/*/datos/*/*.geojson", "estudios/santa-cruz/datos/modelo2d/b_central/*.geojson"]
 salidas = ["publicar/mapas/index.html"]

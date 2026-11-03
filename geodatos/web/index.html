@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mapas de Galápagos</title>
-<meta name="description" content="Capas geográficas de la emergencia por inundaciones en Galápagos (oct–nov 2026): quebradas, zonas inundables, cuencas, vías, población y puntos clave. Descarga en Shapefile y GeoJSON.">
+<meta name="description" content="Capas geográficas de la emergencia por inundaciones en Galápagos (oct–nov 2026): riesgo de inundación por lluvia, quebradas, cruces con vías, población y puntos clave. Buscador de calles, puntos de análisis y descarga en Shapefile y GeoJSON.">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -30,14 +30,22 @@ h1{font-size:17px;margin:4px 0 0;letter-spacing:-.01em}
 .seg button+button{border-left:1px solid var(--line)}
 .seg button.on{background:var(--on);color:#fff}
 .seg.small{display:inline-flex}.seg.small button{flex:none;font-size:12px;padding:4px 9px}
-.varnote{font-size:11.5px;color:var(--mut);margin-top:5px}
 .dl-all{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
 .btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--acc);color:var(--acc);background:transparent;border-radius:8px;padding:6px 10px;font-size:12.5px;font-weight:600;text-decoration:none}
 .btn.pri{background:var(--on);border-color:var(--on);color:#fff}
 .btn small{font-weight:400;opacity:.85}
 .body{padding:2px 16px 24px}
-.grp{border-bottom:1px solid var(--line);padding:10px 0 6px}
-.grp h2{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:0 0 4px;font-weight:650}
+.acciones{display:flex;gap:6px;margin:10px 0 2px;flex-wrap:wrap}
+.acciones button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:4px 9px;font:inherit;font-size:12px;cursor:pointer}
+.acciones button:hover{border-color:var(--acc)}
+details.grp{border-bottom:1px solid var(--line);padding:9px 0 5px}
+details.grp>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:7px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:650;padding:2px 0 4px}
+details.grp>summary::-webkit-details-marker{display:none}
+details.grp>summary::before{content:"▸";font-size:10px;transition:.15s}
+details.grp[open]>summary::before{transform:rotate(90deg)}
+details.grp>summary .n{margin-left:auto;font-size:10.5px;letter-spacing:0;text-transform:none;background:var(--on);color:#fff;border-radius:999px;padding:0 7px;line-height:17px}
+details.grp>summary .n:empty{display:none}
+details.grp.lluvia>summary{color:#9f1239}
 .lyr{padding:5px 0}
 .lyr .top{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
 .sw{position:relative;flex:none;width:30px;height:17px;border-radius:999px;background:var(--line);transition:.15s}
@@ -50,9 +58,9 @@ h1{font-size:17px;margin:4px 0 0;letter-spacing:-.01em}
 .dl span{color:var(--mut)}
 .lyr .leg{display:none;margin:5px 0 2px 40px;font-size:11.5px;color:var(--mut)}
 .lyr.on .leg{display:grid;grid-template-columns:1fr;gap:2px}
-.leg i{display:inline-block;width:16px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-.leg i.ln{height:0;border-top:3px solid;border-radius:0;vertical-align:3px}
-.leg i.pt{width:14px;height:14px;border-radius:50%;color:#fff;font:700 9px/14px system-ui;text-align:center;font-style:normal;vertical-align:-3px;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.leg i,#leyenda i{display:inline-block;width:16px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;flex:none}
+.leg i.ln,#leyenda i.ln{height:0;border-top:3px solid;border-radius:0;vertical-align:3px}
+.leg i.pt,#leyenda i.pt{width:14px;height:14px;border-radius:50%;color:#fff;font:700 9px/14px system-ui;text-align:center;font-style:normal;vertical-align:-3px;border:1.5px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
 .gdesc{font-size:11.5px;color:var(--mut);margin:0 0 6px;line-height:1.4}.gdesc a{color:var(--acc);font-weight:600}
 .desc{font-size:11px;color:var(--mut);margin:3px 0 0 40px;display:none}.lyr.on .desc{display:block}
 .zoomhint{font-size:11px;color:var(--warn);margin-left:40px;display:none}.lyr.on.far .zoomhint{display:block}
@@ -62,25 +70,96 @@ details.card summary{cursor:pointer;font-weight:600;font-size:13px}
 .card td.r{text-align:right;font-variant-numeric:tabular-nums}.card tr:last-child td{border:0}
 .card p{font-size:12px;margin:6px 0}
 .note{font-size:11.5px;color:var(--mut);margin-top:12px}
+#wrap{position:relative;min-height:0}
 #map{height:100%;background:#dfe6ea}
-#carga{position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:800;background:rgba(20,20,19,.85);color:#fff;font-size:12.5px;padding:5px 12px;border-radius:999px;display:none}
+#carga{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:800;background:rgba(20,20,19,.85);color:#fff;font-size:12.5px;padding:5px 12px;border-radius:999px;display:none}
 #carga.on{display:block}
 .leaflet-popup-content-wrapper{border-radius:10px}
 .leaflet-popup-content{font-size:12.5px;margin:10px 12px;min-width:180px}
 .pp-t{font-weight:650;font-size:13.5px;margin-bottom:2px}.pp-s{font-size:11px;color:#777;margin-bottom:6px}
 .pp table{border-collapse:collapse}.pp td{padding:2px 8px 2px 0;vertical-align:top}.pp td:first-child{color:#777;white-space:nowrap}
+.pp button{margin-top:8px;border:1px solid #0b5cad;background:#0b5cad;color:#fff;border-radius:7px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer}
+.pp button.sec{background:#fff;color:#0b5cad}
+.pp ul{margin:4px 0 0;padding-left:16px}.pp li{margin:1px 0}
 .pin{width:19px;height:19px;border-radius:50%;color:#fff;font:800 11px/15px system-ui;text-align:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45)}
-.pin.risk{box-shadow:0 0 0 3px #1d4a9e,0 1px 4px rgba(0,0,0,.45)}
+.pin.risk{box-shadow:0 0 0 3px #111827,0 1px 4px rgba(0,0,0,.45)}
 .rot{background:transparent;border:0;box-shadow:none;color:#7c2d12;font:600 11px system-ui;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 2px #fff}
 .rot.via{color:#374151;font:500 10.5px system-ui}
 .rot::before{display:none}
 .map-far .rot{display:none}
-#coord{position:absolute;right:8px;bottom:22px;z-index:500;background:rgba(255,255,255,.85);color:#222;padding:2px 6px;border-radius:4px;font:11px ui-monospace,monospace}
+#coord{position:absolute;left:50%;transform:translateX(-50%);bottom:4px;z-index:500;background:rgba(255,255,255,.85);color:#222;padding:2px 6px;border-radius:4px;font:11px ui-monospace,monospace}
 .mix{mix-blend-mode:multiply}
+
+/* Buscador */
+#buscador{position:absolute;top:10px;left:56px;z-index:900;width:min(360px,calc(100% - 120px))}
+#buscador input{width:100%;border:1px solid #c9c8c1;border-radius:9px;padding:8px 32px 8px 11px;font:inherit;font-size:14px;background:#fff;color:#1b1b19;box-shadow:0 1px 5px rgba(0,0,0,.18)}
+#buscador input::-webkit-search-cancel-button{display:none}
+#buscador input:focus{outline:2px solid #0b5cad;outline-offset:0}
+#buscador .x{position:absolute;right:6px;top:5px;border:0;background:transparent;font-size:17px;color:#777;cursor:pointer;display:none;padding:2px 6px}
+#buscador.lleno .x{display:block}
+#resultados{list-style:none;margin:4px 0 0;padding:4px 0;background:#fff;color:#1b1b19;border-radius:9px;box-shadow:0 3px 12px rgba(0,0,0,.22);max-height:min(360px,50vh);overflow:auto;display:none}
+#resultados.on{display:block}
+#resultados li{padding:6px 11px;cursor:pointer;font-size:13px;line-height:1.3}
+#resultados li small{display:block;color:#777;font-size:11.5px}
+#resultados li.sel,#resultados li:hover{background:#eef3f9}
+#resultados li.vacio{color:#777;cursor:default}
+
+/* Herramientas */
+#herr{position:absolute;top:10px;right:10px;z-index:900;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+#herr button{display:flex;align-items:center;gap:6px;border:1px solid #c9c8c1;background:#fff;color:#1b1b19;border-radius:9px;padding:7px 10px;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;box-shadow:0 1px 5px rgba(0,0,0,.18);white-space:nowrap}
+#herr button:hover{border-color:#0b5cad}
+#herr button.on{background:#0b5cad;border-color:#0b5cad;color:#fff}
+#herr svg{width:15px;height:15px;flex:none}
+#aviso{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:950;background:rgba(20,20,19,.88);color:#fff;font-size:12.5px;padding:6px 12px;border-radius:999px;display:none;max-width:90%;text-align:center}
+#aviso.on{display:block}
+.poniendo #map{cursor:crosshair}
+.poniendo .leaflet-interactive,.poniendo .leaflet-pane canvas,.poniendo .leaflet-marker-icon:not(.upt){pointer-events:none!important}
+
+/* Leyenda sobre el mapa (sale en las capturas) */
+#leyenda{position:absolute;right:10px;bottom:26px;z-index:850;width:290px;max-height:calc(100% - 150px);display:flex;flex-direction:column;background:rgba(255,255,255,.96);color:#1b1b19;border:1px solid #d6d5cf;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2);font-size:11.5px;line-height:1.3}
+#leyenda .lh{display:flex;align-items:flex-start;gap:6px;padding:8px 10px 6px;border-bottom:1px solid #e6e5df}
+#leyenda .lh .tit{flex:1;min-width:0}
+#leyenda .lh b{display:block;font-size:13px;outline:none}
+#leyenda .lh b:empty::before{content:attr(data-ph);color:#999;font-weight:500}
+#leyenda .lh span{color:#6b6a64;font-size:11px}
+#leyenda .lh button{border:0;background:transparent;color:#6b6a64;cursor:pointer;font-size:12px;padding:1px 3px}
+#leyenda .lb{overflow:auto;padding:4px 10px 6px}
+#leyenda.min .lb,#leyenda.min .lf{display:none}
+#leyenda .lc{padding:5px 0 3px;border-bottom:1px dashed #e6e5df}
+#leyenda .lc:last-child{border-bottom:0}
+#leyenda .lc .ct{display:flex;gap:4px;font-weight:650;font-size:11.5px;margin-bottom:2px}
+#leyenda .lc .ct span{flex:1}
+#leyenda .lc .ct button{border:0;background:transparent;color:#999;cursor:pointer;font-size:13px;line-height:1;padding:0 2px}
+#leyenda .lc .ct button:hover{color:#b91c1c}
+#leyenda .li{display:flex;align-items:center;color:#3d3c38;margin:1px 0}
+#leyenda .pl{margin:2px 0}
+#leyenda .pl b{display:inline-block;width:17px;height:17px;border-radius:50%;background:#111827;color:#fff;text-align:center;font:700 10px/17px system-ui;margin-right:5px}
+#leyenda .pl small{display:block;color:#6b6a64;margin-left:22px}
+#leyenda .lf{padding:5px 10px 7px;border-top:1px solid #e6e5df;color:#6b6a64;font-size:10.5px}
+#leyenda .vacia{color:#888;padding:4px 0}
+.upt{display:flex;align-items:center;justify-content:center;width:26px!important;height:26px!important;margin:-13px 0 0 -13px!important;border-radius:50%;background:#111827;color:#fff;font:800 13px system-ui;border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.5)}
+.ubusq{border-radius:50%;border:3px solid #0b5cad;background:rgba(11,92,173,.15);box-shadow:0 0 0 2px #fff}
+
+/* Modo captura: solo el mapa con su leyenda */
+#salir{display:none;position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:960;border:0;background:rgba(20,20,19,.8);color:#fff;border-radius:999px;padding:6px 12px;font:inherit;font-size:12px;cursor:pointer;transition:opacity .4s}
+body.captura #app{grid-template-columns:1fr}
+body.captura #side,body.captura #buscador,body.captura #herr,body.captura .leaflet-control-zoom,body.captura #coord{display:none}
+body.captura #salir{display:block}
+body.captura #salir.tenue{opacity:.15}
+body.captura #salir.tenue:hover{opacity:1}
+.exportando #buscador,.exportando #herr,.exportando .leaflet-control-zoom,.exportando #coord,.exportando #carga,.exportando #aviso,.exportando #salir,.exportando #leyenda .lh button,.exportando #leyenda .ct button{visibility:hidden}
+
 @media (max-width:760px){
- #app{grid-template-columns:1fr;grid-template-rows:45vh 1fr;grid-template-rows:45dvh 1fr}
+ #app{grid-template-columns:1fr;grid-template-rows:55vh 1fr;grid-template-rows:55dvh 1fr}
+ body.captura #app{grid-template-rows:1fr}
  #side{order:2;border-right:0;border-top:1px solid var(--line)}
  #coord{display:none}
+ #buscador{left:10px;width:calc(100% - 64px)}
+ #herr{top:56px}
+ #herr button span{display:none}
+ #herr button{padding:8px}
+ #leyenda{width:min(260px,calc(100% - 20px));max-height:calc(100% - 120px);bottom:22px}
+ .leaflet-control-zoom{display:none}
 }
 </style>
 </head>
@@ -90,26 +169,48 @@ details.card summary{cursor:pointer;font-weight:600;font-size:13px}
   <div class="head">
    <a class="back" href="/">← SOS Galápagos</a>
    <h1>Mapas y capas de la emergencia</h1>
-   <div class="sub">Inundaciones por El Niño en Galápagos, oct–nov 2026. Toda la información de Santa Cruz, San Cristóbal e Isabela, sin recortes, incluido el Parque Nacional. Activa las capas para verlas y descárgalas en Shapefile o GeoJSON para usarlas en QGIS o ArcGIS.</div>
-   <div class="lbl">Descargar todas las capas</div>
-   <div class="dl-all" id="todo"></div>
+   <div class="sub">Inundaciones por El Niño en Galápagos, oct–nov 2026. Busca una calle o un lugar, pon puntos A, B, C… para analizar el riesgo y descarga la imagen con su leyenda. <b>Los puntos no se guardan</b>: desaparecen al cerrar la página.</div>
    <div class="lbl">Ir a</div>
    <div class="row" id="islas"></div>
    <div class="lbl">Mapa base</div>
    <div class="seg small" id="bases"></div>
   </div>
   <div class="body">
+   <div class="acciones"><button id="apagar">Apagar todas las capas</button><button id="restablecer">Volver a las capas iniciales</button></div>
    <div id="grupos"></div>
    <details class="card" id="expo"><summary>Exposición estimada por isla</summary><div></div></details>
-   <details class="card"><summary>Cómo usar los archivos</summary>
+   <details class="card"><summary>Descargar las capas (Shapefile y GeoJSON)</summary>
+    <p>Cada capa tiene su enlace de descarga debajo del interruptor. También puedes bajar todas juntas:</p>
+    <div class="dl-all" id="todo"></div>
     <p><b>Shapefile (.zip):</b> descomprime y abre el <code>.shp</code> en QGIS o ArcGIS. Coordenadas WGS 84 (EPSG:4326) y atributos en UTF-8. Cada zip trae un <code>LEEME.txt</code> con la fuente, la licencia y los nombres de campo acortados.</p>
     <p><b>GeoJSON:</b> se abre directo en QGIS, geojson.io, Mapbox o con cualquier librería web.</p>
     <p><b>Relieve y pendientes:</b> PNG georreferenciados con archivo de mundo (.pgw).</p>
    </details>
-   <div class="note">Fuentes: IGM 1:25 000, CGREG, zonificación PNG 2017 (CGREG/FCD), SNGR/INOCAR, MSP, MINEDUC, INEC MGN 2026, © colaboradores de OpenStreetMap (ODbL, 31-oct-2026), Google Open Buildings y Copernicus GLO-30. La susceptibilidad, la costa baja y los cauces adicionales son un <b>modelo sobre un DSM de 30 m</b>: sirven para priorizar, no son delimitaciones oficiales. <a href="/privacidad">Privacidad</a>.</div>
+   <details class="card"><summary>Cómo buscar, poner puntos y sacar una imagen</summary>
+    <p><b>Buscar:</b> escribe el nombre de una calle, un barrio, un lugar, una cañada o el código de un cruce (CR-SCZ-0001) o de un punto (SC-001, PBM-L01). También acepta coordenadas: <code>-0.7430, -90.3097</code>.</p>
+    <p><b>Puntos:</b> pulsa «Poner punto» y toca el mapa. Cada punto (A, B, C…) dice qué hay en ese lugar según las capas encendidas: la susceptibilidad, el cruce o la quebrada más cercanos y la distancia al punto anterior. Puedes arrastrarlos. No se guardan en ningún lado.</p>
+    <p><b>Imagen:</b> «Descargar imagen» guarda un PNG del mapa con la leyenda y los puntos. «Modo captura» deja solo el mapa y la leyenda, para una captura de pantalla normal. El título de la leyenda se puede editar.</p>
+   </details>
+   <div class="note">Fuentes: IGM 1:25 000, CGREG, zonificación PNG 2017 (CGREG/FCD), SNGR/INOCAR, MSP, MINEDUC, INEC MGN 2026, © colaboradores de OpenStreetMap (ODbL, 31-oct-2026), Google Open Buildings y Copernicus GLO-30. La susceptibilidad, los puntos potenciales, los cruces, la costa baja y los cauces adicionales son un <b>modelo sobre un DSM de 30 m</b>: sirven para priorizar, no son delimitaciones oficiales. Colores de riesgo: rojo oscuro = alto, naranja = medio, amarillo = bajo. <a href="/privacidad">Privacidad</a>.</div>
   </div>
  </aside>
- <div style="position:relative;min-height:0"><div id="map"></div><div id="carga">Cargando capas…</div><div id="coord"></div></div>
+ <div id="wrap">
+  <div id="map"></div>
+  <div id="buscador"><input id="q" type="search" placeholder="Buscar calle, barrio, lugar o coordenadas" autocomplete="off" aria-label="Buscar en el mapa"><button class="x" id="qx" aria-label="Borrar búsqueda">×</button><ul id="resultados" role="listbox"></ul></div>
+  <div id="herr">
+   <button id="b-punto" title="Poner puntos A, B, C… en el mapa (Esc para terminar)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Poner punto</span></button>
+   <button id="b-borrar" title="Quitar todos los puntos" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg><span>Quitar puntos</span></button>
+   <button id="b-png" title="Descargar una imagen PNG del mapa con la leyenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg><span>Descargar imagen</span></button>
+   <button id="b-captura" title="Ocultar el panel y los controles para hacer una captura de pantalla"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Modo captura</span></button>
+  </div>
+  <div id="leyenda">
+   <div class="lh"><div class="tit"><b id="ley-tit" contenteditable="true" spellcheck="false" data-ph="Título del mapa (toca para escribir)">Riesgo de inundación por lluvia</b><span id="ley-fecha"></span></div><button id="ley-min" title="Plegar o desplegar la leyenda">▾</button></div>
+   <div class="lb" id="ley-cuerpo"></div>
+   <div class="lf">SOS Galápagos · sosgalapagos.org/mapas · Modelos propios sobre un relieve de 30 m: priorizan, no son delimitaciones oficiales.</div>
+  </div>
+  <div id="carga">Cargando capas…</div><div id="coord"></div><div id="aviso"></div>
+  <button id="salir">Salir del modo captura (Esc)</button>
+ </div>
 </div>
 <script>
 const VERSION = '__VERSION__';
@@ -120,6 +221,7 @@ const variante = 'completo';     // sin recortes: toda la información para toma
 const datos = () => `datos/${variante}/`;
 const conV = u => `${u}?v=${VERSION}`;
 const esMovil = matchMedia('(max-width: 760px), (pointer: coarse)').matches;
+const $ = id => document.getElementById(id);
 
 // ═══════════ Motor de estilos del manifiesto (el mismo de la app) ═══════════
 function claseDe(capa, props) {
@@ -148,11 +250,16 @@ function leyendaDe(capa) {
   for (const r of capa.estilo_si ?? []) if (r.etiqueta) out.push({ color: '#6b7280', texto: r.etiqueta, forma: 'linea', dash: r.estilo.dashArray });
   return out;
 }
+const icono = it => it.forma === 'punto' ? `<i class="pt" style="background:${it.color}">${esc(it.simbolo ?? '')}</i>`
+  : it.forma === 'linea' ? `<i class="ln" style="border-color:${it.color};${it.dash ? 'border-top-style:dashed' : ''}"></i>` : `<i style="background:${it.color}"></i>`;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fmt = v => v === true ? 'Sí' : v === false ? 'No' : typeof v === 'number' ? v.toLocaleString('es') : v;
+function tituloDe(capa, props) {
+  const p = capa.popup ?? {};
+  return (p.titulo && props[p.titulo] != null && props[p.titulo] !== '' ? props[p.titulo] + (p.sufijo_titulo ?? '') : p.titulo_defecto) ?? capa.titulo;
+}
 function popupDe(capa, props) {
-  const p = capa.popup ?? {}; const cls = claseDe(capa, props);
-  const titulo = (p.titulo && props[p.titulo] != null && props[p.titulo] !== '' ? props[p.titulo] + (p.sufijo_titulo ?? '') : p.titulo_defecto) ?? capa.titulo;
+  const p = capa.popup ?? {}; const cls = claseDe(capa, props); const titulo = tituloDe(capa, props);
   let h = `<div class="pp"><div class="pp-t">${esc(titulo)}</div><div class="pp-s">${esc(cls?.etiqueta && cls.etiqueta !== titulo ? cls.etiqueta + ' · ' : '')}${esc(capa.titulo)}</div><table>`;
   for (const [k, lab] of Object.entries(p.campos ?? {})) { const v = props[k]; if (v == null || v === '') continue; h += `<tr><td>${esc(lab)}</td><td>${esc(fmt(v))}</td></tr>`; }
   return h + '</table></div>';
@@ -171,35 +278,41 @@ function rendererPatron(pt, pane) {
   return r;
 }
 let pendientes = 0;
-const carga = d => { pendientes += d; document.getElementById('carga').classList.toggle('on', pendientes > 0); };
+const carga = d => { pendientes += d; $('carga').classList.toggle('on', pendientes > 0); };
 async function json(url) {
   carga(1);
   try { const r = await fetch(conV(url)); if (!r.ok) throw new Error(r.status + ' ' + url); return await r.json(); }
   finally { carga(-1); }
 }
-async function crearCapa(capa, ctx) {
+let avisoT;
+function aviso(txt, ms = 3500) { const a = $('aviso'); a.textContent = txt; a.classList.add('on'); clearTimeout(avisoT); if (ms) avisoT = setTimeout(() => a.classList.remove('on'), ms); }
+// Plano de dibujo de cada capa: el panel ordena por tema; esto ordena qué tapa a qué.
+const paneDe = capa => capa.patron ? 'parque' : capa.pane ?? (capa.tipo === 'punto' ? 'puntos' : capa.tipo === 'linea' ? 'lineas' : 'areas');
+const renderer = pane => ctx.renderers[pane] ??= L.canvas({ pane, padding: .3 });
+const archivoDe = capa => ctx.cache[capa.archivo] ??= json(datos() + capa.archivo);
+async function crearCapa(capa) {
   const base = datos();
   if (capa.tipo === 'raster') {
     const lim = ctx.limites ??= await json(base + 'raster/limites.json');
     return L.layerGroup(Object.entries(lim).map(([k, v]) => L.imageOverlay(conV(`${base}raster/${k}_${capa.raster}.png`), v.bounds,
       { opacity: capa.opacidad ?? .7, pane: 'fondo', className: capa.raster === 'relieve' ? 'mix' : '' })));
   }
-  const gj = await (ctx.cache[capa.archivo] ??= json(base + capa.archivo));
+  const gj = await archivoDe(capa);
   const filter = capa.filtro ? f => capa.filtro.en.includes(f.properties?.[capa.filtro.propiedad]) : undefined;
-  const pane = capa.patron ? 'parque' : capa.tipo === 'punto' ? 'puntos' : capa.tipo === 'linea' ? 'lineas' : 'areas';
-  const renderer = capa.patron ? rendererPatron(capa.patron, pane) : ctx.renderers[pane];
+  const pane = paneDe(capa);
+  const rend = capa.patron ? rendererPatron(capa.patron, pane) : renderer(pane);
   const grupo = L.layerGroup();
-  if (capa.borde) grupo.addLayer(L.geoJSON(gj, { filter, pane, renderer, interactive: false, style: () => ({ ...capa.borde, lineCap: 'round' }) }));
+  if (capa.borde) grupo.addLayer(L.geoJSON(gj, { filter, pane, renderer: rend, interactive: false, style: () => ({ ...capa.borde, lineCap: 'round' }) }));
   const main = L.geoJSON(gj, {
-    filter, pane, renderer,
+    filter, pane, renderer: rend,
     style: f => ({ lineCap: 'round', lineJoin: 'round', ...estiloDe(capa, f.properties) }),
     pointToLayer: (f, ll) => {
-      if (capa.solo_rotulo) return L.circleMarker(ll, { pane, renderer, radius: 0, stroke: false, fill: false, interactive: false });
+      if (capa.solo_rotulo) return L.circleMarker(ll, { pane, renderer: rend, radius: 0, stroke: false, fill: false, interactive: false });
       const s = estiloDe(capa, f.properties); const cl = claseDe(capa, f.properties);
       if (cl?.simbolo) return L.marker(ll, { pane, icon: L.divIcon({ className: '', iconSize: [19, 19],
         html: `<div class="pin${f.properties.en_susc_alta_media ? ' risk' : ''}" style="background:${s.fillColor}">${esc(cl.simbolo)}</div>` }) });
-      return L.circleMarker(ll, { pane, renderer, radius: s.radius ?? 5, color: f.properties.en_susc_alta_media ? '#1d4a9e' : '#fff',
-        weight: f.properties.en_susc_alta_media ? 2.5 : 1.3, fillColor: s.fillColor, fillOpacity: 1 });
+      return L.circleMarker(ll, { pane, renderer: rend, radius: s.radius ?? 5, color: f.properties.en_susc_alta_media ? '#111827' : (s.color ?? '#fff'),
+        weight: f.properties.en_susc_alta_media ? 2.5 : 1.5, fillColor: s.fillColor, fillOpacity: 1 });
     },
     onEachFeature: (f, l) => {
       if (!capa.solo_rotulo) l.bindPopup(() => popupDe(capa, f.properties));
@@ -212,86 +325,157 @@ async function crearCapa(capa, ctx) {
   return grupo;
 }
 
+// ═══════════ Geometría mínima para «qué hay aquí» y el buscador ═══════════
+function bboxDe(g) {
+  let a = Infinity, b = Infinity, c = -Infinity, d = -Infinity;
+  const rec = x => { if (typeof x[0] === 'number') { if (x[0] < a) a = x[0]; if (x[0] > c) c = x[0]; if (x[1] < b) b = x[1]; if (x[1] > d) d = x[1]; } else x.forEach(rec); };
+  rec(g.coordinates); return [a, b, c, d];
+}
+function enAnillo(x, y, r) {
+  let dentro = false;
+  for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+    const [xi, yi] = r[i], [xj, yj] = r[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) dentro = !dentro;
+  }
+  return dentro;
+}
+const enPoligono = (x, y, rings) => enAnillo(x, y, rings[0]) && !rings.slice(1).some(h => enAnillo(x, y, h));
+function contiene(g, x, y) {
+  if (g.type === 'Polygon') return enPoligono(x, y, g.coordinates);
+  if (g.type === 'MultiPolygon') return g.coordinates.some(p => enPoligono(x, y, p));
+  return false;
+}
+// Distancia en metros de un punto a una geometría (proyección equirrectangular local: basta a esta escala).
+function distanciaM(g, lon, lat) {
+  const kx = 111320 * Math.cos(lat * Math.PI / 180), ky = 110574;
+  const seg = (p, q) => { const ax = (p[0] - lon) * kx, ay = (p[1] - lat) * ky, bx = (q[0] - lon) * kx, by = (q[1] - lat) * ky;
+    const dx = bx - ax, dy = by - ay, l = dx * dx + dy * dy; let t = l ? -(ax * dx + ay * dy) / l : 0; t = Math.max(0, Math.min(1, t));
+    return Math.hypot(ax + t * dx, ay + t * dy); };
+  const linea = cs => { let m = Infinity; for (let i = 1; i < cs.length; i++) m = Math.min(m, seg(cs[i - 1], cs[i])); return cs.length === 1 ? seg(cs[0], cs[0]) : m; };
+  switch (g.type) {
+    case 'Point': return seg(g.coordinates, g.coordinates);
+    case 'MultiPoint': return Math.min(...g.coordinates.map(c => seg(c, c)));
+    case 'LineString': return linea(g.coordinates);
+    case 'MultiLineString': return Math.min(...g.coordinates.map(linea));
+    case 'Polygon': return contiene(g, lon, lat) ? 0 : Math.min(...g.coordinates.map(linea));
+    case 'MultiPolygon': return contiene(g, lon, lat) ? 0 : Math.min(...g.coordinates.flat().map(linea));
+  }
+  return Infinity;
+}
+const cajas = new WeakMap();
+function cajasDe(gj) { let c = cajas.get(gj); if (!c) { c = gj.features.map(f => f.geometry ? bboxDe(f.geometry) : null); cajas.set(gj, c); } return c; }
+const metros = m => m < 1000 ? `${Math.round(m)} m` : `${(m / 1000).toLocaleString('es', { maximumFractionDigits: 2 })} km`;
+const quitarTildes = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+
 // ═══════════ Mapa ═══════════
 const map = L.map('map', { zoomControl: true, minZoom: 7 });
 L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
-for (const [n, z] of [['fondo', 350], ['parque', 390], ['areas', 410], ['lineas', 430], ['puntos', 620]]) map.createPane(n).style.zIndex = z;
+for (const [n, z] of [['fondo', 350], ['parque', 390], ['riesgo', 400], ['areas', 410], ['lineas', 430], ['emergencia', 450], ['puntos', 620], ['riesgo_pt', 630], ['usuario', 640]]) map.createPane(n).style.zIndex = z;
 map.getPane('fondo').style.pointerEvents = 'none';
-const nuevoCtx = () => ({ cache: {}, limites: null, renderers: { areas: L.canvas({ pane: 'areas', padding: .3 }), lineas: L.canvas({ pane: 'lineas', padding: .3 }), puntos: L.canvas({ pane: 'puntos', padding: .3 }) } });
-let ctx = nuevoCtx();
+const ctx = { cache: {}, limites: null, renderers: {} };
+// Varios lienzos (uno por plano): el de arriba recibe todos los clics y Leaflet no los pasa a los de abajo.
+// Se busca el elemento tocado en todos los lienzos, del plano más alto al más bajo.
+const zDe = r => +(map.getPane(r.options.pane)?.style.zIndex || 0);
+function tocado(point, clic, e) {
+  for (const r of Object.values(ctx.renderers).filter(r => r._map).sort((a, b) => zDe(b) - zDe(a))) {
+    let hit = null;
+    for (let o = r._drawFirst; o; o = o.next) {
+      const l = o.layer;
+      if (l.options.interactive && l._containsPoint(point) && !(clic && (e.type === 'click' || e.type === 'preclick') && map._draggableMoved(l))) hit = l;
+    }
+    if (hit) return hit;
+  }
+  return null;
+}
+L.Canvas.include({
+  _onClick(e) { const l = tocado(this._map.mouseEventToLayerPoint(e), true, e); this._fireEvent(l ? [l] : false, e); },
+  _handleMouseHover(e, point) {
+    if (this._mouseHoverThrottled) return;
+    const l = tocado(point, false, e);
+    if (l !== this._hoveredLayer) {
+      this._handleMouseOut(e);
+      if (l) { L.DomUtil.addClass(this._container, 'leaflet-interactive'); this._fireEvent([l], e, 'mouseover'); this._hoveredLayer = l; }
+    }
+    this._fireEvent(this._hoveredLayer ? [this._hoveredLayer] : false, e);
+    this._mouseHoverThrottled = true; setTimeout(() => { this._mouseHoverThrottled = false; }, 32);
+  },
+});
+let MAN = null; const filas = [];
 
 (async () => {
   const [man, idx] = await Promise.all([json('capas.json'), json('descargas.json')]);
+  MAN = man;
 
-  // Mapas base
-  const segB = document.getElementById('bases'); let base;
+  // Mapas base (crossOrigin para poder exportar la imagen: OSM, Esri y OpenTopoMap envían CORS)
+  const segB = $('bases'); let base;
   for (const b of man.mapas_base) {
-    const capa = L.tileLayer(b.url, { maxZoom: 19, maxNativeZoom: b.maxZoom ?? 19, attribution: b.atribucion });
+    const capa = L.tileLayer(b.url, { maxZoom: 19, maxNativeZoom: b.maxZoom ?? 19, attribution: b.atribucion, crossOrigin: 'anonymous' });
     const btn = document.createElement('button'); btn.textContent = b.titulo;
     const usar = () => { if (base) map.removeLayer(base); base = capa.addTo(map); segB.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === btn)); };
     btn.onclick = usar; segB.appendChild(btn); if (b.id === BASE_INICIAL) usar();
   }
   // Saltos
-  const zi = document.getElementById('islas');
+  const zi = $('islas');
   const saltos = { 'Archipiélago': { bounds: ARCHIPIELAGO }, ...man.islas };
   for (const [k, v] of Object.entries(saltos)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = k; b.onclick = () => map.fitBounds(v.bounds); zi.appendChild(b); }
   map.fitBounds(ARCHIPIELAGO);
 
   // Panel de capas
-  const cont = document.getElementById('grupos'); const filas = [];
+  const cont = $('grupos');
   for (const g of man.grupos) {
-    const sec = document.createElement('div'); sec.className = 'grp'; sec.innerHTML = `<h2>${esc(g.titulo)}</h2>` +
+    const sec = document.createElement('details'); sec.className = 'grp' + (g.id === 'lluvia' ? ' lluvia' : '');
+    sec.innerHTML = `<summary>${esc(g.titulo)}<span class="n"></span></summary>` +
       (g.descripcion ? `<p class="gdesc">${esc(g.descripcion)}</p>` : '') +
       (g.enlace ? `<p class="gdesc"><a href="${esc(g.enlace.url)}">${esc(g.enlace.texto)} →</a></p>` : '');
+    const filasG = [];
+    const contar = () => { const n = filasG.filter(f => f.st.on).length; sec.querySelector('.n').textContent = n ? `${n} activa${n > 1 ? 's' : ''}` : ''; };
     for (const capa of g.capas) {
       const row = document.createElement('div'); row.className = 'lyr';
-      const ley = leyendaDe(capa).map(it => {
-        const ic = it.forma === 'punto' ? `<i class="pt" style="background:${it.color}">${esc(it.simbolo ?? '')}</i>`
-          : it.forma === 'linea' ? `<i class="ln" style="border-color:${it.color};${it.dash ? 'border-top-style:dashed' : ''}"></i>` : `<i style="background:${it.color}"></i>`;
-        return `<span>${ic}${esc(it.texto)}</span>`; }).join('');
+      const ley = leyendaDe(capa).map(it => `<span>${icono(it)}${esc(it.texto)}</span>`).join('');
       row.innerHTML = `<div class="top"><span class="sw"></span><span class="t">${esc(capa.titulo)}<span class="meta"></span></span></div>
         <div class="dl"></div>
         ${capa.descripcion ? `<div class="desc">${esc(capa.descripcion)}</div>` : ''}<div class="zoomhint">Acércate al mapa (zoom ${capa.zoom_min}+) para ver esta capa.</div><div class="leg">${ley}</div>`;
       const st = { on: false, layer: null, cargando: null };
       const clave = capa.archivo ?? 'raster:' + capa.raster;
-      const pintar = () => {
-        const a = idx.variantes[variante].archivos[clave];
-        row.querySelector('.meta').textContent = (capa.fuente ?? '') + (a?.elementos ? ' · ' + a.elementos.toLocaleString('es') + ' elementos' : '');
-        row.querySelector('.dl').innerHTML = !a ? '<span>Sin datos en esta cobertura</span>'
-          : `<a href="${a.shp.url}" download>↓ ${a.shp.formato ?? 'Shapefile'} <span>${a.shp.tam}</span></a>` +
-            (a.geojson ? `<a href="${a.geojson.url}" download="${variante}-${capa.archivo}">↓ GeoJSON <span>${a.geojson.tam}</span></a>` : '');
-      };
+      const a = idx.variantes[variante].archivos[clave];
+      row.querySelector('.meta').textContent = (capa.fuente ?? '') + (a?.elementos ? ' · ' + a.elementos.toLocaleString('es') + ' elementos' : '');
+      row.querySelector('.dl').innerHTML = !a ? '<span>Sin datos en esta cobertura</span>'
+        : `<a href="${a.shp.url}" download>↓ ${a.shp.formato ?? 'Shapefile'} <span>${a.shp.tam}</span></a>` +
+          (a.geojson ? `<a href="${a.geojson.url}" download="${variante}-${capa.archivo}">↓ GeoJSON <span>${a.geojson.tam}</span></a>` : '');
       const sync = async () => {
         const lejos = !!capa.zoom_min && map.getZoom() < capa.zoom_min;
         row.classList.toggle('far', st.on && lejos);
         if (st.on && !lejos) {
           if (!st.layer) {
-            const v = variante;
-            st.cargando ??= crearCapa(capa, ctx).catch(e => { console.error(e); return null; });
+            st.cargando ??= crearCapa(capa).catch(e => { console.error(e); return null; });
             const l = await st.cargando; st.cargando = null;
-            if (v !== variante || !l) return;                 // cambió la cobertura mientras cargaba
+            if (!l) return;
             st.layer = l;
           }
           if (st.on && !map.hasLayer(st.layer)) st.layer.addTo(map);
         } else if (st.layer && map.hasLayer(st.layer)) map.removeLayer(st.layer);
       };
-      const reset = () => { if (st.layer) map.removeLayer(st.layer); st.layer = null; st.cargando = null; pintar(); };
-      row.querySelector('.top').onclick = () => { st.on = !st.on; row.classList.toggle('on', st.on); sync(); };
       const vis = esMovil && 'visible_movil' in capa ? capa.visible_movil : capa.visible;
+      const fila = { capa, st, sync, inicial: !!vis, grupo: sec,
+        set(on) { if (st.on === on) return; st.on = on; row.classList.toggle('on', on); contar(); sync(); pintarLeyenda(); } };
+      row.querySelector('.top').onclick = () => fila.set(!st.on);
       if (vis) { st.on = true; row.classList.add('on'); }
-      pintar();
-      filas.push({ sync, reset }); sec.appendChild(row);
+      filas.push(fila); filasG.push(fila); sec.appendChild(row);
     }
+    contar();
+    if (filasG.some(f => f.st.on) || g.id === 'lluvia') sec.open = true;
     cont.appendChild(sec);
   }
-  const syncTodo = async () => { for (const f of filas) await f.sync(); };   // en orden, para respetar el apilado
+  $('apagar').onclick = () => filas.forEach(f => f.set(false));
+  $('restablecer').onclick = () => filas.forEach(f => f.set(f.inicial));
 
   // Descargar todo
   const t = idx.variantes[variante].todo;
-  document.getElementById('todo').innerHTML =
+  $('todo').innerHTML =
     `<a class="btn pri" href="${t.shp.url}" download>↓ Shapefile <small>${t.shp.tam}</small></a>` +
     `<a class="btn" href="${t.geojson.url}" download>↓ GeoJSON <small>${t.geojson.tam}</small></a>`;
-  await syncTodo();
+  pintarLeyenda();
+  for (const f of filas) await f.sync();       // en orden, para respetar el apilado dentro de cada plano
   const zoomSync = () => { map.getContainer().classList.toggle('map-far', map.getZoom() < 15); filas.forEach(f => f.sync()); };
   map.on('zoomend', zoomSync); zoomSync();
 
@@ -306,7 +490,261 @@ let ctx = nuevoCtx();
   }
   expo();
 })();
-map.on('mousemove', e => document.getElementById('coord').textContent = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)} · z${map.getZoom()}`);
+map.on('mousemove', e => $('coord').textContent = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)} · z${map.getZoom()}`);
+
+// ═══════════ Leyenda sobre el mapa: capas activas + puntos ═══════════
+const ahora = () => new Date().toLocaleString('es-EC', { timeZone: 'Pacific/Galapagos', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+let leyPend = false;
+function pintarLeyenda() {
+  if (leyPend) return; leyPend = true;
+  requestAnimationFrame(() => {
+    leyPend = false;
+    $('ley-fecha').textContent = ahora() + ' (hora de Galápagos)';
+    const activas = filas.filter(f => f.st.on);
+    let h = '';
+    if (puntos.length) {
+      h += '<div class="lc"><div class="ct"><span>Puntos de análisis</span></div>' + puntos.map((p, i) => {
+        const ll = p.marker.getLatLng();
+        const d = i ? ` · a ${metros(map.distance(puntos[i - 1].marker.getLatLng(), ll))} de ${puntos[i - 1].letra}` : '';
+        const res = p.info?.length ? p.info.slice(0, 4).map(x => esc(x.corto)).join(' · ') : (p.info ? 'Sin capas encendidas que lo toquen' : 'Analizando…');
+        return `<div class="pl"><b>${p.letra}</b>${ll.lat.toFixed(5)}, ${ll.lng.toFixed(5)}${d}<small>${res}</small></div>`;
+      }).join('') + '</div>';
+    }
+    for (const f of activas) {
+      const items = leyendaDe(f.capa);
+      h += `<div class="lc"><div class="ct"><span>${esc(f.capa.titulo)}</span><button data-i="${filas.indexOf(f)}" title="Apagar esta capa">×</button></div>` +
+        (items.length > 1 || (items[0] && items[0].texto !== f.capa.titulo) ? items.map(it => `<div class="li">${icono(it)}${esc(it.texto)}</div>`).join('') :
+         items[0] ? `<div class="li">${icono(items[0])}${f.capa.tipo === 'linea' ? 'Línea' : f.capa.tipo === 'punto' ? 'Punto' : 'Área'}</div>` : '') + '</div>';
+    }
+    if (!h) h = '<div class="vacia">No hay capas encendidas. Actívalas en el panel.</div>';
+    const cuerpo = $('ley-cuerpo'); cuerpo.innerHTML = h;
+    cuerpo.querySelectorAll('button[data-i]').forEach(b => b.onclick = () => filas[+b.dataset.i].set(false));
+  });
+}
+$('ley-min').onclick = () => { const l = $('leyenda'); l.classList.toggle('min'); $('ley-min').textContent = l.classList.contains('min') ? '▸' : '▾'; };
+if (esMovil) { $('leyenda').classList.add('min'); $('ley-min').textContent = '▸'; }
+$('ley-tit').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); } });
+// Que la rueda y los toques dentro de la leyenda y el buscador no muevan el mapa
+for (const id of ['leyenda', 'buscador', 'herr']) { L.DomEvent.disableScrollPropagation($(id)); L.DomEvent.disableClickPropagation($(id)); }
+
+// ═══════════ Puntos de análisis (A, B, C…), solo en memoria ═══════════
+const puntos = []; let poniendo = false;
+const linea = L.polyline([], { pane: 'usuario', color: '#111827', weight: 2, dashArray: '6 6', interactive: false }).addTo(map);
+const LETRAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function modoPunto(on) {
+  poniendo = on; document.body.classList.toggle('poniendo', on); $('b-punto').classList.toggle('on', on);
+  if (on) aviso(esMovil ? 'Toca el mapa para poner un punto. Vuelve a pulsar el botón para terminar.' : 'Haz clic en el mapa para poner un punto. Esc para terminar.', 0);
+  else $('aviso').classList.remove('on');
+}
+$('b-punto').onclick = () => modoPunto(!poniendo);
+$('b-borrar').onclick = () => { puntos.splice(0).forEach(p => map.removeLayer(p.marker)); renumerar(); };
+map.on('click', e => { if (poniendo) agregarPunto(e.latlng); });
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (poniendo) modoPunto(false);
+  if (document.body.classList.contains('captura')) captura(false);
+});
+function agregarPunto(ll) {
+  if (puntos.length >= LETRAS.length) return aviso('Máximo 26 puntos.');
+  const p = { letra: '', info: null };
+  p.marker = L.marker(ll, { pane: 'usuario', draggable: true, autoPan: true, icon: L.divIcon({ className: 'upt', iconSize: [26, 26], html: '' }) }).addTo(map);
+  p.marker.on('drag', () => { linea.setLatLngs(puntos.map(x => x.marker.getLatLng())); pintarLeyenda(); });
+  p.marker.on('dragend', () => analizar(p));
+  p.marker.bindPopup(() => popupPunto(p), { maxWidth: 300 });
+  p.marker.on('popupopen', e => {
+    const b = e.popup.getElement().querySelector('[data-quitar]'); if (b) b.onclick = () => quitarPunto(p);
+    const c = e.popup.getElement().querySelector('[data-copiar]'); if (c) c.onclick = () => copiar(p);
+  });
+  puntos.push(p); renumerar(); analizar(p);
+  return p;
+}
+function quitarPunto(p) { map.removeLayer(p.marker); puntos.splice(puntos.indexOf(p), 1); renumerar(); }
+function renumerar() {
+  puntos.forEach((p, i) => { p.letra = LETRAS[i]; const el = p.marker.getElement(); if (el) el.textContent = p.letra; });
+  linea.setLatLngs(puntos.map(p => p.marker.getLatLng()));
+  $('b-borrar').style.display = puntos.length ? '' : 'none';
+  pintarLeyenda();
+}
+function popupPunto(p) {
+  const ll = p.marker.getLatLng(); const i = puntos.indexOf(p);
+  let h = `<div class="pp"><div class="pp-t">Punto ${p.letra}</div><div class="pp-s">${ll.lat.toFixed(5)}, ${ll.lng.toFixed(5)}${i ? ` · a ${metros(map.distance(puntos[i - 1].marker.getLatLng(), ll))} de ${puntos[i - 1].letra}` : ''}</div>`;
+  h += p.info == null ? '<div>Analizando…</div>' : p.info.length ? '<ul>' + p.info.map(x => `<li>${esc(x.largo)}</li>`).join('') + '</ul>'
+    : '<div>Ninguna capa encendida toca este punto ni tiene elementos a menos de 1 km.</div>';
+  h += '<div style="font-size:11px;color:#777;margin-top:6px">Según las capas encendidas. Modelos: priorizan, no son delimitaciones oficiales.</div>';
+  return h + '<button data-copiar>Copiar resumen</button> <button class="sec" data-quitar>Quitar punto</button></div>';
+}
+function copiar(p) {
+  const ll = p.marker.getLatLng();
+  const txt = `Punto ${p.letra} (${ll.lat.toFixed(5)}, ${ll.lng.toFixed(5)}) — https://www.google.com/maps?q=${ll.lat.toFixed(6)},${ll.lng.toFixed(6)}\n` + (p.info ?? []).map(x => '· ' + x.largo).join('\n');
+  navigator.clipboard?.writeText(txt).then(() => aviso('Resumen copiado'), () => aviso('No se pudo copiar'));
+}
+// Qué hay en el punto según las capas encendidas y ya cargadas (no descarga nada nuevo).
+async function analizar(p) {
+  const ll = p.marker.getLatLng(), x = ll.lng, y = ll.lat; const out = [];
+  const pendientesAqui = [];
+  for (const f of filas) {
+    const c = f.capa; if (!f.st.on || !c.archivo || c.solo_rotulo) continue;
+    const prom = ctx.cache[c.archivo]; if (!prom) { pendientesAqui.push(c.titulo); continue; }
+    const gj = await prom; const cj = cajasDe(gj);
+    const pasa = c.filtro ? ft => c.filtro.en.includes(ft.properties?.[c.filtro.propiedad]) : () => true;
+    if (c.tipo === 'poligono') {
+      const tol = 0;
+      const hit = gj.features.find((ft, i) => cj[i] && x >= cj[i][0] - tol && x <= cj[i][2] + tol && y >= cj[i][1] - tol && y <= cj[i][3] + tol && pasa(ft) && contiene(ft.geometry, x, y));
+      if (hit) {
+        const cl = claseDe(c, hit.properties); const t = cl?.etiqueta ?? tituloDe(c, hit.properties);
+        out.push({ orden: c.id === 'susceptibilidad' ? -2 : c.id === 'areas_afectadas' && hit.properties.tipo !== 'servicio' ? -1 : 5000, corto: c.id === 'susceptibilidad' ? `Susceptibilidad ${t.split(':')[0].toLowerCase()}` : t, largo: `${c.titulo}: ${t}` });
+      }
+    } else {
+      const R = 1000, dlat = R / 110574, dlon = R / (111320 * Math.cos(y * Math.PI / 180));
+      let mejor = null, dm = Infinity;
+      gj.features.forEach((ft, i) => {
+        const b = cj[i]; if (!b || x < b[0] - dlon || x > b[2] + dlon || y < b[1] - dlat || y > b[3] + dlat || !pasa(ft)) return;
+        const d = distanciaM(ft.geometry, x, y); if (d < dm) { dm = d; mejor = ft; }
+      });
+      if (mejor && dm <= R) {
+        const nom = tituloDe(c, mejor.properties); const cl = claseDe(c, mejor.properties)?.etiqueta;
+        const que = c.corto ?? c.titulo.split(':')[0];
+        out.push({ orden: dm, corto: `${que} a ${metros(dm)}`, largo: `${que} (el más cercano): ${nom}${cl && cl !== nom && cl.length <= 30 ? ' (' + cl + ')' : ''}, a ${metros(dm)}` });
+      }
+    }
+  }
+  out.sort((a, b) => a.orden - b.orden);
+  if (pendientesAqui.length) out.push({ orden: 1e9, corto: '', largo: `Todavía cargando: ${pendientesAqui.join(', ')}` });
+  p.info = out.filter(o => o.corto || o.largo);
+  if (p.marker.isPopupOpen()) p.marker.setPopupContent(popupPunto(p));
+  pintarLeyenda();
+}
+
+// ═══════════ Buscador local (calles, barrios, lugares, cruces, puntos y coordenadas) ═══════════
+let indice = null, marcaBusq = null, resaltado = null, selI = -1, resultados = [];
+async function construirIndice() {
+  if (indice) return indice;
+  indice = (async () => {
+    const out = [];
+    for (const [k, v] of Object.entries(MAN.islas)) { const b = v.bounds; out.push({ n: quitarTildes(k), texto: quitarTildes(k), nombre: k, tipo: 'Isla o poblado', detalle: '', bounds: b }); }
+    await Promise.all((MAN.buscar ?? []).map(async b => {
+      let gj; try { gj = await (ctx.cache[b.archivo] ??= json(datos() + b.archivo)); } catch { return; }
+      const grupos = new Map();
+      for (const f of gj.features) {
+        if (!f.geometry) continue;
+        const p = f.properties ?? {};
+        const nombre = b.campos.map(c => p[c]).find(v => v != null && v !== '' && v !== '(sin nombre)');
+        if (!nombre) continue;
+        const detalle = (b.detalle ?? []).map(c => p[c]).filter(v => v && v !== nombre && v !== '(sin nombre)').join(' · ');
+        const texto = quitarTildes(b.campos.map(c => p[c] ?? '').join(' '));
+        const key = b.agrupar ? nombre + '|' + (p.isla ?? '') : Symbol();
+        const bb = bboxDe(f.geometry);
+        const g = grupos.get(key);
+        if (g) { g.bb = [Math.min(g.bb[0], bb[0]), Math.min(g.bb[1], bb[1]), Math.max(g.bb[2], bb[2]), Math.max(g.bb[3], bb[3])]; g.feats.push(f); }
+        else grupos.set(key, { n: quitarTildes(nombre), texto, nombre: String(nombre), tipo: b.tipo, detalle, bb, feats: [f], punto: f.geometry.type === 'Point' });
+      }
+      const vistos = new Set();   // mismo nombre y detalle: un solo resultado (OSM repite puntos)
+      for (const g of grupos.values()) { const k = g.n + '|' + g.detalle; if (vistos.has(k)) continue; vistos.add(k); out.push({ ...g, bounds: [[g.bb[1], g.bb[0]], [g.bb[3], g.bb[2]]] }); }
+    }));
+    return out;
+  })();
+  return indice;
+}
+function coordenadas(q) {
+  const s = q.trim();
+  let m = s.match(/^(-?\d+),(\d+)\s*[;,]?\s+(-?\d+),(\d+)$/);   // coma decimal: -0,7430 -90,3097
+  let a, b;
+  if (m) { a = +(m[1] + '.' + m[2]); b = +(m[3] + '.' + m[4]); }
+  else { m = s.match(/^(-?\d+(?:\.\d+)?)\s*[,;\s]\s*(-?\d+(?:\.\d+)?)$/); if (!m) return null; a = +m[1]; b = +m[2]; }
+  if (Math.abs(a) > 60 && Math.abs(b) <= 10) [a, b] = [b, a];   // vino como lon, lat
+  if (Math.abs(a) > 90 || Math.abs(b) > 180) return null;
+  return L.latLng(a, b);
+}
+async function buscar(q) {
+  const ul = $('resultados'); selI = -1;
+  $('buscador').classList.toggle('lleno', !!q);
+  if (!q.trim()) { ul.classList.remove('on'); resultados = []; return; }
+  const ll = coordenadas(q);
+  if (ll) { resultados = [{ nombre: `${ll.lat.toFixed(5)}, ${ll.lng.toFixed(5)}`, tipo: 'Coordenadas', detalle: '', latlng: ll, punto: true }]; }
+  else {
+    const idx = await construirIndice(); const t = quitarTildes(q); const pal = t.split(/\s+/).filter(Boolean);
+    const puntua = e => { if (e.n === t) return 0; if (e.n.startsWith(t)) return 1; if (e.n.split(/[\s.\-–]+/).some(w => w.startsWith(t))) return 2; if (pal.every(w => e.texto.includes(w) || e.n.includes(w))) return 3; return 9; };
+    resultados = idx.map(e => [puntua(e), e]).filter(([s]) => s < 9).sort((a, b) => a[0] - b[0] || a[1].nombre.length - b[1].nombre.length).slice(0, 12).map(([, e]) => e);
+  }
+  ul.innerHTML = resultados.length ? resultados.map((r, i) => `<li role="option" data-i="${i}">${esc(r.nombre)}<small>${esc(r.tipo)}${r.detalle ? ' · ' + esc(r.detalle) : ''}</small></li>`).join('')
+    : '<li class="vacio">Sin resultados en las capas del mapa. Prueba con otro nombre o con coordenadas.</li>';
+  ul.classList.add('on');
+  ul.querySelectorAll('li[data-i]').forEach(li => li.onclick = () => ir(resultados[+li.dataset.i]));
+}
+function ir(r) {
+  $('resultados').classList.remove('on');
+  if (marcaBusq) map.removeLayer(marcaBusq); if (resaltado) map.removeLayer(resaltado);
+  const ll = r.latlng ?? (r.punto ? L.latLng(r.bounds[0]) : null);
+  if (ll) map.setView(ll, Math.max(map.getZoom(), 17));
+  else map.fitBounds(r.bounds, { maxZoom: 17, padding: [40, 40] });
+  if (r.feats && !r.punto) resaltado = L.geoJSON({ type: 'FeatureCollection', features: r.feats }, { pane: 'usuario', interactive: false,
+    style: { color: '#0b5cad', weight: 7, opacity: .55, fillOpacity: .08 } }).addTo(map);
+  const centro = ll ?? L.latLngBounds(r.bounds).getCenter();
+  marcaBusq = L.circleMarker(centro, { pane: 'usuario', radius: 13, color: '#0b5cad', weight: 3, fillColor: '#0b5cad', fillOpacity: .15 }).addTo(map);
+  marcaBusq.bindPopup(`<div class="pp"><div class="pp-t">${esc(r.nombre)}</div><div class="pp-s">${esc(r.tipo)}${r.detalle ? ' · ' + esc(r.detalle) : ''}</div><button data-aqui>Poner un punto aquí</button></div>`).openPopup();
+  marcaBusq.on('popupopen', e => enlazarAqui(e.popup, centro)); enlazarAqui(marcaBusq.getPopup(), centro);
+}
+function enlazarAqui(popup, ll) {
+  const b = popup.getElement()?.querySelector('[data-aqui]'); if (!b) return;
+  b.onclick = () => { map.closePopup(); limpiarBusqueda(false); agregarPunto(ll); };
+}
+function limpiarBusqueda(texto = true) {
+  if (marcaBusq) { map.removeLayer(marcaBusq); marcaBusq = null; } if (resaltado) { map.removeLayer(resaltado); resaltado = null; }
+  if (texto) { $('q').value = ''; buscar(''); }
+}
+let qT;
+$('q').addEventListener('focus', () => { construirIndice(); if ($('q').value) buscar($('q').value); });
+$('q').addEventListener('input', e => { clearTimeout(qT); qT = setTimeout(() => buscar(e.target.value), 120); });
+$('q').addEventListener('keydown', e => {
+  const lis = [...$('resultados').querySelectorAll('li[data-i]')];
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); if (!lis.length) return; selI = (selI + (e.key === 'ArrowDown' ? 1 : -1) + lis.length) % lis.length; lis.forEach((li, i) => li.classList.toggle('sel', i === selI)); lis[selI].scrollIntoView({ block: 'nearest' }); }
+  else if (e.key === 'Enter') { e.preventDefault(); clearTimeout(qT); const go = () => { if (resultados.length) ir(resultados[Math.max(0, selI)]); }; buscar(e.target.value).then(go); }
+  else if (e.key === 'Escape') { $('resultados').classList.remove('on'); e.target.blur(); }
+});
+$('qx').onclick = () => limpiarBusqueda();
+document.addEventListener('click', e => { if (!$('buscador').contains(e.target)) $('resultados').classList.remove('on'); });
+
+// ═══════════ Modo captura y descarga de imagen ═══════════
+let salirT;
+function captura(on) {
+  document.body.classList.toggle('captura', on);
+  map.invalidateSize();
+  if (on) { $('leyenda').classList.remove('min'); $('ley-min').textContent = '▾'; const s = $('salir'); s.classList.remove('tenue'); clearTimeout(salirT); salirT = setTimeout(() => s.classList.add('tenue'), 2500); pintarLeyenda(); }
+}
+$('b-captura').onclick = () => captura(true);
+$('salir').onclick = () => captura(false);
+
+let libImagen = null;
+const cargarLib = () => libImagen ??= new Promise((ok, mal) => {
+  const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js';
+  s.onload = () => window.htmlToImage ? ok(window.htmlToImage) : mal(new Error('sin htmlToImage')); s.onerror = mal; document.head.appendChild(s);
+});
+const esperar = ms => new Promise(r => setTimeout(r, ms));
+async function descargarImagen() {
+  const btn = $('b-png'); if (btn.disabled) return; btn.disabled = true;
+  aviso('Preparando la imagen…', 0);
+  const wrap = $('wrap');
+  try {
+    const lib = await cargarLib();
+    map.closePopup();
+    $('leyenda').classList.remove('min'); $('ley-min').textContent = '▾'; pintarLeyenda();
+    wrap.classList.add('exportando');
+    await esperar(400);                                   // fin de animaciones y leyenda pintada
+    const opts = { pixelRatio: Math.min(2, window.devicePixelRatio || 1), skipFonts: true, cacheBust: false, backgroundColor: '#dfe6ea',
+      filter: n => !(n.id && ['buscador', 'herr', 'carga', 'aviso', 'salir', 'coord'].includes(n.id)) };
+    await lib.toPng(wrap, opts);                         // Safari pinta en blanco algunas imágenes la primera vez
+    const url = await lib.toPng(wrap, opts);
+    const a = document.createElement('a');
+    const f = new Date(); const pad = n => String(n).padStart(2, '0');
+    a.download = `sosgalapagos-mapa-${f.getFullYear()}${pad(f.getMonth() + 1)}${pad(f.getDate())}-${pad(f.getHours())}${pad(f.getMinutes())}.png`;
+    a.href = url; document.body.appendChild(a); a.click(); a.remove();
+    aviso('Imagen descargada');
+  } catch (e) {
+    console.error(e);
+    aviso('No se pudo generar la imagen en este navegador. Usa «Modo captura» y haz una captura de pantalla: la leyenda ya está en el mapa.', 7000);
+  } finally { wrap.classList.remove('exportando'); btn.disabled = false; }
+}
+$('b-png').onclick = descargarImagen;
 </script>
 </body>
 </html>
