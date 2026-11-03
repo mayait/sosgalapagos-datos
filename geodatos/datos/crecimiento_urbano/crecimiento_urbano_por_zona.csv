@@ -1,0 +1,43 @@
+isla,zona_poblada,zona_de_agua,area_zona_ha,ghsl_1975_ha,ghsl_1980_ha,ghsl_1985_ha,ghsl_1990_ha,ghsl_1995_ha,ghsl_2000_ha,ghsl_2005_ha,ghsl_2010_ha,ghsl_2015_ha,ghsl_2020_ha,ghsl_2025_ha_proyeccion,ghsl_2030_ha_proyeccion,osm_2026_huella_ha,wsf_1985_ha,wsf_1990_ha,wsf_1995_ha,wsf_2000_ha,wsf_2005_ha,wsf_2010_ha,wsf_2015_ha
+Santa Cruz,Bellavista (límite urbano IGM),total,17.2,1.71,2.18,2.67,3.16,3.2,3.23,3.23,3.24,3.25,3.3,3.3,3.36,3.17,,,,,,,
+Santa Cruz,Bellavista (límite urbano IGM),vasos,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,
+Santa Cruz,Bellavista (límite urbano IGM),franja_cauce_20m,2.3,0.31,0.39,0.46,0.54,0.55,0.56,0.56,0.56,0.56,0.57,0.57,0.57,0.48,,,,,,,
+Santa Cruz,Bellavista (límite urbano IGM),franja_cgreg_20m,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,
+Santa Cruz,Bellavista (límite urbano IGM),modelo2d_calado_max_0_3m,2.1,0.25,0.32,0.39,0.45,0.46,0.46,0.46,0.46,0.47,0.47,0.47,0.48,0.45,,,,,,,
+Santa Cruz,Bellavista (límite urbano IGM),cualquier_zona_de_agua,3.7,0.47,0.59,0.71,0.83,0.84,0.85,0.85,0.85,0.85,0.87,0.87,0.87,0.81,,,,,,,
+Santa Cruz,Santa Rosa (límite urbano IGM),total,18.3,0.76,0.94,1.13,1.36,1.37,1.38,1.39,1.39,1.4,1.42,1.42,1.42,1.59,,,,,,,
+Santa Cruz,Santa Rosa (límite urbano IGM),vasos,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,
+Santa Cruz,Santa Rosa (límite urbano IGM),franja_cauce_20m,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,
+Santa Cruz,Santa Rosa (límite urbano IGM),franja_cgreg_20m,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,
+Santa Cruz,Santa Rosa (límite urbano IGM),modelo2d_calado_max_0_3m,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,
+Santa Cruz,Santa Rosa (límite urbano IGM),cualquier_zona_de_agua,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,
+Santa Cruz,Puerto Ayora (límite urbano IGM),total,128.0,24.0,30.35,36.72,43.09,44.12,45.14,45.14,45.14,45.27,45.94,45.94,45.94,45.49,,,,,,,
+Santa Cruz,Puerto Ayora (límite urbano IGM),vasos,10.1,1.53,1.97,2.4,2.85,2.93,3.02,3.02,3.02,3.03,3.07,3.07,3.07,3.03,,,,,,,
+Santa Cruz,Puerto Ayora (límite urbano IGM),franja_cauce_20m,14.5,2.43,3.14,3.86,4.58,4.67,4.76,4.76,4.76,4.77,4.85,4.85,4.85,4.99,,,,,,,
+Santa Cruz,Puerto Ayora (límite urbano IGM),franja_cgreg_20m,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,
+Santa Cruz,Puerto Ayora (límite urbano IGM),modelo2d_calado_max_0_3m,36.2,6.25,7.96,9.68,11.4,11.73,12.05,12.05,12.05,12.09,12.27,12.27,12.27,12.05,,,,,,,
+Santa Cruz,Puerto Ayora (límite urbano IGM),cualquier_zona_de_agua,44.2,7.69,9.82,11.95,14.09,14.47,14.84,14.84,14.84,14.89,15.11,15.11,15.11,15.0,,,,,,,
+Santa Cruz,todo el recuadro de estudio,total,26219.0,45.11,56.85,68.97,81.44,82.97,84.46,84.6,84.75,85.16,86.57,86.57,86.98,108.68,,,,,,,
+Santa Cruz,todo el recuadro de estudio,vasos,47.6,2.52,3.24,3.97,4.71,4.84,4.96,4.96,4.96,4.98,5.06,5.06,5.1,5.82,,,,,,,
+Santa Cruz,todo el recuadro de estudio,franja_cauce_20m,2284.4,4.33,5.58,6.86,8.2,8.33,8.47,8.49,8.51,8.55,8.7,8.7,8.72,10.79,,,,,,,
+Santa Cruz,todo el recuadro de estudio,franja_cgreg_20m,148.0,0.05,0.05,0.06,0.07,0.07,0.07,0.07,0.08,0.08,0.08,0.08,0.08,0.24,,,,,,,
+Santa Cruz,todo el recuadro de estudio,modelo2d_calado_max_0_3m,279.5,7.62,9.75,11.9,14.12,14.49,14.86,14.86,14.87,14.93,15.16,15.16,15.2,16.74,,,,,,,
+Santa Cruz,todo el recuadro de estudio,cualquier_zona_de_agua,2592.6,11.15,14.27,17.44,20.7,21.18,21.65,21.68,21.7,21.79,22.14,22.14,22.21,25.59,,,,,,,
+San Cristóbal,Puerto Baquerizo Moreno (límite urbano IGM),total,101.6,28.54,28.57,28.6,28.63,28.66,28.69,28.97,29.24,29.5,29.7,29.7,29.7,22.69,94.56,94.56,94.56,94.56,94.74,97.29,98.62
+San Cristóbal,Puerto Baquerizo Moreno (límite urbano IGM),vasos,0.7,0.26,0.26,0.26,0.27,0.27,0.27,0.27,0.27,0.27,0.28,0.28,0.28,0.17,0.65,0.65,0.65,0.65,0.65,0.65,0.66
+San Cristóbal,Puerto Baquerizo Moreno (límite urbano IGM),franja_cauce_20m,12.9,3.5,3.5,3.51,3.51,3.51,3.52,3.54,3.56,3.58,3.6,3.6,3.6,2.42,11.89,11.89,11.89,11.89,11.89,12.08,12.4
+San Cristóbal,Puerto Baquerizo Moreno (límite urbano IGM),franja_cgreg_20m,5.0,0.98,0.98,0.98,0.98,0.98,0.98,0.99,1.0,1.01,1.01,1.01,1.01,0.35,4.87,4.87,4.87,4.87,4.87,4.92,4.92
+San Cristóbal,Puerto Baquerizo Moreno (límite urbano IGM),modelo2d_calado_max_0_3m,6.7,1.82,1.82,1.82,1.82,1.82,1.82,1.83,1.83,1.84,1.86,1.86,1.86,1.25,6.38,6.38,6.38,6.38,6.38,6.53,6.53
+San Cristóbal,Puerto Baquerizo Moreno (límite urbano IGM),cualquier_zona_de_agua,17.3,4.67,4.68,4.68,4.68,4.69,4.69,4.72,4.75,4.79,4.83,4.83,4.83,3.37,16.03,16.03,16.03,16.03,16.03,16.41,16.74
+San Cristóbal,El Progreso (círculo de 1 km; sin límite IGM),total,313.6,1.32,1.38,1.44,1.5,1.52,1.53,1.63,1.73,1.82,1.85,1.85,1.85,4.08,7.77,7.77,7.77,7.77,7.77,11.55,11.81
+San Cristóbal,El Progreso (círculo de 1 km; sin límite IGM),vasos,11.3,0.23,0.24,0.25,0.26,0.26,0.27,0.28,0.29,0.31,0.31,0.31,0.31,0.52,0.95,0.95,0.95,0.95,0.95,1.44,1.44
+San Cristóbal,El Progreso (círculo de 1 km; sin límite IGM),franja_cauce_20m,20.5,0.11,0.12,0.13,0.15,0.15,0.15,0.15,0.16,0.16,0.16,0.16,0.16,0.31,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+San Cristóbal,El Progreso (círculo de 1 km; sin límite IGM),franja_cgreg_20m,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+San Cristóbal,El Progreso (círculo de 1 km; sin límite IGM),modelo2d_calado_max_0_3m,13.3,0.19,0.2,0.21,0.22,0.22,0.22,0.23,0.24,0.25,0.25,0.25,0.25,0.53,0.67,0.67,0.67,0.67,0.67,1.09,1.09
+San Cristóbal,El Progreso (círculo de 1 km; sin límite IGM),cualquier_zona_de_agua,33.6,0.33,0.34,0.36,0.38,0.38,0.39,0.4,0.42,0.44,0.44,0.44,0.44,0.82,1.34,1.34,1.34,1.34,1.34,1.88,1.88
+San Cristóbal,todo el recuadro de estudio,total,9734.0,42.83,43.29,43.78,44.3,44.67,45.05,45.84,46.65,47.39,47.95,47.95,48.37,43.11,175.83,175.83,175.83,175.83,176.01,187.35,193.25
+San Cristóbal,todo el recuadro de estudio,vasos,14.6,0.59,0.6,0.61,0.62,0.62,0.63,0.64,0.66,0.68,0.7,0.7,0.7,0.75,2.35,2.35,2.35,2.35,2.35,2.87,2.97
+San Cristóbal,todo el recuadro de estudio,franja_cauce_20m,736.7,5.42,5.46,5.49,5.53,5.55,5.57,5.68,5.78,5.88,5.93,5.93,5.94,4.83,21.24,21.24,21.24,21.24,21.24,22.13,22.8
+San Cristóbal,todo el recuadro de estudio,franja_cgreg_20m,304.6,1.36,1.36,1.36,1.37,1.37,1.38,1.41,1.45,1.48,1.48,1.48,1.48,0.8,8.24,8.24,8.24,8.24,8.24,8.6,8.77
+San Cristóbal,todo el recuadro de estudio,modelo2d_calado_max_0_3m,66.8,2.89,2.91,2.93,2.95,2.96,2.98,3.01,3.04,3.08,3.1,3.1,3.1,2.35,12.59,12.59,12.59,12.59,12.59,13.59,13.74
+San Cristóbal,todo el recuadro de estudio,cualquier_zona_de_agua,1029.1,7.34,7.39,7.44,7.49,7.53,7.56,7.72,7.88,8.02,8.11,8.11,8.11,6.86,30.67,30.67,30.67,30.67,30.67,32.81,33.7
