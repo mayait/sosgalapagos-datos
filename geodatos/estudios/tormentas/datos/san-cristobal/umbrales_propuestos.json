@@ -1,0 +1,146 @@
+{
+ "Barrio Frío (desembocadura)": {
+  "zona": "Barrio Frío (desembocadura)",
+  "isla": "san-cristobal",
+  "estaciones": [
+   [
+    "El Junco",
+    1.0
+   ],
+   [
+    "Cerro Alto",
+    1.0
+   ],
+   [
+    "El Mirador",
+    1.0
+   ],
+   [
+    "Merceditas",
+    1.0
+   ],
+   [
+    "INAMHI Puerto Baquerizo",
+    1.0
+   ]
+  ],
+  "niveles": {
+   "medio": {
+    "R1h": 22.5,
+    "R3h": 50.0,
+    "R24h": 260.0
+   },
+   "alto": {
+    "R1h": 25.0,
+    "R3h": 70.0,
+    "R24h": 270.0
+   },
+   "muy alto": {
+    "R1h": 62.5,
+    "R3h": 105.0,
+    "R24h": 280.0
+   }
+  },
+  "factor_suelo_humedo": {
+   "P5d_min_mm": 53,
+   "factor": 1.0
+  },
+  "nota": "Propuesta derivada de tormentas sintéticas y el modelo 2D propio (no oficial). Validar con inundaciones históricas antes de usar."
+ },
+ "El Manzanillo": {
+  "zona": "El Manzanillo",
+  "isla": "san-cristobal",
+  "estaciones": [
+   [
+    "El Junco",
+    1.0
+   ],
+   [
+    "Cerro Alto",
+    1.0
+   ],
+   [
+    "El Mirador",
+    1.0
+   ],
+   [
+    "Merceditas",
+    1.0
+   ],
+   [
+    "INAMHI Puerto Baquerizo",
+    1.0
+   ]
+  ],
+  "niveles": {
+   "medio": {
+    "R1h": 45.0,
+    "R3h": 55.0,
+    "R24h": 290.0
+   },
+   "alto": {
+    "R1h": 45.0,
+    "R3h": 125.0,
+    "R24h": 320.0
+   },
+   "muy alto": {
+    "R1h": 70.0,
+    "R3h": 135.0,
+    "R24h": 320.0
+   }
+  },
+  "factor_suelo_humedo": {
+   "P5d_min_mm": 53,
+   "factor": 0.9
+  },
+  "nota": "Propuesta derivada de tormentas sintéticas y el modelo 2D propio (no oficial). Validar con inundaciones históricas antes de usar."
+ },
+ "El Progreso": {
+  "zona": "El Progreso",
+  "isla": "san-cristobal",
+  "estaciones": [
+   [
+    "El Junco",
+    1.0
+   ],
+   [
+    "Cerro Alto",
+    1.0
+   ],
+   [
+    "El Mirador",
+    1.0
+   ],
+   [
+    "Merceditas",
+    1.0
+   ],
+   [
+    "INAMHI Puerto Baquerizo",
+    1.0
+   ]
+  ],
+  "niveles": {
+   "medio": {
+    "R1h": 22.5,
+    "R3h": 65.0,
+    "R24h": 270.0
+   },
+   "alto": {
+    "R1h": 35.0,
+    "R3h": 100.0,
+    "R24h": 280.0
+   },
+   "muy alto": {
+    "R1h": 60.0,
+    "R3h": 135.0,
+    "R24h": 320.0
+   }
+  },
+  "factor_suelo_humedo": {
+   "P5d_min_mm": 53,
+   "factor": 1.0
+  },
+  "nota": "Propuesta derivada de tormentas sintéticas y el modelo 2D propio (no oficial). Validar con inundaciones históricas antes de usar."
+ }
+}

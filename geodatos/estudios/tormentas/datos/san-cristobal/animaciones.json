@@ -1,0 +1,22 @@
+[
+ {
+  "id": 161,
+  "mp4": "anim_san-cristobal_161.mp4",
+  "gif": "anim_san-cristobal_161.gif",
+  "descripcion": "132 mm en 3.6 h en el núcleo; núcleo de 3.9 km sobre la parte alta; suelo seco (P5d 2 mm); el suelo traga 6 mm/h",
+  "inunda": true,
+  "llegada_h": 3.67,
+  "nivel_max": "muy alto",
+  "alto_h": 2.25
+ },
+ {
+  "id": 40,
+  "mp4": "anim_san-cristobal_40.mp4",
+  "gif": "anim_san-cristobal_40.gif",
+  "descripcion": "216 mm en 8.1 h en el núcleo; núcleo de 3.2 km sobre la parte alta; suelo húmedo (P5d 71 mm); el suelo traga 30 mm/h",
+  "inunda": false,
+  "llegada_h": null,
+  "nivel_max": "muy alto",
+  "alto_h": 4.5
+ }
+]
