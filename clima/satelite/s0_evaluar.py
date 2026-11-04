@@ -688,7 +688,8 @@ def main():
         res["eventos"][nombre] = ev
         if not a.sin_figuras:
             zc = ev["zonas"].get("la-cascada") or next(iter(ev["zonas"].values()), None)
-            if zc and zc["t_medio"]:
+            # sin mapa si el «medio» ya venía de antes de la ventana (1–2-nov): no hay un «antes» que mostrar
+            if zc and zc["t_medio"] and not zc["t_medio"].startswith(i[:13]):
                 tm = dt.datetime.strptime(zc["t_medio"], "%Y-%m-%dT%H:%MZ").replace(tzinfo=UTC)
                 for h in (2, 0):
                     figura_mapa(c13, rr, glm, tm - dt.timedelta(hours=h), zonas, FIG / f"mapa_{nombre}_menos{h}h.png",
