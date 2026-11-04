@@ -5,6 +5,10 @@
 # Antes del rsync corre el checklist automático (scripts/revisar_publicacion.py): si algo no pasa, NO se publica.
 # Proceso completo: geodatos/estudios/PUBLICAR.md
 set -eu
+# OBSOLETO desde el 4-nov-2026: /estudios/ publica solo la lista de informes técnicos en PDF (informes/publicar.sh).
+# El sitio web de estudios (mapa, 3D, comentarios) ya no se publica; sus textos y datos siguen en el repositorio.
+echo "Obsoleto: usa servidores/publicar.sh estudios (informes/publicar.sh)." >&2
+exit 1
 cd "$(dirname "$0")/.."
 SERVIDOR=${SERVIDOR:-root@152.44.45.89}
 .venv/bin/python -I scripts/22_pendientes.py
