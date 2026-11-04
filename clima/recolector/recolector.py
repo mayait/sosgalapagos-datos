@@ -310,7 +310,7 @@ EVENTOS = [  # momentos de referencia para comparar (horas UTC)
     {"id": "inundacion-2026-10-30", "nombre": "Inundación La Cascada (30–31 oct 2026)",
      "desde": "2026-10-30T06:00:00Z", "hasta": "2026-11-01T06:00:00Z"},
 ]
-PUBLICOS = {"estado.json", "horario.json", "diario.json", "pronostico.json"}
+PUBLICOS = {"estado.json", "horario.json", "diario.json", "pronostico.json", "satelite.json"}
 
 
 def escribir(ruta, obj):
@@ -365,10 +365,15 @@ def exportar(con):
     except Exception as e:
         traceback.print_exc()
         pron = {"error": str(e)[:200]}
-    # El pronóstico va también dentro de estado.json: Caddy solo deja pasar estado/horario/diario
-    # (Caddyfile del repo mayait/sosgalapagos); pronostico.json queda listo para cuando se permita.
+    try:  # satélite GOES-19: lo escribe satelite/colector.py (otro proceso y otro timer)
+        sat = json.loads((SALIDA / "satelite.json").read_text())
+    except (OSError, ValueError):
+        sat = None
+    # El pronóstico y el satélite van también dentro de estado.json: Caddy solo deja pasar
+    # estado/horario/diario (Caddyfile del repo mayait/sosgalapagos).
     escribir(SALIDA / "estado.json", {"generado": iso(ahora), "estaciones": ests, "fuentes": corr,
-                                      "eventos": EVENTOS, "inundacion": riesgo, "mareas": marea, "pronostico": pron})
+                                      "eventos": EVENTOS, "inundacion": riesgo, "mareas": marea, "pronostico": pron,
+                                      "satelite": sat})
 
     # Historia horaria completa en un eje común (horas UTC): lluvia (suma) y temperatura (media).
     # null = sin registros en esa hora (corte de transmisión o fuera del período de la estación).
