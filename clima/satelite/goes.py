@@ -100,7 +100,7 @@ def listar(producto: str, hora: datetime) -> list[tuple[str, int]]:
     pref = f"{prefijo}/{hora:%Y}/{hora.timetuple().tm_yday:03d}/{hora:%H}/"
     raiz = raiz_bucket()
     salida, token = [], None
-    ns = "{http://s3.amazonaws.com/doc/2006-03-01/}"
+    ns = "{*}"  # cualquier espacio de nombres XML
     while True:
         q = {"list-type": "2", "prefix": pref}
         if token:
