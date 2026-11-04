@@ -357,8 +357,17 @@ def exportar(con):
     except Exception as e:
         traceback.print_exc()
         marea = {"error": str(e)[:200]}
+    try:  # pronóstico de modelos (lo baja fuente_pronostico; aquí solo se resume)
+        import pronostico
+        pron = pronostico.exportar(ahora)
+        escribir(SALIDA / "pronostico.json", pron)
+    except Exception as e:
+        traceback.print_exc()
+        pron = {"error": str(e)[:200]}
+    # El pronóstico va también dentro de estado.json: Caddy solo deja pasar estado/horario/diario
+    # (Caddyfile del repo mayait/sosgalapagos); pronostico.json queda listo para cuando se permita.
     escribir(SALIDA / "estado.json", {"generado": iso(ahora), "estaciones": ests, "fuentes": corr,
-                                      "eventos": EVENTOS, "inundacion": riesgo, "mareas": marea})
+                                      "eventos": EVENTOS, "inundacion": riesgo, "mareas": marea, "pronostico": pron})
 
     # Historia horaria completa en un eje común (horas UTC): lluvia (suma) y temperatura (media).
     # null = sin registros en esa hora (corte de transmisión o fuera del período de la estación).
@@ -409,11 +418,6 @@ def exportar(con):
         traceback.print_exc()
         estac = {"error": str(e)[:200]}
     escribir(SALIDA / "diario.json", {"generado": iso(ahora), "diario": diario, "estacionalidad": estac})
-    try:  # pronóstico de modelos (lo baja fuente_pronostico; aquí solo se resume)
-        import pronostico
-        escribir(SALIDA / "pronostico.json", pronostico.exportar(ahora))
-    except Exception:
-        traceback.print_exc()
 
     for viejo in SALIDA.iterdir():  # nada más que lo público queda en la carpeta servida
         if viejo.is_file() and viejo.name not in PUBLICOS:

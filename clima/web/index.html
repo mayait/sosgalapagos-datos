@@ -225,7 +225,7 @@ async function cargar() {
     const q = "?t=" + Math.floor(Date.now() / 60000);
     [E, H, D] = await Promise.all(["estado", "horario", "diario"].map(n => fetch(`datos/${n}.json${q}`).then(r => r.json())));
     H.t0 = Date.parse(H.inicio);
-    try { P = await fetch(`datos/pronostico.json${q}`).then(r => r.ok ? r.json() : null); } catch (e) { P = null; }
+    P = E.pronostico && E.pronostico.zonas ? E.pronostico : null; // va dentro de estado.json
     pintar();
   } catch (err) {
     console.error(err);
