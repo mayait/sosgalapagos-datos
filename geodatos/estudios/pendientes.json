@@ -1,7 +1,7 @@
 {
  "_nota": "Caché de los issues de mayait/sosgalapagos-datos para el sitio /estudios (la escribe scripts/22_pendientes.py --actualizar). No editar a mano: los pendientes se cambian en GitHub.",
  "repo": "mayait/sosgalapagos-datos",
- "descargado": "2026-11-02T23:49:28+00:00",
+ "descargado": "2026-11-04T06:22:38+00:00",
  "issues": [
   {
    "numero": 1,
@@ -208,9 +208,9 @@
     "datos-faltantes"
    ],
    "cuerpo": "**Dato:** **Registro histórico de eventos** completo (fechas, lugares, daños)\n**Quién lo tiene o puede levantarlo:** SNGR, GAD, prensa local\n**Para qué sirve:** Frecuencia y validación de zonas susceptibles\n\n**Prioridad:** P2 · **Sección:** Datos que no tenemos\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 0,
+   "comentarios": 1,
    "creado": "2026-11-02T20:39:03Z",
-   "actualizado": "2026-11-02T20:39:03Z",
+   "actualizado": "2026-11-04T06:22:32Z",
    "cerrado": null
   },
   {
@@ -283,9 +283,9 @@
     "mas-resolucion"
    ],
    "cuerpo": "**Hoy:** Lluvia: 4 estaciones IERSE en Santa Cruz (ninguna en Puerto Ayora) + red GSC en San Cristóbal\n**Lo que necesitamos:** Pluviómetros en cada poblado y en la parte alta de cada cuenca\n**Cómo:** Instalar pluviómetros (USFQ, FCD, ciudadanos) y sumarlos a `clima/`\n\n**Prioridad:** P1 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 0,
+   "comentarios": 1,
    "creado": "2026-11-02T20:39:20Z",
-   "actualizado": "2026-11-02T20:39:20Z",
+   "actualizado": "2026-11-04T06:22:29Z",
    "cerrado": null
   },
   {
@@ -298,9 +298,9 @@
     "mas-resolucion"
    ],
    "cuerpo": "**Hoy:** Lluvia de modelos (Open-Meteo, ECMWF 9 km)\n**Lo que necesitamos:** Lluvia satelital GPM IMERG (30 min, 10 km) del evento y la serie\n**Cómo:** Cuenta NASA Earthdata\n\n**Prioridad:** P2 · **Sección:** Datos con poca resolución\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 0,
+   "comentarios": 1,
    "creado": "2026-11-02T20:39:23Z",
-   "actualizado": "2026-11-02T20:39:23Z",
+   "actualizado": "2026-11-04T06:22:30Z",
    "cerrado": null
   },
   {
@@ -358,9 +358,9 @@
     "procesos"
    ],
    "cuerpo": "**Proceso:** **Curvas IDF** (intensidad–duración–frecuencia)\n**Depende de:** Serie diaria GSC desde 2015, IERSE, FCD\n**Notas:** Base de cualquier diseño de obra\n\n**Prioridad:** P1 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 0,
+   "comentarios": 1,
    "creado": "2026-11-02T20:39:37Z",
-   "actualizado": "2026-11-02T20:39:37Z",
+   "actualizado": "2026-11-04T06:22:24Z",
    "cerrado": null
   },
   {
@@ -389,9 +389,9 @@
     "procesos"
    ],
    "cuerpo": "**Proceso:** **Modelo hidráulico 2D** (HEC-RAS 2D, ANUGA o SFINCS) del escarpe, La Cascada y la salida\n**Depende de:** DTM, caudales\n**Notas:** Mancha, calados y velocidades por período de retorno\n\n**Prioridad:** P2 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 1,
+   "comentarios": 2,
    "creado": "2026-11-02T20:39:43Z",
-   "actualizado": "2026-11-02T20:58:20Z",
+   "actualizado": "2026-11-04T06:22:26Z",
    "cerrado": null
   },
   {
@@ -450,9 +450,9 @@
     "procesos"
    ],
    "cuerpo": "**Proceso:** **Alerta temprana por lluvia**: umbrales por estación conectados al recolector. Hay una regla preliminar 0.1 para La Cascada (1 h / 3 h / 24 h + humedad antecedente; `clima/docs/umbrales-la-cascada.md`)\n**Depende de:** Clima en vivo, IDF\n**Notas:** Calibrar: confirmar si hubo inundación el 3-oct, el 23-oct y el 1/2-nov; revisar el pluviómetro de Los Guayabillos (marca 0 desde el 31-oct). Después, aviso al bot de WhatsApp y al COE\n\n**Prioridad:** P1 · **Sección:** Procesos que queremos hacer\n\n_Migrado desde PENDIENTES.md (2-nov-2026)._",
-   "comentarios": 0,
+   "comentarios": 1,
    "creado": "2026-11-02T20:39:57Z",
-   "actualizado": "2026-11-02T20:39:57Z",
+   "actualizado": "2026-11-04T06:22:27Z",
    "cerrado": null
   },
   {
@@ -1163,6 +1163,88 @@
    "comentarios": 0,
    "creado": "2026-11-02T23:49:20Z",
    "actualizado": "2026-11-02T23:49:20Z",
+   "cerrado": null
+  },
+  {
+   "numero": 77,
+   "titulo": "Estudio de intensidades máximas del INAMHI (2015) y ecuaciones IDF vigentes para Galápagos",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/77",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "san-cristobal",
+    "santa-cruz"
+   ],
+   "cuerpo": "El INAMHI tiene el estudio **«Determinación de ecuaciones para el cálculo de intensidades máximas de precipitación» (2015)**, que actualiza el «Estudio de lluvias intensas» de 1999. Divide el país en zonas e incluye una para la provincia de Galápagos. Hoy es la única referencia oficial de curvas IDF para las islas.\n\n**Qué pedir al INAMHI** (su portal no está operativo):\n- el informe completo, con la zona de Galápagos y sus ecuaciones (coeficientes por duración y periodo de retorno);\n- qué estaciones de las islas usaron y con cuántos años;\n- los coeficientes que convierten la lluvia de 24 h en lluvia de 1, 3 y 6 h, si son propios de la región insular.\n\n**Para qué sirve:** es la referencia oficial con la que comparar las curvas IDF provisionales que haremos con la serie de la FCD (#24). Ojo: esas curvas no salen de lluvia medida cada pocos minutos, sino de la lluvia máxima de 24 h y coeficientes fijos; probablemente con muy pocas estaciones de Galápagos.\n\nReferencia que lo cita: LADHI 2018, curvas IDF sintéticas para la región costa e insular de Ecuador.\n\nRelacionado: #24 (curvas IDF), #26 (períodos de retorno de las tormentas sintéticas), #45 (acuerdos de datos).\n\n**Isla:** Santa Cruz y San Cristóbal\n",
+   "comentarios": 0,
+   "creado": "2026-11-04T06:20:47Z",
+   "actualizado": "2026-11-04T06:20:47Z",
+   "cerrado": null
+  },
+  {
+   "numero": 78,
+   "titulo": "Series diarias del INAMHI en San Cristóbal (M0221 y El Progreso) para calcular periodos de retorno",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/78",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "san-cristobal"
+   ],
+   "cuerpo": "San Cristóbal no tiene ninguna serie larga de lluvia medida en el sistema. Por eso hoy **no se puede calcular el periodo de retorno** de la lluvia del 30–31-oct ni armar curvas IDF para la isla. Las estaciones USFQ-GSC tienen pocos años (desde 2015, según la fuente) y el reanálisis GAR no está validado en la isla.\n\n**Qué pedir al INAMHI:**\n- serie diaria completa de **M0221 (Puerto Baquerizo Moreno)**;\n- serie diaria de la estación de **El Progreso** (M0193 o M0508, hay que confirmar cuál);\n- si existen, datos de pluviógrafo (bandas) o de estaciones automáticas, de cualquier periodo.\n\n**Para qué sirve:**\n- ajustar Gumbel/GEV a los máximos diarios anuales, como ya se hizo en Santa Cruz con la FCD (script 29);\n- poner un periodo de retorno a las 500 tormentas sintéticas de San Cristóbal (#26) y a la lluvia del 30–31-oct.\n\nRelacionado: #24, #61, #45.\n\n**Isla:** San Cristóbal\n",
+   "comentarios": 0,
+   "creado": "2026-11-04T06:20:50Z",
+   "actualizado": "2026-11-04T06:20:50Z",
+   "cerrado": null
+  },
+  {
+   "numero": 79,
+   "titulo": "Tesis USFQ sobre las encañadas de Puerto Baquerizo Moreno: curvas IDF y caudales",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/79",
+   "etiquetas": [
+    "P2",
+    "datos-faltantes",
+    "san-cristobal"
+   ],
+   "cuerpo": "Una tesis de la USFQ, el **«Modelo hidráulico de flujo fluvial de las encañadas de Puerto Baquerizo Moreno»**, describe 17 encañadas en la isla, tres de ellas principales en la ciudad, y **calcula curvas IDF y caudales**. El 2-nov su repositorio no respondió y no pudimos verificar sus cifras.\n\n**Qué pedir** (a la carrera de Ingeniería Civil de la USFQ o al Galapagos Science Center):\n- el PDF de la tesis;\n- las curvas IDF que usa, con la fuente de lluvia, los años y el método;\n- los caudales por encañada y el periodo de retorno de cada uno.\n\n**Para qué sirve:**\n- es la única curva IDF conocida para San Cristóbal: se compara con la del INAMHI y con la provisional (#24);\n- sus caudales sirven para contrastar el modelo 2D (#26, #74) en Barrio Frío y El Manzanillo.\n\n**Isla:** San Cristóbal\n",
+   "comentarios": 0,
+   "creado": "2026-11-04T06:20:52Z",
+   "actualizado": "2026-11-04T06:20:52Z",
+   "cerrado": null
+  },
+  {
+   "numero": 80,
+   "titulo": "Inundaciones históricas con hora, lugar y profundidad para validar la alerta v0.2",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/80",
+   "etiquetas": [
+    "P1",
+    "datos-faltantes",
+    "san-cristobal",
+    "santa-cruz"
+   ],
+   "cuerpo": "Las 500 tormentas sintéticas por isla (#26) dicen que la regla de alerta v0.2 (#30) avisaría a tiempo el 87–100 % de las inundaciones. Pero eso es lo que dice **el modelo**. Para saber si la regla funciona de verdad, y para calibrar la pérdida del suelo y las horas de llegada del agua, hacen falta **inundaciones reales con hora**.\n\n**De cada inundación hace falta:**\n- **fecha y hora** en que llegó el agua (aunque sea aproximada: «a eso de las 9 de la noche»);\n- **lugar exacto**: coordenadas, calle o una referencia;\n- **profundidad**: foto con referencia (puerta, muro, auto, persona) o medida;\n- **cuánto duró**: cuándo bajó el agua;\n- **tipo**: cañada que se desborda, calle que se encharca o agua que entra por el alcantarillado.\n\n**Dónde buscar:** fotos y videos de vecinos (con la hora del archivo), redes sociales, prensa local, partes del ECU 911, la SNGR, los bomberos y los GAD.\n\n**Cómo se usa:**\n- eventos desde abril de 2026: hay lluvia cada 5–15 min, así que se prueba la regla completa (1, 3 y 24 h);\n- eventos anteriores: solo hay lluvia diaria (FCD desde 1965, GSC desde 2015), así que se prueba la ventana de 24 h;\n- los eventos «no hubo inundación» también sirven, porque miden las falsas alarmas (ver #52).\n\n**Datos personales:** no se publican nombres de personas afectadas ni caras reconocibles (#48).\n\nRelacionado: #14 (registro histórico), #52 (La Cascada en oct–nov), #64 (horas del 30-oct).\n\n**Isla:** Santa Cruz y San Cristóbal\n",
+   "comentarios": 0,
+   "creado": "2026-11-04T06:20:54Z",
+   "actualizado": "2026-11-04T06:20:54Z",
+   "cerrado": null
+  },
+  {
+   "numero": 81,
+   "titulo": "Sensor de nivel de agua en El Progreso (San Cristóbal): la lluvia no anticipa su inundación",
+   "estado": "open",
+   "url": "https://github.com/mayait/sosgalapagos-datos/issues/81",
+   "etiquetas": [
+    "P2",
+    "mas-resolucion",
+    "san-cristobal"
+   ],
+   "cuerpo": "En las 500 tormentas sintéticas de San Cristóbal (#26), **ningún pluviómetro anticipa la inundación de El Progreso**: el mejor tiene un AUC ≤ 0,65, donde 0,5 equivale a no saber nada. La zona se encharca en depresiones con la lluvia local, en menos de una hora. Una alerta por lluvia (#30) llega tarde o se equivoca mucho.\n\n**Propuesta:** un **sensor de nivel de agua** (ultrasónico o de presión, con telemetría) en el punto bajo donde se junta el agua. Así se avisa por el nivel que sube, no por la lluvia que cae.\n\n**Qué hace falta:**\n- confirmar en campo el punto donde se junta el agua (el modelo lo pone en la depresión de la zona agrícola y urbana de El Progreso);\n- elegir quién lo opera (GAD, UGR o GSC) y cómo llega el dato al recolector de clima;\n- lo mismo podría servir para Barrio Frío, donde el aviso por lluvia es de solo ≈25 min.\n\nModelo propio, no dato oficial: el modelo no tiene red pluvial y el DSM incluye techos y árboles.\n\n**Isla:** San Cristóbal\n",
+   "comentarios": 0,
+   "creado": "2026-11-04T06:20:56Z",
+   "actualizado": "2026-11-04T06:20:56Z",
    "cerrado": null
   }
  ]

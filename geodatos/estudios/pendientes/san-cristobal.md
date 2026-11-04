@@ -2,7 +2,7 @@ Intro: Lo que todavía no se sabe sobre las inundaciones en San Cristóbal: dato
 
 # Cómo aportar
 
-Esta página reúne los pendientes abiertos del proyecto que tocan a San Cristóbal: **20 propios de la isla** y **27 comunes a las islas**. Se arma sola a partir de los [issues de GitHub](https://github.com/mayait/sosgalapagos-datos/issues) (última descarga: 2026-11-02) y se ordena por prioridad: la prioridad 1 cambia decisiones de esta emergencia; la 2 mejora mucho el análisis; la 3 es deseable.
+Esta página reúne los pendientes abiertos del proyecto que tocan a San Cristóbal: **25 propios de la isla** y **27 comunes a las islas**. Se arma sola a partir de los [issues de GitHub](https://github.com/mayait/sosgalapagos-datos/issues) (última descarga: 2026-11-04) y se ordena por prioridad: la prioridad 1 cambia decisiones de esta emergencia; la 2 mejora mucho el análisis; la 3 es deseable.
 
 Si tienes un dato que ayude (fotos o videos con fecha, hora y lugar, marcas de agua, lluvia medida, planos de obras, registros de daños), escríbelo en los comentarios de la sección que corresponda o en el issue de GitHub. Los comentarios son públicos: no pongas nombres, teléfonos ni datos de otras personas.
 
@@ -41,6 +41,31 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
     Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
 - **[Series del proyecto DARWIN (U. de Marburgo) del 15-oct al 2-nov y permiso para publicar derivados](https://github.com/mayait/sosgalapagos-datos/issues/76)** (#76 · prioridad 1)  
     Tres estaciones de DARWIN parecen compartir sitio con estaciones IERSE-WSN de Santa Cruz (Santa Rosa, Cerro Crocker, Militar) y podrían tener la lluvia que IERSE perdió entre las 21:25 del 30-oct y las 18:45 del 31-oct; también hay estaciones en San Cristóbal (Puerto Baquerizo Moreno, La Galapaguera, El Junco). Lo publicado llega a 2025–may-2026 y el acuerdo de uso prohíbe redistribuir: hay que pedir las series del evento y permiso para publicar derivados (con coautoría si lo piden). Lo pide el responsable del proyecto. Relacionado con [#61](https://github.com/mayait/sosgalapagos-datos/issues/61) y [#62](https://github.com/mayait/sosgalapagos-datos/issues/62).
+- **[Estudio de intensidades máximas del INAMHI (2015) y ecuaciones IDF vigentes para Galápagos](https://github.com/mayait/sosgalapagos-datos/issues/77)** (#77 · prioridad 1)  
+    El INAMHI tiene el estudio **«Determinación de ecuaciones para el cálculo de intensidades máximas de precipitación» (2015)**, que actualiza el «Estudio de lluvias intensas» de 1999. Divide el país en zonas e incluye una para la provincia de Galápagos. Hoy es la única referencia oficial de curvas IDF para las islas.  
+    **Qué pedir al INAMHI** (su portal no está operativo):  
+    · el informe completo, con la zona de Galápagos y sus ecuaciones (coeficientes por duración y periodo de retorno);  
+    · qué estaciones de las islas usaron y con cuántos años;  
+    · los coeficientes que convierten la lluvia de 24 h en lluvia de 1, 3 y 6 h, si son propios de la región insular.  
+    **Para qué sirve:** es la referencia oficial con la que comparar las curvas IDF provisionales que haremos con la serie de la FCD ([#24](https://github.com/mayait/sosgalapagos-datos/issues/24)). Ojo: esas curvas …
+- **[Series diarias del INAMHI en San Cristóbal (M0221 y El Progreso) para calcular periodos de retorno](https://github.com/mayait/sosgalapagos-datos/issues/78)** (#78 · prioridad 1)  
+    San Cristóbal no tiene ninguna serie larga de lluvia medida en el sistema. Por eso hoy **no se puede calcular el periodo de retorno** de la lluvia del 30–31-oct ni armar curvas IDF para la isla. Las estaciones USFQ-GSC tienen pocos años (desde 2015, según la fuente) y el reanálisis GAR no está validado en la isla.  
+    **Qué pedir al INAMHI:**  
+    · serie diaria completa de **M0221 (Puerto Baquerizo Moreno)**;  
+    · serie diaria de la estación de **El Progreso** (M0193 o M0508, hay que confirmar cuál);  
+    · si existen, datos de pluviógrafo (bandas) o de estaciones automáticas, de cualquier periodo.  
+    **Para qué sirve:**  
+    · ajustar Gumbel/GEV a los máximos diarios anuales, como ya se hizo en Santa Cruz con la FCD (script 29);  
+    · poner un periodo de retorno a las 500 tormentas sintéticas de San Cristóbal ([#26](https://github.com/mayait/sosgalapagos-datos/issues/26)) …
+- **[Inundaciones históricas con hora, lugar y profundidad para validar la alerta v0.2](https://github.com/mayait/sosgalapagos-datos/issues/80)** (#80 · prioridad 1)  
+    Las 500 tormentas sintéticas por isla ([#26](https://github.com/mayait/sosgalapagos-datos/issues/26)) dicen que la regla de alerta v0.2 ([#30](https://github.com/mayait/sosgalapagos-datos/issues/30)) avisaría a tiempo el 87–100 % de las inundaciones. Pero eso es lo que dice **el modelo**. Para saber si la regla funciona de verdad, y para calibrar la pérdida del suelo y las horas de llegada del agua, hacen falta **inundaciones reales con hora**.  
+    **De cada inundación hace falta:**  
+    · **fecha y hora** en que llegó el agua (aunque sea aproximada: «a eso de las 9 de la noche»);  
+    · **lugar exacto**: coordenadas, calle o una referencia;  
+    · **profundidad**: foto con referencia (puerta, muro, auto, persona) o medida;  
+    · **cuánto duró**: cuándo bajó el agua;  
+    · **tipo**: cañada que se desborda, calle que se encharca o agua que entra por el alcantarillado.  
+    …
 - **[Ubicar los 16 lugares no localizados del Plan de Acción de la UGR de San Cristóbal](https://github.com/mayait/sosgalapagos-datos/issues/53)** (#53 · prioridad 2)  
     El estudio de San Cristóbal integra el Plan de Acción de la UGR, pero 16 lugares no se pudieron georreferenciar (`geodatos/estudios/san-cristobal/datos/ugr/no_localizados.csv`). Hay que confirmarlos con la UGR o en terreno.
 - **[Verificar en campo el collado Galápagos–Divino Niño (San Cristóbal)](https://github.com/mayait/sosgalapagos-datos/issues/54)** (#54 · prioridad 2)  
@@ -57,6 +82,15 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
     **Sale de:** 07_floreana.md  
     https://sosgalapagos.org/estudios/san-cristobal/floreana/  
     Si tienes el dato, compártelo aquí o en los comentarios de la página del estudio. No incluyas datos personales de personas afectadas.
+- **[Tesis USFQ sobre las encañadas de Puerto Baquerizo Moreno: curvas IDF y caudales](https://github.com/mayait/sosgalapagos-datos/issues/79)** (#79 · prioridad 2)  
+    Una tesis de la USFQ, el **«Modelo hidráulico de flujo fluvial de las encañadas de Puerto Baquerizo Moreno»**, describe 17 encañadas en la isla, tres de ellas principales en la ciudad, y **calcula curvas IDF y caudales**. El 2-nov su repositorio no respondió y no pudimos verificar sus cifras.  
+    **Qué pedir** (a la carrera de Ingeniería Civil de la USFQ o al Galapagos Science Center):  
+    · el PDF de la tesis;  
+    · las curvas IDF que usa, con la fuente de lluvia, los años y el método;  
+    · los caudales por encañada y el periodo de retorno de cada uno.  
+    **Para qué sirve:**  
+    · es la única curva IDF conocida para San Cristóbal: se compara con la del INAMHI y con la provisional ([#24](https://github.com/mayait/sosgalapagos-datos/issues/24));  
+    · sus caudales sirven para contrastar el modelo 2D ([#26](https://github.com/mayait/sosgalapagos-datos/issues/26), …
 - **[Nivel del mar / mareógrafo (Puerto Ayora, Baquerizo)](https://github.com/mayait/sosgalapagos-datos/issues/13)** (#13 · prioridad 3)  
     **Novedad (2-nov):** el recolector de clima ya recoge el mareógrafo IOC de Puerto Ayora. Falta Puerto Baquerizo Moreno y la serie histórica.  
     **Quién lo tiene o puede levantarlo:** INOCAR  
@@ -90,7 +124,7 @@ Datos que no tenemos: hay que pedirlos a quien los tiene o levantarlos en campo.
 - **[Datum vertical: IGM frente a EGM2008 en cada isla](https://github.com/mayait/sosgalapagos-datos/issues/12)** (#12 · prioridad 2)  
     **Quién lo tiene o puede levantarlo:** IGM, INOCAR  
     **Para qué sirve:** Explicar el sesgo de −2 a −3 m del DSM y fijar cotas respecto del mar
-- **[Registro histórico de eventos completo (fechas, lugares, daños)](https://github.com/mayait/sosgalapagos-datos/issues/14)** (#14 · prioridad 2)  
+- **[Registro histórico de eventos completo (fechas, lugares, daños)](https://github.com/mayait/sosgalapagos-datos/issues/14)** (#14 · prioridad 2 · 1 comentario)  
     **Quién lo tiene o puede levantarlo:** SNGR, GAD, prensa local  
     **Para qué sirve:** Frecuencia y validación de zonas susceptibles
 
@@ -104,7 +138,7 @@ Datos que existen, pero con un detalle que no alcanza para responder bien.
     **Hoy:** **DSM Copernicus GLO-30** (30 m, incluye edificios y árboles)  
     **Lo que necesitamos:** **DTM ≤ 1 m** de los poblados: Puerto Ayora y escarpe (5–10 km²), Bellavista, Puerto Baquerizo Moreno, Puerto Villamil  
     **Cómo:** Dron con fotogrametría (OpenDroneMap) + GNSS RTK; o LiDAR
-- **[Pluviómetros en cada poblado y en la parte alta de cada cuenca (hoy: Lluvia: 4 estaciones IERSE en Santa…](https://github.com/mayait/sosgalapagos-datos/issues/19)** (#19 · prioridad 1)  
+- **[Pluviómetros en cada poblado y en la parte alta de cada cuenca (hoy: Lluvia: 4 estaciones IERSE en Santa…](https://github.com/mayait/sosgalapagos-datos/issues/19)** (#19 · prioridad 1 · 1 comentario)  
     **Hoy:** Lluvia: 4 estaciones IERSE en Santa Cruz (ninguna en Puerto Ayora) + red GSC en San Cristóbal  
     **Lo que necesitamos:** Pluviómetros en cada poblado y en la parte alta de cada cuenca  
     **Cómo:** Instalar pluviómetros (USFQ, FCD, ciudadanos) y sumarlos a `clima/`
@@ -115,6 +149,13 @@ Datos que existen, pero con un detalle que no alcanza para responder bien.
 - **[Modelo 2D de San Cristóbal con la lluvia USFQ-GSC del 30–31-oct](https://github.com/mayait/sosgalapagos-datos/issues/74)** (#74 · prioridad 2)  
     Correr el modelo 2D de Puerto Baquerizo Moreno con el hietograma medido (El Mirador o Cerro Alto; suelo húmedo, AMC III) y compararlo con los escenarios de 50/100/150 mm y con la tormenta de Santa Cruz trasladada. Una comparación gruesa sugiere que lo medido se parece más al escenario de 100 mm. Datos: geodatos/estudios/san-cristobal/datos/lluvia_mareas_horaria.csv. Avanza [#26](https://github.com/mayait/sosgalapagos-datos/issues/26).  
     https://sosgalapagos.org/estudios/san-cristobal/modelo-2d/
+- **[Sensor de nivel de agua en El Progreso (San Cristóbal): la lluvia no anticipa su inundación](https://github.com/mayait/sosgalapagos-datos/issues/81)** (#81 · prioridad 2)  
+    En las 500 tormentas sintéticas de San Cristóbal ([#26](https://github.com/mayait/sosgalapagos-datos/issues/26)), **ningún pluviómetro anticipa la inundación de El Progreso**: el mejor tiene un AUC ≤ 0,65, donde 0,5 equivale a no saber nada. La zona se encharca en depresiones con la lluvia local, en menos de una hora. Una alerta por lluvia ([#30](https://github.com/mayait/sosgalapagos-datos/issues/30)) llega tarde o se equivoca mucho.  
+    **Propuesta:** un **sensor de nivel de agua** (ultrasónico o de presión, con telemetría) en el punto bajo donde se junta el agua. Así se avisa por el nivel que sube, no por la lluvia que cae.  
+    **Qué hace falta:**  
+    · confirmar en campo el punto donde se junta el agua (el modelo lo pone en la depresión de la zona agrícola y urbana de El Progreso);  
+    · elegir quién lo opera (GAD, UGR o GSC) y cómo llega el dato al recolector de clima;  
+   …
 
 ## Comunes a las islas
 
@@ -122,7 +163,7 @@ Datos que existen, pero con un detalle que no alcanza para responder bien.
     **Hoy:** Curvas IGM 1:25 000  
     **Lo que necesitamos:** Topografía urbana 1:1 000–1:5 000 si existe  
     **Cómo:** Pedir a GAD / IGM
-- **[Lluvia satelital GPM IMERG (30 min, 10 km) del evento y la serie (hoy: Lluvia de modelos (Open-Meteo,…](https://github.com/mayait/sosgalapagos-datos/issues/20)** (#20 · prioridad 2)  
+- **[Lluvia satelital GPM IMERG (30 min, 10 km) del evento y la serie (hoy: Lluvia de modelos (Open-Meteo,…](https://github.com/mayait/sosgalapagos-datos/issues/20)** (#20 · prioridad 2 · 1 comentario)  
     **Hoy:** Lluvia de modelos (Open-Meteo, ECMWF 9 km)  
     **Lo que necesitamos:** Lluvia satelital GPM IMERG (30 min, 10 km) del evento y la serie  
     **Cómo:** Cuenta NASA Earthdata
@@ -141,7 +182,7 @@ Análisis que darán respuestas más firmes cuando lleguen los datos.
 
 ## En San Cristóbal
 
-- **[Curvas IDF (intensidad–duración–frecuencia)](https://github.com/mayait/sosgalapagos-datos/issues/24)** (#24 · prioridad 1)  
+- **[Curvas IDF (intensidad–duración–frecuencia)](https://github.com/mayait/sosgalapagos-datos/issues/24)** (#24 · prioridad 1 · 1 comentario)  
     **Depende de:** Serie diaria GSC desde 2015, IERSE, FCD  
     **Notas:** Base de cualquier diseño de obra
 
