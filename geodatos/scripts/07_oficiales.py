@@ -39,10 +39,11 @@ for n, loc in [("fcd_riesgo_inundacion_santa_cruz","Puerto Ayora"),("fcd_riesgo_
         f["properties"].update(tipo="Riesgo de inundación", localidad=loc); rg.append(f)
 save("riesgos_cgreg.geojson", rg)
 save("quebradas_franja20m_cgreg.geojson", pick("fcd_encanadas_buffer_20m", ["tipo"], fuente="CGREG (GeoNode FCD)", simplify=1*M))
-ev = pick("sngr_eventos_historicos", ["evento","causa","categoria_","año","mes","canton","parroquias","comunidad_","viviendas_","viviendas1","familias_a","heridas","fallecidas","descripci"],
-          {"categoria_":"categoria","comunidad_":"sector","viviendas_":"viviendas_afectadas","viviendas1":"viviendas_destruidas","familias_a":"familias_afectadas","descripci":"descripcion"}, "SNGR")
-ev += pick("sngr_eventos_lluvias", ["evento","causa","fechadelevento","canton","parroquia","sector","viviendasafectadas","familiasafectadas","personasafectadasdirectamente","descripciongeneraldeevento"],
-           {"fechadelevento":"fecha","viviendasafectadas":"viviendas_afectadas","familiasafectadas":"familias_afectadas","personasafectadasdirectamente":"personas_afectadas","descripciongeneraldeevento":"descripcion"}, "SNGR (época lluviosa 2025)")
+# La descripción libre del SNGR trae nombres de personas afectadas (con y sin «Sr./Sra.»): no se publica.
+ev = pick("sngr_eventos_historicos", ["evento","causa","categoria_","año","mes","canton","parroquias","comunidad_","viviendas_","viviendas1","familias_a","heridas","fallecidas"],
+          {"categoria_":"categoria","comunidad_":"sector","viviendas_":"viviendas_afectadas","viviendas1":"viviendas_destruidas","familias_a":"familias_afectadas"}, "SNGR")
+ev += pick("sngr_eventos_lluvias", ["evento","causa","fechadelevento","canton","parroquia","sector","viviendasafectadas","familiasafectadas","personasafectadasdirectamente"],
+           {"fechadelevento":"fecha","viviendasafectadas":"viviendas_afectadas","familiasafectadas":"familias_afectadas","personasafectadasdirectamente":"personas_afectadas"}, "SNGR (época lluviosa 2025)")
 save("eventos_historicos.geojson", ev)
 
 # --- Servicios oficiales (sin nombres ni teléfonos personales) ---
