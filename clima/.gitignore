@@ -8,3 +8,9 @@ puente/salida/
 puente/privado/
 puente/.ultimo_envio
 privado/
+# Pronóstico: el archivo de Open-Meteo se regenera con scripts/06 (22 MB). Los pares con lluvia medida
+# llevan series diarias del GSC (sin licencia publicada): no se redistribuyen (tampoco eventos.csv).
+datos/pronostico-archivo/
+pronostico/fase0/pares_diarios.csv.gz
+pronostico/fase0/senal_validacion_cruzada.csv.gz
+pronostico/fase0/eventos.csv

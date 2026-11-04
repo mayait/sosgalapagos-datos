@@ -303,12 +303,13 @@ def ahora_utc():
 
 PRIVADO = Path(os.environ.get("CLIMA_PRIVADO", AQUI / "privado"))
 OPERADOR = {"ierse": "IERSE-WSN", "gsc": "GSC-USFQ", "inamhi": "INAMHI", "ioc": "IOC", "metar": "Aeropuertos (METAR)",
-            "weatherlink": "WeatherLink", "tempest": "Tempest", "mar_modelo": "Modelo de nivel del mar"}
+            "weatherlink": "WeatherLink", "tempest": "Tempest", "mar_modelo": "Modelo de nivel del mar",
+            "pronostico": "Pronóstico (modelos)"}
 EVENTOS = [  # momentos de referencia para comparar (horas UTC)
     {"id": "inundacion-2026-10-30", "nombre": "Inundación La Cascada (30–31 oct 2026)",
      "desde": "2026-10-30T06:00:00Z", "hasta": "2026-11-01T06:00:00Z"},
 ]
-PUBLICOS = {"estado.json", "horario.json", "diario.json"}
+PUBLICOS = {"estado.json", "horario.json", "diario.json", "pronostico.json"}
 
 
 def escribir(ruta, obj):
@@ -408,6 +409,11 @@ def exportar(con):
         traceback.print_exc()
         estac = {"error": str(e)[:200]}
     escribir(SALIDA / "diario.json", {"generado": iso(ahora), "diario": diario, "estacionalidad": estac})
+    try:  # pronóstico de modelos (lo baja fuente_pronostico; aquí solo se resume)
+        import pronostico
+        escribir(SALIDA / "pronostico.json", pronostico.exportar(ahora))
+    except Exception:
+        traceback.print_exc()
 
     for viejo in SALIDA.iterdir():  # nada más que lo público queda en la carpeta servida
         if viejo.is_file() and viejo.name not in PUBLICOS:

@@ -86,6 +86,21 @@ details.um table{margin-top:6px;font-size:12px}
 .est{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px}
 @media (max-width:860px){.est{grid-template-columns:1fr}}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12.5px;font-variant-numeric:tabular-nums}.kv b{font-weight:600}
+/* pronóstico */
+.tag.mod{background:#eef3f9;color:#0b4a8b;border-color:#c5d9ef}
+.pz-corr{font-size:12px;color:var(--ink2);margin:0 0 10px}
+.pz-pt{margin:12px 0 4px;font-size:13px;font-weight:600}.pz-pt span{font-weight:400;color:var(--mut);font-size:12px}
+.pz-dias{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:760px}
+@media (max-width:520px){.pz-dias{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pz-dia{border:1px solid var(--line);border-top:5px solid var(--pc,#ccc);border-radius:8px;padding:6px 7px;font-variant-numeric:tabular-nums;min-width:0}
+.pz-dia .d{font-size:11.5px;color:var(--mut);white-space:nowrap}
+.pz-dia .p{font-size:19px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.pz-dia .p small{font-size:11px;font-weight:500;color:var(--mut)}
+.pz-dia .s{font-size:11px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pz-dia .r{font-size:11px;color:var(--mut)}
+.pz-dia.lejos{opacity:.72}.pz-dia{cursor:pointer}.pz-det{margin:6px 0 0;min-height:0}
+.pz-ley{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--mut);margin:10px 0 0}.pz-ley i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+details.um ul{margin:6px 0;padding-left:18px}details.um li{margin:2px 0}
 </style>
 </head>
 <body>
@@ -115,6 +130,19 @@ details.um table{margin-top:6px;font-size:12px}
   <div class="riesgo" id="zonas"></div>
   <div class="aviso" id="aviso"></div>
   <details class="um"><summary>¿Cómo se calcula?</summary><div id="metodo"></div></details>
+</section>
+
+<section class="card" id="pronostico">
+  <h2>Pronóstico de lluvia fuerte · próximos 5 días <span class="tag mod">pronóstico experimental · no oficial</span></h2>
+  <div class="aviso" id="pzAviso" style="margin:0 0 10px"></div>
+  <div class="controls" style="margin-top:0"><div class="ctl">Zona <div class="seg" id="pzZona"></div></div></div>
+  <p class="pz-corr" id="pzCorr"></p>
+  <div id="pzCont"><p class="empty">Cargando el pronóstico…</p></div>
+  <h3>Próximas 72 horas, en bloques de 6 h</h3>
+  <div class="legend" id="pzLey6"></div>
+  <div id="pz6"></div>
+  <details class="um"><summary>Las horas del pronóstico y cómo leerlo</summary><div id="pzHoras"></div></details>
+  <details class="um"><summary>¿Qué tan bueno es? (evaluación con la lluvia medida en 2024–2026)</summary><div id="pzEval"></div></details>
 </section>
 
 <section class="card" id="explorador">
@@ -189,7 +217,7 @@ const num = (x, d = 1) => x == null || !isFinite(x) ? "—" : x.toLocaleString("
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const SERIES = ["--s1", "--s2", "--s3", "--s4"];
 const S = {isla: "Todas", per: 72, desde: null, hasta: null, g: 1, vista: "int", cmp: ""};
-let E, H, D; // estado, horario, diario
+let E, H, D, P; // estado, horario, diario, pronóstico
 
 // ---------- carga
 async function cargar() {
@@ -197,6 +225,7 @@ async function cargar() {
     const q = "?t=" + Math.floor(Date.now() / 60000);
     [E, H, D] = await Promise.all(["estado", "horario", "diario"].map(n => fetch(`datos/${n}.json${q}`).then(r => r.json())));
     H.t0 = Date.parse(H.inicio);
+    try { P = await fetch(`datos/pronostico.json${q}`).then(r => r.ok ? r.json() : null); } catch (e) { P = null; }
     pintar();
   } catch (err) {
     console.error(err);
@@ -223,7 +252,7 @@ function pintar() {
   const seg = document.getElementById("isla");
   seg.innerHTML = islas.map(i => `<button class="${i === S.isla ? "on" : ""}">${i}</button>`).join("");
   seg.querySelectorAll("button").forEach(b => b.onclick = () => { S.isla = b.textContent; pintar(); });
-  heroes(); mapa(); tabla(); inundacion(); explorador(); estacionalidad(); mar(); fuentes();
+  heroes(); mapa(); tabla(); inundacion(); pronostico(); explorador(); estacionalidad(); mar(); fuentes();
 }
 
 function heroes() {
@@ -500,6 +529,90 @@ function temps(a, b) {
 
 // ---------- nivel de inundación (regla preliminar)
 const ICONO = {"muy alto": "■", "alto": "▲", "medio": "◆", "bajo": "●", "sin datos": "○"};
+// ---------- pronóstico (modelos globales calibrados con lluvia medida; no es dato oficial)
+const fDia = new Intl.DateTimeFormat("es-EC", {timeZone: "UTC", weekday: "short", day: "numeric", month: "short"});
+const fCorr = new Intl.DateTimeFormat("es-EC", {timeZone: "UTC", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hour12: false});
+const localTxt = s => s ? fCorr.format(new Date(s + "Z")) : "—"; // las horas «_local» ya vienen en hora de Galápagos
+const ISLA_ZONA = {"Santa Cruz": "la-cascada", "San Cristóbal": "san-cristobal", "Isabela": "isabela"};
+const pctTxt = p => p == null ? "—" : p < 0.01 ? "<1" : Math.round(p * 100);
+let PZ = null; const PZT = {};
+function pronostico() {
+  const cont = document.getElementById("pzCont"), box = document.getElementById("pz6");
+  if (!P || !P.zonas) { cont.innerHTML = `<p class="empty">El pronóstico no está disponible ahora.</p>`; box.innerHTML = ""; return; }
+  const R = P.reglas, niv = Object.fromEntries(R.niveles.map(x => [x.id, x])), uP = String(R.umbral_principal);
+  if (!PZ || !P.zonas[PZ]) PZ = ISLA_ZONA[S.isla] || Object.keys(P.zonas)[0];
+  const seg = document.getElementById("pzZona");
+  seg.innerHTML = Object.entries(P.zonas).map(([id, z]) => `<button class="${id === PZ ? "on" : ""}" data-id="${id}">${z.nombre}</button>`).join("");
+  seg.querySelectorAll("button").forEach(b => b.onclick = () => { PZ = b.dataset.id; pronostico(); });
+  const cons = P.modelos.filter(m => m.en_consenso && m.vigente);
+  const ultima = cons.map(m => m.corrida_local).filter(Boolean).sort().at(-1);
+  document.getElementById("pzCorr").innerHTML = `<b>Esto es un pronóstico, no lluvia medida.</b> Sale de ${cons.length} modelos meteorológicos globales, calibrados con la lluvia medida en las islas. ` +
+    `Corrida más reciente: ${localTxt(ultima)} · revisado ${localTxt(P.generado_local)} (hora de Galápagos).`;
+  const z = P.zonas[PZ], manana = new Date(Date.parse(P.hoy_local + "T12:00Z") + DIA).toISOString().slice(0, 10);
+  const r5 = p => p == null ? "—" : p < 0.025 ? "<5" : p > 0.95 ? ">95" : String(Math.round(p * 20) * 5);
+  cont.innerHTML = z.puntos.map(p => {
+    const d0 = p.dias[0] || {}, gtxt = R.grupos[d0.grupo] || {};
+    const cab = `<div class="pz-pt">${p.nombre} <span>· ${p.tipo === "alta" ? "parte alta" : "costa"}</span></div>` +
+      `<div class="note" style="margin:0 0 6px">${d0.calibrado ? `Probabilidad de 20 mm o más en el día ${gtxt.donde || ""}.` : `Sin estaciones aquí: se usa la calibración ${gtxt.de || ""}. Solo orientativo.`}${gtxt.provisional ? ` <b>Calibración provisional:</b> ${gtxt.provisional}` : ""}</div>`;
+    if (!p.dias.length) return cab + `<p class="empty">Sin pronóstico vigente para este punto.</p>`;
+    return cab + `<div class="pz-dias">${p.dias.map(d => {
+      const n = niv[d.nivel] || niv.no_evaluable;
+      const lejos = (Date.parse(d.fecha) - Date.parse(P.hoy_local)) / DIA > R.dias_fiables;
+      const etq = d.fecha === P.hoy_local ? "hoy" : d.fecha === manana ? "mañana" : fDia.format(new Date(d.fecha + "T12:00Z"));
+      const normal = d.frec_normal_20 != null ? `lo normal: ${r5(d.frec_normal_20)} %` : "";
+      const t = `Probabilidad de 20 mm o más: ${r5(d.prob["20"])} % (${normal ? normal + " en esta época" : "sin dato de referencia"})\n10 mm o más: ${r5(d.prob["10"])} %\n50 mm o más: ${r5(d.prob["50"])} % (poco fiable)\n` +
+        `Consenso de ${d.n_modelos} modelos: percentil ${Math.round(d.consenso * 100)} de lo que suelen pronosticar aquí\nLos modelos dan ${num(d.mm_modelos_mediana)} mm; suelen quedarse muy cortos` +
+        (d.estado_20 === "sin_eventos" ? "\nEn esta época no se midió ningún día con 20 mm aquí." : "") + (d.estado_20 === "sin_habilidad" || d.nivel === "no_evaluable" ? "\nEn esta época el pronóstico no mostró habilidad: no se da cifra." : "") +
+        (d.prestada_de ? (d.prestada_de.startsWith(d.grupo) ? "\nSe usa la curva de la temporada lluviosa: en esta época casi nunca llueve fuerte aquí y no hay con qué calibrar." : "\nSe usa la curva de la parte alta de San Cristóbal: aquí aún no hay datos de esta época.") : "");
+      PZT[p.id + d.fecha] = t;
+      return `<div class="pz-dia${lejos ? " lejos" : ""}" style="--pc:${n.color}" title="${t}" data-k="${p.id + d.fecha}" data-p="${p.id}" role="button" tabindex="0">
+        <div class="d">${etq}</div>
+        <div class="p">${d.nivel === "no_evaluable" ? "—" : r5(d.prob["20"])} <small>%</small></div>
+        <div class="s" style="color:${n.texto_color || n.color}">${n.texto}</div>
+        <div class="r">${normal}</div></div>`;
+    }).join("")}</div><div class="note pz-det" id="pzDet-${p.id}"></div>`;
+  }).join("") + `<div class="pz-ley">${R.niveles.map(x => `<span><i style="background:${x.color}"></i>${x.texto}${x.desde ? ` (≥ ${Math.round(x.desde * 100)} %)` : ""}</span>`).join("")}` +
+    `<span>«Lo normal»: cuántos días de cada 100 tienen 20 mm o más en esta época. Los días atenuados son menos fiables. Toca un día para ver el detalle.</span></div>`;
+  cont.querySelectorAll(".pz-dia").forEach(el => el.onclick = el.onkeydown = ev => {
+    if (ev.type === "keydown" && ev.key !== "Enter" && ev.key !== " ") return;
+    const det = document.getElementById("pzDet-" + el.dataset.p);
+    const abierto = det.dataset.k === el.dataset.k;
+    det.dataset.k = abierto ? "" : el.dataset.k;
+    det.innerHTML = abierto ? "" : PZT[el.dataset.k].split("\n").map(x => x.replace(/&/g, "&amp;").replace(/</g, "&lt;")).join("<br>");
+  });
+
+  // Próximas 72 h en bloques de 6 h: cuándo se concentra la lluvia, según los conjuntos de modelos
+  const pt = z.puntos.find(p => p.tipo === "alta" && p.bloques6h.length) || z.puntos.find(p => p.bloques6h.length);
+  if (!pt) { box.innerHTML = `<p class="empty">Sin bloques de 6 h.</p>`; document.getElementById("pzLey6").innerHTML = ""; }
+  else {
+    const bl = pt.bloques6h, dd = pt.detalle, suma6 = {};
+    if (dd) dd.hora_local_fin.forEach((h, i) => { const t = new Date(Date.parse(h + "Z") - 3600e3); const k = t.toISOString().slice(0, 11) + String(Math.floor(t.getUTCHours() / 6) * 6).padStart(2, "0") + ":00"; suma6[k] = (suma6[k] || 0) + dd.mm[i]; });
+    const W = Math.max(box.clientWidth || 700, 300), Hh = 170, m = {l: 30, r: 8, t: 10, b: 34}, n = bl.length, bw = (W - m.l - m.r) / n;
+    const ymax = Math.max(5, ...bl.map(b => b.p90), ...bl.map(b => suma6[b.inicio] || 0)) * 1.12, y = v => m.t + (Hh - m.t - m.b) * (1 - v / ymax);
+    let g = [0, ymax / 3, 2 * ymax / 3].map(v => Math.round(v)).map(v => `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="${css("--grid")}"/><text x="${m.l - 4}" y="${y(v) + 4}" text-anchor="end">${v}</text>`).join("");
+    bl.forEach((b, i) => {
+      const x = m.l + i * bw, hh = b.inicio.slice(11, 13), dia = b.inicio.slice(0, 10), fin = String(+hh + 6).padStart(2, "0");
+      const s6 = suma6[b.inicio];
+      g += `<g><title>${fDia.format(new Date(dia + "T12:00Z"))}, ${hh}:00–${fin}:00\nmediana de los conjuntos: ${num(b.mediana)} mm · escenario lluvioso (p90): ${num(b.p90)} mm${s6 != null ? `\nECMWF IFS 9 km: ${num(s6)} mm` : ""}</title>
+        <rect x="${x}" y="${m.t}" width="${bw}" height="${Hh - m.t - m.b}" fill="transparent"/>
+        <rect x="${x + bw * .18}" y="${y(b.mediana)}" width="${bw * .64}" height="${Math.max(0, y(0) - y(b.mediana))}" fill="${css("--rain")}" rx="2"/>
+        <line x1="${x + bw / 2}" x2="${x + bw / 2}" y1="${y(b.mediana)}" y2="${y(b.p90)}" stroke="${css("--rain")}" stroke-width="1.5"/>
+        <line x1="${x + bw * .32}" x2="${x + bw * .68}" y1="${y(b.p90)}" y2="${y(b.p90)}" stroke="${css("--rain")}" stroke-width="1.5"/>
+        ${s6 != null ? `<path d="M${x + bw / 2} ${y(s6) - 5}l4 5l-4 5l-4 -5z" fill="${css("--evt")}"/>` : ""}</g>`;
+      g += `<text x="${x + bw / 2}" y="${Hh - m.b + 13}" text-anchor="middle">${hh}</text>`;
+      if (hh === "00" || i === 0) g += `<text x="${x + 2}" y="${Hh - 4}" style="font-weight:600">${fDia.format(new Date(dia + "T12:00Z"))}</text>`;
+    });
+    box.innerHTML = `<svg width="${W}" height="${Hh}" role="img" aria-label="Lluvia pronosticada en bloques de 6 horas">${g}<text x="2" y="${m.t + 8}">mm</text></svg>`;
+    document.getElementById("pzLey6").innerHTML = `<span>${pt.nombre}. Cada barra cubre 6 h desde la hora indicada (hora de Galápagos).</span><span><i class="sq" style="background:${css("--rain")}"></i>mediana de ${bl[0].n_conjuntos} conjuntos de modelos, con una raya hasta el escenario lluvioso (p90)</span>${dd ? `<span><i class="sq" style="background:${css("--evt")};transform:rotate(45deg)"></i>${dd.modelo} (una sola corrida, la de más detalle)</span>` : ""}<span>Son milímetros de modelo: sirven para ver cuándo se concentra la lluvia, no cuánto lloverá.</span>`;
+  }
+  document.getElementById("pzAviso").textContent = R.aviso;
+  const filas = P.modelos.map(m => `<tr${m.vigente ? "" : ` class="ref"`}><td>${m.nombre}${m.en_consenso ? "" : ` <span class="m">${m.tipo === "conjunto" ? `conjunto de ${m.miembros}: solo barras de 6 h` : "solo detalle hora a hora"}</span>`}</td>` +
+    `<td>${m.corrida_local ? localTxt(m.corrida_local) : "sin dato"}</td><td>${m.corrida_utc ? `${m.corrida_utc.slice(11, 13)} UTC del ${+m.corrida_utc.slice(8, 10)}/${+m.corrida_utc.slice(5, 7)}` : "—"}</td><td>${localTxt(m.disponible_local || m.recibido_local)}</td></tr>`).join("");
+  document.getElementById("pzHoras").innerHTML = R.explicacion_horas.map(t => `<p>${t}</p>`).join("") +
+    `<div class="tblwrap"><table><thead><tr><th>Modelo</th><th>Arranca (Galápagos)</th><th>Arranca (UTC)</th><th>Disponible desde</th></tr></thead><tbody>${filas}</tbody></table></div>`;
+  document.getElementById("pzEval").innerHTML = R.evaluacion.map(t => `<p>${t}</p>`).join("");
+}
+
 function inundacion() {
   const I = E.inundacion; const cont = document.getElementById("zonas");
   if (!I || !I.zonas) { cont.innerHTML = `<p class="empty">El nivel no está disponible ahora.</p>`; return; }

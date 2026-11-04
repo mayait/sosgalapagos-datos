@@ -1,0 +1,72 @@
+{
+ "version": "0.2-experimental",
+ "fecha": "2026-11-04",
+ "umbral_principal": 20,
+ "dias_fiables": 2,
+ "edad_maxima_horas": 30,
+ "modelos_minimos": 5,
+ "niveles": [
+  {
+   "id": "alta",
+   "desde": 0.35,
+   "texto": "señal alta",
+   "color": "#4c1d95",
+   "texto_color": "#4c1d95"
+  },
+  {
+   "id": "moderada",
+   "desde": 0.15,
+   "texto": "señal moderada",
+   "color": "#8b5cf6",
+   "texto_color": "#6d28d9"
+  },
+  {
+   "id": "sin_senal",
+   "desde": 0.0,
+   "texto": "sin señal",
+   "color": "#c4b5fd",
+   "texto_color": "#6b6a64"
+  },
+  {
+   "id": "no_evaluable",
+   "texto": "no evaluable",
+   "color": "#d6d5cf",
+   "texto_color": "#6b6a64"
+  }
+ ],
+ "aviso": "Pronóstico experimental de SOS Galápagos con modelos meteorológicos globales, calibrado con la lluvia medida en 2024–2026. No es un pronóstico oficial ni una alerta. El pronóstico oficial lo emite el INAMHI, y las alertas, la SNGR, el COE y el ECU 911. Puede fallar en los dos sentidos: hubo días de lluvia fuerte sin señal y días con señal en que no llovió.",
+ "explicacion_horas": [
+  "Todas las horas son de Galápagos (UTC−6). Cada «día» va de las 00:00 a las 24:00.",
+  "Cada modelo arranca una simulación (una «corrida») a las 00, 06, 12 o 18 UTC, es decir, a las 18:00, 00:00, 06:00 y 12:00 de Galápagos, con el estado de la atmósfera en ese momento. Calcularla y publicarla tarda de 3 a 8 horas. Por eso, lo que ves por la mañana suele venir de la corrida de las 18:00 del día anterior o de la de medianoche.",
+  "Esta página revisa cada hora si hay corridas nuevas. En la tabla de abajo están la hora de arranque de cada modelo y la hora en que se pudo usar. Si una corrida tiene más de 30 horas, se deja fuera.",
+  "«Hoy» es el pronóstico del día completo, aunque ya haya pasado una parte. Para saber cuánto ha llovido, mira las estaciones arriba. Las barras de 6 h empiezan en el bloque actual: 00–06 (madrugada), 06–12 (mañana), 12–18 (tarde) y 18–24 (noche).",
+  "Cuanto más lejano el día, menos fiable es el pronóstico. Desde el tercer día, los recuadros aparecen atenuados.",
+  "Los milímetros de las barras son la lluvia media de una celda de 9 a 25 km. En las islas suelen quedarse muy cortos. Para el 30-oct-2026, la víspera, los modelos daban entre 0 y 33 mm para la parte alta de Santa Cruz (unos 9 mm en promedio), y en Santa Rosa llovieron 238 mm. Por eso la señal no usa los milímetros de los modelos. Usa lo inusual que es el pronóstico para cada modelo y, con la lluvia medida, lo convierte en la probabilidad de un día con 20 mm o más."
+ ],
+ "evaluacion": [
+  "Se comparó lo que pronosticaron 7 modelos globales entre enero de 2024 y noviembre de 2026 con la lluvia medida por la FCD en Puerto Ayora, el GSC-USFQ en la parte alta de San Cristóbal y el IERSE en la parte alta de Santa Cruz (este último solo de abril a octubre de 2026). Las cifras salen de una validación cruzada: cada periodo se evaluó con una calibración hecha sin él.",
+  "<b>Parte alta de San Cristóbal, temporada lluviosa (enero–mayo):</b> con «señal alta» para hoy, hubo 20 mm o más en la mitad de los días; con «señal alta» para mañana, en 4 de cada 10. Sin señal, solo en 1 de cada 20 o 25 días. De 15 días con 50 mm o más, 10 tuvieron señal alta el mismo día y 7 la tuvieron desde la víspera.",
+  "<b>Parte alta de Santa Cruz (abril–octubre de 2026, con pocos datos):</b> el 23-oct (97 mm) y el 30-oct (238 mm) tuvieron «señal alta» desde 4 días antes. El 3-oct (68 mm) y el 4-oct (44 mm) no tuvieron señal. El 14-jun (65 mm) solo tuvo señal moderada el mismo día.",
+  "<b>Costa (Puerto Ayora):</b> es donde peor funciona. La señal nunca pasó de «moderada». Con señal moderada hubo 20 mm o más en 1 de cada 6 días, y sin señal, en 1 de cada 40. De 8 días con 50 mm o más, 6 no tuvieron señal.",
+  "<b>Garúa (junio–diciembre):</b> en 2024–2026 casi nunca llovió fuerte en la costa ni en la parte alta de San Cristóbal (0 y 2 días con 20 mm o más). No hay con qué calibrar esa época, así que se usa la curva de la temporada lluviosa. En esos tres años no habría dado ninguna «señal alta» en garúa, pero sí marcaría un día anómalo: el 30-oct-2026, cuando el INAMHI midió 94 mm en Puerto Ayora, habría dado «señal moderada».",
+  "Isabela no tiene estaciones con datos. Su señal usa la calibración de la parte alta de San Cristóbal y la de Puerto Ayora, así que es solo orientativa.",
+  "Con el porcentaje se muestra lo «normal en esta época»: la frecuencia de días con 20 mm o más en esa temporada. Una señal del 30 % donde lo normal es el 4 % indica un día inusual.",
+  "El detalle, las cifras y el código están en la carpeta clima/pronostico del repositorio público de SOS Galápagos."
+ ],
+ "grupos": {
+  "santa_cruz_alta": {
+   "donde": "en alguna estación de la parte alta de Santa Cruz (Santa Rosa, Los Guayabillos o Cerro Crocker)",
+   "de": "de la parte alta de Santa Cruz",
+   "provisional": "se apoya en abril–octubre de 2026 y sobre todo en dos días (23-oct y 30-oct). De enero a mayo usa la curva de San Cristóbal, porque aún no hay datos locales de esa época."
+  },
+  "san_cristobal_alta": {
+   "donde": "en alguna estación de la parte alta de San Cristóbal (El Junco, Cerro Alto, El Mirador o Merceditas)",
+   "de": "de la parte alta de San Cristóbal"
+  },
+  "costa": {
+   "donde": "en Puerto Ayora (estación de la FCD) o en Militar, al norte de Santa Cruz",
+   "de": "de Puerto Ayora",
+   "provisional": "en la costa la probabilidad no pasó del 30 % en la evaluación, así que no llega a «señal alta», y se le escapa la mayoría de los aguaceros fuertes."
+  }
+ }
+}

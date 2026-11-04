@@ -82,6 +82,7 @@ GSC-USFQ (San Cristóbal) ──► servidor: sosgalapagos-clima.timer (cada 5 m
 | Tempest | Punta Estrada, Puerto Ayora (8 m), estación particular de Sebastián Cruz; registro por minuto, agregado a 5 min. Sensor de lluvia háptico: puede subestimar los chubascos intensos | servidor, con el token personal de solo lectura del dueño (privado/fuentes.env); `--tempest-desde AAAA-MM-DD` recupera días pasados |
 
 - **Nivel preliminar de inundación:** `recolector/inundacion.py` y `umbrales_inundacion.json`. Detalle en `docs/umbrales-la-cascada.md`.
+- **Pronóstico de lluvia fuerte (experimental, no oficial):** `recolector/pronostico.py`, una vez por hora (fuente `pronostico`). Señal diaria a 7 días por zona: modelos globales de Open-Meteo calibrados con la lluvia medida. Escribe `datos/pronostico.json` y archiva cada corrida en `/var/lib/sosgalapagos-clima/pronostico/`. Cómo funciona, archivos y cómo recalibrar: [`pronostico/LEEME.md`](pronostico/LEEME.md). La evaluación está en [`pronostico/fase0/informe.md`](pronostico/fase0/informe.md).
 - **Estacionalidad:** `recolector/estacionalidad.py`. Usa las series diarias de la FCD (`datos/fcd/`, privadas; en el servidor, `/var/lib/sosgalapagos-clima/fcd`), el histórico diario del GSC y los días completos que va juntando el recolector. Calcula el rango mensual habitual, un compuesto de años El Niño, la probabilidad semanal y periodos de retorno con Gumbel.
 - **Enlace oculto para investigadores:** los CSV completos y un LEEME se regeneran cada hora en `/srv/sosgalapagos-privado/sitios/clima-<token>/`, que se sirve en `/datos-clima/<token>/`.
   - El token solo está en el servidor (`/srv/sosgalapagos-privado/caddy/clima-investigadores.caddy` y el drop-in `sosgalapagos-clima-csv.service.d/investigadores.conf`) y en `privado/token_investigadores.txt`.
@@ -127,7 +128,11 @@ clima/
 ├── scripts/
 │   ├── 01_ierse_descargar.py   descarga incremental (solo biblioteca estándar)
 │   ├── 02_ierse_consolidar.py  tablas 5 min / horaria / diaria y estaciones.geojson (pandas)
-│   └── 03_evento.py            recorte de una ventana, hietograma, cortes y comparación con ECMWF
+│   ├── 03_evento.py            recorte de una ventana, hietograma, cortes y comparación con ECMWF
+│   ├── 05_mareas.py            constantes armónicas y predicción de mareas
+│   ├── 06_pronostico_archivo.py   archivo de pronósticos pasados (Open-Meteo) en estaciones y zonas
+│   └── 07_pronostico_evaluacion.py  evaluación (fase 0) y calibración del pronóstico
+├── pronostico/                 LEEME del pronóstico y fase0/ (informe, tablas, figuras)
 ├── datos/ierse-wsn/
 │   ├── crudos/AAAA-MM/AAAA-MM-DD.csv.gz   tal cual los da el servidor (formato largo)
 │   ├── estado.json             qué días se bajaron, cuándo y cuántos registros por estación/variable

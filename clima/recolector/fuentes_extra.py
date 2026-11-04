@@ -379,3 +379,11 @@ def tempest_historico(con, desde):
 
 
 FUENTES_EXTRA["tempest"] = fuente_tempest
+
+
+def fuente_pronostico(con):
+    import pronostico
+    return pronostico.fuente_pronostico(con)
+
+
+FUENTES_EXTRA["pronostico"] = fuente_pronostico
