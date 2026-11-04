@@ -1,0 +1,315 @@
+{
+ "isla": "san-cristobal",
+ "n_tormentas": 500,
+ "estaciones": [
+  "El Junco",
+  "Cerro Alto",
+  "El Mirador",
+  "Merceditas",
+  "INAMHI Puerto Baquerizo"
+ ],
+ "ventanas_h": [
+  1,
+  3,
+  6,
+  24
+ ],
+ "h_impacto_m": 0.3,
+ "segundos_por_corrida_mediana": 2.8,
+ "zonas": {
+  "Barrio Frío (desembocadura)": {
+   "punto": "barrio_frio_desembocadura",
+   "estaciones": {
+    "El Junco": 1.0,
+    "Cerro Alto": 1.0,
+    "El Mirador": 1.0,
+    "Merceditas": 1.0,
+    "INAMHI Puerto Baquerizo": 1.0
+   },
+   "n": 500,
+   "inundan": 153,
+   "regla_v02": {
+    "medio": {
+     "umbrales": {
+      "R1h": 15,
+      "R3h": 30,
+      "R24h": 50
+     },
+     "POD": 1.0,
+     "POFD": 0.833,
+     "anticipacion_mediana_min": 55.0
+    },
+    "alto": {
+     "umbrales": {
+      "R1h": 30,
+      "R3h": 60,
+      "R24h": 100
+     },
+     "POD": 0.869,
+     "POFD": 0.49,
+     "anticipacion_mediana_min": 25.0
+    },
+    "muy alto": {
+     "umbrales": {
+      "R1h": 45,
+      "R3h": 90,
+      "R24h": 150
+     },
+     "POD": 0.281,
+     "POFD": 0.222,
+     "anticipacion_mediana_min": 10.0
+    }
+   },
+   "propuesta": {
+    "medio": {
+     "umbrales": {
+      "R1h": 22.5,
+      "R3h": 50.0,
+      "R24h": 260.0
+     },
+     "POD": 0.954,
+     "POFD": 0.519,
+     "anticipacion_mediana_min": 35.0
+    },
+    "alto": {
+     "umbrales": {
+      "R1h": 25.0,
+      "R3h": 70.0,
+      "R24h": 270.0
+     },
+     "POD": 0.915,
+     "POFD": 0.406,
+     "anticipacion_mediana_min": 30.0
+    },
+    "muy alto": {
+     "umbrales": {
+      "R1h": 62.5,
+      "R3h": 105.0,
+      "R24h": 280.0
+     },
+     "POD": 0.098,
+     "POFD": 0.049,
+     "anticipacion_mediana_min": 15.0
+    }
+   },
+   "factor_suelo_humedo": 1.0,
+   "rango_alto_p10_p90": {
+    "R1h": [
+     25.0,
+     27.5
+    ],
+    "R3h": [
+     60.0,
+     75.0
+    ],
+    "R24h": [
+     260.0,
+     290.0
+    ]
+   },
+   "auc_R3h_por_estacion": {
+    "El Junco": 0.617,
+    "Cerro Alto": 0.613,
+    "El Mirador": 0.635,
+    "Merceditas": 0.69,
+    "INAMHI Puerto Baquerizo": 0.793
+   }
+  },
+  "El Manzanillo": {
+   "punto": "manzanillo_registro_2019",
+   "estaciones": {
+    "El Junco": 1.0,
+    "Cerro Alto": 1.0,
+    "El Mirador": 1.0,
+    "Merceditas": 1.0,
+    "INAMHI Puerto Baquerizo": 1.0
+   },
+   "n": 500,
+   "inundan": 74,
+   "regla_v02": {
+    "medio": {
+     "umbrales": {
+      "R1h": 15,
+      "R3h": 30,
+      "R24h": 50
+     },
+     "POD": 1.0,
+     "POFD": 0.864,
+     "anticipacion_mediana_min": 70.0
+    },
+    "alto": {
+     "umbrales": {
+      "R1h": 30,
+      "R3h": 60,
+      "R24h": 100
+     },
+     "POD": 0.959,
+     "POFD": 0.585,
+     "anticipacion_mediana_min": 50.0
+    },
+    "muy alto": {
+     "umbrales": {
+      "R1h": 45,
+      "R3h": 90,
+      "R24h": 150
+     },
+     "POD": 0.824,
+     "POFD": 0.333,
+     "anticipacion_mediana_min": 35.0
+    }
+   },
+   "propuesta": {
+    "medio": {
+     "umbrales": {
+      "R1h": 45.0,
+      "R3h": 55.0,
+      "R24h": 290.0
+     },
+     "POD": 0.959,
+     "POFD": 0.418,
+     "anticipacion_mediana_min": 35.0
+    },
+    "alto": {
+     "umbrales": {
+      "R1h": 45.0,
+      "R3h": 125.0,
+      "R24h": 320.0
+     },
+     "POD": 0.811,
+     "POFD": 0.19,
+     "anticipacion_mediana_min": 30.0
+    },
+    "muy alto": {
+     "umbrales": {
+      "R1h": 70.0,
+      "R3h": 135.0,
+      "R24h": 320.0
+     },
+     "POD": 0.311,
+     "POFD": 0.049,
+     "anticipacion_mediana_min": 20.0
+    }
+   },
+   "factor_suelo_humedo": 0.9,
+   "rango_alto_p10_p90": {
+    "R1h": [
+     42.5,
+     62.749999999999986
+    ],
+    "R3h": [
+     60.0,
+     125.0
+    ],
+    "R24h": [
+     240.0,
+     330.0
+    ]
+   },
+   "auc_R3h_por_estacion": {
+    "El Junco": 0.743,
+    "Cerro Alto": 0.772,
+    "El Mirador": 0.788,
+    "Merceditas": 0.778,
+    "INAMHI Puerto Baquerizo": 0.848
+   }
+  },
+  "El Progreso": {
+   "punto": "el_progreso_escuela_darwin_2024",
+   "estaciones": {
+    "El Junco": 1.0,
+    "Cerro Alto": 1.0,
+    "El Mirador": 1.0,
+    "Merceditas": 1.0,
+    "INAMHI Puerto Baquerizo": 1.0
+   },
+   "n": 500,
+   "inundan": 68,
+   "regla_v02": {
+    "medio": {
+     "umbrales": {
+      "R1h": 15,
+      "R3h": 30,
+      "R24h": 50
+     },
+     "POD": 1.0,
+     "POFD": 0.866,
+     "anticipacion_mediana_min": 45.0
+    },
+    "alto": {
+     "umbrales": {
+      "R1h": 30,
+      "R3h": 60,
+      "R24h": 100
+     },
+     "POD": 0.926,
+     "POFD": 0.59,
+     "anticipacion_mediana_min": 30.0
+    },
+    "muy alto": {
+     "umbrales": {
+      "R1h": 45,
+      "R3h": 90,
+      "R24h": 150
+     },
+     "POD": 0.691,
+     "POFD": 0.331,
+     "anticipacion_mediana_min": 15.0
+    }
+   },
+   "propuesta": {
+    "medio": {
+     "umbrales": {
+      "R1h": 22.5,
+      "R3h": 65.0,
+      "R24h": 270.0
+     },
+     "POD": 0.971,
+     "POFD": 0.565,
+     "anticipacion_mediana_min": 32.0
+    },
+    "alto": {
+     "umbrales": {
+      "R1h": 35.0,
+      "R3h": 100.0,
+      "R24h": 280.0
+     },
+     "POD": 0.882,
+     "POFD": 0.308,
+     "anticipacion_mediana_min": 20.0
+    },
+    "muy alto": {
+     "umbrales": {
+      "R1h": 60.0,
+      "R3h": 135.0,
+      "R24h": 320.0
+     },
+     "POD": 0.029,
+     "POFD": 0.049,
+     "anticipacion_mediana_min": 5.0
+    }
+   },
+   "factor_suelo_humedo": 1.0,
+   "rango_alto_p10_p90": {
+    "R1h": [
+     32.5,
+     37.5
+    ],
+    "R3h": [
+     95.0,
+     110.0
+    ],
+    "R24h": [
+     290.0,
+     330.0
+    ]
+   },
+   "auc_R3h_por_estacion": {
+    "El Junco": 0.583,
+    "Cerro Alto": 0.568,
+    "El Mirador": 0.586,
+    "Merceditas": 0.627,
+    "INAMHI Puerto Baquerizo": 0.621
+   }
+  }
+ }
+}
