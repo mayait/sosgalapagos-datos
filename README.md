@@ -221,12 +221,12 @@ Todo lo pendiente está en los **[issues del proyecto](https://github.com/mayait
 
 ## Licencias, créditos y privacidad
 
-- Licencia del código: **por definir** (ver los [issues de gobernanza](https://github.com/mayait/sosgalapagos-datos/issues?q=is%3Aopen+label%3Agobernanza)). Datos derivados: cada capa conserva la licencia de su fuente; ver `03-fuentes-y-licencias.md`. Las capas con OSM se publican bajo **ODbL**.
+- **© 2026 Universidad San Francisco de Quito (USFQ).** Código bajo **[Apache 2.0](LICENSE)**, con aviso de atribución obligatorio ([`NOTICE`](NOTICE)). Textos, informes, figuras, mapas y salidas de los modelos propios bajo **[CC BY 4.0](LICENCIA-CC-BY-4.0.txt)**: toda reutilización o publicación debe atribuirlos a la USFQ y citar el repositorio o el informe técnico correspondiente ([`CITATION.cff`](CITATION.cff)). Los datos de terceros y lo que se deriva de ellos conservan su licencia (IERSE CC BY-NC-ND, FCD CC BY-NC-SA, OSM ODbL…). Detalle en [`LICENCIA-DATOS.md`](LICENCIA-DATOS.md) y `03-fuentes-y-licencias.md`.
 - **Datos personales:** se eliminaron los nombres y teléfonos de los responsables de refugios y de las fuentes de eventos de la SNGR. Nunca se publican nombres de personas afectadas.
-- Atribución sugerida: «Datos: IGM, CGREG/FCD, SNGR, INEC, INOCAR, © colaboradores de OpenStreetMap (ODbL), Copernicus GLO-30, IERSE, USFQ GSC. Procesamiento: SOS Galápagos (USFQ Galápagos)».
+- Cómo citar: «Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). Licencia CC BY 4.0». Atribución de los datos: «IGM, CGREG/FCD, SNGR, INEC, INOCAR, © colaboradores de OpenStreetMap (ODbL), Copernicus GLO-30, IERSE, USFQ GSC».
 
 ## Créditos
 
-- **Julián Maya**: responsable del repositorio.
+- **Julián Maya** (Universidad San Francisco de Quito, USFQ · jamaya@usfq.edu.ec): responsable del repositorio y autor de los informes técnicos (`informes/`).
 - **USFQ Galápagos**: coordinación de la respuesta.
 - *Equipos y colaboradores: por completar.*

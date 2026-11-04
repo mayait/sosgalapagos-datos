@@ -1,0 +1,29 @@
+SOS Galápagos — datos, modelos y herramientas para las inundaciones de 2026
+en Santa Cruz y San Cristóbal (Galápagos, Ecuador)
+
+Copyright 2026 Universidad San Francisco de Quito (USFQ)
+
+Desarrollado en USFQ Galápagos.
+Responsable: Julián Maya (jamaya@usfq.edu.ec), Universidad San Francisco de Quito (USFQ).
+Repositorio: https://github.com/mayait/sosgalapagos-datos
+
+Este producto incluye software desarrollado en la Universidad San Francisco de
+Quito (USFQ). El código se distribuye bajo la Licencia Apache, versión 2.0
+(archivo LICENSE). Según su sección 4(d), toda redistribución o trabajo
+derivado debe conservar este aviso NOTICE.
+
+Los textos, figuras, informes, capas modeladas y demás contenido propio se
+distribuyen bajo Creative Commons Atribución 4.0 Internacional (CC BY 4.0;
+archivo LICENCIA-CC-BY-4.0.txt). Toda reutilización, incluida su publicación
+en artículos, informes, tesis o medios, debe atribuirlo así:
+
+  Maya, J. (2026). SOS Galápagos: datos, modelos y herramientas para las
+  inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos).
+  Universidad San Francisco de Quito (USFQ).
+  https://github.com/mayait/sosgalapagos-datos
+
+Los datos de terceros (IGM, CGREG, FCD, SNGR, INOCAR, INEC, INAMHI, IERSE,
+USFQ GSC, OpenStreetMap, Copernicus, Google Open Buildings, GAR, Open-Meteo y
+otros) conservan sus propias licencias y atribuciones. Ver LICENCIA-DATOS.md.
+
+Los modelos de este repositorio son estimaciones propias, no datos oficiales.
