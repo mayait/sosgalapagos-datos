@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: >-
+  Si usa o publica datos, modelos, figuras o código de este repositorio, cítelo
+  así (atribución obligatoria según CC BY 4.0 y el aviso NOTICE de Apache 2.0).
+  Los datos de terceros conservan sus licencias: ver LICENCIA-DATOS.md.
+title: "SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)"
+type: software
+authors:
+  - family-names: Maya
+    given-names: Julián
+    email: jamaya@usfq.edu.ec
+    affiliation: Universidad San Francisco de Quito (USFQ)
+  - name: Universidad San Francisco de Quito (USFQ)
+    city: Quito
+    country: EC
+repository-code: "https://github.com/mayait/sosgalapagos-datos"
+license: Apache-2.0
+date-released: "2026-11-04"
+keywords:
+  - Galápagos
+  - inundación pluvial
+  - alerta temprana
+  - HAND
+  - modelo hidrodinámico 2D
+  - curvas IDF
+  - datos abiertos
+preferred-citation:
+  type: report
+  title: "SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)"
+  authors:
+    - family-names: Maya
+      given-names: Julián
+      email: jamaya@usfq.edu.ec
+      affiliation: Universidad San Francisco de Quito (USFQ)
+  institution:
+    name: Universidad San Francisco de Quito (USFQ)
+  year: 2026
+  url: "https://github.com/mayait/sosgalapagos-datos"
+  notes: "Textos, figuras y modelos bajo CC BY 4.0; código bajo Apache 2.0."
