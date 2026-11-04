@@ -87,7 +87,8 @@ Las tablas completas, por modelo, anticipación y temporada, están en `metricas
 **Casos especiales** (`pronostico_calibracion.json`, columna `estado`):
 - **Santa Cruz alta, temporada lluviosa:** usa la curva de San Cristóbal alta (`prestada_de`).
 - **Costa y San Cristóbal alta en garúa:** hubo 0 y 2 días con 20 mm o más, así que no hay con qué calibrar. Usan la curva de su propia temporada lluviosa, pero muestran la frecuencia normal de la garúa.
-  - En 2024–2026, esa curva no habría dado ninguna «señal alta» en garúa y solo 1 día de «señal moderada» (sin lluvia fuerte).
+  - En 2024–2026, esa curva no habría dado ninguna «señal alta» en garúa. Habría dado «señal moderada» en 2 días distintos, ninguno con lluvia fuerte (18-jun-2024 con 5,6 mm y 21-jun-2025 con 16 mm).
+  - Los 2 días con ≥ 20 mm de la garúa de San Cristóbal habrían salido sin señal (3–6 %). En garúa, el porcentaje no está calibrado para esa época.
   - Un «sin señal» fijo habría sido peligroso. La primera versión daba 0 % en Puerto Ayora el 30-oct, con el consenso en 0,97, cuando el INAMHI midió 94 mm ese día y 135 mm el 31.
   - Con la curva prestada, ese día habría salido «señal moderada» (≈ 20 %). El problema apareció al reconstruir el 30-oct con el código de producción.
 - **Curvas sin habilidad:** si el BSS de validación cruzada es menor de 0,03, la curva queda como `sin_habilidad` y se publica «no evaluable».
@@ -167,6 +168,10 @@ Las tablas son `senal_niveles.csv` y `senal_dias_fuertes.csv`. La serie con vali
 - Correcciones del 30-oct: lo que daban los modelos la víspera (0–33 mm, no «10–30») y el pico de IFS 9 km (el 31-oct de madrugada, no «el mismo día»).
 - Se cuentan días-grupo en lugar de estación-días donde corresponde. La persistencia va de 0,54 a 0,74. Se aclara que el consenso no siempre es mejor que el mejor modelo.
 - Los deterministas con corrida conocida de más de 30 h salen del consenso.
+- Segunda pasada del revisor, sin bloqueantes. Se corrigió además:
+  - el nivel se calcula con la cifra redondeada que se publica;
+  - «hoy» se oculta después de las 18:00;
+  - las curvas prestadas no copian el BSS de origen.
 
 ## Qué falta
 
