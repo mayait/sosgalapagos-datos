@@ -1,0 +1,505 @@
+punto,isla,cota_m,duracion_h,T_anios,lluvia_mm,intensidad_mmh,lluvia_gev_mm,ic5_mm,ic95_mm
+Puerto Ayora (FCD),santa-cruz,2,1,2,19.0,19.0,17.3,15.9,22.2
+Puerto Ayora (FCD),santa-cruz,2,1,5,32.4,32.4,32.0,27.0,37.6
+Puerto Ayora (FCD),santa-cruz,2,1,10,41.2,41.2,44.1,34.3,48.1
+Puerto Ayora (FCD),santa-cruz,2,1,25,52.3,52.3,62.8,43.4,61.3
+Puerto Ayora (FCD),santa-cruz,2,1,50,60.6,60.6,79.6,50.2,71.2
+Puerto Ayora (FCD),santa-cruz,2,1,100,68.8,68.8,99.2,56.9,81.0
+Puerto Ayora (FCD),santa-cruz,2,2,2,26.6,13.3,24.1,22.2,31.0
+Puerto Ayora (FCD),santa-cruz,2,2,5,45.2,22.6,44.7,37.7,52.5
+Puerto Ayora (FCD),santa-cruz,2,2,10,57.5,28.7,61.6,47.8,67.1
+Puerto Ayora (FCD),santa-cruz,2,2,25,73.0,36.5,87.7,60.6,85.6
+Puerto Ayora (FCD),santa-cruz,2,2,50,84.6,42.3,111.1,70.0,99.3
+Puerto Ayora (FCD),santa-cruz,2,2,100,96.0,48.0,138.5,79.4,113.0
+Puerto Ayora (FCD),santa-cruz,2,3,2,30.8,10.3,28.0,25.7,35.9
+Puerto Ayora (FCD),santa-cruz,2,3,5,52.3,17.4,51.7,43.7,60.8
+Puerto Ayora (FCD),santa-cruz,2,3,10,66.6,22.2,71.3,55.4,77.7
+Puerto Ayora (FCD),santa-cruz,2,3,25,84.6,28.2,101.5,70.1,99.2
+Puerto Ayora (FCD),santa-cruz,2,3,50,98.0,32.7,128.7,81.1,115.0
+Puerto Ayora (FCD),santa-cruz,2,3,100,111.2,37.1,160.4,92.0,130.9
+Puerto Ayora (FCD),santa-cruz,2,6,2,37.4,6.2,34.0,31.2,43.6
+Puerto Ayora (FCD),santa-cruz,2,6,5,63.5,10.6,62.9,53.1,73.9
+Puerto Ayora (FCD),santa-cruz,2,6,10,80.9,13.5,86.7,67.3,94.4
+Puerto Ayora (FCD),santa-cruz,2,6,25,102.8,17.1,123.4,85.2,120.5
+Puerto Ayora (FCD),santa-cruz,2,6,50,119.0,19.8,156.3,98.6,139.7
+Puerto Ayora (FCD),santa-cruz,2,6,100,135.1,22.5,194.9,111.8,159.0
+Puerto Ayora (FCD),santa-cruz,2,12,2,41.7,3.5,37.9,34.8,48.6
+Puerto Ayora (FCD),santa-cruz,2,12,5,70.9,5.9,70.1,59.2,82.4
+Puerto Ayora (FCD),santa-cruz,2,12,10,90.2,7.5,96.7,75.1,105.3
+Puerto Ayora (FCD),santa-cruz,2,12,25,114.6,9.6,137.6,95.1,134.4
+Puerto Ayora (FCD),santa-cruz,2,12,50,132.7,11.1,174.4,109.9,155.9
+Puerto Ayora (FCD),santa-cruz,2,12,100,150.7,12.6,217.3,124.7,177.3
+Puerto Ayora (FCD),santa-cruz,2,24,2,69.2,2.9,62.9,57.8,80.8
+Puerto Ayora (FCD),santa-cruz,2,24,5,117.7,4.9,116.5,98.3,137.0
+Puerto Ayora (FCD),santa-cruz,2,24,10,149.8,6.2,160.6,124.7,174.9
+Puerto Ayora (FCD),santa-cruz,2,24,25,190.4,7.9,228.6,157.9,223.2
+Puerto Ayora (FCD),santa-cruz,2,24,50,220.5,9.2,289.6,182.6,258.9
+Puerto Ayora (FCD),santa-cruz,2,24,100,250.4,10.4,361.0,207.1,294.5
+Bellavista (FCD),santa-cruz,223,1,2,28.2,28.2,26.0,22.8,34.8
+Bellavista (FCD),santa-cruz,223,1,5,44.5,44.5,43.6,34.5,58.8
+Bellavista (FCD),santa-cruz,223,1,10,55.4,55.4,57.7,42.2,75.0
+Bellavista (FCD),santa-cruz,223,1,25,69.1,69.1,78.8,51.6,95.3
+Bellavista (FCD),santa-cruz,223,1,50,79.3,79.3,97.3,58.1,110.5
+Bellavista (FCD),santa-cruz,223,1,100,89.3,89.3,118.6,64.9,125.3
+Bellavista (FCD),santa-cruz,223,2,2,40.0,20.0,37.0,32.4,49.5
+Bellavista (FCD),santa-cruz,223,2,5,63.3,31.7,62.0,49.1,83.6
+Bellavista (FCD),santa-cruz,223,2,10,78.7,39.4,82.0,60.0,106.7
+Bellavista (FCD),santa-cruz,223,2,25,98.2,49.1,112.0,73.3,135.4
+Bellavista (FCD),santa-cruz,223,2,50,112.7,56.3,138.4,82.6,157.0
+Bellavista (FCD),santa-cruz,223,2,100,127.0,63.5,168.5,92.2,178.1
+Bellavista (FCD),santa-cruz,223,3,2,45.9,15.3,42.4,37.1,56.8
+Bellavista (FCD),santa-cruz,223,3,5,72.6,24.2,71.0,56.2,95.8
+Bellavista (FCD),santa-cruz,223,3,10,90.2,30.1,93.9,68.7,122.2
+Bellavista (FCD),santa-cruz,223,3,25,112.6,37.5,128.4,84.0,155.2
+Bellavista (FCD),santa-cruz,223,3,50,129.1,43.0,158.6,94.7,180.0
+Bellavista (FCD),santa-cruz,223,3,100,145.6,48.5,193.2,105.7,204.2
+Bellavista (FCD),santa-cruz,223,6,2,55.7,9.3,51.5,45.1,69.0
+Bellavista (FCD),santa-cruz,223,6,5,88.2,14.7,86.3,68.3,116.4
+Bellavista (FCD),santa-cruz,223,6,10,109.6,18.3,114.1,83.5,148.5
+Bellavista (FCD),santa-cruz,223,6,25,136.7,22.8,156.0,102.0,188.6
+Bellavista (FCD),santa-cruz,223,6,50,156.9,26.1,192.7,115.0,218.6
+Bellavista (FCD),santa-cruz,223,6,100,176.8,29.5,234.7,128.4,248.0
+Bellavista (FCD),santa-cruz,223,12,2,60.5,5.0,55.9,49.0,74.9
+Bellavista (FCD),santa-cruz,223,12,5,95.7,8.0,93.7,74.1,126.4
+Bellavista (FCD),santa-cruz,223,12,10,119.0,9.9,123.9,90.7,161.2
+Bellavista (FCD),santa-cruz,223,12,25,148.4,12.4,169.3,110.8,204.7
+Bellavista (FCD),santa-cruz,223,12,50,170.3,14.2,209.2,124.9,237.3
+Bellavista (FCD),santa-cruz,223,12,100,192.0,16.0,254.8,139.4,269.3
+Bellavista (FCD),santa-cruz,223,24,2,83.6,3.5,77.3,67.6,103.4
+Bellavista (FCD),santa-cruz,223,24,5,132.2,5.5,129.4,102.4,174.6
+Bellavista (FCD),santa-cruz,223,24,10,164.4,6.9,171.2,125.3,222.7
+Bellavista (FCD),santa-cruz,223,24,25,205.1,8.5,233.9,153.1,282.8
+Bellavista (FCD),santa-cruz,223,24,50,235.3,9.8,289.0,172.5,327.9
+Bellavista (FCD),santa-cruz,223,24,100,265.2,11.1,352.0,192.6,372.0
+Cerro Crocker,santa-cruz,861,1,2,26.8,26.8,24.8,21.7,33.2
+Cerro Crocker,santa-cruz,861,1,5,42.4,42.4,41.5,32.8,56.0
+Cerro Crocker,santa-cruz,861,1,10,52.7,52.7,54.9,40.2,71.4
+Cerro Crocker,santa-cruz,861,1,25,65.8,65.8,75.0,49.1,90.7
+Cerro Crocker,santa-cruz,861,1,50,75.4,75.4,92.6,55.3,105.1
+Cerro Crocker,santa-cruz,861,1,100,85.0,85.0,112.8,61.7,119.3
+Cerro Crocker,santa-cruz,861,2,2,40.1,20.1,37.1,32.5,49.6
+Cerro Crocker,santa-cruz,861,2,5,63.4,31.7,62.1,49.2,83.8
+Cerro Crocker,santa-cruz,861,2,10,78.9,39.4,82.1,60.1,106.9
+Cerro Crocker,santa-cruz,861,2,25,98.4,49.2,112.2,73.4,135.7
+Cerro Crocker,santa-cruz,861,2,50,112.9,56.4,138.7,82.8,157.3
+Cerro Crocker,santa-cruz,861,2,100,127.3,63.6,168.9,92.4,178.5
+Cerro Crocker,santa-cruz,861,3,2,45.9,15.3,42.5,37.2,56.8
+Cerro Crocker,santa-cruz,861,3,5,72.6,24.2,71.1,56.3,95.9
+Cerro Crocker,santa-cruz,861,3,10,90.3,30.1,94.0,68.8,122.4
+Cerro Crocker,santa-cruz,861,3,25,112.7,37.6,128.5,84.1,155.4
+Cerro Crocker,santa-cruz,861,3,50,129.3,43.1,158.8,94.8,180.1
+Cerro Crocker,santa-cruz,861,3,100,145.7,48.6,193.4,105.8,204.4
+Cerro Crocker,santa-cruz,861,6,2,59.5,9.9,55.0,48.1,73.6
+Cerro Crocker,santa-cruz,861,6,5,94.1,15.7,92.1,72.9,124.2
+Cerro Crocker,santa-cruz,861,6,10,117.0,19.5,121.8,89.1,158.5
+Cerro Crocker,santa-cruz,861,6,25,145.9,24.3,166.4,108.9,201.2
+Cerro Crocker,santa-cruz,861,6,50,167.4,27.9,205.6,122.7,233.3
+Cerro Crocker,santa-cruz,861,6,100,188.7,31.5,250.4,137.0,264.7
+Cerro Crocker,santa-cruz,861,12,2,64.9,5.4,60.0,52.6,80.4
+Cerro Crocker,santa-cruz,861,12,5,102.7,8.6,100.5,79.6,135.7
+Cerro Crocker,santa-cruz,861,12,10,127.7,10.6,133.0,97.3,173.0
+Cerro Crocker,santa-cruz,861,12,25,159.3,13.3,181.7,118.9,219.7
+Cerro Crocker,santa-cruz,861,12,50,182.8,15.2,224.5,134.0,254.7
+Cerro Crocker,santa-cruz,861,12,100,206.1,17.2,273.4,149.6,289.0
+Cerro Crocker,santa-cruz,861,24,2,83.6,3.5,77.3,67.6,103.4
+Cerro Crocker,santa-cruz,861,24,5,132.2,5.5,129.4,102.4,174.6
+Cerro Crocker,santa-cruz,861,24,10,164.4,6.9,171.2,125.3,222.7
+Cerro Crocker,santa-cruz,861,24,25,205.1,8.5,233.9,153.1,282.8
+Cerro Crocker,santa-cruz,861,24,50,235.3,9.8,289.0,172.5,327.9
+Cerro Crocker,santa-cruz,861,24,100,265.2,11.1,352.0,192.6,372.0
+Santa Rosa,santa-cruz,416,1,2,27.3,27.3,25.2,22.1,33.8
+Santa Rosa,santa-cruz,416,1,5,43.2,43.2,42.3,33.4,57.0
+Santa Rosa,santa-cruz,416,1,10,53.7,53.7,55.9,40.9,72.7
+Santa Rosa,santa-cruz,416,1,25,67.0,67.0,76.4,50.0,92.3
+Santa Rosa,santa-cruz,416,1,50,76.8,76.8,94.3,56.3,107.0
+Santa Rosa,santa-cruz,416,1,100,86.6,86.6,114.9,62.9,121.5
+Santa Rosa,santa-cruz,416,2,2,43.0,21.5,39.7,34.8,53.2
+Santa Rosa,santa-cruz,416,2,5,67.9,34.0,66.5,52.6,89.7
+Santa Rosa,santa-cruz,416,2,10,84.5,42.2,88.0,64.4,114.5
+Santa Rosa,santa-cruz,416,2,25,105.4,52.7,120.2,78.7,145.3
+Santa Rosa,santa-cruz,416,2,50,120.9,60.4,148.5,88.6,168.5
+Santa Rosa,santa-cruz,416,2,100,136.3,68.1,180.9,99.0,191.2
+Santa Rosa,santa-cruz,416,3,2,51.1,17.0,47.3,41.4,63.3
+Santa Rosa,santa-cruz,416,3,5,80.9,27.0,79.2,62.7,106.8
+Santa Rosa,santa-cruz,416,3,10,100.6,33.5,104.7,76.6,136.3
+Santa Rosa,santa-cruz,416,3,25,125.5,41.8,143.1,93.6,173.0
+Santa Rosa,santa-cruz,416,3,50,143.9,48.0,176.8,105.5,200.6
+Santa Rosa,santa-cruz,416,3,100,162.2,54.1,215.3,117.8,227.6
+Santa Rosa,santa-cruz,416,6,2,64.0,10.7,59.2,51.8,79.2
+Santa Rosa,santa-cruz,416,6,5,101.3,16.9,99.2,78.5,133.8
+Santa Rosa,santa-cruz,416,6,10,126.0,21.0,131.2,96.0,170.7
+Santa Rosa,santa-cruz,416,6,25,157.1,26.2,179.2,117.3,216.7
+Santa Rosa,santa-cruz,416,6,50,180.3,30.0,221.4,132.2,251.2
+Santa Rosa,santa-cruz,416,6,100,203.2,33.9,269.7,147.5,285.0
+Santa Rosa,santa-cruz,416,12,2,69.2,5.8,64.0,56.0,85.6
+Santa Rosa,santa-cruz,416,12,5,109.4,9.1,107.1,84.8,144.5
+Santa Rosa,santa-cruz,416,12,10,136.1,11.3,141.7,103.7,184.4
+Santa Rosa,santa-cruz,416,12,25,169.7,14.1,193.6,126.7,234.1
+Santa Rosa,santa-cruz,416,12,50,194.7,16.2,239.2,142.8,271.4
+Santa Rosa,santa-cruz,416,12,100,219.5,18.3,291.3,159.4,307.9
+Santa Rosa,santa-cruz,416,24,2,83.6,3.5,77.3,67.6,103.4
+Santa Rosa,santa-cruz,416,24,5,132.2,5.5,129.4,102.4,174.6
+Santa Rosa,santa-cruz,416,24,10,164.4,6.9,171.2,125.3,222.7
+Santa Rosa,santa-cruz,416,24,25,205.1,8.5,233.9,153.1,282.8
+Santa Rosa,santa-cruz,416,24,50,235.3,9.8,289.0,172.5,327.9
+Santa Rosa,santa-cruz,416,24,100,265.2,11.1,352.0,192.6,372.0
+Los Guayabillos,santa-cruz,178,1,2,28.9,28.9,26.7,23.4,35.7
+Los Guayabillos,santa-cruz,178,1,5,45.6,45.6,44.7,35.4,60.3
+Los Guayabillos,santa-cruz,178,1,10,56.8,56.8,59.1,43.2,76.9
+Los Guayabillos,santa-cruz,178,1,25,70.8,70.8,80.8,52.8,97.6
+Los Guayabillos,santa-cruz,178,1,50,81.2,81.2,99.8,59.6,113.2
+Los Guayabillos,santa-cruz,178,1,100,91.6,91.6,121.5,66.5,128.4
+Los Guayabillos,santa-cruz,178,2,2,41.6,20.8,38.5,33.7,51.5
+Los Guayabillos,santa-cruz,178,2,5,65.8,32.9,64.4,51.0,86.9
+Los Guayabillos,santa-cruz,178,2,10,81.8,40.9,85.2,62.3,110.8
+Los Guayabillos,santa-cruz,178,2,25,102.0,51.0,116.4,76.2,140.7
+Los Guayabillos,santa-cruz,178,2,50,117.1,58.5,143.8,85.8,163.1
+Los Guayabillos,santa-cruz,178,2,100,132.0,66.0,175.1,95.8,185.1
+Los Guayabillos,santa-cruz,178,3,2,48.5,16.2,44.8,39.2,60.0
+Los Guayabillos,santa-cruz,178,3,5,76.7,25.6,75.1,59.4,101.3
+Los Guayabillos,santa-cruz,178,3,10,95.4,31.8,99.3,72.7,129.2
+Los Guayabillos,santa-cruz,178,3,25,119.0,39.7,135.7,88.8,164.1
+Los Guayabillos,santa-cruz,178,3,50,136.5,45.5,167.7,100.1,190.2
+Los Guayabillos,santa-cruz,178,3,100,153.9,51.3,204.2,111.7,215.8
+Los Guayabillos,santa-cruz,178,6,2,58.6,9.8,54.1,47.4,72.5
+Los Guayabillos,santa-cruz,178,6,5,92.6,15.4,90.7,71.8,122.3
+Los Guayabillos,santa-cruz,178,6,10,115.2,19.2,119.9,87.7,156.0
+Los Guayabillos,santa-cruz,178,6,25,143.7,23.9,163.9,107.2,198.1
+Los Guayabillos,santa-cruz,178,6,50,164.8,27.5,202.4,120.8,229.7
+Los Guayabillos,santa-cruz,178,6,100,185.8,31.0,246.6,134.9,260.6
+Los Guayabillos,santa-cruz,178,12,2,64.6,5.4,59.7,52.3,79.9
+Los Guayabillos,santa-cruz,178,12,5,102.1,8.5,100.0,79.1,134.9
+Los Guayabillos,santa-cruz,178,12,10,127.0,10.6,132.2,96.8,172.1
+Los Guayabillos,santa-cruz,178,12,25,158.4,13.2,180.7,118.3,218.5
+Los Guayabillos,santa-cruz,178,12,50,181.8,15.1,223.3,133.3,253.3
+Los Guayabillos,santa-cruz,178,12,100,204.9,17.1,271.9,148.8,287.4
+Los Guayabillos,santa-cruz,178,24,2,83.6,3.5,77.3,67.6,103.4
+Los Guayabillos,santa-cruz,178,24,5,132.2,5.5,129.4,102.4,174.6
+Los Guayabillos,santa-cruz,178,24,10,164.4,6.9,171.2,125.3,222.7
+Los Guayabillos,santa-cruz,178,24,25,205.1,8.5,233.9,153.1,282.8
+Los Guayabillos,santa-cruz,178,24,50,235.3,9.8,289.0,172.5,327.9
+Los Guayabillos,santa-cruz,178,24,100,265.2,11.1,352.0,192.6,372.0
+INAMHI Puerto Ayora,santa-cruz,6,1,2,19.0,19.0,17.3,15.9,22.2
+INAMHI Puerto Ayora,santa-cruz,6,1,5,32.4,32.4,32.0,27.0,37.6
+INAMHI Puerto Ayora,santa-cruz,6,1,10,41.2,41.2,44.1,34.3,48.1
+INAMHI Puerto Ayora,santa-cruz,6,1,25,52.3,52.3,62.8,43.4,61.3
+INAMHI Puerto Ayora,santa-cruz,6,1,50,60.6,60.6,79.6,50.2,71.2
+INAMHI Puerto Ayora,santa-cruz,6,1,100,68.8,68.8,99.2,56.9,81.0
+INAMHI Puerto Ayora,santa-cruz,6,2,2,26.6,13.3,24.1,22.2,31.0
+INAMHI Puerto Ayora,santa-cruz,6,2,5,45.2,22.6,44.7,37.7,52.5
+INAMHI Puerto Ayora,santa-cruz,6,2,10,57.5,28.7,61.6,47.8,67.1
+INAMHI Puerto Ayora,santa-cruz,6,2,25,73.0,36.5,87.7,60.6,85.6
+INAMHI Puerto Ayora,santa-cruz,6,2,50,84.6,42.3,111.1,70.0,99.3
+INAMHI Puerto Ayora,santa-cruz,6,2,100,96.0,48.0,138.5,79.4,113.0
+INAMHI Puerto Ayora,santa-cruz,6,3,2,30.8,10.3,28.0,25.7,35.9
+INAMHI Puerto Ayora,santa-cruz,6,3,5,52.3,17.4,51.7,43.7,60.8
+INAMHI Puerto Ayora,santa-cruz,6,3,10,66.6,22.2,71.3,55.4,77.7
+INAMHI Puerto Ayora,santa-cruz,6,3,25,84.6,28.2,101.5,70.1,99.2
+INAMHI Puerto Ayora,santa-cruz,6,3,50,98.0,32.7,128.7,81.1,115.0
+INAMHI Puerto Ayora,santa-cruz,6,3,100,111.2,37.1,160.4,92.0,130.9
+INAMHI Puerto Ayora,santa-cruz,6,6,2,37.4,6.2,34.0,31.2,43.6
+INAMHI Puerto Ayora,santa-cruz,6,6,5,63.5,10.6,62.9,53.1,73.9
+INAMHI Puerto Ayora,santa-cruz,6,6,10,80.9,13.5,86.7,67.3,94.4
+INAMHI Puerto Ayora,santa-cruz,6,6,25,102.8,17.1,123.4,85.2,120.5
+INAMHI Puerto Ayora,santa-cruz,6,6,50,119.0,19.8,156.3,98.6,139.7
+INAMHI Puerto Ayora,santa-cruz,6,6,100,135.1,22.5,194.9,111.8,159.0
+INAMHI Puerto Ayora,santa-cruz,6,12,2,41.7,3.5,37.9,34.8,48.6
+INAMHI Puerto Ayora,santa-cruz,6,12,5,70.9,5.9,70.1,59.2,82.4
+INAMHI Puerto Ayora,santa-cruz,6,12,10,90.2,7.5,96.7,75.1,105.3
+INAMHI Puerto Ayora,santa-cruz,6,12,25,114.6,9.6,137.6,95.1,134.4
+INAMHI Puerto Ayora,santa-cruz,6,12,50,132.7,11.1,174.4,109.9,155.9
+INAMHI Puerto Ayora,santa-cruz,6,12,100,150.7,12.6,217.3,124.7,177.3
+INAMHI Puerto Ayora,santa-cruz,6,24,2,69.2,2.9,62.9,57.8,80.8
+INAMHI Puerto Ayora,santa-cruz,6,24,5,117.7,4.9,116.5,98.3,137.0
+INAMHI Puerto Ayora,santa-cruz,6,24,10,149.8,6.2,160.6,124.7,174.9
+INAMHI Puerto Ayora,santa-cruz,6,24,25,190.4,7.9,228.6,157.9,223.2
+INAMHI Puerto Ayora,santa-cruz,6,24,50,220.5,9.2,289.6,182.6,258.9
+INAMHI Puerto Ayora,santa-cruz,6,24,100,250.4,10.4,361.0,207.1,294.5
+Erna (Puerto Ayora),santa-cruz,10,1,2,19.0,19.0,17.3,15.9,22.2
+Erna (Puerto Ayora),santa-cruz,10,1,5,32.4,32.4,32.0,27.0,37.6
+Erna (Puerto Ayora),santa-cruz,10,1,10,41.2,41.2,44.1,34.3,48.1
+Erna (Puerto Ayora),santa-cruz,10,1,25,52.3,52.3,62.8,43.4,61.3
+Erna (Puerto Ayora),santa-cruz,10,1,50,60.6,60.6,79.6,50.2,71.2
+Erna (Puerto Ayora),santa-cruz,10,1,100,68.8,68.8,99.2,56.9,81.0
+Erna (Puerto Ayora),santa-cruz,10,2,2,26.6,13.3,24.1,22.2,31.0
+Erna (Puerto Ayora),santa-cruz,10,2,5,45.2,22.6,44.7,37.7,52.5
+Erna (Puerto Ayora),santa-cruz,10,2,10,57.5,28.7,61.6,47.8,67.1
+Erna (Puerto Ayora),santa-cruz,10,2,25,73.0,36.5,87.7,60.6,85.6
+Erna (Puerto Ayora),santa-cruz,10,2,50,84.6,42.3,111.1,70.0,99.3
+Erna (Puerto Ayora),santa-cruz,10,2,100,96.0,48.0,138.5,79.4,113.0
+Erna (Puerto Ayora),santa-cruz,10,3,2,30.8,10.3,28.0,25.7,35.9
+Erna (Puerto Ayora),santa-cruz,10,3,5,52.3,17.4,51.7,43.7,60.8
+Erna (Puerto Ayora),santa-cruz,10,3,10,66.6,22.2,71.3,55.4,77.7
+Erna (Puerto Ayora),santa-cruz,10,3,25,84.6,28.2,101.5,70.1,99.2
+Erna (Puerto Ayora),santa-cruz,10,3,50,98.0,32.7,128.7,81.1,115.0
+Erna (Puerto Ayora),santa-cruz,10,3,100,111.2,37.1,160.4,92.0,130.9
+Erna (Puerto Ayora),santa-cruz,10,6,2,37.4,6.2,34.0,31.2,43.6
+Erna (Puerto Ayora),santa-cruz,10,6,5,63.5,10.6,62.9,53.1,73.9
+Erna (Puerto Ayora),santa-cruz,10,6,10,80.9,13.5,86.7,67.3,94.4
+Erna (Puerto Ayora),santa-cruz,10,6,25,102.8,17.1,123.4,85.2,120.5
+Erna (Puerto Ayora),santa-cruz,10,6,50,119.0,19.8,156.3,98.6,139.7
+Erna (Puerto Ayora),santa-cruz,10,6,100,135.1,22.5,194.9,111.8,159.0
+Erna (Puerto Ayora),santa-cruz,10,12,2,41.7,3.5,37.9,34.8,48.6
+Erna (Puerto Ayora),santa-cruz,10,12,5,70.9,5.9,70.1,59.2,82.4
+Erna (Puerto Ayora),santa-cruz,10,12,10,90.2,7.5,96.7,75.1,105.3
+Erna (Puerto Ayora),santa-cruz,10,12,25,114.6,9.6,137.6,95.1,134.4
+Erna (Puerto Ayora),santa-cruz,10,12,50,132.7,11.1,174.4,109.9,155.9
+Erna (Puerto Ayora),santa-cruz,10,12,100,150.7,12.6,217.3,124.7,177.3
+Erna (Puerto Ayora),santa-cruz,10,24,2,69.2,2.9,62.9,57.8,80.8
+Erna (Puerto Ayora),santa-cruz,10,24,5,117.7,4.9,116.5,98.3,137.0
+Erna (Puerto Ayora),santa-cruz,10,24,10,149.8,6.2,160.6,124.7,174.9
+Erna (Puerto Ayora),santa-cruz,10,24,25,190.4,7.9,228.6,157.9,223.2
+Erna (Puerto Ayora),santa-cruz,10,24,50,220.5,9.2,289.6,182.6,258.9
+Erna (Puerto Ayora),santa-cruz,10,24,100,250.4,10.4,361.0,207.1,294.5
+Punta Estrada,santa-cruz,8,1,2,19.0,19.0,17.3,15.9,22.2
+Punta Estrada,santa-cruz,8,1,5,32.4,32.4,32.0,27.0,37.6
+Punta Estrada,santa-cruz,8,1,10,41.2,41.2,44.1,34.3,48.1
+Punta Estrada,santa-cruz,8,1,25,52.3,52.3,62.8,43.4,61.3
+Punta Estrada,santa-cruz,8,1,50,60.6,60.6,79.6,50.2,71.2
+Punta Estrada,santa-cruz,8,1,100,68.8,68.8,99.2,56.9,81.0
+Punta Estrada,santa-cruz,8,2,2,26.6,13.3,24.1,22.2,31.0
+Punta Estrada,santa-cruz,8,2,5,45.2,22.6,44.7,37.7,52.5
+Punta Estrada,santa-cruz,8,2,10,57.5,28.7,61.6,47.8,67.1
+Punta Estrada,santa-cruz,8,2,25,73.0,36.5,87.7,60.6,85.6
+Punta Estrada,santa-cruz,8,2,50,84.6,42.3,111.1,70.0,99.3
+Punta Estrada,santa-cruz,8,2,100,96.0,48.0,138.5,79.4,113.0
+Punta Estrada,santa-cruz,8,3,2,30.8,10.3,28.0,25.7,35.9
+Punta Estrada,santa-cruz,8,3,5,52.3,17.4,51.7,43.7,60.8
+Punta Estrada,santa-cruz,8,3,10,66.6,22.2,71.3,55.4,77.7
+Punta Estrada,santa-cruz,8,3,25,84.6,28.2,101.5,70.1,99.2
+Punta Estrada,santa-cruz,8,3,50,98.0,32.7,128.7,81.1,115.0
+Punta Estrada,santa-cruz,8,3,100,111.2,37.1,160.4,92.0,130.9
+Punta Estrada,santa-cruz,8,6,2,37.4,6.2,34.0,31.2,43.6
+Punta Estrada,santa-cruz,8,6,5,63.5,10.6,62.9,53.1,73.9
+Punta Estrada,santa-cruz,8,6,10,80.9,13.5,86.7,67.3,94.4
+Punta Estrada,santa-cruz,8,6,25,102.8,17.1,123.4,85.2,120.5
+Punta Estrada,santa-cruz,8,6,50,119.0,19.8,156.3,98.6,139.7
+Punta Estrada,santa-cruz,8,6,100,135.1,22.5,194.9,111.8,159.0
+Punta Estrada,santa-cruz,8,12,2,41.7,3.5,37.9,34.8,48.6
+Punta Estrada,santa-cruz,8,12,5,70.9,5.9,70.1,59.2,82.4
+Punta Estrada,santa-cruz,8,12,10,90.2,7.5,96.7,75.1,105.3
+Punta Estrada,santa-cruz,8,12,25,114.6,9.6,137.6,95.1,134.4
+Punta Estrada,santa-cruz,8,12,50,132.7,11.1,174.4,109.9,155.9
+Punta Estrada,santa-cruz,8,12,100,150.7,12.6,217.3,124.7,177.3
+Punta Estrada,santa-cruz,8,24,2,69.2,2.9,62.9,57.8,80.8
+Punta Estrada,santa-cruz,8,24,5,117.7,4.9,116.5,98.3,137.0
+Punta Estrada,santa-cruz,8,24,10,149.8,6.2,160.6,124.7,174.9
+Punta Estrada,santa-cruz,8,24,25,190.4,7.9,228.6,157.9,223.2
+Punta Estrada,santa-cruz,8,24,50,220.5,9.2,289.6,182.6,258.9
+Punta Estrada,santa-cruz,8,24,100,250.4,10.4,361.0,207.1,294.5
+El Junco,san-cristobal,548,1,2,24.0,24.0,22.2,19.4,29.7
+El Junco,san-cristobal,548,1,5,38.0,38.0,37.2,29.4,50.1
+El Junco,san-cristobal,548,1,10,47.2,47.2,49.1,36.0,63.9
+El Junco,san-cristobal,548,1,25,58.9,58.9,67.2,43.9,81.2
+El Junco,san-cristobal,548,1,50,67.5,67.5,83.0,49.5,94.1
+El Junco,san-cristobal,548,1,100,76.1,76.1,101.0,55.3,106.8
+El Junco,san-cristobal,548,2,2,36.3,18.1,33.5,29.4,44.9
+El Junco,san-cristobal,548,2,5,57.4,28.7,56.2,44.4,75.8
+El Junco,san-cristobal,548,2,10,71.3,35.7,74.3,54.3,96.6
+El Junco,san-cristobal,548,2,25,89.0,44.5,101.5,66.4,122.7
+El Junco,san-cristobal,548,2,50,102.1,51.0,125.4,74.8,142.3
+El Junco,san-cristobal,548,2,100,115.1,57.5,152.7,83.6,161.4
+El Junco,san-cristobal,548,3,2,43.8,14.6,40.5,35.5,54.2
+El Junco,san-cristobal,548,3,5,69.3,23.1,67.9,53.7,91.6
+El Junco,san-cristobal,548,3,10,86.2,28.7,89.8,65.7,116.8
+El Junco,san-cristobal,548,3,25,107.6,35.9,122.7,80.3,148.3
+El Junco,san-cristobal,548,3,50,123.4,41.1,151.6,90.5,172.0
+El Junco,san-cristobal,548,3,100,139.1,46.4,184.6,101.0,195.1
+El Junco,san-cristobal,548,6,2,57.6,9.6,53.2,46.6,71.2
+El Junco,san-cristobal,548,6,5,91.0,15.2,89.1,70.5,120.2
+El Junco,san-cristobal,548,6,10,113.2,18.9,117.9,86.3,153.4
+El Junco,san-cristobal,548,6,25,141.2,23.5,161.1,105.4,194.8
+El Junco,san-cristobal,548,6,50,162.0,27.0,199.0,118.8,225.8
+El Junco,san-cristobal,548,6,100,182.6,30.4,242.4,132.6,256.2
+El Junco,san-cristobal,548,12,2,65.8,5.5,60.8,53.2,81.4
+El Junco,san-cristobal,548,12,5,104.0,8.7,101.8,80.6,137.4
+El Junco,san-cristobal,548,12,10,129.3,10.8,134.6,98.5,175.2
+El Junco,san-cristobal,548,12,25,161.3,13.4,184.0,120.4,222.5
+El Junco,san-cristobal,548,12,50,185.1,15.4,227.3,135.7,257.9
+El Junco,san-cristobal,548,12,100,208.6,17.4,276.9,151.5,292.6
+El Junco,san-cristobal,548,24,2,83.6,3.5,77.3,67.6,103.4
+El Junco,san-cristobal,548,24,5,132.2,5.5,129.4,102.4,174.6
+El Junco,san-cristobal,548,24,10,164.4,6.9,171.2,125.3,222.7
+El Junco,san-cristobal,548,24,25,205.1,8.5,233.9,153.1,282.8
+El Junco,san-cristobal,548,24,50,235.3,9.8,289.0,172.5,327.9
+El Junco,san-cristobal,548,24,100,265.2,11.1,352.0,192.6,372.0
+Cerro Alto,san-cristobal,517,1,2,26.5,26.5,24.5,21.4,32.7
+Cerro Alto,san-cristobal,517,1,5,41.9,41.9,41.0,32.4,55.3
+Cerro Alto,san-cristobal,517,1,10,52.0,52.0,54.2,39.6,70.5
+Cerro Alto,san-cristobal,517,1,25,64.9,64.9,74.1,48.5,89.5
+Cerro Alto,san-cristobal,517,1,50,74.5,74.5,91.5,54.6,103.8
+Cerro Alto,san-cristobal,517,1,100,84.0,84.0,111.4,61.0,117.8
+Cerro Alto,san-cristobal,517,2,2,41.6,20.8,38.5,33.7,51.5
+Cerro Alto,san-cristobal,517,2,5,65.8,32.9,64.4,51.0,86.9
+Cerro Alto,san-cristobal,517,2,10,81.8,40.9,85.2,62.4,110.9
+Cerro Alto,san-cristobal,517,2,25,102.1,51.0,116.5,76.2,140.8
+Cerro Alto,san-cristobal,517,2,50,117.1,58.6,143.9,85.9,163.2
+Cerro Alto,san-cristobal,517,2,100,132.0,66.0,175.2,95.9,185.2
+Cerro Alto,san-cristobal,517,3,2,50.2,16.7,46.4,40.6,62.1
+Cerro Alto,san-cristobal,517,3,5,79.4,26.5,77.7,61.5,104.8
+Cerro Alto,san-cristobal,517,3,10,98.7,32.9,102.7,75.2,133.7
+Cerro Alto,san-cristobal,517,3,25,123.1,41.0,140.4,91.9,169.8
+Cerro Alto,san-cristobal,517,3,50,141.2,47.1,173.4,103.5,196.8
+Cerro Alto,san-cristobal,517,3,100,159.2,53.1,211.3,115.6,223.3
+Cerro Alto,san-cristobal,517,6,2,62.8,10.5,58.1,50.8,77.7
+Cerro Alto,san-cristobal,517,6,5,99.4,16.6,97.3,77.0,131.2
+Cerro Alto,san-cristobal,517,6,10,123.6,20.6,128.7,94.1,167.4
+Cerro Alto,san-cristobal,517,6,25,154.2,25.7,175.8,115.0,212.6
+Cerro Alto,san-cristobal,517,6,50,176.8,29.5,217.2,129.7,246.4
+Cerro Alto,san-cristobal,517,6,100,199.4,33.2,264.6,144.7,279.6
+Cerro Alto,san-cristobal,517,12,2,68.8,5.7,63.6,55.7,85.1
+Cerro Alto,san-cristobal,517,12,5,108.8,9.1,106.5,84.3,143.7
+Cerro Alto,san-cristobal,517,12,10,135.3,11.3,140.8,103.1,183.3
+Cerro Alto,san-cristobal,517,12,25,168.7,14.1,192.5,125.9,232.7
+Cerro Alto,san-cristobal,517,12,50,193.6,16.1,237.8,141.9,269.8
+Cerro Alto,san-cristobal,517,12,100,218.2,18.2,289.6,158.4,306.1
+Cerro Alto,san-cristobal,517,24,2,83.6,3.5,77.3,67.6,103.4
+Cerro Alto,san-cristobal,517,24,5,132.2,5.5,129.4,102.4,174.6
+Cerro Alto,san-cristobal,517,24,10,164.4,6.9,171.2,125.3,222.7
+Cerro Alto,san-cristobal,517,24,25,205.1,8.5,233.9,153.1,282.8
+Cerro Alto,san-cristobal,517,24,50,235.3,9.8,289.0,172.5,327.9
+Cerro Alto,san-cristobal,517,24,100,265.2,11.1,352.0,192.6,372.0
+El Mirador,san-cristobal,387,1,2,26.5,26.5,24.5,21.4,32.7
+El Mirador,san-cristobal,387,1,5,41.9,41.9,41.0,32.4,55.3
+El Mirador,san-cristobal,387,1,10,52.0,52.0,54.2,39.6,70.5
+El Mirador,san-cristobal,387,1,25,64.9,64.9,74.1,48.5,89.5
+El Mirador,san-cristobal,387,1,50,74.5,74.5,91.5,54.6,103.8
+El Mirador,san-cristobal,387,1,100,84.0,84.0,111.4,61.0,117.8
+El Mirador,san-cristobal,387,2,2,41.6,20.8,38.5,33.7,51.5
+El Mirador,san-cristobal,387,2,5,65.8,32.9,64.4,51.0,86.9
+El Mirador,san-cristobal,387,2,10,81.8,40.9,85.2,62.4,110.9
+El Mirador,san-cristobal,387,2,25,102.1,51.0,116.5,76.2,140.8
+El Mirador,san-cristobal,387,2,50,117.1,58.6,143.9,85.9,163.2
+El Mirador,san-cristobal,387,2,100,132.0,66.0,175.2,95.9,185.2
+El Mirador,san-cristobal,387,3,2,50.2,16.7,46.4,40.6,62.1
+El Mirador,san-cristobal,387,3,5,79.4,26.5,77.7,61.5,104.8
+El Mirador,san-cristobal,387,3,10,98.7,32.9,102.7,75.2,133.7
+El Mirador,san-cristobal,387,3,25,123.1,41.0,140.4,91.9,169.8
+El Mirador,san-cristobal,387,3,50,141.2,47.1,173.4,103.5,196.8
+El Mirador,san-cristobal,387,3,100,159.2,53.1,211.3,115.6,223.3
+El Mirador,san-cristobal,387,6,2,62.8,10.5,58.1,50.8,77.7
+El Mirador,san-cristobal,387,6,5,99.4,16.6,97.3,77.0,131.2
+El Mirador,san-cristobal,387,6,10,123.6,20.6,128.7,94.1,167.4
+El Mirador,san-cristobal,387,6,25,154.2,25.7,175.8,115.0,212.6
+El Mirador,san-cristobal,387,6,50,176.8,29.5,217.2,129.7,246.4
+El Mirador,san-cristobal,387,6,100,199.4,33.2,264.6,144.7,279.6
+El Mirador,san-cristobal,387,12,2,68.8,5.7,63.6,55.7,85.1
+El Mirador,san-cristobal,387,12,5,108.8,9.1,106.5,84.3,143.7
+El Mirador,san-cristobal,387,12,10,135.3,11.3,140.8,103.1,183.3
+El Mirador,san-cristobal,387,12,25,168.7,14.1,192.5,125.9,232.7
+El Mirador,san-cristobal,387,12,50,193.6,16.1,237.8,141.9,269.8
+El Mirador,san-cristobal,387,12,100,218.2,18.2,289.6,158.4,306.1
+El Mirador,san-cristobal,387,24,2,83.6,3.5,77.3,67.6,103.4
+El Mirador,san-cristobal,387,24,5,132.2,5.5,129.4,102.4,174.6
+El Mirador,san-cristobal,387,24,10,164.4,6.9,171.2,125.3,222.7
+El Mirador,san-cristobal,387,24,25,205.1,8.5,233.9,153.1,282.8
+El Mirador,san-cristobal,387,24,50,235.3,9.8,289.0,172.5,327.9
+El Mirador,san-cristobal,387,24,100,265.2,11.1,352.0,192.6,372.0
+Merceditas,san-cristobal,100,1,2,25.7,25.7,23.8,20.8,31.8
+Merceditas,san-cristobal,100,1,5,40.7,40.7,39.8,31.5,53.7
+Merceditas,san-cristobal,100,1,10,50.6,50.6,52.6,38.5,68.5
+Merceditas,san-cristobal,100,1,25,63.1,63.1,71.9,47.1,87.0
+Merceditas,san-cristobal,100,1,50,72.3,72.3,88.9,53.0,100.8
+Merceditas,san-cristobal,100,1,100,81.6,81.6,108.2,59.2,114.4
+Merceditas,san-cristobal,100,2,2,38.0,19.0,35.1,30.7,47.0
+Merceditas,san-cristobal,100,2,5,60.0,30.0,58.8,46.5,79.3
+Merceditas,san-cristobal,100,2,10,74.6,37.3,77.7,56.9,101.1
+Merceditas,san-cristobal,100,2,25,93.1,46.6,106.2,69.5,128.4
+Merceditas,san-cristobal,100,2,50,106.8,53.4,131.2,78.3,148.9
+Merceditas,san-cristobal,100,2,100,120.4,60.2,159.8,87.4,168.9
+Merceditas,san-cristobal,100,3,2,45.8,15.3,42.3,37.0,56.6
+Merceditas,san-cristobal,100,3,5,72.4,24.1,70.9,56.1,95.6
+Merceditas,san-cristobal,100,3,10,90.0,30.0,93.7,68.6,122.0
+Merceditas,san-cristobal,100,3,25,112.3,37.4,128.1,83.8,154.8
+Merceditas,san-cristobal,100,3,50,128.8,42.9,158.2,94.4,179.5
+Merceditas,san-cristobal,100,3,100,145.2,48.4,192.7,105.4,203.7
+Merceditas,san-cristobal,100,6,2,58.3,9.7,53.9,47.2,72.1
+Merceditas,san-cristobal,100,6,5,92.2,15.4,90.3,71.4,121.8
+Merceditas,san-cristobal,100,6,10,114.7,19.1,119.4,87.4,155.3
+Merceditas,san-cristobal,100,6,25,143.0,23.8,163.1,106.7,197.2
+Merceditas,san-cristobal,100,6,50,164.1,27.3,201.5,120.3,228.7
+Merceditas,san-cristobal,100,6,100,185.0,30.8,245.5,134.3,259.4
+Merceditas,san-cristobal,100,12,2,67.2,5.6,62.1,54.4,83.2
+Merceditas,san-cristobal,100,12,5,106.3,8.9,104.1,82.4,140.4
+Merceditas,san-cristobal,100,12,10,132.2,11.0,137.6,100.7,179.1
+Merceditas,san-cristobal,100,12,25,164.9,13.7,188.1,123.1,227.4
+Merceditas,san-cristobal,100,12,50,189.2,15.8,232.3,138.7,263.6
+Merceditas,san-cristobal,100,12,100,213.3,17.8,283.0,154.8,299.1
+Merceditas,san-cristobal,100,24,2,83.6,3.5,77.3,67.6,103.4
+Merceditas,san-cristobal,100,24,5,132.2,5.5,129.4,102.4,174.6
+Merceditas,san-cristobal,100,24,10,164.4,6.9,171.2,125.3,222.7
+Merceditas,san-cristobal,100,24,25,205.1,8.5,233.9,153.1,282.8
+Merceditas,san-cristobal,100,24,50,235.3,9.8,289.0,172.5,327.9
+Merceditas,san-cristobal,100,24,100,265.2,11.1,352.0,192.6,372.0
+INAMHI Puerto Baquerizo,san-cristobal,6,1,2,20.2,20.2,18.4,16.9,23.6
+INAMHI Puerto Baquerizo,san-cristobal,6,1,5,34.4,34.4,34.0,28.7,40.0
+INAMHI Puerto Baquerizo,san-cristobal,6,1,10,43.8,43.8,46.9,36.4,51.1
+INAMHI Puerto Baquerizo,san-cristobal,6,1,25,55.6,55.6,66.8,46.1,65.2
+INAMHI Puerto Baquerizo,san-cristobal,6,1,50,64.4,64.4,84.6,53.4,75.7
+INAMHI Puerto Baquerizo,san-cristobal,6,1,100,73.2,73.2,105.5,60.5,86.1
+INAMHI Puerto Baquerizo,san-cristobal,6,2,2,32.4,16.2,29.4,27.0,37.8
+INAMHI Puerto Baquerizo,san-cristobal,6,2,5,55.0,27.5,54.4,46.0,64.0
+INAMHI Puerto Baquerizo,san-cristobal,6,2,10,70.0,35.0,75.0,58.3,81.8
+INAMHI Puerto Baquerizo,san-cristobal,6,2,25,89.0,44.5,106.8,73.8,104.3
+INAMHI Puerto Baquerizo,san-cristobal,6,2,50,103.0,51.5,135.4,85.3,121.0
+INAMHI Puerto Baquerizo,san-cristobal,6,2,100,117.0,58.5,168.7,96.8,137.7
+INAMHI Puerto Baquerizo,san-cristobal,6,3,2,39.1,13.0,35.6,32.6,45.7
+INAMHI Puerto Baquerizo,san-cristobal,6,3,5,66.5,22.2,65.8,55.6,77.4
+INAMHI Puerto Baquerizo,san-cristobal,6,3,10,84.7,28.2,90.7,70.5,98.8
+INAMHI Puerto Baquerizo,san-cristobal,6,3,25,107.6,35.9,129.1,89.2,126.1
+INAMHI Puerto Baquerizo,san-cristobal,6,3,50,124.6,41.5,163.6,103.2,146.3
+INAMHI Puerto Baquerizo,san-cristobal,6,3,100,141.5,47.2,204.0,117.0,166.4
+INAMHI Puerto Baquerizo,san-cristobal,6,6,2,50.3,8.4,45.7,42.0,58.7
+INAMHI Puerto Baquerizo,san-cristobal,6,6,5,85.6,14.3,84.7,71.5,99.5
+INAMHI Puerto Baquerizo,san-cristobal,6,6,10,108.9,18.1,116.7,90.6,127.1
+INAMHI Puerto Baquerizo,san-cristobal,6,6,25,138.4,23.1,166.1,114.7,162.2
+INAMHI Puerto Baquerizo,san-cristobal,6,6,50,160.2,26.7,210.5,132.7,188.2
+INAMHI Puerto Baquerizo,san-cristobal,6,6,100,182.0,30.3,262.4,150.5,214.1
+INAMHI Puerto Baquerizo,san-cristobal,6,12,2,56.1,4.7,51.0,46.8,65.5
+INAMHI Puerto Baquerizo,san-cristobal,6,12,5,95.4,7.9,94.4,79.7,110.9
+INAMHI Puerto Baquerizo,san-cristobal,6,12,10,121.4,10.1,130.1,101.0,141.7
+INAMHI Puerto Baquerizo,san-cristobal,6,12,25,154.2,12.9,185.1,127.9,180.8
+INAMHI Puerto Baquerizo,san-cristobal,6,12,50,178.6,14.9,234.6,147.9,209.8
+INAMHI Puerto Baquerizo,san-cristobal,6,12,100,202.8,16.9,292.5,167.8,238.6
+INAMHI Puerto Baquerizo,san-cristobal,6,24,2,69.2,2.9,62.9,57.8,80.8
+INAMHI Puerto Baquerizo,san-cristobal,6,24,5,117.7,4.9,116.5,98.3,137.0
+INAMHI Puerto Baquerizo,san-cristobal,6,24,10,149.8,6.2,160.6,124.7,174.9
+INAMHI Puerto Baquerizo,san-cristobal,6,24,25,190.4,7.9,228.6,157.9,223.2
+INAMHI Puerto Baquerizo,san-cristobal,6,24,50,220.5,9.2,289.6,182.6,258.9
+INAMHI Puerto Baquerizo,san-cristobal,6,24,100,250.4,10.4,361.0,207.1,294.5
+El Progreso,san-cristobal,250,1,2,25.4,25.4,23.5,20.5,31.4
+El Progreso,san-cristobal,250,1,5,40.1,40.1,39.3,31.1,53.0
+El Progreso,san-cristobal,250,1,10,49.9,49.9,52.0,38.0,67.6
+El Progreso,san-cristobal,250,1,25,62.2,62.2,71.0,46.5,85.8
+El Progreso,san-cristobal,250,1,50,71.4,71.4,87.7,52.4,99.5
+El Progreso,san-cristobal,250,1,100,80.5,80.5,106.8,58.4,112.9
+El Progreso,san-cristobal,250,2,2,40.3,20.2,37.3,32.6,49.9
+El Progreso,san-cristobal,250,2,5,63.8,31.9,62.5,49.4,84.3
+El Progreso,san-cristobal,250,2,10,79.4,39.7,82.6,60.5,107.5
+El Progreso,san-cristobal,250,2,25,99.0,49.5,112.9,73.9,136.5
+El Progreso,san-cristobal,250,2,50,113.6,56.8,139.5,83.3,158.3
+El Progreso,san-cristobal,250,2,100,128.0,64.0,169.9,92.9,179.6
+El Progreso,san-cristobal,250,3,2,48.5,16.2,44.9,39.3,60.0
+El Progreso,san-cristobal,250,3,5,76.8,25.6,75.1,59.5,101.4
+El Progreso,san-cristobal,250,3,10,95.4,31.8,99.4,72.7,129.3
+El Progreso,san-cristobal,250,3,25,119.1,39.7,135.8,88.9,164.2
+El Progreso,san-cristobal,250,3,50,136.6,45.5,167.8,100.1,190.3
+El Progreso,san-cristobal,250,3,100,154.0,51.3,204.3,111.8,216.0
+El Progreso,san-cristobal,250,6,2,61.5,10.2,56.8,49.7,76.1
+El Progreso,san-cristobal,250,6,5,97.2,16.2,95.2,75.3,128.4
+El Progreso,san-cristobal,250,6,10,120.9,20.2,125.9,92.1,163.8
+El Progreso,san-cristobal,250,6,25,150.8,25.1,172.0,112.6,208.0
+El Progreso,san-cristobal,250,6,50,173.0,28.8,212.5,126.9,241.1
+El Progreso,san-cristobal,250,6,100,195.0,32.5,258.8,141.6,273.6
+El Progreso,san-cristobal,250,12,2,66.9,5.6,61.8,54.1,82.7
+El Progreso,san-cristobal,250,12,5,105.8,8.8,103.5,81.9,139.7
+El Progreso,san-cristobal,250,12,10,131.5,11.0,136.9,100.2,178.2
+El Progreso,san-cristobal,250,12,25,164.0,13.7,187.1,122.4,226.2
+El Progreso,san-cristobal,250,12,50,188.2,15.7,231.1,138.0,262.3
+El Progreso,san-cristobal,250,12,100,212.1,17.7,281.5,154.0,297.6
+El Progreso,san-cristobal,250,24,2,83.6,3.5,77.3,67.6,103.4
+El Progreso,san-cristobal,250,24,5,132.2,5.5,129.4,102.4,174.6
+El Progreso,san-cristobal,250,24,10,164.4,6.9,171.2,125.3,222.7
+El Progreso,san-cristobal,250,24,25,205.1,8.5,233.9,153.1,282.8
+El Progreso,san-cristobal,250,24,50,235.3,9.8,289.0,172.5,327.9
+El Progreso,san-cristobal,250,24,100,265.2,11.1,352.0,192.6,372.0

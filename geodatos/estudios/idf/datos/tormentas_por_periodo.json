@@ -1,0 +1,492 @@
+{
+ "santa-cruz": {
+  "T_cuenca_cuantiles": {
+   "10": 1.2,
+   "25": 1.6,
+   "50": 3.8,
+   "75": 25.1,
+   "90": 219.8
+  },
+  "estaciones_mapa": [
+   "Los Guayabillos",
+   "INAMHI Puerto Ayora",
+   "Erna (Puerto Ayora)",
+   "Punta Estrada"
+  ],
+  "zonas": {
+   "La Cascada": {
+    "logistica": {
+     "a": -4.405,
+     "b": 1.305
+    },
+    "T_con_50pct_de_inundarse": 29.2,
+    "prob_anual_inundacion": 0.083,
+    "una_vez_cada_anios": 11.6,
+    "alto_v02_una_vez_cada_anios": 1.56,
+    "falsas_alarmas_por_anio": 0.56,
+    "bandas": [
+     {
+      "T_desde": 1,
+      "T_hasta": 2,
+      "tormentas": 153,
+      "inundan": 2,
+      "frac_inunda": 0.013,
+      "frac_alto_sin_inundar": 0.007,
+      "prob_anual_banda": 0.5
+     },
+     {
+      "T_desde": 2,
+      "T_hasta": 5,
+      "tormentas": 111,
+      "inundan": 6,
+      "frac_inunda": 0.054,
+      "frac_alto_sin_inundar": 0.324,
+      "prob_anual_banda": 0.3
+     },
+     {
+      "T_desde": 5,
+      "T_hasta": 10,
+      "tormentas": 46,
+      "inundan": 4,
+      "frac_inunda": 0.087,
+      "frac_alto_sin_inundar": 0.905,
+      "prob_anual_banda": 0.1
+     },
+     {
+      "T_desde": 10,
+      "T_hasta": 25,
+      "tormentas": 55,
+      "inundan": 21,
+      "frac_inunda": 0.382,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.06
+     },
+     {
+      "T_desde": 25,
+      "T_hasta": 50,
+      "tormentas": 35,
+      "inundan": 20,
+      "frac_inunda": 0.571,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.02
+     },
+     {
+      "T_desde": 50,
+      "T_hasta": 100,
+      "tormentas": 27,
+      "inundan": 18,
+      "frac_inunda": 0.667,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     },
+     {
+      "T_desde": 100,
+      "T_hasta": null,
+      "tormentas": 73,
+      "inundan": 70,
+      "frac_inunda": 0.959,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     }
+    ]
+   },
+   "Tomás de Berlanga": {
+    "logistica": {
+     "a": -5.368,
+     "b": 0.878
+    },
+    "T_con_50pct_de_inundarse": 450.9,
+    "prob_anual_inundacion": 0.019,
+    "una_vez_cada_anios": 51.5,
+    "alto_v02_una_vez_cada_anios": 1.56,
+    "falsas_alarmas_por_anio": 0.62,
+    "bandas": [
+     {
+      "T_desde": 1,
+      "T_hasta": 2,
+      "tormentas": 153,
+      "inundan": 0,
+      "frac_inunda": 0.0,
+      "frac_alto_sin_inundar": 0.007,
+      "prob_anual_banda": 0.5
+     },
+     {
+      "T_desde": 2,
+      "T_hasta": 5,
+      "tormentas": 111,
+      "inundan": 0,
+      "frac_inunda": 0.0,
+      "frac_alto_sin_inundar": 0.351,
+      "prob_anual_banda": 0.3
+     },
+     {
+      "T_desde": 5,
+      "T_hasta": 10,
+      "tormentas": 46,
+      "inundan": 1,
+      "frac_inunda": 0.022,
+      "frac_alto_sin_inundar": 0.911,
+      "prob_anual_banda": 0.1
+     },
+     {
+      "T_desde": 10,
+      "T_hasta": 25,
+      "tormentas": 55,
+      "inundan": 2,
+      "frac_inunda": 0.036,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.06
+     },
+     {
+      "T_desde": 25,
+      "T_hasta": 50,
+      "tormentas": 35,
+      "inundan": 4,
+      "frac_inunda": 0.114,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.02
+     },
+     {
+      "T_desde": 50,
+      "T_hasta": 100,
+      "tormentas": 27,
+      "inundan": 6,
+      "frac_inunda": 0.222,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     },
+     {
+      "T_desde": 100,
+      "T_hasta": null,
+      "tormentas": 73,
+      "inundan": 37,
+      "frac_inunda": 0.507,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     }
+    ]
+   },
+   "Bellavista": {
+    "logistica": {
+     "a": -4.476,
+     "b": 1.441
+    },
+    "T_con_50pct_de_inundarse": 22.3,
+    "prob_anual_inundacion": 0.093,
+    "una_vez_cada_anios": 10.2,
+    "alto_v02_una_vez_cada_anios": 1.56,
+    "falsas_alarmas_por_anio": 0.54,
+    "bandas": [
+     {
+      "T_desde": 1,
+      "T_hasta": 2,
+      "tormentas": 175,
+      "inundan": 0,
+      "frac_inunda": 0.0,
+      "frac_alto_sin_inundar": 0.034,
+      "prob_anual_banda": 0.5
+     },
+     {
+      "T_desde": 2,
+      "T_hasta": 5,
+      "tormentas": 102,
+      "inundan": 2,
+      "frac_inunda": 0.02,
+      "frac_alto_sin_inundar": 0.72,
+      "prob_anual_banda": 0.3
+     },
+     {
+      "T_desde": 5,
+      "T_hasta": 10,
+      "tormentas": 53,
+      "inundan": 12,
+      "frac_inunda": 0.226,
+      "frac_alto_sin_inundar": 0.976,
+      "prob_anual_banda": 0.1
+     },
+     {
+      "T_desde": 10,
+      "T_hasta": 25,
+      "tormentas": 63,
+      "inundan": 29,
+      "frac_inunda": 0.46,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.06
+     },
+     {
+      "T_desde": 25,
+      "T_hasta": 50,
+      "tormentas": 34,
+      "inundan": 24,
+      "frac_inunda": 0.706,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.02
+     },
+     {
+      "T_desde": 50,
+      "T_hasta": 100,
+      "tormentas": 41,
+      "inundan": 36,
+      "frac_inunda": 0.878,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     },
+     {
+      "T_desde": 100,
+      "T_hasta": null,
+      "tormentas": 32,
+      "inundan": 24,
+      "frac_inunda": 0.75,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     }
+    ]
+   }
+  }
+ },
+ "san-cristobal": {
+  "T_cuenca_cuantiles": {
+   "10": 1.3,
+   "25": 1.9,
+   "50": 4.4,
+   "75": 26.1,
+   "90": 103.5
+  },
+  "estaciones_mapa": [
+   "El Junco",
+   "Cerro Alto",
+   "El Mirador",
+   "INAMHI Puerto Baquerizo"
+  ],
+  "zonas": {
+   "Barrio Frío (desembocadura)": {
+    "logistica": {
+     "a": -3.935,
+     "b": 1.292
+    },
+    "T_con_50pct_de_inundarse": 21.0,
+    "prob_anual_inundacion": 0.11,
+    "una_vez_cada_anios": 8.5,
+    "alto_v02_una_vez_cada_anios": 1.87,
+    "falsas_alarmas_por_anio": 0.42,
+    "bandas": [
+     {
+      "T_desde": 1,
+      "T_hasta": 2,
+      "tormentas": 140,
+      "inundan": 2,
+      "frac_inunda": 0.014,
+      "frac_alto_sin_inundar": 0.022,
+      "prob_anual_banda": 0.5
+     },
+     {
+      "T_desde": 2,
+      "T_hasta": 5,
+      "tormentas": 121,
+      "inundan": 7,
+      "frac_inunda": 0.058,
+      "frac_alto_sin_inundar": 0.632,
+      "prob_anual_banda": 0.3
+     },
+     {
+      "T_desde": 5,
+      "T_hasta": 10,
+      "tormentas": 55,
+      "inundan": 12,
+      "frac_inunda": 0.218,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.1
+     },
+     {
+      "T_desde": 10,
+      "T_hasta": 25,
+      "tormentas": 54,
+      "inundan": 31,
+      "frac_inunda": 0.574,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.06
+     },
+     {
+      "T_desde": 25,
+      "T_hasta": 50,
+      "tormentas": 38,
+      "inundan": 25,
+      "frac_inunda": 0.658,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.02
+     },
+     {
+      "T_desde": 50,
+      "T_hasta": 100,
+      "tormentas": 40,
+      "inundan": 29,
+      "frac_inunda": 0.725,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     },
+     {
+      "T_desde": 100,
+      "T_hasta": null,
+      "tormentas": 52,
+      "inundan": 47,
+      "frac_inunda": 0.904,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     }
+    ]
+   },
+   "El Manzanillo": {
+    "logistica": {
+     "a": -5.445,
+     "b": 1.206
+    },
+    "T_con_50pct_de_inundarse": 91.3,
+    "prob_anual_inundacion": 0.034,
+    "una_vez_cada_anios": 28.5,
+    "alto_v02_una_vez_cada_anios": 1.87,
+    "falsas_alarmas_por_anio": 0.5,
+    "bandas": [
+     {
+      "T_desde": 1,
+      "T_hasta": 2,
+      "tormentas": 140,
+      "inundan": 1,
+      "frac_inunda": 0.007,
+      "frac_alto_sin_inundar": 0.029,
+      "prob_anual_banda": 0.5
+     },
+     {
+      "T_desde": 2,
+      "T_hasta": 5,
+      "tormentas": 121,
+      "inundan": 2,
+      "frac_inunda": 0.017,
+      "frac_alto_sin_inundar": 0.647,
+      "prob_anual_banda": 0.3
+     },
+     {
+      "T_desde": 5,
+      "T_hasta": 10,
+      "tormentas": 55,
+      "inundan": 2,
+      "frac_inunda": 0.036,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.1
+     },
+     {
+      "T_desde": 10,
+      "T_hasta": 25,
+      "tormentas": 54,
+      "inundan": 7,
+      "frac_inunda": 0.13,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.06
+     },
+     {
+      "T_desde": 25,
+      "T_hasta": 50,
+      "tormentas": 38,
+      "inundan": 9,
+      "frac_inunda": 0.237,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.02
+     },
+     {
+      "T_desde": 50,
+      "T_hasta": 100,
+      "tormentas": 40,
+      "inundan": 16,
+      "frac_inunda": 0.4,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     },
+     {
+      "T_desde": 100,
+      "T_hasta": null,
+      "tormentas": 52,
+      "inundan": 37,
+      "frac_inunda": 0.712,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     }
+    ]
+   },
+   "El Progreso": {
+    "logistica": {
+     "a": -6.173,
+     "b": 1.358
+    },
+    "T_con_50pct_de_inundarse": 94.1,
+    "prob_anual_inundacion": 0.027,
+    "una_vez_cada_anios": 36.3,
+    "alto_v02_una_vez_cada_anios": 1.87,
+    "falsas_alarmas_por_anio": 0.51,
+    "bandas": [
+     {
+      "T_desde": 1,
+      "T_hasta": 2,
+      "tormentas": 140,
+      "inundan": 1,
+      "frac_inunda": 0.007,
+      "frac_alto_sin_inundar": 0.029,
+      "prob_anual_banda": 0.5
+     },
+     {
+      "T_desde": 2,
+      "T_hasta": 5,
+      "tormentas": 121,
+      "inundan": 0,
+      "frac_inunda": 0.0,
+      "frac_alto_sin_inundar": 0.653,
+      "prob_anual_banda": 0.3
+     },
+     {
+      "T_desde": 5,
+      "T_hasta": 10,
+      "tormentas": 55,
+      "inundan": 0,
+      "frac_inunda": 0.0,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.1
+     },
+     {
+      "T_desde": 10,
+      "T_hasta": 25,
+      "tormentas": 54,
+      "inundan": 5,
+      "frac_inunda": 0.093,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.06
+     },
+     {
+      "T_desde": 25,
+      "T_hasta": 50,
+      "tormentas": 38,
+      "inundan": 10,
+      "frac_inunda": 0.263,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.02
+     },
+     {
+      "T_desde": 50,
+      "T_hasta": 100,
+      "tormentas": 40,
+      "inundan": 18,
+      "frac_inunda": 0.45,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     },
+     {
+      "T_desde": 100,
+      "T_hasta": null,
+      "tormentas": 52,
+      "inundan": 35,
+      "frac_inunda": 0.673,
+      "frac_alto_sin_inundar": 1.0,
+      "prob_anual_banda": 0.01
+     }
+    ]
+   }
+  }
+ }
+}

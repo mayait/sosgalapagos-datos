@@ -252,6 +252,16 @@ salidas = ["estudios/tormentas/figuras/*.png", "estudios/tormentas/figuras/*.mp4
            "estudios/tormentas/datos/*/mejor_sitio_pluviometro.json", "estudios/tormentas/datos/*/animaciones.json",
            "estudios/tormentas/datos/*/compromiso_*.csv", "estudios/tormentas/datos/escenarios_red.json"]
 
+[pasos.curvas_idf]
+script = "34_curvas_idf.py"
+pesado = true
+nota = "Curvas IDF provisionales (FCD + razones de GAR horario) y periodo de retorno de las tormentas sintéticas. La descarga de GAR horario (≈1 h desde Galápagos) va aparte: «34_curvas_idf.py descargar»"
+codigo = ["32_tormentas_sinteticas.py", "33_tormentas_figuras.py"]
+cmd = ["{py} -W ignore scripts/34_curvas_idf.py analizar", "{py} -W ignore scripts/34_curvas_idf.py tormentas", "{py} -W ignore scripts/34_curvas_idf.py figuras"]
+entradas = ["estudios/idf/cache/gar_h/*.npz", "datos/marburg_darwin/bruto/gar/*", "../clima/datos/fcd/*.csv", "@ierse",
+            "estudios/tormentas/datos/*/resultados_tormentas.csv", "estudios/tormentas/datos/*/previo_llegada_*.csv"]
+salidas = ["estudios/idf/datos/*.csv", "estudios/idf/datos/*.json", "estudios/idf/figuras/*.png"]
+
 [pasos.canadas_oficiales]
 script = "27_canadas_oficiales_san_cristobal.py"
 nota = "Cañadas oficiales del plan de la UGR; añade «cañada_oficial» a cuencas y puntos"
