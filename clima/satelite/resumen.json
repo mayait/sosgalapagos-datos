@@ -1,6 +1,6 @@
 {
- "generado": "2026-11-04T07:54:14Z",
- "advertencia": "Estimación satelital (GOES-19 ABI y GLM) evaluada contra pocas estaciones y tres eventos. No es lluvia medida ni una alerta oficial.",
+ "generado": "2026-11-04T08:00:29Z",
+ "advertencia": "Estimación satelital (GOES-19 ABI y GLM) evaluada contra pocas estaciones de Santa Cruz: un solo evento convectivo con adelanto (30-oct-2026), reglas ajustadas a ese evento. No es lluvia medida ni una alerta oficial.",
  "fuente_lluvia": "clima.db (solo lectura)",
  "senales": {
   "rayos_1": "≥ 1 destello GLM en 30 min",

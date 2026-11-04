@@ -174,6 +174,9 @@ def procesar_abi(con, zs, ahora, horas_atras, log, errores, plazo) -> dict:
     disponibles = {"c13": {}, "rrqpe": {}}
     for producto in disponibles:
         for h in range(horas_atras, -1, -1):
+            if plazo.agotado():  # con el bucket colgado, los listados también cuentan para el plazo
+                log(f"plazo de la corrida agotado al listar {producto}")
+                break
             hora = (ahora - dt.timedelta(hours=h)).replace(minute=0, second=0, microsecond=0)
             try:
                 for clave, tam in goes.listar(producto, hora):
@@ -259,6 +262,9 @@ def procesar_glm(con, zs, ahora, horas_atras, log, errores, plazo) -> None:
                     listados[hora] = goes.listar("glm", hora)
                 except FileNotFoundError:
                     listados[hora] = []
+                except Exception as e:
+                    errores.append(f"listar glm {hora:%H}Z: {str(e)[:100]}")
+                    break
             archivos = [x for x in listados[hora] if b <= goes.inicio_de(x[0]) < b + dt.timedelta(minutes=10)]
             lat, lon, tt, n_ok, bajado, fallos = [], [], [], 0, 0, 0
             futuros = [ex.submit(_leer_glm, a) for a in archivos]

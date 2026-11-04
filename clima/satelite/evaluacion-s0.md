@@ -11,8 +11,11 @@
   - Con la regla v1 y 3 h de persistencia, la vigilancia empezó **230 min antes** de que la regla de lluvia medida llegara a «medio» en La Cascada y **220 min antes** en la parte alta.
   - Descontando la latencia (~20 min: 10 hasta el bucket, hasta 5 del timer y hasta 5 de la exportación), quedan unos **3,5 h**.
   - Las reglas se ajustaron después de ver ese evento: la v0 no daba adelanto y se cambió por la v1.
-- **Sin RRQPE también habría avisado**, una vez corregido el paralaje. Solo con los topes fríos de la banda 13, el adelanto fue de 190 min en La Cascada y 210 en la parte alta (unos 170–190 min descontando la latencia). Sin corregir el paralaje, La Cascada no avisaba con los topes fríos: dependía de RRQPE, que la NOAA tiene detenido desde el 2-nov.
-- **2-nov:** avisó con 20 min en La Cascada, que la latencia anula. No avisó en la parte alta.
+- **Sin RRQPE (la situación de hoy) el aviso solo es sólido en la parte alta.**
+  - **Parte alta:** con los topes fríos de la banda 13 hubo disparos de las 11:30 a las 12:20 (hasta 43 % de la zona por debajo de 221 K), y el adelanto fue de 210 min (190 descontando la latencia).
+  - **La Cascada:** el disparo se apoya en **solo 2 imágenes** (12:00 y 12:10, con 3 de 20 y 4 de 14 píxeles fríos), y con 3 h de persistencia la vigilancia termina justo a las 15:10, el mismo minuto del «medio». Es un **caso límite**: con 10 min menos de persistencia no habría adelanto. Sin corregir el paralaje, ni siquiera eso.
+  - Los ~3,5 h de La Cascada **incluyen RRQPE** (≥ 10 mm/h a 25 km desde las 11:20).
+- **1–2-nov:** avisó con 20 min antes del episodio intenso de La Cascada del 2-nov (08:00), que la latencia anula. No avisó antes del episodio de la parte alta del 1-nov (20:10).
 - **Octubre y 1–2-nov, por episodios** (v1 a 10 min con persistencia, §5.3):
   - se detectaron 2 de 4 episodios de lluvia intensa en La Cascada y 1 de 4 en la parte alta;
   - hubo 5 episodios de vigilancia sin lluvia intensa por zona: dos sin nada de lluvia (24 y 27-oct, 3–4 h cada uno) y tres con lluvia moderada (6–11 mm en 1 h) el 31-oct y el 1–2-nov;
@@ -70,15 +73,17 @@ Horas de Galápagos (UTC−6). R1h y R3h en mm: el máximo de las estaciones vá
 
 ¹ La regla ya estaba en «medio» al empezar la ventana (por la lluvia de 24 h del 31-oct). Para el 1–2-nov vale el análisis por episodios (§5.3): el episodio intenso de La Cascada empezó el 2-nov a las 08:00.
 
+² La regla llega a «medio» a las 19:50, con los umbrales rebajados un 20 % por la humedad previa. El episodio de lluvia intensa (R1h ≥ 15 mm sin rebaja), que es el que usa §5.3, empieza a las 20:10.
+
 Adelanto de la regla v1 frente al «medio» (min):
 
 | Evento | Zona | Con persistencia | Efectivo (−20 min) | Solo banda 13 (sin RRQPE) |
 |---|---|---|---|---|
-| 30-oct | La Cascada | 230 | 210 | 190 |
-| 30-oct | Santa Cruz alta | 220 | 200 | 210 |
+| 30-oct | La Cascada | 230 | 210 | 190 (caso límite: 2 imágenes; la vigilancia acaba a las 15:10, con el «medio») |
+| 30-oct | Santa Cruz alta | 220 | 200 | 210 (disparos de 11:30 a 12:20, hasta 43 % de la zona) |
 | 23-oct y 3-oct | ambas | no avisó | — | — |
 | 2-nov (episodio de las 08:00) | La Cascada | 20 | 0 | — |
-| 1-nov, episodio de las 20:10 | Santa Cruz alta | no avisó | — | — |
+| 1-nov, episodio de las 20:10² | Santa Cruz alta | no avisó | — | — |
 
 ### 30-oct: evento convectivo, detectado
 
@@ -159,8 +164,8 @@ Episodio de lluvia intensa: tramo con R1h ≥ 15 o R3h ≥ 30 mm (huecos de meno
 
 | Zona | Episodios de lluvia intensa | Detectados | Con adelanto | Vigilancia sin lluvia intensa |
 |---|---|---|---|---|
-| La Cascada | 4 (3-oct, 23-oct, 30-oct, 2-nov) | 2 (30-oct: 230 min; 2-nov: 20 min) | 2 (1 útil tras la latencia) | 5 |
-| Santa Cruz alta | 4 (3-oct, 23-oct, 30-oct, 2-nov) | 1 (30-oct: 220 min) | 1 | 5 |
+| La Cascada | 4 (3-oct, 23-oct, 30-oct, 2-nov 08:00) | 2 (30-oct: 230 min; 2-nov: 20 min) | 2 (1 útil tras la latencia) | 5 |
+| Santa Cruz alta | 4 (3-oct, 23-oct, 30-oct, 1-nov 20:10) | 1 (30-oct: 220 min) | 1 | 5 |
 
 Episodios de vigilancia sin lluvia intensa (hora de Galápagos):
 
@@ -237,7 +242,7 @@ Horas en que una estación de Santa Cruz marca 0 mientras otra mide ≥ 5 mm (`r
 
 ## 7. Operación en tiempo real
 
-- **Latencia:** cada barrido ABI llega al bucket 9,7–10,3 min después de empezar. Con el timer (`*:2/5`) y la exportación del recolector (`*:0/5`), el dato llega al panel con 15–25 min de antigüedad.
+- **Latencia, desde el inicio del barrido hasta el panel: 15–25 min para la banda 13 y RRQPE.** Son ~10 min hasta el bucket (9,7–10,3 medidos; el disco completo tarda ~10 min), hasta 5 del timer (`*:2/5`) y hasta 5 de la exportación del recolector en `estado.json` (`*:0/5`). El GLM llega al bucket en menos de 1 min, pero se cuenta por intervalos cerrados de 10 min, así que en el panel tiene 10–20 min de retraso.
 - **Descarga por corrida en el servidor:** ~1,3 MB de banda 13, ~0,5 MB de RRQPE y ~2 MB de GLM por rangos, cada 10 min (~4 MB; ~17 GB al mes). No se guarda ningún netCDF.
 - **Robustez:**
   - timeout de 15 s por petición y 3 intentos;
