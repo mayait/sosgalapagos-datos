@@ -9,4 +9,5 @@ El inventario completo, con endpoints, muestras y pruebas, está en `privado/fue
 | INAMHI | Lluvia cada 5 min en Puerto Ayora (M0191) y San Cristóbal; historial horario de 90 días | Historial archivado en `datos/inamhi/`; sin publicar |
 | Mareógrafos IOC (Puerto Ayora, Baltra) | Nivel del mar por minuto | Sin integrar |
 | METAR / SYNOP de los aeropuertos (Baltra, San Cristóbal) | Tiempo presente, presión, viento; lluvia en 6 h | Sin integrar |
-| Satélite (PERSIANN-CCS, GOES, IMERG) y modelos (Open-Meteo, MET Norway) | Lluvia estimada y pronóstico | Sin integrar |
+| Modelos globales vía Open-Meteo (ECMWF IFS y AIFS, NOAA GFS, DWD ICON, UK Met Office, Météo-France, Canadá GEM, y sus conjuntos) | Pronóstico de lluvia a 7 días y archivo de pronósticos pasados (CC BY 4.0) | En el dashboard (pronóstico experimental calibrado; ver `pronostico/`) |
+| Satélite (GOES-19, IMERG, PERSIANN-CCS) | Rayos, topes fríos y lluvia estimada (0–6 h) | En desarrollo (`satelite/`) |

@@ -1,0 +1,464 @@
+{
+ "generado": "2026-11-04T05:15:53Z",
+ "periodo_obs": [
+  "2015-06-08",
+  "2026-11-01"
+ ],
+ "desfase_fcd_dias": {
+  "spearman_por_desfase": {
+   "-1": 0.193,
+   "0": 0.235,
+   "1": 0.172
+  },
+  "aplicado": 0
+ },
+ "inicio_archivo_por_modelo": {
+  "ecmwf_aifs025_single": "2025-02-17",
+  "ecmwf_ifs": "2024-01-01",
+  "ecmwf_ifs025": "2024-02-03",
+  "gem_seamless": "2024-01-01",
+  "gfs_seamless": "2024-01-01",
+  "icon_seamless": "2024-01-01",
+  "meteofrance_seamless": "2024-01-01",
+  "ukmo_seamless": "2024-01-01"
+ },
+ "celdas": [
+  {
+   "punto": "fcd/puerto_ayora",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "fcd/puerto_ayora",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.73813707,
+   "lon_celda": -90.28259
+  },
+  {
+   "punto": "fcd/puerto_ayora",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "fcd/puerto_ayora",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.5999985,
+   "lon_celda": -90.299995
+  },
+  {
+   "punto": "fcd/puerto_ayora",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.761467,
+   "lon_celda": -90.35156
+  },
+  {
+   "punto": "fcd/puerto_ayora",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -90.375
+  },
+  {
+   "punto": "fcd/puerto_ayora",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "fcd/puerto_ayora",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -90.28125
+  },
+  {
+   "punto": "gsc/cerro_alto",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/cerro_alto",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.8787346,
+   "lon_celda": -89.50473
+  },
+  {
+   "punto": "gsc/cerro_alto",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/cerro_alto",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.8999939,
+   "lon_celda": -89.549995
+  },
+  {
+   "punto": "gsc/cerro_alto",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.87861633,
+   "lon_celda": -89.53125
+  },
+  {
+   "punto": "gsc/cerro_alto",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -89.375
+  },
+  {
+   "punto": "gsc/cerro_alto",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/cerro_alto",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.84375,
+   "lon_celda": -89.578125
+  },
+  {
+   "punto": "gsc/junco",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/junco",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.8787346,
+   "lon_celda": -89.50473
+  },
+  {
+   "punto": "gsc/junco",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/junco",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.8999939,
+   "lon_celda": -89.549995
+  },
+  {
+   "punto": "gsc/junco",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.87861633,
+   "lon_celda": -89.53125
+  },
+  {
+   "punto": "gsc/junco",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -89.375
+  },
+  {
+   "punto": "gsc/junco",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/junco",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.84375,
+   "lon_celda": -89.4375
+  },
+  {
+   "punto": "gsc/merceditas",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/merceditas",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.8787346,
+   "lon_celda": -89.43396
+  },
+  {
+   "punto": "gsc/merceditas",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/merceditas",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.8999939,
+   "lon_celda": -89.399994
+  },
+  {
+   "punto": "gsc/merceditas",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.87861633,
+   "lon_celda": -89.41406
+  },
+  {
+   "punto": "gsc/merceditas",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -89.375
+  },
+  {
+   "punto": "gsc/merceditas",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/merceditas",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.84375,
+   "lon_celda": -89.4375
+  },
+  {
+   "punto": "gsc/mirador",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/mirador",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.8787346,
+   "lon_celda": -89.50473
+  },
+  {
+   "punto": "gsc/mirador",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/mirador",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.8999939,
+   "lon_celda": -89.549995
+  },
+  {
+   "punto": "gsc/mirador",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.87861633,
+   "lon_celda": -89.53125
+  },
+  {
+   "punto": "gsc/mirador",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -89.375
+  },
+  {
+   "punto": "gsc/mirador",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -1.0,
+   "lon_celda": -89.5
+  },
+  {
+   "punto": "gsc/mirador",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.84375,
+   "lon_celda": -89.578125
+  },
+  {
+   "punto": "ierse/n_glps01",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps01",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.6678383,
+   "lon_celda": -90.352936
+  },
+  {
+   "punto": "ierse/n_glps01",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps01",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.5999985,
+   "lon_celda": -90.299995
+  },
+  {
+   "punto": "ierse/n_glps01",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.6443176,
+   "lon_celda": -90.35156
+  },
+  {
+   "punto": "ierse/n_glps01",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.625,
+   "lon_celda": -90.375
+  },
+  {
+   "punto": "ierse/n_glps01",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps01",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.65625,
+   "lon_celda": -90.28125
+  },
+  {
+   "punto": "ierse/n_glps05",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps05",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.6678383,
+   "lon_celda": -90.352936
+  },
+  {
+   "punto": "ierse/n_glps05",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps05",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.5999985,
+   "lon_celda": -90.299995
+  },
+  {
+   "punto": "ierse/n_glps05",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.6443176,
+   "lon_celda": -90.35156
+  },
+  {
+   "punto": "ierse/n_glps05",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -90.375
+  },
+  {
+   "punto": "ierse/n_glps05",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps05",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.65625,
+   "lon_celda": -90.28125
+  },
+  {
+   "punto": "ierse/n_glps06",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps06",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.456942,
+   "lon_celda": -90.28168
+  },
+  {
+   "punto": "ierse/n_glps06",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps06",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.5999985,
+   "lon_celda": -90.299995
+  },
+  {
+   "punto": "ierse/n_glps06",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.5271683,
+   "lon_celda": -90.234375
+  },
+  {
+   "punto": "ierse/n_glps06",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.5,
+   "lon_celda": -90.375
+  },
+  {
+   "punto": "ierse/n_glps06",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps06",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.46875,
+   "lon_celda": -90.28125
+  },
+  {
+   "punto": "ierse/n_glps09",
+   "modelo": "ecmwf_aifs025_single",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps09",
+   "modelo": "ecmwf_ifs",
+   "lat_celda": -0.6678383,
+   "lon_celda": -90.42352
+  },
+  {
+   "punto": "ierse/n_glps09",
+   "modelo": "ecmwf_ifs025",
+   "lat_celda": -0.5,
+   "lon_celda": -90.25
+  },
+  {
+   "punto": "ierse/n_glps09",
+   "modelo": "gem_seamless",
+   "lat_celda": -0.5999985,
+   "lon_celda": -90.45
+  },
+  {
+   "punto": "ierse/n_glps09",
+   "modelo": "gfs_seamless",
+   "lat_celda": -0.6443176,
+   "lon_celda": -90.35156
+  },
+  {
+   "punto": "ierse/n_glps09",
+   "modelo": "icon_seamless",
+   "lat_celda": -0.625,
+   "lon_celda": -90.375
+  },
+  {
+   "punto": "ierse/n_glps09",
+   "modelo": "meteofrance_seamless",
+   "lat_celda": -0.75,
+   "lon_celda": -90.5
+  },
+  {
+   "punto": "ierse/n_glps09",
+   "modelo": "ukmo_seamless",
+   "lat_celda": -0.65625,
+   "lon_celda": -90.421875
+  }
+ ],
+ "dias_por_grupo": {
+  "santa_cruz_alta": 182,
+  "san_cristobal_alta": 817,
+  "costa": 968
+ }
+}
