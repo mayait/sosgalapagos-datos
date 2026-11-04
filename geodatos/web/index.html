@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mapas de Galápagos</title>
-<meta name="description" content="Capas geográficas de la emergencia por inundaciones en Galápagos (oct–nov 2026): riesgo de inundación por lluvia, quebradas, cruces con vías, población y puntos clave. Buscador de calles, puntos de análisis y descarga en Shapefile y GeoJSON.">
+<meta name="description" content="Capas geográficas de la emergencia por inundaciones en Galápagos (oct–nov 2026): riesgo de inundación por lluvia, quebradas, cruces con vías, población y puntos clave. Buscador de calles, puntos de análisis, puntos propios y descarga en Shapefile y GeoJSON.">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -91,7 +91,7 @@ details.card summary{cursor:pointer;font-weight:600;font-size:13px}
 .mix{mix-blend-mode:multiply}
 
 /* Buscador */
-#buscador{position:absolute;top:10px;left:56px;z-index:900;width:min(360px,calc(100% - 120px))}
+#buscador{position:absolute;top:10px;left:56px;z-index:910;width:min(360px,calc(100% - 120px))}
 #buscador input{width:100%;border:1px solid #c9c8c1;border-radius:9px;padding:8px 32px 8px 11px;font:inherit;font-size:14px;background:#fff;color:#1b1b19;box-shadow:0 1px 5px rgba(0,0,0,.18)}
 #buscador input::-webkit-search-cancel-button{display:none}
 #buscador input:focus{outline:2px solid #0b5cad;outline-offset:0}
@@ -113,7 +113,39 @@ details.card summary{cursor:pointer;font-weight:600;font-size:13px}
 #aviso{position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:950;background:rgba(20,20,19,.88);color:#fff;font-size:12.5px;padding:6px 12px;border-radius:999px;display:none;max-width:90%;text-align:center}
 #aviso.on{display:block}
 .poniendo #map{cursor:crosshair}
-.poniendo .leaflet-interactive,.poniendo .leaflet-pane canvas,.poniendo .leaflet-marker-icon:not(.upt){pointer-events:none!important}
+.poniendo .leaflet-interactive,.poniendo .leaflet-pane canvas,.poniendo .leaflet-marker-icon:not(.upt):not(.mip){pointer-events:none!important}
+#herr button.mio{border-color:#6d28d9;color:#6d28d9}
+#herr button.mio.on{background:#6d28d9;border-color:#6d28d9;color:#fff}
+
+/* Mis puntos: se guardan solo en este navegador */
+.mip{background:transparent;border:0}
+.mip span{position:absolute;left:1px;top:1px;width:22px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#6d28d9;border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.5)}
+.mip span::after{content:"";position:absolute;left:5px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff}
+.mip-rot{background:rgba(255,255,255,.92);border:1px solid #c4b5fd;color:#4c1d95;font:600 11.5px system-ui;padding:1px 6px;border-radius:6px;box-shadow:none;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mip-rot::before{display:none}
+.map-muy-lejos .mip-rot{display:none}
+.pp label{display:block;font-size:11px;color:#666;margin:6px 0 0}
+.pp input,.pp textarea{display:block;width:100%;margin-top:2px;border:1px solid #c9c8c1;border-radius:6px;padding:5px 7px;font:inherit;font-size:13px;background:#fff;color:#1b1b19;resize:vertical}
+.pp input:focus,.pp textarea:focus{outline:2px solid #6d28d9;outline-offset:0}
+.pp button.mio{background:#6d28d9;border-color:#6d28d9;color:#fff}
+.pp button.peligro{color:#b91c1c;border-color:#b91c1c;background:#fff}
+.pp .priv{font-size:11px;color:#6d28d9;margin-top:6px}
+#mios summary .n{font-weight:400;color:var(--mut);font-size:12px}
+#mios .priv{color:var(--ink);background:var(--soft);border-radius:8px;padding:6px 8px;font-size:12px}
+#mios .warn{color:var(--warn)}
+#mios ul{list-style:none;margin:6px 0 0;padding:0}
+#mios li{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}
+#mios li:last-child{border-bottom:0}
+#mios li .ico{flex:none;width:12px;height:12px;margin-top:3px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#6d28d9}
+#mios li .tx{flex:1;min-width:0;cursor:pointer}
+#mios li .tx b{display:block;font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#mios li .tx small{display:block;color:var(--mut);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#mios li button{flex:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:7px;padding:3px 8px;font:inherit;font-size:12px;cursor:pointer}
+#mios li button:hover{border-color:var(--acc)}
+#mios li button.x:hover{border-color:#b91c1c;color:#b91c1c}
+#mios .acciones button:disabled{opacity:.45;cursor:default}
+#mios-borrar.seguro{border-color:#b91c1c;color:#b91c1c;font-weight:600}
+#leyenda i.mipt{width:11px;height:11px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#6d28d9;margin:0 8px 0 3px}
 
 /* Leyenda sobre el mapa (sale en las capturas) */
 #leyenda{position:absolute;right:10px;bottom:26px;z-index:850;width:290px;max-height:calc(100% - 150px);display:flex;flex-direction:column;background:rgba(255,255,255,.96);color:#1b1b19;border:1px solid #d6d5cf;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.2);font-size:11.5px;line-height:1.3}
@@ -157,6 +189,7 @@ body.captura #salir.tenue:hover{opacity:1}
  #buscador{left:10px;width:calc(100% - 64px)}
  #herr{top:56px}
  #herr button span{display:none}
+ #herr button.mio span{display:inline}
  #herr button{padding:8px}
  #leyenda{width:min(260px,calc(100% - 20px));max-height:calc(100% - 120px);bottom:22px}
  .leaflet-control-zoom{display:none}
@@ -169,7 +202,7 @@ body.captura #salir.tenue:hover{opacity:1}
   <div class="head">
    <a class="back" href="/">← SOS Galápagos</a>
    <h1>Mapas y capas de la emergencia</h1>
-   <div class="sub">Inundaciones por El Niño en Galápagos, oct–nov 2026. Busca una calle o un lugar, pon puntos A, B, C… para analizar el riesgo y descarga la imagen con su leyenda. <b>Los puntos no se guardan</b>: desaparecen al cerrar la página.</div>
+   <div class="sub">Inundaciones por El Niño en Galápagos, oct–nov 2026. Busca una calle o un lugar, pon puntos A, B, C… para analizar el riesgo, marca tus propios puntos y descarga la imagen con su leyenda. Los puntos de análisis A, B, C <b>no se guardan</b>. «Mis puntos» se guardan <b>solo en este navegador</b>: nadie más los ve.</div>
    <div class="lbl">Ir a</div>
    <div class="row" id="islas"></div>
    <div class="lbl">Mapa base</div>
@@ -177,6 +210,14 @@ body.captura #salir.tenue:hover{opacity:1}
   </div>
   <div class="body">
    <div class="acciones"><button id="apagar">Apagar todas las capas</button><button id="restablecer">Volver a las capas iniciales</button></div>
+   <details class="card" id="mios">
+    <summary>Mis puntos <span class="n" id="mios-n">· solo en este navegador</span></summary>
+    <p class="priv"><b>Tus puntos solo se guardan en este navegador; nadie más los ve.</b> No se envían a ningún servidor. Si borras los datos del navegador o usas otro dispositivo, no estarán.</p>
+    <p class="warn" id="mios-aviso" hidden>Este navegador no deja guardar datos (modo privado o bloqueo). Tus puntos funcionan, pero se pierden al cerrar la página: expórtalos si los necesitas.</p>
+    <ul id="mios-lista"></ul>
+    <p id="mios-vacio">Aún no tienes puntos. Pulsa «+ Mi punto» y toca el mapa, mantén pulsado el mapa (clic derecho en computadora) o abre un resultado del buscador y elige «Añadir a mis puntos».</p>
+    <div class="acciones"><button id="mios-exportar">Exportar GeoJSON</button><button id="mios-borrar">Borrar todos</button></div>
+   </details>
    <div id="grupos"></div>
    <details class="card" id="expo"><summary>Exposición estimada por isla</summary><div></div></details>
    <details class="card"><summary>Descargar las capas (Shapefile y GeoJSON)</summary>
@@ -188,7 +229,8 @@ body.captura #salir.tenue:hover{opacity:1}
    </details>
    <details class="card"><summary>Cómo buscar, poner puntos y sacar una imagen</summary>
     <p><b>Buscar:</b> escribe el nombre de una calle, un barrio, un lugar, una cañada o el código de un cruce (CR-SCZ-0001) o de un punto (SC-001, PBM-L01). También acepta coordenadas: <code>-0.7430, -90.3097</code>.</p>
-    <p><b>Puntos:</b> pulsa «Poner punto» y toca el mapa. Cada punto (A, B, C…) dice qué hay en ese lugar según las capas encendidas: la susceptibilidad, el cruce o la quebrada más cercanos y la distancia al punto anterior. Puedes arrastrarlos. No se guardan en ningún lado.</p>
+    <p><b>Mis puntos:</b> pulsa «+ Mi punto» y toca el mapa, mantén pulsado el mapa (clic derecho en computadora) o elige «Añadir a mis puntos» en un resultado del buscador. Puedes ponerles nombre y una nota, moverlos, borrarlos y exportarlos a GeoJSON. Tus puntos solo se guardan en este navegador; nadie más los ve.</p>
+    <p><b>Puntos de análisis:</b> pulsa «Punto de análisis» y toca el mapa. Cada punto (A, B, C…) dice qué hay en ese lugar según las capas encendidas: la susceptibilidad, el cruce o la quebrada más cercanos y la distancia al punto anterior. Puedes arrastrarlos. No se guardan en ningún lado.</p>
     <p><b>Imagen:</b> «Descargar imagen» guarda un PNG del mapa con la leyenda y los puntos. «Modo captura» deja solo el mapa y la leyenda, para una captura de pantalla normal. El título de la leyenda se puede editar.</p>
    </details>
    <div class="note">Fuentes: IGM 1:25 000, CGREG, zonificación PNG 2017 (CGREG/FCD), SNGR/INOCAR, MSP, MINEDUC, INEC MGN 2026, © colaboradores de OpenStreetMap (ODbL, 31-oct-2026), Google Open Buildings y Copernicus GLO-30. La susceptibilidad, los puntos potenciales, los cruces, la costa baja y los cauces adicionales son un <b>modelo sobre un DSM de 30 m</b>: sirven para priorizar, no son delimitaciones oficiales. Colores de riesgo: rojo oscuro = alto, naranja = medio, amarillo = bajo. <a href="/privacidad">Privacidad</a>.</div>
@@ -198,7 +240,8 @@ body.captura #salir.tenue:hover{opacity:1}
   <div id="map"></div>
   <div id="buscador"><input id="q" type="search" placeholder="Buscar calle, barrio, lugar o coordenadas" autocomplete="off" aria-label="Buscar en el mapa"><button class="x" id="qx" aria-label="Borrar búsqueda">×</button><ul id="resultados" role="listbox"></ul></div>
   <div id="herr">
-   <button id="b-punto" title="Poner puntos A, B, C… en el mapa (Esc para terminar)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Poner punto</span></button>
+   <button id="b-mio" class="mio" title="Añadir un punto propio con nombre y nota. Se guarda solo en este navegador."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg><span>Mi punto</span></button>
+   <button id="b-punto" title="Poner puntos de análisis A, B, C… en el mapa (Esc para terminar)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Punto de análisis</span></button>
    <button id="b-borrar" title="Quitar todos los puntos" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg><span>Quitar puntos</span></button>
    <button id="b-png" title="Descargar una imagen PNG del mapa con la leyenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg><span>Descargar imagen</span></button>
    <button id="b-captura" title="Ocultar el panel y los controles para hacer una captura de pantalla"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span>Modo captura</span></button>
@@ -284,6 +327,9 @@ async function json(url) {
   try { const r = await fetch(conV(url)); if (!r.ok) throw new Error(r.status + ' ' + url); return await r.json(); }
   finally { carga(-1); }
 }
+// Botón de una ficha que se cierra: actúa una sola vez y suelta el foco. Si no, mientras la ficha se desvanece
+// (200 ms) la barra espaciadora o Enter lo vuelven a pulsar y se duplican los puntos.
+const unaVez = fn => function (e) { if (this.dataset.hecho) return; this.dataset.hecho = '1'; this.blur(); fn(e); };
 let avisoT;
 function aviso(txt, ms = 3500) { const a = $('aviso'); a.textContent = txt; a.classList.add('on'); clearTimeout(avisoT); if (ms) avisoT = setTimeout(() => a.classList.remove('on'), ms); }
 // Plano de dibujo de cada capa: el panel ordena por tema; esto ordena qué tapa a qué.
@@ -365,9 +411,18 @@ function distanciaM(g, lon, lat) {
 const cajas = new WeakMap();
 function cajasDe(gj) { let c = cajas.get(gj); if (!c) { c = gj.features.map(f => f.geometry ? bboxDe(f.geometry) : null); cajas.set(gj, c); } return c; }
 const metros = m => m < 1000 ? `${Math.round(m)} m` : `${(m / 1000).toLocaleString('es', { maximumFractionDigits: 2 })} km`;
+// Tipos de lugar de OpenStreetMap, en español (solo para mostrar en el buscador)
+const SUBTIPOS = { hotel: 'hotel', convenience: 'tienda', hostel: 'hostal', place_of_worship: 'iglesia o templo', guest_house: 'casa de huéspedes',
+  supermarket: 'supermercado', pharmacy: 'farmacia', school: 'escuela', pier: 'muelle', bank: 'banco', atm: 'cajero automático', government: 'oficina pública',
+  ferry_terminal: 'terminal de lanchas', police: 'policía', generator: 'generador', hardware: 'ferretería', mast: 'antena', storage_tank: 'tanque',
+  sports_centre: 'centro deportivo', grocery: 'tienda de víveres', fire_hydrant: 'hidrante', plant: 'planta', stadium: 'estadio', drinking_water: 'agua potable',
+  kindergarten: 'centro infantil', fuel: 'gasolinera', marketplace: 'mercado', clinic: 'clínica', aerodrome: 'aeródromo', fire_station: 'bomberos',
+  restaurant: 'restaurante', courthouse: 'juzgado', townhall: 'municipio o junta parroquial', community_centre: 'casa comunal' };
 const quitarTildes = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
 
 // ═══════════ Mapa ═══════════
+// Las fichas se acomodan por debajo del buscador (si no, en el móvil el buscador tapa su parte de arriba)
+L.Popup.mergeOptions({ autoPanPaddingTopLeft: L.point(10, 60), autoPanPaddingBottomRight: L.point(10, 16) });
 const map = L.map('map', { zoomControl: true, minZoom: 7 });
 L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
 for (const [n, z] of [['fondo', 350], ['parque', 390], ['riesgo', 400], ['areas', 410], ['lineas', 430], ['emergencia', 450], ['puntos', 620], ['riesgo_pt', 630], ['usuario', 640]]) map.createPane(n).style.zIndex = z;
@@ -510,6 +565,11 @@ function pintarLeyenda() {
         return `<div class="pl"><b>${p.letra}</b>${ll.lat.toFixed(5)}, ${ll.lng.toFixed(5)}${d}<small>${res}</small></div>`;
       }).join('') + '</div>';
     }
+    if (mios.length) {
+      const MAXL = 8;
+      h += '<div class="lc"><div class="ct"><span>Mis puntos</span></div>' + mios.slice(0, MAXL).map(p => `<div class="li"><i class="mipt"></i>${esc(p.nombre || 'Sin nombre')}</div>`).join('') +
+        (mios.length > MAXL ? `<div class="li" style="color:#6b6a64">y ${mios.length - MAXL} más</div>` : '') + '</div>';
+    }
     for (const f of activas) {
       const items = leyendaDe(f.capa);
       h += `<div class="lc"><div class="ct"><span>${esc(f.capa.titulo)}</span><button data-i="${filas.indexOf(f)}" title="Apagar esta capa">×</button></div>` +
@@ -528,17 +588,23 @@ $('ley-tit').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preve
 for (const id of ['leyenda', 'buscador', 'herr']) { L.DomEvent.disableScrollPropagation($(id)); L.DomEvent.disableClickPropagation($(id)); }
 
 // ═══════════ Puntos de análisis (A, B, C…), solo en memoria ═══════════
-const puntos = []; let poniendo = false;
+const puntos = []; let poniendo = false, modo = null;   // modo: 'analisis' (A, B, C…) o 'mio' (Mis puntos)
 const linea = L.polyline([], { pane: 'usuario', color: '#111827', weight: 2, dashArray: '6 6', interactive: false }).addTo(map);
 const LETRAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-function modoPunto(on) {
-  poniendo = on; document.body.classList.toggle('poniendo', on); $('b-punto').classList.toggle('on', on);
-  if (on) aviso(esMovil ? 'Toca el mapa para poner un punto. Vuelve a pulsar el botón para terminar.' : 'Haz clic en el mapa para poner un punto. Esc para terminar.', 0);
+function modoPunto(on, tipo = 'analisis') {
+  modo = on ? tipo : null; poniendo = !!on; document.body.classList.toggle('poniendo', poniendo);
+  $('b-punto').classList.toggle('on', modo === 'analisis'); $('b-mio').classList.toggle('on', modo === 'mio');
+  if (modo === 'analisis') aviso(esMovil ? 'Toca el mapa para poner un punto de análisis. Vuelve a pulsar el botón para terminar.' : 'Haz clic en el mapa para poner un punto de análisis. Esc para terminar.', 0);
+  else if (modo === 'mio') aviso((esMovil ? 'Toca el mapa donde quieres tu punto.' : 'Haz clic en el mapa donde quieres tu punto (Esc para cancelar).') + ' Se guarda solo en este navegador.', 0);
   else $('aviso').classList.remove('on');
 }
-$('b-punto').onclick = () => modoPunto(!poniendo);
+$('b-punto').onclick = () => modoPunto(modo !== 'analisis', 'analisis');
+$('b-mio').onclick = () => modoPunto(modo !== 'mio', 'mio');
 $('b-borrar').onclick = () => { puntos.splice(0).forEach(p => map.removeLayer(p.marker)); renumerar(); };
-map.on('click', e => { if (poniendo) agregarPunto(e.latlng); });
+map.on('click', e => {
+  if (modo === 'analisis') agregarPunto(e.latlng);
+  else if (modo === 'mio') { modoPunto(false); abrirMio(agregarMio(e.latlng)); }
+});
 document.addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
   if (poniendo) modoPunto(false);
@@ -551,12 +617,17 @@ function agregarPunto(ll) {
   p.marker.on('drag', () => { linea.setLatLngs(puntos.map(x => x.marker.getLatLng())); pintarLeyenda(); });
   p.marker.on('dragend', () => analizar(p));
   p.marker.bindPopup(() => popupPunto(p), { maxWidth: 300 });
-  p.marker.on('popupopen', e => {
-    const b = e.popup.getElement().querySelector('[data-quitar]'); if (b) b.onclick = () => quitarPunto(p);
-    const c = e.popup.getElement().querySelector('[data-copiar]'); if (c) c.onclick = () => copiar(p);
-  });
+  p.marker.on('popupopen', () => enlazarPunto(p));
+
   puntos.push(p); renumerar(); analizar(p);
   return p;
+}
+// Botones de la ficha de un punto de análisis (al abrirla y cada vez que se rehace al terminar el análisis)
+function enlazarPunto(p) {
+  const el = p.marker.getPopup()?.getElement(); if (!el) return;
+  const b = el.querySelector('[data-quitar]'); if (b) b.onclick = unaVez(() => quitarPunto(p));
+  const c = el.querySelector('[data-copiar]'); if (c) c.onclick = () => copiar(p);
+  const m = el.querySelector('[data-mio]'); if (m) m.onclick = unaVez(() => { map.closePopup(); abrirMio(agregarMio(p.marker.getLatLng(), { nombre: 'Punto ' + p.letra })); });
 }
 function quitarPunto(p) { map.removeLayer(p.marker); puntos.splice(puntos.indexOf(p), 1); renumerar(); }
 function renumerar() {
@@ -571,7 +642,7 @@ function popupPunto(p) {
   h += p.info == null ? '<div>Analizando…</div>' : p.info.length ? '<ul>' + p.info.map(x => `<li>${esc(x.largo)}</li>`).join('') + '</ul>'
     : '<div>Ninguna capa encendida toca este punto ni tiene elementos a menos de 1 km.</div>';
   h += '<div style="font-size:11px;color:#777;margin-top:6px">Según las capas encendidas. Modelos: priorizan, no son delimitaciones oficiales.</div>';
-  return h + '<button data-copiar>Copiar resumen</button> <button class="sec" data-quitar>Quitar punto</button></div>';
+  return h + '<button data-copiar>Copiar resumen</button> <button class="sec" data-mio>Guardar en mis puntos</button> <button class="sec" data-quitar>Quitar punto</button></div>';
 }
 function copiar(p) {
   const ll = p.marker.getLatLng();
@@ -611,7 +682,7 @@ async function analizar(p) {
   out.sort((a, b) => a.orden - b.orden);
   if (pendientesAqui.length) out.push({ orden: 1e9, corto: '', largo: `Todavía cargando: ${pendientesAqui.join(', ')}` });
   p.info = out.filter(o => o.corto || o.largo);
-  if (p.marker.isPopupOpen()) p.marker.setPopupContent(popupPunto(p));
+  if (p.marker.isPopupOpen()) { p.marker.setPopupContent(popupPunto(p)); enlazarPunto(p); }
   pintarLeyenda();
 }
 
@@ -630,8 +701,8 @@ async function construirIndice() {
         const p = f.properties ?? {};
         const nombre = b.campos.map(c => p[c]).find(v => v != null && v !== '' && v !== '(sin nombre)');
         if (!nombre) continue;
-        const detalle = (b.detalle ?? []).map(c => p[c]).filter(v => v && v !== nombre && v !== '(sin nombre)').join(' · ');
-        const texto = quitarTildes(b.campos.map(c => p[c] ?? '').join(' '));
+        const detalle = (b.detalle ?? []).map(c => p[c]).filter(v => v && v !== nombre && v !== '(sin nombre)').map(v => SUBTIPOS[v] ?? v).join(' · ');
+        const texto = quitarTildes(b.campos.map(c => p[c] ?? '').join(' ') + ' ' + detalle);
         const key = b.agrupar ? nombre + '|' + (p.isla ?? '') : Symbol();
         const bb = bboxDe(f.geometry);
         const g = grupos.get(key);
@@ -663,8 +734,21 @@ async function buscar(q) {
   if (ll) { resultados = [{ nombre: `${ll.lat.toFixed(5)}, ${ll.lng.toFixed(5)}`, tipo: 'Coordenadas', detalle: '', latlng: ll, punto: true }]; }
   else {
     const idx = await construirIndice(); const t = quitarTildes(q); const pal = t.split(/\s+/).filter(Boolean);
-    const puntua = e => { if (e.n === t) return 0; if (e.n.startsWith(t)) return 1; if (e.n.split(/[\s.\-–]+/).some(w => w.startsWith(t))) return 2; if (pal.every(w => e.texto.includes(w) || e.n.includes(w))) return 3; return 9; };
-    resultados = idx.map(e => [puntua(e), e]).filter(([s]) => s < 9).sort((a, b) => a[0] - b[0] || a[1].nombre.length - b[1].nombre.length).slice(0, 12).map(([, e]) => e);
+    // Primero lo que coincide en el nombre (exacto, al inicio, una frase que empieza en una palabra, todas las palabras);
+    // después lo que coincide solo en sus otros campos (p. ej. la vía de un cruce o la isla).
+    const puntua = e => {
+      const n = e.n, ws = n.split(/[\s.,\-–()]+/);
+      if (n === t) return 0; if (n.startsWith(t)) return 1;
+      if ((' ' + n).includes(' ' + t)) return 2;
+      if (pal.every(w => ws.some(x => x.startsWith(w)))) return 3;
+      if (n.includes(t)) return 4;
+      if (pal.every(w => e.texto.includes(w) || n.includes(w))) return 5;
+      return 9;
+    };
+    const ORDEN_TIPO = { 'Isla o poblado': 0, Barrio: 1, Calle: 2, Lugar: 3 };
+    const ot = e => ORDEN_TIPO[e.tipo] ?? 4;
+    resultados = idx.map(e => [puntua(e), e]).filter(([s]) => s < 9)
+      .sort((a, b) => a[0] - b[0] || ot(a[1]) - ot(b[1]) || a[1].nombre.length - b[1].nombre.length).slice(0, 15).map(([, e]) => e);
   }
   ul.innerHTML = resultados.length ? resultados.map((r, i) => `<li role="option" data-i="${i}">${esc(r.nombre)}<small>${esc(r.tipo)}${r.detalle ? ' · ' + esc(r.detalle) : ''}</small></li>`).join('')
     : '<li class="vacio">Sin resultados en las capas del mapa. Prueba con otro nombre o con coordenadas.</li>';
@@ -679,14 +763,27 @@ function ir(r) {
   else map.fitBounds(r.bounds, { maxZoom: 17, padding: [40, 40] });
   if (r.feats && !r.punto) resaltado = L.geoJSON({ type: 'FeatureCollection', features: r.feats }, { pane: 'usuario', interactive: false,
     style: { color: '#0b5cad', weight: 7, opacity: .55, fillOpacity: .08 } }).addTo(map);
-  const centro = ll ?? L.latLngBounds(r.bounds).getCenter();
+  const centro = ll ?? puntoSobre(r.feats, L.latLngBounds(r.bounds).getCenter());
   marcaBusq = L.circleMarker(centro, { pane: 'usuario', radius: 13, color: '#0b5cad', weight: 3, fillColor: '#0b5cad', fillOpacity: .15 }).addTo(map);
-  marcaBusq.bindPopup(`<div class="pp"><div class="pp-t">${esc(r.nombre)}</div><div class="pp-s">${esc(r.tipo)}${r.detalle ? ' · ' + esc(r.detalle) : ''}</div><button data-aqui>Poner un punto aquí</button></div>`).openPopup();
-  marcaBusq.on('popupopen', e => enlazarAqui(e.popup, centro)); enlazarAqui(marcaBusq.getPopup(), centro);
+  marcaBusq.bindPopup(`<div class="pp"><div class="pp-t">${esc(r.nombre)}</div><div class="pp-s">${esc(r.tipo)}${r.detalle ? ' · ' + esc(r.detalle) : ''}</div>` +
+    `<button class="mio" data-mio>Añadir a mis puntos</button> <button class="sec" data-aqui>Punto de análisis aquí</button></div>`).openPopup();
+  const nombre = r.tipo === 'Coordenadas' ? '' : r.nombre;
+  marcaBusq.on('popupopen', e => enlazarAqui(e.popup, centro, nombre)); enlazarAqui(marcaBusq.getPopup(), centro, nombre);
 }
-function enlazarAqui(popup, ll) {
-  const b = popup.getElement()?.querySelector('[data-aqui]'); if (!b) return;
-  b.onclick = () => { map.closePopup(); limpiarBusqueda(false); agregarPunto(ll); };
+// Un punto sobre el elemento encontrado: el centro de su caja cae a veces fuera (una avenida junto al mar
+// tiene el centro en la bahía). Se usa el centro si está dentro del polígono; si no, el vértice más cercano a él.
+function puntoSobre(feats, c) {
+  if (!feats?.length) return c;
+  if (feats.some(f => f.geometry && contiene(f.geometry, c.lng, c.lat))) return c;
+  const k = Math.cos(c.lat * Math.PI / 180); let mejor = null, dm = Infinity;
+  const rec = x => { if (typeof x[0] === 'number') { const d = ((x[0] - c.lng) * k) ** 2 + (x[1] - c.lat) ** 2; if (d < dm) { dm = d; mejor = x; } } else x.forEach(rec); };
+  for (const f of feats) if (f.geometry) rec(f.geometry.coordinates);
+  return mejor ? L.latLng(mejor[1], mejor[0]) : c;
+}
+function enlazarAqui(popup, ll, nombre = '') {
+  const el = popup.getElement(); if (!el) return;
+  const b = el.querySelector('[data-aqui]'); if (b) b.onclick = unaVez(() => { map.closePopup(); limpiarBusqueda(false); agregarPunto(ll); });
+  const m = el.querySelector('[data-mio]'); if (m) m.onclick = unaVez(() => { map.closePopup(); limpiarBusqueda(false); abrirMio(agregarMio(ll, { nombre })); });
 }
 function limpiarBusqueda(texto = true) {
   if (marcaBusq) { map.removeLayer(marcaBusq); marcaBusq = null; } if (resaltado) { map.removeLayer(resaltado); resaltado = null; }
@@ -703,6 +800,141 @@ $('q').addEventListener('keydown', e => {
 });
 $('qx').onclick = () => limpiarBusqueda();
 document.addEventListener('click', e => { if (!$('buscador').contains(e.target)) $('resultados').classList.remove('on'); });
+
+// ═══════════ Mis puntos: se guardan solo en este navegador (localStorage) y nunca se envían a ningún servidor ═══════════
+// Si el navegador no deja guardar (modo privado, almacenamiento bloqueado o lleno), funcionan igual, en memoria.
+const CLAVE_MIOS = 'sosgalapagos-mapas-mis-puntos-v1', MAX_MIOS = 300, LARGO_NOMBRE = 60, LARGO_NOTA = 280;
+let mios = [], guardaOk = true, guardarT;
+const marcasMios = new Map();
+const idNuevo = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+function limpiarMio(p) {
+  const lat = +p?.lat, lng = +p?.lng;
+  if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) return null;
+  return { id: String(p.id || idNuevo()).slice(0, 40), lat, lng, nombre: String(p.nombre ?? '').slice(0, LARGO_NOMBRE), nota: String(p.nota ?? '').slice(0, LARGO_NOTA),
+           creado: String(p.creado ?? new Date().toISOString()).slice(0, 30) };
+}
+function leerMios() {
+  try {
+    const a = JSON.parse(localStorage.getItem(CLAVE_MIOS) || '[]');
+    return Array.isArray(a) ? a.map(limpiarMio).filter(Boolean).slice(0, MAX_MIOS) : [];
+  } catch { guardaOk = false; return []; }
+}
+function guardarMios() {
+  clearTimeout(guardarT);
+  try { localStorage.setItem(CLAVE_MIOS, JSON.stringify(mios)); guardaOk = true; } catch { guardaOk = false; }
+  pintarMios();
+}
+const guardarLuego = () => { clearTimeout(guardarT); guardarT = setTimeout(guardarMios, 300); };
+const iconoMio = L.divIcon({ className: 'mip', html: '<span></span>', iconSize: [24, 30], iconAnchor: [12, 28], popupAnchor: [0, -26], tooltipAnchor: [10, -15] });
+function rotuloMio(p) {
+  const m = marcasMios.get(p.id); if (!m) return;
+  m.unbindTooltip();
+  if (p.nombre) m.bindTooltip(esc(p.nombre), { permanent: true, direction: 'right', className: 'mip-rot', interactive: false });
+}
+function marcarMio(p) {
+  const m = L.marker([p.lat, p.lng], { pane: 'usuario', draggable: true, autoPan: true, icon: iconoMio, keyboard: true, title: p.nombre || 'Mi punto' }).addTo(map);
+  m.on('dragend', () => { const ll = m.getLatLng(); p.lat = +ll.lat.toFixed(6); p.lng = +ll.lng.toFixed(6); guardarMios(); });
+  m.bindPopup(() => popupMio(p), { maxWidth: 280, minWidth: 220 });
+  marcasMios.set(p.id, m); rotuloMio(p);
+}
+function agregarMio(ll, datos = {}) {
+  if (mios.length >= MAX_MIOS) { aviso(`Máximo ${MAX_MIOS} puntos. Borra alguno o expórtalos.`); return null; }
+  const p = limpiarMio({ ...datos, lat: +ll.lat.toFixed(6), lng: +ll.lng.toFixed(6), id: idNuevo(), creado: new Date().toISOString() });
+  mios.push(p); marcarMio(p); guardarMios(); $('mios').open = true;
+  aviso(guardaOk ? 'Punto añadido. Se guarda solo en este navegador.' : 'Punto añadido, pero este navegador no deja guardar: se perderá al cerrar la página.');
+  return p;
+}
+function abrirMio(p, centrar = false) {
+  if (!p) return; const m = marcasMios.get(p.id); if (!m) return;
+  if (centrar) map.setView(m.getLatLng(), Math.max(map.getZoom(), 16));
+  m.openPopup();
+  if (!esMovil) m.getPopup()?.getElement()?.querySelector('[data-n]')?.focus({ preventScroll: true });
+}
+function borrarMio(p) {
+  const m = marcasMios.get(p.id); if (m) { map.removeLayer(m); marcasMios.delete(p.id); }
+  mios = mios.filter(x => x.id !== p.id); guardarMios();
+}
+function borrarTodosMios() {
+  for (const m of marcasMios.values()) map.removeLayer(m);
+  marcasMios.clear(); mios = []; guardarMios();
+}
+function popupMio(p) {
+  const d = document.createElement('div'); d.className = 'pp';
+  d.innerHTML = `<div class="pp-t">Mi punto</div><div class="pp-s">${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}</div>
+    <label>Nombre<input data-n maxlength="${LARGO_NOMBRE}" placeholder="Ej.: casa de la familia, refugio, cruce inundado" enterkeyhint="done"></label>
+    <label>Nota corta<textarea data-t maxlength="${LARGO_NOTA}" rows="2" placeholder="Opcional"></textarea></label>
+    <button class="mio" data-ok>Listo</button> <button class="sec" data-a>Analizar aquí</button> <button class="peligro" data-b>Borrar</button>
+    <div class="priv">Se guarda solo en este navegador; nadie más lo ve.</div>`;
+  const n = d.querySelector('[data-n]'), t = d.querySelector('[data-t]');
+  n.value = p.nombre; t.value = p.nota;
+  n.oninput = () => { p.nombre = n.value.slice(0, LARGO_NOMBRE); rotuloMio(p); marcasMios.get(p.id)?.getElement()?.setAttribute('title', p.nombre || 'Mi punto'); guardarLuego(); };
+  t.oninput = () => { p.nota = t.value.slice(0, LARGO_NOTA); guardarLuego(); };
+  // Que las teclas no muevan ni acerquen el mapa mientras se escribe
+  d.addEventListener('keydown', e => {
+    e.stopPropagation();
+    if ((e.key === 'Enter' && e.target === n) || e.key === 'Escape') { e.preventDefault(); map.closePopup(); }
+  });
+  d.querySelector('[data-ok]').onclick = unaVez(() => map.closePopup());
+  d.querySelector('[data-a]').onclick = unaVez(() => { map.closePopup(); agregarPunto(L.latLng(p.lat, p.lng)); });
+  d.querySelector('[data-b]').onclick = unaVez(() => { map.closePopup(); borrarMio(p); aviso('Punto borrado'); });
+  return d;
+}
+map.on('popupclose', () => { if (guardarT) guardarMios(); });
+function pintarMios() {
+  const ul = $('mios-lista');
+  $('mios-n').textContent = mios.length ? `(${mios.length}) · solo en este navegador` : '· solo en este navegador';
+  $('mios-aviso').hidden = guardaOk;
+  $('mios-vacio').hidden = mios.length > 0;
+  $('mios-exportar').disabled = $('mios-borrar').disabled = !mios.length;
+  ul.replaceChildren(...mios.map(p => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="ico"></span><span class="tx" title="Ver en el mapa"><b></b><small></small></span><button data-v>Ver</button><button class="x" data-b title="Borrar este punto" aria-label="Borrar este punto">×</button>`;
+    li.querySelector('b').textContent = p.nombre || 'Sin nombre';
+    li.querySelector('small').textContent = (p.nota ? p.nota + ' · ' : '') + `${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}`;
+    li.querySelector('.tx').onclick = li.querySelector('[data-v]').onclick = () => abrirMio(p, true);
+    li.querySelector('[data-b]').onclick = () => borrarMio(p);
+    return li;
+  }));
+  pintarLeyenda();
+}
+let borrarT;
+$('mios-borrar').onclick = () => {
+  const b = $('mios-borrar');
+  if (!b.classList.contains('seguro')) {   // dos pasos, sin diálogos del navegador
+    b.classList.add('seguro'); b.textContent = `¿Borrar los ${mios.length}? Pulsa otra vez`;
+    clearTimeout(borrarT); borrarT = setTimeout(() => { b.classList.remove('seguro'); b.textContent = 'Borrar todos'; }, 4000);
+    return;
+  }
+  clearTimeout(borrarT); b.classList.remove('seguro'); b.textContent = 'Borrar todos';
+  borrarTodosMios(); aviso('Se borraron todos tus puntos');
+};
+$('mios-exportar').onclick = () => {
+  const gj = { type: 'FeatureCollection', features: mios.map(p => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
+    properties: { nombre: p.nombre, nota: p.nota, creado: p.creado } })) };
+  const url = URL.createObjectURL(new Blob([JSON.stringify(gj, null, 1)], { type: 'application/geo+json' }));
+  const f = new Date(), pad = n => String(n).padStart(2, '0');
+  const a = document.createElement('a'); a.href = url; a.download = `mis-puntos-sosgalapagos-${f.getFullYear()}${pad(f.getMonth() + 1)}${pad(f.getDate())}.geojson`;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+};
+// Clic derecho (computadora) o toque largo (móvil) en el mapa: añadir un punto propio o uno de análisis
+map.on('contextmenu', e => {
+  if (modo) return;
+  const ll = e.latlng, d = document.createElement('div'); d.className = 'pp';
+  d.innerHTML = `<div class="pp-s">${ll.lat.toFixed(5)}, ${ll.lng.toFixed(5)}</div><button class="mio" data-m>Añadir a mis puntos</button> <button class="sec" data-a>Punto de análisis</button>`;
+  d.querySelector('[data-m]').onclick = unaVez(() => { map.closePopup(); abrirMio(agregarMio(ll)); });
+  d.querySelector('[data-a]').onclick = unaVez(() => { map.closePopup(); agregarPunto(ll); });
+  L.popup({ maxWidth: 260 }).setLatLng(ll).setContent(d).openOn(map);
+});
+// Otra pestaña con el visor abierto cambió los puntos
+addEventListener('storage', e => {
+  if (e.key !== CLAVE_MIOS) return;
+  for (const m of marcasMios.values()) map.removeLayer(m);
+  marcasMios.clear(); mios = leerMios(); mios.forEach(marcarMio); pintarMios();
+});
+const zoomMios = () => map.getContainer().classList.toggle('map-muy-lejos', map.getZoom() < 12);
+map.on('zoomend', zoomMios);
+mios = leerMios(); mios.forEach(marcarMio); pintarMios();
+if (mios.length) $('mios').open = true;
 
 // ═══════════ Modo captura y descarga de imagen ═══════════
 let salirT;
