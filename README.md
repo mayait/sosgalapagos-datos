@@ -1,232 +1,184 @@
-# SOS Galápagos · Datos geográficos, meteorológicos y estudios de riesgo
+# SOS Galápagos · Datos, modelos e informes técnicos de las inundaciones de 2026
 
-Información geográfica, mediciones del clima, estudios técnicos y servidores que se usaron para coordinar la respuesta a las **inundaciones por El Niño de octubre y noviembre de 2026** en **Santa Cruz, San Cristóbal e Isabela** (Galápagos, Ecuador).
+Datos geográficos, mediciones del clima, modelos e informes técnicos que se usaron para responder a las **inundaciones de octubre y noviembre de 2026** en **Santa Cruz, San Cristóbal e Isabela** (Galápagos, Ecuador).
 
-- Coordinación: **USFQ Galápagos**. Responsable del repositorio: **Julián Maya**. Equipos y colaboradores: ver [Créditos](#créditos).
-- Se publica en: [sosgalapagos.org/mapas](https://sosgalapagos.org/mapas/) · [/estudios](https://sosgalapagos.org/estudios/) · [/clima](https://sosgalapagos.org/clima/).
-- La plataforma de coordinación (ResponseGrid) vive en otro repositorio: [mayait/sosgalapagos](https://github.com/mayait/sosgalapagos).
+- **Responsable:** Julián Maya, Universidad San Francisco de Quito (USFQ) · jamaya@usfq.edu.ec. Coordinación: USFQ Galápagos.
+- **En línea:**
+  - [sosgalapagos.org/estudios](https://sosgalapagos.org/estudios/) — informes técnicos en PDF (también en `/informes`);
+  - [/mapas](https://sosgalapagos.org/mapas/) — visor y descargas de capas;
+  - [/clima](https://sosgalapagos.org/clima/) — lluvia en vivo, nivel preliminar de inundación, pronóstico y satélite.
+- **Plataforma de coordinación** (ResponseGrid): vive en otro repositorio, [mayait/sosgalapagos](https://github.com/mayait/sosgalapagos).
 
-> ⚠️ **Todo lo de aquí es preliminar.** No existe un mapa oficial de amenaza por inundación pluvial para Galápagos. Las capas marcadas como **modelo** (susceptibilidad HAND, cuencas, costa baja, lluvias de modelos) sirven para **priorizar**, no para delimitar ni para normar. Las capas **oficiales** citan su institución.
-
-## ⬇️ Descargar los datos
-
-| Qué | Enlace |
-|---|---|
-| **Todo el repositorio** (capas, clima, estudios y scripts) | [ZIP de `main`](https://github.com/mayait/sosgalapagos-datos/archive/refs/heads/main.zip) |
-| **Capas de las islas completas en Shapefile** (WGS84, UTF-8, con LEEME) | [Versiones publicadas → `todo-completo-shp.zip`](https://github.com/mayait/sosgalapagos-datos/releases/latest) |
-| **Capas de las islas completas en GeoJSON** | [Versiones publicadas → `todo-completo-geojson.zip`](https://github.com/mayait/sosgalapagos-datos/releases/latest) |
-| **Datos del clima** (IERSE, INAMHI, FCD) | [Versiones publicadas → `clima-datos-*.zip`](https://github.com/mayait/sosgalapagos-datos/releases/latest) · carpeta [`clima/datos/`](clima/datos/) |
-| Capas del mapa de la emergencia (zona poblada), una por una | [`mapas-galapagos/datos/`](mapas-galapagos/datos/) |
-| Capas por fuente y depuradas (OSM, IGM, DEM, integradas) | [`geodatos/capas/`](geodatos/capas/) |
-| Una capa a la vez, en Shapefile o GeoJSON, desde el visor | [sosgalapagos.org/mapas](https://sosgalapagos.org/mapas/) |
-| Informe de La Cascada (PDF) | [`geodatos/estudios/la-cascada/`](geodatos/estudios/la-cascada/) |
-
-Todas las capas están en **EPSG:4326**. Antes de usarlas, lee las advertencias de [§6](#6-cómo-se-usó-el-modelo-hand) y las licencias del final.
+> ⚠️ **Todo es preliminar. Modelo propio ≠ dato oficial.** No existe un mapa oficial de amenaza por inundación pluvial para Galápagos. Lo marcado como **modelo** (HAND, cuencas, modelo 2D, tormentas sintéticas, curvas IDF, alerta, pronóstico) sirve para **priorizar y discutir**. No sirve para delimitar zonas, normar ni diseñar obras. Las capas **oficiales** citan su institución.
 
 ---
 
-## El repositorio en una imagen
+## 📄 Informes técnicos (PDF)
+
+Borradores para discusión, en formato de artículo: métodos, datos, resultados, límites y referencias. Están firmados por Julián Maya (USFQ) y van bajo licencia CC BY 4.0: la forma de citarlos está al pie de la primera página. Fuentes LaTeX y cómo compilarlos: [`informes/LEEME.md`](informes/LEEME.md).
+
+| N.º | Informe | PDF |
+|---|---|---|
+| 2026-01 | Base geoespacial y susceptibilidad topográfica a inundación (HAND) en los poblados de Santa Cruz, San Cristóbal e Isabela | [`informes/2026-01-base-hand/informe.pdf`](informes/2026-01-base-hand/informe.pdf) |
+| 2026-02 | Tormentas sintéticas y curvas IDF provisionales para la alerta de inundación por lluvia | [`informes/2026-02-tormentas-idf/informe.pdf`](informes/2026-02-tormentas-idf/informe.pdf) |
+| 2026-03 | Lluvia observada del 30–31 de octubre de 2026, climatología y nivel del mar | [`informes/2026-03-lluvia-clima/informe.pdf`](informes/2026-03-lluvia-clima/informe.pdf) |
+| 2026-04 | La Cascada (Puerto Ayora): cuenca aportante, vaso cerrado y viabilidad del desvío | [`informes/2026-04-la-cascada/informe.pdf`](informes/2026-04-la-cascada/informe.pdf) |
+| 2026-05 | Reconocimiento hidrológico de gabinete: puntos de inundación, cruces quebrada–vía y San Cristóbal | [`informes/2026-05-reconocimiento/informe.pdf`](informes/2026-05-reconocimiento/informe.pdf) |
+| 2026-06 | Modelo hidrodinámico 2D *rain-on-grid* del evento del 30 de octubre de 2026 | [`informes/2026-06-modelo-2d/informe.pdf`](informes/2026-06-modelo-2d/informe.pdf) |
+| 2026-07 | Nivel preliminar de inundación por lluvia medida: la regla v0.2 de la alerta | [`informes/2026-07-alerta-v02/informe.pdf`](informes/2026-07-alerta-v02/informe.pdf) |
+| 2026-08 | Pronóstico experimental de lluvia fuerte: evaluación y calibración (fase 0) | [`informes/2026-08-pronostico/informe.pdf`](informes/2026-08-pronostico/informe.pdf) |
+| 2026-09 | Vigilancia satelital GOES-19 de convección profunda: evaluación S0 | [`informes/2026-09-satelite/informe.pdf`](informes/2026-09-satelite/informe.pdf) |
+| 2026-10 | Infraestructura abierta de datos para una emergencia: recolección, flujo reproducible y gobernanza | [`informes/2026-10-infraestructura/informe.pdf`](informes/2026-10-infraestructura/informe.pdf) |
+
+---
+
+## 🆘 Qué nos falta
+
+Sin estos datos, los modelos se quedan en estimaciones sin validar. Cada fila enlaza a su issue; la lista completa está en los [issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues), con los urgentes en [P1](https://github.com/mayait/sosgalapagos-datos/issues?q=is%3Aopen+label%3AP1). **Si tienes alguno de estos datos, abre un issue o escribe a jamaya@usfq.edu.ec.**
+
+### 1. Lo que más necesitamos: cuándo y dónde se inundó de verdad
+
+Es lo único que permite **validar** los modelos y la alerta. Hoy ninguna cifra de frecuencia ni de umbral está contrastada con un evento real fechado.
+
+| Qué | Quién puede tenerlo | Issue |
+|---|---|---|
+| **Inundaciones históricas con fecha, hora, lugar y profundidad** (fotos con una puerta, un muro o un auto como referencia) | Vecinos, bomberos, ECU 911, GAD, medios | [#80](https://github.com/mayait/sosgalapagos-datos/issues/80), [#14](https://github.com/mayait/sosgalapagos-datos/issues/14) |
+| ¿Hubo agua en La Cascada el 3-oct, el 23-oct y el 1–2-nov? Horas de los hechos del 30-oct | Vecinos, COE cantonal | [#52](https://github.com/mayait/sosgalapagos-datos/issues/52), [#64](https://github.com/mayait/sosgalapagos-datos/issues/64) |
+| Delimitación oficial de lo inundado el 30–31-oct | COE cantonal, SNGR | [#1](https://github.com/mayait/sosgalapagos-datos/issues/1) |
+| Marcas de agua medidas con GNSS en La Cascada y su salida | Equipo en terreno | [#2](https://github.com/mayait/sosgalapagos-datos/issues/2) |
+
+### 2. Datos que tienen las instituciones
+
+| Qué | Quién lo tiene | Para qué | Issue |
+|---|---|---|---|
+| Estudio de intensidades máximas (2015), series diarias de San Cristóbal y lluvia de la estación M0191 de Puerto Ayora durante el evento | **INAMHI** | Curvas IDF oficiales y lluvia del evento en Puerto Ayora | [#77](https://github.com/mayait/sosgalapagos-datos/issues/77), [#78](https://github.com/mayait/sosgalapagos-datos/issues/78), [#3](https://github.com/mayait/sosgalapagos-datos/issues/3) |
+| Lluvia del corte del 30-oct (de las 21:25 al 31-oct a las 18:45) y **permiso escrito para obras derivadas** (modelo 2D, curvas IDF) | **IERSE** (Universidad del Azuay) | Completar el evento; su licencia es CC BY-NC-ND | [#62](https://github.com/mayait/sosgalapagos-datos/issues/62) |
+| Lluvia a 5–10 min del 30–31-oct en San Cristóbal y licencia de sus datos | **USFQ GSC** | Modelo 2D de San Cristóbal con su propia lluvia | [#61](https://github.com/mayait/sosgalapagos-datos/issues/61), [#46](https://github.com/mayait/sosgalapagos-datos/issues/46), [#74](https://github.com/mayait/sosgalapagos-datos/issues/74) |
+| Series del proyecto DARWIN (15-oct a 2-nov) y permiso para publicar derivados | U. de Marburgo | Lluvia en la parte alta de Santa Cruz | [#76](https://github.com/mayait/sosgalapagos-datos/issues/76) |
+| Tesis sobre las encañadas de Puerto Baquerizo Moreno | USFQ | Curvas IDF y caudales de San Cristóbal | [#79](https://github.com/mayait/sosgalapagos-datos/issues/79) |
+| **Catastro y red de drenaje urbano** (sumideros, colectores, alcantarillas, cotas) | GAD de Santa Cruz, San Cristóbal e Isabela | Modelar calles y alcantarillas; hoy el modelo no las ve | [#4](https://github.com/mayait/sosgalapagos-datos/issues/4), [#5](https://github.com/mayait/sosgalapagos-datos/issues/5) |
+| Trazados de las obras del Plan de Acción de la UGR (zanja, muro, conexión de Floreana) | GAD y UGR de San Cristóbal | Evaluar las obras con el modelo | [#70](https://github.com/mayait/sosgalapagos-datos/issues/70), [#53](https://github.com/mayait/sosgalapagos-datos/issues/53) |
+| Refugios y puntos de encuentro **para inundación** y protocolo de evacuación | SNGR, GAD | Rutas y refugios fuera de las zonas que se inundan | [#6](https://github.com/mayait/sosgalapagos-datos/issues/6), [#71](https://github.com/mayait/sosgalapagos-datos/issues/71), [#67](https://github.com/mayait/sosgalapagos-datos/issues/67) |
+| Acceso al SIIG y censo 2022 por manzana | CGREG, INEC | Capas oficiales y población real | [#7](https://github.com/mayait/sosgalapagos-datos/issues/7), [#8](https://github.com/mayait/sosgalapagos-datos/issues/8) |
+
+### 3. Mediciones en campo e instrumentos
+
+| Qué | Para qué | Issue |
+|---|---|---|
+| **Relieve de 1 m sin edificios** (dron o LiDAR) de los poblados | Rehacer HAND y el modelo 2D sin el error de ±2–4 m del DSM | [#16](https://github.com/mayait/sosgalapagos-datos/issues/16), [#23](https://github.com/mayait/sosgalapagos-datos/issues/23) |
+| **Pluviómetros** en cada poblado y en la parte alta; el mejor sitio nuevo está en la cuenca media de La Cascada (informe 2026-02) | Alerta con más anticipación | [#19](https://github.com/mayait/sosgalapagos-datos/issues/19) |
+| Sensor de nivel en El Progreso | Ahí la lluvia no anticipa la inundación | [#81](https://github.com/mayait/sosgalapagos-datos/issues/81) |
+| Revisión de los pluviómetros de Cerro Crocker y Los Guayabillos | Datos dudosos desde el 30-oct | [#56](https://github.com/mayait/sosgalapagos-datos/issues/56) |
+| Cotas clave: rebose de La Cascada, cauce de Tomás de Berlanga, Vía Universidad frente al campus, zanja de Manzanillo | Confirmar umbrales que hoy salen del DSM | [#65](https://github.com/mayait/sosgalapagos-datos/issues/65), [#66](https://github.com/mayait/sosgalapagos-datos/issues/66), [#58](https://github.com/mayait/sosgalapagos-datos/issues/58), [#55](https://github.com/mayait/sosgalapagos-datos/issues/55) |
+| Inventario en terreno de cruces quebrada–vía, aforos e infiltración | Calibrar caudales y pérdidas del suelo | [#33](https://github.com/mayait/sosgalapagos-datos/issues/33), [#9](https://github.com/mayait/sosgalapagos-datos/issues/9), [#10](https://github.com/mayait/sosgalapagos-datos/issues/10) |
+
+### 4. Acuerdos y operación
+
+- **Acuerdos de intercambio de datos** con GAD, CGREG, DPNG, FCD, INAMHI, SNGR e INOCAR ([#45](https://github.com/mayait/sosgalapagos-datos/issues/45)).
+- **Equipo local** que mantenga los datos después de la emergencia ([#51](https://github.com/mayait/sosgalapagos-datos/issues/51)) y protocolo de datos personales ([#48](https://github.com/mayait/sosgalapagos-datos/issues/48)).
+- **Titularidad:** la USFQ debe confirmar que el repositorio es suyo (ver [Licencias](#licencias-y-cómo-citar)).
+- **Operación del servidor de clima:**
+  - respaldo de `clima.db` fuera del servidor ([#38](https://github.com/mayait/sosgalapagos-datos/issues/38));
+  - aviso si el recolector se detiene ([#39](https://github.com/mayait/sosgalapagos-datos/issues/39)).
+- **Publicación automática** desde `main` ([#36](https://github.com/mayait/sosgalapagos-datos/issues/36)).
+
+---
+
+## Qué se hizo
+
+| Fecha (2026) | Hito |
+|---|---|
+| 30–31 oct | Lluvias intensas e inundación en Puerto Ayora (barrio **La Cascada**) y otras zonas de Santa Cruz y San Cristóbal |
+| 1 nov | Capas base de las tres islas: quebradas, cuencas, susceptibilidad HAND, zonas pobladas, vías y puntos clave. Visor [/mapas](https://sosgalapagos.org/mapas/) con descargas |
+| 2 nov | Estudio de **La Cascada**, que hoy es el informe 2026-04. **Clima en vivo** ([/clima](https://sosgalapagos.org/clima/)) con las estaciones IERSE, USFQ GSC e INAMHI. Primera regla de alerta por lluvia |
+| 2–3 nov | Modelos **2D** del evento en Santa Cruz y San Cristóbal. Reconocimiento hidrológico. Pronóstico experimental de lluvia fuerte |
+| 3–4 nov | **500 tormentas sintéticas** por isla, **curvas IDF provisionales**, vigilancia satelital **GOES-19** |
+| 4 nov | **Serie de informes técnicos en PDF** (2026-01 a 2026-10). Licencia © USFQ (Apache 2.0 + CC BY 4.0) |
+
+## Descargar los datos
+
+| Qué | Enlace |
+|---|---|
+| **Todo el repositorio** (capas, clima, informes y scripts) | [ZIP de `main`](https://github.com/mayait/sosgalapagos-datos/archive/refs/heads/main.zip) |
+| **Capas de las islas completas** en Shapefile o GeoJSON (WGS84, UTF-8, con LEEME) | [Versiones publicadas](https://github.com/mayait/sosgalapagos-datos/releases/latest) → `todo-completo-shp.zip` · `todo-completo-geojson.zip` |
+| **Datos del clima** (IERSE, INAMHI, FCD) | [Versiones publicadas](https://github.com/mayait/sosgalapagos-datos/releases/latest) → `clima-datos-*.zip` · carpeta [`clima/datos/`](clima/datos/) |
+| Capas del mapa de la emergencia, una por una | [`mapas-galapagos/datos/`](mapas-galapagos/datos/) o el visor [/mapas](https://sosgalapagos.org/mapas/) |
+| Datos, figuras y textos de cada estudio | [`geodatos/estudios/`](geodatos/estudios/) |
+
+Todas las capas están en **EPSG:4326**. Las horas se guardan en UTC; Galápagos está en UTC−6.
+
+## Qué hay en el repositorio
 
 ```
-                 DATOS                                         SERVIDOR
-  (se descargan, se procesan, se versionan)        (sirven lo generado / recogen datos)
-
-  geodatos/                                         servidores/  ← índice y publicar.sh
-  ├─ scripts/01–09  proceso de capas  ─────┐
-  ├─ capas/         capas por fuente       │        sosgalapagos.org
-  ├─ export/        paquete para el mapa ──┼──────▶ ├─ /mapas/     visor + descargas
-  ├─ estudios/      informes técnicos ─────┼──────▶ ├─ /estudios/  informes web + comentarios
-  └─ docs/          fuentes y guías        │        └─ /clima/     panel en vivo
-                                           │                ▲
-  clima/                                   │                │ cada 5 min
-  ├─ datos/         mediciones (crudos) ◀──┼──── recolector (systemd) + puente IERSE (Mac)
-  ├─ scripts/       consolidación          │
-  └─ recolector/, web/, deploy/  ──────────┘ (código de servidor del clima)
-
-  mapas-galapagos/  entregable cerrado: datos + visor + documentación
-  docs/             explicaciones transversales (modelo HAND)
+informes/          informes técnicos en LaTeX y PDF (2026-01 … 2026-10), plantilla y compilar.sh
+geodatos/          capas: scripts/ (01–34), capas/, export/, estudios/ (datos y figuras de los modelos), docs/
+clima/             estaciones: datos/ (crudos que nunca se modifican), recolector/, pronostico/, satelite/, web/
+mapas-galapagos/   entregable cerrado del mapa: datos, visor y documentación (catálogo, metodología, fuentes)
+servidores/        cómo se publica cada servicio en sosgalapagos.org (publicar.sh)
+docs/              explicaciones transversales (modelo HAND)
 ```
 
 | Si buscas… | Ve a |
 |---|---|
-| Las capas listas para usar (GeoJSON, PNG y manifiesto) | [`mapas-galapagos/`](mapas-galapagos/00-LEEME.md) o [sosgalapagos.org/mapas](https://sosgalapagos.org/mapas/) (Shapefile y GeoJSON) |
+| Qué método se usó y con qué datos | Los [informes técnicos](#-informes-técnicos-pdf) |
+| Las capas listas para usar | [`mapas-galapagos/`](mapas-galapagos/00-LEEME.md) o [/mapas](https://sosgalapagos.org/mapas/) |
 | Cómo se hacen las capas | [`geodatos/LEEME.md`](geodatos/LEEME.md) |
-| Las mediciones del clima | [`clima/LEEME.md`](clima/LEEME.md) |
-| Los informes | [`geodatos/estudios/`](geodatos/estudios/) |
-| Cómo funciona cada servidor y cómo publicar | [`servidores/README.md`](servidores/README.md) |
+| Las mediciones del clima, el pronóstico y el satélite | [`clima/LEEME.md`](clima/LEEME.md) |
+| De dónde sale cada dato | [`geodatos/docs/fuentes-oficiales.md`](geodatos/docs/fuentes-oficiales.md) y [`03-fuentes-y-licencias.md`](mapas-galapagos/documentacion/03-fuentes-y-licencias.md) |
+| Rehacer los estudios tras un dato nuevo | [`geodatos/flujo.toml`](geodatos/flujo.toml) + `geodatos/scripts/flujo.py --seco` |
+| Publicar o tocar un servidor | [`servidores/README.md`](servidores/README.md) |
 | Cómo trabajar en equipo, con ramas y agentes | [`CONTRIBUIR.md`](CONTRIBUIR.md) · [`AGENTS.md`](AGENTS.md) |
-| Qué falta | [Issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues) |
 
----
+## Fuentes principales
 
-## 1. Qué se hizo
+IGM (1:25 000), CGREG/FCD, SNGR/INOCAR, INEC, MSP, MINEDUC, OpenStreetMap (ODbL), Google Open Buildings, Copernicus GLO-30, **IERSE** (Universidad del Azuay; 4 estaciones en Santa Cruz cada 5 min), **USFQ GSC** (San Cristóbal), **INAMHI**, **FCD** (lluvia diaria desde 1965), reanálisis GAR (TU Berlín), modelos de pronóstico vía Open-Meteo y NOAA GOES-19.
 
-| Fecha (2026) | Hito |
-|---|---|
-| 30–31 oct | Lluvias intensas e inundación en Puerto Ayora (barrio **La Cascada**) y otras zonas de Santa Cruz |
-| 31 oct | Descarga del extracto de OpenStreetMap y del relieve Copernicus GLO-30; búsqueda de fuentes oficiales |
-| 1 nov | Capas base de las tres islas: quebradas, cuencas, susceptibilidad HAND, zonas pobladas, vías, puntos clave y Parque Nacional. Visor local e integración en el mapa de ResponseGrid. Entregable `mapas-galapagos/` |
-| 1 nov | Página pública [/mapas](https://sosgalapagos.org/mapas/) con descargas en Shapefile y GeoJSON; GeoServer de prueba |
-| 2 nov | **Informe técnico preliminar de La Cascada** (PDF de 39 páginas): cuenca, vaso, desvío de quebradas, lluvias y propuestas |
-| 2 nov | **Clima en vivo** ([/clima](https://sosgalapagos.org/clima/)): recolector cada 5 min de las estaciones IERSE (Santa Cruz) y USFQ GSC (San Cristóbal) |
-| 2 nov | Estudios web de **Santa Cruz** y **San Cristóbal** ([/estudios](https://sosgalapagos.org/estudios/), en revisión) |
-| 2 nov | Nivel **preliminar** de inundación por zona en /clima (regla v0.1 por lluvia de 1 h, 3 h y 24 h y humedad previa) |
-| 2 nov | Modelos 2D del evento en Santa Cruz y San Cristóbal; tomas de agua del acueducto de San Cristóbal |
-| 2 nov | Este repositorio: datos, estudios y servidores separados de la plataforma |
+Las fuentes meteorológicas se citan como piden sus autores. Los servicios (endpoints) de los que se descargan no se publican. Detalle y licencias de cada fuente: [`LICENCIA-DATOS.md`](LICENCIA-DATOS.md).
 
-## 2. Qué datos hay
+## Servidores
 
-| Dominio | Qué contiene | Dónde | ¿En git? |
-|---|---|---|---|
-| **Geografía cruda** | Extracto OSM (Geofabrik, 31-oct), DEM Copernicus GLO-30, WFS IGM 1:25 000 (70 capas), capas SNGR, INEC, CGREG/FCD, MSP, MINEDUC e INOCAR, Google Open Buildings | `geodatos/descargas/` | **No.** Pesa ~400 MB, trae datos personales y se regenera con los scripts 01–07 |
-| **Capas depuradas** | Por fuente (`osm/`, `igm/`, `dem/`), integradas (`final/`), rásteres PNG y capa operativa de áreas afectadas | `geodatos/capas/` | Sí |
-| **Paquete del mapa** | 25 capas recortadas al área de interés + manifiesto `capas.json` + resumen de exposición | `geodatos/export/galapagos/` | Sí |
-| **Entregable** | Datos, visor y documentación (catálogo, metodología, fuentes, especificación y cómo actualizar) | `mapas-galapagos/` | Sí |
-| **Clima medido** | Estaciones IERSE (4, Santa Cruz, cada 5 min, desde abril de 2026); historial INAMHI (16-oct → 2-nov, la fuente solo guarda 90 días); series diarias de la FCD (Puerto Ayora desde 1965 y Bellavista); series consolidadas de 5 min, horarias y diarias. En el servidor se recogen además USFQ GSC, INAMHI en vivo, mareógrafos y METAR | `clima/datos/` ([LEEME](clima/datos/LEEME.md)) | Sí (los crudos nunca se modifican) |
-| **Estudios** | Textos, datos, figuras y PDF de La Cascada, Santa Cruz y San Cristóbal (incluye modelos 2D del 30-oct y las tomas de agua de San Cristóbal); se siguen ampliando | `geodatos/estudios/` | Sí |
-
-**Exposición estimada** (`geodatos/export/galapagos/resumen_exposicion.json`):
-
-| | Santa Cruz | San Cristóbal | Isabela |
-|---|---:|---:|---:|
-| Edificios | 10 350 | 4 579 | 2 072 |
-| Población estimada | 16 880 | 8 094 | 3 086 |
-| … en susceptibilidad alta o media (HAND) | 3 965 | 657 | 928 |
-| … en zona de tsunami | 917 | 207 | 1 064 |
-
-## 3. Qué capas hay
-
-Las del mapa de la emergencia (`geodatos/export/galapagos/capas.json`). Detalle de cada una, con sus campos, en [`mapas-galapagos/documentacion/01-catalogo-de-capas.md`](mapas-galapagos/documentacion/01-catalogo-de-capas.md).
-
-| Grupo | Capa | Tipo | Fuente |
-|---|---|---|---|
-| Emergencia en curso | Áreas afectadas (inundación, servicios, deslave, riesgo) | operativa | COE, ECU 911, equipos en terreno |
-| Parque y zona agrícola | Parque Nacional, límite del parque, zona agrícola | oficial | Zonificación PNG 2017 (CGREG/FCD) |
-| Zonas inundables | **Susceptibilidad a inundación por quebradas** (alta, media, baja) | **modelo** | HAND sobre Copernicus GLO-30 + quebradas IGM ([explicación](docs/modelo-hand.md)) |
-| | Zonas inundables y de riesgo oficiales (flujos de lodo por El Niño, riesgo de inundación en Puerto Ayora y Villamil, terreno inundable) | oficial | IGM 1:25 000, CGREG |
-| | Costa baja (0–3, 3–5 y 5–10 m) | modelo | Copernicus GLO-30 |
-| | Inundación por tsunami | oficial | SNGR / INOCAR |
-| Quebradas y drenaje | Cuencas completas que drenan a cada poblado; subcuencas por punto de entrada | modelo | D8 sobre GLO-30 + quebradas IGM |
-| | Quebradas y cauces mapeados | oficial | IGM 1:25 000 + OSM |
-| | Cauces adicionales detectados en el relieve | modelo | GLO-30 |
-| | Franja de protección de quebradas de 20 m | oficial | CGREG |
-| Zonas pobladas | Límite urbano, barrios, población estimada por manzana | oficial + estimación | IGM, CGREG, INEC MGN 2026 + viviendas SNGR |
-| Vías y evacuación | Vías, nombres de calles, rutas de evacuación por tsunami | abierta / oficial | OSM (31-oct), SNGR |
-| Puntos clave | Salud, refugios, seguridad, servicios, logística | oficial + abierta | MSP, SNGR, MINEDUC, IGM, OSM |
-| Relieve | Relieve sombreado, curvas cada 10 m, pendientes fuertes | modelo | Copernicus GLO-30 |
-
-**Área cubierta:** zona agrícola y urbana completas, más las **cuencas completas** que drenan a cada poblado (aunque suban al Parque), 500 m alrededor de las zonas pobladas y 300 m alrededor de las vías. En [/mapas](https://sosgalapagos.org/mapas/) se publican las islas completas, sin recorte.
-
-## 4. De dónde salieron los datos
-
-| Fuente | Qué aporta | Acceso |
-|---|---|---|
-| **IGM** (Instituto Geográfico Militar) | Cartografía 1:25 000: quebradas, curvas, límite urbano, terreno inundable | WFS público. Devuelve cada elemento repetido tres veces y hay que quitar los duplicados |
-| **Copernicus GLO-30** (ESA/Airbus) | Relieve de 30 m (DSM: incluye edificios y árboles) | AWS Open Data |
-| **OpenStreetMap** (© colaboradores, ODbL) | Vías, edificios, servicios y uso del suelo | Extracto Geofabrik. Overpass falló (502/504) |
-| **SNGR** | Tsunami, rutas y zonas seguras, refugios, viviendas con población, eventos históricos | ArcGIS público. Trae datos personales, que se depuran |
-| **INEC** | Manzanas y sectores (MGN 2026) | IDGN |
-| **CGREG / FCD** | Zonificación del Parque 2017, barrios, franja de quebradas, riesgos (flujos de lodo por El Niño) | GeoNode de la FCD. El SIIG pide usuario |
-| **MSP, MINEDUC** | Salud y educación | Copias en la SNGR |
-| **Google Open Buildings v3** | Huellas de edificios (no cubre San Cristóbal) | Abierta |
-| **IERSE** (Universidad del Azuay), Proyecto DARWIN | 4 estaciones meteorológicas en Santa Cruz, cada 5 min | CC BY-NC-ND 4.0; cita obligatoria en [`clima/datos/LEEME.md`](clima/datos/LEEME.md#cómo-citar) |
-| **FCD** (Fundación Charles Darwin) | Series climáticas diarias de Puerto Ayora (desde 1965) y Bellavista | CC BY-NC-SA |
-| **USFQ GSC** (Galapagos Science Center) | 5 estaciones en San Cristóbal; lluvia diaria desde 2015 | Se cita como pide el GSC ([`clima/datos/LEEME.md`](clima/datos/LEEME.md#cómo-citar)) |
-| **INAMHI** | Estaciones automáticas; historial de 90 días | Se cita la fuente, sin enlace |
-| **ECMWF y otros modelos** (vía Open-Meteo) | Lluvia estimada del evento y climatología 1991–2020 | Abierta |
-
-El catálogo completo de las fuentes geográficas, con los servicios probados, está en [`geodatos/docs/fuentes-oficiales.md`](geodatos/docs/fuentes-oficiales.md). Licencias y atribuciones: [`mapas-galapagos/documentacion/03-fuentes-y-licencias.md`](mapas-galapagos/documentacion/03-fuentes-y-licencias.md). Las fuentes meteorológicas se citan como piden sus autores; no se publican los servicios (endpoints) de los que se descargan.
-
-## 5. Cómo se procesaron
-
-### Capas (`geodatos/scripts/`)
-
-```
-01–02  OSM: extracto Geofabrik → vías, edificios, servicios, uso del suelo (pyosmium)
-04–05  IGM: WFS 1:25 000 → quitar triplicados → filtrar las 3 islas
-03     DEM: recorte por isla → relieve, curvas, costa baja, pendientes
-            → quemado de quebradas IGM → D8 → drenaje, cuencas → HAND
-06     Integración: zonas pobladas, quebradas, puntos clave (deduplicados a < 40 m)
-07     Oficiales: SNGR/INEC/CGREG, depuración de datos personales, edificios
-            (OSM + Open Buildings) y exposición por edificio y vivienda
-07b    Cuencas completas que drenan a cada poblado (salto de punteros sobre D8)
-08     Exportación: recorte al área de interés, simplificación y manifiesto capas.json
-08b    Rótulos de nombres de calles
-09     Entregable mapas-galapagos/ (y código para la app)
-10–11  Publicación web (/mapas) y GeoServer local
-```
-
-Paso a paso y cómo regenerar: [`geodatos/LEEME.md`](geodatos/LEEME.md). Supuestos y límites de cada capa: [`mapas-galapagos/documentacion/02-metodologia.md`](mapas-galapagos/documentacion/02-metodologia.md).
-
-### Clima (`clima/`)
-
-Las estaciones se descargan **tal cual** a `clima/datos/<fuente>/crudos/`, con un archivo por día que nunca se corrige. Luego se consolidan en series de 5 min, horarias y diarias, con su porcentaje de cobertura: cuando una estación no transmite, esa lluvia **no se mide** y el total del día es un mínimo. En el servidor, el recolector guarda todo en SQLite con horas UTC y publica el panel. Ver [`clima/LEEME.md`](clima/LEEME.md).
-
-### Estudios (`geodatos/estudios/`)
-
-Cada estudio tiene sus textos (Markdown), sus datos y sus figuras, y los generan scripts propios (12–20 y `grd_*`). El de La Cascada lo preparó un comité de agentes (asesor hidrológico, meteorología, gestión de riesgos y urbanismo) con un revisor independiente. Conclusiones principales: al barrio drenan 42,3 km²; es un **vaso cerrado** sin cauce de salida; el desvío al este no es descartable, pero no está demostrado; **no hay lluvia medida** en Puerto Ayora durante el evento.
-
-## 6. Cómo se usó el modelo HAND
-
-**HAND** (*Height Above Nearest Drainage*) mide cuántos metros está cada punto del terreno **por encima de la quebrada a la que drena**. Si una casa está a 1 m sobre su quebrada, se moja con poco. Si está a 10 m, es muy improbable.
-
-1. Se baja 3 m el relieve sobre las quebradas del IGM («quemado»), para que el agua siga los cauces reales.
-2. Se calcula por dónde corre el agua (D8) y cuánta área drena cada celda.
-3. Se toman como cauces de referencia los que drenan al menos 0,5 km², más las quebradas IGM.
-4. Para cada celda se calcula su altura sobre ese cauce, en el relieve sin quemar.
-5. Clases: **alta ≤ 1 m**, **media ≤ 2,5 m**, **baja ≤ 5 m**, solo hasta 300 m del cauce.
-6. Se cruza con cada edificio y vivienda para estimar la **exposición**.
-
-Coincide con el polígono oficial de riesgo de inundación de Puerto Ayora (CGREG). Sus límites: el relieve de 30 m incluye techos y árboles, no ve alcantarillas, exagera en terreno plano (Villamil) y **no tiene caudal ni período de retorno**. Explicación completa, parámetros y cómo mejorarlo: [`docs/modelo-hand.md`](docs/modelo-hand.md).
-
-## 7. Servidores
-
-Resumen: **/mapas** y **/estudios** son archivos estáticos que se generan aquí y se suben con `rsync`. **/clima** es un recolector en el servidor (systemd, cada 5 min) más un panel estático. Los comentarios de los estudios son un contenedor de la app. Todo pasa por Caddy en `152.44.45.89`.
+`/mapas` y `/estudios` son archivos estáticos que se generan aquí. `/clima` es un recolector en el servidor (systemd, cada 5 min) con un panel estático.
 
 ```bash
 servidores/publicar.sh mapas | estudios | clima     # solo desde main y con el árbol limpio
 ```
 
-Mapa completo, rutas en el servidor, timers, respaldos y comprobaciones: [`servidores/README.md`](servidores/README.md).
+Detalle: [`servidores/README.md`](servidores/README.md).
 
-## 8. Cómo trabajar aquí
+## Cómo trabajar aquí
 
-- **Equipos y ramas:** [`CONTRIBUIR.md`](CONTRIBUIR.md) explica:
-  - qué se edita a mano y qué se regenera;
-  - quién es dueño de cada carpeta;
-  - cómo se nombran las ramas;
-  - cómo usar *worktrees*;
-  - las recetas para añadir capas, fuentes y estudios.
-- **Agentes de IA:** [`AGENTS.md`](AGENTS.md) recoge las reglas que no se pueden romper (privacidad, enlaces de clima, publicación).
+- **Equipos, ramas y agentes:** [`CONTRIBUIR.md`](CONTRIBUIR.md) y [`AGENTS.md`](AGENTS.md). Ahí están las reglas que no se pueden romper: privacidad, sin endpoints de clima, publicar solo desde `main`.
 - **Instalación:**
   ```bash
   git clone https://github.com/mayait/sosgalapagos-datos.git ~/dev/sosgalapagos-datos
   cd ~/dev/sosgalapagos-datos/geodatos && uv venv .venv --python 3.12 && uv pip install -p .venv -r requirements.txt
   cd ../clima && uv venv .venv --python 3.12 && uv pip install -p .venv -r requirements.txt
-  cd ../geodatos && ./scripts/servir.sh     # visor local en http://127.0.0.1:8765/visor/
   ```
-  `geodatos/descargas/` no está en git: se regenera con los scripts 01–07 (unos 15 min y ~400 MB). Los secretos de clima (`clima/privado/`) se piden a Julián.
-- **Relación con la app:** `09_entregable.py` y `export/integracion/copiar-a-app.sh` copian a la app ResponseGrid. Usan `SOSGALAPAGOS_APP`, que por defecto apunta a `~/dev/RESPONSEGRID_GALAPAGOS/app`.
-- **Dependencia interna:** algunos estudios leen `clima/datos/`. `geodatos/` y `clima/` deben estar uno junto al otro.
+- **Lo que no está en git:**
+  - `geodatos/descargas/` se regenera con los scripts 01–07 (unos 15 min y ~400 MB).
+  - Los secretos de clima (`clima/privado/`) se piden al responsable.
+- **Informes:** `informes/compilar.sh <carpeta>` con TinyTeX o TeX Live (ver [`informes/LEEME.md`](informes/LEEME.md)).
 
-## 9. Qué falta
+## Licencias y cómo citar
 
-Todo lo pendiente está en los **[issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues)**, con prioridad (P1, P2, P3) y tipo (datos faltantes, más resolución, procesos, plataforma, gobernanza). [Ver solo los P1](https://github.com/mayait/sosgalapagos-datos/issues?q=is%3Aopen+label%3AP1). Lo más urgente:
+**© 2026 Universidad San Francisco de Quito (USFQ).**
 
-1. **Delimitación oficial de lo inundado** el 30–31-oct y **marcas de agua** para validar el modelo.
-2. **Lluvia medida en Puerto Ayora**: incorporar al estudio la estación INAMHI M0191, que sí registró el evento.
-3. **Relieve de 1 m sin edificios** (dron o LiDAR) de los poblados, para rehacer HAND y modelar la inundación en 2D.
-4. **Catastro y red de drenaje urbano** de los tres GAD.
-5. **Curvas IDF y alerta temprana por lluvia** conectadas al recolector.
+| Qué | Licencia |
+|---|---|
+| Código | [Apache 2.0](LICENSE), con el aviso de atribución [`NOTICE`](NOTICE), que hay que conservar |
+| Textos, informes, figuras, mapas y salidas de los modelos propios | [CC BY 4.0](LICENCIA-CC-BY-4.0.txt): toda reutilización o publicación debe atribuirlos a la USFQ |
+| Datos de terceros y lo que se deriva de ellos | Conservan su licencia, que prevalece si es más restrictiva (IERSE CC BY-NC-ND, FCD CC BY-NC-SA, OSM ODbL…); ver [`LICENCIA-DATOS.md`](LICENCIA-DATOS.md) |
 
-## Licencias, créditos y privacidad
+**Cómo citar:**
+- **El repositorio:** «Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). Licencia CC BY 4.0». También en [`CITATION.cff`](CITATION.cff) y en «Cite this repository».
+- **Un informe:** la cita está al pie de su primera página.
 
-- **© 2026 Universidad San Francisco de Quito (USFQ).** Código bajo **[Apache 2.0](LICENSE)**, con aviso de atribución obligatorio ([`NOTICE`](NOTICE)). Textos, informes, figuras, mapas y salidas de los modelos propios bajo **[CC BY 4.0](LICENCIA-CC-BY-4.0.txt)**: toda reutilización o publicación debe atribuirlos a la USFQ y citar el repositorio o el informe técnico correspondiente ([`CITATION.cff`](CITATION.cff)). Los datos de terceros y lo que se deriva de ellos conservan su licencia (IERSE CC BY-NC-ND, FCD CC BY-NC-SA, OSM ODbL…). Detalle en [`LICENCIA-DATOS.md`](LICENCIA-DATOS.md) y `03-fuentes-y-licencias.md`.
-- **Datos personales:** se eliminaron los nombres y teléfonos de los responsables de refugios y de las fuentes de eventos de la SNGR. Nunca se publican nombres de personas afectadas.
-- Cómo citar: «Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). Licencia CC BY 4.0». Atribución de los datos: «IGM, CGREG/FCD, SNGR, INEC, INOCAR, © colaboradores de OpenStreetMap (ODbL), Copernicus GLO-30, IERSE, USFQ GSC».
+**Datos personales:** se eliminan los nombres y teléfonos que traen las capas oficiales. Nunca se publican nombres de personas afectadas.
 
 ## Créditos
 
-- **Julián Maya** (Universidad San Francisco de Quito, USFQ · jamaya@usfq.edu.ec): responsable del repositorio y autor de los informes técnicos (`informes/`).
-- **USFQ Galápagos**: coordinación de la respuesta.
+- **Julián Maya** (Universidad San Francisco de Quito, USFQ · jamaya@usfq.edu.ec): responsable del repositorio y autor de los informes técnicos.
+- **USFQ Galápagos:** coordinación de la respuesta.
+- **Fuentes de datos:** IERSE (Universidad del Azuay), USFQ GSC, INAMHI, Fundación Charles Darwin, IGM, CGREG, SNGR, INOCAR, INEC y colaboradores de OpenStreetMap.
+- El análisis se preparó con asistencia de agentes de inteligencia artificial, sin visitas de campo ni revisión profesional externa.
 - *Equipos y colaboradores: por completar.*

@@ -1,5 +1,7 @@
 # Cómo se prepara y se publica /estudios
 
+> **Desde el 4-nov-2026, [sosgalapagos.org/estudios](https://sosgalapagos.org/estudios/) (alias `/informes`) publica solo la lista de informes técnicos en PDF** (`informes/`, `servidores/publicar.sh estudios`). El sitio web de estudios que describe este documento (mapa, 3D, comentarios) ya no se publica. Sus textos, datos y figuras siguen aquí y alimentan los informes. El flujo incremental y la revisión automática siguen valiendo para regenerar datos y figuras.
+
 Este documento explica cómo pasa un cambio (datos nuevos, un análisis rehecho o un texto corregido) a [sosgalapagos.org/estudios](https://sosgalapagos.org/estudios/). Responsable: **Julián Maya**.
 
 El sitio se genera aquí, en local, y se sube tal cual al servidor. Nadie edita a mano lo que se publica: todo sale de los textos (`estudios/<isla>/texto/*.md`), de `estudios/estudios.json` y de los datos y figuras que producen los scripts.
