@@ -6,52 +6,48 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Clima en vivo · Galápagos</title>
 <meta name="description" content="Nivel de lluvia peligrosa por zona, lluvia medida cada 5 minutos, pronóstico experimental y mareas en Santa Cruz, San Cristóbal e Isabela. Estimaciones de SOS Galápagos, no oficiales.">
-<meta name="theme-color" content="#1B2A41">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <style>
-:root{color-scheme:light dark;
-  --bg:#F6F5F2;--panel:#fff;--ink:#1C1A17;--ink2:#4A453E;--mut:#6A645B;--line:#DED9D0;--line2:#EEEBE5;--grid:#E6E2DA;--night:#F0EDE6;--soft:#F0EDE6;
-  --rain:#1F6FB2;--rain2:#9DC3E6;--fc:#6B4FA0;--fc2:#4B3A75;--fcsoft:#E9E2F5;--ref:#6A645B;--hatch:#8C867C;--sand:#E4D3C2;--brown:#8C5A2B;--link:#1F6FB2;
-  --navy:#1B2A41;--warn:#A15C07;--crit:#9F1D1D;--ok:#2F6B3A;
+:root{color-scheme:light;
+  --bg:#FFFFFF;--panel:#FFFFFF;--ink:#141414;--ink2:#3D3D3D;--mut:#666666;--line:#E3E3E3;--line2:#F0F0F0;--grid:#EBEBEB;--night:#F3F3F3;--soft:#F5F5F5;
+  --red:#E11B22;--red2:#B5161C;--redsoft:#FDECEC;
+  --rain:#1F6FB2;--rain2:#9DC3E6;--fc:#2B2B2B;--fc2:#141414;--fcsoft:#F1F1F1;--ref:#7A7A7A;--hatch:#9A9A9A;--sand:#EDEDED;--brown:#B5161C;--link:#141414;
+  --warn:#9A5B00;--crit:#B5161C;--ok:#2F6B3A;
   --q0:#DCE9F6;--q1:#9DC3E6;--q2:#4F93D1;--q3:#1F6FB2;--q4:#123F6B;
-  --s1:#1F6FB2;--s2:#B4502A;--s3:#0E8A7B;--s4:#C9A227;--s5:#6B4FA0;--s6:#8C5A2B;
-  --sh:0 1px 2px rgba(28,26,23,.06)}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --bg:#151412;--panel:#1E1C19;--ink:#EDEAE4;--ink2:#CFC9BF;--mut:#A39C90;--line:#3A3631;--line2:#2C2925;--grid:#2E2B27;--night:#24221F;--soft:#2A2723;
-  --rain:#5AA2E0;--rain2:#2E5C86;--fc:#A08BD0;--fc2:#C3B3EA;--fcsoft:#2E2740;--ref:#A39C90;--hatch:#77706A;--sand:#4A3C2E;--brown:#C89A6A;--link:#7DB6EA;
-  --warn:#E0A44A;--crit:#F08A8A;--ok:#7FC08A;
+  --s1:#1F6FB2;--s2:#E11B22;--s3:#141414;--s4:#8A8A8A;--s5:#7FB2DE;--s6:#7A0E12;
+  --sh:0 1px 2px rgba(0,0,0,.05)}
+/* Modo oscuro: solo si la persona lo elige con el botón ◐ */
+:root[data-theme=dark]{color-scheme:dark;
+  --bg:#121212;--panel:#1C1C1C;--ink:#F2F2F2;--ink2:#D0D0D0;--mut:#A0A0A0;--line:#383838;--line2:#2A2A2A;--grid:#2E2E2E;--night:#222222;--soft:#262626;
+  --red:#FF4A50;--red2:#FF6B70;--redsoft:#3A1C1D;
+  --rain:#5AA2E0;--rain2:#2E5C86;--fc:#D9D9D9;--fc2:#F2F2F2;--fcsoft:#2A2A2A;--ref:#A0A0A0;--hatch:#7A7A7A;--sand:#333333;--brown:#FF6B70;--link:#F2F2F2;
+  --warn:#E0A44A;--crit:#FF6B70;--ok:#7FC08A;
   --q0:#1D3247;--q1:#2E5C86;--q2:#3F7FBF;--q3:#5AA2E0;--q4:#A9CFF2;
-  --s1:#5AA2E0;--s2:#E07A52;--s3:#3CC0AE;--s4:#E2BF4F;--s5:#A08BD0;--s6:#C89A6A;--sh:none}}
-:root[data-theme=dark]{
-  --bg:#151412;--panel:#1E1C19;--ink:#EDEAE4;--ink2:#CFC9BF;--mut:#A39C90;--line:#3A3631;--line2:#2C2925;--grid:#2E2B27;--night:#24221F;--soft:#2A2723;
-  --rain:#5AA2E0;--rain2:#2E5C86;--fc:#A08BD0;--fc2:#C3B3EA;--fcsoft:#2E2740;--ref:#A39C90;--hatch:#77706A;--sand:#4A3C2E;--brown:#C89A6A;--link:#7DB6EA;
-  --warn:#E0A44A;--crit:#F08A8A;--ok:#7FC08A;
-  --q0:#1D3247;--q1:#2E5C86;--q2:#3F7FBF;--q3:#5AA2E0;--q4:#A9CFF2;
-  --s1:#5AA2E0;--s2:#E07A52;--s3:#3CC0AE;--s4:#E2BF4F;--s5:#A08BD0;--s6:#C89A6A;--sh:none}
+  --s1:#5AA2E0;--s2:#FF4A50;--s3:#F2F2F2;--s4:#9A9A9A;--s5:#A9CFF2;--s6:#E0787C;--sh:none}
 *{box-sizing:border-box}
-html{scroll-padding-top:64px}
 html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 -apple-system,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
-a{color:var(--link)}a:hover{color:var(--ink)}
+a{color:var(--link);text-decoration-color:var(--red);text-underline-offset:2px}a:hover{color:var(--red2)}
 button{font:inherit;cursor:pointer;color:inherit}
 [hidden]{display:none!important}
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 /* franja oficial */
-.franja{background:#1B2A41;color:#fff;font-size:13px}
+.franja{background:var(--soft);color:var(--ink);font-size:13px;border-top:4px solid var(--red);border-bottom:1px solid var(--line)}
 .franja .in{max-width:1180px;margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
-.franja a{color:#fff}.franja a:hover{color:#F2C14E}
-.franja .lab{font-weight:800;letter-spacing:.04em;font-size:11px;background:#C8102E;padding:3px 7px;border-radius:3px}
-.franja .der{margin-left:auto;opacity:.9}
+.franja a{color:var(--ink)}.franja a:hover{color:var(--red2)}
+.franja .lab{font-weight:800;letter-spacing:.04em;font-size:11px;background:var(--red);color:#fff;padding:3px 7px;border-radius:3px}
+.franja .der{margin-left:auto;color:var(--ink2)}
 /* encabezado */
 header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding:16px 0 10px}
 .back{font-size:13px;color:var(--mut)}
-h1{font-weight:800;font-size:22px;line-height:1.15;margin:2px 0 0;letter-spacing:-.01em}
+h1{font-weight:900;font-size:22px;border-left:6px solid var(--red);padding-left:10px;line-height:1.15;margin:2px 0 0;letter-spacing:-.01em}
 .upd{font-size:13px;color:var(--mut)}
 .upd b{color:var(--ink)}
 .upd .warn{color:var(--warn);font-weight:700}.upd .crit{color:var(--crit);font-weight:700}
-.vista{display:flex;border:2px solid var(--ink);border-radius:8px;overflow:hidden}
+.vista{display:flex;border:2px solid var(--red);border-radius:8px;overflow:hidden}
 .vista button{padding:8px 16px;border:0;font-weight:700;font-size:14px;background:var(--panel);color:var(--ink);min-height:40px}
-.vista button.on{background:var(--ink);color:var(--bg)}
+.vista button.on{background:var(--red);color:#fff}
 .tema{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:6px 10px;font-size:13px;min-height:40px}
 /* selector de zona */
 .zsel{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 4px}
@@ -101,7 +97,7 @@ h1{font-weight:800;font-size:22px;line-height:1.15;margin:2px 0 0;letter-spacing
 .help{margin-top:14px;background:var(--panel);color:var(--ink);border-radius:8px;padding:14px 16px;font-size:15px}
 .help ul{margin:6px 0;padding-left:20px}.help li{margin:4px 0}
 .help .pie{font-size:13px;color:var(--mut)}
-.satline{margin-top:12px;font-size:14px;font-weight:700;padding:8px 12px;border-radius:6px;background:rgba(255,255,255,.75);color:#1C1A17;display:inline-block}
+.satline{margin-top:12px;font-size:14px;font-weight:700;padding:8px 12px;border-radius:6px;background:rgba(255,255,255,.75);color:#141414;display:inline-block}
 /* figuras */
 .fig{margin:10px 0 0;position:relative}
 .fig figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:14px;font-weight:700}
@@ -152,7 +148,7 @@ svg .tx-ink{fill:var(--ink)}svg .tx-b{font-weight:700}
 .lst .it .r{text-align:right;font-weight:800}
 .lst button.it{border:0;border-bottom:1px solid var(--line2);background:none;text-align:left;width:100%;grid-template-columns:auto minmax(0,1fr) auto;min-height:48px}
 .pill{font-weight:800;font-size:12.5px;padding:4px 9px;border-radius:4px;white-space:nowrap;display:inline-block}
-.pill.sd,.sw.sd,.zcard.sd{background:repeating-linear-gradient(45deg,#E9E5DD 0 6px,#fff 6px 12px)!important;color:#1C1A17!important;border:1.5px dashed #8C867C}
+.pill.sd,.sw.sd,.zcard.sd{background:repeating-linear-gradient(45deg,#E6E6E6 0 6px,#fff 6px 12px)!important;color:#141414!important;border:1.5px dashed #9A9A9A}
 .ico-ok{color:var(--ok)}.ico-warn{color:var(--warn)}.ico-crit{color:var(--crit)}
 /* tablas */
 .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -166,16 +162,16 @@ tr.ref td{color:var(--mut);font-size:12.5px;border-bottom-style:dashed}
 .cells i{display:block}
 .flag{font-weight:800;font-size:12px;padding:2px 7px;border-radius:4px;white-space:nowrap}
 .flag.ok{color:var(--ok);background:transparent;border:1px solid var(--line)}
-.flag.warn{color:#5A3A00;background:#F2DDB0}
-.flag.crit{color:#fff;background:#9F1D1D}
+.flag.warn{color:#8E1116;background:#FCE4E5}
+.flag.crit{color:#fff;background:#B5161C}
 .flag.gris{color:var(--ink2);border:1.5px dashed var(--hatch)}
 /* ciencia */
 .sci-nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:2px solid var(--line);margin:14px -16px 0;padding:0 16px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
 .sci-nav::-webkit-scrollbar{display:none}
 .sci-nav a{padding:12px 12px 10px;border-bottom:3px solid transparent;margin-bottom:-2px;font-weight:700;font-size:14px;color:var(--mut);text-decoration:none;white-space:nowrap}
-.sci-nav a.on{color:var(--ink);border-bottom-color:var(--ink)}
+.sci-nav a.on{color:var(--ink);border-bottom-color:var(--red)}
 .sci-nav .tz{margin-left:auto;align-self:center;font-size:12px;color:var(--mut);white-space:nowrap;padding-left:12px}
-.sci-sec{scroll-margin-top:56px}
+.sci-sec{scroll-margin-top:60px}
 .sci-sec>.card:first-child{margin-top:22px}
 .sec-t{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:30px 0 -6px;display:flex;align-items:center;gap:10px}
 .sec-t:after{content:"";flex:1;height:1px;background:var(--line)}
@@ -212,13 +208,20 @@ details.um p{max-width:95ch}
 .capas{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mut);margin:8px 0 0}
 .capas label{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
 .capas i{display:inline-block;width:12px;height:12px;border-radius:2px}
-footer{margin-top:28px;font-size:13px;color:var(--mut);max-width:95ch}
-footer b{color:var(--ink)}
+footer.pie{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink2)}
+footer.pie b{color:var(--ink)}
+footer.pie .aviso{border-left:4px solid var(--red);background:var(--soft);padding:12px 16px;border-radius:0 8px 8px 0;max-width:110ch;text-wrap:pretty}
+footer.pie .repo{margin:14px 0 0}
+footer.pie .cierre{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 32px;margin-top:34px}
+footer.pie .more{margin:0;font-family:"Zalando Sans Expanded","Arial Black","Helvetica Neue",Arial,sans-serif;font-weight:900;font-size:clamp(28px,5vw,46px);line-height:.95;letter-spacing:-.01em;color:var(--ink);display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+footer.pie .more .blk{background:var(--red);color:#fff;padding:4px 10px 2px}
+footer.pie .logo{color:var(--ink);width:min(300px,78vw)}
+footer.pie .logo svg{display:block;width:100%;height:auto}
 /* tooltip y visor ampliado */
 #tip{position:fixed;pointer-events:none;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.18);display:none;z-index:2000;max-width:300px}
 #tip b{font-weight:800}
 dialog#lb{width:min(1400px,96vw);max-height:94vh;border:0;border-radius:14px;padding:0;background:var(--panel);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.4)}
-dialog#lb::backdrop{background:rgba(20,18,15,.72)}
+dialog#lb::backdrop{background:rgba(0,0,0,.6)}
 #lb .lb-h{position:sticky;top:0;background:var(--panel);display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);z-index:2}
 #lb .lb-h b{font-size:17px}
 #lb .lb-h button{border:1.5px solid var(--ink);background:var(--panel);border-radius:8px;padding:6px 14px;font-weight:800;min-height:40px}
@@ -375,9 +378,9 @@ dialog#lb::backdrop{background:rgba(20,18,15,.72)}
         <div class="tblwrap"><table style="margin-top:10px">
           <thead><tr><th class="l">Día</th><th class="l">Lluvia medida</th><th class="l">Nivel</th><th class="l">Anegamientos</th></tr></thead>
           <tbody>
-            <tr><td class="l"><span class="n">30-oct-2026</span></td><td class="l" style="white-space:normal">R de la zona a las 21:20: 58 mm en 1 h, 131 mm en 3 h, 178 mm en 24 h</td><td class="l"><span class="pill" style="background:#4A2C1A;color:#fff">● muy alto</span></td><td class="l">sí: inundación de La Cascada</td></tr>
-            <tr><td class="l"><span class="n">23-oct-2026</span></td><td class="l" style="white-space:normal">Santa Rosa: 97 mm en el día, máx. 28 mm en 1 h</td><td class="l"><span class="pill" style="background:#C9A227;color:#1C1A17">▲ medio</span></td><td class="l">no consta</td></tr>
-            <tr><td class="l"><span class="n">3-oct-2026</span></td><td class="l" style="white-space:normal">Los Guayabillos: 68 mm en el día, máx. 12,6 mm en 1 h</td><td class="l"><span class="pill" style="background:#D9D2C5;color:#1C1A17">■ bajo</span></td><td class="l">no consta</td></tr>
+            <tr><td class="l"><span class="n">30-oct-2026</span></td><td class="l" style="white-space:normal">R de la zona a las 21:20: 58 mm en 1 h, 131 mm en 3 h, 178 mm en 24 h</td><td class="l"><span class="pill" style="background:#6E0B0F;color:#fff">● muy alto</span></td><td class="l">sí: inundación de La Cascada</td></tr>
+            <tr><td class="l"><span class="n">23-oct-2026</span></td><td class="l" style="white-space:normal">Santa Rosa: 97 mm en el día, máx. 28 mm en 1 h</td><td class="l"><span class="pill" style="background:#F29C9F;color:#141414">▲ medio</span></td><td class="l">no consta</td></tr>
+            <tr><td class="l"><span class="n">3-oct-2026</span></td><td class="l" style="white-space:normal">Los Guayabillos: 68 mm en el día, máx. 12,6 mm en 1 h</td><td class="l"><span class="pill" style="background:#E4E4E4;color:#141414">■ bajo</span></td><td class="l">no consta</td></tr>
           </tbody></table></div>
         <p class="note">Simulación del 30-oct: medio a las 15:15, alto a las 19:05 (2,6–3,8 h antes del pico modelado), muy alto a las 20:55. «No consta» no quiere decir que no hubo anegamientos: falta confirmarlo con el GAD o el COE.</p>
       </div>
@@ -474,8 +477,13 @@ dialog#lb::backdrop{background:rgba(20,18,15,.72)}
   </section>
 </main>
 
-<footer>
-  <b>Todo lo de SOS Galápagos en esta página es estimación, no dato oficial.</b> El nivel de lluvia peligrosa sale de la lluvia medida y de un estudio técnico preliminar calibrado con un solo evento (30-oct-2026). El pronóstico sale de modelos globales calibrados con la lluvia medida. Las alertas las emiten la SNGR, el COE y el ECU 911, y el pronóstico oficial es del INAMHI. Horas de Galápagos (UTC−6).
+<footer class="pie">
+  <div class="aviso"><b>Modelos preliminares.</b> El nivel de lluvia peligrosa, el pronóstico de lluvia fuerte y la señal satelital son modelos preliminares de SOS Galápagos, todavía en evaluación: no son datos ni alertas oficiales y pueden fallar. El nivel se calibró con un solo evento (30-oct-2026) y el pronóstico sale de modelos globales ajustados con la lluvia medida. Las alertas las emiten la SNGR, el COE y el ECU 911, y el pronóstico oficial es del INAMHI. Horas de Galápagos (UTC−6).</div>
+  <p class="repo">Código, métodos y datos abiertos en GitHub: <a href="https://github.com/mayait/sosgalapagos-datos" target="_blank" rel="noopener">github.com/mayait/sosgalapagos-datos</a></p>
+  <div class="cierre">
+    <p class="more" lang="en"><span>MORE DATA,</span><span class="blk">MORE DRAGONS.</span></p>
+    <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1063.70 505.50 383.46 82.90" role="img" aria-label="USFQ Galápagos"><path fill="currentColor" d="M1070.5 519.7C1070.5 517.5 1070.1 516 1069.5 515.3C1068.9 514.5 1067.7 514.1 1065.8 514.1L1064.2 514.1L1064.2 511.5L1084.7 511.5L1084.7 514.1L1078.4 514.1L1078.4 558.4C1078.4 561.5 1079.2 563.9 1080.9 565.5C1082.5 567.2 1085 568 1088.1 568C1091.3 568 1093.7 567 1095.3 565.1C1096.9 563.2 1097.7 560.2 1097.7 556.3L1097.7 519.7C1097.7 517.4 1097.4 516 1096.8 515.2C1096.1 514.5 1094.9 514.1 1093.2 514.1L1091.4 514.1L1091.4 511.5L1106.5 511.5L1106.5 514.1L1100.3 514.1L1100.3 557.5C1100.3 562.4 1099 566.1 1096.4 568.7C1093.9 571.3 1090.2 572.6 1085.5 572.6C1080.6 572.6 1076.8 571.2 1074.3 568.5C1071.7 565.8 1070.5 561.8 1070.5 556.6ZM1070.5 519.7 "/><path fill="currentColor" d="M1164.4 519.7C1164.4 517.5 1164.1 516 1163.5 515.3C1162.9 514.5 1161.7 514.1 1159.8 514.1L1158.2 514.1L1158.2 511.5L1189.1 511.5L1189.1 507.6L1191.9 507.6L1191.9 528.5L1189.1 528.5L1189.1 524.7C1189.1 520.9 1188.2 518.2 1186.3 516.6C1184.5 514.9 1181.3 514.1 1177 514.1L1172.4 514.1L1172.4 528.6L1179.7 528.6L1179.7 520.4L1182.5 520.4L1182.5 541.5L1179.7 541.5L1179.7 537.2C1179.7 535.3 1179.2 533.8 1178.3 532.8C1177.3 531.7 1176 531.2 1174.3 531.2L1172.4 531.2L1172.4 563.1C1172.4 565.3 1172.7 566.8 1173.3 567.5C1173.9 568.3 1175.2 568.7 1177 568.7L1179.8 568.7L1179.8 571.3L1158.2 571.3L1158.2 568.7L1164.4 568.7ZM1164.4 519.7 "/><path fill="#E11B22" d="M1151 531.4C1150.6 531.3 1150.7 531.3 1150.3 531C1149.8 530.6 1149.5 530.3 1149.1 529.8C1147.5 527.3 1147.3 527.5 1147.3 526.2C1147.3 525.9 1148.1 526.3 1148.3 526.4C1148.9 526.8 1149.4 527.2 1150 527.7C1150.6 528.2 1150.9 528.4 1151.5 528.9C1151.1 529.3 1151 530.1 1151 530.8C1151 531.2 1151 530.9 1151 531.4M1145.8 519.6C1145.1 519.3 1144.3 518.9 1143.4 518.7C1144.1 516.8 1145.4 517.3 1146.5 518.1C1146.8 518.4 1147.1 518.6 1147.4 518.9C1147.8 519.3 1148.2 519.8 1148.4 520C1147.8 520.1 1147.3 520 1146.8 519.9C1146.4 519.8 1146.1 519.7 1145.8 519.6M1158.5 531.9C1158.7 531.2 1159.4 530.7 1159.6 530.1C1159.9 529.3 1159.7 528.4 1159.1 527.8C1159.1 527.8 1159.1 527.8 1159.1 527.7C1159.1 527.7 1159.1 527.7 1159.2 527.7C1159 526.1 1157.6 525.1 1156 525.9C1154.3 524.2 1150.7 524 1150.8 520.8C1151.3 520.6 1152.2 520.8 1152.6 520.8C1152.3 519.1 1151.3 517.4 1149.1 517.6C1150 514.1 1144.4 515.9 1143.7 513.7C1143.3 513.8 1143 514.1 1142.8 514.4L1142.8 514.3C1142.8 511.8 1145.1 511.4 1146.3 513.2C1146.1 511.7 1142.8 511.3 1142.1 512.6C1141.3 510.7 1143.1 511.5 1141.9 509.9C1140.3 507.9 1137.6 506.8 1135.2 506.2C1137 507 1138.8 508.2 1139.1 510.9C1138.1 510 1137.3 510.2 1137.3 510.2C1137.3 510.2 1138 510.7 1137.4 511.5C1137.3 511.7 1135.4 511.4 1135.5 511.6C1134 511.2 1133.1 509.1 1131.8 508.4C1129.5 507 1124.9 506 1122.4 507.5C1125.1 508.4 1127.5 509.7 1129.1 512.4C1128.1 512.6 1125.7 512.8 1125.5 514.2C1126.2 514 1127.4 513.9 1127.8 514.6C1125.1 516.3 1122.4 518.4 1121.9 522.1C1123 520.7 1123.8 519.4 1125.2 518.5C1126.6 517.6 1128.3 517.4 1128.9 517.7C1125.6 518.1 1124 520.2 1123.3 522.3C1122.9 523.3 1122.7 524.4 1122.1 525.2C1121.6 526.1 1120.9 525 1121 525.3C1121.2 526.9 1122 527 1121.9 527.4C1121.8 527.6 1121.8 528.7 1121.7 529.4C1121.7 532.7 1126.7 538.6 1122.7 540.2C1124.2 541.2 1125.9 539.5 1126.7 538.4C1128.1 539.9 1128.7 541.2 1130.4 541.9L1130.4 541.9C1130.9 542.5 1131.3 545.8 1137 547C1135.9 546.3 1135.3 545.4 1134.9 544.3L1135 544.2C1137.9 545.8 1139.6 546.8 1140.1 547.3C1141.8 549 1142.7 551.2 1142.6 554C1142.3 556.1 1141.3 557.2 1139.3 558.5C1140.1 558.7 1141.1 558.5 1142 558.2C1141.6 558.9 1141.2 559.7 1140.6 560.3C1139.5 561 1138.3 561.1 1135.9 560.4C1137.2 561.4 1137.9 561.5 1138.4 561.7C1138.1 561.9 1136.2 563.2 1134.3 562.9C1131.6 562.5 1130.4 561.2 1129.6 558.6C1129.4 558.1 1129.6 557.1 1130.1 555.5C1130.9 553.9 1131.9 552.9 1133.3 552.5C1130.8 552.4 1128.6 553.5 1126.6 555.8C1125.6 554.9 1124.4 554.2 1122.9 553.5C1123 552.9 1124.1 552.2 1126.9 552.2C1125.9 551.9 1124 551.4 1122.6 551.3C1120.9 551.2 1119.2 551.5 1119 551.8C1119.8 550.3 1123.4 548.4 1124.4 548.8C1123.6 548.5 1122.8 548.3 1121.9 548.2C1121.4 548.1 1120.4 548.2 1119.5 548.3C1116.8 548.7 1114.2 550.2 1112.1 551.9C1104.6 557.6 1100.5 568.3 1101 577.5C1101 577.8 1101.1 578.5 1101.2 578.9C1101.2 579.2 1101.3 579.3 1101.3 579.2L1101.3 579.2C1101.3 579.2 1101.3 579.2 1101.3 579.2C1101.3 579.2 1101.3 579.1 1101.3 579.1C1101.4 578 1102.1 571.8 1104.8 566.8C1103.1 573.4 1105.7 583.3 1105.7 583.3C1104.6 576.5 1105.7 564.1 1112.4 560.3C1112.6 560.2 1113 560 1113.2 559.9C1113.9 559.6 1114.7 559.5 1115.5 559.5C1118.9 559.5 1121.6 562.2 1121.6 565.6C1121.6 565.6 1121.6 565.6 1121.6 565.6C1121.6 568.6 1119.5 571.1 1116.8 571.7C1116.4 571.8 1116 571.8 1115.6 571.8C1116.5 572.1 1117.5 572.3 1118.6 572.4C1121.9 572.6 1124.6 572.6 1126.7 568.9C1126.7 568.9 1123.7 574 1121.4 580C1129.1 570.8 1132.2 574.5 1136.6 572.9C1136.1 573.6 1135.1 574.5 1133.5 575.3C1135.6 575.2 1138.8 573.9 1143.6 571C1143.7 573.5 1143.8 575.7 1145.5 577.3C1145.5 577.3 1144.9 572 1150.8 565.9C1151.2 566.9 1151.1 567.5 1150.1 570.7C1152.4 566.6 1154.5 564.8 1155.1 562.3C1155.4 561 1156.4 556.6 1156.4 555.3C1156.7 550.3 1155.6 545.4 1150.8 541.2C1148.6 539.1 1146.4 537.4 1145.2 536.7C1145.2 536.6 1145.1 536.5 1145.1 536.4C1145.9 536.7 1146.5 536.5 1148.4 534.8C1146.1 535.1 1145.5 534.9 1143.4 534.5C1142.3 534.2 1141.2 533.8 1139.9 533C1138.5 532.2 1138.2 530.3 1137.5 528.8C1137.1 528 1136.7 527.2 1136.7 526.4C1136.7 526.3 1136.7 526.1 1136.7 526.1C1136.7 526.1 1136.9 527 1138.8 527.1C1140 527.2 1140.8 526 1142 525.9C1143.6 525.7 1145.2 527.1 1146 527.9C1147.6 529.3 1148.1 531.8 1150.1 532.7C1150.5 532.9 1151.1 533 1151.6 533.1C1151.6 533.3 1151.6 533.6 1151.6 533.8C1151.3 535.3 1150.3 535.3 1149.4 534.6C1149.8 535.3 1151.3 536.3 1152 533.9C1152.1 533.7 1152.1 533.4 1152.2 533.1C1152.5 533.1 1152.8 533.1 1153.1 533.1C1153.4 533.1 1155.9 532.7 1155.4 532.1C1155.2 531.9 1154.7 531.9 1154.5 532C1153.8 532.2 1153.1 532 1152.4 531.9C1152.5 531.2 1152.7 530.6 1153.1 530.1C1153.6 530.4 1153.5 530.5 1154 530.7C1154.5 531 1155 531.2 1155.4 531.3C1156.1 531.4 1156.8 531.9 1157.4 531.2C1157.9 530.5 1157.9 529.4 1158.5 528.8C1158.6 528.8 1158.6 528.7 1158.6 528.7C1159.9 529.7 1158.3 530.8 1158.2 531.9C1158 533.6 1159.3 533.4 1159.8 533.1C1159 533.2 1158.2 532.9 1158.5 531.9 "/><path fill="currentColor" d="M1210.5 520C1206.6 524.3 1204.6 529.6 1204.6 536.2C1204.6 554.2 1217.9 569.7 1233.4 569.7C1245.2 569.7 1254.2 559.5 1254.2 546.2C1254.2 528.9 1240.4 513.2 1225.2 513.2C1220 513.2 1214.1 515.9 1210.5 520M1253.2 519.5C1259 525.5 1262.1 533 1262.1 541.5C1262.1 549.1 1259.4 556.1 1254.3 562C1248 569.2 1239.9 572.8 1229.8 572.8C1211.4 572.8 1197 559 1197 541.3C1197 523.6 1211 509.9 1229.2 509.9C1238.9 509.9 1246.9 513.1 1253.2 519.5 "/><path fill="currentColor" d="M1315.7 577.3C1315.3 576.8 1315.1 576.5 1314.6 575.9C1314.6 575.9 1296.6 587.9 1248 569.5C1248 569.5 1230.5 562.4 1224.6 564.8C1224.6 564.8 1221.9 565.5 1222.4 569.3C1223 569.8 1223.3 570.1 1223.9 570.6C1223.9 570.6 1224.6 566.8 1229.9 567.1C1235.2 567.4 1240.5 569.5 1247.6 572.2C1254.7 574.9 1273.7 581.8 1282.1 583.3C1290.5 584.8 1297.9 585 1308.9 580.4C1311.6 579.2 1313 578.6 1315.7 577.3 "/><path fill="currentColor" d="M1305.5 549.4Q1303.1 549.4 1301.4 548.4Q1299.7 547.4 1298.7 545.6Q1297.8 543.9 1297.8 541.4Q1297.8 538.9 1298.8 537Q1299.8 535.1 1301.6 534Q1303.4 532.9 1305.8 532.9Q1307 532.9 1308.1 533.3Q1309.2 533.6 1310.5 534.4L1310.9 533.1H1311.7L1311.4 537.9H1310.4Q1310.4 536.6 1309.8 535.7Q1309.1 534.9 1308.1 534.4Q1307.1 534 1306 534Q1304.3 534 1303.1 534.9Q1301.9 535.8 1301.2 537.4Q1300.6 539 1300.6 541.3Q1300.6 544.6 1302 546.4Q1303.4 548.2 1306 548.2Q1307.4 548.2 1308.3 547.8Q1309.3 547.4 1309.8 546.7Q1310.3 546.1 1310.3 545.3Q1310.3 544.1 1309.8 543.7Q1309.3 543.2 1308.2 543.2V542.5H1314.1V543.2Q1313.1 543.2 1312.7 543.6Q1312.4 544 1312.4 545.1V547.4Q1311.9 547.4 1311.4 547.5Q1311 547.6 1310.5 547.8Q1310 548 1309.2 548.4Q1308.5 548.8 1307.5 549.1Q1306.6 549.4 1305.5 549.4ZM1314.8 549.1V548.4Q1315.8 548.3 1316.3 547.9Q1316.7 547.6 1317.1 546.7L1322.5 533.1H1323.4L1328.1 544.9Q1328.6 546 1328.9 546.7Q1329.3 547.4 1329.6 547.8Q1330 548.1 1330.3 548.2Q1330.7 548.3 1331.3 548.3V549.1H1324.5V548.3Q1325.6 548.3 1326 548.1Q1326.4 547.9 1326.4 547.4Q1326.4 547 1326.3 546.7Q1326.2 546.3 1326 545.6L1325.1 543.4H1319.6Q1318.8 545.1 1318.6 546Q1318.3 546.9 1318.3 547.3Q1318.3 547.9 1318.6 548.1Q1319 548.4 1319.9 548.4V549.1ZM1320 542.3H1324.7L1322.4 536.2H1322.4ZM1332.3 549.1V548.4Q1333.2 548.3 1333.7 548.1Q1334.2 548 1334.4 547.5Q1334.5 547 1334.5 546V536.3Q1334.5 535.3 1334.4 534.8Q1334.2 534.4 1333.8 534.2Q1333.4 534 1332.5 533.9V533.1H1338.8V533.9Q1337.9 534 1337.4 534.2Q1337 534.4 1336.9 534.9Q1336.7 535.4 1336.7 536.5V545.4Q1336.7 546.6 1337 547.2Q1337.4 547.8 1338.2 548Q1339 548.2 1340.4 548.2Q1342 548.2 1343 548Q1343.9 547.7 1344.4 547Q1344.9 546.3 1345.2 545.1H1346L1345.7 549.1ZM1346.6 549.1V548.4Q1347.6 548.3 1348.1 547.9Q1348.5 547.6 1348.9 546.7L1354.3 533.1H1355.2L1359.9 544.9Q1360.4 546 1360.7 546.7Q1361.1 547.4 1361.4 547.8Q1361.7 548.1 1362.1 548.2Q1362.5 548.3 1363.1 548.3V549.1H1356.3V548.3Q1357.4 548.3 1357.8 548.1Q1358.2 547.9 1358.2 547.4Q1358.2 547 1358.1 546.7Q1358 546.3 1357.7 545.6L1356.9 543.4H1351.3Q1350.6 545.1 1350.3 546Q1350 546.9 1350 547.3Q1350 547.9 1350.4 548.1Q1350.8 548.4 1351.7 548.4V549.1ZM1351.8 542.3H1356.5L1354.2 536.2H1354.1ZM1354.1 531.5H1352.9L1355.6 529.9Q1356.1 529.5 1356.5 529.4Q1356.9 529.2 1357.4 529.2Q1357.7 529.2 1357.9 529.4Q1358.2 529.6 1358.2 529.9Q1358.2 530.3 1357.7 530.5Q1357.3 530.7 1356.6 530.9ZM1376.8 537.2Q1376.8 538.6 1376.1 539.7Q1375.5 540.7 1374.1 541.3Q1372.7 541.9 1370.4 541.9H1368.5V545.9Q1368.5 546.9 1368.7 547.4Q1368.9 548 1369.5 548.2Q1370.1 548.4 1371.4 548.4V549.1H1364V548.4Q1365 548.3 1365.5 548.1Q1366 548 1366.2 547.5Q1366.3 547 1366.3 546V536.3Q1366.3 535.3 1366.2 534.8Q1366 534.4 1365.6 534.2Q1365.1 534 1364.3 533.9V533.1H1370.8Q1373.6 533.1 1375.2 534.2Q1376.8 535.3 1376.8 537.2ZM1368.5 534.5V540.8H1370Q1372 540.8 1373.1 540Q1374.1 539.2 1374.1 537.4Q1374.1 535.7 1373.3 534.9Q1372.5 534.1 1370.8 534.1H1368.9Q1368.5 534.1 1368.5 534.5ZM1377.6 549.1V548.4Q1378.5 548.3 1379 547.9Q1379.5 547.6 1379.8 546.7L1385.2 533.1H1386.1L1390.9 544.9Q1391.3 546 1391.7 546.7Q1392 547.4 1392.4 547.8Q1392.7 548.1 1393.1 548.2Q1393.5 548.3 1394 548.3V549.1H1387.2V548.3Q1388.3 548.3 1388.8 548.1Q1389.2 547.9 1389.2 547.4Q1389.2 547 1389.1 546.7Q1389 546.3 1388.7 545.6L1387.8 543.4H1382.3Q1381.6 545.1 1381.3 546Q1381 546.9 1381 547.3Q1381 547.9 1381.4 548.1Q1381.8 548.4 1382.6 548.4V549.1ZM1382.7 542.3H1387.4L1385.2 536.2H1385.1ZM1403 549.4Q1400.6 549.4 1398.9 548.4Q1397.2 547.4 1396.2 545.6Q1395.3 543.9 1395.3 541.4Q1395.3 538.9 1396.3 537Q1397.3 535.1 1399.1 534Q1400.9 532.9 1403.3 532.9Q1404.5 532.9 1405.6 533.3Q1406.7 533.6 1408 534.4L1408.4 533.1H1409.2L1408.9 537.9H1407.9Q1407.9 536.6 1407.3 535.7Q1406.6 534.9 1405.6 534.4Q1404.6 534 1403.5 534Q1401.8 534 1400.6 534.9Q1399.4 535.8 1398.7 537.4Q1398.1 539 1398.1 541.3Q1398.1 544.6 1399.5 546.4Q1400.9 548.2 1403.5 548.2Q1404.9 548.2 1405.8 547.8Q1406.8 547.4 1407.3 546.7Q1407.8 546.1 1407.8 545.3Q1407.8 544.1 1407.3 543.7Q1406.8 543.2 1405.7 543.2V542.5H1411.6V543.2Q1410.6 543.2 1410.2 543.6Q1409.9 544 1409.9 545.1V547.4Q1409.4 547.4 1408.9 547.5Q1408.5 547.6 1408 547.8Q1407.5 548 1406.7 548.4Q1406 548.8 1405 549.1Q1404.1 549.4 1403 549.4ZM1422.3 532.9Q1424.1 532.9 1425.7 533.6Q1427.3 534.2 1428.4 535.3Q1429.6 536.5 1430.3 538Q1430.9 539.5 1430.9 541.3Q1430.9 543 1430.3 544.4Q1429.6 545.9 1428.4 547Q1427.2 548.1 1425.7 548.7Q1424.1 549.4 1422.3 549.4Q1420.5 549.4 1418.9 548.7Q1417.3 548.1 1416.2 547Q1415 545.9 1414.3 544.4Q1413.6 543 1413.6 541.3Q1413.6 539.5 1414.3 538Q1415 536.5 1416.2 535.3Q1417.3 534.2 1418.9 533.6Q1420.5 532.9 1422.3 532.9ZM1422.3 548.2Q1424.1 548.2 1425.4 547.4Q1426.8 546.5 1427.5 545Q1428.2 543.4 1428.2 541.3Q1428.2 539.1 1427.5 537.5Q1426.8 535.9 1425.4 535Q1424.1 534.1 1422.3 534.1Q1420.5 534.1 1419.1 535Q1417.8 535.9 1417.1 537.5Q1416.3 539.1 1416.3 541.3Q1416.3 543.4 1417.1 545Q1417.8 546.5 1419.1 547.4Q1420.5 548.2 1422.3 548.2ZM1434 548.9 1433.6 544.3H1434.4Q1434.7 546.2 1436 547.2Q1437.3 548.3 1439.1 548.3Q1440.7 548.3 1441.6 547.6Q1442.5 546.8 1442.5 545.6Q1442.5 544.9 1442.1 544.3Q1441.8 543.8 1441 543.3Q1440.2 542.8 1438.8 542.1Q1437.1 541.4 1436.1 540.7Q1435.1 540 1434.7 539.2Q1434.3 538.4 1434.3 537.3Q1434.3 536.1 1434.9 535.1Q1435.5 534.1 1436.5 533.5Q1437.6 532.9 1439 532.9Q1440.7 532.9 1442.3 534.2L1442.8 533.2H1443.3L1443.5 537.4H1442.7Q1442.2 535.7 1441.3 534.8Q1440.4 534 1439 534Q1437.8 534 1437 534.6Q1436.3 535.3 1436.3 536.3Q1436.3 537 1436.6 537.5Q1436.9 538 1437.6 538.5Q1438.3 538.9 1439.4 539.5Q1441.5 540.4 1442.7 541.1Q1443.8 541.9 1444.3 542.7Q1444.7 543.5 1444.7 544.6Q1444.7 546 1444 547.1Q1443.3 548.2 1442 548.8Q1440.8 549.4 1439.1 549.4Q1437.9 549.4 1436.9 549Q1436 548.7 1435 547.9L1434.4 548.9Z"/></svg></div>
+  </div>
 </footer>
 </div>
 <div id="tip" role="tooltip"></div>
@@ -515,13 +523,13 @@ const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5", "--s6"];
 const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
 const store = {get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }};
 
-// Niveles: escala tierra–óxido (no es el semáforo de las alertas oficiales)
+// Niveles: escala de gris a rojo (no es el semáforo de las alertas oficiales)
 const NIV = {
-  "bajo": {i: 0, sh: "■", bg: "#D9D2C5", fg: "#1C1A17"},
-  "medio": {i: 1, sh: "▲", bg: "#C9A227", fg: "#1C1A17"},
-  "alto": {i: 2, sh: "▼", bg: "#B4502A", fg: "#FFFFFF"},
-  "muy alto": {i: 3, sh: "●", bg: "#4A2C1A", fg: "#FFFFFF"},
-  "sin datos": {i: -1, sh: "▦", bg: "#E9E5DD", fg: "#1C1A17", sd: true},
+  "bajo": {i: 0, sh: "■", bg: "#E4E4E4", fg: "#141414"},
+  "medio": {i: 1, sh: "▲", bg: "#F29C9F", fg: "#141414"},
+  "alto": {i: 2, sh: "▼", bg: "#E11B22", fg: "#FFFFFF"},
+  "muy alto": {i: 3, sh: "●", bg: "#6E0B0F", fg: "#FFFFFF"},
+  "sin datos": {i: -1, sh: "▦", bg: "#E6E6E6", fg: "#141414", sd: true},
 };
 const niv = n => NIV[n] || NIV["sin datos"];
 // Datos de cada zona que no vienen en el JSON: a qué mar mira y nombre corto
@@ -590,8 +598,8 @@ document.addEventListener("click", ev => {
 });
 $("lbX").onclick = () => $("lb").close();
 $("lb").addEventListener("click", ev => { if (ev.target === $("lb")) $("lb").close(); });
-let redibujo;
-addEventListener("resize", () => { clearTimeout(redibujo); redibujo = setTimeout(() => { dibujar(); }, 180); });
+let redibujo, anchoAnt = innerWidth;
+addEventListener("resize", () => { if (innerWidth === anchoAnt) return; anchoAnt = innerWidth; clearTimeout(redibujo); redibujo = setTimeout(() => { dibujar(); }, 180); });
 
 const tip = $("tip");
 function mostrar(ev, html) {
@@ -846,7 +854,7 @@ function tarjetaZona(z) {
     const oscuro = n.fg === "#FFFFFF";
     pista = `<div class="track"><div class="tt"><span>Lluvia en ${wn}: <b>${mmTxt(v)}</b> · la ventana que más se acerca a su umbral</span><span>marcas: ▲ medio · ▼ alto · ● muy alto${f !== 1 ? ` (umbrales ×${num(f, 1)}: suelo ${z.humedad || ""})` : ""}</span></div>
       <div class="bar" style="background:${oscuro ? "rgba(255,255,255,.22)" : "rgba(255,255,255,.6)"}" role="img" aria-label="Lluvia en ${wn}: ${mmTxt(v)}">
-        <div class="fill" style="width:${pc(v)};background:${oscuro ? "#fff" : "#1C1A17"};opacity:.85"></div>
+        <div class="fill" style="width:${pc(v)};background:${oscuro ? "#fff" : "#141414"};opacity:.85"></div>
         ${marcas.map(m => `<div class="mk" style="left:${pc(m.v)};background:${n.fg}"><span title="${esc(m.n)}">${niv(m.n).sh} ${num(m.v, 0)}</span></div>`).join("")}
         ${rv ? `<div class="ref" style="left:${pc(rv)};border-color:${n.fg}"><span style="${rv / max > .7 ? "transform:translateX(-100%);margin-left:-4px" : ""}">30-oct: ${num(rv, 0)} mm</span></div>` : ""}
       </div><div class="tn">${rv ? `El 30 de octubre, en esta zona, cayeron ${num(rv, 0)} mm en ${wn}.` : ""}</div></div>`;
@@ -865,7 +873,7 @@ function tarjetaZona(z) {
     ${pista}
     <div class="meta"><span>${ests.length ? `${usadas} de ${ests.length} estaciones válidas` : "sin estaciones"}</span><span style="opacity:.85">dato ${hace(E.generado)}</span><span style="opacity:.85">confianza ${conf}</span></div>
     <div class="acts">
-      <button id="bQue" aria-expanded="false" style="background:${n.sd || n.fg !== "#FFFFFF" ? "#1C1A17" : "#fff"};color:${n.sd || n.fg !== "#FFFFFF" ? "#fff" : "#1C1A17"};border:0">Qué hacer</button>
+      <button id="bQue" aria-expanded="false" style="background:${n.sd || n.fg !== "#FFFFFF" ? "#141414" : "#fff"};color:${n.sd || n.fg !== "#FFFFFF" ? "#fff" : "#141414"};border:0">Qué hacer</button>
       <button id="bShare" style="background:transparent;color:inherit;border:2px solid currentColor">Compartir por WhatsApp</button>
     </div>
     <div class="help" id="qh" hidden><b>${qh.t}</b><ul>${qh.l.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
@@ -1065,7 +1073,7 @@ function todas() {
 // ═════════════ CIENCIA ═════════════
 function irCiencia(sec) {
   S.vista = "ciencia"; pintar();
-  if (sec) requestAnimationFrame(() => { const el = $(sec); if (el && !el.hidden) { el.scrollIntoView({behavior: "smooth", block: "start"}); history.replaceState(null, "", location.pathname + location.search + "#" + sec); } });
+  if (sec) requestAnimationFrame(() => irSec(sec));
 }
 function ciencia() {
   $("navSat").hidden = !SAT; $("satelite").hidden = !SAT;
@@ -1073,16 +1081,45 @@ function ciencia() {
   dibujar($("vSci"));
   espia();
 }
-// Menú: lleva a cada sección y marca en cuál está el lector
-let espiaObs;
+// Menú: lleva a cada sección y marca en cuál está el lector.
+// Nunca mueve la página por su cuenta: solo desplaza el propio menú en horizontal (antes, scrollIntoView
+// sobre el enlace cortaba el desplazamiento suave y la página «saltaba»).
+let espiaOn = false, navLock = 0;
+const secciones = () => [...document.querySelectorAll(".sci-sec")].filter(x => !x.hidden);
+function marcar(id) {
+  const nav = $("sciNav"); let on;
+  nav.querySelectorAll("a").forEach(a => { const si = a.dataset.s === id; a.classList.toggle("on", si); if (si) { on = a; a.setAttribute("aria-current", "true"); } else a.removeAttribute("aria-current"); });
+  if (on && (on.offsetLeft < nav.scrollLeft || on.offsetLeft + on.offsetWidth > nav.scrollLeft + nav.clientWidth))
+    nav.scrollTo({left: on.offsetLeft - 16, behavior: "smooth"});
+}
+function irSec(id, suave = true) {
+  const el = $(id); if (!el || el.hidden) return;
+  marcar(id);
+  navLock = Date.now() + 1500; // mientras baja, el menú no cambia de sección a cada paso
+  const y = el.getBoundingClientRect().top + scrollY - $("sciNav").offsetHeight - 6;
+  scrollTo({top: Math.max(0, y), behavior: suave && !matchMedia("(prefers-reduced-motion: reduce)").matches ? "smooth" : "auto"});
+  history.replaceState(null, "", location.pathname + location.search + "#" + id);
+}
+function seccionActual() {
+  const ss = secciones(); if (!ss.length) return null;
+  if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) return ss[ss.length - 1].id;
+  const tope = $("sciNav").getBoundingClientRect().bottom + 40;
+  let id = ss[0].id;
+  for (const x of ss) { if (x.getBoundingClientRect().top <= tope) id = x.id; else break; }
+  return id;
+}
 function espia() {
-  if (espiaObs) return;
-  const links = [...document.querySelectorAll("#sciNav a")];
-  links.forEach(a => a.onclick = ev => { ev.preventDefault(); const el = $(a.dataset.s); if (!el) return; el.scrollIntoView({behavior: "smooth", block: "start"}); history.replaceState(null, "", location.pathname + location.search + "#" + a.dataset.s); });
-  espiaObs = new IntersectionObserver(ents => {
-    ents.forEach(en => { if (en.isIntersecting) { links.forEach(a => a.classList.toggle("on", a.dataset.s === en.target.id)); const on = links.find(a => a.dataset.s === en.target.id); on && on.scrollIntoView({block: "nearest", inline: "nearest"}); } });
-  }, {rootMargin: "-80px 0px -65% 0px"});
-  document.querySelectorAll(".sci-sec").forEach(s => espiaObs.observe(s));
+  if (espiaOn) return; espiaOn = true;
+  $("sciNav").querySelectorAll("a").forEach(a => a.onclick = ev => { ev.preventDefault(); irSec(a.dataset.s); });
+  let pend = false;
+  addEventListener("scroll", () => {
+    if (S.vista !== "ciencia" || pend || Date.now() < navLock) return;
+    pend = true; requestAnimationFrame(() => { pend = false; const id = seccionActual(); id && marcar(id); });
+  }, {passive: true});
+  addEventListener("scrollend", () => { navLock = 0; });
+  // si la persona toma el control (rueda, dedo, teclado), el menú vuelve a seguirla
+  ["wheel", "touchstart", "keydown"].forEach(t => addEventListener(t, () => { navLock = 0; }, {passive: true}));
+  const id = seccionActual(); id && marcar(id);
 }
 const enIsla = e => S.isla === "Todas" || e.isla === S.isla || (S.isla === "Santa Cruz" && e.isla === "Baltra");
 function islaSeg() {
@@ -1121,7 +1158,7 @@ function red() {
   mapaRed(vs.filter(conLluvia));
 }
 // Leaflet solo se carga si hace falta un mapa (Ciencia)
-let leafletP;
+let leafletP; const TACTIL = matchMedia("(pointer: coarse)").matches;
 function leaflet() {
   return leafletP ||= new Promise((res, rej) => {
     const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"; document.head.append(l);
@@ -1133,7 +1170,7 @@ async function mapaRed(vs) {
   if (!vs.length) return;
   let L; try { L = await leaflet(); } catch (e) { $("redMap").innerHTML = `<p class="empty">No se pudo cargar el mapa.</p>`; return; }
   if (!MAPR) {
-    MAPR = L.map("redMap", {scrollWheelZoom: false});
+    MAPR = L.map("redMap", {scrollWheelZoom: false, dragging: !TACTIL});
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 17, attribution: "Esri"}).addTo(MAPR);
     CAPAR = L.layerGroup().addTo(MAPR);
   }
@@ -1293,12 +1330,12 @@ function regla() {
     const nv = nivelMostrado(z), n = niv(nv), f = z.factor || 1, top = U[0];
     const barras = !z.R || !(z.estaciones || []).length ? "" : ["R1h", "R3h", "R24h"].map(k => {
       const max = top[k] * f * 1.15, v = z.R[k] ?? 0;
-      return `<span>${k.slice(1)}</span><span class="trk"><i style="width:${Math.min(100, v / max * 100)}%;background:${n.sd ? "var(--hatch)" : n.bg === "#D9D2C5" ? "#8C867C" : n.bg}"></i>${U.slice(0, 3).map(u => `<b style="left:${Math.min(100, u[k] * f / max * 100)}%" title="${esc(u.nivel)}: ${num(u[k] * f, 0)} mm"></b>`).join("")}</span><span>${mmTxt(v)}</span>`;
+      return `<span>${k.slice(1)}</span><span class="trk"><i style="width:${Math.min(100, v / max * 100)}%;background:${n.sd ? "var(--hatch)" : n.bg === "#E4E4E4" ? "#9A9A9A" : n.bg}"></i>${U.slice(0, 3).map(u => `<b style="left:${Math.min(100, u[k] * f / max * 100)}%" title="${esc(u.nivel)}: ${num(u[k] * f, 0)} mm"></b>`).join("")}</span><span>${mmTxt(v)}</span>`;
     }).join("");
     const tira = (z.historial_72h || []).map((x, i) => { const m = niv(x); return `<i style="background:${x ? m.bg : "var(--line2)"}${x === "sin datos" || !x ? ";background:repeating-linear-gradient(45deg,var(--hatch) 0 1px,transparent 1px 3px)" : ""}" title="hace ${72 - i} h: ${esc(x || "sin datos")}"></i>`; }).join("");
     const usadas = (z.estaciones || []).filter(d => d.usada).map(d => esc(d.estacion) + (d.peso && d.peso !== 1 ? ` (×${num(d.peso, 2)})` : ""));
     const fuera = (z.estaciones || []).filter(d => !d.usada).map(d => `${esc(d.estacion)}: ${esc(d.motivo)}`);
-    return `<div class="zdet" style="--zc:${n.sd ? "#8C867C" : n.bg}"><div class="n">${esc(z.zona)}</div><div class="s">${esc(z.nota || "")}</div>
+    return `<div class="zdet" style="--zc:${n.sd ? "#9A9A9A" : n.bg}"><div class="n">${esc(z.zona)}</div><div class="s">${esc(z.nota || "")}</div>
       <div style="display:flex;align-items:center;gap:8px;margin-top:8px"><span class="pill${n.sd ? " sd" : ""}" style="background:${n.bg};color:${n.fg}">${n.sh} ${esc(nv)}</span>${z.probabilidad ? `<span class="s">inundación ${esc(z.probabilidad)} (juicio experto)</span>` : ""}</div>
       ${z.silencio ? `<div class="s" style="color:var(--crit);font-weight:700;margin-top:6px">▲ Las estaciones dejaron de transmitir durante una alerta: se asume lo peor.</div>` : ""}
       ${z.nivel_instantaneo && z.nivel_instantaneo !== z.nivel && !z.silencio ? `<div class="s" style="margin-top:4px">Se mantiene por persistencia (${I.persistencia_horas || 8} h); la lluvia de ahora indica «${esc(z.nivel_instantaneo)}».</div>` : ""}
@@ -1307,12 +1344,12 @@ function regla() {
       ${tira ? `<div class="tira" role="img" aria-label="Niveles de las últimas 72 horas">${tira}</div><div class="s" style="display:flex;justify-content:space-between"><span>hace 72 h</span><span>ahora</span></div>` : ""}
       <div class="s" style="margin-top:6px">${usadas.length ? "Con: " + usadas.join(", ") : "Sin estaciones válidas"}${fuera.length ? `<br>Excluidas: ${fuera.join("; ")}` : ""}</div></div>`;
   }).join("");
-  $("leyTira").innerHTML = Object.entries(NIV).map(([k, n]) => `<span><i style="background:${n.bg};${n.sd ? "background:repeating-linear-gradient(45deg,var(--hatch) 0 1px,transparent 1px 3px)" : ""}"></i>${n.sh} ${k}</span>`).join("") + `<span>La escala tierra–óxido no es la de las alertas oficiales.</span>`;
+  $("leyTira").innerHTML = Object.entries(NIV).map(([k, n]) => `<span><i style="background:${n.bg};${n.sd ? "background:repeating-linear-gradient(45deg,var(--hatch) 0 1px,transparent 1px 3px)" : ""}"></i>${n.sh} ${k}</span>`).join("") + `<span>La escala de gris a rojo no es la de las alertas oficiales.</span>`;
   $("umbrales").innerHTML = `<thead><tr><th class="l">Nivel</th><th>1 h</th><th>3 h</th><th>24 h</th><th class="l">Probabilidad (cualitativa)</th></tr></thead><tbody>${U.map(u => `<tr><td class="l"><span class="pill" style="background:${niv(u.nivel).bg};color:${niv(u.nivel).fg}">${niv(u.nivel).sh} ${esc(u.nivel)}</span></td><td>${u.R1h ? "≥ " + u.R1h : "—"}</td><td>${u.R3h ? "≥ " + u.R3h : "—"}</td><td>${u.R24h ? "≥ " + u.R24h : "—"}</td><td class="l">${esc(u.prob)}</td></tr>`).join("")}</tbody>`;
   $("metodo").innerHTML = `<details class="um" open><summary>Cómo se calcula</summary><p>La lluvia de referencia de cada zona (R) es la mayor entre sus estaciones válidas, con un peso por estación, en ventanas de 1, 3 y 24 horas. Basta que una ventana supere su umbral. Los umbrales bajan un 20 % si el suelo está húmedo (más de 53 mm en los 5 días previos). El nivel se mantiene ${I.persistencia_horas || 8} horas, porque la crecida llega 1,5–3,5 h después de la lluvia y el agua tarda en bajar. Si las estaciones dejan de transmitir con el nivel en «alto» o más, el nivel pasa a «muy alto»: el silencio durante una alerta se trata como alarma (en Comunidad se muestra como «sin datos en lluvia fuerte»). Una estación se excluye si en la última hora o en las últimas 3 horas recibió menos del 80 % de sus datos, o si marca 0 mm mientras otra registra 10 mm o más en 3 h. Datos de más de 60 minutos: el nivel se muestra como «sin datos».</p><p>Calibrada con un solo evento (30-oct-2026). Santa Rosa y Los Guayabillos están fuera de la cuenca de La Cascada. Que no conste una inundación no significa que no la hubo.</p></details>`;
   const z = zonaActual();
   $("fAcum").innerHTML = fig("acum", `${esc(z.zona)} <span>últimas 72 h frente al 30–31 oct</span>`, (el, o) => acumZona(el, o, z),
-    {pie: `<span><i class="ln" style="border-color:var(--rain)"></i>últimas 72 h</span><span><i class="ln" style="border-color:var(--ref)"></i>30–31 oct, alineado al inicio</span><span><i class="dsh" style="border-color:#B4502A"></i>umbrales de 24 h de la regla</span><span><i class="hx"></i>sin datos</span>`,
+    {pie: `<span><i class="ln" style="border-color:var(--rain)"></i>últimas 72 h</span><span><i class="ln" style="border-color:var(--ref)"></i>30–31 oct, alineado al inicio</span><span><i class="dsh" style="border-color:var(--red)"></i>umbrales de 24 h de la regla</span><span><i class="hx"></i>sin datos</span>`,
      nota: "En cada hora, el mayor acumulado ponderado entre las estaciones de la zona (los mismos pesos de la regla). Las horas sin datos no suman: con cortes, la curva es un mínimo."});
 }
 function acumZona(el, o, z) {
@@ -1326,7 +1363,7 @@ function acumZona(el, o, z) {
   let g = DEFS;
   ticks(ymax, o.big ? 6 : 4).forEach(t => g += `<line x1="${m.l}" x2="${m.l + iw}" y1="${y(t)}" y2="${y(t)}" stroke="var(--grid)"/><text x="${m.l - 5}" y="${y(t) + 4}" text-anchor="end">${t}</text>`);
   for (let h = 0; h <= 72; h += 12) g += `<text x="${x(h)}" y="${Hh - 8}" text-anchor="middle">${h === 72 ? "ahora" : `−${72 - h} h`}</text>`;
-  U.forEach(u => g += `<line x1="${m.l}" x2="${m.l + iw}" y1="${y(u.R24h * f)}" y2="${y(u.R24h * f)}" stroke="${niv(u.nivel).bg}" stroke-width="1.6" stroke-dasharray="6 3"/><text x="${m.l + 6}" y="${y(u.R24h * f) - 4}" style="fill:${niv(u.nivel).bg === "#D9D2C5" ? "var(--mut)" : niv(u.nivel).bg};font-weight:700">${u.nivel} ${num(u.R24h * f, 0)} mm</text>`);
+  U.forEach(u => g += `<line x1="${m.l}" x2="${m.l + iw}" y1="${y(u.R24h * f)}" y2="${y(u.R24h * f)}" stroke="${niv(u.nivel).bg}" stroke-width="1.6" stroke-dasharray="6 3"/><text x="${m.l + 6}" y="${y(u.R24h * f) - 4}" style="fill:${niv(u.nivel).bg === "#E4E4E4" ? "var(--mut)" : niv(u.nivel).bg};font-weight:700">${u.nivel} ${num(u.R24h * f, 0)} mm</text>`);
   cur.forEach((q, i) => { if (!q.hay) g += `<rect x="${x(i)}" y="${m.t}" width="${iw / 72}" height="${ih}" fill="url(#xh)" opacity=".7"/>`; });
   const pth = arr => arr.map((v, i) => (i ? "L" : "M") + x(i + 1).toFixed(1) + "," + y(v).toFixed(1)).join("");
   g += `<path d="M${x(0)},${y(0)}${pth(rA).replace(/^M/, "L")}" fill="none" stroke="var(--ref)" stroke-width="2.4"/><text x="${x(72) + 4}" y="${y(rA.at(-1)) + 4}" class="tx-b" style="fill:var(--ref)">30-oct ${num(rA.at(-1), 0)}</text>`;
@@ -1404,7 +1441,7 @@ function bloques6(el, o, pt) {
 
 // ── Satélite GOES-19 (contrato: estado.json → .satelite, lo escribe satelite/colector.py)
 // Estados neutros (sin ámbar ni naranja: no deben confundirse con los niveles ni con alertas)
-const SAT_EST = {"vigilancia": ["#3F4A5A", "convección profunda cerca (estimación satelital)"], "sin señal": ["#6b6a64", "sin señal satelital"], "incompleta": ["#6b6a64", "datos incompletos"],
+const SAT_EST = {"vigilancia": ["#3D3D3D", "convección profunda cerca (estimación satelital)"], "sin señal": ["#6b6a64", "sin señal satelital"], "incompleta": ["#6b6a64", "datos incompletos"],
   "sin datos": ["#9a9a94", "sin datos recientes"], "sin_evaluar": ["#9a9a94", "sin evaluar: sin estaciones para validar"]};
 const satFresco = () => SAT && minDesde(SAT.generado) <= 20;
 const satEstado = z => !satFresco() ? "sin datos" : z.evaluada === false ? "sin_evaluar" : (z.vigilancia?.estado || "sin datos");
@@ -1415,7 +1452,7 @@ let MAPS, GS = {}; const VIS = {nucleos: true, lluvia: true, rayos: true};
 async function mapaSat() {
   let L; try { L = await leaflet(); } catch (e) { $("satMap").innerHTML = `<p class="empty">No se pudo cargar el mapa.</p>`; return; }
   if (!MAPS) {
-    MAPS = L.map("satMap", {scrollWheelZoom: false});
+    MAPS = L.map("satMap", {scrollWheelZoom: false, dragging: !TACTIL});
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 13, attribution: "Esri · GOES-19 NOAA"}).addTo(MAPS);
     ["zonas", "nucleos", "lluvia", "rayos"].forEach(k => GS[k] = L.layerGroup().addTo(MAPS));
     MAPS.fitBounds([[-1.45, -91.5], [-0.25, -89.2]]);
@@ -1559,7 +1596,7 @@ $("bCom").onclick = () => { S.vista = "comunidad"; pintar(); scrollTo({top: 0});
 $("bSci").onclick = () => irCiencia(null);
 $("verRed").onclick = ev => { ev.preventDefault(); irCiencia("red"); };
 $("bTema").onclick = () => {
-  const r = document.documentElement, oscuro = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const r = document.documentElement, oscuro = r.dataset.theme === "dark";
   r.dataset.theme = oscuro ? "light" : "dark"; store.set("clima-tema", r.dataset.theme); if (E) pintar();
 };
 { const t = store.get("clima-tema"); if (t) document.documentElement.dataset.theme = t; }
@@ -1579,7 +1616,7 @@ $("copiarVista").onclick = async () => {
 };
 document.querySelectorAll(".hoy").forEach(x => x.textContent = new Intl.DateTimeFormat("es-EC", {timeZone: TZ, day: "numeric", month: "long", year: "numeric"}).format(new Date()));
 leerURL();
-cargar().then(() => { if (S.vista === "ciencia" && location.hash) { const el = $(location.hash.slice(1)); el && setTimeout(() => el.scrollIntoView({block: "start"}), 60); } });
+cargar().then(() => { if (S.vista === "ciencia" && location.hash) setTimeout(() => irSec(location.hash.slice(1), false), 60); });
 setInterval(cargar, 5 * 60 * 1000);
 </script>
 </body>
