@@ -457,7 +457,7 @@ def main():
     regla = {z["id"]: z for z in inundacion.REGLA["zonas"]}
     c13, rr = cargar_abi("c13"), cargar_abi("rrqpe")
     glm, cob = cargar_glm()
-    print(f"ABI: {len(c13[0])} C13, {len(rr[0])} RRQPE · GLM: {len(glm)} destellos en {len(cob)} h")
+    print(f"ABI: {len(c13[0])} C13, {len(rr[0])} RRQPE · GLM: {len(glm)} destellos en {len(cob)} intervalos de 10 min")
 
     sats = series_satelite(c13, rr, glm, cob, {z: zonas[z] for z in ZONAS_SC})
     sats_sub = series_satelite(c13, rr, glm, cob, {z: zonas[z] for z in ZONAS_SC}, submuestra=True)
