@@ -634,7 +634,8 @@ def main():
     FIG.mkdir(exist_ok=True)
 
     res = {"generado": dt.datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
-           "advertencia": "Estimación satelital (GOES-19 ABI y GLM) evaluada contra pocas estaciones y tres eventos. "
+           "advertencia": "Estimación satelital (GOES-19 ABI y GLM) evaluada contra pocas estaciones de Santa Cruz: "
+                          "un solo evento convectivo con adelanto (30-oct-2026), reglas ajustadas a ese evento. "
                           "No es lluvia medida ni una alerta oficial.",
            "fuente_lluvia": "clima.db (solo lectura)" if a.obs else "datos/ierse-wsn/serie_5min.csv.gz",
            "senales": {s[0]: s[3] for s in SENALES}, "anillos_km": ANILLOS_KM, "eventos": {}, "muestra": {}}
