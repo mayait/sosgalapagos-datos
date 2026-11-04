@@ -469,7 +469,7 @@ def escribir_calibracion(curvas, clim, dia):
                         c = curvas.get((alt[0], alt[1], plazo, u))
                         propia = curvas.get(k) or {}
                         c = {**c, "prestada_de": f"{alt[0]} ({alt[1]})", "frec_base": propia.get("frec_base", c.get("frec_base")),
-                             "eventos_propios": propia.get("eventos")} if c else None
+                             "eventos_propios": propia.get("eventos"), "bss_cv": None, "bss_cv_origen": c.get("bss_cv")} if c else None
                     else:
                         c = curvas.get(k)
                     cal.setdefault(g, {}).setdefault(temp, {}).setdefault(plazo, {})[str(u)] = c or {"a": None, "b": None, "estado": "sin_datos"}

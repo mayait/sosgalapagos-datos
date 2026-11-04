@@ -257,7 +257,9 @@ def senal(punto_id, modelos_dia, fecha, dias_adelante):
             prob[u] = None  # sin habilidad demostrada o pocos datos: no se publica una cifra
     c20 = curvas.get(uP, {})
     p20 = prob.get(uP)
-    nivel = "no_evaluable" if p20 is None else next(n["id"] for n in REGLAS["niveles"] if p20 >= n.get("desde", 2))
+    # El nivel se decide con la cifra que se publica (redondeada a 5 %), para que no se contradigan.
+    p20r = None if p20 is None else round(p20 * 20) / 20
+    nivel = "no_evaluable" if p20r is None else next(n["id"] for n in REGLAS["niveles"] if p20r >= n.get("desde", 2) - 1e-9)
     return {"consenso": round(cons, 3), "n_modelos": len(pcts), "prob": prob, "nivel": nivel,
             "estado_20": estado.get(uP, "sin_datos"), "frec_normal_20": c20.get("frec_base"),
             "temporada": temp, "anticipacion_calibracion": plazo, "calibrado": gp.get("calibrado", False),
@@ -304,6 +306,8 @@ def exportar(ahora=None):
             pd_ = (det or {}).get("puntos", {}).get(p["id"], {}).get("modelos", {}) if det_ok else {}
             pd_ = {m: v for m, v in pd_.items() if m not in viejos}
             for k in range(DIAS):
+                if k == 0 and loc.hour >= 18:
+                    continue  # «hoy» casi terminado: lo que queda está en los bloques de 6 h
                 fecha = (loc + dt.timedelta(days=k)).strftime("%Y-%m-%d")
                 mm = {m: v["dias"].get(fecha) for m, v in pd_.items() if v["dias"].get(fecha) is not None}
                 s = senal(p["id"], mm, fecha, k)
