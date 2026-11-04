@@ -1,0 +1,26 @@
+{
+ "San Cristóbal · Flujos lodo y escombros (El Niño)": {
+  "area_ha": 47.5,
+  "frac_nivel_ge_3": 0.066,
+  "frac_nivel_ge_2": 0.356,
+  "frac_nivel_ge_1": 0.608
+ },
+ "Santa Cruz · Flujos lodo y escombros (El Niño)": {
+  "area_ha": 18.3,
+  "frac_nivel_ge_3": 0.38,
+  "frac_nivel_ge_2": 0.681,
+  "frac_nivel_ge_1": 0.788
+ },
+ "Santa Cruz · Riesgo de inundación · Puerto Ayora": {
+  "area_ha": 87.3,
+  "frac_nivel_ge_3": 0.043,
+  "frac_nivel_ge_2": 0.146,
+  "frac_nivel_ge_1": 0.179
+ },
+ "Isabela · Riesgo de inundación · Puerto Villamil": {
+  "area_ha": 361.3,
+  "frac_nivel_ge_3": 0.107,
+  "frac_nivel_ge_2": 0.161,
+  "frac_nivel_ge_1": 0.178
+ }
+}

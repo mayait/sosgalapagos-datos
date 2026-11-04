@@ -18,7 +18,7 @@ Serie de informes en formato de artículo académico que documentan los modelos,
 | 2026-06 | `2026-06-modelo-2d/` | Modelo hidrodinámico 2D *rain-on-grid* del 30-oct |
 | 2026-07 | `2026-07-alerta-v02/` | Nivel preliminar de inundación por lluvia medida (regla v0.2) |
 | 2026-08 | `2026-08-pronostico/` | Pronóstico experimental de lluvia fuerte (fase 0) |
-| 2026-09 | — | Vigilancia satelital GOES-19 (cuando la rama del satélite llegue a `main`) |
+| 2026-09 | `2026-09-satelite/` | Vigilancia satelital GOES-19 de convección profunda (evaluación S0) |
 | 2026-10 | `2026-10-infraestructura/` | Infraestructura abierta de datos, flujo reproducible y gobernanza |
 
 ## Compilar

@@ -1,7 +1,7 @@
 #!/bin/sh
 # Publica un servicio en sosgalapagos.org desde main, con el árbol limpio.
 #   servidores/publicar.sh mapas      → /mapas/    (geodatos/scripts/publicar_mapas.sh)
-#   servidores/publicar.sh estudios   → /estudios/ (geodatos/scripts/publicar_estudios.sh)
+#   servidores/publicar.sh estudios   → /estudios/ (informes/publicar.sh: lista de informes PDF; alias «informes»)
 #   servidores/publicar.sh clima      → /clima/    (clima/deploy/publicar.sh; admite --historico)
 # Variables: SERVIDOR (por defecto root@152.44.45.89), PERMITIR_RAMA=1 para probar desde otra rama.
 set -eu
@@ -24,7 +24,7 @@ commit=$(git -C "$RAIZ" rev-parse --short HEAD)
 
 case "$servicio" in
   mapas)    "$RAIZ/geodatos/scripts/publicar_mapas.sh" "$@";    destino=/srv/sosgalapagos-mapas ;;
-  estudios) "$RAIZ/geodatos/scripts/publicar_estudios.sh" "$@"; destino=/srv/sosgalapagos-estudios ;;
+  estudios|informes) "$RAIZ/informes/publicar.sh" "$@"; destino=/srv/sosgalapagos-estudios ;;
   clima)    "$RAIZ/clima/deploy/publicar.sh" "$@";              destino=/opt/sosgalapagos-clima ;;
   *) uso ;;
 esac
