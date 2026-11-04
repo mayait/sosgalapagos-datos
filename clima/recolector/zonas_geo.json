@@ -1,0 +1,37 @@
+{
+ "nota": "Geometría compartida de las zonas de umbrales_inundacion.json. La usan el pronóstico (puntos) y el satélite (bbox). Coordenadas EPSG:4326 [lon, lat] en bbox; puntos con lat/lon. Los puntos 'alta' representan la parte alta de la cuenca o de la isla; los 'costa', el pueblo.",
+ "zonas": {
+  "la-cascada": {
+   "nombre": "La Cascada (Puerto Ayora)",
+   "bbox": [-90.347, -0.737, -90.290, -0.642],
+   "puntos": [
+    {"id": "cascada-alta", "nombre": "Cuenca alta de La Cascada", "tipo": "alta", "lat": -0.680, "lon": -90.330},
+    {"id": "puerto-ayora", "nombre": "Puerto Ayora", "tipo": "costa", "lat": -0.743, "lon": -90.310}
+   ]
+  },
+  "santa-cruz-alta": {
+   "nombre": "Parte alta de Santa Cruz (Bellavista, Santa Rosa)",
+   "bbox": [-90.45, -0.72, -90.25, -0.60],
+   "puntos": [
+    {"id": "santa-rosa", "nombre": "Santa Rosa", "tipo": "alta", "lat": -0.655, "lon": -90.404},
+    {"id": "bellavista", "nombre": "Bellavista", "tipo": "alta", "lat": -0.692, "lon": -90.325}
+   ]
+  },
+  "san-cristobal": {
+   "nombre": "San Cristóbal",
+   "bbox": [-89.65, -0.95, -89.40, -0.85],
+   "puntos": [
+    {"id": "el-junco", "nombre": "El Junco / El Progreso", "tipo": "alta", "lat": -0.893, "lon": -89.500},
+    {"id": "puerto-baquerizo", "nombre": "Puerto Baquerizo Moreno", "tipo": "costa", "lat": -0.901, "lon": -89.610}
+   ]
+  },
+  "isabela": {
+   "nombre": "Isabela (Puerto Villamil)",
+   "bbox": [-91.15, -1.00, -90.90, -0.75],
+   "puntos": [
+    {"id": "sierra-negra", "nombre": "Parte alta de Sierra Negra (Santo Tomás)", "tipo": "alta", "lat": -0.860, "lon": -91.030},
+    {"id": "puerto-villamil", "nombre": "Puerto Villamil", "tipo": "costa", "lat": -0.958, "lon": -90.965}
+   ]
+  }
+ }
+}
