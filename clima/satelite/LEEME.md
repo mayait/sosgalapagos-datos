@@ -10,6 +10,13 @@ Otra fuente de vigilancia del dashboard de clima. Ningún modelo de pronóstico 
 
 Evaluación con los eventos de octubre de 2026 y una muestra de días: [`evaluacion-s0.md`](evaluacion-s0.md) (cifras en `resumen.json`).
 
+**Lo que dice la evaluación (S0):** el satélite solo ve la lluvia **convectiva** (topes de nube muy fríos). El 30-oct avisó 1,5–3 h antes de que la regla de lluvia medida llegara a «medio», y casi no da falsas alarmas. Pero **no vio** las lluvias orográficas «cálidas» del 3 y el 23-oct ni las de otros 5 días de lluvia fuerte. Por eso la señal es solo de **vigilancia**: nunca baja el nivel de inundación y no lo sube.
+
+**Regla de vigilancia v1** (`vigilancia.py`): basta con una de estas condiciones, y la vigilancia se mantiene 3 h después del último disparo.
+- RRQPE máxima ≥ 10 mm/h a menos de 25 km.
+- Al menos 10 % de la zona con topes por debajo de 221 K.
+- Al menos un rayo a menos de 25 km en 30 min.
+
 ## Fuente y acceso
 
 - Archivo abierto de la NOAA en AWS (NOAA Open Data Dissemination), sin clave. La raíz del bucket va en `CLIMA_GOES_S3` (`privado/fuentes.env`; ver `../fuentes.env.ejemplo`). En el repositorio solo se nombra la fuente.

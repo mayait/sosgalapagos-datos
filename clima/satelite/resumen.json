@@ -1,0 +1,6171 @@
+{
+ "generado": "2026-11-04T06:25:00Z",
+ "advertencia": "Estimación satelital (GOES-19 ABI y GLM) evaluada contra pocas estaciones y tres eventos. No es lluvia medida ni una alerta oficial.",
+ "fuente_lluvia": "clima.db (solo lectura)",
+ "senales": {
+  "rayos_1": "≥ 1 destello GLM en 30 min",
+  "rayos_5": "≥ 5 destellos GLM en 30 min",
+  "frio221_10": "≥ 10 % de píxeles con Tb < 221 K",
+  "frio235_25": "≥ 25 % de píxeles con Tb < 235 K",
+  "tbmin_210": "Tb mínima ≤ 210 K",
+  "rrqpe_5": "RRQPE máx. ≥ 5 mm/h",
+  "rrqpe_10": "RRQPE máx. ≥ 10 mm/h",
+  "rrqpe_20": "RRQPE máx. ≥ 20 mm/h",
+  "rrqpe_media5": "RRQPE media ≥ 5 mm/h"
+ },
+ "anillos_km": {
+  "zona": 0,
+  "25km": 25,
+  "50km": 50
+ },
+ "eventos": {
+  "2026-10-30": {
+   "ventana_utc": [
+    "2026-10-30T06:00",
+    "2026-10-31T10:00"
+   ],
+   "zonas": {
+    "la-cascada": {
+     "R1h_max": 61.0,
+     "R3h_max": 133.0,
+     "R24h_max": 203.6,
+     "t_medio": "2026-10-30T21:10Z",
+     "t_alto": "2026-10-30T21:50Z",
+     "t_pico_R1h": "2026-10-31T03:00Z",
+     "senales": {
+      "zona": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 30.0,
+        "primera_12h_min_pico": 30.0,
+        "activa_durante": true
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 50.0,
+        "primera_12h_min_pico": 280.0,
+        "activa_durante": true
+       },
+       "frio235_25": {
+        "adelanto_min_medio": 50.0,
+        "primera_12h_min_medio": 180.0,
+        "adelanto_min_alto": 90.0,
+        "primera_12h_min_alto": 220.0,
+        "adelanto_min_pico": 60.0,
+        "primera_12h_min_pico": 530.0,
+        "activa_durante": true
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 20.0,
+        "primera_12h_min_pico": 20.0,
+        "activa_durante": true
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": 60.0,
+        "primera_12h_min_medio": 60.0,
+        "adelanto_min_alto": 100.0,
+        "primera_12h_min_alto": 100.0,
+        "adelanto_min_pico": 20.0,
+        "primera_12h_min_pico": 410.0,
+        "activa_durante": true
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 10.0,
+        "primera_12h_min_pico": 280.0,
+        "activa_durante": true
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 10.0,
+        "primera_12h_min_pico": 10.0,
+        "activa_durante": true
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 10.0,
+        "primera_12h_min_pico": 10.0,
+        "activa_durante": true
+       }
+      },
+      "25km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 60.0,
+        "primera_12h_min_pico": 60.0,
+        "activa_durante": true
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 30.0,
+        "primera_12h_min_pico": 30.0,
+        "activa_durante": true
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 150.0,
+        "primera_12h_min_pico": 290.0,
+        "activa_durante": true
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 130.0,
+        "primera_12h_min_pico": 290.0,
+        "activa_durante": true
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 230.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 170.0,
+        "primera_12h_min_pico": 580.0,
+        "activa_durante": true
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": 260.0,
+        "primera_12h_min_medio": 260.0,
+        "adelanto_min_alto": 300.0,
+        "primera_12h_min_alto": 300.0,
+        "adelanto_min_pico": 610.0,
+        "primera_12h_min_pico": 610.0,
+        "activa_durante": true
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": 100.0,
+        "primera_12h_min_medio": 230.0,
+        "adelanto_min_alto": 20.0,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 170.0,
+        "primera_12h_min_pico": 580.0,
+        "activa_durante": true
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 230.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 160.0,
+        "primera_12h_min_pico": 580.0,
+        "activa_durante": true
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 30.0,
+        "primera_12h_min_pico": 30.0,
+        "activa_durante": true
+       }
+      },
+      "50km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 60.0,
+        "primera_12h_min_pico": 60.0,
+        "activa_durante": true
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 30.0,
+        "primera_12h_min_pico": 30.0,
+        "activa_durante": true
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 250.0,
+        "primera_12h_min_pico": 250.0,
+        "activa_durante": true
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 270.0,
+        "primera_12h_min_pico": 270.0,
+        "activa_durante": true
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 230.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 300.0,
+        "primera_12h_min_pico": 580.0,
+        "activa_durante": true
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": 260.0,
+        "primera_12h_min_medio": 260.0,
+        "adelanto_min_alto": 300.0,
+        "primera_12h_min_alto": 300.0,
+        "adelanto_min_pico": 610.0,
+        "primera_12h_min_pico": 610.0,
+        "activa_durante": true
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": 230.0,
+        "primera_12h_min_medio": 230.0,
+        "adelanto_min_alto": 20.0,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 330.0,
+        "primera_12h_min_pico": 580.0,
+        "activa_durante": true
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 230.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 300.0,
+        "primera_12h_min_pico": 580.0,
+        "activa_durante": true
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 10.0,
+        "primera_12h_min_pico": 10.0,
+        "activa_durante": true
+       }
+      }
+     },
+     "maximos": {
+      "zona": {
+       "rrqpe_max": 48.2,
+       "tb_min_k": 202.1,
+       "frio221_pct_max": 100.0,
+       "rayos_30min_max": 2.0,
+       "rayos_total": 3
+      },
+      "25km": {
+       "rrqpe_max": 100.0,
+       "tb_min_k": 190.7,
+       "frio221_pct_max": 88.6,
+       "rayos_30min_max": 15.0,
+       "rayos_total": 36
+      },
+      "50km": {
+       "rrqpe_max": 100.0,
+       "tb_min_k": 190.7,
+       "frio221_pct_max": 57.7,
+       "rayos_30min_max": 15.0,
+       "rayos_total": 40
+      }
+     }
+    },
+    "santa-cruz-alta": {
+     "R1h_max": 69.6,
+     "R3h_max": 139.2,
+     "R24h_max": 240.4,
+     "t_medio": "2026-10-30T21:00Z",
+     "t_alto": "2026-10-30T21:20Z",
+     "t_pico_R1h": "2026-10-31T03:10Z",
+     "senales": {
+      "zona": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 40.0,
+        "primera_12h_min_pico": 40.0,
+        "activa_durante": true
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 10.0,
+        "primera_12h_min_pico": 10.0,
+        "activa_durante": true
+       },
+       "frio221_10": {
+        "adelanto_min_medio": 200.0,
+        "primera_12h_min_medio": 200.0,
+        "adelanto_min_alto": 220.0,
+        "primera_12h_min_alto": 220.0,
+        "adelanto_min_pico": 100.0,
+        "primera_12h_min_pico": 570.0,
+        "activa_durante": true
+       },
+       "frio235_25": {
+        "adelanto_min_medio": 230.0,
+        "primera_12h_min_medio": 230.0,
+        "adelanto_min_alto": 250.0,
+        "primera_12h_min_alto": 250.0,
+        "adelanto_min_pico": 100.0,
+        "primera_12h_min_pico": 600.0,
+        "activa_durante": true
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 200.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 220.0,
+        "adelanto_min_pico": 110.0,
+        "primera_12h_min_pico": 570.0,
+        "activa_durante": true
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": 80.0,
+        "primera_12h_min_medio": 250.0,
+        "adelanto_min_alto": 100.0,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 110.0,
+        "primera_12h_min_pico": 620.0,
+        "activa_durante": true
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 220.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 240.0,
+        "adelanto_min_pico": 100.0,
+        "primera_12h_min_pico": 590.0,
+        "activa_durante": true
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 100.0,
+        "primera_12h_min_pico": 300.0,
+        "activa_durante": true
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 40.0,
+        "primera_12h_min_pico": 40.0,
+        "activa_durante": true
+       }
+      },
+      "25km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 70.0,
+        "primera_12h_min_pico": 70.0,
+        "activa_durante": true
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 40.0,
+        "primera_12h_min_pico": 40.0,
+        "activa_durante": true
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 300.0,
+        "primera_12h_min_pico": 300.0,
+        "activa_durante": true
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 310.0,
+        "primera_12h_min_pico": 310.0,
+        "activa_durante": true
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 220.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 240.0,
+        "adelanto_min_pico": 310.0,
+        "primera_12h_min_pico": 590.0,
+        "activa_durante": true
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": 250.0,
+        "primera_12h_min_medio": 250.0,
+        "adelanto_min_alto": 270.0,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 620.0,
+        "primera_12h_min_pico": 620.0,
+        "activa_durante": true
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": 90.0,
+        "primera_12h_min_medio": 220.0,
+        "adelanto_min_alto": 110.0,
+        "primera_12h_min_alto": 240.0,
+        "adelanto_min_pico": 180.0,
+        "primera_12h_min_pico": 590.0,
+        "activa_durante": true
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 220.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 240.0,
+        "adelanto_min_pico": 170.0,
+        "primera_12h_min_pico": 590.0,
+        "activa_durante": true
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 40.0,
+        "primera_12h_min_pico": 40.0,
+        "activa_durante": true
+       }
+      },
+      "50km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 70.0,
+        "primera_12h_min_pico": 70.0,
+        "activa_durante": true
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 40.0,
+        "primera_12h_min_pico": 40.0,
+        "activa_durante": true
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 250.0,
+        "primera_12h_min_pico": 250.0,
+        "activa_durante": true
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 280.0,
+        "primera_12h_min_pico": 280.0,
+        "activa_durante": true
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 220.0,
+        "adelanto_min_alto": 0.0,
+        "primera_12h_min_alto": 240.0,
+        "adelanto_min_pico": 350.0,
+        "primera_12h_min_pico": 590.0,
+        "activa_durante": true
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": 250.0,
+        "primera_12h_min_medio": 250.0,
+        "adelanto_min_alto": 270.0,
+        "primera_12h_min_alto": 270.0,
+        "adelanto_min_pico": 620.0,
+        "primera_12h_min_pico": 620.0,
+        "activa_durante": true
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": 220.0,
+        "primera_12h_min_medio": 220.0,
+        "adelanto_min_alto": 0.0,
+        "primera_12h_min_alto": 240.0,
+        "adelanto_min_pico": 350.0,
+        "primera_12h_min_pico": 590.0,
+        "activa_durante": true
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": 220.0,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": 240.0,
+        "adelanto_min_pico": 310.0,
+        "primera_12h_min_pico": 590.0,
+        "activa_durante": true
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": 20.0,
+        "primera_12h_min_pico": 20.0,
+        "activa_durante": true
+       }
+      }
+     },
+     "maximos": {
+      "zona": {
+       "rrqpe_max": 100.0,
+       "tb_min_k": 192.0,
+       "frio221_pct_max": 100.0,
+       "rayos_30min_max": 7.0,
+       "rayos_total": 10
+      },
+      "25km": {
+       "rrqpe_max": 100.0,
+       "tb_min_k": 190.7,
+       "frio221_pct_max": 81.6,
+       "rayos_30min_max": 15.0,
+       "rayos_total": 39
+      },
+      "50km": {
+       "rrqpe_max": 100.0,
+       "tb_min_k": 190.7,
+       "frio221_pct_max": 51.9,
+       "rayos_30min_max": 16.0,
+       "rayos_total": 43
+      }
+     }
+    }
+   }
+  },
+  "2026-10-23": {
+   "ventana_utc": [
+    "2026-10-22T22:00",
+    "2026-10-23T16:00"
+   ],
+   "zonas": {
+    "la-cascada": {
+     "R1h_max": 23.4,
+     "R3h_max": 36.9,
+     "R24h_max": 63.0,
+     "t_medio": "2026-10-23T10:40Z",
+     "t_alto": null,
+     "t_pico_R1h": "2026-10-23T11:40Z",
+     "senales": {
+      "zona": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      },
+      "25km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      },
+      "50km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      }
+     },
+     "maximos": {
+      "zona": {
+       "rrqpe_max": 1.0,
+       "tb_min_k": 242.3,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      },
+      "25km": {
+       "rrqpe_max": 2.2,
+       "tb_min_k": 230.6,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      },
+      "50km": {
+       "rrqpe_max": 2.2,
+       "tb_min_k": 230.6,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      }
+     }
+    },
+    "santa-cruz-alta": {
+     "R1h_max": 31.2,
+     "R3h_max": 49.2,
+     "R24h_max": 84.0,
+     "t_medio": "2026-10-23T11:20Z",
+     "t_alto": "2026-10-23T11:40Z",
+     "t_pico_R1h": "2026-10-23T11:40Z",
+     "senales": {
+      "zona": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      },
+      "25km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      },
+      "50km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_alto": null,
+        "primera_12h_min_alto": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      }
+     },
+     "maximos": {
+      "zona": {
+       "rrqpe_max": 1.0,
+       "tb_min_k": 244.6,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      },
+      "25km": {
+       "rrqpe_max": 2.2,
+       "tb_min_k": 230.6,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      },
+      "50km": {
+       "rrqpe_max": 2.2,
+       "tb_min_k": 230.6,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      }
+     }
+    }
+   }
+  },
+  "2026-10-03": {
+   "ventana_utc": [
+    "2026-10-03T06:00",
+    "2026-10-04T06:00"
+   ],
+   "zonas": {
+    "la-cascada": {
+     "R1h_max": 15.6,
+     "R3h_max": 27.4,
+     "R24h_max": 68.2,
+     "t_medio": "2026-10-04T00:30Z",
+     "t_alto": null,
+     "t_pico_R1h": "2026-10-04T00:40Z",
+     "senales": {
+      "zona": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      },
+      "25km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      },
+      "50km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      }
+     },
+     "maximos": {
+      "zona": {
+       "rrqpe_max": 0.0,
+       "tb_min_k": 262.0,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      },
+      "25km": {
+       "rrqpe_max": 0.0,
+       "tb_min_k": 260.6,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      },
+      "50km": {
+       "rrqpe_max": 0.0,
+       "tb_min_k": 255.0,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      }
+     }
+    },
+    "santa-cruz-alta": {
+     "R1h_max": 15.6,
+     "R3h_max": 27.4,
+     "R24h_max": 68.2,
+     "t_medio": "2026-10-04T00:30Z",
+     "t_alto": null,
+     "t_pico_R1h": "2026-10-04T00:40Z",
+     "senales": {
+      "zona": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      },
+      "25km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      },
+      "50km": {
+       "rayos_1": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rayos_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio221_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "frio235_25": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "tbmin_210": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_10": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_20": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       },
+       "rrqpe_media5": {
+        "adelanto_min_medio": null,
+        "primera_12h_min_medio": null,
+        "adelanto_min_pico": null,
+        "primera_12h_min_pico": null,
+        "activa_durante": false
+       }
+      }
+     },
+     "maximos": {
+      "zona": {
+       "rrqpe_max": 0.0,
+       "tb_min_k": 261.2,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      },
+      "25km": {
+       "rrqpe_max": 0.0,
+       "tb_min_k": 260.4,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      },
+      "50km": {
+       "rrqpe_max": 0.0,
+       "tb_min_k": 254.6,
+       "frio221_pct_max": 0.0,
+       "rayos_30min_max": 0.0,
+       "rayos_total": 0
+      }
+     }
+    }
+   }
+  }
+ },
+ "muestra": {
+  "dias": {
+   "seco": [
+    "2026-05-09",
+    "2026-06-13",
+    "2026-07-10",
+    "2026-07-30",
+    "2026-08-08",
+    "2026-09-21",
+    "2026-10-02",
+    "2026-10-16"
+   ],
+   "moderado": [
+    "2026-05-16",
+    "2026-06-20",
+    "2026-07-14",
+    "2026-07-18",
+    "2026-09-16",
+    "2026-10-19"
+   ],
+   "fuerte": [
+    "2026-05-07",
+    "2026-05-12",
+    "2026-06-14",
+    "2026-09-12",
+    "2026-10-10"
+   ]
+  },
+  "cadencia": "ABI cada 30 min; GLM un archivo de 20 s cada 2 min (conteos ×6)",
+  "tabla": {
+   "la-cascada|zona": {
+    "rayos_1": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rayos_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio221_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio235_25": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      40.0,
+      null,
+      null
+     ]
+    },
+    "tbmin_210": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_20": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_media5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    }
+   },
+   "la-cascada|25km": {
+    "rayos_1": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rayos_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio221_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio235_25": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "tbmin_210": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      250.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      100.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_20": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_media5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    }
+   },
+   "la-cascada|50km": {
+    "rayos_1": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 1,
+      "horas_con_disparo_media": 0.17
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rayos_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 1,
+      "horas_con_disparo_media": 0.17
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio221_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio235_25": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "tbmin_210": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 1,
+      "horas_con_disparo_media": 0.12
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      250.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      220.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_20": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_media5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    }
+   },
+   "santa-cruz-alta|zona": {
+    "rayos_1": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rayos_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio221_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      180.0,
+      null,
+      null
+     ]
+    },
+    "frio235_25": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      210.0,
+      null,
+      null
+     ]
+    },
+    "tbmin_210": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      60.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_20": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_media5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    }
+   },
+   "santa-cruz-alta|25km": {
+    "rayos_1": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rayos_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio221_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio235_25": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "tbmin_210": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      240.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      90.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_20": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_media5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    }
+   },
+   "santa-cruz-alta|50km": {
+    "rayos_1": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 1,
+      "horas_con_disparo_media": 0.17
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rayos_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 1,
+      "horas_con_disparo_media": 0.17
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio221_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "frio235_25": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "tbmin_210": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 1,
+      "horas_con_disparo_media": 0.38
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      240.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_10": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 1,
+      "horas_con_disparo_media": 0.12
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      210.0,
+      null,
+      null
+     ]
+    },
+    "rrqpe_20": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    },
+    "rrqpe_media5": {
+     "seco": {
+      "dias": 8,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "moderado": {
+      "dias": 6,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "fuerte": {
+      "dias": 5,
+      "dias_con_disparo": 0,
+      "horas_con_disparo_media": 0.0
+     },
+     "eventos_adelanto_min": [
+      null,
+      null,
+      null
+     ]
+    }
+   }
+  }
+ },
+ "rrqpe_vs_pluviometros": {
+  "ierse/n_glps01": {
+   "nombre": "Cerro Crocker",
+   "pixel": [
+    30,
+    34
+   ],
+   "filas": [
+    {
+     "ventana": "2026-10-30",
+     "satelite": "pixel",
+     "horas": 18,
+     "total_medido_mm": 4.8,
+     "total_rrqpe_mm": 31.1,
+     "max_1h_medido_mm": 0.8,
+     "hora_max_medido": "2026-10-30T21:00Z",
+     "max_1h_rrqpe_mm": 22.0,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": -0.06
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max3x3",
+     "horas": 18,
+     "total_medido_mm": 4.8,
+     "total_rrqpe_mm": 69.3,
+     "max_1h_medido_mm": 0.8,
+     "hora_max_medido": "2026-10-30T21:00Z",
+     "max_1h_rrqpe_mm": 45.2,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": -0.07
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max5x5",
+     "horas": 18,
+     "total_medido_mm": 4.8,
+     "total_rrqpe_mm": 92.5,
+     "max_1h_medido_mm": 0.8,
+     "hora_max_medido": "2026-10-30T21:00Z",
+     "max_1h_rrqpe_mm": 46.7,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": -0.07
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "pixel",
+     "horas": 18,
+     "total_medido_mm": 0.8,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.4,
+     "hora_max_medido": "2026-10-04T01:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T12:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "max3x3",
+     "horas": 18,
+     "total_medido_mm": 0.8,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.4,
+     "hora_max_medido": "2026-10-04T01:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T12:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "max5x5",
+     "horas": 18,
+     "total_medido_mm": 0.8,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.4,
+     "hora_max_medido": "2026-10-04T01:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T12:00Z",
+     "r_pearson": null
+    }
+   ]
+  },
+  "ierse/n_glps05": {
+   "nombre": "Los Guayabillos",
+   "pixel": [
+    33,
+    33
+   ],
+   "filas": [
+    {
+     "ventana": "2026-10-30",
+     "satelite": "pixel",
+     "horas": 21,
+     "total_medido_mm": 153.2,
+     "total_rrqpe_mm": 16.9,
+     "max_1h_medido_mm": 61.0,
+     "hora_max_medido": "2026-10-31T02:00Z",
+     "max_1h_rrqpe_mm": 15.7,
+     "hora_max_rrqpe": "2026-10-31T02:00Z",
+     "r_pearson": 0.83
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max3x3",
+     "horas": 21,
+     "total_medido_mm": 153.2,
+     "total_rrqpe_mm": 29.6,
+     "max_1h_medido_mm": 61.0,
+     "hora_max_medido": "2026-10-31T02:00Z",
+     "max_1h_rrqpe_mm": 19.6,
+     "hora_max_rrqpe": "2026-10-31T02:00Z",
+     "r_pearson": 0.86
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max5x5",
+     "horas": 21,
+     "total_medido_mm": 153.2,
+     "total_rrqpe_mm": 51.7,
+     "max_1h_medido_mm": 61.0,
+     "hora_max_medido": "2026-10-31T02:00Z",
+     "max_1h_rrqpe_mm": 25.8,
+     "hora_max_rrqpe": "2026-10-31T02:00Z",
+     "r_pearson": 0.8
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "pixel",
+     "horas": 18,
+     "total_medido_mm": 4.2,
+     "total_rrqpe_mm": 0.6,
+     "max_1h_medido_mm": 4.2,
+     "hora_max_medido": "2026-10-23T00:00Z",
+     "max_1h_rrqpe_mm": 0.6,
+     "hora_max_rrqpe": "2026-10-23T11:00Z",
+     "r_pearson": -0.06
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "max3x3",
+     "horas": 18,
+     "total_medido_mm": 4.2,
+     "total_rrqpe_mm": 0.8,
+     "max_1h_medido_mm": 4.2,
+     "hora_max_medido": "2026-10-23T00:00Z",
+     "max_1h_rrqpe_mm": 0.8,
+     "hora_max_rrqpe": "2026-10-23T11:00Z",
+     "r_pearson": -0.06
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "max5x5",
+     "horas": 18,
+     "total_medido_mm": 4.2,
+     "total_rrqpe_mm": 1.1,
+     "max_1h_medido_mm": 4.2,
+     "hora_max_medido": "2026-10-23T00:00Z",
+     "max_1h_rrqpe_mm": 1.0,
+     "hora_max_rrqpe": "2026-10-23T11:00Z",
+     "r_pearson": -0.07
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "pixel",
+     "horas": 24,
+     "total_medido_mm": 68.2,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 12.6,
+     "hora_max_medido": "2026-10-04T00:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "max3x3",
+     "horas": 24,
+     "total_medido_mm": 68.2,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 12.6,
+     "hora_max_medido": "2026-10-04T00:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "max5x5",
+     "horas": 24,
+     "total_medido_mm": 68.2,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 12.6,
+     "hora_max_medido": "2026-10-04T00:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    }
+   ]
+  },
+  "ierse/n_glps06": {
+   "nombre": "Militar",
+   "pixel": [
+    21,
+    37
+   ],
+   "filas": [
+    {
+     "ventana": "2026-10-30",
+     "satelite": "pixel",
+     "horas": 28,
+     "total_medido_mm": 2.4,
+     "total_rrqpe_mm": 12.3,
+     "max_1h_medido_mm": 0.8,
+     "hora_max_medido": "2026-10-30T20:00Z",
+     "max_1h_rrqpe_mm": 4.2,
+     "hora_max_rrqpe": "2026-10-31T05:00Z",
+     "r_pearson": 0.39
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max3x3",
+     "horas": 28,
+     "total_medido_mm": 2.4,
+     "total_rrqpe_mm": 25.5,
+     "max_1h_medido_mm": 0.8,
+     "hora_max_medido": "2026-10-30T20:00Z",
+     "max_1h_rrqpe_mm": 5.9,
+     "hora_max_rrqpe": "2026-10-31T02:00Z",
+     "r_pearson": 0.41
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max5x5",
+     "horas": 28,
+     "total_medido_mm": 2.4,
+     "total_rrqpe_mm": 33.3,
+     "max_1h_medido_mm": 0.8,
+     "hora_max_medido": "2026-10-30T20:00Z",
+     "max_1h_rrqpe_mm": 7.2,
+     "hora_max_rrqpe": "2026-10-31T02:00Z",
+     "r_pearson": 0.41
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "pixel",
+     "horas": 15,
+     "total_medido_mm": 0.0,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.0,
+     "hora_max_medido": "2026-10-22T22:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-22T22:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "max3x3",
+     "horas": 15,
+     "total_medido_mm": 0.0,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.0,
+     "hora_max_medido": "2026-10-22T22:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-22T22:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "max5x5",
+     "horas": 15,
+     "total_medido_mm": 0.0,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.0,
+     "hora_max_medido": "2026-10-22T22:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-22T22:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "pixel",
+     "horas": 24,
+     "total_medido_mm": 0.0,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.0,
+     "hora_max_medido": "2026-10-03T06:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "max3x3",
+     "horas": 24,
+     "total_medido_mm": 0.0,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.0,
+     "hora_max_medido": "2026-10-03T06:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "max5x5",
+     "horas": 24,
+     "total_medido_mm": 0.0,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 0.0,
+     "hora_max_medido": "2026-10-03T06:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    }
+   ]
+  },
+  "ierse/n_glps09": {
+   "nombre": "Santa Rosa",
+   "pixel": [
+    30,
+    30
+   ],
+   "filas": [
+    {
+     "ventana": "2026-10-30",
+     "satelite": "pixel",
+     "horas": 21,
+     "total_medido_mm": 216.0,
+     "total_rrqpe_mm": 46.5,
+     "max_1h_medido_mm": 66.4,
+     "hora_max_medido": "2026-10-31T02:00Z",
+     "max_1h_rrqpe_mm": 33.6,
+     "hora_max_rrqpe": "2026-10-31T02:00Z",
+     "r_pearson": 0.74
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max3x3",
+     "horas": 21,
+     "total_medido_mm": 216.0,
+     "total_rrqpe_mm": 79.5,
+     "max_1h_medido_mm": 66.4,
+     "hora_max_medido": "2026-10-31T02:00Z",
+     "max_1h_rrqpe_mm": 40.3,
+     "hora_max_rrqpe": "2026-10-31T02:00Z",
+     "r_pearson": 0.77
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max5x5",
+     "horas": 21,
+     "total_medido_mm": 216.0,
+     "total_rrqpe_mm": 104.4,
+     "max_1h_medido_mm": 66.4,
+     "hora_max_medido": "2026-10-31T02:00Z",
+     "max_1h_rrqpe_mm": 55.5,
+     "hora_max_rrqpe": "2026-10-31T02:00Z",
+     "r_pearson": 0.81
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "pixel",
+     "horas": 17,
+     "total_medido_mm": 81.0,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 28.2,
+     "hora_max_medido": "2026-10-23T11:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-22T22:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "max3x3",
+     "horas": 17,
+     "total_medido_mm": 81.0,
+     "total_rrqpe_mm": 0.3,
+     "max_1h_medido_mm": 28.2,
+     "hora_max_medido": "2026-10-23T11:00Z",
+     "max_1h_rrqpe_mm": 0.3,
+     "hora_max_rrqpe": "2026-10-23T11:00Z",
+     "r_pearson": 0.86
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "max5x5",
+     "horas": 17,
+     "total_medido_mm": 81.0,
+     "total_rrqpe_mm": 0.3,
+     "max_1h_medido_mm": 28.2,
+     "hora_max_medido": "2026-10-23T11:00Z",
+     "max_1h_rrqpe_mm": 0.3,
+     "hora_max_rrqpe": "2026-10-23T11:00Z",
+     "r_pearson": 0.86
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "pixel",
+     "horas": 24,
+     "total_medido_mm": 12.2,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 3.8,
+     "hora_max_medido": "2026-10-04T03:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "max3x3",
+     "horas": 24,
+     "total_medido_mm": 12.2,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 3.8,
+     "hora_max_medido": "2026-10-04T03:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    },
+    {
+     "ventana": "2026-10-03",
+     "satelite": "max5x5",
+     "horas": 24,
+     "total_medido_mm": 12.2,
+     "total_rrqpe_mm": 0.0,
+     "max_1h_medido_mm": 3.8,
+     "hora_max_medido": "2026-10-04T03:00Z",
+     "max_1h_rrqpe_mm": 0.0,
+     "hora_max_rrqpe": "2026-10-03T06:00Z",
+     "r_pearson": null
+    }
+   ]
+  },
+  "inamhi/M0191": {
+   "nombre": "Puerto Ayora (INAMHI)",
+   "pixel": [
+    35,
+    36
+   ],
+   "filas": [
+    {
+     "ventana": "2026-10-30",
+     "satelite": "pixel",
+     "horas": 28,
+     "total_medido_mm": 205.6,
+     "total_rrqpe_mm": 48.4,
+     "max_1h_medido_mm": 36.8,
+     "hora_max_medido": "2026-10-31T06:00Z",
+     "max_1h_rrqpe_mm": 13.8,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": 0.44
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max3x3",
+     "horas": 28,
+     "total_medido_mm": 205.6,
+     "total_rrqpe_mm": 89.9,
+     "max_1h_medido_mm": 36.8,
+     "hora_max_medido": "2026-10-31T06:00Z",
+     "max_1h_rrqpe_mm": 31.4,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": 0.28
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max5x5",
+     "horas": 28,
+     "total_medido_mm": 205.6,
+     "total_rrqpe_mm": 128.0,
+     "max_1h_medido_mm": 36.8,
+     "hora_max_medido": "2026-10-31T06:00Z",
+     "max_1h_rrqpe_mm": 41.3,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": 0.29
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "pixel",
+     "horas": 18,
+     "total_medido_mm": 52.4,
+     "total_rrqpe_mm": 0.8,
+     "max_1h_medido_mm": 21.4,
+     "hora_max_medido": "2026-10-23T10:00Z",
+     "max_1h_rrqpe_mm": 0.8,
+     "hora_max_rrqpe": "2026-10-23T11:00Z",
+     "r_pearson": 0.11
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "max3x3",
+     "horas": 18,
+     "total_medido_mm": 52.4,
+     "total_rrqpe_mm": 1.1,
+     "max_1h_medido_mm": 21.4,
+     "hora_max_medido": "2026-10-23T10:00Z",
+     "max_1h_rrqpe_mm": 1.0,
+     "hora_max_rrqpe": "2026-10-23T11:00Z",
+     "r_pearson": 0.24
+    },
+    {
+     "ventana": "2026-10-23",
+     "satelite": "max5x5",
+     "horas": 18,
+     "total_medido_mm": 52.4,
+     "total_rrqpe_mm": 1.4,
+     "max_1h_medido_mm": 21.4,
+     "hora_max_medido": "2026-10-23T10:00Z",
+     "max_1h_rrqpe_mm": 1.2,
+     "hora_max_rrqpe": "2026-10-23T11:00Z",
+     "r_pearson": 0.2
+    }
+   ]
+  },
+  "tempest/punta_estrada": {
+   "nombre": "Punta Estrada",
+   "pixel": [
+    36,
+    35
+   ],
+   "filas": [
+    {
+     "ventana": "2026-10-30",
+     "satelite": "pixel",
+     "horas": 28,
+     "total_medido_mm": 69.3,
+     "total_rrqpe_mm": 69.7,
+     "max_1h_medido_mm": 19.2,
+     "hora_max_medido": "2026-10-31T06:00Z",
+     "max_1h_rrqpe_mm": 29.1,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": 0.27
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max3x3",
+     "horas": 28,
+     "total_medido_mm": 69.3,
+     "total_rrqpe_mm": 108.9,
+     "max_1h_medido_mm": 19.2,
+     "hora_max_medido": "2026-10-31T06:00Z",
+     "max_1h_rrqpe_mm": 37.9,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": 0.35
+    },
+    {
+     "ventana": "2026-10-30",
+     "satelite": "max5x5",
+     "horas": 28,
+     "total_medido_mm": 69.3,
+     "total_rrqpe_mm": 145.9,
+     "max_1h_medido_mm": 19.2,
+     "hora_max_medido": "2026-10-31T06:00Z",
+     "max_1h_rrqpe_mm": 42.2,
+     "hora_max_rrqpe": "2026-10-31T03:00Z",
+     "r_pearson": 0.39
+    }
+   ]
+  }
+ },
+ "reglas_combinadas": {
+  "definicion": {
+   "v0": [
+    [
+     "25km",
+     "rayos_30min",
+     1
+    ],
+    [
+     "25km",
+     "frio221_pct",
+     10
+    ],
+    [
+     "zona",
+     "rrqpe_max",
+     10
+    ]
+   ],
+   "v1": [
+    [
+     "25km",
+     "rrqpe_max",
+     10
+    ],
+    [
+     "zona",
+     "frio221_pct",
+     10
+    ],
+    [
+     "25km",
+     "rayos_30min",
+     1
+    ]
+   ],
+   "frio_25km_o_rrqpe10": [
+    [
+     "25km",
+     "frio221_pct",
+     10
+    ],
+    [
+     "25km",
+     "rrqpe_max",
+     10
+    ]
+   ],
+   "rrqpe10_25km": [
+    [
+     "25km",
+     "rrqpe_max",
+     10
+    ]
+   ],
+   "frio_zona": [
+    [
+     "zona",
+     "frio221_pct",
+     10
+    ]
+   ],
+   "frio_y_rrqpe_25km": "frio221_pct ≥ 10 Y rrqpe_max ≥ 10 (25 km)"
+  },
+  "resultados": {
+   "la-cascada": {
+    "v0": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 150.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "v1": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": 100.0,
+        "muestra": 100.0
+       },
+       "t_alto": {
+        "completa": 20.0,
+        "muestra": 20.0
+       },
+       "t_pico_R1h": {
+        "completa": 330.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_25km_o_rrqpe10": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": 100.0,
+        "muestra": 100.0
+       },
+       "t_alto": {
+        "completa": 20.0,
+        "muestra": 20.0
+       },
+       "t_pico_R1h": {
+        "completa": 330.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "rrqpe10_25km": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": 100.0,
+        "muestra": 100.0
+       },
+       "t_alto": {
+        "completa": 20.0,
+        "muestra": 20.0
+       },
+       "t_pico_R1h": {
+        "completa": 170.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_zona": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 50.0,
+        "muestra": 30.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_y_rrqpe_25km": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 150.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "v0+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 150.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "v1+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": 20.0,
+        "muestra": 20.0
+       },
+       "t_pico_R1h": {
+        "completa": 330.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_25km_o_rrqpe10+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": 20.0,
+        "muestra": 20.0
+       },
+       "t_pico_R1h": {
+        "completa": 330.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "rrqpe10_25km+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": 20.0,
+        "muestra": 20.0
+       },
+       "t_pico_R1h": {
+        "completa": 170.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_zona+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 50.0,
+        "muestra": 30.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_y_rrqpe_25km+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 150.0,
+        "muestra": 150.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    }
+   },
+   "santa-cruz-alta": {
+    "v0": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 320.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "v1": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": 90.0,
+        "muestra": 90.0
+       },
+       "t_alto": {
+        "completa": 110.0,
+        "muestra": 110.0
+       },
+       "t_pico_R1h": {
+        "completa": 340.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_25km_o_rrqpe10": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": 90.0,
+        "muestra": 90.0
+       },
+       "t_alto": {
+        "completa": 110.0,
+        "muestra": 110.0
+       },
+       "t_pico_R1h": {
+        "completa": 340.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "rrqpe10_25km": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": 90.0,
+        "muestra": 90.0
+       },
+       "t_alto": {
+        "completa": 110.0,
+        "muestra": 110.0
+       },
+       "t_pico_R1h": {
+        "completa": 180.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_zona": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": 200.0,
+        "muestra": 180.0
+       },
+       "t_alto": {
+        "completa": 220.0,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 100.0,
+        "muestra": 100.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_y_rrqpe_25km": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 170.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "v0+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 160.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "v1+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 160.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_25km_o_rrqpe10+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 160.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "rrqpe10_25km+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 160.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_zona+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 100.0,
+        "muestra": 100.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    },
+    "frio_y_rrqpe_25km+lluvia5": {
+     "eventos": {
+      "2026-10-30": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": 160.0,
+        "muestra": 160.0
+       }
+      },
+      "2026-10-23": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_alto": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      },
+      "2026-10-03": {
+       "t_medio": {
+        "completa": null,
+        "muestra": null
+       },
+       "t_pico_R1h": {
+        "completa": null,
+        "muestra": null
+       }
+      }
+     },
+     "muestra": {
+      "seco": [
+       0,
+       8
+      ],
+      "moderado": [
+       0,
+       6
+      ],
+      "fuerte": [
+       0,
+       5
+      ]
+     }
+    }
+   }
+  }
+ },
+ "octubre": {
+  "periodo_utc": [
+   "2026-10-01T06:00",
+   "2026-11-03T06:00"
+  ],
+  "cadencia": "banda 13 cada hora (imagen de las HH:00)",
+  "senales": {
+   "frio221_10_25km": "frio221_pct ≥ 10 (25km)",
+   "frio221_10_zona": "frio221_pct ≥ 10 (zona)",
+   "frio235_25_25km": "frio235_pct ≥ 25 (25km)",
+   "tbmin_210_zona": "Tb mín. ≤ 210 K (zona)"
+  },
+  "zonas": {
+   "la-cascada": {
+    "contingencia": {
+     "frio221_10_25km": {
+      "dias": 33,
+      "aciertos": 3,
+      "falsas_alarmas": 2,
+      "fallos": 2,
+      "negativos": 26,
+      "POD": 0.6,
+      "FAR": 0.4,
+      "dias_con_senal_sin_medio_pct": 7.1
+     },
+     "frio221_10_zona": {
+      "dias": 33,
+      "aciertos": 3,
+      "falsas_alarmas": 2,
+      "fallos": 2,
+      "negativos": 26,
+      "POD": 0.6,
+      "FAR": 0.4,
+      "dias_con_senal_sin_medio_pct": 7.1
+     },
+     "frio235_25_25km": {
+      "dias": 33,
+      "aciertos": 3,
+      "falsas_alarmas": 3,
+      "fallos": 2,
+      "negativos": 25,
+      "POD": 0.6,
+      "FAR": 0.5,
+      "dias_con_senal_sin_medio_pct": 10.7
+     },
+     "tbmin_210_zona": {
+      "dias": 33,
+      "aciertos": 2,
+      "falsas_alarmas": 0,
+      "fallos": 3,
+      "negativos": 28,
+      "POD": 0.4,
+      "FAR": 0.0,
+      "dias_con_senal_sin_medio_pct": 0.0
+     }
+    },
+    "dias": [
+     {
+      "dia": "2026-10-01",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-02",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-03",
+      "R1h_max": 15.6,
+      "cobertura_10min": 1.0,
+      "medio": true,
+      "t_medio": "2026-10-04T00:30Z",
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "primera_antes_min_frio221_10_25km": null,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "primera_antes_min_frio221_10_zona": null,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "primera_antes_min_frio235_25_25km": null,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-10-04",
+      "R1h_max": 7.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-05",
+      "R1h_max": 6.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-06",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-07",
+      "R1h_max": 0.9,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-08",
+      "R1h_max": 1.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-09",
+      "R1h_max": 4.6,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-10",
+      "R1h_max": 11.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-11",
+      "R1h_max": 0.9,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-12",
+      "R1h_max": 2.1,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 22,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 22,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 22,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 22,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-13",
+      "R1h_max": 0.4,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-14",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-15",
+      "R1h_max": 0.9,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-16",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-17",
+      "R1h_max": 1.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-18",
+      "R1h_max": 5.1,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-19",
+      "R1h_max": 2.1,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-20",
+      "R1h_max": 0.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-21",
+      "R1h_max": 1.3,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-22",
+      "R1h_max": 6.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-23",
+      "R1h_max": 23.4,
+      "cobertura_10min": 1.0,
+      "medio": true,
+      "t_medio": "2026-10-23T10:40Z",
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "primera_antes_min_frio221_10_25km": null,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "primera_antes_min_frio221_10_zona": null,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "primera_antes_min_frio235_25_25km": null,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-10-24",
+      "R1h_max": 4.9,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 1,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 1,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 2,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-25",
+      "R1h_max": 0.1,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-26",
+      "R1h_max": 0.6,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-27",
+      "R1h_max": 1.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 1,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-28",
+      "R1h_max": 0.4,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-29",
+      "R1h_max": 8.6,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-30",
+      "R1h_max": 61.0,
+      "cobertura_10min": 1.0,
+      "medio": true,
+      "t_medio": "2026-10-30T21:10Z",
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 6,
+      "primera_antes_min_frio221_10_25km": null,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 4,
+      "primera_antes_min_frio221_10_zona": null,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 6,
+      "primera_antes_min_frio235_25_25km": null,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": true,
+      "horas_tbmin_210_zona": 3,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-10-31",
+      "R1h_max": 36.8,
+      "cobertura_10min": 1.0,
+      "medio": true,
+      "t_medio": "2026-10-31T06:00Z",
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 4,
+      "primera_antes_min_frio221_10_25km": 0.0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 4,
+      "primera_antes_min_frio221_10_zona": 0.0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 6,
+      "primera_antes_min_frio235_25_25km": 0.0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": true,
+      "horas_tbmin_210_zona": 1,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-11-01",
+      "R1h_max": 11.7,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 3,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 1,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 4,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-11-02",
+      "R1h_max": 21.1,
+      "cobertura_10min": 1.0,
+      "medio": true,
+      "t_medio": "2026-11-02T14:00Z",
+      "imagenes_frio221_10_25km": 18,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 5,
+      "primera_antes_min_frio221_10_25km": 0.0,
+      "imagenes_frio221_10_zona": 18,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 2,
+      "primera_antes_min_frio221_10_zona": null,
+      "imagenes_frio235_25_25km": 18,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 8,
+      "primera_antes_min_frio235_25_25km": 0.0,
+      "imagenes_tbmin_210_zona": 18,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-11-03",
+      "R1h_max": 1.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 0,
+      "frio221_10_25km": null,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 0,
+      "frio221_10_zona": null,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 0,
+      "frio235_25_25km": null,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 0,
+      "tbmin_210_zona": null,
+      "horas_tbmin_210_zona": 0
+     }
+    ]
+   },
+   "santa-cruz-alta": {
+    "contingencia": {
+     "frio221_10_25km": {
+      "dias": 32,
+      "aciertos": 2,
+      "falsas_alarmas": 1,
+      "fallos": 2,
+      "negativos": 27,
+      "POD": 0.5,
+      "FAR": 0.33,
+      "dias_con_senal_sin_medio_pct": 3.6
+     },
+     "frio221_10_zona": {
+      "dias": 32,
+      "aciertos": 2,
+      "falsas_alarmas": 2,
+      "fallos": 2,
+      "negativos": 26,
+      "POD": 0.5,
+      "FAR": 0.5,
+      "dias_con_senal_sin_medio_pct": 7.1
+     },
+     "frio235_25_25km": {
+      "dias": 32,
+      "aciertos": 2,
+      "falsas_alarmas": 3,
+      "fallos": 2,
+      "negativos": 25,
+      "POD": 0.5,
+      "FAR": 0.6,
+      "dias_con_senal_sin_medio_pct": 10.7
+     },
+     "tbmin_210_zona": {
+      "dias": 32,
+      "aciertos": 1,
+      "falsas_alarmas": 0,
+      "fallos": 3,
+      "negativos": 28,
+      "POD": 0.25,
+      "FAR": 0.0,
+      "dias_con_senal_sin_medio_pct": 0.0
+     }
+    },
+    "dias": [
+     {
+      "dia": "2026-10-01",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-02",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-03",
+      "R1h_max": 15.6,
+      "cobertura_10min": 1.0,
+      "medio": true,
+      "t_medio": "2026-10-04T00:30Z",
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "primera_antes_min_frio221_10_25km": null,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "primera_antes_min_frio221_10_zona": null,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "primera_antes_min_frio235_25_25km": null,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-10-04",
+      "R1h_max": 7.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-05",
+      "R1h_max": 8.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-06",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-07",
+      "R1h_max": 1.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-08",
+      "R1h_max": 1.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-09",
+      "R1h_max": 4.6,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-10",
+      "R1h_max": 11.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-11",
+      "R1h_max": 1.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-12",
+      "R1h_max": 2.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 22,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 22,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 22,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 22,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-13",
+      "R1h_max": 0.6,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-14",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-15",
+      "R1h_max": 1.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-16",
+      "R1h_max": 0.0,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-17",
+      "R1h_max": 2.4,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-18",
+      "R1h_max": 6.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-19",
+      "R1h_max": 2.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-20",
+      "R1h_max": 0.6,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-21",
+      "R1h_max": 1.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-22",
+      "R1h_max": 4.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-23",
+      "R1h_max": 31.2,
+      "cobertura_10min": 1.0,
+      "medio": true,
+      "t_medio": "2026-10-23T11:20Z",
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "primera_antes_min_frio221_10_25km": null,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "primera_antes_min_frio221_10_zona": null,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "primera_antes_min_frio235_25_25km": null,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-10-24",
+      "R1h_max": 6.6,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 1,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 1,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-25",
+      "R1h_max": 0.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-26",
+      "R1h_max": 0.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-27",
+      "R1h_max": 1.8,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 1,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-28",
+      "R1h_max": 0.4,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-29",
+      "R1h_max": 8.6,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": false,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": false,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": false,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-10-30",
+      "R1h_max": 69.6,
+      "cobertura_10min": 0.9,
+      "medio": true,
+      "t_medio": "2026-10-30T21:00Z",
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 6,
+      "primera_antes_min_frio221_10_25km": null,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 7,
+      "primera_antes_min_frio221_10_zona": 180.0,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 8,
+      "primera_antes_min_frio235_25_25km": null,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": true,
+      "horas_tbmin_210_zona": 5,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-10-31",
+      "R1h_max": 1.8,
+      "cobertura_10min": 0.12,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 4,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 4,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 6,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": true,
+      "horas_tbmin_210_zona": 2
+     },
+     {
+      "dia": "2026-11-01",
+      "R1h_max": 15.6,
+      "cobertura_10min": 1.0,
+      "medio": true,
+      "t_medio": "2026-11-02T02:10Z",
+      "imagenes_frio221_10_25km": 24,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 3,
+      "primera_antes_min_frio221_10_25km": 670.0,
+      "imagenes_frio221_10_zona": 24,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 1,
+      "primera_antes_min_frio221_10_zona": null,
+      "imagenes_frio235_25_25km": 24,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 4,
+      "primera_antes_min_frio235_25_25km": 670.0,
+      "imagenes_tbmin_210_zona": 24,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0,
+      "primera_antes_min_tbmin_210_zona": null
+     },
+     {
+      "dia": "2026-11-02",
+      "R1h_max": 11.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 18,
+      "frio221_10_25km": true,
+      "horas_frio221_10_25km": 5,
+      "imagenes_frio221_10_zona": 18,
+      "frio221_10_zona": true,
+      "horas_frio221_10_zona": 3,
+      "imagenes_frio235_25_25km": 18,
+      "frio235_25_25km": true,
+      "horas_frio235_25_25km": 8,
+      "imagenes_tbmin_210_zona": 18,
+      "tbmin_210_zona": false,
+      "horas_tbmin_210_zona": 0
+     },
+     {
+      "dia": "2026-11-03",
+      "R1h_max": 0.2,
+      "cobertura_10min": 1.0,
+      "medio": false,
+      "t_medio": null,
+      "imagenes_frio221_10_25km": 0,
+      "frio221_10_25km": null,
+      "horas_frio221_10_25km": 0,
+      "imagenes_frio221_10_zona": 0,
+      "frio221_10_zona": null,
+      "horas_frio221_10_zona": 0,
+      "imagenes_frio235_25_25km": 0,
+      "frio235_25_25km": null,
+      "horas_frio235_25_25km": 0,
+      "imagenes_tbmin_210_zona": 0,
+      "tbmin_210_zona": null,
+      "horas_tbmin_210_zona": 0
+     }
+    ]
+   }
+  }
+ }
+}
