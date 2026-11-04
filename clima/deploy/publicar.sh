@@ -19,19 +19,27 @@ ssh "$SERVIDOR" 'set -e
 ssh "$SERVIDOR" 'install -d -m 750 -o root -g clima /etc/sosgalapagos-clima'
 scp -q privado/fuentes.env "$SERVIDOR":/etc/sosgalapagos-clima/fuentes.env
 ssh "$SERVIDOR" 'chown root:clima /etc/sosgalapagos-clima/fuentes.env; chmod 640 /etc/sosgalapagos-clima/fuentes.env'
+ssh "$SERVIDOR" 'install -d /opt/sosgalapagos-clima/satelite'
 rsync -az recolector/*.py recolector/*.json deploy/respaldo.sh deploy/recibir.sh "$SERVIDOR":/opt/sosgalapagos-clima/
 # Series diarias de la FCD para la estacionalidad (privadas: fuera de la carpeta pública)
 ssh "$SERVIDOR" 'install -d -m 750 -o clima -g clima /var/lib/sosgalapagos-clima/fcd'
 rsync -az datos/fcd/*.csv "$SERVIDOR":/var/lib/sosgalapagos-clima/fcd/
 rsync -az web/index.html "$SERVIDOR":/srv/sosgalapagos-clima/index.html
 rsync -az deploy/*.service deploy/*.timer "$SERVIDOR":/etc/systemd/system/
+# Colector satelital GOES-19 (satelite/): código, venv propio con numpy y h5py, carpeta de estado
+rsync -az satelite/goes.py satelite/colector.py satelite/vigilancia.py satelite/requirements.txt "$SERVIDOR":/opt/sosgalapagos-clima/satelite/
+ssh "$SERVIDOR" 'set -e
+  install -d -m 750 -o clima -g clima /var/lib/sosgalapagos-clima/satelite
+  cd /opt/sosgalapagos-clima
+  [ -x .venv-satelite/bin/python ] || python3 -m venv .venv-satelite
+  .venv-satelite/bin/pip install -q -r satelite/requirements.txt'
 ssh "$SERVIDOR" 'set -e
   cd /opt/sosgalapagos-clima
   [ -x .venv/bin/python ] || python3 -m venv .venv
   .venv/bin/pip install -q --upgrade websockets
   chown clima:clima /srv/sosgalapagos-clima/index.html
   systemctl daemon-reload
-  systemctl enable --now sosgalapagos-clima.timer sosgalapagos-clima-csv.timer'
+  systemctl enable --now sosgalapagos-clima.timer sosgalapagos-clima-csv.timer sosgalapagos-clima-satelite.timer'
 
 # Llave del puente IERSE: solo puede ejecutar recibir.sh (sin terminal ni reenvíos)
 if [ -f "$HOME/.ssh/id_clima_puente.pub" ]; then

@@ -1,0 +1,4 @@
+# Colector satelital (servidor y Mac). Python 3.12. Los scripts de la fase S0 usan además pandas y matplotlib
+# (ya están en ../requirements.txt).
+numpy==2.5.4
+h5py==3.16.0

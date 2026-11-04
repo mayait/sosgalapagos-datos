@@ -1,0 +1,12 @@
+[Unit]
+Description=SOS Galápagos · colector satelital GOES-19 cada 5 minutos
+
+[Timer]
+# 2 min después del recolector principal (*:0/5): menos choques en SQLite. Cada barrido ABI de
+# disco completo llega al bucket ~10 min después de empezar, así que se lee 12–17 min tras su inicio.
+OnCalendar=*:2/5
+AccuracySec=10s
+Persistent=true
+
+[Install]
+WantedBy=timers.target
