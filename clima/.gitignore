@@ -16,3 +16,6 @@ pronostico/fase0/senal_validacion_cruzada.csv.gz
 pronostico/fase0/eventos.csv
 satelite/cache/
 satelite/estado-local/
+pronostico/fase0/conjuntos/cache/
+pronostico/fase0/conjuntos/ens_eventos.csv
+pronostico/fase0/conjuntos/casos.json
