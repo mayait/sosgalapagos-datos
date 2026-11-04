@@ -212,11 +212,12 @@ footer.pie{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);fon
 footer.pie b{color:var(--ink)}
 footer.pie .aviso{border-left:4px solid var(--red);background:var(--soft);padding:12px 16px;border-radius:0 8px 8px 0;max-width:110ch;text-wrap:pretty}
 footer.pie .repo{margin:14px 0 0}
-footer.pie .cierre{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 32px;margin-top:34px}
-footer.pie .more{margin:0;font-family:"Zalando Sans Expanded","Arial Black","Helvetica Neue",Arial,sans-serif;font-weight:900;font-size:clamp(28px,5vw,46px);line-height:.95;letter-spacing:-.01em;color:var(--ink);display:flex;flex-direction:column;align-items:flex-start;gap:6px}
-footer.pie .more .blk{background:var(--red);color:#fff;padding:4px 10px 2px}
+footer.pie .cierre{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line2)}
+footer.pie .more{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:900;font-size:15px;line-height:1;letter-spacing:.02em;color:var(--ink);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+footer.pie .more .blk{background:var(--red);color:#fff;padding:4px 7px 3px;border-radius:2px}
 footer.pie .inst{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;font-size:15px;font-weight:700;color:var(--ink)}
 footer.pie .inst span{border-left:2px solid var(--red);padding-left:12px;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:640px){footer.pie .inst{flex-direction:column;align-items:flex-start;gap:2px}footer.pie .inst span{border-left:0;padding-left:0;color:var(--red2)}}
 /* tooltip y visor ampliado */
 #tip{position:fixed;pointer-events:none;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,.18);display:none;z-index:2000;max-width:300px}
 #tip b{font-weight:800}
