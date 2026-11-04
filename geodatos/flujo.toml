@@ -223,6 +223,35 @@ salidas = ["estudios/san-cristobal/datos/modelo2d/resumen_modelo2d.json", "estud
            "estudios/san-cristobal/datos/modelo2d/*_series.csv", "estudios/san-cristobal/datos/modelo2d/*_calado_max.tif",
            "estudios/san-cristobal/figuras/f_modelo2d_*.png", "estudios/san-cristobal/figuras/anim_modelo2d_*.gif"]
 
+[pasos.tormentas_sinteticas]
+script = "32_tormentas_sinteticas.py"
+pesado = true
+nota = "500 tormentas sintéticas por isla en el modelo 2D (≈12 min Santa Cruz, ≈6 min San Cristóbal con 9 procesos) y umbrales propuestos por zona"
+codigo = ["25_modelo2d_san_cristobal.py", "24_modelo2d_santa_cruz.py"]
+cmd = ["{py} -W ignore scripts/32_tormentas_sinteticas.py validar santa-cruz", "{py} -W ignore scripts/32_tormentas_sinteticas.py validar san-cristobal",
+       "{py} -W ignore scripts/32_tormentas_sinteticas.py correr santa-cruz --n 500 --procesos 9", "{py} -W ignore scripts/32_tormentas_sinteticas.py correr san-cristobal --n 500 --procesos 9",
+       "{py} -W ignore scripts/32_tormentas_sinteticas.py analizar santa-cruz", "{py} -W ignore scripts/32_tormentas_sinteticas.py analizar san-cristobal"]
+entradas = ["@dem_sc", "@dem_scb", "capas/dem/cuencas_localidad.geojson", "capas/igm/zona_urbana.geojson", "capas/final/zonas_pobladas.geojson",
+            "capas/final/manzanas_inec.geojson", "export/galapagos/zona_agricola.geojson", "estudios/la-cascada/datos/cuenca_cascada.geojson",
+            "estudios/santa-cruz/datos/cruces.csv", "@lluvia_evento", "estudios/santa-cruz/datos/modelo2d/b_central/resumen_b_central.json",
+            "estudios/san-cristobal/datos/modelo2d/guayabillos_series.csv"]
+salidas = ["estudios/tormentas/datos/*/catalogo_tormentas.csv", "estudios/tormentas/datos/*/resultados_tormentas.csv",
+           "estudios/tormentas/datos/*/umbrales_propuestos.json", "estudios/tormentas/datos/*/resumen.json",
+           "estudios/tormentas/datos/*/previo_llegada_*.csv", "estudios/tormentas/datos/*/validacion_motor.json"]
+
+[pasos.tormentas_figuras]
+script = "33_tormentas_figuras.py"
+pesado = true
+nota = "Figuras y animaciones (MP4 + GIF) de las tormentas sintéticas"
+codigo = ["32_tormentas_sinteticas.py"]
+cmd = ["{py} -W ignore scripts/33_tormentas_figuras.py todo santa-cruz", "{py} -W ignore scripts/33_tormentas_figuras.py todo san-cristobal",
+       "{py} -W ignore scripts/33_tormentas_figuras.py red -",
+       "{py} -W ignore scripts/33_tormentas_figuras.py animar santa-cruz 403 83 14", "{py} -W ignore scripts/33_tormentas_figuras.py animar san-cristobal 161 40"]
+entradas = ["estudios/tormentas/datos/*/umbrales_propuestos.json", "estudios/tormentas/datos/*/resumen.json", "estudios/tormentas/datos/*/previo_llegada_*.csv"]
+salidas = ["estudios/tormentas/figuras/*.png", "estudios/tormentas/figuras/*.mp4", "estudios/tormentas/figuras/*.gif",
+           "estudios/tormentas/datos/*/mejor_sitio_pluviometro.json", "estudios/tormentas/datos/*/animaciones.json",
+           "estudios/tormentas/datos/*/compromiso_*.csv", "estudios/tormentas/datos/escenarios_red.json"]
+
 [pasos.canadas_oficiales]
 script = "27_canadas_oficiales_san_cristobal.py"
 nota = "Cañadas oficiales del plan de la UGR; añade «cañada_oficial» a cuencas y puntos"

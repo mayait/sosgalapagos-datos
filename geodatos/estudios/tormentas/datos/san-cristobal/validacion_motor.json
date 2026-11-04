@@ -1,0 +1,96 @@
+{
+ "campus_GSC": {
+  "nuevo_celda": 0.0,
+  "nuevo_max_3x3": 0.01,
+  "script25_celda": 0.01
+ },
+ "campus_USFQ": {
+  "nuevo_celda": 0.0,
+  "nuevo_max_3x3": 0.01,
+  "script25_celda": 0.01
+ },
+ "campus_esquina_NE_via_universidad": {
+  "nuevo_celda": 0.03,
+  "nuevo_max_3x3": 0.04,
+  "script25_celda": 0.03
+ },
+ "rellano_quebrada_campus": {
+  "nuevo_celda": 0.07,
+  "nuevo_max_3x3": 0.18,
+  "script25_celda": 0.07
+ },
+ "escuela_alvear": {
+  "nuevo_celda": 0.0,
+  "nuevo_max_3x3": 0.02,
+  "script25_celda": 0.01
+ },
+ "barrio_frio_registro_2024": {
+  "nuevo_celda": 0.03,
+  "nuevo_max_3x3": 0.07,
+  "script25_celda": 0.03
+ },
+ "barrio_frio_desembocadura": {
+  "nuevo_celda": 0.77,
+  "nuevo_max_3x3": 1.35,
+  "script25_celda": 0.78
+ },
+ "divino_nino_salida": {
+  "nuevo_celda": 0.13,
+  "nuevo_max_3x3": 0.23,
+  "script25_celda": 0.13
+ },
+ "manzanillo_registro_2019": {
+  "nuevo_celda": 0.47,
+  "nuevo_max_3x3": 0.71,
+  "script25_celda": 0.47
+ },
+ "el_progreso_iess_2021": {
+  "nuevo_celda": 0.01,
+  "nuevo_max_3x3": 1.52,
+  "script25_celda": 0.01
+ },
+ "el_progreso_escuela_darwin_2024": {
+  "nuevo_celda": 0.33,
+  "nuevo_max_3x3": 0.82,
+  "script25_celda": 0.33
+ },
+ "el_progreso_vaso_V01": {
+  "nuevo_celda": 5.52,
+  "nuevo_max_3x3": 5.52,
+  "script25_celda": 5.52
+ },
+ "hospital_oskar_jandl": {
+  "nuevo_celda": 0.09,
+  "nuevo_max_3x3": 0.12,
+  "script25_celda": 0.0
+ },
+ "colegio_ignacio_hernandez_via_jaime_roldos": {
+  "nuevo_celda": 0.02,
+  "nuevo_max_3x3": 0.05,
+  "script25_celda": 0.0
+ },
+ "manzanillo_puente_perimetral": {
+  "nuevo_celda": 0.27,
+  "nuevo_max_3x3": 0.69,
+  "script25_celda": 0.0
+ },
+ "la_planada_registro_2025": {
+  "nuevo_celda": 0.01,
+  "nuevo_max_3x3": 0.31,
+  "script25_celda": 0.0
+ },
+ "playa_de_oro": {
+  "nuevo_celda": 0.04,
+  "nuevo_max_3x3": 0.23,
+  "script25_celda": 0.0
+ },
+ "_corrida": {
+  "segundos": 6.6,
+  "pasos": 16247,
+  "balance": {
+   "lluvia_neta_m3": 1704136,
+   "salida_m3": 1313924,
+   "almacenado_m3": 390213
+  }
+ }
+}

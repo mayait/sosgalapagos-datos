@@ -1,0 +1,174 @@
+{
+ "santa-cruz": {
+  "La Cascada": {
+   "v0.2 (estaciones de hoy)": {
+    "medio": {
+     "POD": 0.993,
+     "POFD": 0.719,
+     "aviso_min": 150.0
+    },
+    "alto": {
+     "POD": 0.979,
+     "POFD": 0.373,
+     "aviso_min": 120.0
+    }
+   },
+   "+ Cerro Crocker": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.808,
+     "aviso_min": 155.0
+    },
+    "alto": {
+     "POD": 1.0,
+     "POFD": 0.476,
+     "aviso_min": 125.0
+    }
+   },
+   "+ pluviómetro nuevo en el mejor sitio": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.733,
+     "aviso_min": 150.0
+    },
+    "alto": {
+     "POD": 1.0,
+     "POFD": 0.393,
+     "aviso_min": 120.0
+    }
+   }
+  },
+  "Tomás de Berlanga": {
+   "v0.2 (estaciones de hoy)": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.773,
+     "aviso_min": 85.0
+    },
+    "alto": {
+     "POD": 1.0,
+     "POFD": 0.493,
+     "aviso_min": 70.0
+    }
+   },
+   "+ pluviómetro nuevo en el mejor sitio": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.787,
+     "aviso_min": 85.0
+    },
+    "alto": {
+     "POD": 1.0,
+     "POFD": 0.516,
+     "aviso_min": 70.0
+    }
+   }
+  },
+  "Bellavista": {
+   "v0.2 (estaciones de hoy)": {
+    "medio": {
+     "POD": 0.992,
+     "POFD": 0.799,
+     "aviso_min": 70.0
+    },
+    "alto": {
+     "POD": 0.953,
+     "POFD": 0.469,
+     "aviso_min": 50.0
+    }
+   },
+   "+ pluviómetro nuevo en el mejor sitio": {
+    "medio": {
+     "POD": 0.992,
+     "POFD": 0.804,
+     "aviso_min": 70.0
+    },
+    "alto": {
+     "POD": 0.961,
+     "POFD": 0.483,
+     "aviso_min": 50.0
+    }
+   }
+  }
+ },
+ "san-cristobal": {
+  "Barrio Frío (desembocadura)": {
+   "v0.2 (estaciones de hoy)": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.833,
+     "aviso_min": 55.0
+    },
+    "alto": {
+     "POD": 0.869,
+     "POFD": 0.49,
+     "aviso_min": 25.0
+    }
+   },
+   "+ pluviómetro nuevo en el mejor sitio": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.836,
+     "aviso_min": 55.0
+    },
+    "alto": {
+     "POD": 0.882,
+     "POFD": 0.496,
+     "aviso_min": 25.0
+    }
+   }
+  },
+  "El Manzanillo": {
+   "v0.2 (estaciones de hoy)": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.864,
+     "aviso_min": 70.0
+    },
+    "alto": {
+     "POD": 0.959,
+     "POFD": 0.585,
+     "aviso_min": 50.0
+    }
+   },
+   "+ pluviómetro nuevo en el mejor sitio": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.873,
+     "aviso_min": 70.0
+    },
+    "alto": {
+     "POD": 1.0,
+     "POFD": 0.592,
+     "aviso_min": 50.0
+    }
+   }
+  },
+  "El Progreso": {
+   "v0.2 (estaciones de hoy)": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.866,
+     "aviso_min": 45.0
+    },
+    "alto": {
+     "POD": 0.926,
+     "POFD": 0.59,
+     "aviso_min": 30.0
+    }
+   },
+   "+ pluviómetro nuevo en el mejor sitio": {
+    "medio": {
+     "POD": 1.0,
+     "POFD": 0.87,
+     "aviso_min": 45.0
+    },
+    "alto": {
+     "POD": 0.926,
+     "POFD": 0.59,
+     "aviso_min": 30.0
+    }
+   }
+  }
+ }
+}

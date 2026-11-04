@@ -27,6 +27,8 @@ geodatos/.flujo/
 # Estudios: rasters intermedios y descargas crudas de APIs (se regeneran con los scripts)
 geodatos/estudios/**/*.tif
 geodatos/estudios/*/datos/lluvias/crudo/
+# Tormentas sintéticas: corridas individuales y pilas de rasters (se regeneran con 32_tormentas_sinteticas.py)
+geodatos/estudios/tormentas/cache/
 
 # Worktrees de equipos y agentes (ver CONTRIBUIR.md §5) por si se crean dentro
 .worktrees/

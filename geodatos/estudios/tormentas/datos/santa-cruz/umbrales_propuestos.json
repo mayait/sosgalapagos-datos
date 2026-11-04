@@ -1,0 +1,130 @@
+{
+ "La Cascada": {
+  "zona": "La Cascada",
+  "isla": "santa-cruz",
+  "estaciones": [
+   [
+    "Los Guayabillos",
+    1.0
+   ],
+   [
+    "Santa Rosa",
+    0.75
+   ],
+   [
+    "INAMHI Puerto Ayora",
+    1.0
+   ],
+   [
+    "Erna (Puerto Ayora)",
+    1.0
+   ]
+  ],
+  "niveles": {
+   "medio": {
+    "R1h": 47.5,
+    "R3h": 65.0,
+    "R24h": 140.0
+   },
+   "alto": {
+    "R1h": 52.5,
+    "R3h": 75.0,
+    "R24h": 190.0
+   },
+   "muy alto": {
+    "R1h": 55.0,
+    "R3h": 90.0,
+    "R24h": 250.0
+   }
+  },
+  "factor_suelo_humedo": {
+   "P5d_min_mm": 53,
+   "factor": 0.9
+  },
+  "nota": "Propuesta derivada de tormentas sintéticas y el modelo 2D propio (no oficial). Validar con inundaciones históricas antes de usar."
+ },
+ "Tomás de Berlanga": {
+  "zona": "Tomás de Berlanga",
+  "isla": "santa-cruz",
+  "estaciones": [
+   [
+    "Los Guayabillos",
+    1.0
+   ],
+   [
+    "Santa Rosa",
+    0.75
+   ],
+   [
+    "INAMHI Puerto Ayora",
+    1.0
+   ],
+   [
+    "Erna (Puerto Ayora)",
+    1.0
+   ]
+  ],
+  "niveles": {
+   "medio": {
+    "R1h": 50.0,
+    "R3h": 100.0,
+    "R24h": 300.0
+   },
+   "alto": {
+    "R1h": 50.0,
+    "R3h": 100.0,
+    "R24h": 300.0
+   },
+   "muy alto": {
+    "R1h": 65.0,
+    "R3h": 145.0,
+    "R24h": 320.0
+   }
+  },
+  "factor_suelo_humedo": {
+   "P5d_min_mm": 53,
+   "factor": 0.9
+  },
+  "nota": "Propuesta derivada de tormentas sintéticas y el modelo 2D propio (no oficial). Validar con inundaciones históricas antes de usar."
+ },
+ "Bellavista": {
+  "zona": "Bellavista",
+  "isla": "santa-cruz",
+  "estaciones": [
+   [
+    "Los Guayabillos",
+    1.0
+   ],
+   [
+    "Santa Rosa",
+    1.0
+   ],
+   [
+    "Cerro Crocker",
+    1.0
+   ]
+  ],
+  "niveles": {
+   "medio": {
+    "R1h": 27.5,
+    "R3h": 80.0,
+    "R24h": 320.0
+   },
+   "alto": {
+    "R1h": 32.5,
+    "R3h": 95.0,
+    "R24h": 320.0
+   },
+   "muy alto": {
+    "R1h": 50.0,
+    "R3h": 135.0,
+    "R24h": 320.0
+   }
+  },
+  "factor_suelo_humedo": {
+   "P5d_min_mm": 53,
+   "factor": 0.9
+  },
+  "nota": "Propuesta derivada de tormentas sintéticas y el modelo 2D propio (no oficial). Validar con inundaciones históricas antes de usar."
+ }
+}

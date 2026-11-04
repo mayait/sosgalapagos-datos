@@ -1,0 +1,23 @@
+[
+ {
+  "zona": "La Cascada",
+  "mejor_auc": 0.962,
+  "mejor_lon": -90.3112,
+  "mejor_lat": -0.7015,
+  "mejor_cota_m": 157
+ },
+ {
+  "zona": "Tomás de Berlanga",
+  "mejor_auc": 0.925,
+  "mejor_lon": -90.3112,
+  "mejor_lat": -0.6974,
+  "mejor_cota_m": 174
+ },
+ {
+  "zona": "Bellavista",
+  "mejor_auc": 0.788,
+  "mejor_lon": -90.3314,
+  "mejor_lat": -0.6811,
+  "mejor_cota_m": 288
+ }
+]

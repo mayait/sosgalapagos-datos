@@ -1,0 +1,23 @@
+[
+ {
+  "zona": "Barrio Frío (desembocadura)",
+  "mejor_auc": 0.795,
+  "mejor_lon": -89.6061,
+  "mejor_lat": -0.9018,
+  "mejor_cota_m": 30
+ },
+ {
+  "zona": "El Manzanillo",
+  "mejor_auc": 0.877,
+  "mejor_lon": -89.5859,
+  "mejor_lat": -0.9059,
+  "mejor_cota_m": 99
+ },
+ {
+  "zona": "El Progreso",
+  "mejor_auc": 0.646,
+  "mejor_lon": -89.5698,
+  "mejor_lat": -0.8571,
+  "mejor_cota_m": 2
+ }
+]
