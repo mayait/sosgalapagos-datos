@@ -1438,8 +1438,8 @@ function chispaSat(z) {
 function satelite() {
   const u = SAT.ultima_imagen || {}, c13 = u.c13?.ts, rr = u.rrqpe?.ts, atraso = minDesde(SAT.generado);
   const viejo = ts => !ts || Date.parse(SAT.generado) - Date.parse(ts) > 45 * 6e4;
-  $("satHora").innerHTML = (atraso > 20 ? `<span class="ico-warn" style="font-weight:700">▲ El colector del satélite no se actualiza desde hace ${Math.round(atraso)} min: las zonas se muestran sin estado.</span> ` : "") +
-    `Imagen de nubes: <b>${c13 ? fH.format(new Date(c13)) : "sin datos"}</b> · rayos hasta las <b>${SAT.glm_ultimo_intervalo ? hm(Date.parse(SAT.glm_ultimo_intervalo) + 6e5) : "—"}</b> · lluvia estimada: ${viejo(rr) ? `<span class="ico-warn" style="font-weight:700">▲ la NOAA no la está produciendo ahora</span>` : hm(Date.parse(rr))} (hora de Galápagos). Rayos: amarillo, últimos 10 min; naranja, 10–30 min; gris, hasta 3 h.` +
+  $("satHora").innerHTML = (atraso > 20 ? `<span style="font-weight:700">ⓘ El colector del satélite no se actualiza desde hace ${Math.round(atraso)} min: las zonas se muestran sin estado.</span> ` : "") +
+    `Imagen de nubes: <b>${c13 ? fH.format(new Date(c13)) : "sin datos"}</b> · rayos hasta las <b>${SAT.glm_ultimo_intervalo ? hm(Date.parse(SAT.glm_ultimo_intervalo) + 6e5) : "—"}</b> · lluvia estimada: ${viejo(rr) ? `<span style="font-weight:700">ⓘ la NOAA no la está produciendo ahora</span>` : hm(Date.parse(rr))} (hora de Galápagos). Rayos: amarillo, últimos 10 min; naranja, 10–30 min; gris, hasta 3 h.` +
     (SAT.paralaje ? ` ${esc(SAT.paralaje)}` : "");
   const serie = (z, v) => (z.series?.[v] || []).map(p => p[1]);
   const ult = (z, v) => { const s = serie(z, v); return s.length ? s[s.length - 1] : null; };
@@ -1449,8 +1449,8 @@ function satelite() {
   $("satZonas").innerHTML = zs.map(([, z]) => {
     const est = satEstado(z), e = SAT_EST[est] || SAT_EST["sin datos"], V = z.vigilancia || {};
     const mot = est === "vigilancia" ? (V.motivos || []).map(m => esc(m.texto) + (m.activo ? " · se cumple ahora" : (V.motivos.length > 1 && m.ultimo_disparo ? ` · último disparo a las ${hm(Date.parse(m.ultimo_disparo))}` : ""))).join("<br>") : "";
-    const hasta = est === "vigilancia" && V.ultimo_disparo ? `Último disparo a las ${hm(Date.parse(V.ultimo_disparo))}${V.vigilancia_hasta ? `; vigilancia hasta las ${hm(Date.parse(V.vigilancia_hasta))}` : ""}.` : "";
-    const nubesBajas = est === "sin señal" || est === "incompleta" ? `<div class="m" style="font-weight:700">No descarta lluvia fuerte de nubes bajas.${est === "incompleta" && (V.faltan || []).length ? ` Falta ${V.faltan.join(" y ")}.` : ""}</div>` : "";
+    const hasta = est === "vigilancia" && V.ultimo_disparo ? `Último disparo a las ${hm(Date.parse(V.ultimo_disparo))}${V.vigilancia_hasta ? `; vigilancia hasta las ${hm(Date.parse(V.vigilancia_hasta))}` : ""}.${(V.faltan || []).length ? ` Falta ${V.faltan.map(esc).join(" y ")}.` : ""}` : "";
+    const nubesBajas = est === "sin señal" || est === "incompleta" ? `<div class="m" style="font-weight:700">No descarta lluvia fuerte de nubes bajas.${est === "incompleta" && (V.faltan || []).length ? ` Falta ${V.faltan.map(esc).join(" y ")}.` : ""}</div>` : "";
     const tb = ult(z, "tb_min_k"), r = ult(z, "lluvia_sat_max_mmh"), r1 = suma3(z, "rayos_n"), r2 = suma3(z, "rayos_n_25km");
     return `<div class="sz" style="--sc:${e[0]}${est === "sin_evaluar" || est === "sin datos" ? ";background:var(--soft)" : ""}"><div class="h"><span class="n">${esc(z.nombre)}</span><span class="e">${e[1]}</span></div>
       ${mot ? `<div class="m">${mot}</div>` : ""}${hasta ? `<div class="m">${hasta}</div>` : ""}${nubesBajas}
@@ -1459,7 +1459,7 @@ function satelite() {
   const um = SAT.vigilancia_umbrales || {};
   $("satMetodo").innerHTML = `<p>Cada 10 minutos se toma, para cada zona (el rectángulo del mapa) y para la zona ampliada ${SAT.anillo_km ?? 25} km, la temperatura del tope de nube más fría (banda 13 del ABI), el porcentaje de la zona con topes por debajo de ${num((SAT.frio_k || 221) - 273.15, 0)} °C, la tasa de lluvia estimada por la NOAA (RRQPE) y, solo como información, los rayos del GLM.</p>
     <p>La zona pasa a «convección profunda cerca» si se cumple alguna de estas condiciones: ${Object.values(um).map(x => esc(Array.isArray(x) ? x[x.length - 1] : x)).join("; ") || "ver satelite/LEEME.md"}. El estado se mantiene ${SAT.vigilancia_persistencia_h ?? 3} h después del último disparo. Si falta un producto y no hubo disparo, el estado es «datos incompletos»: no se puede decir «sin señal».</p>
-    <p>Esta señal <b>no cambia el nivel de lluvia peligrosa</b>, que se calcula solo con la lluvia medida. Probado con un solo evento convectivo (30-oct), con reglas ajustadas a ese evento. Con 3 h de persistencia y descontando la latencia (~20 min), avisó unas 3,5 h antes del primer chubasco fuerte. El 2-nov avisó con 20 min, que la latencia anula, y no vio las lluvias de nubes bajas del 3 y el 23-oct. <b>Que no haya señal no quiere decir que no vaya a llover fuerte.</b></p>`;
+    <p>Esta señal <b>no cambia el nivel de lluvia peligrosa</b>, que se calcula solo con la lluvia medida. Probado con un solo evento convectivo (30-oct), con reglas ajustadas a ese evento. Con 3 h de persistencia y descontando la latencia (~20 min), la señal llegó unas 3,5 h antes de que la regla de lluvia medida marcara «medio» en La Cascada; esa cifra cuenta con la lluvia estimada (RRQPE). En la parte alta de Santa Cruz no avisó el 1-nov. El 2-nov avisó con 20 min, que la latencia anula, y no vio las lluvias de nubes bajas del 3 y el 23-oct. Hoy, sin RRQPE, el aviso del 30-oct en La Cascada habría dependido de un caso límite (2 imágenes). <b>Que no haya señal no quiere decir que no vaya a llover fuerte.</b></p>`;
   mapaSat();
 }
 document.querySelectorAll("#satelite .capas input").forEach(i => i.onchange = () => { VIS[i.dataset.c] = i.checked; if (SAT) mapaSat(); });
