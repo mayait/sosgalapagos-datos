@@ -38,4 +38,4 @@ Todas las fuentes se consultaron el **1 de noviembre de 2026**. Hay un catálogo
 
 ## Aviso de seguridad (para comunicar a las instituciones)
 
-Al revisar las fuentes se detectó que algunos servicios públicos del INEC (`mgnwms2026/FeatureServer`) y de la SNGR **permiten crear, editar y borrar sin token**. Solo se hicieron lecturas. Conviene avisar a esas instituciones por un canal oficial.
+Al revisar las fuentes se encontró un problema de configuración en algunos servicios públicos del INEC y de la SNGR. Se reporta a las instituciones por un canal privado. Solo se hicieron lecturas.
