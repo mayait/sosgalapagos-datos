@@ -12,10 +12,12 @@ from __future__ import annotations
 import datetime as dt
 
 UMBRALES = {
-    # variable: (umbral, texto). Cualquiera activa la vigilancia.
-    "rayos_n_25km": (1, "rayos a menos de 25 km"),
-    "frio_pct_25km": (10, "topes de nube muy fríos (convección profunda) cerca"),
-    "lluvia_sat_max_mmh": (10, "lluvia satelital intensa sobre la zona"),
+    # variable: (umbral, texto). Cualquiera activa la vigilancia (regla «v1» de evaluacion-s0.md §6).
+    # El 30-oct, RRQPE a 25 km adelantó el «medio» 90–100 min y los topes fríos en la parte alta, 180–200 min.
+    # Ninguna se activó en 14 días secos o moderados de la muestra. Ninguna ve la lluvia orográfica «cálida».
+    "lluvia_sat_max_mmh_25km": (10, "lluvia estimada por el satélite de 10 mm/h o más a menos de 25 km"),
+    "frio_pct": (10, "topes de nube por debajo de −52 °C (convección profunda) en el 10 % de la zona o más"),
+    "rayos_n_25km": (1, "al menos un rayo a menos de 25 km en 30 min"),
 }
 VENTANA_MIN = 30
 VIGENCIA_MIN = 25  # sin datos más recientes que esto, «sin datos»
