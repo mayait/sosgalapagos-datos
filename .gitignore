@@ -37,3 +37,6 @@ geodatos/estudios/tormentas/cache/
 
 # Worktrees de equipos y agentes (ver CONTRIBUIR.md §5) por si se crean dentro
 .worktrees/
+
+# Curvas IDF: lluvia horaria de GAR por días (se regenera con 34_curvas_idf.py descargar)
+geodatos/estudios/idf/cache/
