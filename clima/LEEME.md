@@ -80,7 +80,9 @@ GSC-USFQ (San Cristóbal) ──► servidor: sosgalapagos-clima.timer (cada 5 m
 | METAR | aeropuertos de Baltra y San Cristóbal (tiempo presente, temperatura, presión, viento) | servidor |
 | WeatherLink | estación de Erna en Puerto Ayora (Davis Vantage Vue, −0,7534 / −90,3120), pública en el mapa de WeatherLink; también GALAP1–5 en Puerto Baquerizo, hoy inactivas | servidor; da la lluvia acumulada del día y el intervalo se calcula por diferencia |
 | Tempest | Punta Estrada, Puerto Ayora (8 m), estación particular de Sebastián Cruz; registro por minuto, agregado a 5 min. Sensor de lluvia háptico: puede subestimar los chubascos intensos | servidor, con el token personal de solo lectura del dueño (privado/fuentes.env); `--tempest-desde AAAA-MM-DD` recupera días pasados |
+| GOES-19 (NOAA; satélite) | Galápagos completo por zonas: tope de nube (banda 13), lluvia **estimada** (RRQPE) y rayos (GLM), cada 10 min | servidor, proceso y timer propios (`sosgalapagos-clima-satelite.timer`); ver [`satelite/LEEME.md`](satelite/LEEME.md). Es una estimación satelital, no lluvia medida |
 
+- **Satélite (vigilancia de las horas previas):** `satelite/` (colector, datos en la clave `satelite` de `estado.json` y panel «Satélite (últimas 3 h)»). Evaluación con los eventos de octubre: `satelite/evaluacion-s0.md`.
 - **Nivel preliminar de inundación:** `recolector/inundacion.py` y `umbrales_inundacion.json`. Detalle en `docs/umbrales-la-cascada.md`.
 - **Pronóstico de lluvia fuerte (experimental, no oficial):** `recolector/pronostico.py`, una vez por hora (fuente `pronostico`). Señal diaria a 7 días por zona: modelos globales de Open-Meteo calibrados con la lluvia medida. Escribe `datos/pronostico.json` y archiva cada corrida en `/var/lib/sosgalapagos-clima/pronostico/`. Cómo funciona, archivos y cómo recalibrar: [`pronostico/LEEME.md`](pronostico/LEEME.md). La evaluación está en [`pronostico/fase0/informe.md`](pronostico/fase0/informe.md).
 - **Estacionalidad:** `recolector/estacionalidad.py`. Usa las series diarias de la FCD (`datos/fcd/`, privadas; en el servidor, `/var/lib/sosgalapagos-clima/fcd`), el histórico diario del GSC y los días completos que va juntando el recolector. Calcula el rango mensual habitual, un compuesto de años El Niño, la probabilidad semanal y periodos de retorno con Gumbel.
@@ -132,6 +134,7 @@ clima/
 │   ├── 05_mareas.py            constantes armónicas y predicción de mareas
 │   ├── 06_pronostico_archivo.py   archivo de pronósticos pasados (Open-Meteo) en estaciones y zonas
 │   └── 07_pronostico_evaluacion.py  evaluación (fase 0) y calibración del pronóstico
+├── satelite/                   GOES-19 ABI + GLM: colector en tiempo real y evaluación S0 (ver su LEEME)
 ├── pronostico/                 LEEME del pronóstico y fase0/ (informe, tablas, figuras)
 ├── datos/ierse-wsn/
 │   ├── crudos/AAAA-MM/AAAA-MM-DD.csv.gz   tal cual los da el servidor (formato largo)

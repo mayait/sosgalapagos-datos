@@ -71,6 +71,28 @@ SENALES = [
 ]
 
 
+# Reglas combinadas (O lógico): (anillo, campo, umbral). «v0» es la que usa hoy satelite/vigilancia.py.
+COMBOS = {
+    "v0": [("25km", "rayos_30min", 1), ("25km", "frio221_pct", 10), ("zona", "rrqpe_max", 10)],
+    "frio_25km_o_rrqpe10": [("25km", "frio221_pct", 10), ("25km", "rrqpe_max", 10)],
+    "rrqpe10_25km": [("25km", "rrqpe_max", 10)],
+    "frio_zona": [("zona", "frio221_pct", 10)],
+    "frio_y_rrqpe_25km": "y",  # topes < 221 K (≥ 10 %) Y RRQPE ≥ 10 mm/h, ambos a 25 km
+}
+
+
+def combo(sats: dict, zid: str, nombre: str) -> pd.Series:
+    if COMBOS[nombre] == "y":
+        a = activa(sats[f"{zid}|25km"], "frio221_pct", 10)
+        b = activa(sats[f"{zid}|25km"], "rrqpe_max", 10)
+        return a & b.reindex(a.index, fill_value=False)
+    s = None
+    for an, campo, u in COMBOS[nombre]:
+        x = activa(sats[f"{zid}|{an}"], campo, u)
+        s = x if s is None else (s | x.reindex(s.index, fill_value=False))
+    return s
+
+
 # --------------------------------------------------------------------------- datos
 
 def cargar_obs(ruta: str | None) -> pd.DataFrame:
@@ -478,6 +500,37 @@ def main():
                     det.append(ad)
                 fila["eventos_adelanto_min"] = det
                 tabla.setdefault(f"{zid}|{an}", {})[sid] = fila
+    # ---- reglas combinadas: adelanto en los eventos (cadencia completa) y días con disparo (muestra)
+    comb = {}
+    for zid in ZONAS_SC:
+        for nombre in COMBOS:
+            fila = {"eventos": {}, "muestra": {}}
+            s_full = combo(sats, zid, nombre)
+            s_sub = combo(sats_sub, zid, nombre)
+            for ev in EVENTOS:
+                z = res["eventos"][ev]["zonas"].get(zid)
+                if not z:
+                    continue
+                r = {}
+                for ref in ("t_medio", "t_alto", "t_pico_R1h"):
+                    if z[ref]:
+                        tr = pd.Timestamp(z[ref].replace("Z", ""), tz="UTC")
+                        r[ref] = {"completa": adelanto(s_full, tr)[0], "muestra": adelanto(s_sub, tr)[0]}
+                fila["eventos"][ev] = r
+            for clase, dias in MUESTRA.items():
+                n, k = 0, 0
+                for dia in dias:
+                    a0 = pd.Timestamp(dia, tz="UTC")
+                    sd = s_sub[(s_sub.index >= a0) & (s_sub.index < a0 + pd.Timedelta(days=1))]
+                    if len(sd) < 0.8 * 24 * 60 / SUB_ABI_MIN:
+                        continue
+                    n += 1
+                    k += bool(sd.any())
+                fila["muestra"][clase] = [k, n]
+            comb.setdefault(zid, {})[nombre] = fila
+    res["reglas_combinadas"] = {"definicion": {k: v if v != "y" else "frio221_pct ≥ 10 Y rrqpe_max ≥ 10 (25 km)"
+                                               for k, v in COMBOS.items()}, "resultados": comb}
+
     res["muestra"] = {"dias": MUESTRA, "cadencia": "ABI cada 30 min; GLM un archivo de 20 s cada 2 min (conteos ×6)",
                       "tabla": tabla}
 

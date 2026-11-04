@@ -240,9 +240,10 @@ def procesar_glm(con, zs, ahora, horas_atras, log) -> None:
         lo = np.concatenate(lon) if lon else np.array([])
         te = np.concatenate(tt) if tt else np.array([])
         filas = [("galapagos", "glm_archivos", iso(b), n_ok)]
-        for zid, z in zs.items():
-            filas += [(zid, "rayos_n", iso(b), int(dentro(la, lo, z["bbox"]).sum())),
-                      (zid, "rayos_n_25km", iso(b), int(dentro(la, lo, ampliar(z["bbox"], ANILLO_KM)).sum()))]
+        for zid, z in zs.items():  # sin archivos leídos: nulo (no es «0 rayos»)
+            filas += [(zid, "rayos_n", iso(b), int(dentro(la, lo, z["bbox"]).sum()) if n_ok else None),
+                      (zid, "rayos_n_25km", iso(b),
+                       int(dentro(la, lo, ampliar(z["bbox"], ANILLO_KM)).sum()) if n_ok else None)]
         guardar(con, filas)
         puntos[iso(b)] = [[round(float(a), 3), round(float(o), 3), int(x)] for a, o, x in zip(la, lo, te)]
         log(f"GLM {iso(b)} · {n_ok}/30 archivos · {la.size} destellos en la región · {bajado / 1e6:.1f} MB")
