@@ -29,6 +29,7 @@ import datetime as dt
 import gzip
 import json
 import os
+import re
 import sqlite3
 import sys
 import time
@@ -501,20 +502,60 @@ def emitir(con, fuente, horas):
         out.write(json.dumps(["O", *r], ensure_ascii=False) + "\n")
 
 
+# El puente (llave restringida desde la Mac) solo trae IERSE. Todo lo demás se
+# rechaza: si la llave se filtra, no se puede falsear la lluvia de otras fuentes
+# ni meter HTML en los nombres que publica estado.json.
+PUENTE = {"ierse"}
+_ID = re.compile(r"^[A-Za-z0-9_.-]{1,40}$")
+_TS = re.compile(r"^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$")
+
+
+def _texto(x, n=120):
+    return x is None or (isinstance(x, str) and len(x) <= n and not any(c in x for c in "<>`"))
+
+
+def _num(x):
+    return x is None or (isinstance(x, (int, float)) and not isinstance(x, bool))
+
+
+def _fila_valida(t, r):
+    if t == "E" and len(r) == 10:
+        return (r[0] in PUENTE and isinstance(r[1], str) and _ID.match(r[1]) and _texto(r[2]) and _texto(r[3])
+                and all(_num(v) for v in r[4:7]) and _texto(r[7]) and r[8] is None
+                and (r[9] is None or (isinstance(r[9], str) and len(r[9]) <= 2000)))
+    if t == "C" and len(r) == 6:
+        return (isinstance(r[0], str) and _TS.match(r[0]) and r[1] in PUENTE and _num(r[2]) and _num(r[3])
+                and _num(r[4]) and (r[5] is None or (isinstance(r[5], str) and len(r[5]) <= 500)))
+    if t == "O" and len(r) == 5:
+        return (r[0] in PUENTE and isinstance(r[1], str) and _ID.match(r[1]) and isinstance(r[2], str) and _ID.match(r[2])
+                and isinstance(r[3], str) and _TS.match(r[3]) and _num(r[4]))
+    return False
+
+
 def recibir(con):
-    n = 0
-    for linea in sys.stdin:
-        t, *r = json.loads(linea)
-        if t == "E" and len(r) == 10:
+    n = rechazadas = 0
+    for i, linea in enumerate(sys.stdin):
+        if i >= 200_000:
+            rechazadas += 1
+            break
+        try:
+            t, *r = json.loads(linea)
+        except (ValueError, TypeError):
+            rechazadas += 1
+            continue
+        if not _fila_valida(t, r):
+            rechazadas += 1
+            continue
+        if t == "E":
             con.execute("INSERT OR REPLACE INTO estaciones VALUES (?,?,?,?,?,?,?,?,?,?)", r)
-        elif t == "C" and len(r) == 6:
+        elif t == "C":
             if not con.execute("SELECT 1 FROM corridas WHERE ts=? AND fuente=?", r[:2]).fetchone():
                 con.execute("INSERT INTO corridas VALUES (?,?,?,?,?,?)", r)
-        elif t == "O" and len(r) == 5:
+        else:
             con.execute("INSERT OR REPLACE INTO obs VALUES (?,?,?,?,?)", r)
             n += 1
     con.commit()
-    print(f"recibidos {n} registros")
+    print(f"recibidos {n} registros" + (f", {rechazadas} filas rechazadas" if rechazadas else ""))
 
 
 def main():

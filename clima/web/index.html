@@ -486,7 +486,7 @@ dialog#lb::backdrop{background:rgba(20,18,15,.72)}
 // ═════════════ base ═════════════
 const TZ = "Pacific/Galapagos", HORA = 36e5, DIA = 864e5, LOCAL = 6 * HORA; // Galápagos = UTC−6
 const $ = id => document.getElementById(id);
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const num = (x, d = 1) => x == null || !isFinite(x) ? "—" : (+x).toLocaleString("es-EC", {minimumFractionDigits: d, maximumFractionDigits: d});
 const mmTxt = (v, minimo = false) => v == null ? "—" : `${minimo ? "al menos " : ""}${v < 10 ? num(v, 1) : num(v, 0)} mm`;
 const sgn = v => (v > 0 ? "+" : v < 0 ? "−" : "") + num(Math.abs(v), 0);
@@ -1087,7 +1087,7 @@ function espia() {
 const enIsla = e => S.isla === "Todas" || e.isla === S.isla || (S.isla === "Santa Cruz" && e.isla === "Baltra");
 function islaSeg() {
   const islas = ["Todas", ...new Set(E.estaciones.filter(e => e.isla !== "Baltra" && conLluvia(e)).map(e => e.isla))];
-  $("isla").innerHTML = islas.map(i => `<button class="${i === S.isla ? "on" : ""}">${i}</button>`).join("");
+  $("isla").innerHTML = islas.map(i => `<button class="${i === S.isla ? "on" : ""}">${esc(i)}</button>`).join("");
   $("isla").querySelectorAll("button").forEach(b => b.onclick = () => { S.isla = b.textContent; S.ocultas.clear(); pintar(); });
 }
 
@@ -1188,7 +1188,7 @@ function explorador() {
   $("desde").value = S.desde || new Date(a - LOCAL).toISOString().slice(0, 10);
   $("hasta").value = S.hasta || new Date(b - LOCAL - 1).toISOString().slice(0, 10);
   const todas = exEstaciones();
-  $("exEst").innerHTML = todas.map(e => `<button class="chip${S.ocultas.has(clave(e)) ? " off" : ""}" data-k="${clave(e)}" aria-pressed="${!S.ocultas.has(clave(e))}">${esc(e.nombre)}</button>`).join("");
+  $("exEst").innerHTML = todas.map(e => `<button class="chip${S.ocultas.has(clave(e)) ? " off" : ""}" data-k="${esc(clave(e))}" aria-pressed="${!S.ocultas.has(clave(e))}">${esc(e.nombre)}</button>`).join("");
   $("exEst").querySelectorAll("[data-k]").forEach(c => c.onclick = () => { S.ocultas.has(c.dataset.k) ? S.ocultas.delete(c.dataset.k) : S.ocultas.add(c.dataset.k); explorador(); dibujar($("explorador")); escribirURL(); });
   const off = desplazamiento(a, b);
   $("leyenda").innerHTML = (S.vex === "int" ? `<span><i style="background:var(--rain)"></i>mm por ${etiquetaG()}</span><span><i style="background:var(--rain);opacity:.45;border:1.5px dashed var(--rain)"></i>${etiquetaG()} con datos incompletos (mínimo)</span>` : `<span><i class="ln" style="border-color:var(--rain)"></i>lluvia acumulada en el período</span>`) +
