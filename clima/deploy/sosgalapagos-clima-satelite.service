@@ -1,0 +1,25 @@
+[Unit]
+Description=SOS Galápagos · colector satelital GOES-19 ABI + GLM (una corrida)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=clima
+Group=clima
+Environment=CLIMA_DB=/var/lib/sosgalapagos-clima/clima.db
+Environment=CLIMA_SALIDA=/srv/sosgalapagos-clima/datos
+Environment=CLIMA_SATELITE_DIR=/var/lib/sosgalapagos-clima/satelite
+# Raíz del bucket de GOES-19 (CLIMA_GOES_S3) y demás endpoints: no versionados, los copia deploy/publicar.sh
+EnvironmentFile=-/etc/sosgalapagos-clima/fuentes.env
+WorkingDirectory=/opt/sosgalapagos-clima/satelite
+# venv propio con numpy y h5py: el recolector principal sigue solo con la biblioteca estándar
+ExecStart=/opt/sosgalapagos-clima/.venv-satelite/bin/python -I /opt/sosgalapagos-clima/satelite/colector.py
+TimeoutStartSec=240
+Nice=10
+MemoryMax=768M
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+ReadWritePaths=/var/lib/sosgalapagos-clima /srv/sosgalapagos-clima
