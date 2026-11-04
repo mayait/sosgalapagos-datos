@@ -100,7 +100,7 @@ def recurrencia(isla):
         if p.get('evento') in ('Inundación', 'Aluvión (Flujos)', 'Deslizamiento', 'Socavamiento', 'Tormenta Eléctrica', 'Lluvias Intensas'):
             rows.append(dict(isla=isla, anio=p['año'], mes=p['mes'], evento=p['evento'], parroquia=p.get('parroquias'), sector=(p.get('sector') or '').strip(),
                              viviendas_afectadas=p.get('viviendas_afectadas'), familias_afectadas=p.get('familias_afectadas'),
-                             fallecidas=p.get('fallecidas'), lon=round(g.x, 5), lat=round(g.y, 5), descripcion=(p.get('descripcion') or '')[:300].replace('\n', ' ')))
+                             fallecidas=p.get('fallecidas'), lon=round(g.x, 5), lat=round(g.y, 5)))
     return pd.DataFrame(rows).sort_values(['anio', 'mes'])
 
 
