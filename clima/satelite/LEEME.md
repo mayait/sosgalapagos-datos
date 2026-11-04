@@ -23,7 +23,7 @@ Evaluación con los eventos de octubre de 2026 y una muestra de días: [`evaluac
 | GLM | ~320 KB cada 20 s | colector: completo (~10 MB cada 10 min, en hilos); S0: ~55 KB por rangos | 20 s |
 
 - **Latencia medida** (nov-2026): cada barrido ABI llega al bucket **~10 min después de empezar** (el disco completo tarda ~10 min). Con el timer cada 5 min, el dato tiene 10–15 min de antigüedad en el panel. El GLM llega en menos de 1 min.
-- **Cortes de la NOAA:** la producción de RRQPE se detuvo el 2-nov-2026 a las 16:50 UTC (también en GOES-18) y seguía detenida el 4-nov. El colector sigue con la banda 13 y el GLM, y el panel avisa que la lluvia estimada no se está produciendo.
+- **Riesgo operativo: cortes de la NOAA.** La producción de RRQPE se detuvo el 2-nov-2026 a las 16:50 UTC (también en GOES-18) y seguía detenida el 4-nov. El colector sigue con la banda 13 y el GLM, y el panel avisa que la lluvia estimada no se está produciendo.
 - **Hora:** UTC en todos los archivos. El panel muestra la hora de Galápagos (UTC−6).
 - **Paralaje:** un tope de 15 km se ve unos 4–5 km al oeste de su posición real desde 75° O. Por eso las señales se miran también en la zona ampliada 25 km.
 - Licencia: datos de la NOAA, dominio público. Citar «NOAA GOES-19, archivo abierto en AWS».
