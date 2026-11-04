@@ -10,7 +10,13 @@ Otra fuente de vigilancia del dashboard de clima. Ningún modelo de pronóstico 
 
 Evaluación con los eventos de octubre de 2026 y una muestra de días: [`evaluacion-s0.md`](evaluacion-s0.md) (cifras en `resumen.json`).
 
-**Lo que dice la evaluación (S0):** el satélite solo ve la lluvia **convectiva** (topes de nube muy fríos). El 30-oct avisó 1,5–3 h antes de que la regla de lluvia medida llegara a «medio», y casi no da falsas alarmas. Pero **no vio** las lluvias orográficas «cálidas» del 3 y el 23-oct ni las de otros 5 días de lluvia fuerte. Por eso la señal es solo de **vigilancia**: nunca baja el nivel de inundación y no lo sube.
+**Lo que dice la evaluación (S0, versión 2):** el satélite solo ve la lluvia **convectiva** (topes de nube muy fríos).
+- **Un solo evento con adelanto útil:** el 30-oct, ~3,5 h antes del «medio», con persistencia y descontando la latencia, y con reglas ajustadas a ese evento.
+- **No vio** las lluvias orográficas «cálidas» del 3 y el 23-oct.
+- **En octubre** hubo 5 episodios de vigilancia sin lluvia intensa por zona, y la zona estuvo en vigilancia el ~4 % del mes.
+- **En abril** (temporada convectiva) estaría en vigilancia el 15–18 % del tiempo, sin estaciones en la parte alta para comprobarlo.
+
+Por eso la señal es solo de **vigilancia**: nunca baja el nivel de inundación y no lo sube.
 
 **Regla de vigilancia v1** (`vigilancia.py`): basta con una de estas dos condiciones, y la vigilancia se mantiene 3 h después del último disparo.
 - RRQPE máxima ≥ 10 mm/h a menos de 25 km.
@@ -40,7 +46,7 @@ Estados por zona:
 - **Latencia medida** (nov-2026): cada barrido ABI llega al bucket **~10 min después de empezar** (el disco completo tarda ~10 min). Con el timer cada 5 min, el dato tiene 10–15 min de antigüedad en el panel. El GLM llega en menos de 1 min.
 - **Riesgo operativo: cortes de la NOAA.** La producción de RRQPE se detuvo el 2-nov-2026 a las 16:50 UTC (también en GOES-18) y seguía detenida el 4-nov. El colector sigue con la banda 13 y el GLM, y el panel avisa que la lluvia estimada no se está produciendo.
 - **Hora:** UTC en todos los archivos. El panel muestra la hora de Galápagos (UTC−6).
-- **Paralaje (corregido):** desde 75,2° O, un tope de 14 km sobre Galápagos (ángulo cenital ~18°) se ve ~4,5 km al oeste de su sitio. `goes.corregir_paralaje()` lleva cada píxel a su posición real. La altura del tope sale de su Tb: (300 K − Tb) / 6,5 K/km, entre 0 y 16 km. El RRQPE usa la altura de la banda 13 del mismo barrido. En La Cascada (~15 píxeles) cambia el resultado: sin corregir, el primer tope frío del 30-oct se veía 3,5 h más tarde.
+- **Paralaje (corregido):** desde 75,2° O, un tope de 14 km sobre Galápagos (ángulo cenital ~18°) se ve ~4,5 km al oeste de su sitio. `goes.corregir_paralaje()` lleva cada píxel a su posición real. La altura del tope sale de su Tb: (300 K − Tb) / 6,5 K/km, entre 0 y 16 km. El RRQPE usa la altura de la banda 13 del mismo barrido. En La Cascada (~15 píxeles) cambia el resultado: sin corregir, el 30-oct no se veía ningún tope frío sobre la zona antes del «medio»; corregido, desde las 12:00 (hora de Galápagos), 190 min antes.
 - **Calidad:** banda 13 con DQF 0 o 1; RRQPE sin los bits de dato inválido; GLM solo con `flash_quality_flag = 0`.
 - **Red:** cada petición tiene un timeout de 15 s y 3 intentos. Una corrida tiene un plazo de 170 s (el servicio, 240 s). Lo que no cabe queda para la siguiente, y los fallos de lectura cuentan como error en `corrida.errores`.
 - Licencia: datos de la NOAA, dominio público. Citar «NOAA GOES-19, archivo abierto en AWS».
