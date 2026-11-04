@@ -28,7 +28,7 @@ UA = "sosgalapagos-clima-satelite/0.1"
 
 # Producto -> prefijo en el bucket. CMIP de la banda 13 (10,3 µm, «ventana limpia»).
 PRODUCTOS = {
-    "c13": ("ABI-L2-CMIPF", "M6C13_"),
+    "c13": ("ABI-L2-CMIPF", r"-M\dC13_"),  # cualquier modo de barrido (M3, M4, M6)
     "rrqpe": ("ABI-L2-RRQPEF", ""),
     "glm": ("GLM-L2-LCFA", ""),
 }
@@ -60,7 +60,10 @@ def inicio_de(nombre: str) -> datetime:
 _CONEXIONES: dict[str, http.client.HTTPSConnection] = {}
 
 
-def _http(url: str, rango: tuple[int, int] | None = None, intentos: int = 4) -> bytes:
+TIMEOUT_S = 15
+
+
+def _http(url: str, rango: tuple[int, int] | None = None, intentos: int = 3) -> bytes:
     """GET con conexión persistente por host (una por proceso; no compartir entre hilos)."""
     u = urllib.parse.urlsplit(url)
     ruta = u.path + (f"?{u.query}" if u.query else "")
@@ -70,7 +73,7 @@ def _http(url: str, rango: tuple[int, int] | None = None, intentos: int = 4) -> 
     for i in range(intentos):
         con = _CONEXIONES.get(u.netloc)
         if con is None:
-            con = _CONEXIONES[u.netloc] = http.client.HTTPSConnection(u.netloc, timeout=60)
+            con = _CONEXIONES[u.netloc] = http.client.HTTPSConnection(u.netloc, timeout=TIMEOUT_S)
         try:
             con.request("GET", ruta, headers=cab)
             r = con.getresponse()
@@ -87,7 +90,7 @@ def _http(url: str, rango: tuple[int, int] | None = None, intentos: int = 4) -> 
             _CONEXIONES.pop(u.netloc, None)
             if i == intentos - 1:
                 raise ConnectionError(f"{u.path}: {e}") from e
-            time.sleep(1.5 * (i + 1))
+            time.sleep(1.0 * (i + 1))
     raise RuntimeError("inalcanzable")
 
 
@@ -108,7 +111,7 @@ def listar(producto: str, hora: datetime) -> list[tuple[str, int]]:
         xml = ET.fromstring(_http(f"{raiz}/?{urllib.parse.urlencode(q)}"))
         for c in xml.findall(f"{ns}Contents"):
             clave = c.find(f"{ns}Key").text
-            if filtro and filtro not in clave:
+            if filtro and not re.search(filtro, clave):
                 continue
             salida.append((clave, int(c.find(f"{ns}Size").text)))
             lm = c.find(f"{ns}LastModified")
@@ -290,17 +293,65 @@ def leer_abi(producto: str, clave: str, tamano: int, bbox: list[float]) -> dict:
         datos, lat, lon = recorte(f, var, v)
         dqf = None
         if "DQF" in f:
-            dqf = f["DQF"][v["r0"]:v["r1"], v["c0"]:v["c1"]]
+            dqf = f["DQF"][v["r0"]:v["r1"], v["c0"]:v["c1"]].astype("int16")
+            datos = np.where(dqf_valido(producto, dqf), datos, np.nan).astype("float32")
+        lon_sat = math.degrees(v["pr"]["lon0"])
     finally:
         f.close()
-    return {"datos": datos, "lat": lat, "lon": lon, "dqf": dqf,
+    return {"datos": datos, "lat": lat, "lon": lon, "dqf": dqf, "lon_sat": lon_sat,
             "inicio": inicio_de(clave), "bytes": fo.bajado, "peticiones": fo.peticiones}
+
+
+def dqf_valido(producto: str, dqf: np.ndarray) -> np.ndarray:
+    """Banda 13: 0 bueno, 1 utilizable con reservas; 2–4 y relleno, no.
+    RRQPE (máscara de bits): 0 bueno y 2 (degradado por ángulo o latitud) valen; 1 y 4–64 son inválidos."""
+    dqf = dqf.astype("int16")
+    if producto == "c13":
+        return (dqf == 0) | (dqf == 1)
+    return (dqf != 255) & ((dqf & (1 | 4 | 8 | 16 | 32 | 64)) == 0)
+
+
+# ---------------------------------------------------------------- paralaje
+
+LON_SAT_GOES19 = -75.2
+R_TIERRA_KM = 6371.0
+H_SAT_KM = 35786.0
+
+
+def altura_tope_km(tb: np.ndarray) -> np.ndarray:
+    """Altura aproximada del tope a partir de su Tb: (300 K − Tb) / 6,5 K/km, entre 0 y 16 km.
+    Es una aproximación (221 K ≈ 12 km; 200 K ≈ 15 km), suficiente para corregir el paralaje."""
+    return np.clip((300.0 - np.asarray(tb, dtype="float64")) / 6.5, 0.0, 16.0)
+
+
+def corregir_paralaje(lat, lon, h_km, lon_sat: float = LON_SAT_GOES19):
+    """Posición real (bajo la nube) de un píxel visto en (lat, lon) con un tope a h_km de altura.
+
+    Desde un satélite geoestacionario, un tope alto se ve desplazado en sentido contrario al punto
+    subsatelital. En Galápagos (ángulo cenital ~18°), un tope de 14 km se ve ~4,5 km al oeste de su sitio.
+    Tierra esférica: el error es despreciable para este desplazamiento.
+    """
+    la, lo = np.radians(lat), np.radians(lon)
+    h = np.nan_to_num(np.asarray(h_km, dtype="float64"), nan=0.0)
+    R = R_TIERRA_KM
+    P = np.stack([R * np.cos(la) * np.cos(lo), R * np.cos(la) * np.sin(lo), R * np.sin(la)])
+    ls = math.radians(lon_sat)
+    S = np.array([(R + H_SAT_KM) * math.cos(ls), (R + H_SAT_KM) * math.sin(ls), 0.0]).reshape(3, *([1] * la.ndim))
+    n = P / R
+    u = S - P
+    u = u / np.linalg.norm(u, axis=0)
+    t = h / np.sum(u * n, axis=0)          # distancia por la línea de visión hasta la altura h
+    C = P + t * u                           # tope de la nube (en 3D)
+    G = C / np.linalg.norm(C, axis=0) * R   # punto de la superficie bajo el tope
+    lat2 = np.degrees(np.arcsin(G[2] / R))
+    lon2 = np.degrees(np.arctan2(G[1], G[0]))
+    return lat2, lon2
 
 
 def bajar(clave: str) -> bytes:
     """Archivo completo en memoria (para los GLM, de ~300 KB). Seguro en hilos: conexión nueva."""
     with urllib.request.urlopen(urllib.request.Request(f"{raiz_bucket()}/{clave}",
-                                                       headers={"User-Agent": UA}), timeout=60) as r:
+                                                       headers={"User-Agent": UA}), timeout=TIMEOUT_S) as r:
         return r.read()
 
 
@@ -323,10 +374,13 @@ def leer_glm(clave: str, tamano: int, bbox: list[float] | None = None, datos: by
         dt = _fisico(t, t[:])
         e = f["flash_energy"]
         ene = _fisico(e, e[:])
+        q = f["flash_quality_flag"][:] if "flash_quality_flag" in f else np.zeros(lat.shape, "int16")
         t0 = f["product_time"][()]
         base = datetime(2000, 1, 1, 12, tzinfo=timezone.utc) + timedelta(seconds=float(t0))
     finally:
         f.close()
+    buenos = q == 0  # solo destellos de calidad buena (flash_quality_flag = 0)
+    lat, lon, dt, ene = lat[buenos], lon[buenos], dt[buenos], ene[buenos]
     if bbox is not None and lat.size:
         m = (lon >= bbox[0]) & (lon <= bbox[2]) & (lat >= bbox[1]) & (lat <= bbox[3])
         lat, lon, dt, ene = lat[m], lon[m], dt[m], ene[m]

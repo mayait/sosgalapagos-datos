@@ -26,8 +26,15 @@ AQUI = Path(__file__).resolve().parent
 CLIMA = AQUI.parent
 sys.path.insert(0, str(CLIMA / "recolector"))
 sys.path.insert(0, str(AQUI))
+import goes  # noqa: E402
 import inundacion  # noqa: E402
-from s0_extraer import EVENTOS  # noqa: E402
+from s0_extraer import EVENTOS as EVENTOS_EXTRAIDOS  # noqa: E402
+
+# Eventos evaluados: los tres de referencia y el 1–2-nov (banda 13 y RRQPE cada 10 min; sin GLM;
+# RRQPE solo hasta el 2-nov a las 16:50 UTC, cuando la NOAA dejó de producirlo).
+EVENTOS = dict(EVENTOS_EXTRAIDOS)
+EVENTOS["2026-11-01"] = ("2026-11-01T00:00", "2026-11-03T00:00")
+PARALAJE = True  # --sin-paralaje para reproducir la primera versión
 
 UTC = dt.timezone.utc
 CACHE = AQUI / "cache"
@@ -76,7 +83,7 @@ SENALES = [
 COMBOS = {
     "v0": [("25km", "rayos_30min", 1), ("25km", "frio221_pct", 10), ("zona", "rrqpe_max", 10)],
     # v1: la propuesta tras S0 (satelite/vigilancia.py)
-    "v1": [("25km", "rrqpe_max", 10), ("zona", "frio221_pct", 10), ("25km", "rayos_30min", 1)],
+    "v1": [("25km", "rrqpe_max", 10), ("zona", "frio221_pct", 10)],  # sin rayos: nunca adelantaron nada
     "frio_25km_o_rrqpe10": [("25km", "frio221_pct", 10), ("25km", "rrqpe_max", 10)],
     "rrqpe10_25km": [("25km", "rrqpe_max", 10)],
     "frio_zona": [("zona", "frio221_pct", 10)],
@@ -181,24 +188,42 @@ def series_satelite(c13, rr, glm, cob, zonas, submuestra=False, paso=None) -> di
         g = g[((g["t"] % (20 * SUB_GLM)) // 20) == 0]
         cob = {k: min(v, 1 / SUB_GLM) for k, v in cob.items()}
     tiempos = sorted(set(i13) | set(irr))
+    todos13 = {t: i for i, t in enumerate(t13)}
+    coords = {}
+
+    def coords_de(t, producto):
+        """lat/lon de cada píxel con el paralaje corregido (altura del tope desde la Tb de la banda 13)."""
+        k = (t, producto)
+        if k not in coords:
+            if not PARALAJE:
+                coords[k] = (la, lo)
+            elif t in todos13:
+                coords[k] = goes.corregir_paralaje(la, lo, goes.altura_tope_km(a13[todos13[t]]))
+            else:  # RRQPE sin banda 13 a la misma hora: 12 km donde hay lluvia
+                coords[k] = goes.corregir_paralaje(la, lo, np.where(arr[irr[t]] > 0, 12.0, 0.0))
+            if producto == "rrqpe" and t in todos13:
+                coords[k] = coords_de(t, "c13")
+        return coords[k]
+
     salida = {}
     for zid in zonas:
         bb0 = zonas[zid]["bbox"]
         for anillo, km in ANILLOS_KM.items():
             bb = ampliar(bb0, km)
-            m = dentro(la, lo, bb)
             gz = g[dentro(g["lat"].values, g["lon"].values, bb)]
             cuenta = gz.set_index("ts").resample("10min").size() if len(gz) else pd.Series(dtype=float)
             filas = []
             for t in tiempos:
                 fila = {"ts": t}
                 if t in i13:
+                    m = dentro(*coords_de(t, "c13"), bb)
                     v = a13[i13[t]][m]
                     v = v[np.isfinite(v)]
                     if v.size:
                         fila.update(tb_min_k=float(v.min()), frio235_pct=100 * float((v < 235).mean()),
                                     frio221_pct=100 * float((v < 221).mean()))
                 if t in irr:
+                    m = dentro(*coords_de(t, "rrqpe"), bb)
                     v = arr[irr[t]][m]
                     v = v[np.isfinite(v)]
                     if v.size:
@@ -364,10 +389,12 @@ def figura_mapa(c13, rr, glm, t, zonas, ruta, titulo):
     trr, arr, _, _ = rr
     fig, ax = plt.subplots(1, 2, figsize=(11, 4.8))
     k = min(range(len(t13)), key=lambda i: abs(t13[i] - t))
-    im = ax[0].pcolormesh(lo, la, a13[k], cmap="turbo_r", vmin=190, vmax=300, shading="auto")
-    fig.colorbar(im, ax=ax[0], label="Tb banda 13 (K)")
+    lac, loc = goes.corregir_paralaje(la, lo, goes.altura_tope_km(a13[k])) if PARALAJE else (la, lo)
+    im = ax[0].scatter(loc.ravel(), lac.ravel(), c=a13[k].ravel(), cmap="turbo_r", vmin=190, vmax=300, s=9, marker="s", lw=0)
+    fig.colorbar(im, ax=ax[0], label="Tb banda 13 (K), paralaje corregido" if PARALAJE else "Tb banda 13 (K)")
     k2 = min(range(len(trr)), key=lambda i: abs(trr[i] - t))
-    im2 = ax[1].pcolormesh(lo, la, np.where(arr[k2] > 0.2, arr[k2], np.nan), cmap="viridis", vmin=0, vmax=40, shading="auto")
+    r2 = np.where(arr[k2] > 0.2, arr[k2], np.nan)
+    im2 = ax[1].scatter(loc.ravel(), lac.ravel(), c=r2.ravel(), cmap="viridis", vmin=0, vmax=40, s=9, marker="s", lw=0)
     fig.colorbar(im2, ax=ax[1], label="RRQPE (mm/h)")
     g = glm[(glm.ts >= pd.Timestamp(t) - pd.Timedelta(minutes=30)) & (glm.ts < pd.Timestamp(t) + pd.Timedelta(minutes=10))]
     for a in ax:
@@ -443,13 +470,156 @@ def contingencia_octubre(con, regla, c13, rr, glm, cob, zonas) -> dict:
     return out
 
 
+
+# --------------------------------------------------------------------------- vigilancia continua (v1 + persistencia)
+
+PERSISTENCIA_H = 3
+LATENCIA_MIN = 20  # 10 min hasta el bucket + hasta 5 del timer + hasta 5 de la exportación (15–25 min)
+PERIODOS = {"ene-abr": ("2026-01-01T00:00", "2026-05-01T00:00"), "oct-nov": ("2026-10-01T06:00", "2026-11-03T00:00")}
+HUECO_EPISODIO_H = 6  # dos ratos de lluvia intensa separados por menos de 6 h son el mismo episodio
+
+
+def estado_vigilancia(disparo: pd.Series, ini, fin) -> pd.Series:
+    """Rejilla de 10 min: True si hubo un disparo de la v1 en las PERSISTENCIA_H horas previas."""
+    rej = pd.date_range(ini, fin, freq="10min", inclusive="left")
+    t = disparo[disparo].index
+    t = t[(t >= ini - pd.Timedelta(hours=PERSISTENCIA_H)) & (t < fin)]
+    if not len(t):
+        return pd.Series(False, index=rej)
+    pos = np.searchsorted(t.values, rej.values, side="right") - 1
+    ultimo = np.where(pos >= 0, t.values[np.clip(pos, 0, None)], np.datetime64("NaT", "ns"))
+    edad = (rej.values - ultimo).astype("timedelta64[m]").astype("float64")
+    return pd.Series((pos >= 0) & (edad >= 0) & (edad <= PERSISTENCIA_H * 60), index=rej)
+
+
+def episodios(b: pd.Series, hueco=pd.Timedelta(0)) -> list[tuple[pd.Timestamp, pd.Timestamp]]:
+    """Tramos contiguos donde b es True (uniendo huecos ≤ hueco)."""
+    on = b[b].index
+    out = []
+    for t in on:
+        if out and t - out[-1][1] <= max(hueco, pd.Timedelta(minutes=10)):
+            out[-1][1] = t
+        else:
+            out.append([t, t])
+    return [(a, z + pd.Timedelta(minutes=10)) for a, z in out]
+
+
+def fcd_diaria() -> pd.Series:
+    """Lluvia diaria de la FCD en Puerto Ayora (día de la observación; privada, CC BY-NC-SA)."""
+    p = CLIMA / "datos/fcd/climate_puerto-ayora.csv"
+    if not p.exists():
+        return pd.Series(dtype=float)
+    d = pd.read_csv(p, usecols=["observation_date", "precipitation"])
+    return d.set_index(pd.to_datetime(d["observation_date"]).dt.date)["precipitation"]
+
+
+def vigilancia_continua(con, regla, sats, rr_tiempos) -> dict:
+    out = {"regla": "v1: RRQPE máx. ≥ 10 mm/h a 25 km O ≥ 10 % de la zona con Tb < 221 K; persistencia 3 h",
+           "metodo": "banda 13 cada hora en todo el periodo y, alrededor de cada hora con Tb < 235 K a menos "
+                     "de 50 km (±60 min), banda 13 y RRQPE cada 10 min (s0_cribado.py). Fuera de esas "
+                     "ventanas se supone que la v1 no se dispara.", "periodos": {}}
+    fcd = fcd_diaria()
+    rr_t = pd.DatetimeIndex(rr_tiempos)
+    for nombre, (i, f) in PERIODOS.items():
+        ini, fin = pd.Timestamp(i, tz="UTC"), pd.Timestamp(f, tz="UTC")
+        per = {}
+        for zid in ZONAS_SC:
+            disparo = combo(sats, zid, "v1")
+            d13 = sats[f"{zid}|zona"]
+            d13 = d13[(d13.index >= ini) & (d13.index < fin)]
+            con13 = d13["tb_min_k"].notna() if "tb_min_k" in d13 else pd.Series(dtype=bool)
+            pasos10 = int(con13.sum())
+            sin_rr = int(sum(1 for t in con13[con13].index if t not in rr_t))
+            v = estado_vigilancia(disparo, ini, fin)
+            meses = {}
+            for mes, g in v.groupby(v.index.strftime("%Y-%m")):
+                meses[mes] = {"horas_vigilancia": round(g.sum() / 6, 1), "horas_total": round(len(g) / 6, 1),
+                              "pct": round(100 * g.mean(), 2)}
+            eps = []
+            if nombre == "oct-nov":
+                niv = niveles(con, regla[zid], ini.to_pydatetime(), fin.to_pydatetime())
+            for a, z in episodios(v):
+                e = {"inicio": a.strftime("%Y-%m-%dT%H:%MZ"), "fin": z.strftime("%Y-%m-%dT%H:%MZ"),
+                     "horas": round((z - a).total_seconds() / 3600, 1)}
+                if nombre == "oct-nov":
+                    x = niv[(niv.index >= a) & (niv.index <= z + pd.Timedelta(hours=1))]
+                    e["R1h_max_medido"] = None if x["R1h"].isna().all() else float(x["R1h"].max())
+                    e["R3h_max_medido"] = None if x["R3h"].isna().all() else float(x["R3h"].max())
+                else:
+                    dias = sorted({(a - pd.Timedelta(hours=6)).date(), (z - pd.Timedelta(hours=6)).date()})
+                    e["fcd_puerto_ayora_mm"] = {str(dd): (None if dd not in fcd.index or pd.isna(fcd[dd]) else float(fcd[dd]))
+                                                for dd in dias}
+                eps.append(e)
+            per[zid] = {"pasos_banda13": pasos10, "pasos_sin_rrqpe": sin_rr, "meses": meses, "episodios": eps}
+        out["periodos"][nombre] = per
+    return out
+
+
+def contingencia_episodios(con, regla, sats) -> dict:
+    """Octubre–2-nov por episodios: lluvia intensa medida (R1h ≥ 15 o R3h ≥ 30, huecos < 6 h) frente a
+    los episodios de vigilancia v1 (persistencia 3 h)."""
+    ini, fin = pd.Timestamp(PERIODOS["oct-nov"][0], tz="UTC"), pd.Timestamp(PERIODOS["oct-nov"][1], tz="UTC")
+    out = {}
+    for zid in ZONAS_SC:
+        niv = niveles(con, regla[zid], ini.to_pydatetime(), fin.to_pydatetime())
+        intensa = ((niv["R1h"] >= 15) | (niv["R3h"] >= 30)).fillna(False)
+        lluvia = episodios(intensa, pd.Timedelta(hours=HUECO_EPISODIO_H))
+        v = estado_vigilancia(combo(sats, zid, "v1"), ini, fin)
+        vig = episodios(v)
+        filas_ll, usados = [], set()
+        for a, z in lluvia:
+            cruza = [k for k, (va, vz) in enumerate(vig) if va <= z and vz >= a - pd.Timedelta(hours=6)]
+            usados.update(cruza)
+            antes = [vig[k][0] for k in cruza if vig[k][0] <= a]
+            filas_ll.append({"inicio": a.strftime("%Y-%m-%dT%H:%MZ"), "fin": z.strftime("%Y-%m-%dT%H:%MZ"),
+                             "R1h_max": float(niv["R1h"][(niv.index >= a) & (niv.index <= z)].max()),
+                             "detectado": bool(cruza),
+                             "adelanto_min": (a - min(antes)).total_seconds() / 60 if antes else None,
+                             "vigilancia_inicio": vig[min(cruza)][0].strftime("%Y-%m-%dT%H:%MZ") if cruza else None})
+        falsas = []
+        for k, (va, vz) in enumerate(vig):
+            if k in usados:
+                continue
+            x = niv[(niv.index >= va) & (niv.index <= vz)]
+            falsas.append({"inicio": va.strftime("%Y-%m-%dT%H:%MZ"), "fin": vz.strftime("%Y-%m-%dT%H:%MZ"),
+                           "R1h_max_medido": None if x["R1h"].isna().all() else float(x["R1h"].max())})
+        det = sum(f["detectado"] for f in filas_ll)
+        out[zid] = {"episodios_lluvia": filas_ll, "episodios_vigilancia": len(vig), "falsas_alarmas": falsas,
+                    "resumen": {"episodios_lluvia_intensa": len(filas_ll), "detectados": det,
+                                "con_adelanto": sum(1 for f in filas_ll if f["adelanto_min"]),
+                                "episodios_vigilancia_sin_lluvia_intensa": len(falsas)}}
+    return out
+
+
+def estaciones_dudosas(obs: pd.DataFrame) -> list[dict]:
+    """Horas en que una estación de Santa Cruz marca 0 mientras otra mide ≥ 5 mm (pluviómetro obstruido)."""
+    claves = ["ierse/n_glps05", "ierse/n_glps09", "ierse/n_glps01", "inamhi/M0191"]
+    H = pd.DataFrame({c: lluvia_horaria(obs, c) for c in claves})
+    H = H[H.index >= "2026-09-01"]
+    out = []
+    for c in claves[:3]:
+        otras = H.drop(columns=[c]).max(axis=1)
+        m = (H[c] == 0) & (otras >= 5)
+        for d, g in m[m].groupby(m[m].index.date):
+            out.append({"estacion": c, "nombre": ESTACIONES[c][0], "dia": str(d), "horas": int(len(g)),
+                        "otra_max_mm": float(otras[g.index].max())})
+    ult = {}
+    for c in claves[:3]:
+        x = H[c][H[c] > 0]
+        ult[c] = x.index.max().strftime("%Y-%m-%dT%H:%MZ") if len(x) else None
+    return {"horas_cero_con_lluvia_cerca": out, "ultima_hora_con_lluvia": ult}
+
 # --------------------------------------------------------------------------- principal
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--obs", help="CSV fuente,estacion,ts,valor (lluvia_mm, UTC) exportado de clima.db")
     ap.add_argument("--sin-figuras", action="store_true")
+    ap.add_argument("--sin-paralaje", action="store_true", help="reproduce la primera versión (sin corregir)")
+    ap.add_argument("--salida", default=str(AQUI / "resumen.json"))
     a = ap.parse_args()
+    global PARALAJE
+    PARALAJE = not a.sin_paralaje
 
     obs = cargar_obs(a.obs)
     con = base_memoria(obs)
@@ -591,10 +761,19 @@ def main():
                 if not z:
                     continue
                 r = {}
+                i_ev, f_ev = (pd.Timestamp(x, tz="UTC") for x in EVENTOS[ev])
+                vig = estado_vigilancia(s_full, i_ev - pd.Timedelta(hours=12), f_ev)
                 for ref in ("t_medio", "t_alto", "t_pico_R1h"):
                     if z[ref]:
                         tr = pd.Timestamp(z[ref].replace("Z", ""), tz="UTC")
-                        r[ref] = {"completa": adelanto(s_full, tr)[0], "muestra": adelanto(s_sub, tr)[0]}
+                        # con persistencia de 3 h (la regla operativa): desde el inicio del episodio de
+                        # vigilancia activo en tr; «efectivo» resta la latencia (~20 min: 10 de llegada
+                        # al bucket, hasta 5 del timer y hasta 5 de la exportación en estado.json)
+                        ep = [a for a, b in episodios(vig) if a <= tr < b]
+                        con_p = (tr - ep[0]).total_seconds() / 60 if ep else None
+                        r[ref] = {"completa": adelanto(s_full, tr)[0], "muestra": adelanto(s_sub, tr)[0],
+                                  "persistencia_3h": con_p,
+                                  "efectivo_menos_latencia": None if con_p is None else max(con_p - LATENCIA_MIN, 0)}
                 fila["eventos"][ev] = r
             for clase, dias in MUESTRA.items():
                 n, k = 0, 0
@@ -616,8 +795,14 @@ def main():
     # ---- octubre completo: topes fríos (banda 13 cada hora) frente a la regla de lluvia medida, día a día
     res["octubre"] = contingencia_octubre(con, regla, c13, rr, glm, cob, zonas)
 
-    (AQUI / "resumen.json").write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str))
-    print("escrito satelite/resumen.json")
+    # ---- vigilancia v1 continua (con persistencia), episodios y estaciones dudosas
+    res["vigilancia_continua"] = vigilancia_continua(con, regla, sats, rr[0])
+    res["contingencia_episodios"] = contingencia_episodios(con, regla, sats)
+    res["estaciones_dudosas"] = estaciones_dudosas(obs)
+    res["paralaje"] = "corregido (altura del tope = (300 K − Tb) / 6,5 K/km, entre 0 y 16 km)" if PARALAJE else "sin corregir"
+
+    Path(a.salida).write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str))
+    print(f"escrito {a.salida}")
 
 
 if __name__ == "__main__":
