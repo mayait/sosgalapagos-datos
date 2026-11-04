@@ -166,11 +166,11 @@ def dentro(lat, lon, b):
 
 # --------------------------------------------------------------------------- señales
 
-def series_satelite(c13, rr, glm, cob, zonas, submuestra=False) -> dict[str, pd.DataFrame]:
+def series_satelite(c13, rr, glm, cob, zonas, submuestra=False, paso=None) -> dict[str, pd.DataFrame]:
     """Una tabla por zona y anillo, con paso de 10 min (20 min si submuestra)."""
     t13, a13, la, lo = c13
     trr, arr, _, _ = rr
-    paso = SUB_ABI_MIN if submuestra else 10
+    paso = paso or (SUB_ABI_MIN if submuestra else 10)
     i13 = {t: i for i, t in enumerate(t13) if t.minute % paso == 0}
     irr = {t: i for i, t in enumerate(trr) if t.minute % paso == 0}
     g = glm
@@ -382,6 +382,63 @@ def figura_mapa(c13, rr, glm, t, zonas, ruta, titulo):
     plt.close(fig)
 
 
+OCT_INI, OCT_FIN = "2026-10-01T06:00", "2026-11-03T06:00"  # días de Galápagos (00:00 local = 06:00 UTC)
+OCT_SENALES = {"frio221_10_25km": ("25km", "frio221_pct", 10), "frio221_10_zona": ("zona", "frio221_pct", 10),
+               "frio235_25_25km": ("25km", "frio235_pct", 25), "tbmin_210_zona": ("zona", "tb_frio_k", 210)}
+
+
+def contingencia_octubre(con, regla, c13, rr, glm, cob, zonas) -> dict:
+    """Por día de Galápagos: ¿hubo topes fríos? ¿hubo lluvia intensa medida (R1h ≥ 15 o R3h ≥ 30 mm)?
+
+    En la salida, «medio» quiere decir lluvia intensa según esas dos ventanas de la regla v0.2."""
+    ini = dt.datetime.fromisoformat(OCT_INI).replace(tzinfo=UTC)
+    fin = dt.datetime.fromisoformat(OCT_FIN).replace(tzinfo=UTC)
+    vacio = pd.DataFrame({"x": [np.nan]})
+    sats_h = series_satelite(c13, rr, glm.iloc[0:0] if len(glm) else glm, cob,
+                             {z: zonas[z] for z in ZONAS_SC}, paso=60)
+    out = {"periodo_utc": [OCT_INI, OCT_FIN], "cadencia": "banda 13 cada hora (imagen de las HH:00)",
+           "senales": {k: f"{c} ≥ {u} ({an})" if c != "tb_frio_k" else f"Tb mín. ≤ {u} K ({an})"
+                       for k, (an, c, u) in OCT_SENALES.items()}, "zonas": {}}
+    for zid in ZONAS_SC:
+        niv = niveles(con, regla[zid], ini, fin)
+        # «intensa»: lluvia corta e intensa (umbrales de «medio» en 1 h y 3 h, sin el arrastre de 24 h)
+        niv["medio"] = (niv["R1h"] >= 15) | (niv["R3h"] >= 30)
+        niv["dia"] = (niv.index - pd.Timedelta(hours=6)).date
+        dias = []
+        for d, g in niv.groupby("dia"):
+            fila = {"dia": str(d), "R1h_max": None if g["R1h"].isna().all() else float(g["R1h"].max()),
+                    "cobertura_10min": round(float(g["nivel"].notna().mean()), 2),
+                    "medio": bool(g["medio"].any()),
+                    "t_medio": g.index[g["medio"]][0].strftime("%Y-%m-%dT%H:%MZ") if g["medio"].any() else None}
+            a0 = pd.Timestamp(d).tz_localize("UTC") + pd.Timedelta(hours=6)
+            for k, (an, campo, u) in OCT_SENALES.items():
+                sd = sats_h[f"{zid}|{an}"]
+                sd = sd[(sd.index >= a0) & (sd.index < a0 + pd.Timedelta(days=1))]
+                fila[f"imagenes_{k}"] = int(len(sd))
+                act = activa(sd, campo, u) if len(sd) else pd.Series(dtype=bool)
+                fila[k] = bool(act.any()) if len(sd) >= 18 else None
+                fila[f"horas_{k}"] = int(act.sum()) if len(sd) else 0
+                if fila["t_medio"] and len(sd):
+                    tm = pd.Timestamp(fila["t_medio"].replace("Z", ""), tz="UTC")
+                    previas = act[(act.index <= tm) & (act.index >= tm - pd.Timedelta(hours=12))]
+                    on = previas[previas].index
+                    fila[f"primera_antes_min_{k}"] = (tm - on[0]).total_seconds() / 60 if len(on) else None
+            dias.append(fila)
+        tablas = {}
+        for k in OCT_SENALES:
+            v = [x for x in dias if x[k] is not None and x["cobertura_10min"] >= 0.5]
+            a = sum(x[k] and x["medio"] for x in v)
+            b = sum(x[k] and not x["medio"] for x in v)
+            c = sum((not x[k]) and x["medio"] for x in v)
+            dd = sum((not x[k]) and not x["medio"] for x in v)
+            tablas[k] = {"dias": len(v), "aciertos": a, "falsas_alarmas": b, "fallos": c, "negativos": dd,
+                         "POD": round(a / (a + c), 2) if a + c else None,
+                         "FAR": round(b / (a + b), 2) if a + b else None,
+                         "dias_con_senal_sin_medio_pct": round(100 * b / (b + dd), 1) if b + dd else None}
+        out["zonas"][zid] = {"contingencia": tablas, "dias": dias}
+    return out
+
+
 # --------------------------------------------------------------------------- principal
 
 def main():
@@ -533,6 +590,9 @@ def main():
 
     res["muestra"] = {"dias": MUESTRA, "cadencia": "ABI cada 30 min; GLM un archivo de 20 s cada 2 min (conteos ×6)",
                       "tabla": tabla}
+
+    # ---- octubre completo: topes fríos (banda 13 cada hora) frente a la regla de lluvia medida, día a día
+    res["octubre"] = contingencia_octubre(con, regla, c13, rr, glm, cob, zonas)
 
     (AQUI / "resumen.json").write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str))
     print("escrito satelite/resumen.json")

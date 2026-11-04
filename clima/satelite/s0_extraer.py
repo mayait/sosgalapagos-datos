@@ -162,6 +162,7 @@ def main() -> None:
     ap.add_argument("--abi-cada", type=int, default=10, help="minutos entre imágenes ABI (10, 20, 30)")
     ap.add_argument("--glm-cada", type=int, default=1, help="1 = todos los archivos GLM; 3 = uno por minuto")
     ap.add_argument("--trabajadores", type=int, default=10)
+    ap.add_argument("--productos", nargs="*", default=["c13", "rrqpe", "glm"])
     a = ap.parse_args()
     if a.eventos:
         for nombre, (i, f) in EVENTOS.items():
@@ -170,7 +171,7 @@ def main() -> None:
     for d in a.dias:
         print(f"== día {d}", flush=True)
         i = _utc(d + "T00:00")
-        extraer(i, i + timedelta(days=1), a.abi_cada, a.glm_cada, a.trabajadores)
+        extraer(i, i + timedelta(days=1), a.abi_cada, a.glm_cada, a.trabajadores, tuple(a.productos))
 
 
 if __name__ == "__main__":
