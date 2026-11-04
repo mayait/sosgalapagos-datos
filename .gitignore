@@ -1,11 +1,14 @@
 # Sistema y entornos
 .DS_Store
 .venv/
+# Sin barra final: también cubre los enlaces simbólicos que crean los worktrees
+.venv
 __pycache__/
 *.pyc
 logs/
 
 # Secretos (NO publicar). Los endpoints de las fuentes de clima viven en clima/privado/
+privado
 *.env
 .env*
 !*.env.ejemplo
@@ -16,10 +19,12 @@ privado/
 # Geodatos: descargas crudas (pesadas, regenerables y con datos personales
 # de fuentes oficiales: nombres y teléfonos de responsables). Ver geodatos/LEEME.md
 geodatos/descargas/
+geodatos/descargas
 
 # Páginas públicas generadas (10_publicar_web.py, 19_estudios_web.py); se suben con servidores/publicar.sh
 geodatos/publicar/
 geodatos/export/galapagos-completo/
+geodatos/export/galapagos-completo
 geodatos/geoserver-local/
 # Estado local del flujo incremental (scripts/flujo.py): hashes y registros de corridas
 geodatos/.flujo/
