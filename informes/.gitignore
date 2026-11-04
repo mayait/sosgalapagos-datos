@@ -1,0 +1,2 @@
+# Auxiliares de compilación (latexmk -outdir=.build)
+*/.build/
