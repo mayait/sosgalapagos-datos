@@ -14,3 +14,5 @@ datos/pronostico-archivo/
 pronostico/fase0/pares_diarios.csv.gz
 pronostico/fase0/senal_validacion_cruzada.csv.gz
 pronostico/fase0/eventos.csv
+satelite/cache/
+satelite/estado-local/
