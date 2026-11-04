@@ -1,0 +1,107 @@
+{
+ "aviso": "Curvas IDF provisionales de SOS Galápagos (modelo propio, no dato oficial). Orden de magnitud: no sirven para diseñar obras.",
+ "anios_gar": [
+  1980,
+  2025,
+  46
+ ],
+ "coherencia_gar_horario_diario_mm": 0.0,
+ "fcd": {
+  "Puerto Ayora (FCD)": {
+   "anios": 61,
+   "media_mm": 71.1,
+   "gumbel": [
+    47.39,
+    37.86
+   ],
+   "gev_xi": 0.233,
+   "gev": [
+    -0.23,
+    42.85,
+    33.54
+   ]
+  },
+  "Bellavista (FCD)": {
+   "anios": 31,
+   "media_mm": 85.4,
+   "gumbel": [
+    60.06,
+    37.97
+   ],
+   "gev_xi": 0.204,
+   "gev": [
+    -0.2,
+    55.61,
+    33.59
+   ]
+  }
+ },
+ "sesgo_gar_fcd_informativo": {
+  "Puerto Ayora (FCD)": 1.113,
+  "Bellavista (FCD)": 0.924
+ },
+ "verificacion_dias_candidatos": {},
+ "ierse_razon_mediana": {
+  "1h": 0.27,
+  "3h": 0.506,
+  "6h": 0.738
+ },
+ "periodo_retorno_30oct": [
+  {
+   "estacion": "Los Guayabillos",
+   "duracion_h": 1,
+   "lluvia_mm": 63.4,
+   "T_gumbel": 15.0,
+   "T_gev": 12.0
+  },
+  {
+   "estacion": "Los Guayabillos",
+   "duracion_h": 3,
+   "lluvia_mm": 133.0,
+   "T_gumbel": 43.0,
+   "T_gev": 23.0
+  },
+  {
+   "estacion": "Los Guayabillos",
+   "duracion_h": 6,
+   "lluvia_mm": 154.6,
+   "T_gumbel": 36.0,
+   "T_gev": 21.0
+  },
+  {
+   "estacion": "Los Guayabillos",
+   "duracion_h": 24,
+   "lluvia_mm": 179.2,
+   "T_gumbel": 14.0,
+   "T_gev": 11.0
+  },
+  {
+   "estacion": "Santa Rosa",
+   "duracion_h": 1,
+   "lluvia_mm": 70.6,
+   "T_gumbel": 32.0,
+   "T_gev": 20.0
+  },
+  {
+   "estacion": "Santa Rosa",
+   "duracion_h": 3,
+   "lluvia_mm": 139.2,
+   "T_gumbel": 42.0,
+   "T_gev": 23.0
+  },
+  {
+   "estacion": "Santa Rosa",
+   "duracion_h": 6,
+   "lluvia_mm": 175.4,
+   "T_gumbel": 43.0,
+   "T_gev": 23.0
+  },
+  {
+   "estacion": "Santa Rosa",
+   "duracion_h": 24,
+   "lluvia_mm": 240.4,
+   "T_gumbel": 56.0,
+   "T_gev": 27.0
+  }
+ ]
+}
