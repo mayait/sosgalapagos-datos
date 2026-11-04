@@ -58,7 +58,7 @@ Son ~150 filas por hora para las cuatro zonas. No se escribe en la tabla `corrid
 
 ## `satelite.json` (público)
 
-Lo escribe `colector.py` en `CLIMA_SALIDA` (está en `PUBLICOS` de `recolector.py`). Pesa 10–40 KB.
+Lo escribe `colector.py` en `CLIMA_SALIDA` (está en `PUBLICOS` de `recolector.py`). Pesa 10–40 KB. **Caddy solo sirve `estado.json`, `horario.json` y `diario.json`** (Caddyfile del repo mayait/sosgalapagos), así que `recolector.exportar()` lo copia en la clave `satelite` de `estado.json`, y de ahí lo lee el panel. Llega con hasta 5 min de retraso adicional, porque el recolector exporta en `*:0/5` y el colector escribe en `*:2/5`. Si algún día Caddy deja pasar `/datos/satelite.json`, el panel puede leerlo directamente.
 
 - `zonas.<id>.series`: las variables de arriba en las últimas 3 h (`[ts, valor]`).
 - `zonas.<id>.vigilancia`: `{estado: "sin señal" | "vigilancia" | "sin datos", motivos: [...]}`.
