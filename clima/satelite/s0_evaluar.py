@@ -34,6 +34,7 @@ CACHE = AQUI / "cache"
 FIG = AQUI / "figuras"
 ZONAS_SC = ["la-cascada", "santa-cruz-alta"]  # las únicas zonas con estaciones en los eventos
 ANILLOS_KM = {"zona": 0, "25km": 25, "50km": 50}
+LLUVIA_EN_CURSO_MM = 5
 SUB_ABI_MIN, SUB_GLM = 30, 6  # cadencia de la muestra: ABI cada 30 min, 1 de cada 6 archivos GLM
 ORDEN = ["muy alto", "alto", "medio", "bajo"]
 
@@ -71,9 +72,11 @@ SENALES = [
 ]
 
 
-# Reglas combinadas (O lógico): (anillo, campo, umbral). «v0» es la que usa hoy satelite/vigilancia.py.
+# Reglas combinadas (O lógico): (anillo, campo, umbral). «v0» fue la primera de satelite/vigilancia.py; «v1» la sustituye.
 COMBOS = {
     "v0": [("25km", "rayos_30min", 1), ("25km", "frio221_pct", 10), ("zona", "rrqpe_max", 10)],
+    # v1: la propuesta tras S0 (satelite/vigilancia.py)
+    "v1": [("25km", "rrqpe_max", 10), ("zona", "frio221_pct", 10), ("25km", "rayos_30min", 1)],
     "frio_25km_o_rrqpe10": [("25km", "frio221_pct", 10), ("25km", "rrqpe_max", 10)],
     "rrqpe10_25km": [("25km", "rrqpe_max", 10)],
     "frio_zona": [("zona", "frio221_pct", 10)],
@@ -249,12 +252,13 @@ def lluvia_horaria(obs: pd.DataFrame, clave: str) -> pd.Series:
     s = obs[(obs.fuente == f) & (obs.estacion == e)].set_index("ts")["valor"]
     if s.empty:
         return s
-    # el registro de las HH:MM cierra el intervalo previo: se asigna a la hora del inicio
-    s.index = s.index - pd.Timedelta(seconds=1)
+    # el registro de las HH:MM cierra el intervalo previo: se asigna a la hora del inicio.
+    # INAMHI: las filas con segundos :30 son el respaldo horario (la hora que termina en ts) y valen 12 registros.
+    horaria = (s.index.second == 30) if f == "inamhi" else np.zeros(len(s), bool)
+    s.index = s.index - pd.to_timedelta(np.where(horaria, 31, 1), unit="s")
     h = s.resample("1h").sum(min_count=1)
-    n = s.resample("1h").count()
-    esperado = 12
-    return h.where(n >= 0.8 * esperado)
+    n = pd.Series(np.where(horaria, 12, 1), index=s.index).resample("1h").sum()
+    return h.where(n >= 0.8 * 12)
 
 
 # --------------------------------------------------------------------------- análisis
@@ -559,11 +563,29 @@ def main():
                 tabla.setdefault(f"{zid}|{an}", {})[sid] = fila
     # ---- reglas combinadas: adelanto en los eventos (cadencia completa) y días con disparo (muestra)
     comb = {}
+    r1h = {}  # R1h (máx. de las estaciones válidas de la zona) en eventos y días de la muestra
     for zid in ZONAS_SC:
-        for nombre in COMBOS:
+        partes = []
+        for i, f in EVENTOS.values():
+            partes.append(niveles(con, regla[zid], dt.datetime.fromisoformat(i).replace(tzinfo=UTC),
+                                  dt.datetime.fromisoformat(f).replace(tzinfo=UTC))["R1h"])
+        for dias in MUESTRA.values():
+            for dia in dias:
+                a0 = dt.datetime.fromisoformat(dia).replace(tzinfo=UTC)
+                partes.append(niveles(con, regla[zid], a0, a0 + dt.timedelta(days=1) - dt.timedelta(minutes=10))["R1h"])
+        r1h[zid] = pd.concat(partes).sort_index()
+        r1h[zid] = r1h[zid][~r1h[zid].index.duplicated()]
+    variantes = [(n, False) for n in COMBOS] + [(n, True) for n in COMBOS]
+    for zid in ZONAS_SC:
+        for nombre, con_lluvia in variantes:
             fila = {"eventos": {}, "muestra": {}}
             s_full = combo(sats, zid, nombre)
             s_sub = combo(sats_sub, zid, nombre)
+            if con_lluvia:  # además, lluvia en curso en el suelo: R1h ≥ 5 mm en alguna estación válida
+                llueve = (r1h[zid] >= LLUVIA_EN_CURSO_MM)
+                s_full = s_full & llueve.reindex(s_full.index, method="nearest", tolerance=pd.Timedelta("6min")).fillna(False).astype(bool)
+                s_sub = s_sub & llueve.reindex(s_sub.index, method="nearest", tolerance=pd.Timedelta("6min")).fillna(False).astype(bool)
+                nombre = nombre + "+lluvia5"
             for ev in EVENTOS:
                 z = res["eventos"][ev]["zonas"].get(zid)
                 if not z:
