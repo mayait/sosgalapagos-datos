@@ -448,7 +448,7 @@
       }
      },
      "visible_movil": false,
-     "elementos": 2558
+     "elementos": 2679
     },
     {
      "id": "oficiales",
@@ -549,7 +549,7 @@
        "fuente": "Fuente"
       }
      },
-     "elementos": 184
+     "elementos": 181
     },
     {
      "id": "tsunami",
@@ -682,7 +682,7 @@
       }
      },
      "visible_movil": false,
-     "elementos": 1324
+     "elementos": 1345
     },
     {
      "id": "franja",
@@ -748,7 +748,7 @@
        "descripcion": "Qué es"
       }
      },
-     "elementos": 82
+     "elementos": 86
     }
    ]
   },
@@ -928,7 +928,8 @@
       "permanente": true
      },
      "fuente": "OpenStreetMap, 31-oct-2026",
-     "descripcion": "Rótulos propios de calles; útiles sobre el mapa satelital o topográfico."
+     "descripcion": "Rótulos propios de calles; útiles sobre el mapa satelital o topográfico.",
+     "elementos": null
     },
     {
      "id": "rutas",
@@ -1015,7 +1016,7 @@
       "sufijo_titulo": " m",
       "campos": {}
      },
-     "elementos": 967
+     "elementos": 918
     },
     {
      "id": "pendientes",
@@ -1067,5 +1068,5 @@
    "maxZoom": 17
   }
  ],
- "generado": "2026-11-01"
+ "generado": "2026-11-04"
 }
