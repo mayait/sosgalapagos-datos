@@ -1,4 +1,0 @@
-# Auxiliares de compilación (latexmk -outdir=.build)
-*/.build/
-# Página pública generada por indice.py (se publica con informes/publicar.sh)
-web/

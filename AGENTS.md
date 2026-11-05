@@ -12,7 +12,8 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 3. **Modelo ≠ dato oficial.** La susceptibilidad HAND, las cuencas, la costa baja y las lluvias de modelos son estimaciones propias. Dilo siempre en mapas, textos y fichas.
 4. **No edites archivos generados a mano.** Corre el script que los produce (ver CONTRIBUIR §1).
 5. **No despliegues** a `sosgalapagos.org` si no te lo piden, y solo desde `main` (`servidores/publicar.sh`).
-6. **Trabaja en tu rama** (mejor en un *worktree*) y no toques el dominio de otra sesión sin coordinarlo. Entre sesiones de Claude Code: `ListAgents` y `SendMessage`.
+6. **Informes y textos de estudios son solo locales.** `informes/` y `geodatos/estudios/*/{texto,figuras}/` (y sus PDF) están en `.gitignore`: no se suben al repositorio ni se publican en la web. Los datos de los estudios sí se versionan.
+7. **Trabaja en tu rama** (mejor en un *worktree*) y no toques el dominio de otra sesión sin coordinarlo. Entre sesiones de Claude Code: `ListAgents` y `SendMessage`.
 
 ## Convenciones
 
@@ -34,6 +35,5 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 | Ver qué falta | [Issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues) (etiquetas P1–P3 y por tipo) |
 | Publicar o tocar un servidor | `servidores/README.md` |
 | Rehacer los estudios tras un dato nuevo | `geodatos/flujo.toml` + `geodatos/scripts/flujo.py --seco` |
-| Preparar y publicar /estudios (checklist, revisión) | `geodatos/estudios/PUBLICAR.md` |
 | Tocar el clima | `clima/LEEME.md` |
 | Tocar el pronóstico de lluvia | `clima/pronostico/LEEME.md` (evaluación en `fase0/informe.md`) |
