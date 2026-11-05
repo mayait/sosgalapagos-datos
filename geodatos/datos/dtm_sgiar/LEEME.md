@@ -81,9 +81,15 @@ Los valores vienen de `resumen.json`, donde se recalculan cada vez que corre el 
 
 ## Uso en el proyecto
 
-Es el DTM de 1 m que pedía el issue [#16](https://github.com/mayait/sosgalapagos-datos/issues/16) para Puerto Ayora, el escarpe y Bellavista. Todavía no alimenta ningún modelo. Rehacer HAND y el modelo 2D con él es el issue [#23](https://github.com/mayait/sosgalapagos-datos/issues/23). Cuando un script lo use, declárelo como entrada en `geodatos/flujo.toml`.
+Cubre en Santa Cruz el DTM ≤ 1 m que pedía el issue [#16](https://github.com/mayait/sosgalapagos-datos/issues/16). Lo usan:
 
-Lo que se calcule con este DTM (HAND, cuencas, modelo 2D) sigue siendo un **modelo propio**: hay que decirlo en mapas y textos, y citar a la SGIAR como fuente del relieve.
+| Script | Uso |
+|---|---|
+| `03_dem.py` + `relieve_sgiar.py` | Relieve de Santa Cruz fusionado con el Copernicus (30 m), y HAND, drenaje, costa baja y curvas en malla de 5 m dentro de la cobertura. De ahí lo toman las cuencas, la exposición, La Cascada (`12`), los puntos y cruces (`15`, `16`), el modelo 2D (`24`) y las tormentas sintéticas (`32`) |
+| `37_cascada_dtm.py` | La Cascada a 1 m: punto bajo, cota de rebose, vaso y curva cota–volumen (`estudios/la-cascada/datos/dtm1m/`) |
+| `36_teselas_dtm.py` | Teselas del relieve y de la cota para el visor de [/mapas](https://sosgalapagos.org/mapas/) |
+
+Lo que se calcula con este DTM (HAND, cuencas, vaso, modelo 2D) sigue siendo un **modelo propio**: hay que decirlo en mapas y textos, y citar a la SGIAR como fuente del relieve.
 
 ## Cómo se rehace
 

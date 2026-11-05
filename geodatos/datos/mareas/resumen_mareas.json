@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-02T23:48Z",
+ "generado": "2026-11-05T04:58Z",
  "referencia_vertical": "metros sobre el nivel medio del mar 2017–2024 de cada mareógrafo (UHSLC)",
  "estaciones": {
   "puerto_ayora": {
@@ -154,16 +154,16 @@
     "ha": 0.0
    },
    "0.82": {
-    "celdas": 10,
-    "ha": 0.9
+    "celdas": 0,
+    "ha": 0.0
    },
    "0.75": {
-    "celdas": 7,
-    "ha": 0.6
+    "celdas": 0,
+    "ha": 0.0
    },
    "1.0": {
-    "celdas": 14,
-    "ha": 1.3
+    "celdas": 0,
+    "ha": 0.0
    }
   }
  }

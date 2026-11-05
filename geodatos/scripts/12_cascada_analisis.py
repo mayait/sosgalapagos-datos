@@ -32,6 +32,9 @@ from pyproj import Transformer
 from pysheds.grid import Grid
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+CON_DTM = (ROOT / "datos/dtm_sgiar/dtm_sgiar_1m.vrt").exists()
+RELIEVE = "DTM 1 m SGIAR promediado a 30 m (fusionado con Copernicus GLO-30 fuera de su cobertura)" if CON_DTM else "Copernicus GLO-30 (DSM)"
+REL = "DTM" if CON_DTM else "DSM"          # nombre corto del relieve en los textos
 OUT = ROOT / "estudios/la-cascada/datos"
 DEM_CRUDO = ROOT / "descargas/dem_recortes/santa_cruz_dem.tif"
 DEM_QUEMADO = ROOT / "descargas/dem_recortes/santa_cruz_dem_quemado.tif"
@@ -40,8 +43,12 @@ DEM_QUEMADO = ROOT / "descargas/dem_recortes/santa_cruz_dem_quemado.tif"
 EPSG_UTM = 32715            # UTM 15S
 CELDA = 30.0                # m
 RADIO_MANCHA_M = 600        # ventana de las manchas de llenado alrededor del centroide del barrio
-COTAS_CURVA = np.arange(11.0, 20.01, 0.5)
-COTAS_MANCHA = (13, 14, 15, 16)
+# Cotas del vaso: se fijan RELATIVAS al punto bajo (z0) y a la cota de rebose (zr) que salen del relieve (con el DSM de 30 m,
+# z0 = 10,53 y zr = 12,95, daban 11–20 m, manchas de 13 a 16 m y exposición desde 12,5 m; con el DTM SGIAR suben ≈ 3 m).
+#   curva cota-volumen: floor(z0)+1 … floor(z0)+10 cada 0,5 m · manchas: ceil(zr) + 0, 1, 2 y 3 m
+#   exposición en el vaso: desde round(zr − 0,45, 1) cada 0,1 m hasta zr − 1 cm · lámina sostenida: ceil(zr) + 0,5 y + 1 m
+MANCHAS_SOBRE_REBOSE = (0, 1, 2, 3)
+NOMBRE_MANCHA = {0: "mancha_rebose.geojson", 1: "mancha_rebose_mas1m.geojson", 2: "mancha_rebose_mas2m.geojson", 3: "mancha_rebose_mas3m.geojson"}
 SECCION_SEMI_M = 600; SECCION_OFFSETS_M = (-150, 0, 150); SECCION_PASO_M = 30
 # desvío
 PENDIENTE_MIN = 0.005       # 0,5 %
@@ -65,7 +72,7 @@ CN_EVENTO = ("AMC_II_III", "AMC_III", "AMC_II")   # central: intermedio II–III
 LLUVIA_DIARIA_CSV = OUT / "lluvia_modelos_diaria.csv"   # lluvia diaria de modelos (Open-Meteo), costa/alta, 15-oct a 1-nov
 AMC_UMBRALES_MM = {"estacion_de_crecimiento": (35.6, 53.3), "estacion_latente": (12.7, 27.9)}   # SCS (NEH-4): lluvia de 5 días previos
 RESGUARDO_M = 0.5
-OBS_LAMINA_M = (1.5, 2.0); OBS_FONDO_M = (10.5, 11.0)   # prensa: agua «hasta dos metros» (por validar)
+OBS_LAMINA_M = (1.5, 2.0)    # prensa: agua «hasta dos metros» (por validar); el fondo se toma del punto bajo del relieve (sección 3)
 VERTEDERO_C = 1.7; VERTEDERO_L_M = (30, 100, 300)       # vertedero de cresta ancha en el umbral de rebose (longitud efectiva supuesta)
 # --- evento MEDIDO 30-oct-2026 (red IERSE-WSN, Universidad del Azuay; hora de Galápagos UTC-6; registros ~5 min)
 IERSE_CSV = OUT / "lluvia_ierse_30oct_5min.csv"         # copia de clima/datos/ierse-wsn/serie_5min.csv.gz (30–31 oct)
@@ -131,7 +138,7 @@ def a_utm(src_path):
 
 OUT.mkdir(parents=True, exist_ok=True)
 R = {"metodo": {}, "parametros": {}}
-R["parametros"] = {"dem": "Copernicus GLO-30 (DSM) reproyectado a UTM 15S, 30 m, bilineal",
+R["parametros"] = {"dem": f"{RELIEVE}, reproyectado a UTM 15S, 30 m, bilineal",
                    "pendiente_min_canal": PENDIENTE_MIN, "cortes_max_m": CORTES_MAX_M, "relleno_max_m": RELLENO_MAX_M,
                    "buffer_poblado_m": BUFFER_POBLADO_M, "radio_mancha_m": RADIO_MANCHA_M, "lluvia_evento_mm": LLUVIA_EVENTO_MM}
 
@@ -219,7 +226,7 @@ R["cuenca"] = {"area_aportante_km2": round(area_up, 2), "area_total_con_barrio_k
                "cota_max_m": round(float(dem[up].max()), 1), "pendiente_media_pct": round(float(np.nanmean(pend[up])), 1),
                "pendiente_mediana_pct": round(float(np.nanmedian(pend[up])), 1),
                "fraccion_en_depresiones_rellenadas_>1m": round(float((up & (lleno - dem > 1)).sum() / up.sum()), 4),
-               "metodo": "D8 (pysheds) sobre DSM con quebradas IGM quemadas, depresiones rellenadas y planos resueltos"}
+               "metodo": f"D8 (pysheds) sobre el {REL} con quebradas IGM quemadas, depresiones rellenadas y planos resueltos"}
 up_crudo = aguas_arriba(F_crudo)
 R["cuenca"]["sensibilidad_sin_quemar"] = {"area_aportante_km2": round(up_crudo.sum() * 900 / 1e6, 2),
                                           "celdas_comunes_km2": round((up_crudo & up).sum() * 900 / 1e6, 2),
@@ -293,7 +300,7 @@ for o in SECCION_OFFSETS_M:
             lo, la = TI(x, y)
             sec.append([nombre, int(dd), round(lo, 6), round(la, 6), round(float(zz), 2)])
 guardar_csv("secciones_barrio.csv", ["perfil", "distancia_m", "lon", "lat", "cota_m"], sec)
-R["secciones"] = {"nota": "N-S: distancia negativa = norte; E-O: distancia negativa = este. Interpolación bilineal del DSM.",
+R["secciones"] = {"nota": f"N-S: distancia negativa = norte; E-O: distancia negativa = este. Interpolación bilineal del relieve ({REL}).",
                   "N-S centro": [r[4] for r in sec if r[0] == "N-S x+0m"][::4], "E-O centro": [r[4] for r in sec if r[0] == "E-O y+0m"][::4]}
 
 # ---------------------------------------------------------------- 3. depresión, curva cota-volumen y manchas
@@ -331,6 +338,17 @@ def exposicion(geom):
 
 ne_b, pob_b, viv_b = exposicion(casc)
 R["barrio"].update({"edificios_en_poligono": ne_b, "poblacion_estimada_manzanas": round(pob_b), "viviendas_manzanas": round(viv_b)})
+z0 = float(dem[r_lo, c_lo])
+COTAS_CURVA = np.arange(math.floor(z0) + 1.0, math.floor(z0) + 10.01, 0.5)
+C_REB = float(math.ceil(cota_rebose))                       # primera cota entera sobre el rebose
+COTAS_MANCHA = {C_REB + k: k for k in MANCHAS_SOBRE_REBOSE}
+H_EXPO0 = round(cota_rebose - 0.45, 1)
+COTAS_EXPO = [round(H_EXPO0 + 0.1 * i, 1) for i in range(5) if H_EXPO0 + 0.1 * i < cota_rebose - 0.01] + [round(cota_rebose - 0.01, 2)]
+C_LAM = (math.ceil(cota_rebose * 2) / 2 + 0.5, math.ceil(cota_rebose * 2) / 2 + 1.0)
+OBS_FONDO_M = (round(z0 * 2) / 2, round(z0 * 2) / 2 + 0.5)
+R["depresion"]["cotas_usadas"] = {"curva": [float(COTAS_CURVA[0]), float(COTAS_CURVA[-1])], "manchas": {NOMBRE_MANCHA[k]: h for h, k in COTAS_MANCHA.items()},
+                                  "exposicion_en_vaso": COTAS_EXPO, "lamina_sostenida": list(C_LAM),
+                                  "nota": "Relativas al punto bajo y a la cota de rebose del relieve (ver comentario de COTAS en el script)."}
 curva, manchas = [], {}
 for h in COTAS_CURVA:
     lab_h, _ = ndimage.label((dem <= h) & ventana, structure=np.ones((3, 3)))
@@ -342,21 +360,21 @@ for h in COTAS_CURVA:
     vol = float(((h - dem) * m).sum() * 900)
     abierta = bool((m & borde).any())
     curva.append([round(float(h), 1), int(m.sum() * 900), int(vol), ne, round(pob), round(viv), bool(h > cota_rebose), abierta])
-    if h in COTAS_MANCHA:
-        manchas[int(h)] = {"type": "Feature", "geometry": r6(geom), "properties": {
+    if float(h) in COTAS_MANCHA:
+        manchas[NOMBRE_MANCHA[COTAS_MANCHA[float(h)]]] = {"type": "Feature", "geometry": r6(geom), "properties": {
             "cota_m": float(h), "area_m2": int(m.sum() * 900), "volumen_m3": int(vol), "edificios": ne, "poblacion_estimada": round(pob),
             "sobre_cota_rebose": bool(h > cota_rebose), "toca_borde_ventana": abierta,
-            "metodo": f"Llenado tipo bathtub: celdas del DSM con cota <= {h} m conectadas (8 vecinos) con el punto bajo del barrio, "
+            "metodo": f"Llenado tipo bathtub: celdas del {REL} con cota <= {h} m conectadas (8 vecinos) con el punto bajo del barrio, "
                       f"dentro de {RADIO_MANCHA_M} m del centroide. Sin hidráulica. Por encima de la cota de rebose ({cota_rebose:.2f} m) "
                       f"no es un volumen almacenado: solo describe qué quedaría bajo esa lámina si la salida estuviera obstruida o en remanso."}}
 guardar_csv("curva_cota_volumen.csv", ["cota_m", "area_inundada_m2", "volumen_m3", "edificios_afectados", "poblacion_estimada",
                                        "viviendas_estimadas", "sobre_cota_rebose", "toca_borde_ventana"], curva)
-for h, ft in manchas.items():
-    guardar_json(f"mancha_{h}m.geojson", fc([ft]))
-R["depresion"]["curva_resumen"] = {str(c[0]): {"area_m2": c[1], "volumen_m3": c[2], "edificios": c[3], "poblacion": c[4]} for c in curva if c[0] in (12.5, 13, 13.5, 14, 15, 16)}
+for nm_, ft in manchas.items():
+    guardar_json(nm_, fc([ft]))
+R["depresion"]["curva_resumen"] = {str(c[0]): {"area_m2": c[1], "volumen_m3": c[2], "edificios": c[3], "poblacion": c[4]} for c in curva if c[0] in (H_EXPO0, C_REB, C_REB + 0.5, C_REB + 1, C_REB + 2, C_REB + 3)}
 print("Depresión:", {k: v for k, v in R["depresion"].items() if k != "curva_resumen"})
 # vaso cerrado hasta el rebose. Se define sin umbral de profundidad (prof > 1 mm); el único parámetro que lo cambia es la
-# conectividad: con 8 vecinos se unen dos pozas por un paso diagonal a ~12,85 m que el DSM de 30 m no resuelve.
+# conectividad: con 8 vecinos se pueden unir dos pozas por un paso diagonal que la malla de 30 m no resuelve (con el DSM, a ~12,85 m).
 ESTR = {8: np.ones((3, 3)), 4: None}
 
 
@@ -373,12 +391,12 @@ for k_, st_ in ESTR.items():
     vaso[k_] = {"area_ha": round(m0.sum() * 900 / 1e4, 2), "volumen_m3": int(prof_dep[m0].sum() * 900),
                 "edificios_intersecan": ne_i, "edificios_centroide": edif_centroide(g0), "poblacion": round(pob0), "viviendas": round(viv0)}
 R["depresion"]["vaso_del_punto_bajo"] = {"8_vecinos": vaso[8], "4_vecinos": vaso[4],
-    "nota": "Depresión rellenada que contiene el punto bajo, prof > 1 mm, sin ventana. Con 8 vecinos incluye una segunda poza unida por un "
-            "paso diagonal a ~12,85 m; con 4 vecinos, no. Coincide con el llenado conectado a cota de rebose − 1 cm."}
+    "nota": "Depresión rellenada que contiene el punto bajo, prof > 1 mm, sin ventana. Con 8 vecinos puede incluir una segunda poza unida por un "
+            "paso diagonal; con 4 vecinos, no. Coincide con el llenado conectado a cota de rebose − 1 cm."}
 # exposición dentro del vaso por cota, sin ventana (no puede tocar bordes: está por debajo del rebose)
 expo_vaso = []
 for k_, st_ in ESTR.items():
-    for h in (12.5, 12.6, 12.7, 12.8, 12.9, round(cota_rebose - 0.01, 2)):
+    for h in COTAS_EXPO:
         lab_h, _ = ndimage.label((dem <= h) & ~nod, structure=st_)
         m = lab_h == lab_h[r_lo, c_lo]
         if (m & sea).any(): continue
@@ -386,7 +404,7 @@ for k_, st_ in ESTR.items():
         ne_i, pob_h, viv_h = exposicion(g_)
         expo_vaso.append({"conectividad": k_, "cota_m": float(h), "area_ha": round(m.sum() * 900 / 1e4, 2), "volumen_m3": int(((h - dem) * m).sum() * 900),
                           "edificios_intersecan": ne_i, "edificios_centroide": edif_centroide(g_), "poblacion": round(pob_h), "viviendas": round(viv_h)})
-R["depresion"]["exposicion_en_vaso_12.5_a_rebose"] = expo_vaso
+R["depresion"]["exposicion_en_vaso_bajo_rebose"] = expo_vaso
 # sensibilidad del criterio de depresión: umbral de profundidad × dominio espacial (4 vecinos, como el criterio alternativo).
 # Solo sirve para conciliar cifras; el volumen del vaso se toma de vaso_del_punto_bajo.
 buf400 = rasterize([(casc.buffer(400), 1)], out_shape=dem.shape, transform=TR, all_touched=True).astype(bool)
@@ -406,19 +424,19 @@ R["depresion"]["sensibilidad_criterio"] = sens
 vol_curva = {c[0]: c[2] for c in curva}
 s_grd = next(s_ for s_ in sens if s_["umbral_prof_m"] == 0.2 and s_["dominio"] == "componentes a <400 m del barrio")
 ev_top = [e_ for e_ in expo_vaso if e_["cota_m"] == round(cota_rebose - 0.01, 2)]
-ev_low = [e_ for e_ in expo_vaso if e_["cota_m"] == 12.5]
+ev_low = [e_ for e_ in expo_vaso if e_["cota_m"] == COTAS_EXPO[0]]
 R["depresion"]["rango_volumen_m3"] = {
     "almacenamiento_cerrado_hasta_rebose": [vaso[4]["volumen_m3"], vaso[8]["volumen_m3"]],
     "almacenamiento_cerrado_area_ha": [vaso[4]["area_ha"], vaso[8]["area_ha"]],
-    "exposicion_12.5m_a_rebose": {"edificios": [min(e_["edificios_centroide"] for e_ in ev_low), max(e_["edificios_intersecan"] for e_ in ev_top)],
+    "exposicion_bajo_rebose": {"edificios": [min(e_["edificios_centroide"] for e_ in ev_low), max(e_["edificios_intersecan"] for e_ in ev_top)],
                                   "poblacion": [min(e_["poblacion"] for e_ in ev_low), max(e_["poblacion"] for e_ in ev_top)],
                                   "viviendas": [min(e_["viviendas"] for e_ in ev_low), max(e_["viviendas"] for e_ in ev_top)],
-                                  "nota": "mínimo: 12,5 m, edificios con el centroide dentro; máximo: rebose − 1 cm, 8 vecinos, edificios que intersecan"},
-    "lamina_sostenida_13.5_a_14m_ventana": [vol_curva.get(13.5), vol_curva.get(14.0)],
+                                  "nota": f"mínimo: {COTAS_EXPO[0]} m (rebose − 0,45 m), edificios con el centroide dentro; máximo: rebose − 1 cm, 8 vecinos, edificios que intersecan"},
+    "lamina_sostenida_ventana": {"cotas_m": list(C_LAM), "volumen_m3": [vol_curva.get(C_LAM[0]), vol_curva.get(C_LAM[1])]},
     "criterio_alternativo_reproducido": {k_: s_grd[k_] for k_ in ("umbral_prof_m", "dominio", "n_componentes", "area_ha", "volumen_m3", "cota_rebose_min_m", "cota_rebose_max_m")},
-    "superior_bathtub_14m": vol_curva.get(14.0),
+    "superior_bathtub": {"cota_m": C_LAM[1], "volumen_m3": vol_curva.get(C_LAM[1])},
     "nota": "Almacenamiento cerrado: vaso del punto bajo hasta la cota de rebose; el rango 4–8 vecinos refleja si la segunda poza se une. "
-            "No usar umbrales de profundidad para el volumen (recortan los bordes someros). Lámina sostenida: volumen bajo 13,5–14 m dentro "
+            "No usar umbrales de profundidad para el volumen (recortan los bordes someros). Lámina sostenida: volumen bajo rebose + 0,5–1 m (redondeado a 0,5 m) dentro "
             "de la ventana, solo posible con la salida en remanso u obstruida. El criterio alternativo suma vasos independientes."}
 print("   vaso", vaso, "\n   expo_vaso", expo_vaso)
 
@@ -636,7 +654,7 @@ R["tiempos"] = {"tc_intervalo_defendible_h": [tc_k, max(scs_lag.values())], "tc_
                 "viajes_hasta_el_barrio": viajes}
 print("Tiempos:", json.dumps(R["tiempos"], ensure_ascii=False))
 vol_rebose = vaso[8]["volumen_m3"]
-vol_sup = R["depresion"]["rango_volumen_m3"]["superior_bathtub_14m"]
+vol_sup = R["depresion"]["rango_volumen_m3"]["superior_bathtub"]["volumen_m3"]
 vols = {c[0]: c[2] for c in curva}
 escen = [(P, cn, f"P{P}mm_CN{cn}") for P in LLUVIAS_MM for cn in CN_ESCENARIOS]
 if LLUVIA_EVENTO_MM:
@@ -839,19 +857,19 @@ if IERSE_CSV.exists():
     hitos = [
         [ck["hora_inicio_escorrentia_q>1m3s"], "Inicio de escorrentía significativa en la entrada al barrio (Q > 1 m³/s)", "",
          f"{min(rng('hora_inicio_escorrentia_q>1m3s'))} a {max(rng('hora_inicio_escorrentia_q>1m3s'))} según CN y tc"],
-        [ct["transito_vaso"]["L300m"]["hora_vaso_lleno"], "Vaso de La Cascada lleno hasta el rebose (≈12,95 m DSM)", f"{vol_rebose} m³",
-         f"{min(tv(ck, 'hora_vaso_lleno') + tv(ct, 'hora_vaso_lleno'))} a {max(tv(ck, 'hora_vaso_lleno') + tv(ct, 'hora_vaso_lleno'))} (Kirpich–Témez); volumen 42 000–62 000 m³"],
+        [ct["transito_vaso"]["L300m"]["hora_vaso_lleno"], f"Vaso de La Cascada lleno hasta el rebose (≈{cota_rebose:.2f} m, {REL})".replace(".", ","), f"{vol_rebose} m³",
+         f"{min(tv(ck, 'hora_vaso_lleno') + tv(ct, 'hora_vaso_lleno'))} a {max(tv(ck, 'hora_vaso_lleno') + tv(ct, 'hora_vaso_lleno'))} (Kirpich–Témez); volumen {vaso[4]['volumen_m3']:,}–{vaso[8]['volumen_m3']:,} m³".replace(",", " ")],
         [ck["hora_pico"], "Caudal pico en la entrada al barrio (tc Kirpich)", f"{ck['q_pico_m3s']} m³/s", f"CN 68–83: {min(e_['q_pico_m3s'] for e_ in sel_ if e_['tc'] == 'kirpich')}–{max(e_['q_pico_m3s'] for e_ in sel_ if e_['tc'] == 'kirpich')} m³/s"],
         [ct["hora_pico"], "Caudal pico en la entrada al barrio (tc Témez)", f"{ct['q_pico_m3s']} m³/s", f"CN 68–83: {min(e_['q_pico_m3s'] for e_ in sel_ if e_['tc'] == 'temez')}–{max(e_['q_pico_m3s'] for e_ in sel_ if e_['tc'] == 'temez')} m³/s"],
         [ct["transito_vaso"]["L300m"]["hora_lamina_max"], "Lámina máxima en el barrio (tránsito por el vaso, frente de desborde 300 m)",
-         f"{ct['transito_vaso']['L300m']['lamina_max_sobre_fondo_m']} m sobre el fondo DSM (cota {ct['transito_vaso']['L300m']['cota_max_m']} m)",
-         "frente 100–1000 m y Kirpich–Témez: " + ", ".join(f"{v_['lamina_max_sobre_fondo_m']} m" for e_ in (ct, ck) for v_ in e_["transito_vaso"].values()) + "; DSM ±2–4 m"],
+         f"{ct['transito_vaso']['L300m']['lamina_max_sobre_fondo_m']} m sobre el fondo {REL} (cota {ct['transito_vaso']['L300m']['cota_max_m']} m)",
+         "frente 100–1000 m y Kirpich–Témez: " + ", ".join(f"{v_['lamina_max_sobre_fondo_m']} m" for e_ in (ct, ck) for v_ in e_["transito_vaso"].values()) + ("; DTM 1 m promediado a 30 m" if CON_DTM else "; DSM ±2–4 m")],
         [ct["transito_vaso"]["L300m"]["hora_baja_a_rebose_mas_5cm"], "La lámina vuelve a la cota de rebose (+5 cm); por debajo, el vaso solo se vacía por infiltración o bombeo",
          f"{vol_rebose} m³ retenidos", "sin salida por gravedad bajo el rebose; la SNGR anunció que se drenaría el sector"]]
     HITOS_CSV.parent.mkdir(parents=True, exist_ok=True)
     previos = []
     if HITOS_CSV.exists():
-        previos = [r_ for r_ in csv.reader(open(HITOS_CSV)) if r_ and not r_[1].startswith(("Inicio de escorrentía significativa en la entrada al barrio", "Vaso de La Cascada", "Caudal pico en la entrada al barrio", "Lámina máxima en el barrio", "La lámina vuelve a la cota"))][1:]
+        previos = [r_ for r_ in csv.reader(open(HITOS_CSV)) if r_ and not r_[1].removeprefix("La Cascada: ").startswith(("Inicio de escorrentía significativa en la entrada al barrio", "Vaso de La Cascada", "Caudal pico en la entrada al barrio", "Lámina máxima en el barrio", "La lámina vuelve a la cota"))][1:]
     with open(HITOS_CSV, "w", newline="") as fh:
         w_ = csv.writer(fh); w_.writerow(["fecha_hora_utc6", "hito", "valor", "incertidumbre"])
         for h_ in hitos: w_.writerow(["2026-" + _dt.datetime.strptime(h_[0], "%d-%b %H:%M").strftime("%m-%dT%H:%M") if h_[0] else "", "La Cascada: " + h_[1], h_[2], h_[3]])
@@ -898,7 +916,7 @@ mm_best, mm_L, mm_par = minimax(r_lo, c_lo)
 pob_union = unary_union(pob_geoms[:len(pob_geoms)])
 sr, sc = np.where(sea & np.isfinite(mm_best))
 slon = np.array([lonlat(r, c)[0] for r, c in zip(sr, sc)])
-reb_f, R["rebose"] = [], {"metodo": "Camino de mínimo umbral (minimax) desde el punto bajo del barrio hasta el mar sobre el DSM; desempate por longitud."}
+reb_f, R["rebose"] = [], {"metodo": f"Camino de mínimo umbral (minimax) desde el punto bajo del barrio hasta el mar sobre el {REL}; desempate por longitud."}
 for nm, sel in (("SUR (bahía, frente urbano)", slon < LON_ESTE), ("ESTE", slon >= LON_ESTE)):
     cand = np.where(sel, mm_best[sr, sc] + 1e-6 * mm_L[sr, sc], np.inf)
     if not np.isfinite(cand).any(): continue
@@ -915,7 +933,7 @@ guardar_json("salidas_rebose.geojson", fc(reb_f))
 # definiciones de la cota de rebose: superficie (DSM o «proxy de suelo» = mínimo 3×3 del DSM) × conectividad
 proxy = ndimage.minimum_filter(np.where(nod, 9999, dem), size=3)
 defs = []
-for sup_nm, sup in (("DSM", dem), ("proxy de suelo (mín. 3×3)", proxy)):
+for sup_nm, sup in ((REL, dem), ("proxy de suelo (mín. 3×3)", proxy)):
     for vec in (8, 4):
         rr0, cc0 = (r_lo, c_lo) if sup is dem else np.unravel_index(np.argmin(np.where(mask, proxy, 9999)), dem.shape)
         bst, _, pr_ = minimax(rr0, cc0, sup, vec)
@@ -925,7 +943,7 @@ for sup_nm, sup in (("DSM", dem), ("proxy de suelo (mín. 3×3)", proxy)):
                      "punto_de_control_lonlat": [round(v, 5) for v in lonlat(*pth[k])], "dsm_en_punto_de_control_m": round(float(dem[pth[k]]), 2)})
 R["rebose"]["definiciones"] = defs
 R["rebose"]["definicion_adoptada"] = ("Cota de rebose: mínima cota de lámina a la que el agua conectada al punto bajo del barrio alcanza el mar "
-                                      "(camino minimax). Referencia: DSM con 8 vecinos. Las demás variantes acotan la incertidumbre.")
+                                      f"(camino minimax). Referencia: {REL} con 8 vecinos. Las demás variantes acotan la incertidumbre.")
 print("Rebose, definiciones:", defs)
 print("Rebose:", R["rebose"])
 
@@ -1012,7 +1030,7 @@ dif = np.array(dif); dif_pob = np.array(dif_pob)
 def est(v):
     return {"n": int(v.size), "media_m": round(float(v.mean()), 2), "mediana_m": round(float(np.median(v)), 2), "rmse_m": round(float(np.sqrt((v ** 2).mean())), 2),
             "p05_m": round(float(np.percentile(v, 5)), 2), "p95_m": round(float(np.percentile(v, 95)), 2)} if v.size else None
-R["validacion_dsm"] = {"nota": "DSM − punto acotado IGM (z entero). Radio 5 km del barrio. El punto acotado IGM tiene su propio error (cartografía 1:25 000).",
+R["validacion_dsm"] = {"nota": f"{REL} − punto acotado IGM (z entero). Radio 5 km del barrio. El punto acotado IGM tiene su propio error (cartografía 1:25 000).",
                        "todos": est(dif), "en_zona_poblada": est(dif[dif_pob]), "fuera_zona_poblada": est(dif[~dif_pob])}
 print("Validación DSM:", R["validacion_dsm"])
 

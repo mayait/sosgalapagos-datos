@@ -8,137 +8,137 @@
   "evento": "30oct"
  },
  "motor": "LISFLOOD-ACC (Bates et al. 2010; θ = 0,8 de Almeida et al. 2012), numpy",
- "celdas": 57955,
+ "celdas": 57268,
  "celda_m": 30.0,
- "area_km2": 52.16,
+ "area_km2": 51.54,
  "nivel_mar_m": 0.75,
  "evento": "30oct",
  "inicio": "2026-10-30T12:00:00",
- "factor_S_calibrado": 0.665,
+ "factor_S_calibrado": 0.668,
  "escorrentia_objetivo_mm": 109.0,
  "perdidas_ilcl": null,
- "pasos": 21041,
- "tiempo_ejecucion_s": 58,
+ "pasos": 16557,
+ "tiempo_ejecucion_s": 38,
  "puntos": {
   "La Cascada (punto bajo)": {
-   "calado_max_m": 4.39,
-   "nivel_max_m": 15.14,
-   "hora_calado_max": "2026-10-30T21:43",
-   "hora_llegada_0.1m": "2026-10-30T15:41",
-   "velocidad_max_ms": 0.14
+   "calado_max_m": 3.34,
+   "nivel_max_m": 16.91,
+   "hora_calado_max": "2026-10-30T21:30",
+   "hora_llegada_0.1m": "2026-10-30T15:46",
+   "velocidad_max_ms": 0.27
   },
   "La Cascada (centro)": {
-   "calado_max_m": 2.24,
-   "nivel_max_m": 15.15,
-   "hora_calado_max": "2026-10-30T21:43",
-   "hora_llegada_0.1m": "2026-10-30T20:10",
-   "velocidad_max_ms": 0.6
+   "calado_max_m": 1.77,
+   "nivel_max_m": 16.93,
+   "hora_calado_max": "2026-10-30T21:31",
+   "hora_llegada_0.1m": "2026-10-30T19:30",
+   "velocidad_max_ms": 0.5
   },
   "La Cascada (entrada rama N)": {
-   "calado_max_m": 0.78,
-   "nivel_max_m": 16.95,
-   "hora_calado_max": "2026-10-30T21:35",
-   "hora_llegada_0.1m": "2026-10-30T20:01",
-   "velocidad_max_ms": 5.69
+   "calado_max_m": 0.21,
+   "nivel_max_m": 19.21,
+   "hora_calado_max": "2026-10-30T21:23",
+   "hora_llegada_0.1m": "2026-10-30T19:57",
+   "velocidad_max_ms": 1.72
   },
   "Tomás de Berlanga (escuela)": {
-   "calado_max_m": 0.0,
-   "nivel_max_m": 127.24,
-   "hora_calado_max": "2026-10-30T20:36",
+   "calado_max_m": 0.03,
+   "nivel_max_m": 128.43,
+   "hora_calado_max": "2026-10-30T20:40",
    "hora_llegada_0.1m": null,
    "velocidad_max_ms": 0.0
   },
   "Tomás de Berlanga (cauce)": {
-   "calado_max_m": 0.38,
-   "nivel_max_m": 119.92,
-   "hora_calado_max": "2026-10-30T21:30",
-   "hora_llegada_0.1m": "2026-10-30T18:58",
-   "velocidad_max_ms": 2.5
+   "calado_max_m": 0.41,
+   "nivel_max_m": 123.57,
+   "hora_calado_max": "2026-10-30T21:01",
+   "hora_llegada_0.1m": "2026-10-30T18:57",
+   "velocidad_max_ms": 2.95
   },
   "Bellavista (centro, llegada SC-003)": {
-   "calado_max_m": 0.56,
-   "nivel_max_m": 187.49,
-   "hora_calado_max": "2026-10-30T20:55",
-   "hora_llegada_0.1m": "2026-10-30T18:40",
-   "velocidad_max_ms": 1.57
+   "calado_max_m": 0.35,
+   "nivel_max_m": 188.56,
+   "hora_calado_max": "2026-10-30T20:42",
+   "hora_llegada_0.1m": "2026-10-30T15:55",
+   "velocidad_max_ms": 1.4
   },
   "Matazarnos (vaso SC-002)": {
-   "calado_max_m": 3.71,
-   "nivel_max_m": 14.41,
-   "hora_calado_max": "2026-10-30T21:44",
-   "hora_llegada_0.1m": "2026-10-30T15:45",
-   "velocidad_max_ms": 0.81
+   "calado_max_m": 2.83,
+   "nivel_max_m": 16.37,
+   "hora_calado_max": "2026-10-30T21:32",
+   "hora_llegada_0.1m": "2026-10-30T15:46",
+   "velocidad_max_ms": 0.79
   },
   "Pelican Bay (vaso SC-001)": {
-   "calado_max_m": 0.66,
-   "nivel_max_m": 1.47,
-   "hora_calado_max": "2026-10-30T21:52",
-   "hora_llegada_0.1m": "2026-10-30T20:13",
-   "velocidad_max_ms": 4.25
+   "calado_max_m": 0.64,
+   "nivel_max_m": 2.8,
+   "hora_calado_max": "2026-10-30T21:37",
+   "hora_llegada_0.1m": "2026-10-30T20:08",
+   "velocidad_max_ms": 4.39
   },
-  "Cruce CR-SCZ-0010 (Avenida Charles Darwin, 44.4 km²)": {
-   "calado_max_m": 1.87,
-   "nivel_max_m": 4.95,
-   "hora_calado_max": "2026-10-30T21:52",
-   "hora_llegada_0.1m": "2026-10-30T18:40",
-   "velocidad_max_ms": 1.94
+  "Cruce CR-SCZ-0006 (Fragata, 41.0 km²)": {
+   "calado_max_m": 0.12,
+   "nivel_max_m": 10.66,
+   "hora_calado_max": "2026-10-30T21:37",
+   "hora_llegada_0.1m": "2026-10-30T21:21",
+   "velocidad_max_ms": 1.13
   },
-  "Cruce CR-SCZ-0011 (Juan León Mera, 43.1 km²)": {
-   "calado_max_m": 0.87,
-   "nivel_max_m": 12.32,
-   "hora_calado_max": "2026-10-30T21:46",
-   "hora_llegada_0.1m": "2026-10-30T20:36",
-   "velocidad_max_ms": 1.61
+  "Cruce CR-SCZ-0001 (Delfín, 40.8 km²)": {
+   "calado_max_m": 0.63,
+   "nivel_max_m": 15.89,
+   "hora_calado_max": "2026-10-30T21:33",
+   "hora_llegada_0.1m": "2026-10-30T20:00",
+   "velocidad_max_ms": 1.36
   },
-  "Cruce CR-SCZ-0001 (Calle C, 43.0 km²)": {
-   "calado_max_m": 1.81,
-   "nivel_max_m": 15.01,
-   "hora_calado_max": "2026-10-30T21:43",
-   "hora_llegada_0.1m": "2026-10-30T20:21",
-   "velocidad_max_ms": 0.96
-  },
-  "Cruce CR-SCZ-0016 ((sin nombre), 9.7 km²)": {
-   "calado_max_m": 0.55,
-   "nivel_max_m": 115.64,
+  "Cruce CR-SCZ-0008 (Calle C, 37.6 km²)": {
+   "calado_max_m": 2.13,
+   "nivel_max_m": 16.96,
    "hora_calado_max": "2026-10-30T21:30",
-   "hora_llegada_0.1m": "2026-10-30T18:44",
-   "velocidad_max_ms": 3.0
+   "hora_llegada_0.1m": "2026-10-30T18:33",
+   "velocidad_max_ms": 1.02
   },
-  "Cruce CR-SCZ-0020 ((sin nombre), 8.9 km²)": {
-   "calado_max_m": 0.46,
-   "nivel_max_m": 130.45,
-   "hora_calado_max": "2026-10-30T21:28",
-   "hora_llegada_0.1m": "2026-10-30T18:52",
-   "velocidad_max_ms": 2.66
+  "Cruce CR-SCZ-0015 ((sin nombre), 17.4 km²)": {
+   "calado_max_m": 0.79,
+   "nivel_max_m": 119.25,
+   "hora_calado_max": "2026-10-30T21:02",
+   "hora_llegada_0.1m": "2026-10-30T17:11",
+   "velocidad_max_ms": 2.15
   },
-  "Cruce CR-SCZ-0019 ((sin nombre), 8.9 km²)": {
-   "calado_max_m": 0.2,
-   "nivel_max_m": 112.8,
-   "hora_calado_max": "2026-10-30T21:30",
-   "hora_llegada_0.1m": "2026-10-30T21:09",
-   "velocidad_max_ms": 0.67
+  "Cruce CR-SCZ-0018 ((sin nombre), 16.6 km²)": {
+   "calado_max_m": 0.45,
+   "nivel_max_m": 135.5,
+   "hora_calado_max": "2026-10-30T21:00",
+   "hora_llegada_0.1m": "2026-10-30T18:51",
+   "velocidad_max_ms": 2.8
+  },
+  "Cruce CR-SCZ-0152 ((sin nombre), 9.3 km²)": {
+   "calado_max_m": 0.35,
+   "nivel_max_m": 156.42,
+   "hora_calado_max": "2026-10-30T20:57",
+   "hora_llegada_0.1m": "2026-10-30T19:01",
+   "velocidad_max_ms": 3.08
   }
  },
  "entrada_la_cascada": {
-  "q_max_m3s": 413.0,
-  "hora_q_max": "2026-10-30T21:34",
-  "volumen_m3": 3239140
+  "q_max_m3s": 271.7,
+  "hora_q_max": "2026-10-30T21:22",
+  "volumen_m3": 2355909
  },
  "salida_mar": {
-  "q_max_m3s": 503.6,
-  "hora": "2026-10-30T21:54",
-  "volumen_m3": 4051465
+  "q_max_m3s": 563.0,
+  "hora": "2026-10-30T21:38",
+  "volumen_m3": 4905014
  },
  "balance_m3": {
-  "lluvia_neta_aplicada": 5564944,
+  "lluvia_neta_aplicada": 5479465,
   "perdida_constante": 0,
-  "al_mar": 4051465,
-  "en_tierra_final": 1513479
+  "al_mar": 4905014,
+  "en_tierra_final": 574451
  },
  "area_inundada_ha": {
-  "0,1–0,5 m": 492.0,
-  "0,5–1 m": 119.5,
-  "1–2 m": 85.1,
-  "> 2 m": 36.6
+  "0,1–0,5 m": 666.7,
+  "0,5–1 m": 105.2,
+  "1–2 m": 44.9,
+  "> 2 m": 12.2
  }
 }

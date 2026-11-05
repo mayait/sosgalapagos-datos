@@ -16,6 +16,10 @@ from shapely.strtree import STRtree
 from pysheds.grid import Grid
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+# Relieve de cada isla: Santa Cruz usa el DTM 1 m de la SGIAR donde hay cobertura (03_dem.py, relieve_sgiar.py)
+_DTM = (ROOT / "datos/dtm_sgiar/dtm_sgiar_1m.vrt").exists()
+def relieve(isla):
+    return "DTM 1 m SGIAR + Copernicus GLO-30" if _DTM and isla == "Santa Cruz" else "Copernicus GLO-30"
 C = ROOT / "capas"; TMP = ROOT / "descargas/dem_recortes"
 M = 1 / 111320; CELL_KM2 = (30.87e-3) ** 2
 REG = {"Santa Cruz": "santa_cruz", "San Cristóbal": "san_cristobal", "Isabela": "isabela_sur"}
@@ -90,7 +94,7 @@ for isla, key in REG.items():
         completas.append({"type": "Feature", "geometry": mapping(g), "properties": {"isla": isla, "tipo": "Cuenca completa de la localidad",
             "destino": nm, "area_km2": round(g.area / M**2 / 1e6, 2), "area_aguas_arriba_km2": round(a_up, 2),
             "descripcion": f"Todo el terreno cuya agua termina pasando por {nm}, incluida la parte alta y lo que atraviesa otros poblados",
-            "fuente": "Modelo D8 sobre Copernicus GLO-30 con quebradas IGM quemadas; localidad = manzanas INEC + límite urbano IGM"}})
+            "fuente": f"Modelo D8 sobre {relieve(isla)} con quebradas IGM quemadas; localidad = manzanas INEC + límite urbano IGM"}})
         print(f"   cuenca completa {nm}: {a_up:.1f} km² aguas arriba")                           # celdas aguas arriba que drenan a un poblado
     print(f"{isla}: {up.sum() * CELL_KM2:.1f} km² drenan hacia zonas pobladas")
     # agrupar por punto de entrada; las subcuencas pequeñas se agrupan por localidad
@@ -141,11 +145,11 @@ for isla, key in REG.items():
                      "area_drenada_entrada_km2": round(float(acc.ravel()[e]) * CELL_KM2, 2),
                      "punto_entrada": [round(x, 5), round(y, 5)],
                      "descripcion": f"Toda el área cuya agua llega a {destino}" + (f" por la {q}" if q else ""),
-                     "fuente": "Modelo D8 sobre Copernicus GLO-30 con quebradas IGM quemadas"}
+                     "fuente": f"Modelo D8 sobre {relieve(isla)} con quebradas IGM quemadas"}
         else:
             props = {"isla": isla, "tipo": "Escorrentía local", "destino": e, "area_km2": round(a, 2),
                      "descripcion": f"Laderas pequeñas que escurren directamente hacia {e}",
-                     "fuente": "Modelo D8 sobre Copernicus GLO-30"}
+                     "fuente": f"Modelo D8 sobre {relieve(isla)}"}
         if a < 0.02: continue
         out.append({"type": "Feature", "geometry": mapping(g), "properties": {k: v for k, v in props.items() if v is not None}})
 out.sort(key=lambda f: (f["properties"]["tipo"] != "Escorrentía local", -f["properties"]["area_km2"]))

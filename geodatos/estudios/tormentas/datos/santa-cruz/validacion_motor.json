@@ -1,35 +1,35 @@
 {
  "La Cascada (centro)": {
-  "nuevo_celda": 1.85,
-  "nuevo_max_3x3": 3.51,
-  "script24_celda": 1.84,
-  "llegada_0.1m_nuevo": "20:55",
-  "llegada_0.1m_script24": "20:53",
-  "hora_max_nuevo": "22:25",
-  "hora_max_script24": "22:24"
+  "nuevo_celda": 1.56,
+  "nuevo_max_3x3": 2.63,
+  "script24_celda": 1.56,
+  "llegada_0.1m_nuevo": "20:30",
+  "llegada_0.1m_script24": "20:27",
+  "hora_max_nuevo": "22:10",
+  "hora_max_script24": "22:09"
  },
  "Tomás de Berlanga (cauce)": {
-  "nuevo_celda": 0.35,
-  "nuevo_max_3x3": 0.54,
-  "script24_celda": 0.35
+  "nuevo_celda": 0.39,
+  "nuevo_max_3x3": 0.52,
+  "script24_celda": 0.39
  },
  "Bellavista (centro, llegada SC-003)": {
-  "nuevo_celda": 0.53,
-  "nuevo_max_3x3": 0.94,
-  "script24_celda": 0.53
+  "nuevo_celda": 0.33,
+  "nuevo_max_3x3": 0.33,
+  "script24_celda": 0.34
  },
  "Matazarnos (vaso SC-002)": {
-  "nuevo_celda": 3.32,
-  "nuevo_max_3x3": 3.32,
-  "script24_celda": 3.31
+  "nuevo_celda": 2.64,
+  "nuevo_max_3x3": 2.64,
+  "script24_celda": 2.64
  },
  "_corrida": {
-  "segundos": 14.2,
-  "pasos": 18917,
+  "segundos": 11.6,
+  "pasos": 15293,
   "balance": {
-   "lluvia_neta_m3": 8184276,
-   "salida_m3": 1332798,
-   "almacenado_m3": 977074
+   "lluvia_neta_m3": 8087728,
+   "salida_m3": 1871523,
+   "almacenado_m3": 336606
   }
  }
 }

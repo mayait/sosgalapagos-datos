@@ -85,7 +85,7 @@ with tempfile.TemporaryDirectory() as td:
 A = np.where(nod, 0, A).astype("float32")
 with rasterio.open(OUT / "acumulacion_d8.tif", "w", **{**prof, "nodata": -1}) as d:
     d.write(np.where(nod, -1, A).astype("float32"), 1)
-    d.update_tags(unidades="km2 de área aportante", metodo="D8 pysheds sobre GLO-30 con quebradas IGM quemadas (3 m), depresiones rellenadas", crs="EPSG:32715")
+    d.update_tags(unidades="km2 de área aportante", metodo="D8 pysheds sobre el relieve de 03_dem.py (DTM 1 m SGIAR + Copernicus GLO-30) con quebradas IGM quemadas (3 m), depresiones rellenadas", crs="EPSG:32715")
 with rasterio.open(OUT / "direcciones_d8.tif", "w", **{**prof, "dtype": "uint8", "nodata": 0}) as d:
     d.write(np.where(nod | ~np.isin(F, list(OFF)), 0, F).astype("uint8"), 1)
     d.update_tags(dirmap="N=64 NE=128 E=1 SE=2 S=4 SO=8 O=16 NO=32 (convención ESRI)", crs="EPSG:32715")
@@ -381,7 +381,7 @@ if ich is not None:
         "id": "SC-TdB", "tipo": "CAUCE_EN_ZONA_POBLADA", "localidad": "rural", "sector": "TOMAS DE BERLANGA", **hp,
         "edificios": ne2, "poblacion": pob2, "viviendas": viv2, "evidencia": ["Reporte del coordinador (fase 2): el sector se inunda"],
         "puntaje": round(sc + 0.5, 2), "prioridad": "Alta" if sc + 0.5 >= 3 else ("Media" if sc + 0.5 >= 2 else "Baja"),
-        "nota": "Cauce D8 de 9,4 km² sin quebrada cartografiada (IGM/OSM) que cruza la vía secundaria y la trama de calles del sector; sin depresión en el DSM."}}
+        "nota": f"Cauce D8 de {str(round(hp['area_km2'], 1)).replace('.', ',')} km² sin quebrada cartografiada (IGM/OSM) que cruza la vía secundaria y la trama de calles del sector; sin depresión en el relieve."}}
 # punto TdB en la lista de candidatos más cercano
 tdb["candidatos_a_500m"] = [p_["props"]["id"] + " " + p_["tipo"] for p_ in puntos if Point(TR * ((p_["i"] % W) + .5, (p_["i"] // W) + .5)).distance(ptb) < 500]
 

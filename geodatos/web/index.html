@@ -225,7 +225,7 @@ body.captura #salir.tenue:hover{opacity:1}
     <div class="dl-all" id="todo"></div>
     <p><b>Shapefile (.zip):</b> descomprime y abre el <code>.shp</code> en QGIS o ArcGIS. Coordenadas WGS 84 (EPSG:4326) y atributos en UTF-8. Cada zip trae un <code>LEEME.txt</code> con la fuente, la licencia y los nombres de campo acortados.</p>
     <p><b>GeoJSON:</b> se abre directo en QGIS, geojson.io, Mapbox o con cualquier librería web.</p>
-    <p><b>Relieve y pendientes:</b> PNG georreferenciados con archivo de mundo (.pgw).</p>
+    <p><b>Relieve y pendientes:</b> PNG georreferenciados con archivo de mundo (.pgw). <b>DTM de la SGIAR (Santa Cruz):</b> GeoTIFF de 5 m; el de 1 m está en el repositorio.</p>
    </details>
    <details class="card"><summary>Cómo buscar, poner puntos y sacar una imagen</summary>
     <p><b>Buscar:</b> escribe el nombre de una calle, un barrio, un lugar, una cañada o el código de un cruce (CR-SCZ-0001) o de un punto (SC-001, PBM-L01). También acepta coordenadas: <code>-0.7430, -90.3097</code>.</p>
@@ -233,7 +233,7 @@ body.captura #salir.tenue:hover{opacity:1}
     <p><b>Puntos de análisis:</b> pulsa «Punto de análisis» y toca el mapa. Cada punto (A, B, C…) dice qué hay en ese lugar según las capas encendidas: la susceptibilidad, el cruce o la quebrada más cercanos y la distancia al punto anterior. Puedes arrastrarlos. No se guardan en ningún lado.</p>
     <p><b>Imagen:</b> «Descargar imagen» guarda un PNG del mapa con la leyenda y los puntos. «Modo captura» deja solo el mapa y la leyenda, para una captura de pantalla normal. El título de la leyenda se puede editar.</p>
    </details>
-   <div class="note">Fuentes: IGM 1:25 000, CGREG, zonificación PNG 2017 (CGREG/FCD), SNGR/INOCAR, MSP, MINEDUC, INEC MGN 2026, © colaboradores de OpenStreetMap (ODbL, 31-oct-2026), Google Open Buildings y Copernicus GLO-30. La susceptibilidad, los puntos potenciales, los cruces, la costa baja y los cauces adicionales son un <b>modelo sobre un DSM de 30 m</b>: sirven para priorizar, no son delimitaciones oficiales. Colores de riesgo: rojo oscuro = alto, naranja = medio, amarillo = bajo. <a href="/privacidad">Privacidad</a>.</div>
+   <div class="note">Fuentes: IGM 1:25 000, CGREG, zonificación PNG 2017 (CGREG/FCD), SNGR/INOCAR, MSP, MINEDUC, INEC MGN 2026, © colaboradores de OpenStreetMap (ODbL, 31-oct-2026), Google Open Buildings, Copernicus GLO-30 y, en Santa Cruz, el <b>DTM de 1 m de la SGIAR</b> (Subsecretaría de Gestión de la Información y Análisis de Riesgo; Vricon/Maxar). La susceptibilidad, los puntos potenciales, los cruces, la costa baja y los cauces adicionales son un <b>modelo</b> (DSM de 30 m; en Puerto Ayora, el escarpe y Bellavista, DTM de la SGIAR a 5 m): sirven para priorizar, no son delimitaciones oficiales. Colores de riesgo: rojo oscuro = alto, naranja = medio, amarillo = bajo. <a href="/privacidad">Privacidad</a>.</div>
   </div>
  </aside>
  <div id="wrap">
@@ -338,6 +338,14 @@ const renderer = pane => ctx.renderers[pane] ??= L.canvas({ pane, padding: .3 })
 const archivoDe = capa => ctx.cache[capa.archivo] ??= json(datos() + capa.archivo);
 async function crearCapa(capa) {
   const base = datos();
+  if (capa.tipo === 'teselas') {
+    const m = await json(`teselas/${capa.teselas}/teselas.json`);
+    ctx.cota = { url: `teselas/${capa.teselas}/${m.cota.url}`, z: m.cota.zoom, limites: L.latLngBounds(m.limites), capa: null };
+    const l = L.tileLayer(`teselas/${capa.teselas}/${m.relieve.url}`, { pane: 'fondo', opacity: capa.opacidad ?? .85, bounds: m.limites,
+      minNativeZoom: m.relieve.zoom_min, maxNativeZoom: m.relieve.zoom_max, maxZoom: 20, attribution: m.atribucion });
+    ctx.cota.capa = l;
+    return l;
+  }
   if (capa.tipo === 'raster') {
     const lim = ctx.limites ??= await json(base + 'raster/limites.json');
     return L.layerGroup(Object.entries(lim).map(([k, v]) => L.imageOverlay(conV(`${base}raster/${k}_${capa.raster}.png`), v.bounds,
@@ -491,12 +499,13 @@ let MAN = null; const filas = [];
         <div class="dl"></div>
         ${capa.descripcion ? `<div class="desc">${esc(capa.descripcion)}</div>` : ''}<div class="zoomhint">Acércate al mapa (zoom ${capa.zoom_min}+) para ver esta capa.</div><div class="leg">${ley}</div>`;
       const st = { on: false, layer: null, cargando: null };
-      const clave = capa.archivo ?? 'raster:' + capa.raster;
+      const clave = capa.archivo ?? (capa.teselas ? 'teselas:' + capa.teselas : 'raster:' + capa.raster);
       const a = idx.variantes[variante].archivos[clave];
       row.querySelector('.meta').textContent = (capa.fuente ?? '') + (a?.elementos ? ' · ' + a.elementos.toLocaleString('es') + ' elementos' : '');
       row.querySelector('.dl').innerHTML = !a ? '<span>Sin datos en esta cobertura</span>'
         : `<a href="${a.shp.url}" download>↓ ${a.shp.formato ?? 'Shapefile'} <span>${a.shp.tam}</span></a>` +
-          (a.geojson ? `<a href="${a.geojson.url}" download="${variante}-${capa.archivo}">↓ GeoJSON <span>${a.geojson.tam}</span></a>` : '');
+          (a.geojson ? `<a href="${a.geojson.url}" download="${variante}-${capa.archivo}">↓ GeoJSON <span>${a.geojson.tam}</span></a>` : '') +
+          (a.extra ? `<a href="${a.extra.url}" target="_blank" rel="noopener">↓ ${esc(a.extra.texto)}</a>` : '');
       const sync = async () => {
         const lejos = !!capa.zoom_min && map.getZoom() < capa.zoom_min;
         row.classList.toggle('far', st.on && lejos);
@@ -545,7 +554,29 @@ let MAN = null; const filas = [];
   }
   expo();
 })();
-map.on('mousemove', e => $('coord').textContent = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)} · z${map.getZoom()}`);
+// Cota del terreno bajo el cursor: con la capa del DTM encendida se lee su tesela «Terrarium» (cota = R·256 + G + B/256 − 32768)
+const cotaTes = {};
+function cotaEn(ll) {
+  const c = ctx.cota;
+  if (!c?.capa || !map.hasLayer(c.capa) || !c.limites.contains(ll)) return null;
+  const n = 2 ** c.z, x = (ll.lng + 180) / 360 * n, y = (1 - Math.asinh(Math.tan(ll.lat * Math.PI / 180)) / Math.PI) / 2 * n;
+  const k = `${Math.floor(x)}/${Math.floor(y)}`;
+  if (!(k in cotaTes)) {
+    cotaTes[k] = null;
+    const im = new Image();
+    im.onload = () => { const cv = document.createElement('canvas'); cv.width = cv.height = 256; const g = cv.getContext('2d', { willReadFrequently: true });
+      g.drawImage(im, 0, 0); cotaTes[k] = g.getImageData(0, 0, 256, 256).data; };
+    im.src = c.url.replace('{z}', c.z).replace('{x}', Math.floor(x)).replace('{y}', Math.floor(y));
+  }
+  const d = cotaTes[k]; if (!d) return null;
+  const i = (Math.min(255, Math.floor((y % 1) * 256)) * 256 + Math.min(255, Math.floor((x % 1) * 256))) * 4;
+  return d[i + 3] ? d[i] * 256 + d[i + 1] + d[i + 2] / 256 - 32768 : null;
+}
+map.on('mousemove', e => {
+  const z = cotaEn(e.latlng);
+  $('coord').textContent = `${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)} · z${map.getZoom()}` +
+    (z === null ? '' : ` · cota ${z.toFixed(1).replace('.', ',')} m (DTM SGIAR)`);
+});
 
 // ═══════════ Leyenda sobre el mapa: capas activas + puntos ═══════════
 const ahora = () => new Date().toLocaleString('es-EC', { timeZone: 'Pacific/Galapagos', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });

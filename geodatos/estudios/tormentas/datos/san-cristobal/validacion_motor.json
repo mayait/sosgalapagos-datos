@@ -62,30 +62,30 @@
  "hospital_oskar_jandl": {
   "nuevo_celda": 0.09,
   "nuevo_max_3x3": 0.12,
-  "script25_celda": 0.0
+  "script25_celda": 0.09
  },
  "colegio_ignacio_hernandez_via_jaime_roldos": {
   "nuevo_celda": 0.02,
   "nuevo_max_3x3": 0.05,
-  "script25_celda": 0.0
+  "script25_celda": 0.02
  },
  "manzanillo_puente_perimetral": {
   "nuevo_celda": 0.27,
   "nuevo_max_3x3": 0.69,
-  "script25_celda": 0.0
+  "script25_celda": 0.27
  },
  "la_planada_registro_2025": {
   "nuevo_celda": 0.01,
   "nuevo_max_3x3": 0.31,
-  "script25_celda": 0.0
+  "script25_celda": 0.01
  },
  "playa_de_oro": {
   "nuevo_celda": 0.04,
   "nuevo_max_3x3": 0.23,
-  "script25_celda": 0.0
+  "script25_celda": 0.04
  },
  "_corrida": {
-  "segundos": 6.6,
+  "segundos": 5.2,
   "pasos": 16247,
   "balance": {
    "lluvia_neta_m3": 1704136,
