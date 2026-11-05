@@ -101,7 +101,6 @@ Solo desde `main`, con el árbol limpio y por quien tenga acceso al servidor:
 
 ```bash
 servidores/publicar.sh mapas      # sosgalapagos.org/mapas/
-servidores/publicar.sh estudios   # sosgalapagos.org/estudios/
 servidores/publicar.sh clima      # sosgalapagos.org/clima/ (recolector y panel)
 ```
 

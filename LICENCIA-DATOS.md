@@ -7,7 +7,7 @@ El repositorio tiene dos licencias propias, según el tipo de material, y respet
 | Qué | Licencia | Archivo |
 |---|---|---|
 | **Código**: scripts, recolector, web y plantillas | [Apache 2.0](LICENSE). Toda copia o trabajo derivado debe conservar el aviso [`NOTICE`](NOTICE), que atribuye la autoría a la USFQ | `LICENSE`, `NOTICE` |
-| **Contenido propio**: textos, informes técnicos (`informes/`), estudios, figuras, mapas, capas y salidas de los modelos propios (HAND, cuencas, modelo 2D, tormentas sintéticas, curvas IDF, umbrales, pronóstico) | [Creative Commons Atribución 4.0 Internacional (CC BY 4.0)](LICENCIA-CC-BY-4.0.txt) | `LICENCIA-CC-BY-4.0.txt` |
+| **Contenido propio**: textos, estudios, figuras, mapas, capas y salidas de los modelos propios (HAND, cuencas, modelo 2D, tormentas sintéticas, curvas IDF, umbrales, pronóstico) | [Creative Commons Atribución 4.0 Internacional (CC BY 4.0)](LICENCIA-CC-BY-4.0.txt) | `LICENCIA-CC-BY-4.0.txt` |
 | **Datos de terceros** y lo que se deriva de ellos | La licencia de cada fuente (tabla de abajo). Si es más restrictiva, **prevalece sobre CC BY 4.0** | — |
 
 ## Atribución obligatoria
@@ -16,11 +16,9 @@ La licencia CC BY 4.0 exige atribuir el material cada vez que se reproduce, se a
 
 > Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). https://github.com/mayait/sosgalapagos-datos. Licencia CC BY 4.0.
 
-Para un informe técnico concreto, cite el informe. La forma de citarlo aparece al pie de su primera página.
+Si usa los modelos o resultados en una publicación académica, cite el repositorio. GitHub muestra la cita en formato BibTeX y APA en «Cite this repository», a partir de [`CITATION.cff`](CITATION.cff).
 
-Si usa los modelos o resultados en una publicación académica, cite además el informe técnico que los describe. GitHub muestra la cita en formato BibTeX y APA en «Cite this repository», a partir de [`CITATION.cff`](CITATION.cff).
-
-> **Alcance de la obligación.** Una licencia rige la **copia y la adaptación** del material: código, textos, figuras, capas y datos. No puede obligar a citar ideas o resultados que se describen con palabras propias sin reproducir el material. Para esos casos se aplica la norma académica de citar la fuente, y por eso se publican `CITATION.cff` y las citas de cada informe.
+> **Alcance de la obligación.** Una licencia rige la **copia y la adaptación** del material: código, textos, figuras, capas y datos. No puede obligar a citar ideas o resultados que se describen con palabras propias sin reproducir el material. Para esos casos se aplica la norma académica de citar la fuente, y por eso se publica `CITATION.cff`.
 
 ## Datos de terceros
 
