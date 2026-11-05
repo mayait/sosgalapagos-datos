@@ -30,6 +30,7 @@ Estas fuentes conservan su licencia. Los productos que se derivan de ellas queda
 |---|---|---|
 | OpenStreetMap | ODbL 1.0 | Las bases de datos derivadas se publican bajo ODbL, con «© colaboradores de OpenStreetMap» |
 | Copernicus GLO-30 DEM | Licencia Copernicus DEM, libre con atribución | Texto de atribución de `mapas-galapagos/documentacion/03-fuentes-y-licencias.md` |
+| **SGIAR**, Subsecretaría de Gestión de la Información y Análisis de Riesgo: DTM de 1 m de Santa Cruz (producto Vricon/Maxar) | EULA de Vricon/Maxar; entregado por la SGIAR, que autorizó publicarlo aquí. Cita obligatoria a la SGIAR (`geodatos/datos/dtm_sgiar/LEEME.md`) | No queda bajo CC BY 4.0. Lo derivado (HAND, cuencas, modelo 2D) cita a la SGIAR como fuente del relieve |
 | Google Open Buildings v3 | CC BY 4.0 (u ODbL) | Atribución «Google Open Buildings» |
 | IGM, CGREG, SNGR, INOCAR, INEC, MSP, MINEDUC, CONALI | Información pública con cita a la institución | Citar a la institución. Para usos formales, confirmar con ella |
 | IERSE (Universidad del Azuay), red WSN | CC BY-NC-ND 4.0, con cita obligatoria (`clima/datos/LEEME.md`) | Sin uso comercial y **sin obras derivadas**. Los modelos que usan su lluvia necesitan el permiso escrito del titular |

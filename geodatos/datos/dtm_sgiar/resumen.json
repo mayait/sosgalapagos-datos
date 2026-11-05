@@ -1,0 +1,122 @@
+{
+ "titulo": "Modelo digital del terreno (DTM) de 1 m de Santa Cruz, Galápagos: Puerto Ayora y Bellavista",
+ "fuente": "SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo",
+ "cita": "SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo (2026). Modelo digital del terreno (DTM) de 1 m de Santa Cruz, Galápagos: Puerto Ayora y Bellavista [conjunto de datos]. Producto Vricon DTM (Maxar), imágenes de 2020 a 2024, pedido 7032308101286995205. Recomprimido por SOS Galápagos (USFQ): https://github.com/mayait/sosgalapagos-datos/tree/main/geodatos/datos/dtm_sgiar",
+ "licencia": "Dato de la SGIAR sobre un producto de Vricon/Maxar, sujeto al EULA de Vricon. La SGIAR autorizó su publicación en este repositorio. Cite a la SGIAR en todo uso. La licencia CC BY 4.0 del repositorio no se aplica a este dato (ver LICENCIA-DATOS.md).",
+ "copyright_proveedor": "Vricon DTM, Copyright 2026 Vricon Inc. (Maxar); uso limitado por el EULA de Vricon. Provisto por la SGIAR.",
+ "tipo": "dato institucional (no es modelo propio)",
+ "producto": "Vricon DTM",
+ "software_proveedor": "Vricon E 2c746789324cb53d90b2b7c51dd621a8cb62945b (v25.02.28) @ci",
+ "pedido": "7032308101286995205",
+ "fecha_pedido": "2026-07-25T22:40:52Z",
+ "uuid": "477f35e4-8c0d-424f-b6dc-8e0341286613",
+ "adquisicion": {
+  "primera": "2020-02-02T16:42:58.908950Z",
+  "ultima": "2024-03-03T16:31:20.008550Z"
+ },
+ "crs": "EPSG:32715 (WGS84 G1674 / UTM 15 S)",
+ "datum_vertical": "EGM2008",
+ "resolucion_m": 1.0,
+ "unidad": "m",
+ "extension_utm": [
+  790328.0,
+  9914479.0,
+  802599.0,
+  9929430.0
+ ],
+ "extension_4326": [
+  [
+   -90.391567,
+   -0.772928
+  ],
+  [
+   -90.281401,
+   -0.772858
+  ],
+  [
+   -90.281479,
+   -0.637745
+  ],
+  [
+   -90.391642,
+   -0.637803
+  ],
+  [
+   -90.391567,
+   -0.772928
+  ]
+ ],
+ "area_km2": 183.5,
+ "compresion": "COG LERC_DEFLATE, error máximo 1 cm",
+ "teselas": [
+  {
+   "archivo": "dtm_sgiar_1m_0901905w_004156s.tif",
+   "origen": "0901905w_004156s_20260725T224354Z_dtm.tif",
+   "sha256_origen": "19795bdf456fdcab011a7a93dcf1f7909fb8ebffc544e1c371eeba451e79d46a",
+   "mb_origen": 72.9,
+   "mb": 17.2,
+   "error_max_m": 0.01
+  },
+  {
+   "archivo": "dtm_sgiar_1m_0901905w_004622s.tif",
+   "origen": "0901905w_004622s_20260725T224354Z_dtm.tif",
+   "sha256_origen": "61a11ce91cff76c1f0e064149aec50eed2476c8fef57058da92add09bde9e1b7",
+   "mb_origen": 55.9,
+   "mb": 10.3,
+   "error_max_m": 0.01
+  },
+  {
+   "archivo": "dtm_sgiar_1m_0902330w_004156s.tif",
+   "origen": "0902330w_004156s_20260725T224354Z_dtm.tif",
+   "sha256_origen": "79846b8e4bba43095944545e5a029d5a573bd7cb85e6d76d20e8af3939c1dd6e",
+   "mb_origen": 144.6,
+   "mb": 35.3,
+   "error_max_m": 0.01
+  },
+  {
+   "archivo": "dtm_sgiar_1m_0902330w_004623s.tif",
+   "origen": "0902330w_004623s_20260725T224354Z_dtm.tif",
+   "sha256_origen": "3109b98e5e2d95850d01377cdc049bb5c99dc4e122cd668aa1e4d5c036af1278",
+   "mb_origen": 148.3,
+   "mb": 28.3,
+   "error_max_m": 0.01
+  }
+ ],
+ "control_calidad": {
+  "puntos_igm_en_cobertura": 1267,
+  "dtm_menos_igm_m": {
+   "n": 1264,
+   "media": -1.28,
+   "mediana": -1.02,
+   "desv_est": 3.51,
+   "p05": -6.4,
+   "p95": 3.62,
+   "emc": 3.74
+  },
+  "copernicus_menos_igm_m": {
+   "n": 1264,
+   "media": -2.0,
+   "mediana": -1.82,
+   "desv_est": 2.95,
+   "p05": -6.95,
+   "p95": 1.93,
+   "emc": 3.56
+  },
+  "dtm_menos_copernicus_malla_100m_m": {
+   "n": 16704,
+   "media": 1.02,
+   "mediana": 1.24,
+   "desv_est": 2.78,
+   "p05": -3.01,
+   "p95": 4.55,
+   "emc": 2.96
+  },
+  "nota": "IGM: puntos acotados 1:25 000 (cota entera). Copernicus GLO-30 es un DSM (techos y copas). Diferencias en m; emc = error medio cuadrático."
+ },
+ "no_incluido": [
+  "DSM (no se pidió)",
+  "filling_mask (vale 1 en todas las celdas)",
+  "request.json (correo de la cuenta y bucket de entrega)"
+ ],
+ "script": "geodatos/scripts/35_dtm_sgiar.py"
+}

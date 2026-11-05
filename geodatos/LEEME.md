@@ -18,6 +18,7 @@ Mini proyecto para reunir, depurar y revisar la información geográfica de Sant
 | `capas/osm/`, `capas/igm/`, `capas/dem/` | Capas depuradas por fuente. |
 | `capas/final/` | Capas integradas de las islas completas. |
 | `export/` | **Paquete para ResponseGrid**: capas recortadas al área de interés, manifiesto `capas.json`, motor TypeScript y guía de integración. |
+| `datos/dtm_sgiar/` | **DTM de 1 m de Santa Cruz** (Puerto Ayora, escarpe y Bellavista), dato de la **SGIAR** (Subsecretaría de Gestión de la Información y Análisis de Riesgo) sobre un producto Vricon/Maxar. Lo prepara `35_dtm_sgiar.py`; ficha y cita en su `LEEME.md`. |
 | `capas/raster/` | PNG para superponer: relieve, elevación, pendientes y susceptibilidad HAND; los límites están en `limites.json`. |
 | `scripts/` | Proceso reproducible (`01`–`07`); ver abajo. |
 | `docs/fuentes-oficiales.md` | Catálogo de fuentes y servicios probados. |
