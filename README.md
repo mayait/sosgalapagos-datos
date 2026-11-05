@@ -65,7 +65,7 @@ Es lo único que permite **validar** los modelos y la alerta. Hoy ninguna cifra 
 
 | Qué | Para qué | Issue |
 |---|---|---|
-| **Relieve de 1 m sin edificios** (dron o LiDAR) de los poblados | Rehacer HAND y el modelo 2D sin el error de ±2–4 m del DSM | [#16](https://github.com/mayait/sosgalapagos-datos/issues/16), [#23](https://github.com/mayait/sosgalapagos-datos/issues/23) |
+| **Relieve de 1 m sin edificios** (dron o LiDAR) de los poblados. Santa Cruz ya tiene el DTM de 1 m de la SGIAR (Puerto Ayora, el escarpe y Bellavista, en [`geodatos/datos/dtm_sgiar/`](geodatos/datos/dtm_sgiar/LEEME.md)); faltan San Cristóbal e Isabela | Rehacer HAND y el modelo 2D sin el error de ±2–4 m del DSM | [#16](https://github.com/mayait/sosgalapagos-datos/issues/16), [#23](https://github.com/mayait/sosgalapagos-datos/issues/23) |
 | **Pluviómetros** en cada poblado y en la parte alta; el mejor sitio nuevo está en la cuenca media de La Cascada (informe 2026-02) | Alerta con más anticipación | [#19](https://github.com/mayait/sosgalapagos-datos/issues/19) |
 | Sensor de nivel en El Progreso | Ahí la lluvia no anticipa la inundación | [#81](https://github.com/mayait/sosgalapagos-datos/issues/81) |
 | Revisión de los pluviómetros de Cerro Crocker y Los Guayabillos | Datos dudosos desde el 30-oct | [#56](https://github.com/mayait/sosgalapagos-datos/issues/56) |
@@ -131,7 +131,7 @@ docs/              explicaciones transversales (modelo HAND)
 
 ## Fuentes principales
 
-IGM (1:25 000), CGREG/FCD, SNGR/INOCAR, INEC, MSP, MINEDUC, OpenStreetMap (ODbL), Google Open Buildings, Copernicus GLO-30, **IERSE** (Universidad del Azuay; 4 estaciones en Santa Cruz cada 5 min), **USFQ GSC** (San Cristóbal), **INAMHI**, **FCD** (lluvia diaria desde 1965), reanálisis GAR (TU Berlín), modelos de pronóstico vía Open-Meteo y NOAA GOES-19.
+IGM (1:25 000), CGREG/FCD, SNGR/INOCAR, INEC, MSP, MINEDUC, OpenStreetMap (ODbL), Google Open Buildings, Copernicus GLO-30, **SGIAR** (DTM de 1 m de Santa Cruz), **IERSE** (Universidad del Azuay; 4 estaciones en Santa Cruz cada 5 min), **USFQ GSC** (San Cristóbal), **INAMHI**, **FCD** (lluvia diaria desde 1965), reanálisis GAR (TU Berlín), modelos de pronóstico vía Open-Meteo y NOAA GOES-19.
 
 Las fuentes meteorológicas se citan como piden sus autores. Los servicios (endpoints) de los que se descargan no se publican. Detalle y licencias de cada fuente: [`LICENCIA-DATOS.md`](LICENCIA-DATOS.md).
 

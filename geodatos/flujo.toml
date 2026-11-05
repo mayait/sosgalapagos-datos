@@ -33,6 +33,15 @@ dem_scb = ["descargas/dem_recortes/san_cristobal_dem.tif", "descargas/dem_recort
 capas = ["capas/final/*.geojson", "capas/igm/*.geojson", "capas/osm/*.geojson", "capas/dem/*.geojson", "export/galapagos/*.geojson"]
 lluvia_evento = ["estudios/la-cascada/datos/lluvia_ierse_30oct_5min.csv", "estudios/la-cascada/datos/lluvia_ierse_validacion_5min.csv"]
 
+# ------------------------------------------------------------------ relieve
+[pasos.dtm_sgiar]
+script = "35_dtm_sgiar.py"
+manual = true
+nota = "DTM 1 m de la SGIAR (Santa Cruz): verifica el zip, recomprime a COG LERC (±1 cm), firma y controla con el IGM"
+entradas = ["descargas/sgiar/7032308101286995205.zip", "capas/igm/punto_acotado_p.geojson"]
+salidas = ["datos/dtm_sgiar/dtm_sgiar_1m_*.tif", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "datos/dtm_sgiar/dtm_sgiar_5m.tif",
+           "datos/dtm_sgiar/cobertura.geojson", "datos/dtm_sgiar/resumen.json", "datos/dtm_sgiar/SHA256SUMS"]
+
 # ------------------------------------------------------------------ lluvia
 [pasos.lluvia_ierse]
 script = "21_lluvia_ierse_estudios.py"
