@@ -563,7 +563,7 @@ def figura_serie(isla, h, mar, ests, nombre_mar, archivo, marcas, linea_2d=False
     a2.axhline(0, color="k", lw=0.6)
     if linea_2d:
         a2.axhline(NIVEL_MAR_2D, color="#d62728", lw=1.0, ls=":")
-        a2.text(t1 - pd.Timedelta(hours=1), NIVEL_MAR_2D + 0.04, "nivel fijo del modelo 2D: +0,75 m (cero del DSM, supuesto ≈ nivel medio)",
+        a2.text(t1 - pd.Timedelta(hours=1), NIVEL_MAR_2D + 0.04, "nivel fijo del modelo 2D: +0,75 m (cero EGM2008 del relieve, supuesto ≈ nivel medio)",
                 fontsize=7.5, color="#d62728", ha="right", va="bottom", bbox=dict(fc="white", ec="none", alpha=0.8, pad=1))
     for tm, lab, col in marcas:
         for ax in (a1, a2):

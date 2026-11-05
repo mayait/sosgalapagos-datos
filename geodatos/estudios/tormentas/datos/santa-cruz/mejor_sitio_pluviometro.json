@@ -1,23 +1,23 @@
 [
  {
   "zona": "La Cascada",
-  "mejor_auc": 0.962,
-  "mejor_lon": -90.3112,
+  "mejor_auc": 0.958,
+  "mejor_lon": -90.3153,
   "mejor_lat": -0.7015,
-  "mejor_cota_m": 157
+  "mejor_cota_m": 163
  },
  {
   "zona": "Tomás de Berlanga",
-  "mejor_auc": 0.925,
-  "mejor_lon": -90.3112,
+  "mejor_auc": 0.922,
+  "mejor_lon": -90.3435,
   "mejor_lat": -0.6974,
-  "mejor_cota_m": 174
+  "mejor_cota_m": 194
  },
  {
   "zona": "Bellavista",
-  "mejor_auc": 0.788,
-  "mejor_lon": -90.3314,
-  "mejor_lat": -0.6811,
-  "mejor_cota_m": 288
+  "mejor_auc": 0.593,
+  "mejor_lon": -90.4567,
+  "mejor_lat": -0.6812,
+  "mejor_cota_m": 163
  }
 ]

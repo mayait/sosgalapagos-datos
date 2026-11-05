@@ -1,15 +1,9 @@
 fecha_hora_utc6,hito,valor,incertidumbre
 2026-10-30T14:20,La Cascada: Inicio de escorrentía significativa en la entrada al barrio (Q > 1 m³/s),,30-Oct 08:40 a 30-Oct 17:00 según CN y tc
-2026-10-30T18:12,"La Cascada: Vaso de La Cascada lleno hasta el rebose (≈12,95 m DSM)",61938 m³,30-Oct 16:51 a 30-Oct 18:12 (Kirpich–Témez); volumen 42 000–62 000 m³
-2026-10-30T21:40,La Cascada: Caudal pico en la entrada al barrio (tc Kirpich),496.7 m³/s,CN 68–83: 433.7–550.1 m³/s
-2026-10-30T22:50,La Cascada: Caudal pico en la entrada al barrio (tc Témez),324.7 m³/s,CN 68–83: 277.3–368.1 m³/s
-2026-10-30T22:52,"La Cascada: Lámina máxima en el barrio (tránsito por el vaso, frente de desborde 300 m)",3.16 m sobre el fondo DSM (cota 13.69 m),"frente 100–1000 m y Kirpich–Témez: 3.94 m, 3.16 m, 2.75 m, 4.41 m, 3.4 m, 2.86 m; DSM ±2–4 m"
-2026-10-31T05:29,"La Cascada: La lámina vuelve a la cota de rebose (+5 cm); por debajo, el vaso solo se vacía por infiltración o bombeo",61938 m³ retenidos,sin salida por gravedad bajo el rebose; la SNGR anunció que se drenaría el sector
-2026-10-30T14:20,La Cascada: Inicio de escorrentía significativa en la entrada al barrio (Q > 1 m³/s),,30-Oct 08:40 a 30-Oct 17:00 según CN y tc
-2026-10-30T18:12,"La Cascada: Vaso de La Cascada lleno hasta el rebose (≈12,95 m DSM)",61938 m³,30-Oct 16:51 a 30-Oct 18:12 (Kirpich–Témez); volumen 42 000–62 000 m³
-2026-10-30T21:40,La Cascada: Caudal pico en la entrada al barrio (tc Kirpich),496.7 m³/s,CN 68–83: 433.7–550.1 m³/s
-2026-10-30T22:50,La Cascada: Caudal pico en la entrada al barrio (tc Témez),324.7 m³/s,CN 68–83: 277.3–368.1 m³/s
-2026-10-30T22:52,"La Cascada: Lámina máxima en el barrio (tránsito por el vaso, frente de desborde 300 m)",3.16 m sobre el fondo DSM (cota 13.69 m),"frente 100–1000 m y Kirpich–Témez: 3.94 m, 3.16 m, 2.75 m, 4.41 m, 3.4 m, 2.86 m; DSM ±2–4 m"
-2026-10-31T05:29,"La Cascada: La lámina vuelve a la cota de rebose (+5 cm); por debajo, el vaso solo se vacía por infiltración o bombeo",61938 m³ retenidos,sin salida por gravedad bajo el rebose; la SNGR anunció que se drenaría el sector
-2026-10-30T14:20,Tomás de Berlanga: inicio de escorrentía significativa en el cauce (Q > 1 m³/s),,30-Oct 14:20 (Kirpich) a 30-Oct 15:10 (Témez)
-2026-10-30T21:10,Tomás de Berlanga: caudal pico en el cauce junto al sector (tc Kirpich),139 m³/s,Témez: 99 m³/s a las 30-Oct 22:10; CN 76; lluvia 220.6 mm
+2026-10-30T17:32,"La Cascada: Vaso de La Cascada lleno hasta el rebose (≈15,09 m, DTM)",35477 m³,30-Oct 16:26 a 30-Oct 17:32 (Kirpich–Témez); volumen 25 196–35 477 m³
+2026-10-30T21:40,La Cascada: Caudal pico en la entrada al barrio (tc Kirpich),475.7 m³/s,CN 68–83: 416.4–525.7 m³/s
+2026-10-30T22:40,La Cascada: Caudal pico en la entrada al barrio (tc Témez),312.1 m³/s,CN 68–83: 266.6–353.7 m³/s
+2026-10-30T22:51,"La Cascada: Lámina máxima en el barrio (tránsito por el vaso, frente de desborde 300 m)",2.29 m sobre el fondo DTM (cota 15.81 m),"frente 100–1000 m y Kirpich–Témez: 3.04 m, 2.29 m, 1.89 m, 3.49 m, 2.51 m, 1.99 m; DTM 1 m promediado a 30 m"
+2026-10-31T05:30,"La Cascada: La lámina vuelve a la cota de rebose (+5 cm); por debajo, el vaso solo se vacía por infiltración o bombeo",35477 m³ retenidos,sin salida por gravedad bajo el rebose; la SNGR anunció que se drenaría el sector
+2026-10-30T14:30,Tomás de Berlanga: inicio de escorrentía significativa en el cauce (Q > 1 m³/s),,30-Oct 14:30 (Kirpich) a 30-Oct 15:10 (Témez)
+2026-10-30T21:10,Tomás de Berlanga: caudal pico en el cauce junto al sector (tc Kirpich),120 m³/s,Témez: 86 m³/s a las 30-Oct 22:10; CN 76; lluvia 224.4 mm

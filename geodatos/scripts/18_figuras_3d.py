@@ -127,7 +127,9 @@ def render(isla, centro, ancho, alto, elev, azim, vexag, titulo, salida, capas=(
     ax.set_box_aspect((ancho, alto, max(z.max(), 1) * vexag), zoom=1.3); ax.view_init(elev=elev, azim=azim)
     ax.set_axis_off()
     ax.set_title(titulo, fontsize=10)
-    pie = f"Copernicus GLO-30 (DSM 30 m; incluye vegetación y edificios), exageración vertical ≈{vexag:g}×. Vista con azimut {azim % 360:.0f}° y elevación {elev}°. {nota}"
+    rel = ("DTM 1 m SGIAR promediado a 30 m en Puerto Ayora, el escarpe y Bellavista; Copernicus GLO-30 (DSM) fuera"
+           if isla == "santa-cruz" and (ROOT / "datos/dtm_sgiar/dtm_sgiar_1m.vrt").exists() else "Copernicus GLO-30 (DSM 30 m; incluye vegetación y edificios)")
+    pie = f"{rel}, exageración vertical ≈{vexag:g}×. Vista con azimut {azim % 360:.0f}° y elevación {elev}°. {nota}"
     fig.text(0.5, 0.06, pie, ha="center", fontsize=6.8, color="#555", wrap=True)
     salida.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(salida); plt.close(fig)
@@ -136,7 +138,9 @@ def render(isla, centro, ancho, alto, elev, azim, vexag, titulo, salida, capas=(
 
 # ---------- capas comunes ----------
 LC = ROOT / "estudios/la-cascada/datos"; SCZ = ROOT / "estudios/santa-cruz/datos"; SCB = ROOT / "estudios/san-cristobal/datos"
-EST_C = {"color": "#111", "lw": 1.6, "label": "Cuenca que drena a La Cascada (42 km²)"}
+_RC = json.loads((LC / "resumen.json").read_text()) if (LC / "resumen.json").exists() else {}
+_COTA_M = _RC.get("depresion", {}).get("cotas_usadas", {}).get("manchas", {}).get("mancha_rebose.geojson", 13.0)
+EST_C = {"color": "#111", "lw": 1.6, "label": f"Cuenca que drena a La Cascada ({_RC.get('cuenca', {}).get('area_aportante_km2', 42):.0f} km²)"}
 
 
 def barrio():
@@ -203,7 +207,7 @@ def capas_sc(bb, con_cuenca=True, con_interceptor=True):
 
 
 def manchas13():
-    return [shape(f["geometry"]) for f in gj(LC / "mancha_13m.geojson")]
+    return [shape(f["geometry"]) for f in gj(LC / "mancha_rebose.geojson")]
 
 
 VISTAS = {}
@@ -244,21 +248,21 @@ def sc_lluvia_medida():
 def cascada_desde_sur():
     render("santa-cruz", (-90.3137, -0.7345), 2000, 2000, 26, -95, 12, "La Cascada desde el sur: la depresión al pie del escarpe",
            ROOT / "estudios/santa-cruz/figuras/3d_cascada_desde_sur.png", capas_sc((-90.33, -0.75, -90.30, -0.72), con_cuenca=False), interp=4,
-           agua=(manchas13(), 13.0, "Llenado hasta ≈13 m (rebose)"))
+           agua=(manchas13(), _COTA_M, f"Llenado hasta ≈{_COTA_M:.0f} m (rebose)"))
 
 
 @vista
 def cascada_desde_noreste():
     render("santa-cruz", (-90.3137, -0.7345), 2000, 2000, 32, 40, 12, "La Cascada desde el noreste (por encima del escarpe)",
            ROOT / "estudios/santa-cruz/figuras/3d_cascada_desde_noreste.png", capas_sc((-90.33, -0.75, -90.30, -0.72), con_cuenca=False), interp=4,
-           agua=(manchas13(), 13.0, "Llenado hasta ≈13 m (rebose)"))
+           agua=(manchas13(), _COTA_M, f"Llenado hasta ≈{_COTA_M:.0f} m (rebose)"))
 
 
 @vista
 def cascada_desde_oeste():
     render("santa-cruz", (-90.3137, -0.7345), 2400, 2000, 20, 185, 12, "La Cascada desde el oeste: escarpe norte, vaso y salida hacia la bahía",
            ROOT / "estudios/santa-cruz/figuras/3d_cascada_desde_oeste.png", capas_sc((-90.33, -0.75, -90.30, -0.72), con_cuenca=False), interp=4,
-           agua=(manchas13(), 13.0, "Llenado hasta ≈13 m (rebose)"))
+           agua=(manchas13(), _COTA_M, f"Llenado hasta ≈{_COTA_M:.0f} m (rebose)"))
 
 
 @vista

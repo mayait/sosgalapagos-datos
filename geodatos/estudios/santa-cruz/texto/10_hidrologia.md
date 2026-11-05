@@ -2,7 +2,7 @@ Intro: El detalle técnico detrás de la página de La Cascada: la cuenca que dr
 
 # Lo que muestra este análisis
 
-- **Casi toda la cuenca de Puerto Ayora drena a La Cascada**: 42,3 km² con dos ramas, desde la zona agrícola alta y Bellavista. Las quebradas cartografiadas terminan en el borde norte del barrio.
+- **Casi toda la cuenca de Puerto Ayora drena a La Cascada**: 40,1 km² con dos ramas, desde la zona agrícola alta y Bellavista. Las quebradas cartografiadas terminan en el borde norte del barrio.
 - **El barrio es un vaso cerrado por tres lados** al pie de escarpes. Hasta el rebose (entre unos 12,0 y 13,25 m) guarda **42 000–62 000 m³**. Dentro del vaso hay **68–204 edificios y unas 400–910 personas**.
 - **La salida natural por rebose cruza la ciudad sin cauce**, con una pendiente de ~1 %.
 - **El 30 de octubre el vaso se llenó horas antes del pico.** Con la lluvia medida (152–208 mm sobre la cuenca), el caudal pico calculado es de **215–549 m³/s**, solo como orden de magnitud. A partir de ahí, la altura del agua en el barrio la controla la capacidad de salida, no el almacenamiento.

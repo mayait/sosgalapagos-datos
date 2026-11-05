@@ -67,7 +67,7 @@ Tabla: Archivos de datos del estudio (`estudios/la-cascada/datos/`).
 |---|---|
 | `cuenca_cascada.geojson`, `cauce_principal.geojson` | Subcuencas (ramas 1 y 2, local) y cauces D8 |
 | `perfil_cauce.csv`, `secciones_barrio.csv` | Perfil longitudinal y secciones de ±600 m |
-| `curva_cota_volumen.csv`, `mancha_13m…16m.geojson` | Vaso: área, volumen y exposición por cota; manchas de llenado |
+| `curva_cota_volumen.csv`, `mancha_rebose*.geojson` (rebose y +1, +2 y +3 m) | Vaso: área, volumen y exposición por cota; manchas de llenado |
 | `salidas_rebose.geojson` | Caminos de rebose hacia el sur y el este |
 | `rutas_desvio.geojson`, `perfil_interceptor_este.csv` | 34 trazados evaluados y perfil del interceptor este |
 | `perfil_cauce_este.csv` | Verificación del cauce de OSM hacia el este |

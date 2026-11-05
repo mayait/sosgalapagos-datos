@@ -21,6 +21,21 @@ DAT = pathlib.Path(os.environ.get("CASCADA_DATOS", ROOT / "estudios/la-cascada/d
 FIG = pathlib.Path(os.environ.get("CASCADA_FIG", ROOT / "estudios/la-cascada/figuras")); FIG.mkdir(parents=True, exist_ok=True)
 DEM = ROOT / "descargas/dem_recortes/santa_cruz_dem.tif"
 T = Transformer.from_crs(4326, 32715, always_xy=True).transform
+# Relieve y cotas del vaso: salen de 12_cascada_analisis.py (resumen.json); no se fijan aquí
+CON_DTM = (ROOT / "datos/dtm_sgiar/dtm_sgiar_1m.vrt").exists()
+REL = "DTM" if CON_DTM else "DSM"
+REL_CORTO = "DTM SGIAR (30 m)" if CON_DTM else "DSM GLO-30"
+REL_LARGO = ("DTM 1 m de la SGIAR promediado a 30 m (Copernicus GLO-30 fuera de su cobertura)" if CON_DTM
+             else "Copernicus GLO-30 (DSM 30 m; incluye vegetación y edificios)")
+_R = json.loads((DAT / "resumen.json").read_text()) if (DAT / "resumen.json").exists() else {}
+_D = _R.get("depresion", {})
+COTA_REBOSE = _D.get("cota_rebose_m", 12.95)
+C_REB = float(np.ceil(COTA_REBOSE))
+BARRIO_Z = (_R.get("barrio", {}).get("cota_min_m", 10.5), _R.get("barrio", {}).get("cota_max_m", 18.0))
+OBS_Z = _R.get("evento_31oct", {}).get("observacion_referencia", {}).get("cota_agua_m", [12.0, 13.0])
+AREA = {k: _R.get("cuenca", {}).get(k, {}).get("area_km2") for k in ("rama 1", "rama 2")}
+AREA_CUENCA = _R.get("cuenca", {}).get("area_aportante_km2", 42)
+def coma(v, d=1): return f"{v:.{d}f}".replace(".", ",")
 
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 9, "axes.titlesize": 10, "axes.labelsize": 9,
                      "savefig.dpi": 220, "savefig.bbox": "tight", "axes.spines.top": False, "axes.spines.right": False})
@@ -109,7 +124,7 @@ def fig_3d_cuenca():
     def draw(geom, **kw):
         for x, y, zz in zline(geom, z, xs, ys, off=15):
             ax.plot((x - xs[0]) / 1000, (y - ys[-1]) / 1000, zz, zorder=10, **kw)
-    draw(cu, color=C_CUENCA, lw=1.4, label="Cuenca que drena a La Cascada (42 km²)")
+    draw(cu, color=C_CUENCA, lw=1.4, label=f"Cuenca que drena a La Cascada ({AREA_CUENCA:.0f} km²)")
     for f in gj("cauce_principal.geojson"):
         draw(utm(shape(f["geometry"])), color=C_QUEB, lw=1.6, label="Cauces principales (dos ramas, D8)")
     g, _ = ruta("ESTE", 40)
@@ -120,7 +135,7 @@ def fig_3d_cuenca():
     ax.set_box_aspect(((xs[-1] - xs[0]), (ys[0] - ys[-1]), 900 * 3.5)); ax.view_init(elev=32, azim=-112)
     ax.set_xlabel("E (km)"); ax.set_ylabel("N (km)"); ax.set_zlabel("Cota (m)")
     ax.set_title("Cuenca aportante a La Cascada vista desde el sur-suroeste (exageración vertical ≈3,5×)")
-    fig.text(0.5, 0.04, "Fuente: Copernicus GLO-30 (DSM, 30 m, remuestreado a 60 m para el render); cuenca y cauce: modelo D8 propio.", ha="center", fontsize=7, color="#555")
+    fig.text(0.5, 0.04, f"Fuente: {REL_LARGO}, remuestreado a 60 m para el render; cuenca y cauce: modelo D8 propio.", ha="center", fontsize=7, color="#555")
     fig.savefig(FIG / "f3d_cuenca.png"); plt.close(fig)
 
 
@@ -136,8 +151,8 @@ def fig_3d_barrio():
     X, Y = np.meshgrid(xf, yf)
     fig = plt.figure(figsize=(9, 7)); ax = fig.add_subplot(111, projection="3d", computed_zorder=False)
     rgb = surface_colors(zf, vmax=60, dx=30 / k)
-    nivel = 13.0
-    manchas = [utm(shape(f["geometry"])) for f in gj(f"mancha_{int(nivel)}m.geojson")]
+    nivel = C_REB
+    manchas = [utm(shape(f["geometry"])) for f in gj("mancha_rebose.geojson")]
     if manchas:
         tr2 = rasterio.transform.from_origin(xf[0], yf[0], xf[1] - xf[0], yf[0] - yf[1])
         wet = features.rasterize([(g, 1) for g in manchas], out_shape=zf.shape, transform=tr2).astype(bool) & (zf < nivel)
@@ -159,7 +174,7 @@ def fig_3d_barrio():
     ax.set_box_aspect((2 * R, 2 * R, 60 * 12)); ax.view_init(elev=30, azim=-120)
     ax.set_xlabel("E (m)"); ax.set_ylabel("N (m)"); ax.set_zlabel("Cota (m)"); ax.set_zlim(0, 70)
     ax.set_title("La Cascada: depresión al pie del escarpe (exageración vertical ≈12×)")
-    fig.text(0.5, 0.04, "Fuente: Copernicus GLO-30 (DSM 30 m, interpolado ×4 solo para el render; incluye vegetación y edificios).", ha="center", fontsize=7, color="#555")
+    fig.text(0.5, 0.04, f"Fuente: {REL_LARGO}, interpolado ×4 solo para el render.", ha="center", fontsize=7, color="#555")
     fig.savefig(FIG / "f3d_barrio.png"); plt.close(fig)
 
 
@@ -244,7 +259,7 @@ def fig_mapa_cuenca():
     ax.legend(d.values(), d.keys(), loc="upper left", fontsize=7.5, framealpha=0.9)
     km_axes(ax, xmin, ymin, 2000); norte(ax); escala(ax, 2000, "2 km")
     ax.set_title("Cuenca aportante, quebradas y trazados de desvío evaluados")
-    fig.text(0.5, 0.01, "Fuentes: Copernicus GLO-30; IGM 1:25 000; OpenStreetMap; DPNG/CGREG (límite PNG). Proyección UTM 15S.", ha="center", fontsize=7, color="#555")
+    fig.text(0.5, 0.01, f"Fuentes: {REL_CORTO} y Copernicus GLO-30; IGM 1:25 000; OpenStreetMap; DPNG/CGREG (límite PNG). Proyección UTM 15S.", ha="center", fontsize=7, color="#555")
     fig.savefig(FIG / "f_mapa_cuenca.png"); plt.close(fig)
 
 
@@ -253,7 +268,7 @@ def fig_mapa_barrio():
     R = 1300; bb = (cx - R, cy - 1500, cx + R, cy + 900)
     fig, ax = plt.subplots(figsize=(7.5, 7.5))
     hill2d(ax, *bb, vmax=80, alpha=0.9)
-    # curvas cada 5 m a partir del DSM
+    # curvas cada 5 m a partir del relieve
     z, xs, ys = crop(*bb)
     cs = ax.contour(xs, ys, z, levels=np.arange(5, 80, 5), colors="#5d4037", linewidths=0.35, alpha=0.7)
     ax.clabel(cs, levels=[10, 15, 20, 30, 40, 60], fontsize=6, fmt="%d m")
@@ -262,18 +277,18 @@ def fig_mapa_barrio():
         plot_geom(ax, g, fc="#424242", ec="none", alpha=0.75, label="Edificaciones (OSM + Google Open Buildings)")
     for g, _ in capa_bbox(ROOT / "export/galapagos/vias.geojson", bb):
         plot_geom(ax, g, color="#ffffff", lw=0.8, alpha=0.9)
-    for f in gj("mancha_14m.geojson"):
+    for f in gj("mancha_rebose_mas1m.geojson"):
         g = utm(shape(f["geometry"]))
-        plot_geom(ax, g.boundary, color="#08519c", lw=1.1, ls="--", label="Cota 14 m: lámina hipotética si la salida se obstruye (no observada)")
-    for f in gj("mancha_13m.geojson"):
-        plot_geom(ax, utm(shape(f["geometry"])), fc="#4292c6", ec="#4292c6", alpha=0.5, lw=0.5, label="Llenado hasta ≈13 m (rebose; compatible con el testimonio)")
+        plot_geom(ax, g.boundary, color="#08519c", lw=1.1, ls="--", label=f"Cota {C_REB + 1:.0f} m: lámina hipotética si la salida se obstruye (no observada)")
+    for f in gj("mancha_rebose.geojson"):
+        plot_geom(ax, utm(shape(f["geometry"])), fc="#4292c6", ec="#4292c6", alpha=0.5, lw=0.5, label=f"Llenado hasta ≈{C_REB:.0f} m (rebose)")
     for g, _ in capa_bbox(ROOT / "capas/final/quebradas.geojson", bb, sc):
         plot_geom(ax, g, color=C_QUEB, lw=1.2, label="Quebradas IGM + OSM")
     urb = DAT / "urbano"
     for f in gj("ruta_salida_urbana.geojson", urb):
         plot_geom(ax, utm(shape(f["geometry"])), color="#00897b", lw=2.2, ls="--", label="Salida natural del agua hacia el mar")
-    ESTILO = {"rebose": dict(marker="^", color="#e65100", ms=13, zorder=9, label="Umbral que fija la cota de rebose (+1,4 m)"),
-              "umbral topográfico": dict(marker="^", color="#ffb74d", ms=6, label="Otro umbral (cabecera de Marchena, +3 m; parte puede ser techos)"),
+    ESTILO = {"rebose": dict(marker="^", color="#e65100", ms=13, zorder=9, label=f"Umbral que fija la cota de rebose ({coma(COTA_REBOSE, 2)} m)"),
+              "umbral topográfico": dict(marker="^", color="#ffb74d", ms=6, label="Otro umbral (cabecera de Marchena)" if CON_DTM else "Otro umbral (cabecera de Marchena, +3 m; parte puede ser techos)"),
               "cruce de vía transversal": dict(marker="o", color="#fdd835", ms=5, label="Cruce de vía sobre la salida natural"),
               "edificación sobre el cauce natural": dict(marker="s", color="#e65100", ms=3.5, label="Edificación sobre la salida natural"),
               "desembocadura": dict(marker="*", color="#00897b", ms=11, label="Llegada al mar")}
@@ -290,7 +305,7 @@ def fig_mapa_barrio():
     fig.legend(d.values(), d.keys(), loc="lower center", bbox_to_anchor=(0.5, -0.13), ncol=2, fontsize=7, frameon=False)
     km_axes(ax, bb[0], bb[1], 500, "m"); norte(ax); escala(ax, 500, "500 m")
     ax.set_title("La Cascada: relieve, edificaciones, llenado de la depresión y salida natural del agua")
-    fig.text(0.5, -0.15, "Curvas cada 5 m derivadas del DSM GLO-30 (incluye edificios y vegetación: ±2–4 m). Manchas: llenado estático tipo «bañera», no simulación hidráulica.",
+    fig.text(0.5, -0.15, f"Curvas cada 5 m derivadas del {REL_LARGO}. Manchas: llenado estático tipo «bañera», no simulación hidráulica.",
              ha="center", fontsize=7, color="#555")
     fig.savefig(FIG / "f_mapa_barrio.png"); plt.close(fig)
 
@@ -309,7 +324,7 @@ def fuente(fig, txt, y=0.0):
 def fig_perfil_cauce():
     rows = rcsv("perfil_cauce.csv")
     fig, ax = plt.subplots(figsize=(8, 3.8)); ax2 = ax.twinx()
-    nombres = {"rama 1": "Rama norte (29,5 km²)", "rama 2": "Rama noroeste (12,2 km²)"}
+    nombres = {"rama 1": f"Rama norte ({coma(AREA['rama 1'] or 0)} km²)", "rama 2": f"Rama noroeste ({coma(AREA['rama 2'] or 0)} km²)"}
     for rama, c in (("rama 1", "#08519c"), ("rama 2", "#6baed6")):
         r = [x for x in rows if x["rama"] == rama]
         if not r: continue
@@ -318,12 +333,12 @@ def fig_perfil_cauce():
         ax2.plot(d, a, color=c, lw=1, ls="--", label=f"Área acumulada, {nombres[rama]}")
     ax.set_xlabel("Distancia desde la cabecera (km)"); ax.set_ylabel("Cota (m s. n. m.)"); ax2.set_ylabel("Área drenada acumulada (km²)")
     ax2.spines["right"].set_visible(True)
-    ax.axhspan(10, 18, color=C_BARRIO, alpha=0.08); ax.text(ax.get_xlim()[1] * 0.99, 22, "La Cascada (10,5–18 m)", ha="right", fontsize=7.5, color=C_BARRIO)
+    ax.axhspan(BARRIO_Z[0], BARRIO_Z[1], color=C_BARRIO, alpha=0.08); ax.text(ax.get_xlim()[1] * 0.99, BARRIO_Z[1] + 4, f"La Cascada ({coma(BARRIO_Z[0])}–{coma(BARRIO_Z[1], 0)} m)", ha="right", fontsize=7.5, color=C_BARRIO)
     h1, l1 = ax.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
     ax.legend(h1 + h2, l1 + l2, fontsize=7, loc="center left", frameon=False)
     ax.set_title("Perfil longitudinal de los cauces principales hasta la entrada al barrio")
     ax.grid(alpha=0.25)
-    fuente(fig, "Cauce D8 sobre GLO-30 con quebradas IGM quemadas. Cotas del DSM (incluye vegetación).", -0.03)
+    fuente(fig, f"Cauce D8 sobre el {REL_CORTO} con quebradas IGM quemadas." + ("" if CON_DTM else " Cotas del DSM (incluye vegetación)."), -0.03)
     fig.savefig(FIG / "f_perfil_cauce.png"); plt.close(fig)
 
 
@@ -346,13 +361,13 @@ def fig_secciones():
             r = [x for x in rows if x["perfil"] == pfl]
             ax.plot(num(r, "distancia_m"), num(r, "cota_m"), lw=1.8 if "+0m" in pfl else 1, color={0: "#777", 1: "#000", 2: "#bbb"}[i % 3],
                     label=etiqueta(pfl))
-        ax.axhline(12.95, color=C_AGUA, lw=1, ls="--"); ax.text(ax.get_xlim()[0], 13.3, " cota de rebose ≈13,0 m", fontsize=7, color=C_AGUA)
+        ax.axhline(COTA_REBOSE, color=C_AGUA, lw=1, ls="--"); ax.text(ax.get_xlim()[0], COTA_REBOSE + 0.35, f" cota de rebose ≈{coma(COTA_REBOSE)} m", fontsize=7, color=C_AGUA)
         b = barrio_utm(); c = b.centroid; x0, y0, x1, y1 = b.bounds
         if grupo is ns: ax.axvspan(-(y1 - c.y), (c.y - y0), color=C_BARRIO, alpha=0.07)
         else: ax.axvspan(-(x1 - c.x), (c.x - x0), color=C_BARRIO, alpha=0.07)
         ax.set_title(tit); ax.set_xlabel(xl); ax.grid(alpha=0.25); ax.legend(fontsize=7, frameon=False)
     axs[0].set_ylabel("Cota (m)")
-    fuente(fig, "Secciones de ±600 m por el centro del barrio sobre el DSM GLO-30 (interpolación bilineal). Banda roja: ancho aproximado del barrio.", -0.04)
+    fuente(fig, f"Secciones de ±600 m por el centro del barrio sobre el {REL_CORTO} (interpolación bilineal). Banda roja: ancho aproximado del barrio.", -0.04)
     fig.savefig(FIG / "f_secciones.png"); plt.close(fig)
 
 
@@ -361,16 +376,16 @@ def fig_cota_volumen():
     if not r: return
     z = num(r, "cota_m"); v = num(r, "volumen_m3"); e = num(r, "edificios_afectados"); pb = num(r, "poblacion_estimada")
     fig, ax = plt.subplots(figsize=(8, 4)); ax2 = ax.twinx(); ax2.spines["right"].set_visible(True)
-    ax.plot(z, v / 1e3, color=C_AGUA, lw=2, marker="o", ms=3, label="Volumen bajo la cota (miles de m³; no almacenado sobre 12,95 m)")
+    ax.plot(z, v / 1e3, color=C_AGUA, lw=2, marker="o", ms=3, label=f"Volumen bajo la cota (miles de m³; no almacenado sobre {coma(COTA_REBOSE, 2)} m)")
     ax2.plot(z, e, color="#444", lw=1.5, marker="s", ms=3, label="Edificaciones alcanzadas")
     ax2.plot(z, pb / 4, color="#999", lw=1, ls=":", label="Población estimada ÷ 4")
-    ax.axvline(12.95, color=C_AGUA, ls="--", lw=1); ax.text(13.05, ax.get_ylim()[1] * 0.45, "rebose\n12,95 m", fontsize=7.5, color=C_AGUA)
-    ax.axvspan(12.5, 13.0, color="#fdd", alpha=0.6); ax.text(12.0, ax.get_ylim()[1] * 0.55, "cota según\ntestimonio\n(≈2 m)", fontsize=7, color="#a33", ha="center")
-    ax.set_xlabel("Cota de la lámina de agua (m, DSM EGM2008)"); ax.set_ylabel("Volumen (miles de m³)"); ax2.set_ylabel("Edificaciones / población ÷ 4")
+    ax.axvline(COTA_REBOSE, color=C_AGUA, ls="--", lw=1); ax.text(COTA_REBOSE + 0.1, ax.get_ylim()[1] * 0.45, f"rebose\n{coma(COTA_REBOSE, 2)} m", fontsize=7.5, color=C_AGUA)
+    ax.axvspan(OBS_Z[0], OBS_Z[1], color="#fdd", alpha=0.6); ax.text(OBS_Z[0] - 0.5, ax.get_ylim()[1] * 0.55, "cota según\ntestimonio\n(≈2 m)", fontsize=7, color="#a33", ha="center")
+    ax.set_xlabel(f"Cota de la lámina de agua (m, {REL} EGM2008)"); ax.set_ylabel("Volumen (miles de m³)"); ax2.set_ylabel("Edificaciones / población ÷ 4")
     h1, l1 = ax.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
     ax.legend(h1 + h2, l1 + l2, fontsize=7.5, loc="upper left", bbox_to_anchor=(0.36, 1.0), frameon=False); ax.grid(alpha=0.25)
     ax.set_title("Curva cota–volumen–exposición de la zona baja de La Cascada (llenado estático)")
-    fuente(fig, "Sobre la cota 13 m la lámina deja de estar confinada: el agua rebosa hacia la ciudad y el «volumen» es solo indicativo. DSM GLO-30; edificios OSM + Open Buildings; población INEC por manzana.", -0.05)
+    fuente(fig, f"Sobre la cota {coma(COTA_REBOSE, 2)} m la lámina deja de estar confinada: el agua rebosa hacia la ciudad y el «volumen» es solo indicativo. {REL_CORTO}; edificios OSM + Open Buildings; población INEC por manzana.", -0.05)
     fig.savefig(FIG / "f_cota_volumen.png"); plt.close(fig)
 
 
@@ -424,14 +439,14 @@ def fig_perfil_interceptor():
     if not r: return
     d = num(r, "distancia_m") / 1000; zt = num(r, "cota_terreno_m"); zc = num(r, "cota_canal_m")
     fig, ax = plt.subplots(figsize=(8, 3.4))
-    ax.fill_between(d, 0, zt, color="#d9cfb8", label="Terreno (DSM)")
+    ax.fill_between(d, 0, zt, color="#d9cfb8", label=f"Terreno ({REL})")
     ax.plot(d, zt, color="#6d5d3f", lw=1)
     ax.plot(d, zc, color=C_RUTA, lw=2, label="Rasante del canal (pendiente ≥ 0,5 %; sin calado)")
     ax.fill_between(d, zc, zt, where=zt > zc, color=C_RUTA, alpha=0.25, label="Corte sobre la rasante (la excavación real suma ≈2,5 m de calado)")
     ax.axhspan(-2, 0, color="#cfe0ee"); ax.set_ylim(-2, max(np.nanmax(zt) + 5, 45))
     ax.set_xlabel("Distancia a lo largo del trazado (km)"); ax.set_ylabel("Cota (m)")
     ax.set_title("Perfil del interceptor hipotético al este (toma a 40 m, rama noroeste)"); ax.grid(alpha=0.25); ax.legend(fontsize=7.5, frameon=False)
-    fuente(fig, "Trazado de mínimo corte sobre GLO-30 (corte ≤ 3 m). La incertidumbre vertical del DSM (±2–4 m) es del mismo orden que el corte calculado.", -0.05)
+    fuente(fig, f"Trazado de mínimo corte sobre el {REL_CORTO} (corte ≤ 3 m). " + ("A 30 m el relieve no ve muros, bordillos ni alcantarillas." if CON_DTM else "La incertidumbre vertical del DSM (±2–4 m) es del mismo orden que el corte calculado."), -0.05)
     fig.savefig(FIG / "f_perfil_interceptor.png"); plt.close(fig)
 
 
@@ -440,13 +455,13 @@ def fig_perfil_cauce_este():
     if not r: return
     d = num(r, "distancia_m") / 1000; z = num(r, "cota_dsm_m"); zmin = num(r, "cota_min_franja_180m_m"); u = num(r, "umbral_acumulado_desde_barrio_m")
     fig, ax = plt.subplots(figsize=(8, 3.4))
-    ax.plot(d, z, color="#6d5d3f", lw=1.4, label="Cota del DSM sobre el trazado cartografiado")
+    ax.plot(d, z, color="#6d5d3f", lw=1.4, label=f"Cota del {REL} sobre el trazado cartografiado")
     ax.plot(d, zmin, color=C_AGUA, lw=1.2, label="Cota mínima en una franja de ±90 m")
     if np.isfinite(u).any(): ax.plot(d, u, color=C_BARRIO, lw=1, ls="--", label="Umbral acumulado desde el barrio")
-    ax.axhline(12.95, color=C_AGUA, lw=0.8, ls=":"); ax.text(d[-1], 13.5, "rebose del barrio ≈13 m", ha="right", fontsize=7, color=C_AGUA)
+    ax.axhline(COTA_REBOSE, color=C_AGUA, lw=0.8, ls=":"); ax.text(d[-1], COTA_REBOSE + 0.55, f"rebose del barrio ≈{COTA_REBOSE:.0f} m", ha="right", fontsize=7, color=C_AGUA)
     ax.set_xlabel("Distancia a lo largo del trazado OSM desde su extremo oeste (km; el barrio queda a ≈0,5 km)"); ax.set_ylabel("Cota (m)")
     ax.set_title("Cauce cartografiado al pie del escarpe hacia el este: ¿drena por gravedad?"); ax.grid(alpha=0.25); ax.legend(fontsize=7.5, frameon=False)
-    fuente(fig, "Si el umbral acumulado supera la cota de rebose del barrio, el agua no puede seguir ese trazado sin excavación (según el DSM, que incluye vegetación).", -0.05)
+    fuente(fig, "Si el umbral acumulado supera la cota de rebose del barrio, el agua no puede seguir ese trazado sin excavación (según el " + REL + ").", -0.05)
     fig.savefig(FIG / "f_perfil_cauce_este.png"); plt.close(fig)
 
 

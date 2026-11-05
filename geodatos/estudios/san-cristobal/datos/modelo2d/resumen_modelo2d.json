@@ -92,6 +92,48 @@
      }
     }
    },
+   "salidas_al_mar": {
+    "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+     "vol_m3": 759338,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Centro: muelles de pasajeros y de pescadores": {
+     "vol_m3": 12912,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Divino Niño (Playa de Oro)": {
+     "vol_m3": 128238,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Playa Mann sur (S03; Alvear según el D8)": {
+     "vol_m3": 71916,
+     "vol_trazador_m3": 13573,
+     "fraccion_del_trazador": 0.714
+    },
+    "Playa Mann frente al campus": {
+     "vol_m3": 8353,
+     "vol_trazador_m3": 1859,
+     "fraccion_del_trazador": 0.098
+    },
+    "Norte de Playa Mann (S04)": {
+     "vol_m3": 11286,
+     "vol_trazador_m3": 2030,
+     "fraccion_del_trazador": 0.107
+    },
+    "resto de la costa": {
+     "vol_m3": 41791,
+     "vol_trazador_m3": 22,
+     "fraccion_del_trazador": 0.001
+    },
+    "bordes del dominio (tierra)": {
+     "vol_m3": 279626,
+     "vol_trazador_m3": 272,
+     "fraccion_del_trazador": 0.014
+    }
+   },
    "puntos": {
     "campus_GSC": {
      "h_max_m": 0.0,
@@ -164,6 +206,36 @@
      "hora_h_max": "30-Oct 21:55",
      "v_max_ms": 0.02,
      "h_max_3x3_celdas_m": 5.52
+    },
+    "hospital_oskar_jandl": {
+     "h_max_m": 0.09,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 0.72,
+     "h_max_3x3_celdas_m": 0.12
+    },
+    "colegio_ignacio_hernandez_via_jaime_roldos": {
+     "h_max_m": 0.02,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.05
+    },
+    "manzanillo_puente_perimetral": {
+     "h_max_m": 0.27,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 1.93,
+     "h_max_3x3_celdas_m": 0.69
+    },
+    "la_planada_registro_2025": {
+     "h_max_m": 0.01,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.32
+    },
+    "playa_de_oro": {
+     "h_max_m": 0.04,
+     "hora_h_max": "30-Oct 20:35",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.23
     }
    },
    "secciones": {
@@ -220,7 +292,7 @@
    },
    "duracion_simulada_h": 28.0,
    "pasos": 19389,
-   "tiempo_calculo_s": 16,
+   "tiempo_calculo_s": 13,
    "balance_masa": {
     "lluvia_neta_m3": 642153,
     "salida_mar_y_contornos_m3": 425263,
@@ -263,6 +335,48 @@
       ">=0.5m": 12,
       ">=1.0m": 3
      }
+    }
+   },
+   "salidas_al_mar": {
+    "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+     "vol_m3": 246063,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Centro: muelles de pasajeros y de pescadores": {
+     "vol_m3": 5145,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Divino Niño (Playa de Oro)": {
+     "vol_m3": 42448,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Playa Mann sur (S03; Alvear según el D8)": {
+     "vol_m3": 21414,
+     "vol_trazador_m3": 3054,
+     "fraccion_del_trazador": 0.578
+    },
+    "Playa Mann frente al campus": {
+     "vol_m3": 2974,
+     "vol_trazador_m3": 384,
+     "fraccion_del_trazador": 0.073
+    },
+    "Norte de Playa Mann (S04)": {
+     "vol_m3": 3394,
+     "vol_trazador_m3": 469,
+     "fraccion_del_trazador": 0.089
+    },
+    "resto de la costa": {
+     "vol_m3": 15385,
+     "vol_trazador_m3": 2,
+     "fraccion_del_trazador": 0.0
+    },
+    "bordes del dominio (tierra)": {
+     "vol_m3": 88441,
+     "vol_trazador_m3": 87,
+     "fraccion_del_trazador": 0.017
     }
    },
    "puntos": {
@@ -337,6 +451,36 @@
      "hora_h_max": "28.00 h",
      "v_max_ms": 0.01,
      "h_max_3x3_celdas_m": 3.53
+    },
+    "hospital_oskar_jandl": {
+     "h_max_m": 0.04,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.07
+    },
+    "colegio_ignacio_hernandez_via_jaime_roldos": {
+     "h_max_m": 0.02,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.03
+    },
+    "manzanillo_puente_perimetral": {
+     "h_max_m": 0.09,
+     "hora_h_max": "12.17 h",
+     "v_max_ms": 1.15,
+     "h_max_3x3_celdas_m": 0.21
+    },
+    "la_planada_registro_2025": {
+     "h_max_m": 0.01,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.15
+    },
+    "playa_de_oro": {
+     "h_max_m": 0.04,
+     "hora_h_max": "12.00 h",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.15
     }
    },
    "secciones": {
@@ -443,6 +587,48 @@
      }
     }
    },
+   "salidas_al_mar": {
+    "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+     "vol_m3": 1138619,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Centro: muelles de pasajeros y de pescadores": {
+     "vol_m3": 15060,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Divino Niño (Playa de Oro)": {
+     "vol_m3": 190110,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Playa Mann sur (S03; Alvear según el D8)": {
+     "vol_m3": 114595,
+     "vol_trazador_m3": 23671,
+     "fraccion_del_trazador": 0.735
+    },
+    "Playa Mann frente al campus": {
+     "vol_m3": 12044,
+     "vol_trazador_m3": 3291,
+     "fraccion_del_trazador": 0.102
+    },
+    "Norte de Playa Mann (S04)": {
+     "vol_m3": 18134,
+     "vol_trazador_m3": 3501,
+     "fraccion_del_trazador": 0.109
+    },
+    "resto de la costa": {
+     "vol_m3": 57113,
+     "vol_trazador_m3": 52,
+     "fraccion_del_trazador": 0.002
+    },
+    "bordes del dominio (tierra)": {
+     "vol_m3": 414688,
+     "vol_trazador_m3": 469,
+     "fraccion_del_trazador": 0.015
+    }
+   },
    "puntos": {
     "campus_GSC": {
      "h_max_m": 0.0,
@@ -515,6 +701,36 @@
      "hora_h_max": "30-Oct 21:35",
      "v_max_ms": 0.02,
      "h_max_3x3_celdas_m": 5.74
+    },
+    "hospital_oskar_jandl": {
+     "h_max_m": 0.12,
+     "hora_h_max": "30-Oct 21:05",
+     "v_max_ms": 0.84,
+     "h_max_3x3_celdas_m": 0.15
+    },
+    "colegio_ignacio_hernandez_via_jaime_roldos": {
+     "h_max_m": 0.02,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.06
+    },
+    "manzanillo_puente_perimetral": {
+     "h_max_m": 0.33,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 2.05,
+     "h_max_3x3_celdas_m": 0.81
+    },
+    "la_planada_registro_2025": {
+     "h_max_m": 0.01,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.35
+    },
+    "playa_de_oro": {
+     "h_max_m": 0.04,
+     "hora_h_max": "30-Oct 20:35",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.28
     }
    },
    "secciones": {
@@ -576,7 +792,7 @@
    },
    "duracion_simulada_h": 26.0,
    "pasos": 30475,
-   "tiempo_calculo_s": 79,
+   "tiempo_calculo_s": 64,
    "balance_masa": {
     "lluvia_neta_m3": 1703258,
     "salida_mar_y_contornos_m3": 1382974,
@@ -619,6 +835,48 @@
       ">=0.5m": 21,
       ">=1.0m": 11
      }
+    }
+   },
+   "salidas_al_mar": {
+    "Galápagos / Barrio Frío (playa, Poza de las Garzas)": {
+     "vol_m3": 805757,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Centro: muelles de pasajeros y de pescadores": {
+     "vol_m3": 13719,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Divino Niño (Playa de Oro)": {
+     "vol_m3": 142026,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "Playa Mann sur (S03; Alvear según el D8)": {
+     "vol_m3": 65474,
+     "vol_trazador_m3": 11731,
+     "fraccion_del_trazador": 0.617
+    },
+    "Playa Mann frente al campus": {
+     "vol_m3": 2063,
+     "vol_trazador_m3": 171,
+     "fraccion_del_trazador": 0.009
+    },
+    "Norte de Playa Mann (S04)": {
+     "vol_m3": 8468,
+     "vol_trazador_m3": 2767,
+     "fraccion_del_trazador": 0.146
+    },
+    "resto de la costa": {
+     "vol_m3": 35139,
+     "vol_trazador_m3": 0,
+     "fraccion_del_trazador": 0.0
+    },
+    "bordes del dominio (tierra)": {
+     "vol_m3": 310327,
+     "vol_trazador_m3": 3400,
+     "fraccion_del_trazador": 0.179
     }
    },
    "puntos": {
@@ -693,6 +951,36 @@
      "hora_h_max": "30-Oct 21:35",
      "v_max_ms": 0.01,
      "h_max_3x3_celdas_m": 5.52
+    },
+    "hospital_oskar_jandl": {
+     "h_max_m": 0.03,
+     "hora_h_max": "30-Oct 21:05",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.13
+    },
+    "colegio_ignacio_hernandez_via_jaime_roldos": {
+     "h_max_m": 0.02,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.02
+    },
+    "manzanillo_puente_perimetral": {
+     "h_max_m": 0.23,
+     "hora_h_max": "30-Oct 21:25",
+     "v_max_ms": 2.13,
+     "h_max_3x3_celdas_m": 0.54
+    },
+    "la_planada_registro_2025": {
+     "h_max_m": 0.0,
+     "hora_h_max": "30-Oct 20:30",
+     "v_max_ms": 0.0,
+     "h_max_3x3_celdas_m": 0.01
+    },
+    "playa_de_oro": {
+     "h_max_m": 0.08,
+     "hora_h_max": "30-Oct 20:35",
+     "v_max_ms": 1.03,
+     "h_max_3x3_celdas_m": 0.1
     }
    },
    "secciones": {

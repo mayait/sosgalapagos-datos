@@ -24,7 +24,7 @@
  "grupos": [
   {"id": "emergencia", "titulo": "Emergencia en curso", "capas": ["areas_afectadas"]},
   {"id": "lluvia", "titulo": "Riesgo de inundación por lluvia",
-   "descripcion": "Lo que conviene mirar ahora. La susceptibilidad, los puntos y los cruces salen de modelos propios sobre un relieve de 30 m: sirven para priorizar inspecciones, no son delimitaciones oficiales.",
+   "descripcion": "Lo que conviene mirar ahora. La susceptibilidad, los puntos y los cruces salen de modelos propios sobre un relieve de 30 m (de 5 m con el DTM de la SGIAR en Puerto Ayora, el escarpe y Bellavista): sirven para priorizar inspecciones, no son delimitaciones oficiales.",
    "capas": ["susceptibilidad", "sc_puntos", "sx_puntos", "cruces_alta", "cruces_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
   {"id": "hidrografia", "titulo": "Quebradas y drenaje", "capas": ["quebradas", "sx_canadas"]},
   {"id": "puntos", "titulo": "Puntos clave: refugios, salud y servicios"},

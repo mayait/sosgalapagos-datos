@@ -4,7 +4,7 @@ Intro: Por qué se inunda el barrio La Cascada, en Puerto Ayora: la cuenca que l
 
 La Cascada se inunda por la suma de tres hechos. Ninguno basta por sí solo.
 
-1. **Recibe el agua de 42 km².** Al barrio drena prácticamente toda la cuenca de Puerto Ayora (47 km²), incluidas la zona agrícola alta y Bellavista. Son dos ramas de quebradas (29,5 y 12,2 km²) más 0,6 km² de escorrentía local. Las quebradas del IGM **terminan en el borde norte del barrio**.
+1. **Recibe el agua de 40 km².** Al barrio drena prácticamente toda la cuenca de Puerto Ayora (47 km²), incluidas la zona agrícola alta y Bellavista. Son dos ramas de quebradas (29,5 y 12,2 km²) más 0,6 km² de escorrentía local. Las quebradas del IGM **terminan en el borde norte del barrio**.
 2. **Ocupa un vaso cerrado al pie de un escarpe.** El fondo está cerrado al norte, al este y al oeste. Hasta el punto de rebose, el vaso almacena solo **42 000–62 000 m³ en 3,7–6,2 ha**, con una profundidad máxima de 2,4 m. El rebose está en **≈12–13,25 m** de cota; la cifra exacta solo se puede fijar con GNSS. Una lluvia de 100 mm en 24 h genera entre 13 y 35 veces el volumen del vaso.
 3. **El agua no tiene por dónde salir.** Entre el barrio y el mar no hay ningún cauce cartografiado. La salida natural recorre 1,2 km de calles casi planas, pasa sobre edificaciones y cruza 16 veces las vías.
 

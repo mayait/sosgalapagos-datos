@@ -3,38 +3,38 @@
   "La Cascada": {
    "v0.2 (estaciones de hoy)": {
     "medio": {
-     "POD": 0.993,
-     "POFD": 0.719,
-     "aviso_min": 150.0
+     "POD": 1.0,
+     "POFD": 0.706,
+     "aviso_min": 135.0
     },
     "alto": {
-     "POD": 0.979,
-     "POFD": 0.373,
-     "aviso_min": 120.0
+     "POD": 0.987,
+     "POFD": 0.354,
+     "aviso_min": 100.0
     }
    },
    "+ Cerro Crocker": {
     "medio": {
      "POD": 1.0,
-     "POFD": 0.808,
-     "aviso_min": 155.0
+     "POFD": 0.794,
+     "aviso_min": 135.0
     },
     "alto": {
      "POD": 1.0,
-     "POFD": 0.476,
-     "aviso_min": 125.0
+     "POFD": 0.471,
+     "aviso_min": 105.0
     }
    },
    "+ pluviómetro nuevo en el mejor sitio": {
     "medio": {
      "POD": 1.0,
-     "POFD": 0.733,
-     "aviso_min": 150.0
+     "POFD": 0.72,
+     "aviso_min": 135.0
     },
     "alto": {
      "POD": 1.0,
-     "POFD": 0.393,
-     "aviso_min": 120.0
+     "POFD": 0.371,
+     "aviso_min": 100.0
     }
    }
   },
@@ -42,51 +42,51 @@
    "v0.2 (estaciones de hoy)": {
     "medio": {
      "POD": 1.0,
-     "POFD": 0.773,
+     "POFD": 0.759,
      "aviso_min": 85.0
     },
     "alto": {
      "POD": 1.0,
-     "POFD": 0.493,
-     "aviso_min": 70.0
+     "POFD": 0.466,
+     "aviso_min": 75.0
     }
    },
    "+ pluviómetro nuevo en el mejor sitio": {
     "medio": {
      "POD": 1.0,
-     "POFD": 0.787,
+     "POFD": 0.763,
      "aviso_min": 85.0
     },
     "alto": {
      "POD": 1.0,
-     "POFD": 0.516,
-     "aviso_min": 70.0
+     "POFD": 0.468,
+     "aviso_min": 75.0
     }
    }
   },
   "Bellavista": {
    "v0.2 (estaciones de hoy)": {
     "medio": {
-     "POD": 0.992,
-     "POFD": 0.799,
-     "aviso_min": 70.0
+     "POD": 0.988,
+     "POFD": 0.822,
+     "aviso_min": 35.0
     },
     "alto": {
-     "POD": 0.953,
-     "POFD": 0.469,
-     "aviso_min": 50.0
+     "POD": 0.893,
+     "POFD": 0.534,
+     "aviso_min": 25.0
     }
    },
    "+ pluviómetro nuevo en el mejor sitio": {
     "medio": {
-     "POD": 0.992,
-     "POFD": 0.804,
-     "aviso_min": 70.0
+     "POD": 0.988,
+     "POFD": 0.822,
+     "aviso_min": 35.0
     },
     "alto": {
-     "POD": 0.961,
-     "POFD": 0.483,
-     "aviso_min": 50.0
+     "POD": 0.893,
+     "POFD": 0.534,
+     "aviso_min": 25.0
     }
    }
   }

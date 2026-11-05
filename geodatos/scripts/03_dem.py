@@ -224,6 +224,11 @@ def alta_resolucion(key, isla, z30, tr30):
               src_nodata=-9999, dst_nodata=np.nan, resampling=Resampling.bilinear)
     zc = np.where(np.isfinite(zc), zc, -9999).astype("float32")
     z, peso, _ = relieve_sgiar.fusionar(zc, tr, "EPSG:4326")
+    # máscara de mar del DTM (5 m, UTM): la usan 36_teselas_dtm.py y 37_cascada_dtm.py
+    _, tr5, crs5, mar5, _ = relieve_sgiar._dtm_5m()
+    with rasterio.open(TMP / f"{key}_dtm_mar_5m.tif", "w", driver="GTiff", height=mar5.shape[0], width=mar5.shape[1], count=1,
+                       dtype="uint8", crs=crs5, transform=tr5, compress="deflate") as d:
+        d.write(mar5.astype("uint8"), 1)
     sea = z <= 0.5
     z[sea] = -9999
     prof = dict(driver="GTiff", height=H, width=W, count=1, dtype="float32", crs="EPSG:4326", transform=tr,

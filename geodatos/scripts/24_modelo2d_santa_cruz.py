@@ -35,6 +35,8 @@ import anuga
 
 T0_RELOJ = time.time()
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+RELIEVE_PIE = ("DTM 1 m SGIAR promediado a 30 m (Copernicus GLO-30 fuera de su cobertura)" if (ROOT / "datos/dtm_sgiar/dtm_sgiar_1m.vrt").exists()
+               else "DSM GLO-30 (techos y vegetación; ±2–4 m)")
 
 
 def figuras(esc="central"):
@@ -66,7 +68,7 @@ def figuras(esc="central"):
     im = ax.imshow(np.clip(hm, 0, 4.99), extent=ext, cmap=cm, norm=BoundaryNorm(bounds, cm.N))
     cb = fig.colorbar(im, ax=ax, shrink=0.45, pad=0.01); cb.set_label("Calado máximo (m)"); cb.set_ticklabels(["0,1", "0,5", "1", "2", "5"])
     ax.set_title(f"Calado máximo simulado desde {ini.strftime('%d-%b %H:%M')} (escenario {esc})", fontsize=10)
-    fig.text(0.02, 0.01, f"Modelo 2D rain-on-grid ({rs_.get('motor', '')}, celda/malla {rs_.get('celda_m', '')} m) sobre DSM GLO-30 (techos y vegetación; ±2–4 m). Lluvia IERSE-WSN. Preliminar.", fontsize=6.2, color="#555")
+    fig.text(0.02, 0.01, f"Modelo 2D rain-on-grid ({rs_.get('motor', '')}, celda/malla {rs_.get('celda_m', '')} m) sobre {RELIEVE_PIE}. Lluvia IERSE-WSN. Preliminar.", fontsize=6.2, color="#555")
     fig.savefig(fg / f"m2d_calado_max_{esc}.png", dpi=170, bbox_inches="tight"); plt.close(fig)
     tl = rasterio.open(d_ / "hora_llegada_h_desde_12h.tif").read(1)
     fig, ax = plt.subplots(figsize=(6, 9.5)); capas(ax)
@@ -115,7 +117,7 @@ def figura_validacion():
         ax.set_xlim(t0, t1); ax.set_title(ev, fontsize=10); ax.grid(alpha=0.25)
         ax.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b\n%H:%M")); ax.tick_params(axis="x", labelsize=7)
     axs[0].set_ylabel("Calado simulado (m)"); axs[0].legend(fontsize=6.5, frameon=False, loc="upper left")
-    fig.text(0.01, -0.02, "Modelo 2D LISFLOOD-ACC, 30 m, DSM GLO-30. «Centro» = celda del centroide del barrio; «punto bajo» = celda más baja del DSM (≈10,5 m). Hora UTC−6.", fontsize=7, color="#555")
+    fig.text(0.01, -0.02, f"Modelo 2D LISFLOOD-ACC, 30 m, {RELIEVE_PIE}. «Centro» = celda del centroide del barrio; «punto bajo» = celda más baja del relieve. Hora UTC−6.", fontsize=7, color="#555")
     fig.tight_layout(); fig.savefig(fg / "m2d_validacion.png", dpi=170, bbox_inches="tight"); plt.close(fig)
     print("figura de validación lista")
 

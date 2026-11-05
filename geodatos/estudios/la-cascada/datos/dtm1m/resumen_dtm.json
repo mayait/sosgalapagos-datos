@@ -1,0 +1,115 @@
+{
+ "fuente": "DTM 1 m SGIAR (Vricon/Maxar), datos/dtm_sgiar/. Cite a la SGIAR.",
+ "metodo": "Relleno de depresiones por reconstrucción morfológica (scikit-image) con el mar como única salida; vaso = celdas rellenadas conectadas con el punto bajo del barrio. Topografía, no hidráulica.",
+ "ventana_utm": [
+  796805,
+  9916236,
+  801205,
+  9920336
+ ],
+ "referencia": {
+  "resolucion_m": 1,
+  "conectividad": 8,
+  "cota_punto_bajo_m": 13.37,
+  "cota_rebose_m": 15.05,
+  "profundidad_max_m": 1.68,
+  "area_vaso_ha": 5.87,
+  "volumen_vaso_m3": 41872,
+  "punto_bajo_lonlat": [
+   -90.31441,
+   -0.73396
+  ],
+  "umbral_lonlat": [
+   -90.31177,
+   -0.73419
+  ],
+  "exposicion": {
+   "edificios_intersecan": 207,
+   "edificios_centroide": 158,
+   "poblacion_estimada": 899,
+   "viviendas_estimadas": 181
+  }
+ },
+ "sensibilidad": [
+  {
+   "resolucion_m": 1,
+   "conectividad": 4,
+   "cota_punto_bajo_m": 13.37,
+   "cota_rebose_m": 15.05,
+   "profundidad_max_m": 1.68,
+   "area_vaso_ha": 5.87,
+   "volumen_vaso_m3": 41872,
+   "punto_bajo_lonlat": [
+    -90.31441,
+    -0.73396
+   ]
+  },
+  {
+   "resolucion_m": 2,
+   "conectividad": 8,
+   "cota_punto_bajo_m": 13.36,
+   "cota_rebose_m": 15.04,
+   "profundidad_max_m": 1.68,
+   "area_vaso_ha": 5.82,
+   "volumen_vaso_m3": 41246,
+   "punto_bajo_lonlat": [
+    -90.31442,
+    -0.73398
+   ]
+  },
+  {
+   "resolucion_m": 2,
+   "conectividad": 4,
+   "cota_punto_bajo_m": 13.36,
+   "cota_rebose_m": 15.04,
+   "profundidad_max_m": 1.69,
+   "area_vaso_ha": 5.82,
+   "volumen_vaso_m3": 41301,
+   "punto_bajo_lonlat": [
+    -90.31442,
+    -0.73398
+   ]
+  },
+  {
+   "resolucion_m": 5,
+   "conectividad": 8,
+   "cota_punto_bajo_m": 13.36,
+   "cota_rebose_m": 15.04,
+   "profundidad_max_m": 1.68,
+   "area_vaso_ha": 5.8,
+   "volumen_vaso_m3": 40883,
+   "punto_bajo_lonlat": [
+    -90.31443,
+    -0.73398
+   ]
+  },
+  {
+   "resolucion_m": 5,
+   "conectividad": 4,
+   "cota_punto_bajo_m": 13.36,
+   "cota_rebose_m": 15.04,
+   "profundidad_max_m": 1.68,
+   "area_vaso_ha": 5.82,
+   "volumen_vaso_m3": 41219,
+   "punto_bajo_lonlat": [
+    -90.31443,
+    -0.73398
+   ]
+  }
+ ],
+ "comparacion_30m": {
+  "relieve_30m": "DTM 1 m SGIAR promediado a 30 m (fusionado con Copernicus GLO-30 fuera de su cobertura), reproyectado a UTM 15S, 30 m, bilineal",
+  "cota_punto_bajo_m": 13.53,
+  "cota_rebose_m": 15.09,
+  "volumen_vaso_m3_4_8_vecinos": [
+   25196,
+   35477
+  ]
+ },
+ "limitaciones": [
+  "El DTM interpola el terreno bajo los edificios: no hay muros ni casas que frenen o desvíen el agua.",
+  "No hay alcantarillas ni sumideros: el vaso solo se vacía por encima del umbral o por infiltración.",
+  "Imágenes de 2020 a 2024: no recoge rellenos ni obras posteriores.",
+  "Cotas sobre EGM2008; frente a los puntos acotados del IGM el DTM queda ≈1 m más bajo en la zona (ver datos/dtm_sgiar/LEEME.md)."
+ ]
+}

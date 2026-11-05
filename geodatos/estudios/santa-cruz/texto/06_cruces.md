@@ -4,9 +4,9 @@ Intro: Dónde cortan las quebradas y los cauces de Santa Cruz las calles y la ca
 
 Se cruzaron todas las vías con todos los cauces de Santa Cruz. Es un inventario de gabinete hecho con un modelo de superficie de 30 m y cartografía abierta: sirve para decidir **dónde mirar primero en campo**, no para dimensionar obras. Ningún cruce se ha visitado.
 
-- **1 410 intersecciones que quedan en 687 cruces.** El 91 % se identifica solo con el cauce derivado del modelo (D8). Únicamente 59 cruces tocan una quebrada del IGM o de OSM: casi todos los cruces están sobre cauces que no figuran en la cartografía del IGM ni en la de OSM.
-- **Solo 2 cruces tienen una estructura cartografiada**: un puente del IGM en la Troncal Insular, al norte (CR-SCZ-0115), y una pasarela peatonal de OSM en el sendero a Tortuga Bay. OSM no tiene ninguna alcantarilla marcada en Santa Cruz.
-- **Prioridad:** 97 cruces de prioridad alta, 307 de prioridad media y 283 de prioridad baja. De los de prioridad alta, 88 están en zona poblada.
+- **1 410 intersecciones que quedan en 653 cruces.** El 91 % se identifica solo con el cauce derivado del modelo (D8). Únicamente 59 cruces tocan una quebrada del IGM o de OSM: casi todos los cruces están sobre cauces que no figuran en la cartografía del IGM ni en la de OSM.
+- **Solo 3 cruces tienen una estructura cartografiada**: un puente del IGM en la Troncal Insular, al norte (CR-SCZ-0115), y una pasarela peatonal de OSM en el sendero a Tortuga Bay. OSM no tiene ninguna alcantarilla marcada en Santa Cruz.
+- **Prioridad:** 87 cruces de prioridad alta, 307 de prioridad media y 283 de prioridad baja. De los de prioridad alta, 88 están en zona poblada.
 - **Los caudales de esta página son valores bajos**: el coeficiente usado subestima el caudal punta (ver «Método», más abajo).
 
 Lo que se lee en los cruces de prioridad alta:

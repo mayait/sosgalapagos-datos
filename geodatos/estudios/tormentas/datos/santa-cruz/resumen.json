@@ -16,7 +16,7 @@
   24
  ],
  "h_impacto_m": 0.3,
- "segundos_por_corrida_mediana": 9.3,
+ "segundos_por_corrida_mediana": 10.0,
  "zonas": {
   "La Cascada": {
    "punto": "La Cascada (centro)",
@@ -27,7 +27,7 @@
     "Erna (Puerto Ayora)": 1.0
    },
    "n": 500,
-   "inundan": 141,
+   "inundan": 150,
    "regla_v02": {
     "medio": {
      "umbrales": {
@@ -35,9 +35,9 @@
       "R3h": 30,
       "R24h": 50
      },
-     "POD": 0.993,
-     "POFD": 0.719,
-     "anticipacion_mediana_min": 150.0
+     "POD": 1.0,
+     "POFD": 0.706,
+     "anticipacion_mediana_min": 135.0
     },
     "alto": {
      "umbrales": {
@@ -45,9 +45,9 @@
       "R3h": 60,
       "R24h": 100
      },
-     "POD": 0.979,
-     "POFD": 0.373,
-     "anticipacion_mediana_min": 120.0
+     "POD": 0.987,
+     "POFD": 0.354,
+     "anticipacion_mediana_min": 100.0
     },
     "muy alto": {
      "umbrales": {
@@ -55,21 +55,21 @@
       "R3h": 90,
       "R24h": 150
      },
-     "POD": 0.865,
-     "POFD": 0.153,
-     "anticipacion_mediana_min": 75.0
+     "POD": 0.82,
+     "POFD": 0.146,
+     "anticipacion_mediana_min": 55.0
     }
    },
    "propuesta": {
     "medio": {
      "umbrales": {
-      "R1h": 47.5,
-      "R3h": 65.0,
+      "R1h": 42.5,
+      "R3h": 60.0,
       "R24h": 140.0
      },
-     "POD": 0.95,
-     "POFD": 0.181,
-     "anticipacion_mediana_min": 90.0
+     "POD": 0.953,
+     "POFD": 0.226,
+     "anticipacion_mediana_min": 75.0
     },
     "alto": {
      "umbrales": {
@@ -77,19 +77,19 @@
       "R3h": 75.0,
       "R24h": 190.0
      },
-     "POD": 0.915,
-     "POFD": 0.095,
-     "anticipacion_mediana_min": 75.0
+     "POD": 0.9,
+     "POFD": 0.074,
+     "anticipacion_mediana_min": 55.0
     },
     "muy alto": {
      "umbrales": {
-      "R1h": 55.0,
-      "R3h": 90.0,
-      "R24h": 250.0
+      "R1h": 52.5,
+      "R3h": 85.0,
+      "R24h": 260.0
      },
-     "POD": 0.759,
-     "POFD": 0.047,
-     "anticipacion_mediana_min": 50.0
+     "POD": 0.8,
+     "POFD": 0.049,
+     "anticipacion_mediana_min": 45.0
     }
    },
    "factor_suelo_humedo": 0.9,
@@ -108,12 +108,12 @@
     ]
    },
    "auc_R3h_por_estacion": {
-    "Cerro Crocker": 0.9,
-    "Santa Rosa": 0.882,
-    "Los Guayabillos": 0.939,
-    "INAMHI Puerto Ayora": 0.927,
-    "Erna (Puerto Ayora)": 0.921,
-    "Punta Estrada": 0.923
+    "Cerro Crocker": 0.889,
+    "Santa Rosa": 0.878,
+    "Los Guayabillos": 0.942,
+    "INAMHI Puerto Ayora": 0.919,
+    "Erna (Puerto Ayora)": 0.912,
+    "Punta Estrada": 0.915
    }
   },
   "Tomás de Berlanga": {
@@ -125,7 +125,7 @@
     "Erna (Puerto Ayora)": 1.0
    },
    "n": 500,
-   "inundan": 50,
+   "inundan": 73,
    "regla_v02": {
     "medio": {
      "umbrales": {
@@ -134,7 +134,7 @@
       "R24h": 50
      },
      "POD": 1.0,
-     "POFD": 0.773,
+     "POFD": 0.759,
      "anticipacion_mediana_min": 85.0
     },
     "alto": {
@@ -144,8 +144,8 @@
       "R24h": 100
      },
      "POD": 1.0,
-     "POFD": 0.493,
-     "anticipacion_mediana_min": 70.0
+     "POFD": 0.466,
+     "anticipacion_mediana_min": 75.0
     },
     "muy alto": {
      "umbrales": {
@@ -154,64 +154,64 @@
       "R24h": 150
      },
      "POD": 1.0,
-     "POFD": 0.291,
+     "POFD": 0.255,
      "anticipacion_mediana_min": 55.0
     }
    },
    "propuesta": {
     "medio": {
      "umbrales": {
-      "R1h": 50.0,
-      "R3h": 100.0,
+      "R1h": 47.5,
+      "R3h": 95.0,
       "R24h": 300.0
      },
-     "POD": 1.0,
-     "POFD": 0.142,
-     "anticipacion_mediana_min": 45.0
+     "POD": 0.973,
+     "POFD": 0.133,
+     "anticipacion_mediana_min": 50.0
     },
     "alto": {
      "umbrales": {
-      "R1h": 50.0,
+      "R1h": 47.5,
       "R3h": 100.0,
       "R24h": 300.0
      },
-     "POD": 1.0,
-     "POFD": 0.142,
-     "anticipacion_mediana_min": 45.0
+     "POD": 0.973,
+     "POFD": 0.115,
+     "anticipacion_mediana_min": 50.0
     },
     "muy alto": {
      "umbrales": {
-      "R1h": 65.0,
+      "R1h": 55.0,
       "R3h": 145.0,
-      "R24h": 320.0
+      "R24h": 340.0
      },
-     "POD": 0.7,
+     "POD": 0.795,
      "POFD": 0.049,
-     "anticipacion_mediana_min": 35.0
+     "anticipacion_mediana_min": 45.0
     }
    },
    "factor_suelo_humedo": 0.9,
    "rango_alto_p10_p90": {
     "R1h": [
-     45.0,
-     52.5
+     40.0,
+     55.0
     ],
     "R3h": [
-     100.0,
-     135.0
+     95.0,
+     115.0
     ],
     "R24h": [
-     310.0,
-     350.0
+     300.0,
+     340.0
     ]
    },
    "auc_R3h_por_estacion": {
-    "Cerro Crocker": 0.895,
-    "Santa Rosa": 0.891,
-    "Los Guayabillos": 0.91,
-    "INAMHI Puerto Ayora": 0.896,
-    "Erna (Puerto Ayora)": 0.893,
-    "Punta Estrada": 0.893
+    "Cerro Crocker": 0.881,
+    "Santa Rosa": 0.893,
+    "Los Guayabillos": 0.922,
+    "INAMHI Puerto Ayora": 0.881,
+    "Erna (Puerto Ayora)": 0.88,
+    "Punta Estrada": 0.881
    }
   },
   "Bellavista": {
@@ -222,7 +222,7 @@
     "Cerro Crocker": 1.0
    },
    "n": 500,
-   "inundan": 127,
+   "inundan": 84,
    "regla_v02": {
     "medio": {
      "umbrales": {
@@ -230,9 +230,9 @@
       "R3h": 30,
       "R24h": 50
      },
-     "POD": 0.992,
-     "POFD": 0.799,
-     "anticipacion_mediana_min": 70.0
+     "POD": 0.988,
+     "POFD": 0.822,
+     "anticipacion_mediana_min": 35.0
     },
     "alto": {
      "umbrales": {
@@ -240,9 +240,9 @@
       "R3h": 60,
       "R24h": 100
      },
-     "POD": 0.953,
-     "POFD": 0.469,
-     "anticipacion_mediana_min": 50.0
+     "POD": 0.893,
+     "POFD": 0.534,
+     "anticipacion_mediana_min": 25.0
     },
     "muy alto": {
      "umbrales": {
@@ -250,9 +250,9 @@
       "R3h": 90,
       "R24h": 150
      },
-     "POD": 0.701,
-     "POFD": 0.247,
-     "anticipacion_mediana_min": 30.0
+     "POD": 0.536,
+     "POFD": 0.32,
+     "anticipacion_mediana_min": 15.0
     }
    },
    "propuesta": {
@@ -260,55 +260,55 @@
      "umbrales": {
       "R1h": 27.5,
       "R3h": 80.0,
-      "R24h": 320.0
+      "R24h": 310.0
      },
-     "POD": 0.953,
-     "POFD": 0.367,
-     "anticipacion_mediana_min": 50.0
+     "POD": 0.952,
+     "POFD": 0.486,
+     "anticipacion_mediana_min": 25.0
     },
     "alto": {
      "umbrales": {
-      "R1h": 32.5,
-      "R3h": 95.0,
-      "R24h": 320.0
+      "R1h": 30.0,
+      "R3h": 90.0,
+      "R24h": 310.0
      },
-     "POD": 0.913,
-     "POFD": 0.252,
-     "anticipacion_mediana_min": 45.0
+     "POD": 0.929,
+     "POFD": 0.438,
+     "anticipacion_mediana_min": 25.0
     },
     "muy alto": {
      "umbrales": {
-      "R1h": 50.0,
-      "R3h": 135.0,
-      "R24h": 320.0
+      "R1h": 72.5,
+      "R3h": 185.0,
+      "R24h": 330.0
      },
-     "POD": 0.472,
+     "POD": 0.071,
      "POFD": 0.048,
-     "anticipacion_mediana_min": 20.0
+     "anticipacion_mediana_min": 0.0
     }
    },
-   "factor_suelo_humedo": 0.9,
+   "factor_suelo_humedo": 0.7,
    "rango_alto_p10_p90": {
     "R1h": [
-     32.5,
-     35.0
+     30.0,
+     40.0
     ],
     "R3h": [
-     90.0,
-     100.0
+     85.0,
+     115.0
     ],
     "R24h": [
-     300.0,
+     310.0,
      330.0
     ]
    },
    "auc_R3h_por_estacion": {
-    "Cerro Crocker": 0.751,
-    "Santa Rosa": 0.758,
-    "Los Guayabillos": 0.776,
-    "INAMHI Puerto Ayora": 0.734,
-    "Erna (Puerto Ayora)": 0.734,
-    "Punta Estrada": 0.735
+    "Cerro Crocker": 0.524,
+    "Santa Rosa": 0.568,
+    "Los Guayabillos": 0.554,
+    "INAMHI Puerto Ayora": 0.551,
+    "Erna (Puerto Ayora)": 0.554,
+    "Punta Estrada": 0.553
    }
   }
  }

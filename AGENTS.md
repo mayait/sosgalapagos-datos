@@ -22,6 +22,7 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 - Coordenadas: EPSG:4326. Horas: se guardan en UTC. Galápagos está en UTC−6. INAMHI y GSC usan la hora continental (UTC−5), aunque marquen «Z». IERSE usa UTC−6. Open-Meteo devuelve UTC−5 si se pide `America/Guayaquil`.
 - En la Mac no hay Docker: los contenedores se corren con `container` (Apple).
 - El DSM Copernicus tiene un sesgo de −2 a −3 m frente al IGM. No uses sus cotas absolutas como umbrales.
+- En Santa Cruz (Puerto Ayora, escarpe y Bellavista) el relieve es el **DTM de 1 m de la SGIAR** fusionado con el Copernicus (`relieve_sgiar.py`, `03_dem.py`). Cita siempre «DTM 1 m: SGIAR (Vricon/Maxar)». Sus cotas quedan ≈ 1–3 m sobre las del Copernicus (≈ 3 m en La Cascada): nunca mezcles umbrales de un relieve con el otro.
 
 ## Mapa rápido
 

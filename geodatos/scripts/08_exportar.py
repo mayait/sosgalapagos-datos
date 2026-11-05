@@ -17,6 +17,10 @@ from shapely.strtree import STRtree
 from shapely import set_precision
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+# Relieve de cada isla: Santa Cruz usa el DTM 1 m de la SGIAR donde hay cobertura (03_dem.py, relieve_sgiar.py)
+_DTM = (ROOT / "datos/dtm_sgiar/dtm_sgiar_1m.vrt").exists()
+def relieve(isla):
+    return "DTM 1 m SGIAR + Copernicus GLO-30" if _DTM and isla == "Santa Cruz" else "Copernicus GLO-30"
 COMPLETO = "--completo" in sys.argv   # sin recorte: toda la superficie de cada isla
 C = ROOT / "capas"; OUT = ROOT / "export" / ("galapagos-completo" if COMPLETO else "galapagos"); OUT.mkdir(parents=True, exist_ok=True)
 (OUT / "raster").mkdir(exist_ok=True)
@@ -157,7 +161,7 @@ for isla, k in REG.items():
             if p.area / M**2 < 1500: continue
             susc.append(F(p, isla=isla, nivel=lv, susceptibilidad=NIV[lv],
                           descripcion={3: "Hasta 1 m sobre el cauce", 2: "Hasta 2,5 m sobre el cauce", 1: "Hasta 5 m sobre el cauce"}[lv],
-                          fuente="Modelo HAND (Copernicus GLO-30 + quebradas IGM)"))
+                          fuente=f"Modelo HAND ({relieve(isla)} + quebradas IGM)"))
 save("susceptibilidad_inundacion.geojson", sorted(susc, key=lambda f: f["properties"]["nivel"]))
 
 zi = []
@@ -179,7 +183,7 @@ for f in load("final/costa_baja.geojson"):
     if g is None: continue
     for p in parts(suave(g, 10)):
         if p.area / M**2 >= 1500:
-            cb.append(F(p, isla=isla, cota_max_m=f["properties"]["max_m"], clase=f["properties"]["clase"], fuente="Modelo (Copernicus GLO-30)"))
+            cb.append(F(p, isla=isla, cota_max_m=f["properties"]["max_m"], clase=f["properties"]["clase"], fuente=f"Modelo ({relieve(isla)})"))
 save("costa_baja.geojson", sorted(cb, key=lambda f: -f["properties"]["cota_max_m"]))
 save("tsunami_inundacion.geojson", [F(shape(f["geometry"]).simplify(2 * M), isla=f["properties"]["isla"], localidad=f["properties"]["localidad"],
                                       clase=f["properties"]["clase"], fuente="SNGR / INOCAR") for f in load("final/tsunami_inundacion_inocar.geojson")])
@@ -204,7 +208,7 @@ for f in load("final/drenaje_derivado.geojson"):
     for p in parts(rest):
         if p.geom_type.endswith("LineString") and p.length / M >= 80:
             dd.append(F(p.simplify(4 * M), isla=isla, orden=f["properties"]["orden"], area_drenada_km2=f["properties"]["area_drenada_km2"],
-                        fuente="Modelo (Copernicus GLO-30), cauce no mapeado por el IGM"))
+                        fuente=f"Modelo ({relieve(isla)}), cauce no mapeado por el IGM"))
 save("drenaje_adicional.geojson", dd)
 fr = []
 for f in load("final/quebradas_franja20m_cgreg.geojson"):

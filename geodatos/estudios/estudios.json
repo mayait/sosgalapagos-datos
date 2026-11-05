@@ -9,7 +9,7 @@
       "estudios/la-cascada",
       "estudios/santa-cruz"
     ],
-    "panorama": "La tarde y la noche del 30 de octubre de 2026 llovió muy fuerte en Santa Cruz: al menos 179 mm en Los Guayabillos y 238 mm en Santa Rosa, con 61–66 mm en una hora. Es el día más lluvioso desde que funciona la red IERSE-WSN (abril de 2026), y los pronósticos no lo anticiparon.\n\nLa Cascada recibe el agua de 42 km² y ocupa un vaso cerrado al pie de un escarpe, sin cauce hasta el mar. Fuera de La Cascada, el análisis señala 121 puntos potenciales de inundación (11 de prioridad alta) y 687 cruces de quebradas con vías, de los que solo 2 tienen una estructura cartografiada.\n\nCada tema está en una página corta. Empieza por [qué pasó](que-paso/) o por los [riesgos y observaciones](riesgos/). Lo que todavía falta saber está en [pendientes y preguntas abiertas](pendientes/).",
+    "panorama": "La tarde y la noche del 30 de octubre de 2026 llovió muy fuerte en Santa Cruz: al menos 179 mm en Los Guayabillos y 238 mm en Santa Rosa, con 61–66 mm en una hora. Es el día más lluvioso desde que funciona la red IERSE-WSN (abril de 2026), y los pronósticos no lo anticiparon.\n\nLa Cascada recibe el agua de 40 km² y ocupa un vaso cerrado al pie de un escarpe, sin cauce hasta el mar. Fuera de La Cascada, el análisis señala 85 puntos potenciales de inundación (10 de prioridad alta) y 653 cruces de quebradas con vías, de los que solo 3 tienen una estructura cartografiada.\n\nCada tema está en una página corta. Empieza por [qué pasó](que-paso/) o por los [riesgos y observaciones](riesgos/). Lo que todavía falta saber está en [pendientes y preguntas abiertas](pendientes/).",
     "paginas": [
       {
         "slug": "que-paso",
@@ -132,11 +132,19 @@
           "grosor": 2
         },
         {
-          "nombre": "Llenado del vaso hasta ≈13 m",
-          "archivo": "estudios/la-cascada/datos/mancha_13m.geojson",
+          "nombre": "Llenado del vaso hasta la cota de rebose (relieve de 30 m)",
+          "archivo": "estudios/la-cascada/datos/mancha_rebose.geojson",
           "color": "#2171b5",
           "relleno": 0.45,
-          "grosor": 1
+          "grosor": 1,
+          "visible": false
+        },
+        {
+          "nombre": "Vaso de La Cascada hasta el rebose (DTM 1 m de la SGIAR)",
+          "archivo": "estudios/la-cascada/datos/dtm1m/vaso_rebose_dtm.geojson",
+          "color": "#08519c",
+          "relleno": 0.45,
+          "grosor": 1.5
         },
         {
           "nombre": "Salida natural del agua (La Cascada → mar)",
