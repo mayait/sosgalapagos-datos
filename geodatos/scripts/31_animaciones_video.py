@@ -68,6 +68,8 @@ ISLAS["santa-cruz-cop"] = dict(epsg=32715, dem=ROOT / "descargas/dem/Copernicus_
 # El azul solo lo pone el mar; cauces y agua del modelo en blanco (translúcido) sobre relieve oscurecido; rojo solo para lo que hay que mirar.
 ROJO = (225, 27, 34)            # #E11B22 USFQ
 NEGRO = (20, 20, 20); BLANCO = (255, 255, 255)
+# rampa para relieves bajos y planos (contraste>0): posición = log1p(z/15)/log1p(zmax/15)
+HIPSO_LOCAL = [(0.0, "#e6dfc6"), (0.18, "#d6c99f"), (0.38, "#bdb585"), (0.6, "#9aa56c"), (0.8, "#7a9157"), (1.0, "#61784a")]
 HIPSO = [(-5, "#d9d3bd"), (0, "#d9d3bd"), (40, "#cfc6a6"), (120, "#b9b48b"), (220, "#9fa874"), (350, "#7f975c"),
          (500, "#66854c"), (650, "#5a7746"), (800, "#66704f"), (1000, "#7b7b64")]
 MAR_SOMERO, MAR_MEDIO, MAR_HONDO = "#86bcc4", "#4b8ba3", "#2c5f7c"
@@ -209,9 +211,15 @@ def mezclar(img, m, color, alfa=1.0):
 class Escena:
     """Terreno (base insular + parche de detalle opcional), mar animado, cielo y luz."""
 
-    def __init__(self, isla, centro, ancho, alto, vexag=2.0, res=None, tex_px=10, parche=None, mar_px=20, marea=0.0):
+    def __init__(self, isla, centro, ancho, alto, vexag=2.0, res=None, tex_px=10, parche=None, mar_px=20, marea=0.0, contraste=0.0):
+        """`contraste` (0–1): para relieves bajos y planos, estira el sombreado y usa una rampa de color logarítmica local."""
         res = res or ISLAS[isla].get("res", 30)
         self.g = Geo(isla); self.isla = isla; self.vexag = vexag
+        self.contraste, self._zmax = contraste, None
+        if contraste:
+            x0, y0 = self.g.xy(*centro)
+            X, Y = np.meshgrid(np.linspace(x0 - ancho / 2, x0 + ancho / 2, 200), np.linspace(y0 - alto / 2, y0 + alto / 2, 200))
+            zz = muestrear(isla, X, Y, orden=1); self._zmax = max(float(np.percentile(zz[zz > 0.3], 98)), 30.0)
         cx, cy = self.g.xy(*centro); self.cx, self.cy = cx, cy
         self.capas = []        # (nombre, actor, lienzo, base_rgb, {capa: (mask, color)})
         self.bloques = []
@@ -249,13 +257,27 @@ class Escena:
         lz = Lienzo(x0, y0, x1, y1, tex_px)
         grid.active_texture_coordinates = np.c_[((X - x0) / (x1 - x0)).ravel(), ((Y - y0) / (y1 - y0)).ravel()].astype("float32")
         Zt = muestrear(fuente, *np.meshgrid(lz.xs, lz.ys), orden=3)
-        base = rampa(Zt, HIPSO)
-        hs = 0.6 * sombreado(Zt, tex_px, 315, 38, 2.5) + 0.4 * sombreado(Zt, tex_px, 250, 50, 2.5)
-        base *= (0.55 + 0.55 * hs)[..., None]
+        base = self._colorear(Zt, tex_px)
         tierra = Zt > 0.3
-        base[~tierra] = hex2rgb(MAR_SOMERO)
         self.bloques.append(dict(nombre=nombre, grid=grid, lz=lz, base=np.clip(base, 0, 1), Z=Z, xs=xs, ys=ys, tierra=tierra,
                                  capas={}, estado=None, actor=None))
+
+    def _colorear(self, Zt, px):
+        """Color hipsométrico × sombreado. Con `contraste`, el sombreado se estira alrededor del valor del terreno llano
+        (igual en todos los bloques, para que no haya costuras) y el color usa una rampa logarítmica local."""
+        tierra = Zt > 0.3
+        hs = 0.6 * sombreado(Zt, px, 315, 38, 2.5) + 0.4 * sombreado(Zt, px, 250, 50, 2.5)
+        k = self.contraste
+        if k:
+            llano = 0.6 * math.sin(math.radians(38)) + 0.4 * math.sin(math.radians(50))
+            hs = (1 - k) * hs + k * np.clip(0.55 + 2.6 * (hs - llano), 0, 1)
+            v = np.log1p(np.clip(Zt, 0, None) / 15) / np.log1p(self._zmax / 15)
+            base = (1 - k) * rampa(Zt, HIPSO) + k * rampa(v, HIPSO_LOCAL)
+            base *= (0.42 + 0.72 * hs)[..., None]
+        else:
+            base = rampa(Zt, HIPSO); base *= (0.55 + 0.55 * hs)[..., None]
+        base[~tierra] = hex2rgb(MAR_SOMERO)
+        return base
 
     def _mar(self, x0, y0, x1, y1, px):
         # malla rectilínea: densa sobre la zona de interés, cada vez más gruesa hacia el horizonte (±90 km)
@@ -316,9 +338,7 @@ class Escena:
         X, Y = np.meshgrid(b["xs"], b["ys"])
         b["Zb"] = muestrear(fuente_b, X, Y, orden=3)
         lz = b["lz"]; Zt = muestrear(fuente_b, *np.meshgrid(lz.xs, lz.ys), orden=3)
-        base = rampa(Zt, HIPSO)
-        hs = 0.6 * sombreado(Zt, lz.px, 315, 38, 2.5) + 0.4 * sombreado(Zt, lz.px, 250, 50, 2.5)
-        base *= (0.55 + 0.55 * hs)[..., None]; base[Zt <= 0.3] = hex2rgb(MAR_SOMERO)
+        base = self._colorear(Zt, lz.px)
         b["base_b"] = np.clip(base, 0, 1); b["X"], b["Y"] = X, Y; b["_m"] = None
 
     def _aplicar_morph(self, b, a):
@@ -1548,7 +1568,7 @@ def salida_urbana(geo):
 def sc_dtm_revela():
     """Del DSM al terreno: sobre La Cascada, el relieve de 30 m con techos y árboles (Copernicus) se transforma en el DTM de 1 m de la SGIAR y aparecen los edificios."""
     esc = Escena("santa-cruz", LA_CASCADA, 14000, 14000, vexag=2.2, res=30, tex_px=8,
-                 parche=(LA_CASCADA, 3600, 3600, 3, 1.2, "santa-cruz-cop"))
+                 parche=(LA_CASCADA, 3600, 3600, 3, 1.2, "santa-cruz-cop"), contraste=0.85)
     esc.morph("detalle", DTM)
     g = esc.g
     bb_utm = (esc.cx - 1500, esc.cy - 1500, esc.cx + 1500, esc.cy + 1500)
@@ -1566,7 +1586,7 @@ def sc_dtm_revela():
         edif.poner(e)
         borde.poner(rampa01(u, 0.84, 0.97))
         return {"_morph": a, "vias": rampa01(u, 0.58, 0.70)}
-    return Animacion("sc_dtm_revela", "santa-cruz", 22, esc, cam, act, portada=0.9, vertical=dict(dist=1.5, va=44), bruma=14,
+    return Animacion("sc_dtm_revela", "santa-cruz", 22, esc, cam, act, portada=0.9, vertical=dict(dist=1.5, va=44), bruma=24,
                      pista=lambda t, u: {"relieve": "DSM Copernicus 30 m" if mo(u) < 0.5 else "DTM SGIAR 1 m", "transicion_dsm_a_dtm": round(mo(u), 3),
                                          "edificios_visibles": round(rampa01(u, 0.64, 0.80), 3), "barrio_la_cascada": round(rampa01(u, 0.84, 0.97), 3)})
 
