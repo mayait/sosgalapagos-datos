@@ -7,6 +7,7 @@ Cómo se construyó cada capa derivada, con qué supuestos y con qué límites. 
 | Dato | Detalle |
 |---|---|
 | Relieve | **Copernicus GLO-30**: modelo digital de **superficie**, 30 m (1 segundo de arco), de AWS Open Data. Incluye la altura de edificios y de árboles. |
+| Relieve de Santa Cruz | **DTM de 1 m de la SGIAR** (Subsecretaría de Gestión de la Información y Análisis de Riesgo; producto Vricon/Maxar, imágenes 2020–2024) en Puerto Ayora, el escarpe y Bellavista (183 km²). Es un modelo del **terreno**: sin edificios ni árboles. `03_dem.py` lo fusiona con el Copernicus (transición de 300 m; `relieve_sgiar.py`) y, dentro de su cobertura, calcula HAND, drenaje, costa baja y curvas en una malla de **5 m**. Ficha en `geodatos/datos/dtm_sgiar/LEEME.md`. |
 | Hidrografía oficial | **IGM 1:25 000**, del WFS `geoportaligm.gob.ec/galapagos25`: 70 capas. El servicio devuelve cada elemento repetido tres veces por las hojas superpuestas, así que **se eliminan duplicados por geometría** (`05_igm_limpiar.py`). Quedan 909 quebradas en las tres islas. |
 | OpenStreetMap | Extracto de Geofabrik para Ecuador, del 31-oct-2026, procesado con pyosmium: vías, edificios, servicios y uso del suelo. |
 | Fuentes oficiales | SNGR, INEC, MSP, MINEDUC y CGREG (GeoNode de la FCD). Detalle en `03-fuentes-y-licencias.md`. |
@@ -68,8 +69,8 @@ Se usa el índice **HAND** (Height Above Nearest Drainage), que mide la altura d
 - **Suavizado:** filtro de mediana de 3×3, más cierre y apertura morfológica de 12 m para redondear la escalera de píxeles. Las clases se publican **acumuladas**: el polígono de «baja» contiene al de «media» y este al de «alta».
 
 **Límites:**
-- El DEM es de superficie: en zonas urbanas y bosque denso la altura está sesgada por edificios y árboles.
-- La resolución de 30 m no capta cauces estrechos ni obras de drenaje (alcantarillas, canales).
+- Fuera de la cobertura del DTM de la SGIAR, el DEM es de superficie: en zonas urbanas y bosque denso la altura está sesgada por edificios y árboles.
+- Con 30 m (y aun con los 5 m del DTM) no se captan obras de drenaje: alcantarillas, canales, sumideros. El DTM tampoco tiene muros ni edificios: el agua «pasa» bajo las casas.
 - En terreno muy plano, como **Puerto Villamil**, HAND marca casi todo como susceptible.
 - No modela el caudal ni el período de retorno. Es un índice de posición topográfica, no una simulación hidráulica.
 

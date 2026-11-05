@@ -32,7 +32,9 @@ HOY = datetime.date.today().isoformat()
 PRJ = ('GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],'
        'PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]')
 LICENCIA = """Fuentes: IGM 1:25 000, CGREG, Zonificación PNG 2017 (CGREG/FCD), SNGR/INOCAR, MSP, MINEDUC,
-INEC MGN 2026, OpenStreetMap (31-oct-2026), Google Open Buildings y Copernicus GLO-30.
+INEC MGN 2026, OpenStreetMap (31-oct-2026), Google Open Buildings, Copernicus GLO-30 y, en Santa Cruz
+(Puerto Ayora, el escarpe y Bellavista), el DTM de 1 m de la SGIAR (Subsecretaría de Gestión de la
+Información y Análisis de Riesgo; producto Vricon/Maxar).
 
 - Vías, nombres de calles y parte de los puntos clave: © colaboradores de OpenStreetMap,
   licencia ODbL 1.0 (https://www.openstreetmap.org/copyright). Si redistribuyes estos datos,
@@ -40,13 +42,26 @@ INEC MGN 2026, OpenStreetMap (31-oct-2026), Google Open Buildings y Copernicus G
 - Relieve, pendientes, curvas, cauces adicionales, cuencas, costa baja y susceptibilidad:
   contienen datos modificados de Copernicus DEM GLO-30 (© DLR e.V. 2010-2014 y © Airbus 2014-2018,
   proporcionados por la Comisión Europea).
-- La susceptibilidad a inundación, la costa baja y los cauces adicionales son un MODELO sobre un
-  DSM de 30 m: sirven para priorizar, no son delimitaciones oficiales.
+- En Santa Cruz, el relieve y los modelos usan además el DTM de 1 m de la SGIAR: cite a la SGIAR
+  como fuente del relieve («DTM 1 m: SGIAR (Vricon/Maxar)»).
+- La susceptibilidad a inundación, la costa baja y los cauces adicionales son un MODELO (sobre el DSM
+  de 30 m y, en Santa Cruz, sobre el DTM de la SGIAR a 5 m): sirven para priorizar, no son
+  delimitaciones oficiales.
 - La población por manzana es una estimación (viviendas SNGR), no el censo.
 
 Preparado por SOS Galápagos (https://sosgalapagos.org) para la respuesta a las inundaciones
 de El Niño, oct-nov 2026. Responsable: Julián Maya.
 """
+# Teselas del DTM de 1 m de la SGIAR (36_teselas_dtm.py) y su descarga (mosaico de 5 m del repositorio)
+TESELAS_DTM = ROOT / "teselas" / "dtm_sgiar"
+DTM_DIR = ROOT / "datos" / "dtm_sgiar"
+DTM_REPO = "https://github.com/mayait/sosgalapagos-datos/tree/main/geodatos/datos/dtm_sgiar"
+CAPA_DTM = {"id": "dtm_sgiar", "titulo": "Relieve del terreno, DTM de 1 m (Santa Cruz)", "tipo": "teselas", "teselas": "dtm_sgiar",
+            "visible": False, "opacidad": 0.85, "fuente": "SGIAR (Vricon/Maxar)",
+            "descripcion": "Modelo digital del terreno de 1 m (sin edificios ni vegetación) de Puerto Ayora, el escarpe y Bellavista. "
+                           "Dato de la SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo; imágenes de 2020 a 2024. "
+                           "Con la capa encendida, abajo se ve la cota del terreno bajo el cursor (m sobre el nivel del mar, EGM2008).",
+            "leyenda": [["#dfe9c6", "Costa y zona baja"], ["#8fbf6f", "Zona media"], ["#a8876a", "Parte alta (≈850 m)"]]}
 # Capas que se publican completas (islas enteras) también en la cobertura «Zona poblada»
 SIEMPRE_COMPLETAS = {"quebradas.geojson"}
 # Capas que no están en el manifiesto de la app pero se publican aquí
@@ -323,6 +338,10 @@ def main():
     # Los estudios van justo después de «Emergencia en curso» (o al principio si no existe ese grupo)
     i = next((n + 1 for n, g in enumerate(man["grupos"]) if g.get("id") == "emergencia"), 0)
     man["grupos"] = man["grupos"][:i] + g_est + man["grupos"][i:] + [EXTRA]
+    if (TESELAS_DTM / "teselas.json").exists():
+        g_rel = next(g for g in man["grupos"] if g["id"] == "relieve")
+        g_rel["capas"].insert(0, json.loads(json.dumps(CAPA_DTM)))
+        shutil.copytree(TESELAS_DTM, OUT / "teselas" / "dtm_sgiar")
     man = aplicar_visor(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
     publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
@@ -393,6 +412,15 @@ def main():
                                               "\nImagen PNG georreferenciada con archivo de mundo (.pgw). QGIS y ArcGIS la abren directamente.\n"))
             info["archivos"]["raster:" + kind] = {"titulo": titulos.get("raster:" + kind, kind), "shp": {"url": f"descargas/{var}/{zpath.name}",
                                                   "tam": tam(zpath.stat().st_size), "formato": "PNG"}}
+        # DTM SGIAR: mosaico de 5 m (GeoTIFF) con su ficha; el de 1 m se descarga del repositorio
+        if (TESELAS_DTM / "teselas.json").exists() and (DTM_DIR / "dtm_sgiar_5m.tif").exists():
+            zpath = d_desc / "dtm_sgiar_5m.zip"
+            with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
+                for nm in ("dtm_sgiar_5m.tif", "LEEME.md", "cobertura.geojson", "resumen.json"):
+                    z.write(DTM_DIR / nm, nm)
+            info["archivos"]["teselas:dtm_sgiar"] = {"titulo": CAPA_DTM["titulo"],
+                "shp": {"url": f"descargas/{var}/{zpath.name}", "tam": tam(zpath.stat().st_size), "formato": "GeoTIFF 5 m"},
+                "extra": {"url": DTM_REPO, "texto": "1 m (repositorio)"}}
         for z in (todo_shp, todo_gj):
             z.writestr(f"{var}/LEEME.txt", leeme(f"Capas de la emergencia — Galápagos ({TITULO_VAR[var]})", "todas", var, "—"))
             z.writestr(f"{var}/capas.json", json.dumps(man, ensure_ascii=False, indent=1))

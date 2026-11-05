@@ -16,11 +16,12 @@ Todas las fuentes se consultaron el **1 de noviembre de 2026**. Hay un catálogo
 | **OpenStreetMap** (Geofabrik, 31-oct-2026) | Vías, edificios, servicios y uso del suelo | `download.geofabrik.de` | **ODbL 1.0**: obligatorio «© colaboradores de OpenStreetMap». Las bases de datos derivadas deben mantener la ODbL. |
 | **Google Open Buildings v3** | Huellas de edificios en Santa Cruz e Isabela | Google Research | **CC BY 4.0** (con la ODbL como alternativa). Citar «Google Open Buildings». |
 | **Copernicus GLO-30 DEM** | Relieve y todas las capas modeladas | AWS Open Data `copernicus-dem-30m` | Licencia Copernicus DEM, libre con atribución: «produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA». |
+| **SGIAR**, Subsecretaría de Gestión de la Información y Análisis de Riesgo | DTM de 1 m de Santa Cruz (Puerto Ayora, el escarpe y Bellavista; producto Vricon/Maxar, imágenes 2020–2024): relieve de las capas modeladas en esa zona | Entregado por la SGIAR (`geodatos/datos/dtm_sgiar/`) | EULA de Vricon/Maxar; la SGIAR autorizó publicarlo en el repositorio. Citar «DTM 1 m: SGIAR (Vricon/Maxar)». |
 | **Mapas base** | Esri Light Gray y World Imagery, OSM, OpenTopoMap | Teselas en línea | Las atribuciones aparecen en el mapa. OpenTopoMap es CC-BY-SA. |
 
 ## Atribución sugerida para el mapa
 
-> Fuentes: IGM 1:25 000; CGREG/FCD (zonificación PNG 2017, riesgos, encañadas, barrios); SNGR/INOCAR; MSP; MINEDUC; INEC MGN 2026; © colaboradores de OpenStreetMap (ODbL); Google Open Buildings (CC BY 4.0); Copernicus GLO-30 © DLR, Airbus, UE/ESA. Capas modeladas: elaboración propia (USFQ Galápagos), noviembre de 2026.
+> Fuentes: IGM 1:25 000; CGREG/FCD (zonificación PNG 2017, riesgos, encañadas, barrios); SNGR/INOCAR; MSP; MINEDUC; INEC MGN 2026; © colaboradores de OpenStreetMap (ODbL); Google Open Buildings (CC BY 4.0); Copernicus GLO-30 © DLR, Airbus, UE/ESA; DTM 1 m de Santa Cruz: SGIAR (Vricon/Maxar). Capas modeladas: elaboración propia (USFQ Galápagos), noviembre de 2026.
 
 ## Datos personales y privacidad
 

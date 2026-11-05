@@ -137,6 +137,13 @@ Capas `galapagos50k:*` descargadas (con el bbox de las tres islas):
 | `grieta_l` | 82 | `igm50k_gal_grieta_l` |
 | `aeropuerto_a`, `pista_aterrizaje_a`, `muelle_a`, `central_electrica_p`, `tanque_almacenamiento_p`, `torre_agua_p` | 2, 1, 1, 1, 28, 1 | `igm50k_gal_*` |
 
+### 3.1b SGIAR: DTM de 1 m de Santa Cruz ✅ (entregado, sin servicio en línea)
+
+- **Fuente:** SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo. Producto Vricon DTM (Maxar), estéreo satelital con imágenes de 2020 a 2024. Pedido 7032308101286995205 del 25-jul-2026.
+- **Cobertura:** Puerto Ayora, el escarpe y Bellavista, 183 km² (lon −90,392 a −90,281, lat −0,773 a −0,638). Resolución de 1 m, EPSG:32715, cotas sobre EGM2008.
+- **En el repositorio:** `geodatos/datos/dtm_sgiar/`, generado por `35_dtm_sgiar.py` a partir del zip en `descargas/sgiar/`. Ficha, cita y control de calidad en su `LEEME.md`.
+- **Licencia:** EULA de Vricon/Maxar. La SGIAR autorizó publicarlo en este repositorio. Cita obligatoria a la SGIAR.
+
 ### 3.2 Límites administrativos y suelo urbano
 
 | Fuente | Endpoint | Entidades | Archivo |

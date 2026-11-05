@@ -33,6 +33,15 @@ dem_scb = ["descargas/dem_recortes/san_cristobal_dem.tif", "descargas/dem_recort
 capas = ["capas/final/*.geojson", "capas/igm/*.geojson", "capas/osm/*.geojson", "capas/dem/*.geojson", "export/galapagos/*.geojson"]
 lluvia_evento = ["estudios/la-cascada/datos/lluvia_ierse_30oct_5min.csv", "estudios/la-cascada/datos/lluvia_ierse_validacion_5min.csv"]
 
+# ------------------------------------------------------------------ relieve
+[pasos.dtm_sgiar]
+script = "35_dtm_sgiar.py"
+manual = true
+nota = "DTM 1 m de la SGIAR (Santa Cruz): verifica el zip, recomprime a COG LERC (±1 cm), firma y controla con el IGM"
+entradas = ["descargas/sgiar/7032308101286995205.zip", "capas/igm/punto_acotado_p.geojson"]
+salidas = ["datos/dtm_sgiar/dtm_sgiar_1m_*.tif", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "datos/dtm_sgiar/dtm_sgiar_5m.tif",
+           "datos/dtm_sgiar/cobertura.geojson", "datos/dtm_sgiar/resumen.json", "datos/dtm_sgiar/SHA256SUMS"]
+
 # ------------------------------------------------------------------ lluvia
 [pasos.lluvia_ierse]
 script = "21_lluvia_ierse_estudios.py"
@@ -92,12 +101,28 @@ entradas = ["@dem_sc", "@capas", "descargas/osm/santa_cruz_hidro.osm.json", "@ll
             "estudios/la-cascada/datos/lluvia_ierse_diaria.csv", "estudios/la-cascada/datos/estaciones_ierse.geojson",
             "estudios/la-cascada/datos/lluvia_evento_ecmwf_horaria.csv", "estudios/la-cascada/datos/lluvia_modelos_diaria.csv"]
 salidas = ["estudios/la-cascada/datos/cuenca_cascada.geojson", "estudios/la-cascada/datos/cauce_principal.geojson",
-           "estudios/la-cascada/datos/mancha_1*m.geojson", "estudios/la-cascada/datos/rutas_desvio.geojson",
+           "estudios/la-cascada/datos/mancha_rebose*.geojson", "estudios/la-cascada/datos/rutas_desvio.geojson",
            "estudios/la-cascada/datos/salidas_rebose.geojson", "estudios/la-cascada/datos/curva_cota_volumen.csv",
            "estudios/la-cascada/datos/hidrogramas.csv", "estudios/la-cascada/datos/hidrogramas_evento_30oct.csv",
            "estudios/la-cascada/datos/lluvia_areal_30oct_10min.csv", "estudios/la-cascada/datos/perfil_*.csv",
            "estudios/la-cascada/datos/secciones_barrio.csv", "estudios/la-cascada/datos/resumen.json",
            "estudios/santa-cruz/datos/hitos_hidrologicos.csv"]
+
+[pasos.cascada_dtm]
+script = "37_cascada_dtm.py"
+nota = "La Cascada con el DTM 1 m de la SGIAR: punto bajo, cota de rebose, vaso y curva cota–volumen (1, 2 y 5 m)"
+entradas = ["datos/dtm_sgiar/*.tif", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "descargas/dem_recortes/santa_cruz_dtm_mar_5m.tif",
+            "capas/final/zonas_pobladas.geojson", "capas/final/barrios.geojson", "capas/final/edificios_exposicion.geojson",
+            "capas/final/manzanas_inec.geojson", "estudios/la-cascada/datos/resumen.json"]
+salidas = ["estudios/la-cascada/datos/dtm1m/resumen_dtm.json", "estudios/la-cascada/datos/dtm1m/vaso_rebose_dtm.geojson",
+           "estudios/la-cascada/datos/dtm1m/umbral_rebose_dtm.geojson", "estudios/la-cascada/datos/dtm1m/curva_cota_volumen_dtm.csv",
+           "estudios/la-cascada/figuras/vaso_dtm_1m.png"]
+
+[pasos.teselas_dtm]
+script = "36_teselas_dtm.py"
+nota = "Teselas del DTM SGIAR para /mapas (relieve 11–17 y cota Terrarium 16); no van a git"
+entradas = ["datos/dtm_sgiar/*.tif", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "descargas/dem_recortes/santa_cruz_dtm_mar_5m.tif"]
+salidas = ["teselas/dtm_sgiar/teselas.json"]
 
 [pasos.cascada_figuras]
 script = "13_cascada_figuras.py"
@@ -308,7 +333,7 @@ script = "18_figuras_3d.py"
 nota = "Vistas 3D de las dos islas"
 entradas = ["@dem_sc", "@dem_scb", "capas/final/barrios.geojson", "capas/final/quebradas.geojson", "capas/final/zonas_pobladas.geojson",
             "../clima/datos/ierse-wsn/diario.csv", "../clima/datos/ierse-wsn/estaciones.geojson",
-            "estudios/la-cascada/datos/cuenca_cascada.geojson", "estudios/la-cascada/datos/mancha_13m.geojson",
+            "estudios/la-cascada/datos/cuenca_cascada.geojson", "estudios/la-cascada/datos/mancha_rebose.geojson",
             "estudios/la-cascada/datos/rutas_desvio.geojson", "estudios/santa-cruz/datos/cruces.geojson",
             "estudios/santa-cruz/datos/puntos_inundacion.geojson", "estudios/san-cristobal/datos/cuencas.geojson",
             "estudios/san-cristobal/datos/quebrada_usfq.geojson", "estudios/san-cristobal/datos/cruces.geojson",
@@ -353,5 +378,6 @@ salidas = []
 script = "10_publicar_web.py"
 nota = "Genera publicar/mapas con las capas de los estudios (no publica)"
 entradas = ["estudios/estudios.json", "scripts/capas_estudios.json", "scripts/visor_mapas.json", "web/index.html", "export/galapagos/*", "export/galapagos-completo/*.geojson",
-            "estudios/*/datos/*.geojson", "estudios/*/datos/*/*.geojson", "estudios/santa-cruz/datos/modelo2d/b_central/*.geojson"]
+            "estudios/*/datos/*.geojson", "estudios/*/datos/*/*.geojson", "estudios/santa-cruz/datos/modelo2d/b_central/*.geojson",
+            "teselas/dtm_sgiar/teselas.json", "datos/dtm_sgiar/dtm_sgiar_5m.tif"]
 salidas = ["publicar/mapas/index.html"]

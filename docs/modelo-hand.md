@@ -50,7 +50,7 @@ Librerías: `pysheds` (necesita `numpy < 2.4`), `rasterio`, `scipy`, `shapely`.
 | **Puntos clave** | Cada punto lleva `en_susc_alta_media` |
 | **Estudios** (`grd_riesgo_islas.py`) | Atributo `susceptibilidad_hand` en los puntos y tramos analizados |
 
-El estudio de **La Cascada** no se apoya en HAND: allí el barrio es un **vaso cerrado** y se analizó con el DEM directamente (cota de rebose, volumen, área drenada de 42,3 km²).
+El estudio de **La Cascada** no se apoya en HAND: allí el barrio es un **vaso cerrado** y se analizó con el DEM directamente (cota de rebose, volumen y área drenada; `12_cascada_analisis.py` a 30 m y `37_cascada_dtm.py` con el DTM de 1 m).
 
 ## Cómo se validó
 
@@ -58,17 +58,28 @@ El estudio de **La Cascada** no se apoya en HAND: allí el barrio es un **vaso c
 - El polígono de **flujos de lodo por El Niño** del CGREG cae sobre la quebrada encima de **La Cascada**, el barrio más afectado el 30–31-oct-2026.
 - **Falta** compararlo con la delimitación real de lo inundado y con marcas de agua (ver los [issues](https://github.com/mayait/sosgalapagos-datos/issues)).
 
+## Santa Cruz: DTM de 1 m de la SGIAR
+
+Desde noviembre de 2026, en **Puerto Ayora, el escarpe y Bellavista** el relieve es el **DTM de 1 m de la SGIAR** (Subsecretaría de Gestión de la Información y Análisis de Riesgo; producto Vricon/Maxar; `geodatos/datos/dtm_sgiar/`). Cambia dos cosas:
+
+- **Relieve de 30 m fusionado** (`relieve_sgiar.py`): dentro de la cobertura del DTM, el relieve de 30 m de Santa Cruz es el DTM promediado; fuera, el Copernicus. En una franja de 300 m se pasa de uno a otro. Todo lo que lee `descargas/dem_recortes/santa_cruz_dem.tif` (cuencas, La Cascada, modelo 2D, cruces, tormentas sintéticas) usa ya este relieve.
+- **HAND de 5 m**: dentro de la cobertura (menos la franja de transición), HAND, drenaje, costa baja y curvas se recalculan con el mismo método en una malla de 1/6 de segundo de arco (≈ 5 m), con 2,2 km de margen para que cuente el agua que entra por los bordes. Se empalman con las capas de 30 m. Cada polígono dice en `metodo` con qué relieve se calculó.
+
+Efecto en la exposición de Santa Cruz (`resumen_exposicion.json`): los edificios en susceptibilidad alta pasan de 926 a 1 295 y la población en alta o media de 3 965 a 5 392. En la costa baja de 0 a 3 m quedan 77 edificios (antes, 162).
+
+Frente a los puntos acotados del IGM, el DTM queda en mediana 1,0 m más bajo y el Copernicus 1,8 m más bajo; por encima de 100 m de altura el DTM se acerca al IGM 1,3 a 2 m más que el Copernicus. El DTM es de terreno, pero **no ve alcantarillas ni muros**, y las imágenes son de 2020–2024.
+
 ## Límites (decirlos siempre que se muestre el mapa)
 
-1. **El DEM es de superficie (DSM)**: incluye techos y copas de árboles. En la ciudad y el bosque la cota está sesgada; frente al IGM hay un sesgo de −2 a −3 m. No usar cotas absolutas como umbrales normativos.
-2. **30 m de resolución**: no ve cauces estrechos, muros, alcantarillas ni pasos bajo vías.
+1. **Fuera del DTM de la SGIAR, el DEM es de superficie (DSM)**: incluye techos y copas de árboles. En la ciudad y el bosque la cota está sesgada; frente al IGM hay un sesgo de −2 a −3 m. No usar cotas absolutas como umbrales normativos.
+2. **30 m de resolución** (5 m en la cobertura del DTM): no ve alcantarillas ni pasos bajo vías; a 30 m tampoco cauces estrechos.
 3. **Terreno muy plano** (Puerto Villamil): HAND marca casi todo como susceptible.
 4. **No hay caudal ni período de retorno**: es posición topográfica, no simulación.
 5. **Vasos cerrados** (como La Cascada): el relleno de depresiones del paso 2 los «borra»; hay que analizarlos aparte.
 
 ## Cómo mejorarlo
 
-1. Recalcular con un **DTM ≤ 1 m** de dron o LiDAR en los poblados (mismo script, cambiando la entrada).
+1. ~~Recalcular con un **DTM ≤ 1 m** en los poblados~~. Hecho en Santa Cruz con el DTM de la SGIAR (ver «Santa Cruz: DTM de 1 m de la SGIAR»). Falta en San Cristóbal e Isabela.
 2. Ajustar las clases con **marcas de agua** y la delimitación oficial del evento.
 3. Pasar de susceptibilidad a **amenaza** con un modelo hidrológico (HEC-HMS) e hidráulico 2D (HEC-RAS, ANUGA o SFINCS) por período de retorno.
 

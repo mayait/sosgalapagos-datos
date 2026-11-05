@@ -19,7 +19,7 @@ spec = importlib.util.spec_from_file_location("m32", ROOT / "scripts/32_tormenta
 M = importlib.util.module_from_spec(spec); spec.loader.exec_module(M)
 FIG = M.EST / "figuras"; FIG.mkdir(parents=True, exist_ok=True)
 NOMBRE = {"santa-cruz": "Santa Cruz", "san-cristobal": "San Cristóbal"}
-AVISO = "Simulación propia de SOS Galápagos (modelo 2D, DSM 30 m, tormentas sintéticas). No es un dato oficial."
+AVISO = "Simulación propia de SOS Galápagos (modelo 2D de 30 m: DTM SGIAR en Santa Cruz, Copernicus GLO-30 en San Cristóbal; tormentas sintéticas). No es un dato oficial."
 REGLA_V02 = {"niveles": {"medio": dict(R1h=15, R3h=30, R24h=50), "alto": dict(R1h=30, R3h=60, R24h=100), "muy alto": dict(R1h=45, R3h=90, R24h=150)},
              "factor_suelo_humedo": {"P5d_min_mm": 53, "factor": 0.8}}      # clima/recolector/umbrales_inundacion.json (v0.2)
 NIVELES = [("bajo", "#16a34a"), ("medio", "#d97706"), ("alto", "#dc2626"), ("muy alto", "#7f1d1d")]
@@ -187,7 +187,8 @@ def fig_frecuencia(isla):
     cb = fig.colorbar(im, ax=axs, shrink=0.6 if len(axs) > 1 else 0.85, pad=0.01); cb.set_label("% de las tormentas que dejan ≥ 0,3 m de agua")
     fig.suptitle(f"{NOMBRE[isla]}: dónde se acumula el agua con más frecuencia ({res['n_tormentas']} tormentas sintéticas)", fontsize=12)
     fig.text(0.01, 0.01, AVISO + " La frecuencia es la del conjunto de tormentas simuladas, no una probabilidad anual: "
-             "el conjunto sobrerrepresenta tormentas fuertes a propósito.\nLos puntos sueltos son hoyos del DSM (techos, árboles, canteras): el modelo de superficie los llena aunque en la realidad drenen.", fontsize=7, color="#555")
+             "el conjunto sobrerrepresenta tormentas fuertes a propósito.\n" + ("Los puntos sueltos son hoyos del relieve (canteras, cauces bajo vías sin alcantarilla en la malla de 30 m): el modelo los llena aunque en la realidad drenen."
+             if isla == "santa-cruz" else "Los puntos sueltos son hoyos del DSM (techos, árboles, canteras): el modelo de superficie los llena aunque en la realidad drenen."), fontsize=7, color="#555")
     fig.savefig(FIG / f"frecuencia_{isla}.png", dpi=150, bbox_inches="tight"); plt.close(fig)
 
 

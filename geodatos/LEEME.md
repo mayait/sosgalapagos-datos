@@ -18,6 +18,7 @@ Mini proyecto para reunir, depurar y revisar la información geográfica de Sant
 | `capas/osm/`, `capas/igm/`, `capas/dem/` | Capas depuradas por fuente. |
 | `capas/final/` | Capas integradas de las islas completas. |
 | `export/` | **Paquete para ResponseGrid**: capas recortadas al área de interés, manifiesto `capas.json`, motor TypeScript y guía de integración. |
+| `datos/dtm_sgiar/` | **DTM de 1 m de Santa Cruz** (Puerto Ayora, escarpe y Bellavista), dato de la **SGIAR** (Subsecretaría de Gestión de la Información y Análisis de Riesgo) sobre un producto Vricon/Maxar. Lo prepara `35_dtm_sgiar.py`; ficha y cita en su `LEEME.md`. |
 | `capas/raster/` | PNG para superponer: relieve, elevación, pendientes y susceptibilidad HAND; los límites están en `limites.json`. |
 | `scripts/` | Proceso reproducible (`01`–`07`); ver abajo. |
 | `docs/fuentes-oficiales.md` | Catálogo de fuentes y servicios probados. |
@@ -28,13 +29,15 @@ Mini proyecto para reunir, depurar y revisar la información geográfica de Sant
 .venv/bin/python -I scripts/02_osm_extraer.py descargas/osm/ecuador-latest.osm.pbf  # unos 10 min
 .venv/bin/python -I scripts/04_igm_wfs.py      # descarga el WFS IGM Galápagos 1:25 000
 .venv/bin/python -I scripts/05_igm_limpiar.py  # quita duplicados de hojas superpuestas y filtra las 3 islas
-.venv/bin/python -I scripts/03_dem.py          # relieve, curvas, drenaje, cuencas, HAND y costa baja (necesita 05)
+.venv/bin/python -I scripts/35_dtm_sgiar.py    # DTM 1 m de la SGIAR (Santa Cruz) desde su zip (solo si cambia el dato)
+.venv/bin/python -I scripts/03_dem.py          # relieve, curvas, drenaje, cuencas, HAND y costa baja (necesita 05; en Santa Cruz usa el DTM)
 .venv/bin/python -I scripts/06_integrar.py     # zonas pobladas, puntos clave, quebradas
 .venv/bin/python -I scripts/07_oficiales.py    # SNGR/INEC/CGREG, edificios combinados y exposición
 .venv/bin/python -I scripts/07b_cuencas_aportantes.py  # cuencas completas que drenan a cada poblado
 .venv/bin/python -I scripts/08_exportar.py     # recorta al área de interés y genera export/galapagos + capas.json
 .venv/bin/python -I scripts/08b_nombres_vias.py # rótulos de nombres de calles (nombres_vias.geojson)
 .venv/bin/python -I scripts/09_entregable.py   # actualiza ../mapas-galapagos/ (entregable final)
+.venv/bin/python -I scripts/36_teselas_dtm.py  # teselas del DTM SGIAR para /mapas (teselas/, no va a git)
 ```
 
 El visor lee `export/galapagos/capas.json`, que es el mismo paquete que pasa al proyecto principal (ver `export/INTEGRACION.md`). Los estilos se editan en `scripts/capas.json`.
@@ -74,7 +77,7 @@ El visor lee `export/galapagos/capas.json`, que es el mismo paquete que pasa al 
 
 ## Límites y advertencias
 
-- **No existe un mapa oficial de amenaza por inundación pluvial para Galápagos.** Las capas SNGR e INEC nacionales devuelven 0 entidades en las islas. La susceptibilidad HAND es un modelo propio sobre un DSM de 30 m que incluye edificios y vegetación, así que **sirve para priorizar, no para delimitar**. En terreno muy plano, como Puerto Villamil, sobrestima la susceptibilidad.
+- **No existe un mapa oficial de amenaza por inundación pluvial para Galápagos.** Las capas SNGR e INEC nacionales devuelven 0 entidades en las islas. La susceptibilidad HAND es un modelo propio sobre un DSM de 30 m que incluye edificios y vegetación (en Puerto Ayora, el escarpe y Bellavista, sobre el DTM de 1 m de la SGIAR a 5 m), así que **sirve para priorizar, no para delimitar**. En terreno muy plano, como Puerto Villamil, sobrestima la susceptibilidad.
 - La población es una estimación de la SNGR por vivienda; no proviene del censo publicado por manzana.
 - La capa de rutas de evacuación es para **tsunami**, no para inundación por lluvia.
 - Privacidad: se eliminaron los nombres y teléfonos de los responsables de refugios y de las fuentes de los eventos de la SNGR. No subas `descargas/oficiales/` sin depurar.
