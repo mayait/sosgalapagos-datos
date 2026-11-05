@@ -1,6 +1,7 @@
 """Animaciones 3D para video (reels 9:16 y YouTube 16:9) sobre las inundaciones del 30-oct-2026 en Galápagos.
 
-Motor: PyVista/VTK fuera de pantalla (GPU), terreno Copernicus GLO-30 con textura hipsométrica y capas
+Motor: PyVista/VTK fuera de pantalla (GPU), terreno Copernicus GLO-30 (y, en Santa Cruz, el DTM de 1 m de la SGIAR como relieve
+de detalle: fuente «santa-cruz-dtm»; «santa-cruz-cop» es el DSM puro para comparar) con textura hipsométrica, edificios 3D y capas
 rasterizadas, mar con leve oleaje animado, cámara por fotogramas clave con suavizado (easing) y ffmpeg (H.264).
 Sin texto incrustado: los rótulos se ponen en edición. Para las animaciones con hora se escribe una pista CSV
 por fotograma y una capa de reloj con alfa (ProRes 4444) aparte.
@@ -9,17 +10,20 @@ Uso, desde geodatos/:
   .venv/bin/python -I scripts/31_animaciones_video.py --lista
   .venv/bin/python -I scripts/31_animaciones_video.py sc_sobrevuelo_cuenca [otra …]
   .venv/bin/python -I scripts/31_animaciones_video.py sc_llenado_cascada_sur --prueba   # 6 fotogramas sueltos a baja resolución
-  Opciones: --formato 16x9|9x16 (por defecto ambos), --salida DIR, --crf N.
+  .venv/bin/python -I scripts/31_animaciones_video.py sc_vaso_dtm --formato 4k-ambos --crf 15   # 3840×2160 y 2160×3840
+  Opciones: --formato 16x9|9x16|4k|4k9x16|4k-ambos (por defecto 16x9 y 9x16), --salida DIR, --crf N,
+            --prores (ProRes 422 HQ .mov de 10 bits, para edición), --fps N (30 por defecto).
+  Las del DTM (sc_dtm_revela, sc_vaso_dtm, sc_30oct_dtm) necesitan datos/dtm_sgiar/ y la máscara de mar de 03_dem.py.
+  Al usarlas, cite «DTM 1 m: SGIAR (Vricon/Maxar)». Los edificios 3D tienen una altura ilustrativa de 3,5 m.
 
-Salida: ~/Desktop/SOS_Galapagos_videos/animaciones/<isla>/<nombre>_{16x9,9x16}.mp4 + <nombre>.png (portada 16:9)
-        y <nombre>_9x16.png, <nombre>_pista.csv y, si aplica, <nombre>_reloj.mov.
+Salida: ~/Desktop/SOS_Galapagos_videos/animaciones/<isla>/<nombre>_<formato>.mp4 (o .mov) + <nombre>_<formato>.png (portada), <nombre>_pista.csv y, si aplica, <nombre>_reloj.mov.
 """
 import argparse, csv, datetime as dt, json, math, os, pathlib, subprocess, sys, time
 import numpy as np, rasterio
 from rasterio import features
 from rasterio.transform import from_origin
 from rasterio.warp import reproject, Resampling, calculate_default_transform
-from scipy.ndimage import zoom, distance_transform_edt, gaussian_filter, map_coordinates
+from scipy.ndimage import zoom, distance_transform_edt, gaussian_filter, map_coordinates, label as ndi_label
 from scipy.interpolate import PchipInterpolator
 from shapely.geometry import shape, box, Point, LineString, Polygon, MultiPolygon
 from shapely.ops import unary_union, transform as stransform
@@ -51,7 +55,14 @@ def mosaico_situacion():
                        transform=tr, nodata=-9999, compress="deflate") as d:
         d.write(np.where((arr[0] < -100) | (arr[0] > 2000), -9999, arr[0]).astype("float32"), 1)
     return dest
-FORMATOS = {"16x9": (1920, 1080), "9x16": (1080, 1920)}
+FORMATOS = {"16x9": (1920, 1080), "9x16": (1080, 1920), "4k": (3840, 2160), "4k9x16": (2160, 3840)}
+CODEC = {"prores": False}      # --prores: ProRes 422 HQ (.mov) para edición, en lugar de H.264
+
+# DTM de 1 m de la SGIAR (Santa Cruz: Puerto Ayora, escarpe y Bellavista) y el DSM Copernicus puro, para comparar
+DTM_VRT = ROOT / "datos/dtm_sgiar/dtm_sgiar_1m.vrt"
+DTM_MAR = ROOT / "descargas/dem_recortes/santa_cruz_dtm_mar_5m.tif"
+ISLAS["santa-cruz-dtm"] = dict(epsg=32715, dtm=True, res=2.0, base="santa-cruz", nombre="Santa Cruz")
+ISLAS["santa-cruz-cop"] = dict(epsg=32715, dem=ROOT / "descargas/dem/Copernicus_DSM_COG_10_S01_00_W091_00_DEM.tif", nombre="Santa Cruz")
 
 # ---------------------------------------------------------------- paleta: marca USFQ Galápagos (rojo, negro y blanco).
 # El azul solo lo pone el mar; cauces y agua del modelo en blanco (translúcido) sobre relieve oscurecido; rojo solo para lo que hay que mirar.
@@ -92,10 +103,28 @@ def gj(p):
 _dem = {}
 
 
+def dtm_utm(cfg):
+    """DTM SGIAR promediado a cfg['res'] m en su UTM nativa (mar del DTM = nan)."""
+    from affine import Affine
+    with rasterio.open(DTM_VRT) as d:
+        r = cfg["res"]; h, w = int(d.height // r), int(d.width // r)
+        z = d.read(1, out_shape=(h, w), resampling=Resampling.average if r > 1 else Resampling.nearest).astype("float32")
+        tr = d.transform * Affine.scale(d.width / w, d.height / h)
+        z[z == d.nodata] = np.nan
+    with rasterio.open(DTM_MAR) as m:
+        mar = m.read(1).astype(bool); mt = m.transform
+    cs = np.clip(((tr.c + tr.a * (np.arange(w) + .5)) - mt.c) / mt.a, 0, mar.shape[1] - 1).astype(int)
+    rs = np.clip(((tr.f + tr.e * (np.arange(h) + .5)) - mt.f) / mt.e, 0, mar.shape[0] - 1).astype(int)
+    z[mar[rs][:, cs]] = np.nan
+    return z, tr
+
+
 def dem_utm(isla):
     """DEM reproyectado a UTM a 30 m (mar = nan)."""
     if isla not in _dem:
         cfg = ISLAS[isla]
+        if cfg.get("dtm"):
+            _dem[isla] = dtm_utm(cfg); return _dem[isla]
         if isla.startswith("galapagos"): mosaico_situacion()
         with rasterio.open(cfg["dem"]) as s:
             tr, w, h = calculate_default_transform(s.crs, f"EPSG:{cfg['epsg']}", s.width, s.height, *s.bounds, resolution=cfg.get("res", 30))
@@ -106,12 +135,22 @@ def dem_utm(isla):
     return _dem[isla]
 
 
+_zf = {}
+
+
 def muestrear(isla, X, Y, orden=3):
-    """Cota del DEM (m) en coordenadas UTM X, Y (arrays); mar = -3 m."""
+    """Cota del DEM (m) en coordenadas UTM X, Y (arrays); mar = -3 m. Con el DTM, fuera de su cobertura se usa la isla base."""
     Z, TR = dem_utm(isla)
-    zf = np.where(np.isnan(Z) | (Z <= 0.3), -3.0, Z)
+    if isla not in _zf: _zf[isla] = np.where(np.isnan(Z) | (Z <= 0.3), -3.0, Z).astype("float32")
+    zf = _zf[isla]
+    X = np.asarray(X, "float64"); Y = np.asarray(Y, "float64")
     c = (X - TR.c) / TR.a - 0.5; r = (Y - TR.f) / TR.e - 0.5
-    return map_coordinates(zf, [r, c], order=orden, mode="nearest").astype("float32")
+    out = map_coordinates(zf, [r, c], order=orden, mode="nearest").astype("float32")
+    base = ISLAS[isla].get("base")
+    if base:
+        fuera = (c < 2) | (r < 2) | (c > Z.shape[1] - 3) | (r > Z.shape[0] - 3)
+        if fuera.any(): out[fuera] = muestrear(base, X[fuera], Y[fuera], orden=min(orden, 1))
+    return out
 
 
 class Geo:
@@ -271,10 +310,30 @@ class Escena:
             m = lz.contorno(geoms_utm, contorno) if contorno else lz.mascara(geoms_utm, ancho_m, sigma=sigma)
             b["capas"][nombre] = (m, np.asarray(color, "float32"), alfa)
 
+    def morph(self, nombre, fuente_b):
+        """Prepara el bloque `nombre` para pasar de su relieve a `fuente_b` (alfa «_morph» 0→1: geometría y textura)."""
+        b = next(b for b in self.bloques if b["nombre"] == nombre)
+        X, Y = np.meshgrid(b["xs"], b["ys"])
+        b["Zb"] = muestrear(fuente_b, X, Y, orden=3)
+        lz = b["lz"]; Zt = muestrear(fuente_b, *np.meshgrid(lz.xs, lz.ys), orden=3)
+        base = rampa(Zt, HIPSO)
+        hs = 0.6 * sombreado(Zt, lz.px, 315, 38, 2.5) + 0.4 * sombreado(Zt, lz.px, 250, 50, 2.5)
+        base *= (0.55 + 0.55 * hs)[..., None]; base[Zt <= 0.3] = hex2rgb(MAR_SOMERO)
+        b["base_b"] = np.clip(base, 0, 1); b["X"], b["Y"] = X, Y; b["_m"] = None
+
+    def _aplicar_morph(self, b, a):
+        if "Zb" not in b or b["_m"] == round(a, 3): return
+        b["_m"] = round(a, 3)
+        Z = (1 - a) * b["Z"] + a * b["Zb"]
+        b["grid"].points[:, 2] = (Z * self.vexag).ravel()
+        b["grid"].point_data["Normals"][:] = normales(b["X"], b["Y"], Z * self.vexag); b["grid"].Modified()
+
     def textura(self, b, alfas):
-        clave = tuple(sorted((k, round(v, 3)) for k, v in alfas.items() if k in b["capas"]))
+        clave = tuple(sorted((k, round(v, 3)) for k, v in alfas.items() if k in b["capas"] or k == "_morph"))
         if clave == b["estado"]: return None
         img = b["base"].copy()
+        if "base_b" in b:
+            mm = float(alfas.get("_morph", 0.0)); img = (1 - mm) * img + mm * b["base_b"]
         for k, (m, col, a0) in b["capas"].items():
             a = alfas.get(k, 0.0)
             if a > 0.001: mezclar(img, m, col, a * a0)
@@ -296,6 +355,7 @@ class Escena:
 
     def actualizar(self, t, alfas):
         for b in self.bloques:
+            self._aplicar_morph(b, float(alfas.get("_morph", 0.0)))
             tx = self.textura(b, alfas)
             if tx is not None: b["actor"].texture = tx
         m = self.mar
@@ -313,8 +373,9 @@ def normales(X, Y, Z):
 class AguaModelo:
     """Lámina de agua del modelo 2D sobre el terreno, interpolada entre cuadros de 10 min."""
 
-    def __init__(self, esc, cuadros, horas, transform, epsg, res=10.0, bbox=None, umbral=0.10, alfa=0.9, desfase=0.25):
+    def __init__(self, esc, cuadros, horas, transform, epsg, res=10.0, bbox=None, umbral=0.10, alfa=0.9, desfase=0.25, fuente=None):
         self.esc, self.C, self.h = esc, cuadros, np.asarray(horas, float)
+        fuente = fuente or esc.isla
         a, b_, c, d, e, f = transform[:6]
         H, W = cuadros.shape[1:]
         x0, y1 = c, f; x1, y0 = c + a * W, f + e * H
@@ -327,7 +388,7 @@ class AguaModelo:
         mx = c + a * (np.arange(W) + .5); my = f + e * (np.arange(H) + .5)
         MX, MY = np.meshgrid(mx, my)
         self.zm = muestrear(esc.isla, MX, MY, orden=1)
-        self.zt = muestrear(esc.isla, X, Y, orden=3)
+        self.zt = muestrear(fuente, X, Y, orden=3)
         self.umbral, self.alfa, self.desfase = umbral, alfa, desfase
         g = pv.StructuredGrid(); g.dimensions = (nx, ny, 1)
         g.points = np.c_[(X - esc.cx).ravel(), (Y - esc.cy).ravel(), (self.zt * esc.vexag).ravel()]
@@ -364,14 +425,14 @@ class AguaModelo:
 class Lineas:
     """Polilíneas 3D pegadas al terreno que se dibujan progresivamente (fracción 0–1)."""
 
-    def __init__(self, esc, geoms_utm, color, ancho_px=4, dz=3.0, paso=15.0, opacidad=1.0, orden=None, z_min=None):
-        self.esc = esc; self.trazos = []
+    def __init__(self, esc, geoms_utm, color, ancho_px=4, dz=3.0, paso=15.0, opacidad=1.0, orden=None, z_min=None, fuente=None):
+        self.esc = esc; self.trazos = []; fuente = fuente or esc.isla
         for g in geoms_utm:
             for p in getattr(g, "geoms", [g]):
                 if p.geom_type == "Polygon": p = p.exterior
                 if "Line" not in p.geom_type and p.geom_type != "LinearRing": continue
                 p = LineString(p.coords).segmentize(paso); a = np.array(p.coords)[:, :2]
-                z = muestrear(esc.isla, a[:, 0], a[:, 1], orden=1)
+                z = muestrear(fuente, a[:, 0], a[:, 1], orden=1)
                 z = np.maximum(z, 0) + dz
                 if z_min is not None: z = np.maximum(z, z_min)
                 self.trazos.append(np.c_[a[:, 0] - esc.cx, a[:, 1] - esc.cy, z * esc.vexag])
@@ -486,6 +547,11 @@ def nuevo_plotter(w, h, esc):
 
 
 def ffmpeg_proc(ruta, w, h, crf=17):
+    if CODEC["prores"]:
+        cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{w}x{h}", "-r", str(FPS), "-i", "-",
+               "-c:v", "prores_ks", "-profile:v", "3", "-pix_fmt", "yuv422p10le", "-vendor", "apl0",
+               "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", str(ruta.with_suffix(".mov"))]
+        return subprocess.Popen(cmd, stdin=subprocess.PIPE)
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{w}x{h}", "-r", str(FPS), "-i", "-",
            "-c:v", "libx264", "-preset", "slow", "-crf", str(crf), "-pix_fmt", "yuv420p", "-profile:v", "high", "-tune", "film",
            "-movflags", "+faststart", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", str(ruta)]
@@ -496,8 +562,9 @@ def fotograma(pl, an, t, fmt):
     u = t / an.dur
     alfas = an.actualizar(t, u) or {}
     an.esc.actualizar(t, alfas)
-    if fmt == "9x16" and an.cam_v is not None: pos, foc, va, d = an.cam_v.en(u)
-    else: pos, foc, va, d = an.cam.en(u, an.vertical if fmt == "9x16" else None)
+    vert = fmt.endswith("9x16")
+    if vert and an.cam_v is not None: pos, foc, va, d = an.cam_v.en(u)
+    else: pos, foc, va, d = an.cam.en(u, an.vertical if vert else None)
     c = pl.camera
     c.position = tuple(pos); c.focal_point = tuple(foc); c.up = (0, 0, 1); c.view_angle = va
     c.clipping_range = (max(d * 0.02, 5.0), d * 60 + 200000)
@@ -530,10 +597,10 @@ def renderizar(an, formatos=("16x9", "9x16"), prueba=False, crf=17, salida=None)
                 img = fotograma(pl, an, i / FPS, fmt)
                 pr.stdin.write(np.ascontiguousarray(img[:, :, :3]).tobytes())
                 if i == ip:
-                    Image.fromarray(img[:, :, :3]).save(carpeta / (f"{an.nombre}.png" if fmt == "16x9" else f"{an.nombre}_9x16.png"))
+                    Image.fromarray(img[:, :, :3]).save(carpeta / f"{an.nombre}_{fmt}.png")
                 if i % 60 == 0: print(f"   {fmt} {i}/{n}  {time.time() - t0:.0f}s", flush=True)
             pr.stdin.close(); pr.wait()
-            print(f"  → {ruta}  ({time.time() - t0:.0f} s)")
+            print(f"  → {ruta.with_suffix('.mov') if CODEC['prores'] else ruta}  ({time.time() - t0:.0f} s)")
         pl.close()
         # reiniciar el estado de las texturas para el siguiente formato
         for b in an.esc.bloques: b["estado"] = None
@@ -669,7 +736,7 @@ TOMAS_B = (-90.3198, -0.7109)
 
 @anim
 def sc_sobrevuelo_cuenca():
-    """Dron virtual: del mar frente a Puerto Ayora hacia la parte alta; se revela la cuenca de 42 km² que drena a La Cascada."""
+    """Dron virtual: del mar frente a Puerto Ayora hacia la parte alta; se revela la cuenca de unos 40 km² que drena a La Cascada."""
     esc = Escena("santa-cruz", (-90.33, -0.67), 34000, 36000, vexag=2.0, res=30, tex_px=8)
     g = esc.g
     cu = cuenca_cascada(g)
@@ -700,17 +767,17 @@ def sc_sobrevuelo_cuenca():
 def _cascada(nombre, mira0, mira1, elev, dist, dur=16, h0=3.5, h1=11.0, portada=0.8, motor="b_central", h_off=0.0):
     """h0/h1 en horas desde las 12:00; h_off = hora de inicio del archivo de cuadros respecto de las 12:00 (ANUGA: 5 h)."""
     esc = Escena("santa-cruz", LA_CASCADA, 16000, 16000, vexag=3.0, res=30, tex_px=8,
-                 parche=(LA_CASCADA, 4200, 4200, 5, 1.5))
+                 parche=(LA_CASCADA, 4200, 4200, 3, 1.2, "santa-cruz-dtm"))
     g = esc.g
     bb = (-90.345, -0.765, -90.285, -0.705)
     capa_oscura(esc, 0.42)
     capas_urbanas(esc, "Santa Cruz", bb, oscuro=True)
     esc.capa("quebradas", quebradas(g, "Santa Cruz"), hex2rgb(QUEBRADA), ancho_m=5, alfa=0.45)
-    lin_b = Lineas(esc, [barrio_cascada(g)], "#E11B22", ancho_px=4, dz=0.6, paso=5, z_min=15.0)
+    lin_b = Lineas(esc, [barrio_cascada(g)], "#E11B22", ancho_px=4, dz=0.6, paso=5, z_min=17.0, fuente="santa-cruz-dtm")
     esc.dinamicos.append(lin_b)
     C, H, TRf, ep = modelo_sc(motor)
     cx, cy = esc.cx, esc.cy
-    agua = AguaModelo(esc, C, H, TRf, ep, res=5.0, bbox=(cx - 2000, cy - 2000, cx + 2000, cy + 2000), desfase=0.15)
+    agua = AguaModelo(esc, C, H, TRf, ep, res=4.0, bbox=(cx - 2000, cy - 2000, cx + 2000, cy + 2000), desfase=0.15, fuente="santa-cruz-dtm")
     esc.dinamicos.append(agua)
     cam = Camara(esc, [(0.0, dict(lon=LA_CASCADA[0], lat=LA_CASCADA[1], dist=dist, mira=mira0, elev=elev, va=30)),
                        (1.0, dict(lon=LA_CASCADA[0], lat=LA_CASCADA[1], dist=dist * 0.86, mira=mira1, elev=elev + 4, va=30))], ease=False)
@@ -817,6 +884,76 @@ class Mallas:
         kw.setdefault("reset_camera", False)
         self.actores.append(self.pl.add_mesh(malla, **kw))
 
+
+class Edificios3D:
+    """Edificios extruidos (huellas OSM + Google Open Buildings) apoyados en el terreno. Altura ilustrativa: el dato no la trae."""
+
+    def __init__(self, esc, geoms_utm, bbox, fuente, alto=3.5, color=EDIF, opacidad=1.0):
+        bx = box(*bbox); partes = []
+        for g in geoms_utm:
+            if not g.intersects(bx): continue
+            for p in getattr(g, "geoms", [g]):
+                if p.geom_type != "Polygon" or p.area < 6: continue
+                p = p.simplify(0.4, preserve_topology=True)
+                xy = np.array(p.exterior.coords)[:-1, :2]
+                if len(xy) < 3: continue
+                z0 = float(muestrear(fuente, xy[:, 0], xy[:, 1], orden=1).min()) - 0.6
+                pts = np.c_[xy[:, 0] - esc.cx, xy[:, 1] - esc.cy, np.full(len(xy), z0 * esc.vexag)]
+                cara = pv.PolyData(pts, faces=np.r_[len(xy), np.arange(len(xy))]).triangulate()
+                partes.append(cara.extrude((0, 0, (alto + 0.6) * esc.vexag), capping=True))
+        self.malla = pv.merge(partes) if partes else None
+        self.n = len(partes); self.color, self.op = color, opacidad
+
+    def montar(self, pl, esc):
+        self.pl = pl; self.actor = None
+        if self.malla is not None:
+            self.actor = pl.add_mesh(self.malla, color=self.color, ambient=0.35, diffuse=0.75, specular=0.05, opacity=self.op,
+                                     smooth_shading=False, reset_camera=False)
+
+    def poner(self, opacidad):
+        if self.actor is not None:
+            self.actor.prop.opacity = opacidad; self.actor.SetVisibility(opacidad > 0.01)
+
+
+class AguaNivel:
+    """Llenado estático («bañera») sobre el terreno: agua conectada con el punto bajo hasta un nivel dado (m, EGM2008)."""
+
+    def __init__(self, esc, fuente, bbox, res, punto_bajo, alfa=0.92, desfase=0.05):
+        x0, y0, x1, y1 = bbox
+        nx = int((x1 - x0) / res) + 1; ny = int((y1 - y0) / res) + 1
+        X, Y = np.meshgrid(np.linspace(x0, x1, nx), np.linspace(y1, y0, ny))
+        self.zt = muestrear(fuente, X, Y, orden=1)
+        px, py = punto_bajo
+        r0 = int(round((y1 - py) / res)); c0 = int(round((px - x0) / res))
+        win = self.zt[max(r0 - 15, 0):r0 + 16, max(c0 - 15, 0):c0 + 16]
+        rr, cc = np.unravel_index(np.argmin(win), win.shape)
+        self.r0, self.c0 = max(r0 - 15, 0) + rr, max(c0 - 15, 0) + cc
+        self.z0 = float(self.zt[self.r0, self.c0])
+        self.esc, self.alfa, self.desfase = esc, alfa, desfase
+        g = pv.StructuredGrid(); g.dimensions = (nx, ny, 1)
+        g.points = np.c_[(X - esc.cx).ravel(), (Y - esc.cy).ravel(), (self.zt * esc.vexag).ravel()]
+        g.point_data["rgba"] = np.zeros((X.size, 4), "uint8")
+        g.point_data["Normals"] = np.tile(np.array([0, 0, 1], "float32"), (X.size, 1)); g.point_data.active_normals_name = "Normals"
+        self.grid = g; self.mar = self.zt <= -2.9
+
+    def montar(self, pl, esc):
+        self.actor = pl.add_mesh(self.grid, scalars="rgba", rgba=True, ambient=0.5, diffuse=0.55, specular=0.6, specular_power=50,
+                                 show_scalar_bar=False, reset_camera=False)
+
+    def poner(self, nivel):
+        if nivel <= self.z0:
+            m = np.zeros_like(self.zt, bool)
+        else:
+            lab, _ = ndi_label((self.zt <= nivel) & ~self.mar, structure=np.ones((3, 3)))
+            m = lab == lab[self.r0, self.c0]
+        prof = np.where(m, nivel - self.zt, 0.0)
+        z = np.where(m, nivel, self.zt) * self.esc.vexag + self.desfase * self.esc.vexag
+        col = rampa(prof, AGUA_CMAP)
+        a = np.where(m, (0.55 + 0.4 * np.clip(prof / 1.2, 0, 1)) * self.alfa, 0)
+        self.grid.points[:, 2] = z.ravel()
+        self.grid.point_data["rgba"][:] = np.concatenate([col * 255, a[..., None] * 255], -1).astype("uint8").reshape(-1, 4)
+        self.grid.Modified()
+        return m
 
 def ruta_d8(lon, lat, max_pasos=4000):
     """Recorrido D8 (direcciones_d8.tif de Santa Cruz) desde un punto hasta el mar o una depresión."""
@@ -972,7 +1109,7 @@ def sc_tomas_de_berlanga():
 
 @anim
 def sc_cruces_quebradas_vias():
-    """Cruces de quebradas con vías: aparecen los 687 cruces (de la parte alta a la costa) y se resaltan en rojo los 97 de prioridad alta."""
+    """Cruces de quebradas con vías: aparecen todos los cruces (de la parte alta a la costa) y se resaltan en rojo los de prioridad alta."""
     esc = Escena("santa-cruz", (-90.335, -0.690), 26000, 28000, vexag=2.0, res=30, tex_px=6)
     g = esc.g
     capa_oscura(esc, 0.30)
@@ -1388,17 +1525,149 @@ def scb_situacion():
     return _situacion("scb_situacion", "san-cristobal", "galapagos-16", dict(centro=(-89.45, -0.82), ancho=50000, alto=36000), k, kv, zon)
 
 
+# ================================================================ Santa Cruz con el DTM de 1 m de la SGIAR (4K)
+DTM = "santa-cruz-dtm"
+_vdtm = {}
+
+
+def vaso_dtm():
+    """Resultados de 37_cascada_dtm.py: punto bajo, umbral, cotas y curva cota–volumen a 1 m."""
+    if not _vdtm:
+        r = json.loads((LC / "dtm1m/resumen_dtm.json").read_text())["referencia"]
+        cv = np.array([[float(f["cota_m"]), float(f["volumen_m3"]), float(f["area_m2"])]
+                       for f in csv.DictReader(open(LC / "dtm1m/curva_cota_volumen_dtm.csv"))])
+        _vdtm.update(r, curva=cv)
+    return _vdtm
+
+
+def salida_urbana(geo):
+    return [geo.utm(shape(f["geometry"])) for f in gj(LC / "urbano/ruta_salida_urbana.geojson")]
+
+
+@anim
+def sc_dtm_revela():
+    """Del DSM al terreno: sobre La Cascada, el relieve de 30 m con techos y árboles (Copernicus) se transforma en el DTM de 1 m de la SGIAR y aparecen los edificios."""
+    esc = Escena("santa-cruz", LA_CASCADA, 14000, 14000, vexag=2.2, res=30, tex_px=8,
+                 parche=(LA_CASCADA, 3600, 3600, 3, 1.2, "santa-cruz-cop"))
+    esc.morph("detalle", DTM)
+    g = esc.g
+    bb_utm = (esc.cx - 1500, esc.cy - 1500, esc.cx + 1500, esc.cy + 1500)
+    esc.capa("vias", vias(g, (-90.33, -0.75, -90.30, -0.72)), hex2rgb(VIA), ancho_m=5, alfa=0.0, solo="detalle")
+    edif = Edificios3D(esc, edificios(g, "Santa Cruz"), bb_utm, DTM, alto=3.5)
+    borde = Lineas(esc, [barrio_cascada(g)], "#E11B22", ancho_px=5, dz=1.5, paso=4, fuente=DTM)
+    esc.dinamicos += [edif, borde]
+    cam = Camara(esc, [(0.00, dict(lon=LA_CASCADA[0], lat=LA_CASCADA[1], dist=2600, mira=20, elev=34, va=30)),
+                       (0.50, dict(lon=LA_CASCADA[0], lat=LA_CASCADA[1] - 0.001, dist=2200, mira=-10, elev=30, va=30)),
+                       (1.00, dict(lon=LA_CASCADA[0], lat=LA_CASCADA[1] - 0.0015, dist=1800, mira=-42, elev=33, va=30))])
+    mo = lambda u: rampa01(u, 0.28, 0.58)
+
+    def act(t, u):
+        a = mo(u); e = rampa01(u, 0.64, 0.80)
+        edif.poner(e)
+        borde.poner(rampa01(u, 0.84, 0.97))
+        return {"_morph": a, "vias": rampa01(u, 0.58, 0.70)}
+    return Animacion("sc_dtm_revela", "santa-cruz", 22, esc, cam, act, portada=0.9, vertical=dict(dist=1.5, va=44), bruma=14,
+                     pista=lambda t, u: {"relieve": "DSM Copernicus 30 m" if mo(u) < 0.5 else "DTM SGIAR 1 m", "transicion_dsm_a_dtm": round(mo(u), 3),
+                                         "edificios_visibles": round(rampa01(u, 0.64, 0.80), 3), "barrio_la_cascada": round(rampa01(u, 0.84, 0.97), 3)})
+
+
+@anim
+def sc_vaso_dtm():
+    """La Cascada con el DTM de 1 m: el agua llena el vaso desde el punto bajo (13,4 m) hasta el umbral de rebose (15,05 m); por encima, sale por la salida natural hacia el mar."""
+    v = vaso_dtm()
+    esc = Escena("santa-cruz", LA_CASCADA, 10000, 10000, vexag=2.0, res=30, tex_px=8,
+                 parche=(LA_CASCADA, 2600, 2600, 2, 1.0, DTM))
+    g = esc.g
+    capa_oscura(esc, 0.40)
+    esc.capa("vias", vias(g, (-90.33, -0.75, -90.30, -0.72)), hex2rgb(VIA_OSC), ancho_m=5, alfa=0.9, solo="detalle")
+    bb = (esc.cx - 1200, esc.cy - 1200, esc.cx + 1200, esc.cy + 1200)
+    edif = Edificios3D(esc, edificios(g, "Santa Cruz"), bb, DTM, alto=3.5, color="#8f8a82")
+    pb = g.xy(*v["punto_bajo_lonlat"])
+    agua = AguaNivel(esc, DTM, (esc.cx - 900, esc.cy - 900, esc.cx + 900, esc.cy + 900), 2.0, pb)
+    umbral = Puntos(esc, [tuple(v["umbral_lonlat"])], "#E11B22", tam=26, dz=3)
+    salida = Lineas(esc, salida_urbana(g), "#E11B22", ancho_px=6, dz=2.0, paso=4, fuente=DTM)
+    esc.dinamicos += [edif, agua, umbral, salida]
+    z0, zr = v["cota_punto_bajo_m"], v["cota_rebose_m"]
+    cv = v["curva"]
+
+    def nivel(u):            # sobre el rebose el agua ya no se acumula: sale por el umbral (se dibuja la salida natural)
+        if u < 0.08: return z0 - 0.05
+        if u < 0.66: return z0 + (zr - z0) * suave((u - 0.08) / 0.58)
+        return zr - 0.01
+    pbl = v["punto_bajo_lonlat"]
+    cam = Camara(esc, [(0.00, dict(lon=pbl[0] + 0.0010, lat=pbl[1] - 0.0004, dist=1150, mira=-30, elev=50, va=30)),
+                       (0.62, dict(lon=pbl[0] + 0.0012, lat=pbl[1] - 0.0002, dist=950, mira=-8, elev=48, va=30)),
+                       (1.00, dict(lon=pbl[0] + 0.0030, lat=pbl[1] - 0.0045, dist=1700, mira=12, elev=52, va=30))])
+
+    def act(t, u):
+        agua.poner(nivel(u)); edif.poner(1.0)
+        umbral.poner(1 if u > 0.62 else 0)
+        salida.poner(rampa01(u, 0.78, 0.98))
+        return {"oscuro": 1, "vias": 1}
+
+    def pista(t, u):
+        n = nivel(u)
+        return {"nivel_agua_m_egm2008": round(n, 2), "profundidad_max_m": round(max(n - z0, 0), 2),
+                "volumen_m3": int(np.interp(n, cv[:, 0], cv[:, 1], left=0)) if n <= zr else None,
+                "salida_dibujada": round(rampa01(u, 0.78, 0.98), 3), "umbral_visible": int(u > 0.62)}
+    return Animacion("sc_vaso_dtm", "santa-cruz", 24, esc, cam, act, portada=0.74, vertical=dict(dist=1.55, va=44), pista=pista, bruma=14)
+
+
+@anim
+def sc_30oct_dtm():
+    """El 30 de octubre en una toma: la lluvia medida cae en la parte alta, la crecida del modelo 2D baja por la cuenca y llena La Cascada (relieve con el DTM de 1 m)."""
+    esc = Escena("santa-cruz", (-90.322, -0.705), 28000, 30000, vexag=2.2, res=30, tex_px=6,
+                 parche=((-90.318, -0.722), 6500, 7500, 5, 2.0, DTM))
+    g = esc.g
+    cu = cuenca_cascada(g).buffer(45).buffer(-45).simplify(12)      # sin la escalera de la malla de 30 m
+    capa_oscura(esc, 0.30)
+    esc.capa("fuera", [cu], np.zeros(3), oscurecer_fuera=0.30)
+    esc.capa("cuenca_borde", [cu], np.array([1, 1, 1]), contorno=18, alfa=0.85)
+    esc.capa("edificios", edificios(g, "Santa Cruz"), hex2rgb(EDIF_OSC), sigma=0.4)
+    esc.capa("barrio", [barrio_cascada(g)], np.array(ROJO) / 255, contorno=14, alfa=1.0)
+    C, H, TRf, ep = modelo_sc("b_central")
+    agua = AguaModelo(esc, C, H, TRf, ep, res=8.0, desfase=0.4, umbral=0.06, alfa=1.0, fuente=DTM)
+    E = lluvia_estaciones(); m = Mallas()
+    esc.dinamicos += [agua, m]
+    ESC_H = 14.0
+    hora = lambda u: 1.5 + 10.5 * float(np.clip((u - 0.03) / 0.90, 0, 1))      # 13:30 → 00:00
+    cam = Camara(esc, [(0.00, dict(lon=-90.335, lat=-0.665, dist=16000, mira=-8, elev=38, va=30)),
+                       (0.35, dict(lon=-90.330, lat=-0.680, dist=12500, mira=-2, elev=36, va=30)),
+                       (0.70, dict(lon=-90.320, lat=-0.712, dist=6500, mira=6, elev=34, va=30)),
+                       (1.00, dict(lon=-90.3140, lat=-0.7340, dist=2600, mira=10, elev=36, va=30))])
+
+    def act(t, u):
+        h = hora(u); m.limpiar()
+        for nm, e in E.items():
+            hh_ = 12 + h
+            ac = float(np.interp(hh_, e["ts"], e["acum"], left=0)) if hh_ <= e["fin"] else float(e["acum"][-1])
+            if ac <= 0.5: continue
+            x, y, z = esc.loc(e["lon"], e["lat"])
+            alto = ac * ESC_H; ok = hh_ <= e["fin"] + 0.05
+            col = "#bdbdbd" if "Crocker" in nm else "white"
+            m.poner(pv.Cylinder(center=(x, y, z + alto / 2), direction=(0, 0, 1), radius=260, height=alto, resolution=64),
+                    color=col, opacity=(0.9 if ok else 0.5) * (1 - rampa01(u, 0.80, 0.92)), ambient=0.45, diffuse=0.7, specular=0.2)
+        agua.poner(h)
+        return {"oscuro": 1, "fuera": 1 - 0.6 * rampa01(u, 0.70, 0.90), "cuenca_borde": 1 - 0.75 * rampa01(u, 0.70, 0.90), "edificios": 1, "barrio": 1}
+    return Animacion("sc_30oct_dtm", "santa-cruz", 36, esc, cam, act, portada=0.86, vertical=dict(dist=1.5, va=46),
+                     pista=lambda t, u: {"hora_local_utc6": hora_sc(hora(u)).strftime("%Y-%m-%d %H:%M"), "horas_desde_12h": round(hora(u), 3)},
+                     reloj=lambda t, u: hora_sc(hora(u)))
+
+
 # ================================================================ principal
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("nombres", nargs="*")
     ap.add_argument("--lista", action="store_true")
     ap.add_argument("--prueba", action="store_true")
-    ap.add_argument("--formato", choices=list(FORMATOS))
+    ap.add_argument("--formato", choices=list(FORMATOS) + ["4k-ambos"])
     ap.add_argument("--crf", type=int, default=17)
+    ap.add_argument("--prores", action="store_true", help="ProRes 422 HQ (.mov, 10 bits) para edición en lugar de H.264")
+    ap.add_argument("--fps", type=int, default=30)
     ap.add_argument("--salida", type=pathlib.Path)
     ap.add_argument("--crecimiento", action="store_true", help="procesa GHSL/WSF/OSM → datos/crecimiento_urbano/")
     a = ap.parse_args()
+    FPS = a.fps; CODEC["prores"] = a.prores
     if a.crecimiento:
         crecimiento_procesar(); sys.exit(0)
     if a.lista or not a.nombres:
@@ -1408,4 +1677,5 @@ if __name__ == "__main__":
         print("→", nm, flush=True); t0 = time.time()
         an = ANIMS[nm]()
         print(f"  escena lista en {time.time() - t0:.0f} s", flush=True)
-        renderizar(an, (a.formato,) if a.formato else ("16x9", "9x16"), prueba=a.prueba, crf=a.crf, salida=a.salida)
+        fmts = ("4k", "4k9x16") if a.formato == "4k-ambos" else (a.formato,) if a.formato else ("16x9", "9x16")
+        renderizar(an, fmts, prueba=a.prueba, crf=a.crf, salida=a.salida)
