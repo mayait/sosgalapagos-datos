@@ -1,5 +1,5 @@
 """Fuentes adicionales del recolector: INAMHI, mareógrafos IOC, METAR de los aeropuertos y estaciones
-particulares (WeatherLink, Tempest y Ambient Weather).
+particulares (WeatherLink, Tempest, Ambient Weather y Weather Underground).
 
 Los endpoints se leen del entorno o de privado/fuentes.env (CLIMA_INAMHI_API, CLIMA_IOC_API,
 CLIMA_METAR_API); no se versionan.
@@ -495,6 +495,121 @@ def ambient_historico(con, desde):
 
 
 FUENTES_EXTRA["ambient"] = fuente_ambient
+
+
+# ---------------------------------------------------------------- Weather Underground (estaciones particulares)
+# La página pública de cada estación trae el valor actual y la lluvia acumulada del día (se reinicia
+# a medianoche de Galápagos), como el mapa de WeatherLink: se guarda el acumulado y la lluvia de cada
+# intervalo por diferencia. La «Key» de la estación es la contraseña de subida y no sirve para leer.
+# Variables en privado/fuentes.env (no se versionan, como el resto de endpoints):
+#   CLIMA_WU_PAGINA       raíz de la página pública de las estaciones (se le añade /{id})
+#   CLIMA_WU_ESTACIONES   "id_de_la_estacion:codigo[,…]"
+# Casa Marina se publica con su nombre y ubicación exacta: autorizado por Julián el 6-nov-2026.
+WU_META = {  # código: (nombre, isla, lat, lon, altitud)
+    "casa_marina": ("Puerto Ayora (Casa Marina)", "Santa Cruz", -0.746458, -90.312935, 3),
+}
+# Conversión a SI según la unidad con que la página muestre cada widget:
+# m = métrico (°C, km/h, hPa, mm), e = inglés (°F, mph, inHg, in), h = híbrido (°C, mph, hPa, mm)
+WU_UNIDADES = {
+    "temp": {"m": lambda x: x, "h": lambda x: x, "e": lambda x: (x - 32) / 1.8},
+    "viento": {"m": lambda x: x / 3.6, "h": lambda x: x * 0.44704, "e": lambda x: x * 0.44704},
+    "presion": {"m": lambda x: x, "h": lambda x: x, "e": lambda x: x * 33.8639},
+    "lluvia": {"m": lambda x: x, "h": lambda x: x, "e": lambda x: x * 25.4},
+}
+
+
+def _wu_estaciones():
+    import os
+    out = {}
+    for par in os.environ.get("CLIMA_WU_ESTACIONES", "").split(","):
+        if ":" in par:
+            wid, cod = par.strip().split(":", 1)
+            if cod in WU_META:
+                out[wid] = (cod, *WU_META[cod])
+    if not out:
+        raise RuntimeError("Falta CLIMA_WU_ESTACIONES en privado/fuentes.env")
+    return out
+
+
+def _wu_widget(html, nombre):
+    """Atributos data-* del widget <nombre>-widget-view de la página de la estación."""
+    import re
+    m = re.search(rf"<{nombre}-widget-view\b([^>]*)>", html)
+    return dict(re.findall(r'data-([a-z-]+)="([^"]*)"', m.group(1))) if m else {}
+
+
+def _wu_leer(html):
+    """Lectura actual de la página: {ts, lluvia_dia_mm, temp_c, hr_pct, presion_hpa, viento_ms}."""
+    import re
+    m = re.search(r'data-obs-time-utc="([A-Z][a-z]{2} [A-Z][a-z]{2} \d{2} \d{4} \d{2}:\d{2}:\d{2} GMT[+-]\d{4})', html)
+    if not m:
+        return None
+    out = {"ts": dt.datetime.strptime(m.group(1), "%a %b %d %Y %H:%M:%S GMT%z").astimezone(UTC)}
+    for clave, widget, attr, conv in (("lluvia_dia_mm", "rain", "precip-total", "lluvia"),
+                                      ("temp_c", "temp", "temp", "temp"),
+                                      ("hr_pct", "humidity", "humidity", None),
+                                      ("presion_hpa", "pressure", "pressure", "presion"),
+                                      ("viento_ms", "wind", "wind-speed", "viento")):
+        w = _wu_widget(html, widget)
+        if w.get("status") != "connected":
+            continue
+        try:
+            v = float(w[attr])
+        except (KeyError, ValueError):
+            continue
+        if conv:
+            f = WU_UNIDADES[conv].get(w.get("unit"))
+            if f is None:
+                continue  # unidad desconocida: mejor sin dato que un dato mal convertido
+            v = f(v)
+        out[clave] = round(v, 2)
+    return out
+
+
+def fuente_wunderground(con):
+    import urllib.request
+    base = endpoint("CLIMA_WU_PAGINA")
+    filas, activas, errores = [], 0, []
+    for wid, (cod, nom, isla, lat, lon, alt) in _wu_estaciones().items():
+        try:
+            req = urllib.request.Request(f"{base}/{wid}", headers={"User-Agent": "Mozilla/5.0 (sosgalapagos-clima)"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                d = _wu_leer(r.read().decode("utf-8", "replace"))
+        except Exception as e:  # una estación caída no detiene a las demás
+            errores.append(f"{cod}: {e}")
+            continue
+        if not d or "lluvia_dia_mm" not in d:
+            continue  # desconectada o sin pluviómetro
+        t = d["ts"]
+        if (dt.datetime.now(UTC) - t).total_seconds() > WEATHERLINK_MAX_EDAD:
+            continue  # inactiva: no se registra ni se publica
+        activas += 1
+        estacion(con, "wunderground", cod, nom, isla, lat, lon, alt, "Weather Underground")
+        ts = t.strftime("%Y-%m-%dT%H:%M:%SZ")
+        if con.execute("SELECT 1 FROM obs WHERE fuente='wunderground' AND estacion=? AND ts=? LIMIT 1", (cod, ts)).fetchone():
+            continue  # sin dato nuevo
+        acum = d["lluvia_dia_mm"]
+        # incremento respecto de la última lectura del mismo día de Galápagos
+        dia0 = t.astimezone(GALAPAGOS).replace(hour=0, minute=0, second=0, microsecond=0).astimezone(UTC)
+        prev = con.execute("SELECT ts, valor FROM obs WHERE fuente='wunderground' AND estacion=? "
+                           "AND variable='lluvia_dia_acum_mm' AND ts>=? AND ts<? ORDER BY ts DESC LIMIT 1",
+                           (cod, dia0.strftime("%Y-%m-%dT%H:%M:%SZ"), ts)).fetchone()
+        filas.append((cod, "lluvia_dia_acum_mm", t, acum))
+        if prev is not None:
+            horas = max((t - dt.datetime.fromisoformat(prev[0].replace("Z", "+00:00"))).total_seconds() / 3600, 1 / 60)
+            inc = round(max(0.0, acum - prev[1]), 2)
+            filas.append((cod, "lluvia_mm", t, None if inc > max(10, MAX_MM_H * horas) else inc))
+        elif t - dia0 < dt.timedelta(minutes=10):
+            filas.append((cod, "lluvia_mm", t, acum))  # primera lectura del día, justo tras el reinicio
+        for var in ("temp_c", "hr_pct", "presion_hpa", "viento_ms"):
+            if var in d:
+                filas.append((cod, var, t, d[var]))
+    if not activas and errores:
+        raise RuntimeError("; ".join(errores)[:400])
+    return guardar(con, "wunderground", filas)
+
+
+FUENTES_EXTRA["wunderground"] = fuente_wunderground
 
 
 def fuente_pronostico(con):

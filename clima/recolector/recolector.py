@@ -304,7 +304,7 @@ def ahora_utc():
 
 PRIVADO = Path(os.environ.get("CLIMA_PRIVADO", AQUI / "privado"))
 OPERADOR = {"ierse": "IERSE-WSN", "gsc": "GSC-USFQ", "inamhi": "INAMHI", "ioc": "IOC", "metar": "Aeropuertos (METAR)",
-            "weatherlink": "WeatherLink", "tempest": "Tempest", "ambient": "Ambient Weather", "mar_modelo": "Modelo de nivel del mar",
+            "weatherlink": "WeatherLink", "tempest": "Tempest", "ambient": "Ambient Weather", "wunderground": "Weather Underground", "mar_modelo": "Modelo de nivel del mar",
             "pronostico": "Pronóstico (modelos)"}
 EVENTOS = [  # momentos de referencia para comparar (horas UTC)
     {"id": "inundacion-2026-10-30", "nombre": "Inundación La Cascada (30–31 oct 2026)",
