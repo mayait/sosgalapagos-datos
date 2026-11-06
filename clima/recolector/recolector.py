@@ -304,7 +304,7 @@ def ahora_utc():
 
 PRIVADO = Path(os.environ.get("CLIMA_PRIVADO", AQUI / "privado"))
 OPERADOR = {"ierse": "IERSE-WSN", "gsc": "GSC-USFQ", "inamhi": "INAMHI", "ioc": "IOC", "metar": "Aeropuertos (METAR)",
-            "weatherlink": "WeatherLink", "tempest": "Tempest", "mar_modelo": "Modelo de nivel del mar",
+            "weatherlink": "WeatherLink", "tempest": "Tempest", "ambient": "Ambient Weather", "mar_modelo": "Modelo de nivel del mar",
             "pronostico": "Pronóstico (modelos)"}
 EVENTOS = [  # momentos de referencia para comparar (horas UTC)
     {"id": "inundacion-2026-10-30", "nombre": "Inundación La Cascada (30–31 oct 2026)",
@@ -572,6 +572,7 @@ def main():
     ap.add_argument("--importar-gsc-historico", action="store_true")
     ap.add_argument("--importar-inamhi", metavar="JSON", help="historial horario archivado del INAMHI")
     ap.add_argument("--tempest-desde", metavar="AAAA-MM-DD", help="carga histórica de Tempest desde esa fecha (UTC)")
+    ap.add_argument("--ambient-desde", metavar="AAAA-MM-DD", help="carga histórica de Ambient Weather desde esa fecha (UTC)")
     ap.add_argument("--emitir", metavar="FUENTE")
     ap.add_argument("--horas", type=int, default=6)
     ap.add_argument("--recibir", action="store_true")
@@ -594,7 +595,12 @@ def main():
         from fuentes_extra import tempest_historico
         desde = dt.datetime.fromisoformat(a.tempest_desde).replace(tzinfo=UTC)
         print(f"Tempest: {tempest_historico(con, desde)} registros importados")
-    if not (a.solo_exportar or a.importar_ierse or a.importar_gsc_historico or a.importar_inamhi or a.tempest_desde):
+    if a.ambient_desde:
+        from fuentes_extra import ambient_historico
+        desde = dt.datetime.fromisoformat(a.ambient_desde).replace(tzinfo=UTC)
+        print(f"Ambient Weather: {ambient_historico(con, desde)} registros importados")
+    if not (a.solo_exportar or a.importar_ierse or a.importar_gsc_historico or a.importar_inamhi or a.tempest_desde
+            or a.ambient_desde):
         env = [x for x in os.environ.get("CLIMA_FUENTES", "").split(",") if x]
         correr(con, a.fuentes or env or list(FUENTES))
     exportar(con)
