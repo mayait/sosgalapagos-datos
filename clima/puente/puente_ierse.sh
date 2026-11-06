@@ -10,6 +10,13 @@ PY="$DIR/.venv/bin/python"
 SERVIDOR=${SERVIDOR:-clima@152.44.45.89}
 LLAVE=${LLAVE:-$HOME/.ssh/id_clima_puente}
 
+# Desde el 27-oct-2026 el servidor de IERSE no envía el certificado intermedio (RapidSSL TLS RSA
+# CA G1, de DigiCert) y Python rechaza la conexión. Se añade ese intermedio público a las raíces
+# del sistema; la verificación sigue activa.
+if [ -f "$DIR/puente/ca-intermedios.pem" ]; then
+  cat /etc/ssl/cert.pem "$DIR/puente/ca-intermedios.pem" > "$DIR/puente/.ca.pem"
+  export SSL_CERT_FILE="$DIR/puente/.ca.pem"
+fi
 "$PY" -I "$DIR/recolector/recolector.py" --fuentes ierse
 # Horas a enviar: desde el último envío correcto (+1 h de margen), entre 2 y 72
 ahora=$(date +%s); ult=$(cat "$ESTADO" 2>/dev/null || echo 0)
