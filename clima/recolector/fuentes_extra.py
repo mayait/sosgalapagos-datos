@@ -1,4 +1,5 @@
-"""Fuentes adicionales del recolector: INAMHI, mareógrafos IOC y METAR de los aeropuertos.
+"""Fuentes adicionales del recolector: INAMHI, mareógrafos IOC, METAR de los aeropuertos y estaciones
+particulares (WeatherLink, Tempest y Ambient Weather).
 
 Los endpoints se leen del entorno o de privado/fuentes.env (CLIMA_INAMHI_API, CLIMA_IOC_API,
 CLIMA_METAR_API); no se versionan.
@@ -379,6 +380,121 @@ def tempest_historico(con, desde):
 
 
 FUENTES_EXTRA["tempest"] = fuente_tempest
+
+
+# ---------------------------------------------------------------- Ambient Weather (AmbientWeather.net)
+# Panel público que el dueño comparte con un enlace (sin clave). Variables en privado/fuentes.env:
+#   CLIMA_AMBIENT_API         endpoint del panel
+#   CLIMA_AMBIENT_ESTACIONES  "clave_del_enlace:codigo[,…]"
+# devices?public.slug={clave} da el equipo y su último dato; device-data?macAddress&res=5&start&end
+# (ms) da un registro cada 5 min, con historia desde que se instaló. La lluvia llega como acumulado
+# del día (dailyrainin, pulgadas, se reinicia a medianoche de Galápagos) y el intervalo se calcula
+# por diferencia; temperatura °F, HR %, presión inHg, viento mph. La respuesta trae también la clave
+# de subida y la IP de la estación: no se guardan.
+AMBIENT_META = {  # código: (nombre, isla, lat, lon, altitud); coordenadas redondeadas a ~100 m
+    "evolucion": ("Evolución (Puerto Ayora)", "Santa Cruz", -0.747, -90.315, 10),
+}
+AMBIENT_MAX_EDAD = 3 * 86400  # una estación que no transmite hace más de 3 días no se registra
+
+
+def _ambient_estaciones():
+    import os
+    pares = [p.strip().split(":", 1) for p in os.environ.get("CLIMA_AMBIENT_ESTACIONES", "").split(",") if ":" in p]
+    if not pares:
+        raise RuntimeError("Falta CLIMA_AMBIENT_ESTACIONES en privado/fuentes.env")
+    return [(s, c) for s, c in pares if c in AMBIENT_META]
+
+
+def _ambient_equipo(api, clave):
+    d = http_json(f"{api}/devices?{urllib.parse.urlencode({'public.slug': clave})}")
+    equipos = d.get("data") or []
+    if not equipos or not equipos[0].get("macAddress"):
+        raise ValueError("el enlace público no devuelve ningún equipo (¿dejó de compartirse?)")
+    return equipos[0]
+
+
+def _ambient_filas(cod, registros):
+    """Registros de 5 min (ordenados) → filas. La lluvia de cada registro es la diferencia con el anterior."""
+    filas, ant = [], None
+    pulg = lambda r, k: None if r.get(k) is None else float(r[k])  # noqa: E731
+    for r in registros:
+        t = dt.datetime.fromtimestamp(r["dateutc"] / 1000, UTC)
+        b = t - dt.timedelta(minutes=5)  # etiqueta = inicio del intervalo, como el resto de fuentes
+        b = b.replace(minute=b.minute - b.minute % 5, second=0, microsecond=0)
+        # Diferencia del acumulado anual: el diario se reinicia a medianoche, pero no siempre en el
+        # mismo registro (a veces el de las 06:00Z aún trae el total del día anterior). El anual solo
+        # se reinicia el 1 de enero; ahí se usa el diario.
+        acum = (pulg(r, "yearlyrainin"), pulg(r, "dailyrainin"))
+        if ant is not None and None not in acum:
+            t0, (anio0, dia0) = ant
+            horas = max((t - t0).total_seconds() / 3600, 1 / 60)
+            inc = acum[0] - anio0 if acum[0] >= anio0 else (acum[1] - dia0 if acum[1] >= dia0 else acum[1])
+            mm = round(inc * 25.4, 2)
+            filas.append((cod, "lluvia_mm", b, None if mm > max(10, MAX_MM_H * horas) else mm))
+        if None not in acum:
+            ant = (t, acum)
+        tf = pulg(r, "tempf")
+        if tf is not None:
+            filas.append((cod, "temp_c", b, round((tf - 32) / 1.8, 2)))
+        if pulg(r, "humidity") is not None:
+            filas.append((cod, "hr_pct", b, pulg(r, "humidity")))
+        if pulg(r, "baromabsin") is not None:
+            filas.append((cod, "presion_hpa", b, round(pulg(r, "baromabsin") * 33.8639, 1)))
+        if pulg(r, "windspeedmph") is not None:
+            filas.append((cod, "viento_ms", b, round(pulg(r, "windspeedmph") * 0.44704, 1)))
+    return filas
+
+
+def _ambient_bajar(con, clave, cod, desde, hasta, pausa=0.0):
+    import time
+    api = endpoint("CLIMA_AMBIENT_API")
+    eq = _ambient_equipo(api, clave)
+    ult = (eq.get("lastData") or {}).get("dateutc")
+    if not ult or dt.datetime.now(UTC).timestamp() - ult / 1000 > AMBIENT_MAX_EDAD:
+        return []  # inactiva: no se registra ni se publica
+    nom, isla, lat, lon, alt = AMBIENT_META[cod]
+    estacion(con, "ambient", cod, nom, isla, lat, lon, alt, "Ambient Weather")
+    registros, t0 = {}, desde
+    while t0 < hasta:
+        t1 = min(hasta, t0 + dt.timedelta(days=1))
+        q = urllib.parse.urlencode({"macAddress": eq["macAddress"], "res": 5,
+                                    "start": int(t0.timestamp() * 1000), "end": int(t1.timestamp() * 1000)})
+        d = http_json(f"{api}/device-data?{q}", timeout=90)
+        datos = d.get("data") if isinstance(d, dict) else None
+        if not isinstance(datos, list):
+            raise ValueError(f"respuesta inesperada de {cod}: {str(d)[:200]}")
+        for r in datos:
+            if isinstance(r, dict) and isinstance(r.get("dateutc"), (int, float)):
+                registros[int(r["dateutc"])] = r
+        t0 = t1
+        time.sleep(pausa)
+    return _ambient_filas(cod, [registros[k] for k in sorted(registros)])
+
+
+def fuente_ambient(con):
+    ahora = dt.datetime.now(UTC)
+    filas = []
+    for clave, cod in _ambient_estaciones():
+        ult = con.execute("SELECT MAX(ts) FROM obs WHERE fuente='ambient' AND estacion=?", (cod,)).fetchone()[0]
+        # desde el último bloque guardado (para rellenar cortes, con el registro anterior para la
+        # diferencia de lluvia), como máximo 3 días atrás
+        desde = ahora - dt.timedelta(days=3)
+        if ult:
+            desde = max(desde, dt.datetime.fromisoformat(ult.replace("Z", "+00:00")) - dt.timedelta(minutes=10))
+        filas += _ambient_bajar(con, clave, cod, desde, ahora)
+    return guardar(con, "ambient", filas)
+
+
+def ambient_historico(con, desde):
+    """Carga puntual de un rango largo (la estación tiene historia desde ago-2024)."""
+    n = 0
+    for clave, cod in _ambient_estaciones():
+        n += guardar(con, "ambient", _ambient_bajar(con, clave, cod, desde, dt.datetime.now(UTC), pausa=0.5))
+        con.commit()
+    return n
+
+
+FUENTES_EXTRA["ambient"] = fuente_ambient
 
 
 def fuente_pronostico(con):
