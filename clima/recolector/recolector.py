@@ -40,6 +40,7 @@ from pathlib import Path
 AQUI = Path(__file__).resolve().parent
 if str(AQUI) not in sys.path:  # con python -I la carpeta del script no está en sys.path
     sys.path.insert(0, str(AQUI))
+import danadas  # noqa: E402  (estaciones marcadas como dañadas a mano)
 
 
 def _cargar_fuentes_env():
@@ -338,6 +339,14 @@ def exportar(con):
             " SELECT MAX(ts) FROM obs WHERE fuente=o.fuente AND estacion=o.estacion AND variable=o.variable"
             " AND ts>=?) GROUP BY variable", (*k, hace(hours=3)))}
         e["lluvia"] = {}
+        marca = danadas.publica(f"{e['fuente']}/{e['estacion']}")
+        if marca:  # estación dañada: no se publica su lluvia (los crudos siguen en la base)
+            e["danada"] = marca
+            for v in marca["variables"]:
+                e["actual"].pop(v, None)
+            if "lluvia_mm" in marca["variables"]:
+                e["lluvia"] = {k: None for k in ("1h", "3h", "6h", "24h", "72h", "7d")}
+                continue
         for etiqueta, horas in (("1h", 1), ("3h", 3), ("6h", 6), ("24h", 24), ("72h", 72), ("7d", 168)):
             s = con.execute("SELECT SUM(valor), COUNT(*) FROM obs WHERE fuente=? AND estacion=? "
                             "AND variable='lluvia_mm' AND ts>?", (*k, hace(hours=horas))).fetchone()
@@ -390,6 +399,8 @@ def exportar(con):
             i = int((dt.datetime.fromisoformat(h + ":00:00+00:00") - h0).total_seconds() // 3600)
             if 0 <= i < horas_n:
                 s = hor.setdefault(f"{f}/{e}", {}).setdefault(v, [None] * horas_n)
+                if danadas.danada(f"{f}/{e}", v, dt.datetime.fromisoformat(h + ":59:59+00:00")):
+                    continue  # hora con datos de una estación dañada: queda en null
                 s[i] = None if x is None else round(x, 1)
     escribir(SALIDA / "horario.json", {"generado": iso(ahora), "inicio": ini[:13] + ":00:00Z" if ini else None,
                                        "horas": horas_n, "series": hor})
@@ -406,6 +417,12 @@ def exportar(con):
         s = dia.setdefault(f"{f}/{e}", {})
         if d not in s or s[d][1] < 20:
             s[d] = (round(ll, 1), 24)
+    for k, s in dia.items():  # estaciones dañadas: sin lluvia diaria desde el día en que empezó la falla
+        x = danadas.danada(k, "lluvia_mm")
+        if x:
+            d0 = (x["desde_dt"] - dt.timedelta(hours=6)).date().isoformat()
+            for d in [d for d in s if d >= d0]:
+                s[d] = (None, 0)
     diario = {}
     for k, s in dia.items():
         fechas = sorted(s)
