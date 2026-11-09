@@ -6,11 +6,14 @@ Una estación es válida si tiene ≥ 80 % de cobertura en las ventanas cortas (
 de los 5 días previos > 53 mm) los umbrales bajan un 20 %. El nivel se mantiene 8 h. Si las
 estaciones callan cuando el nivel era «alto» o más en las últimas 8 h, el nivel pasa a «muy alto»
 (silencio en alerta = alarma). Sin estaciones válidas ni alerta previa: «sin datos», nunca «bajo».
+Las estaciones marcadas como dañadas en estaciones_danadas.json no se usan desde su fecha «desde».
 """
 import bisect
 import datetime as dt
 import json
 from pathlib import Path
+
+from danadas import danada
 
 UTC = dt.timezone.utc
 REGLA = json.loads((Path(__file__).resolve().parent / "umbrales_inundacion.json").read_text())
@@ -48,6 +51,10 @@ def _evaluar(series, zona, fin, nombres):
     cob_min = REGLA["cobertura_minima"]
     detalle, cand = [], {}
     for clave, peso in zona["estaciones"]:
+        if danada(clave, "lluvia_mm", fin):
+            detalle.append({"estacion": nombres.get(clave, clave), "peso": peso, "usada": False,
+                            "danada": True, "motivo": "estación dañada (pluviómetro): sus datos no se usan"})
+            continue
         if clave not in series:
             detalle.append({"estacion": nombres.get(clave, clave), "usada": False, "motivo": "sin datos"})
             continue

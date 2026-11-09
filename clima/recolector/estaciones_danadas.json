@@ -1,0 +1,9 @@
+{
+ "_nota": "Estaciones o sensores marcados como dañados a mano. Sus datos se siguen guardando en la base (crudos), pero desde «desde» no se usan para el nivel de inundación ni se publican en la página. Para reactivar una estación, quitarla de esta lista y volver a publicar.",
+ "ierse/n_glps05": {
+  "desde": "2026-11-08T12:00:00Z",
+  "variables": ["lluvia_mm"],
+  "motivo": "Pluviómetro dañado: marca lluvias imposibles (hasta 663 mm en una hora) que ninguna otra estación registra",
+  "marcada": "2026-11-09"
+ }
+}
