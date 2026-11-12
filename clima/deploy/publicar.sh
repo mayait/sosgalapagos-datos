@@ -13,7 +13,6 @@ ssh "$SERVIDOR" 'set -e
   command -v sqlite3 >/dev/null || apt-get install -y -qq sqlite3 >/dev/null
   dpkg -s python3-venv >/dev/null 2>&1 || apt-get install -y -qq python3-venv >/dev/null
   mkdir -p /opt/sosgalapagos-clima /var/lib/sosgalapagos-clima/respaldos /var/lib/sosgalapagos-clima/privado /srv/sosgalapagos-clima/datos
-  rm -rf /srv/sosgalapagos-clima/datos/descargas   # nada descargable en la carpeta pública
   chown -R clima:clima /var/lib/sosgalapagos-clima /srv/sosgalapagos-clima'
 [ -f privado/fuentes.env ] || { echo "Falta privado/fuentes.env (ver fuentes.env.ejemplo)"; exit 1; }
 ssh "$SERVIDOR" 'install -d -m 750 -o root -g clima /etc/sosgalapagos-clima'
