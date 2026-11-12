@@ -311,6 +311,26 @@ EVENTOS = [  # momentos de referencia para comparar (horas UTC)
     {"id": "inundacion-2026-10-30", "nombre": "Inundación La Cascada (30–31 oct 2026)",
      "desde": "2026-10-30T06:00:00Z", "hasta": "2026-11-01T06:00:00Z"},
 ]
+# Red DARWIN-Rain (Philipps-Universität Marburg, con la Fundación Charles Darwin y la Universidad de
+# Cuenca): estaciones automáticas con pluviómetro, sin transmisión en tiempo real (los datos se suben
+# con semanas de retraso y su descarga requiere un acuerdo). Se publican nombre, ubicación y cita
+# (autorizado por Julián el 12-nov-2026) para que se sepa que existen; no hay serie. «hasta» es el
+# último dato publicado que vimos en sus metadatos (12-nov-2026). Cerro Crocker, Santa Rosa y
+# Militar no se repiten: son los mismos sitios que transmiten en vivo por IERSE-WSN.
+DARWIN_RAIN = [  # (código, nombre, isla, lat, lon, altitud, hasta, nota)
+    ("puerto_baquerizo", "Puerto Baquerizo Moreno", "San Cristóbal", -0.9031, -89.612, 25, "2026-10-29", None),
+    ("galapaguera", "La Galapaguera", "San Cristóbal", -0.914, -89.437, 165, "2026-10-10", None),
+    ("el_junco", "El Junco (DARWIN)", "San Cristóbal", -0.8938, -89.480, 684, "2026-05-25", None),
+    ("sierra_negra", "Sierra Negra", "Isabela", -0.8484, -91.131, 1145, "2026-10-28", None),
+    ("cueva_sucre", "Cueva de Sucre", "Isabela", -0.8431, -91.028, 382, "2026-10-19", None),
+    ("puerto_villamil", "Puerto Villamil (El Chapín)", "Isabela", -0.9462, -90.974, 22, "2026-01-14", None),
+    ("wittmer", "Wittmer (Puerto Velasco Ibarra)", "Floreana", -1.2757, -90.4875, None, "2026-10-01",
+     "ubicación aproximada: la red no publica coordenadas"),
+    ("minas_rojas", "Minas Rojas", "Santa Cruz", -0.6186, -90.367, 619, "2026-05-20", None),
+    ("puerto_ayora_fcd", "Puerto Ayora (FCD)", "Santa Cruz", -0.7438, -90.302, 4, "2026-01-12", None),
+]
+
+
 PUBLICOS = {"estado.json", "horario.json", "diario.json", "pronostico.json", "satelite.json"}
 
 
@@ -351,6 +371,10 @@ def exportar(con):
             s = con.execute("SELECT SUM(valor), COUNT(*) FROM obs WHERE fuente=? AND estacion=? "
                             "AND variable='lluvia_mm' AND ts>?", (*k, hace(hours=horas))).fetchone()
             e["lluvia"][etiqueta] = None if not s[1] else round(s[0], 1)
+    ests += [{"fuente": "darwin", "estacion": c, "nombre": n, "isla": i, "lat": la, "lon": lo, "altitud_m": a,
+              "operador": "DARWIN-Rain", "ultimo": None, "actual": {}, "lluvia": {}, "en_vivo": False,
+              "datos_hasta": h, **({"nota": nota} if nota else {})}
+             for c, n, i, la, lo, a, h, nota in DARWIN_RAIN]
     corr = {f: dict(zip(("ts", "ok", "registros", "segundos"), r)) for f, *r in con.execute(
         "SELECT fuente, ts, ok, registros, segundos FROM corridas c WHERE ts=("
         "SELECT MAX(ts) FROM corridas WHERE fuente=c.fuente)")}

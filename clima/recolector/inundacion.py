@@ -27,7 +27,8 @@ def _serie(con, clave, desde):
     ts_l, cs, cn = [], [0.0], [0]
     for ts, v in filas:
         ts_l.append(dt.datetime.fromisoformat(ts.replace("Z", "+00:00")).timestamp())
-        horaria = f == "inamhi" and ts[17:19] == "30"  # fila horaria de respaldo (cuenta como 12 registros)
+        # fila horaria de respaldo (INAMHI horario o respaldo CWOP de Erna): cuenta como 12 registros
+        horaria = f in ("inamhi", "weatherlink") and ts[17:19] == "30"
         cs.append(cs[-1] + (v or 0.0))
         cn.append(cn[-1] + (12 if horaria else 1))
     return f, (ts_l, cs, cn) if ts_l else None

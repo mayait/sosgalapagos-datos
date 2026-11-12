@@ -472,6 +472,8 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
       <h3>Cómo citar</h3>
       <p class="note" style="color:var(--ink2)"><b>IERSE-WSN.</b> Orellana-Samaniego, M.L., Cabrera-Lituma, A., Omar, D., Célleri, R., Bendix, J., y Ballari, D. 2023. Proyecto DARWIN. Versión 2023.1. IERSE, Universidad del Azuay. &lt;http://opengeodata.uazuay.edu.ec/EstudioDarwin/&gt;, <span class="hoy"></span>. Licencia CC BY-NC-ND 4.0.</p>
       <p class="note" style="color:var(--ink2)"><b>GSC-USFQ.</b> Universidad San Francisco de Quito; Galapagos Science Center. (2026). Weather Data - GSC. Recuperado el <span class="hoy"></span> de https://weathergsc.usfq.edu.ec/</p>
+      <p class="note" style="color:var(--ink2)"><b>DARWIN-Rain.</b> Philipps-Universität Marburg, con la Fundación Charles Darwin y la Universidad de Cuenca. Red de estaciones meteorológicas automáticas de Galápagos (San Cristóbal, Isabela, Floreana y Santa Cruz). Sin datos en vivo: aquí solo se muestran su nombre y ubicación. Sus datos se piden a la red y publicarlos requiere su aprobación. Estación de Puerto Ayora: doi:10.5678/asch-3t49. Cerro Crocker, Santa Rosa y Militar transmiten en vivo por IERSE-WSN.</p>
+      <p class="note" style="color:var(--ink2)"><b>Estaciones de la red Ambient Weather.</b> «Miconia» (parte alta de Santa Cruz), «El Manzanillo – ESPOL» y «EPMAPASC – ESPOL». Paneles públicos en AmbientWeather.net, consultados el <span class="hoy"></span>. Datos de sus dueños, sin control de calidad oficial.</p>
       <p class="note" style="color:var(--ink2)"><b>Mareas.</b> Caldwell, P. C., M. A. Merrifield, P. R. Thompson (2015). Sea level measured by tide gauges from global oceans — the Joint Archive for Sea Level holdings (NCEI Accession 0019568). NOAA NCEI.</p>
       <p class="note" style="color:var(--ink2)"><b>Productos de SOS Galápagos.</b> SOS Galápagos (2026). Nivel de lluvia peligrosa (regla <span id="citaV"></span>) y pronóstico experimental de lluvia fuerte. Estimaciones no oficiales. https://sosgalapagos.org/clima/</p>
     </div>
@@ -746,12 +748,14 @@ function ref30(z) {
 function cobertura(k, n) { const b = finH(), s = horaria(k, b - n * HORA, b); return s.filter(x => x.v != null).length / n; }
 function estadoEst(e) {
   if (e.danada) return {c: "crit", i: "⚠", t: "dañada: su lluvia no se usa"};
+  if (e.en_vivo === false) return {c: "warn", i: "○", t: `sin datos en vivo (red de investigación; último dato publicado: ${e.datos_hasta || "?"})${e.nota ? "; " + e.nota : ""}`};
   const m = minDesde(e.ultimo);
   if (m <= 30) return {c: "ok", i: "●", t: `hace ${Math.max(1, Math.round(m))} min`};
   if (m <= 180) return {c: "warn", i: "◌", t: `con retraso: ${hace(e.ultimo)}`};
   return {c: "crit", i: "✕", t: m > 2880 ? `apagada ${hace(e.ultimo)}` : `apagada: sin datos ${hace(e.ultimo)}`};
 }
-const conLluvia = e => e.fuente !== "ioc" && e.fuente !== "metar";
+const conLluvia = e => e.fuente !== "ioc" && e.fuente !== "metar" && e.en_vivo !== false;
+const sinVivo = e => e.en_vivo === false; // estaciones de la red DARWIN-Rain: solo nombre y ubicación
 
 // ═════════════ pintar ═════════════
 function zonas() { return E.inundacion?.zonas || []; }
@@ -1125,7 +1129,7 @@ function espia() {
 }
 const enIsla = e => S.isla === "Todas" || e.isla === S.isla || (S.isla === "Santa Cruz" && e.isla === "Baltra");
 function islaSeg() {
-  const islas = ["Todas", ...new Set(E.estaciones.filter(e => e.isla !== "Baltra" && conLluvia(e)).map(e => e.isla))];
+  const islas = ["Todas", ...new Set(E.estaciones.filter(e => e.isla !== "Baltra" && (conLluvia(e) || sinVivo(e))).map(e => e.isla))];
   $("isla").innerHTML = islas.map(i => `<button class="${i === S.isla ? "on" : ""}">${esc(i)}</button>`).join("");
   $("isla").querySelectorAll("button").forEach(b => b.onclick = () => { S.isla = b.textContent; S.ocultas.clear(); pintar(); });
 }
@@ -1134,6 +1138,7 @@ function islaSeg() {
 function red() {
   const vs = E.estaciones.filter(e => enIsla(e)), b = finH();
   const bandera = e => {
+    if (sinVivo(e)) return ["gris", "sin datos en vivo"];
     if (!conLluvia(e)) return ["gris", e.fuente === "ioc" ? "mareógrafo" : "sin pluviómetro"];
     if (e.danada) return ["crit", "dañada"];
     const m = minDesde(e.ultimo);
@@ -1158,7 +1163,7 @@ function red() {
         <td class="l"><span class="flag ${fc}">${ft}</span></td>
         <td class="l">${cs.length ? `<div class="cells" role="img" aria-label="Transmisión de las últimas 48 horas">${cs.map(c => `<i style="${q(c.v)}" title="${fH.format(new Date(c.t))}: ${c.v == null ? "sin datos" : num(c.v) + " mm"}"></i>`).join("")}</div>` : ""}</td></tr>`;
     }).join("") + "</tbody>";
-  mapaRed(vs.filter(conLluvia));
+  mapaRed(vs.filter(e => conLluvia(e) || sinVivo(e)));
 }
 // Leaflet solo se carga si hace falta un mapa (Ciencia)
 let leafletP; const TACTIL = matchMedia("(pointer: coarse)").matches;
@@ -1231,22 +1236,24 @@ function explorador() {
   $("exEst").innerHTML = todas.map(e => `<button class="chip${S.ocultas.has(clave(e)) ? " off" : ""}" data-k="${esc(clave(e))}" aria-pressed="${!S.ocultas.has(clave(e))}">${esc(e.nombre)}</button>`).join("");
   $("exEst").querySelectorAll("[data-k]").forEach(c => c.onclick = () => { S.ocultas.has(c.dataset.k) ? S.ocultas.delete(c.dataset.k) : S.ocultas.add(c.dataset.k); explorador(); dibujar($("explorador")); escribirURL(); });
   const off = desplazamiento(a, b);
-  $("leyenda").innerHTML = (S.vex === "int" ? `<span><i style="background:var(--rain)"></i>mm por ${etiquetaG()}</span><span><i style="background:var(--rain);opacity:.45;border:1.5px dashed var(--rain)"></i>${etiquetaG()} con datos incompletos (mínimo)</span>` : `<span><i class="ln" style="border-color:var(--rain)"></i>lluvia acumulada en el período</span>`) +
+  $("leyenda").innerHTML = (S.vex === "int" ? `<span><i style="background:var(--rain)"></i>mm por ${etiquetaG()}</span><span><i style="background:var(--rain);opacity:.45;border:1.5px dashed var(--rain)"></i>${etiquetaG()} con datos incompletos (mínimo)</span><span><i class="ln" style="border-color:var(--brown)"></i>acumulada en el período (eje derecho)</span>` : `<span><i class="ln" style="border-color:var(--rain)"></i>lluvia acumulada en el período</span>`) +
     `<span><i class="hx"></i>sin datos</span><span><i style="background:var(--night);border:1px solid var(--line)"></i>noche</span>` + (off != null ? `<span><i class="dsh" style="border-color:var(--ink)"></i>${NCMP[S.cmp]}${S.cmp === "evento" ? " (alineada al inicio)" : ""}</span>` : "") + `<span>Escala común para todas las estaciones.</span>`;
   const datos = todas.filter(e => !S.ocultas.has(clave(e))).map(e => {
     const k = clave(e), cur = agrupar(k, a, b), cmp = off != null ? agrupar(k, a + off, b + off) : null;
     if (cmp && S.cmp === "evento") { const fin = Date.parse(E.eventos[0].hasta); cmp.forEach(x => { if (x.t >= fin) x.v = null; }); }
-    return {e, k, cur: S.vex === "acu" ? acumular(cur) : cur, cmp: cmp && (S.vex === "acu" ? acumular(cmp) : cmp), tot: cur.reduce((s, x) => s + (x.v || 0), 0), falta: cur.some(x => x.v == null || (x.cob != null && x.cob < .99))};
+    return {e, k, cur: S.vex === "acu" ? acumular(cur) : cur, acu: acumular(cur), cmp: cmp && (S.vex === "acu" ? acumular(cmp) : cmp), tot: cur.reduce((s, x) => s + (x.v || 0), 0), falta: cur.some(x => x.v == null || (x.cob != null && x.cob < .99))};
   }).filter(d => d.cur.some(x => x.v != null) || (d.cmp && d.cmp.some(x => x.v != null)));
   const ymax = Math.max(S.vex === "acu" ? 10 : 2, ...datos.flatMap(d => [...d.cur, ...(d.cmp || [])].map(x => x.v || 0))) * 1.08;
-  $("lluvias").innerHTML = datos.map((d, j) => fig("ex" + j, `${esc(d.e.nombre)} <span>${esc(d.e.isla)} · ${d.e.altitud_m ?? "?"} m · ${d.falta ? "al menos " : ""}${num(d.tot)} mm en el período</span>`, (el, o) => panelLluvia(el, o, d, ymax, a, b),
+  const ymaxA = Math.max(10, ...datos.flatMap(d => d.acu.map(x => x.v || 0))) * 1.08; // eje derecho: acumulado (escala común)
+  $("lluvias").innerHTML = datos.map((d, j) => fig("ex" + j, `${esc(d.e.nombre)} <span>${esc(d.e.isla)} · ${d.e.altitud_m ?? "?"} m · ${d.falta ? "al menos " : ""}${num(d.tot)} mm en el período</span>`, (el, o) => panelLluvia(el, o, d, ymax, a, b, ymaxA),
     {nota: "Lluvia medida tal como llega. Huecos rayados: la estación no transmitió y la lluvia no se midió."})).join("") || `<p class="empty">No hay datos de lluvia para este período y estas estaciones.</p>`;
   intensidades(a, b, datos.map(d => d.e));
   temps(a, b, datos.map(d => d.e));
 }
-function panelLluvia(el, o, d, ymax, a, b) {
-  const W = o.W, Hh = o.big ? Math.min(o.Hmax, 480) : 170, P = {l: 36, r: 8, t: 10, b: 22}, iw = W - P.l - P.r, ih = Hh - P.t - P.b;
-  const n = Math.max(1, d.cur.length), bw = iw / n, y = v => P.t + ih - v / ymax * ih;
+function panelLluvia(el, o, d, ymax, a, b, ymaxA) {
+  const dos = S.vex === "int" && ymaxA; // barras por intervalo + curva acumulada en el eje derecho
+  const W = o.W, Hh = o.big ? Math.min(o.Hmax, 480) : 170, P = {l: 36, r: dos ? 40 : 8, t: 10, b: 22}, iw = W - P.l - P.r, ih = Hh - P.t - P.b;
+  const n = Math.max(1, d.cur.length), bw = iw / n, y = v => P.t + ih - v / ymax * ih, y2 = v => P.t + ih - v / ymaxA * ih;
   const t0 = d.cur[0]?.t ?? a, fin = d.cur.length ? d.cur[d.cur.length - 1].t + S.g * HORA : b, x = t => P.l + (t - t0) / (fin - t0) * iw;
   let g = DEFS + ((fin - t0) <= 10 * DIA ? noches(t0, fin, x, P.t, ih) : "") + ejeX(t0, fin, x, P.t, ih, o.big);
   ticks(ymax, o.big ? 6 : 3).forEach(t => { g += `<line x1="${P.l}" x2="${W - P.r}" y1="${y(t)}" y2="${y(t)}" stroke="var(--grid)"/><text x="${P.l - 5}" y="${y(t) + 4}" text-anchor="end">${num(t, t % 1 ? 1 : 0)}</text>`; });
@@ -1257,6 +1264,13 @@ function panelLluvia(el, o, d, ymax, a, b) {
     if (S.vex === "int" && q.v > 0) { const hh = Math.max(1.2, P.t + ih - y(q.v)), w = Math.max(bw * .82, .8), part = q.cob < .99; g += `<rect x="${(x0 + (bw - w) / 2).toFixed(1)}" y="${(P.t + ih - hh).toFixed(1)}" width="${w.toFixed(1)}" height="${hh.toFixed(1)}" fill="var(--rain)"${part ? ` opacity=".45"` : ""}/>`; }
   });
   if (S.vex === "acu") g += `<path d="${lin(d.cur)}" fill="none" stroke="var(--rain)" stroke-width="2.4"/>`;
+  if (dos) {
+    let pa = "", on = false;
+    d.acu.forEach((q, i) => { if (q.v == null) { on = false; return; } pa += (on ? "L" : "M") + (P.l + (i + 1) * bw).toFixed(1) + "," + y2(q.v).toFixed(1); on = true; });
+    g += `<path d="${pa}" fill="none" stroke="var(--brown)" stroke-width="2"/>`;
+    ticks(ymaxA, o.big ? 6 : 3).forEach(t => { g += `<text x="${W - P.r + 5}" y="${y2(t) + 4}" text-anchor="start" style="fill:var(--brown)">${num(t, t % 1 ? 1 : 0)}</text>`; });
+    g += `<text x="${W - P.r + 5}" y="${P.t - 1}" text-anchor="start" style="font-size:11px;fill:var(--brown)">acum.</text>`;
+  }
   if (d.cmp) g += S.vex === "acu" ? `<path d="${lin(d.cmp)}" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="5 3"/>` : `<path d="${d.cmp.map((q, i) => q.v == null ? "" : `M${(P.l + i * bw).toFixed(1)},${y(q.v).toFixed(1)}h${bw.toFixed(1)}`).join("")}" fill="none" stroke="var(--ink)" stroke-width="1.6"/>`;
   g += `<line x1="${P.l}" x2="${W - P.r}" y1="${P.t + ih}" y2="${P.t + ih}" stroke="var(--hatch)"/><text x="${P.l - 5}" y="${P.t - 1}" text-anchor="end" style="font-size:11px">mm</text>`;
   g += `<line class="cross" y1="${P.t}" y2="${P.t + ih}" stroke="var(--ink2)" stroke-dasharray="2 2" visibility="hidden"/>`;
@@ -1266,7 +1280,8 @@ function panelLluvia(el, o, d, ymax, a, b) {
     const q = d.cur[i], c = d.cmp?.[i];
     const cuando = S.g === 24 ? fDY.format(new Date(q.t)) : fH.format(new Date(q.t)) + (S.g > 1 ? ` (+${S.g} h)` : "");
     const val = q.v == null ? "sin datos (no es cero)" : `${num(q.v)} mm${S.vex === "acu" ? " acumulados" : ""}${q.cob != null && q.cob < .99 && S.vex === "int" ? ` · datos de ${Math.round(q.cob * 100)} % del intervalo: mínimo` : ""}`;
-    return {x: P.l + (i + .5) * bw, html: `<b>${esc(d.e.nombre)}</b><br>${cuando}<br>${val}` + (c ? `<br><span style="color:var(--mut)">${NCMP[S.cmp]}: ${c.v == null ? "sin datos" : num(c.v) + " mm"}</span>` : "")};
+    const ac = dos && d.acu[i]?.v != null ? `<br><span style="color:var(--brown)">Acumulado: ${num(d.acu[i].v)} mm</span>` : "";
+    return {x: P.l + (i + .5) * bw, html: `<b>${esc(d.e.nombre)}</b><br>${cuando}<br>${val}${ac}` + (c ? `<br><span style="color:var(--mut)">${NCMP[S.cmp]}: ${c.v == null ? "sin datos" : num(c.v) + " mm"}</span>` : "")};
   });
 }
 function historia(k, a, b) {
