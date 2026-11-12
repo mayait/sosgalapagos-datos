@@ -102,8 +102,8 @@
    "id": "san-cristobal",
    "zona": "San Cristóbal",
    "isla": "San Cristóbal",
-   "calibrada": false,
-   "nota": "sin calibrar: no hay evento de referencia",
+   "calibrada": true,
+   "nota": "calibrada con dos eventos de nivel medio: 31-oct-2026 (desborde de las cañadas Barrio Frío y Divino Niño; sin viviendas afectadas) y 12-nov-2026 (unos 15 cm de agua frente a la USFQ y agua en algunas casas cerca del malecón)",
    "estaciones": [
     [
      "gsc/junco",
@@ -125,7 +125,45 @@
      "inamhi/M0221",
      1.0
     ]
-   ]
+   ],
+   "ajuste_humedad": false,
+   "umbrales": {
+    "muy alto": {
+     "R1h": 80,
+     "R3h": 140,
+     "R24h": 330
+    },
+    "alto": {
+     "R1h": 55,
+     "R3h": 95,
+     "R24h": 230
+    },
+    "medio": {
+     "R1h": 20,
+     "R3h": 35,
+     "R24h": 80
+    }
+   },
+   "calibracion": {
+    "fecha": "2026-11-12",
+    "eventos": {
+     "2026-10-31": {
+      "impacto": "medio",
+      "R1h": 39.1,
+      "R3h": 79.5,
+      "R24h": 204.2,
+      "fuente": "INAMHI horario (USFQ M5300–M5303); M0221 sin datos"
+     },
+     "2026-11-12": {
+      "impacto": "medio",
+      "R1h": 44.0,
+      "R3h": 68.7,
+      "R24h": 144.5,
+      "fuente": "GSC-USFQ e INAMHI M0221, cada 5 min"
+     }
+    },
+    "criterio": "«alto» queda por encima de los dos eventos (margen de 25 %, 19 % y 13 %); «medio» se alcanza 2–3 h antes del pico del 12-nov; «muy alto» = 1,5 × «alto», como en La Cascada. Sin ajuste por suelo húmedo: los dos eventos ya ocurrieron con el suelo húmedo."
+   }
   },
   {
    "id": "isabela",

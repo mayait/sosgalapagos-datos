@@ -84,3 +84,27 @@ El vaso se llenó entre las 16:50 y las 18:10, y solo lo precedió «medio».
 - Primera llegada de agua (0,1 m) al punto bajo: 15:36. La regla daba «medio» a las 15:15.
 - Agua en el centro del barrio: 20:37. «Alto» se activó a las 19:05, unas 1,5 h antes.
 - Máximo: 22:08. «Muy alto» se activó a las 20:55.
+
+## San Cristóbal: umbrales propios (12-nov-2026)
+
+Hasta el 12-nov, San Cristóbal usaba los umbrales de La Cascada y estaba «sin calibrar». Ese día marcó «alto» a las 08:00 y «muy alto» a las 11:00, pero lo que pasó en la isla fue de nivel medio. Se calibró con los dos eventos que tienen impactos conocidos:
+
+| Evento | Qué pasó | R1h | R3h | R24h | Datos |
+|---|---|---|---|---|---|
+| 31-oct-2026 | Desborde de las cañadas Barrio Frío y Divino Niño en la mañana (SNGR, ECU 911). El 1-nov, la SNGR no registró vías inundadas ni viviendas afectadas | 39,1 (El Junco, Cerro Alto) | 79,5 (Cerro Alto) | 204,2 (El Junco) | INAMHI horario de las estaciones USFQ (M5300–M5303); M0221 sin datos |
+| 12-nov-2026 | Unos 15 cm de agua frente a la USFQ y agua en algunas casas cerca del malecón (reporte de la coordinación) | 44,0 (Puerto Baquerizo, M0221) | 68,7 (M0221) | 144,5 (El Junco) | GSC-USFQ e INAMHI M0221, cada 5 min |
+
+| Nivel | 1 h | 3 h | 24 h |
+|---|---|---|---|
+| Muy alto | 80 | 140 | 330 |
+| Alto | 55 | 95 | 230 |
+| Medio | 20 | 35 | 80 |
+
+- **Alto** queda por encima de los dos eventos, con márgenes del 25 % (1 h), 19 % (3 h) y 13 % (24 h).
+- **Medio:** con estos umbrales, el 12-nov habría marcado «medio» desde las 03:00, unas 7 h antes del pico (10:00–11:00).
+- **Muy alto** = 1,5 × «alto», la misma proporción que en La Cascada. No hay un evento grave de referencia en San Cristóbal.
+- **Sin rebaja por suelo húmedo** (`ajuste_humedad: false`): los dos eventos ya ocurrieron con el suelo húmedo, así que rebajar otra vez los umbrales contaría ese efecto dos veces.
+- Estaciones con peso 1: El Junco, Cerro Alto, El Mirador, Merceditas e INAMHI M0221. R sigue siendo el máximo entre ellas, así que El Junco (548 m) suele mandar en 24 h, aunque los impactos se vieron en la costa de Puerto Baquerizo.
+- Los umbrales y los datos de cada evento están en `umbrales_inundacion.json` (zona `san-cristobal`, claves `umbrales` y `calibracion`).
+
+**Pendiente:** con solo dos eventos de nivel medio, no se sabe dónde empieza el nivel alto. Conviene registrar cada lluvia fuerte con lo que pasó (calles, cañadas, viviendas, barrios) y reajustar. También falta asignar las estaciones por cuenca (la quebrada de Playa Mann y el campus USFQ, Barrio Frío, Divino Niño).

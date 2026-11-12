@@ -41,9 +41,14 @@ def _ventana(serie, fin, horas, paso):
     return cs[b] - cs[a], min(1.0, (cn[b] - cn[a]) / (horas * 60 / paso))
 
 
-def _nivel(R, factor):
+def _umbrales(zona, nv):
+    """Umbrales de un nivel: los propios de la zona (calibración local) o los generales."""
+    return (zona.get("umbrales") or {}).get(nv["nivel"], nv.get("si_alguno", {}))
+
+
+def _nivel(R, factor, zona):
     for nv in REGLA["niveles"][:-1]:
-        if any(R.get(k) is not None and R[k] >= u * factor for k, u in nv["si_alguno"].items()):
+        if any(R.get(k) is not None and R[k] >= u * factor for k, u in _umbrales(zona, nv).items()):
             return nv
     return REGLA["niveles"][-1]
 
@@ -91,7 +96,9 @@ def _evaluar(series, zona, fin, nombres):
         amc, factor = "húmeda", ha["humedo"]["factor"]
     else:
         amc, factor = "normal", ha["normal"]["factor"]
-    return _nivel(R, factor), R, (P5d, amc, factor), detalle
+    if zona.get("ajuste_humedad") is False:
+        factor = 1.0  # calibrada con eventos reales en suelo húmedo: no se rebaja otra vez
+    return _nivel(R, factor, zona), R, (P5d, amc, factor), detalle
 
 
 def _recoleccion_viva(con):
@@ -161,6 +168,8 @@ def calcular(con, ahora=None, recoleccion_ok=None):
                       "probabilidad": info["probabilidad"] if info else None,
                       "R": R, "P5d": ant[0] if ant else None, "humedad": ant[1] if ant else None,
                       "factor": ant[2] if ant else None, "estaciones": detalle,
+                      **({"umbrales": [{"nivel": n["nivel"], "color": n["color"], "prob": n["probabilidad"],
+                                        **_umbrales(z, n)} for n in REGLA["niveles"]]} if z.get("umbrales") else {}),
                       "historial_72h": hist})
     umbrales = [{"nivel": n["nivel"], "color": n["color"], "prob": n["probabilidad"], **n.get("si_alguno", {})}
                 for n in REGLA["niveles"]]
