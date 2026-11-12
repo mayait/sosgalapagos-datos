@@ -260,7 +260,8 @@ def fuente_weatherlink(con):
             continue  # inactiva: no se registra ni se publica
         activas += 1
         estacion(con, "weatherlink", cod, nom, isla, lat, lon, alt, "WeatherLink")
-        t = dt.datetime.fromtimestamp(int(t_ult), UTC)
+        # segundos a :00: las filas con segundos :30 son las horarias del respaldo de Erna
+        t = dt.datetime.fromtimestamp(int(t_ult), UTC).replace(second=0)
         ts = t.strftime("%Y-%m-%dT%H:%M:%SZ")
         if con.execute("SELECT 1 FROM obs WHERE fuente='weatherlink' AND estacion=? AND ts=? LIMIT 1", (cod, ts)).fetchone():
             continue  # sin dato nuevo
@@ -290,8 +291,52 @@ def fuente_weatherlink(con):
             filas.append((cod, "presion_hpa", t, round(num("barometer") * (33.8639 if "in" in d.get("barometerUnit", "in") else 1), 1)))
         if num("windSpeed") is not None:
             filas.append((cod, "viento_ms", t, round(num("windSpeed") * (0.44704 if "mph" in d.get("windSpeedUnit", "mph") else 1), 1)))
+    n = guardar(con, "weatherlink", filas)
+    try:
+        n += respaldo_erna(con)
+    except Exception as e:  # el respaldo nunca tumba la fuente principal
+        errores.append(f"respaldo de Erna: {e}")
     if not activas and errores:
         raise RuntimeError("; ".join(errores)[:400])
+    return n
+
+
+# Respaldo de la estación de Erna: la misma consola Davis transmite por CWOP (DW5750) y NOAA MADIS
+# la redistribuye. El servicio de CLIMA_RESPALDO_ERNA_API da, sin clave, la última observación con
+# la lluvia de la última hora. Si WeatherLink no trae datos de Erna hace más de 30 min, se guarda una
+# fila horaria (segundos :30, como el respaldo horario del INAMHI; inundacion.py la cuenta como una
+# hora completa), solo para horas que WeatherLink no cubre.
+RESPALDO_ERNA = {"cod": "pa_weatherlink", "id": "madis-D5750", "lat": -0.753, "lon": -90.312}
+
+
+def respaldo_erna(con, ahora=None):
+    import os
+    if not os.environ.get("CLIMA_RESPALDO_ERNA_API"):
+        return 0
+    ahora = ahora or dt.datetime.now(UTC)
+    cod = RESPALDO_ERNA["cod"]
+    iso = lambda t: t.strftime("%Y-%m-%dT%H:%M:%SZ")  # noqa: E731
+    ult = con.execute("SELECT MAX(ts) FROM obs WHERE fuente='weatherlink' AND estacion=? AND variable='lluvia_mm' "
+                      "AND substr(ts,18,2)!='30'", (cod,)).fetchone()[0]
+    if ult and ahora - dt.datetime.fromisoformat(ult.replace("Z", "+00:00")) < dt.timedelta(minutes=30):
+        return 0  # WeatherLink está al día
+    d = http_json(f"{endpoint('CLIMA_RESPALDO_ERNA_API')}/{RESPALDO_ERNA['lat']}/{RESPALDO_ERNA['lon']}")
+    e = next((x for x in (d if isinstance(d, list) else []) if x.get("id") == RESPALDO_ERNA["id"]), None)
+    if not e or e.get("minAgo") is None or e["minAgo"] > 30 or e.get("precip_time") != 1 or e.get("precip") is None:
+        return 0
+    t = (ahora - dt.timedelta(minutes=int(e["minAgo"]))).replace(second=0, microsecond=0)
+    ini = (t - dt.timedelta(hours=1)).replace(second=30)
+    # una fila por hora como máximo y nunca encima de datos de WeatherLink
+    if con.execute("SELECT 1 FROM obs WHERE fuente='weatherlink' AND estacion=? AND variable='lluvia_mm' "
+                   "AND ts>? AND ts<=?", (cod, iso(ini - dt.timedelta(minutes=55)), iso(t))).fetchone():
+        return 0
+    mm = round(float(e["precip"]), 2)
+    filas = [(cod, "lluvia_mm", ini, None if mm > MAX_MM_H else mm)]
+    if e.get("temp") is not None:
+        filas.append((cod, "temp_c", t, round(float(e["temp"]), 2)))
+    if e.get("rh") is not None:
+        filas.append((cod, "hr_pct", t, float(e["rh"])))
+    print(f"weatherlink: respaldo CWOP de Erna, {mm} mm en la hora hasta {iso(t)}")
     return guardar(con, "weatherlink", filas)
 
 
@@ -393,6 +438,11 @@ FUENTES_EXTRA["tempest"] = fuente_tempest
 # de subida y la IP de la estación: no se guardan.
 AMBIENT_META = {  # código: (nombre, isla, lat, lon, altitud); coordenadas redondeadas a ~100 m
     "evolucion": ("Evolución (Puerto Ayora)", "Santa Cruz", -0.747, -90.315, 10),
+    # Paneles públicos en AmbientWeather.net; nombre, ubicación y cita publicados con autorización
+    # de Julián (12-nov-2026). Coordenadas y altitud: las que publica cada estación.
+    "miconia": ("Miconia (parte alta)", "Santa Cruz", -0.6663, -90.3764, 422),
+    "manzanillo_espol": ("El Manzanillo – ESPOL", "Santa Cruz", -0.6965, -90.4020, 169),
+    "epmapasc_espol": ("EPMAPASC – ESPOL (Puerto Ayora)", "Santa Cruz", -0.7417, -90.3204, 22),
 }
 AMBIENT_MAX_EDAD = 3 * 86400  # una estación que no transmite hace más de 3 días no se registra
 
