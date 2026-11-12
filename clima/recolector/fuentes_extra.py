@@ -16,8 +16,9 @@ from recolector import CONTINENTE, UTC, endpoint, estacion, guardar, http_json
 # (etiqueta = inicio del intervalo, hora continental UTC−5) y la serie de temperatura alineada.
 # historial: lluvia y temperatura horarias (etiqueta = inicio de la hora, UTC−5), 90 días.
 INAMHI_EST = {  # código: (consulta lat, lon, nombre, isla, lat, lon, altitud)
-    "M0191": (-0.745, -90.315, "Puerto Ayora (Charles Darwin)", "Santa Cruz", -0.743056, -90.3025, 6),
-    "M0221": (-0.901, -89.611, "Puerto Baquerizo Moreno", "San Cristóbal", -0.904058, -89.614308, 6),
+    # nombre oficial del INAMHI y su código, más la localidad
+    "M0191": (-0.745, -90.315, "CHARLES DARWIN 1 (M0191), Puerto Ayora", "Santa Cruz", -0.743056, -90.3025, 6),
+    "M0221": (-0.901, -89.611, "SAN CRISTOBAL-GALAPAGOS (M0221), Puerto Baquerizo", "San Cristóbal", -0.904058, -89.614308, 6),
 }
 HORARIO_SEG = 30  # las filas horarias se guardan a las HH:30:30 para no chocar con las de 5 min
 
