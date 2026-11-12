@@ -320,7 +320,7 @@ EVENTOS = [  # momentos de referencia para comparar (horas UTC)
 # último dato publicado que vimos en sus metadatos (12-nov-2026). Cerro Crocker, Santa Rosa y
 # Militar no se repiten: son los mismos sitios que transmiten en vivo por IERSE-WSN.
 DARWIN_RAIN = [  # (código, nombre, isla, lat, lon, altitud, hasta, nota)
-    ("puerto_baquerizo", "Puerto Baquerizo Moreno", "San Cristóbal", -0.9031, -89.612, 25, "2026-10-29", None),
+    ("puerto_baquerizo", "Puerto Baquerizo Moreno (DARWIN)", "San Cristóbal", -0.9031, -89.612, 25, "2026-10-29", None),
     ("galapaguera", "La Galapaguera", "San Cristóbal", -0.914, -89.437, 165, "2026-10-10", None),
     ("el_junco", "El Junco (DARWIN)", "San Cristóbal", -0.8938, -89.480, 684, "2026-05-25", None),
     ("sierra_negra", "Sierra Negra", "Isabela", -0.8484, -91.131, 1145, "2026-10-28", None),
