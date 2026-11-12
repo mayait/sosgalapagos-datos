@@ -17,6 +17,9 @@ from danadas import danada
 
 UTC = dt.timezone.utc
 REGLA = json.loads((Path(__file__).resolve().parent / "umbrales_inundacion.json").read_text())
+FRESCURA_MAX_MIN = REGLA.get("frescura_max_min", 30)  # estación usable si su último dato tiene ≤ 30 min
+SILENCIO_MIN = REGLA.get("silencio_min", 60)  # zona «callada» si ninguna estación mandó nada en 60 min
+PASO_EVAL_MIN = 5  # el nivel se evalúa cada 5 min para la persistencia y el silencio
 PASO_MIN = {"ierse": 5, "gsc": 5, "inamhi": 5, "weatherlink": 5, "tempest": 5, "ambient": 5, "wunderground": 5}  # resolución esperada por fuente
 
 
@@ -55,7 +58,7 @@ def _nivel(R, factor, zona):
 
 def _evaluar(series, zona, fin, nombres):
     cob_min = REGLA["cobertura_minima"]
-    detalle, cand = [], {}
+    detalle, cand, edad = [], {}, {}
     for clave, peso in zona["estaciones"]:
         if danada(clave, "lluvia_mm", fin):
             detalle.append({"estacion": nombres.get(clave, clave), "peso": peso, "usada": False,
@@ -66,24 +69,36 @@ def _evaluar(series, zona, fin, nombres):
             continue
         f, s = series[clave]
         paso = PASO_MIN.get(f, 5)
-        v = {k: _ventana(s, fin, h, paso) for k, h in (("R1h", 1), ("R3h", 3), ("R24h", 24))}
-        p5 = _ventana(s, fin - dt.timedelta(hours=24), 120, paso)
+        # Las ventanas terminan en el último dato de la estación (no en el reloj): la latencia
+        # normal de las fuentes (10–20 min) no la deja fuera ni recorta su lluvia.
+        i = bisect.bisect_right(s[0], fin.timestamp()) - 1
+        if i < 0:
+            detalle.append({"estacion": nombres.get(clave, clave), "usada": False, "motivo": "sin datos"})
+            continue
+        ult = dt.datetime.fromtimestamp(s[0][i], UTC)
+        edad[clave] = (fin - ult).total_seconds() / 60
+        v = {k: _ventana(s, ult, h, paso) for k, h in (("R1h", 1), ("R3h", 3), ("R24h", 24))}
+        p5 = _ventana(s, ult - dt.timedelta(hours=24), 120, paso)
         cand[clave] = (peso, v, p5)
     cortas = REGLA.get("cobertura_ventanas", ["R1h", "R3h", "R24h"])
     cob = lambda v: min(v[k][1] for k in cortas)  # noqa: E731
-    validas = {c: x for c, x in cand.items() if cob(x[1]) >= cob_min}
+    fresca = lambda c: edad[c] <= FRESCURA_MAX_MIN  # noqa: E731
+    validas = {c: x for c, x in cand.items() if fresca(c) and cob(x[1]) >= cob_min}
+    # Zona «callada»: ninguna estación (no dañada) mandó datos en los últimos SILENCIO_MIN minutos.
+    callada = bool(cand) and all(e > SILENCIO_MIN for e in edad.values())
     otros3h = {c: x[1]["R3h"][0] for c, x in validas.items()}
     for c in list(validas):
         if otros3h[c] == 0 and any(o >= REGLA["excluir_cero_si_otra_mm_3h"] for k, o in otros3h.items() if k != c):
             validas.pop(c)
     for c, (peso, v, p5) in cand.items():
         motivo = None if c in validas else (
-            "cobertura menor del 80 % en la última hora o 3 h" if cob(v) < cob_min
+            f"datos con retraso: el último llegó hace {round(edad[c])} min" if not fresca(c)
+            else "cobertura menor del 80 % en la última hora o 3 h" if cob(v) < cob_min
             else "marca 0 mm mientras otra estación registra lluvia")
         detalle.append({"estacion": nombres.get(c, c), "peso": peso, "usada": c in validas, "motivo": motivo,
                         "mm": {k: round(x[0], 1) for k, x in v.items()}})
     if not validas:
-        return None, {}, None, detalle
+        return None, {}, None, detalle, callada
     R = {k: round(max(p * v[k][0] for p, v, _ in validas.values()), 1) for k in ("R1h", "R3h", "R24h")}
     p5 = [p * x[0] for p, _, x in validas.values() if x[1] >= cob_min]
     P5d = round(max(p5), 1) if p5 else None
@@ -98,7 +113,7 @@ def _evaluar(series, zona, fin, nombres):
         amc, factor = "normal", ha["normal"]["factor"]
     if zona.get("ajuste_humedad") is False:
         factor = 1.0  # calibrada con eventos reales en suelo húmedo: no se rebaja otra vez
-    return _nivel(R, factor, zona), R, (P5d, amc, factor), detalle
+    return _nivel(R, factor, zona), R, (P5d, amc, factor), detalle, callada
 
 
 def _recoleccion_viva(con):
@@ -133,9 +148,12 @@ def calcular(con, ahora=None, recoleccion_ok=None):
     pers, sil = REGLA["persistencia_horas"], REGLA.get("silencio_en_alerta")
     alerta = orden[:orden.index(sil["desde_nivel"]) + 1] if sil else []
 
+    P = pers * 60 // PASO_EVAL_MIN  # muestras en la ventana de persistencia
+
     def aplicar(inst, previos, fuentes_ok=True):
-        """Nivel mostrado a partir del instantáneo y de los instantáneos de las horas previas."""
-        recientes = [x for x in previos[-pers:] if x]
+        """Nivel mostrado a partir del instantáneo y de los instantáneos de las últimas `pers` horas
+        (muestras cada 5 min). fuentes_ok: el recolector consultó bien y la zona está callada."""
+        recientes = [x for x in previos[-P:] if x]
         if inst is None:
             if sil and fuentes_ok and any(x in alerta for x in recientes):
                 return sil["nivel"], True
@@ -144,19 +162,28 @@ def calcular(con, ahora=None, recoleccion_ok=None):
 
     zonas = []
     for z in REGLA["zonas"]:
-        # instantáneos horarios de las últimas 72 + 8 h (para la persistencia y el gráfico)
-        fin0 = ahora.replace(minute=0, second=0, microsecond=0)
-        inst = []
-        for h in range(72 + pers - 1, -1, -1):
-            nv, *_ = _evaluar(series, z, fin0 - dt.timedelta(hours=h), nombres)
-            inst.append(nv["nivel"] if nv else None)
+        # Instantáneos cada 5 min de las últimas 72 + `pers` h: la persistencia y el silencio no
+        # dependen de que el nivel caiga en una hora en punto.
+        fin0 = ahora.replace(minute=ahora.minute - ahora.minute % PASO_EVAL_MIN, second=0, microsecond=0)
+        n = (72 + pers) * 60 // PASO_EVAL_MIN
+        muestras = [fin0 - dt.timedelta(minutes=PASO_EVAL_MIN * k) for k in range(n - 1, -1, -1)]
         fuentes = {c.split("/")[0] for c, _ in z["estaciones"]}
         ok = lambda t: bool(fuentes) and all(recoleccion_ok(f, t) for f in fuentes)  # noqa: E731
-        hist = [aplicar(inst[i], inst[i - pers:i], ok(fin0 - dt.timedelta(hours=len(inst) - 1 - i)))[0]
-                for i in range(pers, len(inst))]
-        nv, R, ant, detalle = _evaluar(series, z, ahora, nombres)
+        inst, call = [], []
+        for t in muestras:
+            nv, *_, c = _evaluar(series, z, t, nombres)
+            inst.append(nv["nivel"] if nv else None)
+            call.append(c)
+        mostrados = [aplicar(inst[i], inst[i - P:i], ok(muestras[i]) and call[i])[0] for i in range(P, len(inst))]
+        # historial horario para el gráfico: el nivel más alto mostrado en cada hora
+        k = 60 // PASO_EVAL_MIN
+        hist = []
+        for j in range(0, len(mostrados), k):
+            hora = [x for x in mostrados[j:j + k] if x]
+            hist.append(min(hora, key=orden.index) if hora else None)
+        nv, R, ant, detalle, callada = _evaluar(series, z, ahora, nombres)
         actual = nv["nivel"] if nv else None
-        nivel, silencio = aplicar(actual, inst, ok(ahora))
+        nivel, silencio = aplicar(actual, inst, ok(ahora) and callada)
         if actual is None and not ok(ahora) and nivel:
             nivel = None  # fallo de nuestra recolección: se informa «sin datos» con el último nivel
         ultimo = next((x for x in reversed(inst) if x), None)

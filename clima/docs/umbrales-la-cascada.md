@@ -108,3 +108,9 @@ Hasta el 12-nov, San Cristóbal usaba los umbrales de La Cascada y estaba «sin 
 - Los umbrales y los datos de cada evento están en `umbrales_inundacion.json` (zona `san-cristobal`, claves `umbrales` y `calibracion`).
 
 **Pendiente:** con solo dos eventos de nivel medio, no se sabe dónde empieza el nivel alto. Conviene registrar cada lluvia fuerte con lo que pasó (calles, cañadas, viviendas, barrios) y reajustar. También falta asignar las estaciones por cuenca (la quebrada de Playa Mann y el campus USFQ, Barrio Frío, Divino Niño).
+
+## Correcciones del 12-nov-2026 (revisión del sistema)
+
+- **Persistencia cada 5 minutos.** Antes, el nivel solo se guardaba a la hora en punto: un «alto» que ocurría entre dos horas desaparecía en la siguiente corrida (15 min después) en vez de mantenerse 8 h, y el silencio en alerta podía no activarse. Ahora el nivel instantáneo se evalúa cada 5 min de las últimas 80 h; el historial de 72 h muestra el nivel más alto de cada hora.
+- **Ventanas hasta el último dato de cada estación.** Antes, la cobertura del 80 % se contaba hasta la hora actual: una estación con 15 min o más de retraso (el INAMHI llega con 10–17 min) quedaba fuera aunque estuviera midiendo lluvia fuerte. Ahora las ventanas de 1, 3 y 24 h terminan en su último dato, y la estación se usa si ese dato tiene 30 min o menos (`frescura_max_min`).
+- **Silencio solo si de verdad callan.** Antes, si todas las estaciones llegaban con retraso, la regla podía publicar «muy alto» por un silencio que era solo latencia. Ahora la zona solo está «callada» si ninguna estación mandó datos en los últimos 60 min (`silencio_min`).
