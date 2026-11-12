@@ -119,7 +119,7 @@
     "descripcion": "Tuberías del acueducto según el IGM, con sus cruces con cauces y vías.",
     "popup": {"titulo": "nombre", "campos": {"estado_igm": "Estado (IGM)", "ubicacion_igm": "Ubicación (IGM)", "largo_m": "Largo (m)", "cruces_cauce": "Cruces con cauces", "cruce_mayor_km2": "Cauce mayor cruzado (km²)", "en_riesgo_cgreg": "Zona de riesgo del CGREG"}}},
    "Cuencas de captación de las tomas": {
-    "id": "sx_cuencas_tomas", "titulo": "Cuencas de captación de las tomas",
+    "id": "sx_cuencas_tomas", "titulo": "Cuencas de captación de las tomas", "tipo": "poligono",
     "descripcion": "Área que drena a cada toma de agua. Una crecida en estas cuencas puede llevar sedimento a la toma.",
     "popup": {"titulo": "nombre", "campos": {"elemento": "Elemento", "area_km2": "Área (km²)", "uso_agricola_pct": "Uso agrícola (%)", "uso_parque_pct": "Parque Nacional (%)", "riesgo_turbidez": "Riesgo de turbidez"}}},
    "Plan UGR: lugares y sectores afectados": {
