@@ -1187,7 +1187,7 @@ function cargarLeaflet(js, css, ms = 20000) {
     document.head.append(s);
   });
 }
-function leaflet() {
+function obtenerLeaflet() { // no llamarla «leaflet»: Leaflet 1.9 crea window.leaflet y la pisaría
   if (window.L) return Promise.resolve(window.L);
   return leafletP ||= (async () => {
     for (const [js, css] of LEAFLET_CDN) { try { return await cargarLeaflet(js, css); } catch {} }
@@ -1199,7 +1199,7 @@ const sinMapa = id => { $(id).innerHTML = `<p class="empty">No se pudo cargar el
 let MAPR, CAPAR;
 async function mapaRed(vs) {
   if (!vs.length) return;
-  let L; try { L = await leaflet(); } catch (e) { MAPR = null; sinMapa("redMap"); return; }
+  let L; try { L = await obtenerLeaflet(); } catch (e) { MAPR = null; sinMapa("redMap"); return; }
   if (!MAPR) {
     MAPR = L.map("redMap", {scrollWheelZoom: false, dragging: !TACTIL});
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 17, attribution: "Esri"}).addTo(MAPR);
@@ -1494,7 +1494,7 @@ const colRr = r => r >= 20 ? "#0d366b" : r >= 10 ? "#1c5cab" : r >= 5 ? "#3987e5
 const colRayo = mn => mn <= 10 ? "#facc15" : mn <= 30 ? "#fb923c" : "#a8a29e";
 let MAPS, GS = {}; const VIS = {nucleos: true, lluvia: true, rayos: true};
 async function mapaSat() {
-  let L; try { L = await leaflet(); } catch (e) { MAPS = null; sinMapa("satMap"); return; }
+  let L; try { L = await obtenerLeaflet(); } catch (e) { MAPS = null; sinMapa("satMap"); return; }
   if (!MAPS) {
     MAPS = L.map("satMap", {scrollWheelZoom: false, dragging: !TACTIL});
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 13, attribution: "Esri · GOES-19 NOAA"}).addTo(MAPS);
