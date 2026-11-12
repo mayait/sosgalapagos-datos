@@ -476,6 +476,9 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
       <p class="note" style="color:var(--ink2)"><b>Estaciones de la red Ambient Weather.</b> «Miconia» (parte alta de Santa Cruz), «El Manzanillo – ESPOL» y «EPMAPASC – ESPOL». Paneles públicos en AmbientWeather.net, consultados el <span class="hoy"></span>. Datos de sus dueños, sin control de calidad oficial.</p>
       <p class="note" style="color:var(--ink2)"><b>Mareas.</b> Caldwell, P. C., M. A. Merrifield, P. R. Thompson (2015). Sea level measured by tide gauges from global oceans — the Joint Archive for Sea Level holdings (NCEI Accession 0019568). NOAA NCEI.</p>
       <p class="note" style="color:var(--ink2)"><b>Productos de SOS Galápagos.</b> SOS Galápagos (2026). Nivel de lluvia peligrosa (regla <span id="citaV"></span>) y pronóstico experimental de lluvia fuerte. Estimaciones no oficiales. https://sosgalapagos.org/clima/</p>
+      <h3>Descargar los datos crudos</h3>
+      <p class="note">Todas las observaciones de las estaciones, tal como llegan, en un CSV por mes (comprimido con gzip), más la lista de estaciones y el histórico diario del GSC. Se regeneran cada hora. Antes de usarlos, lea el <a href="datos/descargas/LEEME.txt">LEEME</a>: explica las columnas, los cortes de transmisión y las estaciones marcadas como dañadas. Cite a cada operador como se indica arriba.</p>
+      <div id="descargas" class="lst"><p class="note">Cargando la lista de archivos…</p></div>
     </div>
   </section>
 </main>
@@ -1602,7 +1605,21 @@ function marSci() {
   $("marNota").innerHTML = `Alturas en cm respecto del nivel medio 2017–2024 de cada mareógrafo; no son cotas del terreno. La marea astronómica sale de un análisis armónico de las series horarias del UHSLC (Universidad de Hawái), validado fuera de muestra con un error típico de ${num(v.rms_cm)} cm sobre una marea de ${num(v.rango_marea_cm, 0)} cm. La anomalía (observado − astronómica) recoge sobre todo El Niño: hoy suma ${sgn(pa.anomalia_cm)} cm a cada pleamar. En Puerto Baquerizo y Puerto Villamil no hay mareógrafo; la pleamar ocurre a la misma hora (±15 min) y con una altura parecida (±10 %), según el modelo. La marea importa para la costa baja (0–3 m); no influye en el vaso de La Cascada, que rebosa a unos 12 m.`;
 }
 
+async function descargas() {
+  const el = $("descargas"); if (!el || el.dataset.ok) return;
+  try {
+    const r = await fetch("datos/descargas/indice.json", {cache: "no-cache"}); if (!r.ok) throw 0;
+    const d = await r.json(), mb = b => b >= 1e6 ? num(b / 1e6, 1) + " MB" : num(Math.max(1, b / 1e3), 0) + " kB";
+    const orden = a => a.archivo.startsWith("clima_galapagos_") ? "1" + (9999 - +a.archivo.slice(16, 20)) + (99 - +a.archivo.slice(21, 23)) : "0" + a.archivo;
+    el.innerHTML = d.archivos.slice().sort((a, b) => orden(a).localeCompare(orden(b))).map(a => {
+      const m = a.archivo.match(/^clima_galapagos_(\d{4})-(\d{2})/), tit = m ? `Observaciones de ${new Intl.DateTimeFormat("es", {month: "long", year: "numeric", timeZone: "UTC"}).format(new Date(Date.UTC(+m[1], +m[2] - 1, 15)))}` : ({"estaciones.csv": "Estaciones (nombre, isla, coordenadas, altitud, operador)", "historico_lluvia_diaria.csv": "Lluvia diaria del GSC desde 2015", "LEEME.txt": "LEEME: columnas, avisos y cómo citar"})[a.archivo] || a.archivo;
+      return `<div class="it"><span style="text-align:center">⬇</span><div><a href="datos/descargas/${encodeURIComponent(a.archivo)}" download><b>${esc(tit)}</b></a><small>${esc(a.archivo)} · ${mb(a.bytes)}</small></div><small style="text-align:right">act. ${fH.format(new Date(a.actualizado))}</small></div>`;
+    }).join("");
+    el.dataset.ok = 1;
+  } catch { el.innerHTML = `<p class="note">La lista de descargas no está disponible ahora.</p>`; }
+}
 function fuentes() {
+  descargas();
   $("fuentesL").innerHTML = Object.entries(E.fuentes || {}).map(([f, c]) => {
     const n = E.estaciones.filter(e => e.operador === f), islas = [...new Set(n.map(e => e.isla))].join(", "), ok = c.ok && minDesde(c.ts) <= 20;
     return `<div class="it"><span class="ico-${ok ? "ok" : "warn"}" style="text-align:center">${ok ? "●" : "▲"}</span><div><b>${esc(f)}</b><small>${n.length ? `${n.length} estacion${n.length > 1 ? "es" : ""} en ${esc(islas)}` : "sin estaciones propias"}</small></div><small style="text-align:right">${ok ? "al día" : `última respuesta ${fH.format(new Date(c.ts))}`}</small></div>`;

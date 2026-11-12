@@ -30,6 +30,7 @@ import gzip
 import json
 import os
 import re
+import shutil
 import sqlite3
 import sys
 import time
@@ -300,8 +301,9 @@ def ahora_utc():
 
 
 # ---------------------------------------------------------------- exportación para el dashboard
-# Lo público (CLIMA_SALIDA) son SOLO los JSON agregados que usa la página: sin URLs de las
-# fuentes ni descargas. Los CSV completos van a CLIMA_PRIVADO (no se publica).
+# Lo público (CLIMA_SALIDA) son los JSON agregados que usa la página, sin URLs de las fuentes, y
+# desde el 12-nov-2026 las descargas de datos crudos de estaciones (SALIDA/descargas, cada hora).
+# Copia completa (con modelos y satélite) en CLIMA_PRIVADO/csv, que no se publica.
 
 PRIVADO = Path(os.environ.get("CLIMA_PRIVADO", AQUI / "privado"))
 OPERADOR = {"ierse": "IERSE-WSN", "gsc": "GSC-USFQ", "inamhi": "INAMHI", "ioc": "IOC", "metar": "Aeropuertos (METAR)",
@@ -473,10 +475,12 @@ def exportar(con):
 
 LEEME_DESCARGA = """Datos meteorológicos de Galápagos recopilados por SOS Galápagos
 Actualizado: {generado} (se regenera cada hora)
+https://sosgalapagos.org/clima/
 
-USO RESTRINGIDO: enlace privado para investigación. No redistribuir ni publicar los datos
-crudos sin autorización de cada operador.
-
+DATOS CRUDOS: cada valor está tal como llegó de su fuente, sin control de calidad ni
+correcciones. Al usarlos, cite a cada operador (abajo) y respete su licencia. La regla de
+nivel de inundación de la página filtra estaciones; estos archivos no.
+{danadas}
 CÓMO CITAR
 - IERSE-WSN (Santa Cruz). Licencia CC BY-NC-ND 4.0 (atribución, no comercial, sin
   obras derivadas): Orellana-Samaniego, M.L., Cabrera-Lituma, A., Omar, D., Célleri, R.,
@@ -484,19 +488,24 @@ CÓMO CITAR
   Azuay. <http://opengeodata.uazuay.edu.ec/EstudioDarwin/>, fecha de acceso.
 - GSC-USFQ (San Cristóbal): Universidad San Francisco de Quito; Galapagos Science Center.
   (2026). Weather Data - GSC. Recuperado el <fecha> de https://weathergsc.usfq.edu.ec/
-- INAMHI, IOC (mareógrafos), METAR de los aeropuertos y WeatherLink: citar al operador.
+- INAMHI, IOC (mareógrafos), METAR de los aeropuertos: citar al operador.
+- Estaciones particulares (WeatherLink, Tempest, Ambient Weather, Weather Underground):
+  datos de sus dueños, publicados con su panel público; citar la estación y la plataforma.
 
-csv/clima_galapagos_AAAA-MM.csv.gz   todas las observaciones del mes
+ARCHIVOS
+clima_galapagos_AAAA-MM.csv.gz   todas las observaciones de estaciones del mes
     ts_utc     hora en UTC (Galápagos = UTC-6)
-    fuente     ierse | gsc | inamhi | ioc | metar
+    fuente     ierse | gsc | inamhi | ioc | metar | weatherlink | tempest | ambient | wunderground
     estacion   identificador (ver estaciones.csv)
-    variable   lluvia_mm (lluvia caída en el intervalo que empieza o termina en ts; ~5 min,
-               o 1 h en las filas INAMHI con segundos :30), temp_c, hr_pct, presion_hpa,
-               rad_wm2, viento_ms, nivel_mar_m, lluvia_codigo (METAR: 0 nada, 1 débil,
-               2 moderada, 3 fuerte o tormenta)
-    valor      tal como llega de la fuente, sin control de calidad
-csv/historico_lluvia_diaria.csv      lluvia diaria del GSC desde 2015 (fecha local)
-csv/estaciones.csv                   coordenadas, altitud y operador
+    variable   lluvia_mm (lluvia del intervalo de ~5 min que empieza o termina en ts; 1 h en
+               las filas con segundos :30: respaldo horario del INAMHI y de Erna),
+               lluvia_dia_acum_mm (acumulado del día que da la estación), temp_c, hr_pct,
+               presion_hpa, rad_wm2, viento_ms, nivel_mar_m, lluvia_codigo (METAR: 0 nada,
+               1 débil, 2 moderada, 3 fuerte o tormenta)
+    valor      tal como llega de la fuente
+historico_lluvia_diaria.csv      lluvia diaria del GSC desde 2015 (fecha local)
+estaciones.csv                   nombre, isla, coordenadas, altitud y operador
+indice.json                      lista de archivos con tamaño y fecha
 
 Cuidado: durante los cortes de transmisión la lluvia no se mide (no queda en cero ni se
 acumula después). Ver la cobertura antes de sumar.
@@ -530,7 +539,46 @@ def exportar_csv(con, meses=2):
                           "ORDER BY fuente, estacion")
         w.writerow([c[0] for c in cur.description])
         w.writerows(cur)
-    (PRIVADO / "LEEME.txt").write_text(LEEME_DESCARGA.format(generado=ahora_utc()))
+    exportar_descargas(con)
+
+
+FUENTES_ESTACION = ("ierse", "gsc", "inamhi", "ioc", "metar", "weatherlink", "tempest", "ambient", "wunderground")
+
+
+def exportar_descargas(con, meses=2):
+    """Descargas PÚBLICAS de datos crudos (desde el 12-nov-2026): SALIDA/descargas/, que Caddy sirve
+    en /clima/datos/descargas/. Solo observaciones de estaciones (no modelos ni satélite)."""
+    hoy = dt.date.today().replace(day=1)
+    destino = SALIDA / "descargas"
+    destino.mkdir(parents=True, exist_ok=True)
+    marcas = ",".join("?" * len(FUENTES_ESTACION))
+    for (mes,) in con.execute(f"SELECT DISTINCT substr(ts,1,7) FROM obs WHERE fuente IN ({marcas}) "
+                              "AND variable!='lluvia_dia_mm'", FUENTES_ESTACION).fetchall():
+        ruta = destino / f"clima_galapagos_{mes}.csv.gz"
+        if ruta.exists() and mes < (hoy - dt.timedelta(days=31 * meses)).strftime("%Y-%m"):
+            continue
+        tmp = ruta.with_suffix(".tmp")
+        with gzip.open(tmp, "wt", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["ts_utc", "fuente", "estacion", "variable", "valor"])
+            w.writerows(con.execute(f"SELECT ts, fuente, estacion, variable, valor FROM obs WHERE substr(ts,1,7)=? "
+                                    f"AND fuente IN ({marcas}) AND variable!='lluvia_dia_mm' "
+                                    "ORDER BY ts, fuente, estacion, variable", (mes, *FUENTES_ESTACION)))
+        os.replace(tmp, ruta)
+    for nombre in ("historico_lluvia_diaria.csv", "estaciones.csv"):
+        shutil.copyfile(PRIVADO / "csv" / nombre, destino / nombre)
+    marcadas = [f"- {k}: {x.get('motivo', 'dañada')} (desde {x['desde']}; variables: {', '.join(x['variables'])})."
+                for k, x in danadas.DANADAS.items()]
+    aviso = ("\nESTACIONES MARCADAS COMO DAÑADAS (sus datos siguen aquí, pero la página no los usa):\n"
+             + "\n".join(marcadas) + "\n") if marcadas else ""
+    texto = LEEME_DESCARGA.format(generado=ahora_utc(), danadas=aviso)
+    (PRIVADO / "LEEME.txt").write_text(texto)
+    (destino / "LEEME.txt").write_text(texto)
+    archivos = sorted(p for p in destino.iterdir() if p.is_file() and p.suffix in (".gz", ".csv", ".txt"))
+    escribir(destino / "indice.json", {"generado": ahora_utc(), "archivos": [
+        {"archivo": p.name, "bytes": p.stat().st_size,
+         "actualizado": dt.datetime.fromtimestamp(p.stat().st_mtime, UTC).strftime("%Y-%m-%dT%H:%M:%SZ")}
+        for p in archivos]})
 
 
 # ---------------------------------------------------------------- puente (fuentes que el servidor no alcanza)
