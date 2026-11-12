@@ -477,7 +477,7 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
       <p class="note" style="color:var(--ink2)"><b>Mareas.</b> Caldwell, P. C., M. A. Merrifield, P. R. Thompson (2015). Sea level measured by tide gauges from global oceans — the Joint Archive for Sea Level holdings (NCEI Accession 0019568). NOAA NCEI.</p>
       <p class="note" style="color:var(--ink2)"><b>Productos de SOS Galápagos.</b> SOS Galápagos (2026). Nivel de lluvia peligrosa (regla <span id="citaV"></span>) y pronóstico experimental de lluvia fuerte. Estimaciones no oficiales. https://sosgalapagos.org/clima/</p>
       <h3>Descargar los datos crudos</h3>
-      <p class="note">Todas las mediciones de las estaciones, tal como llegan. Un archivo CSV por mes (comprimido). Lea el <a href="datos/descargas/LEEME.txt">LEEME</a> antes de usarlos y cite a cada fuente como se indica arriba.</p>
+      <p class="note">Todas las mediciones de las estaciones, tal como llegan. Un archivo ZIP por mes, con un CSV dentro. Lea el <a href="datos/descargas/LEEME.txt">LEEME</a> antes de usarlos y cite a cada fuente como se indica arriba.</p>
       <div id="descargas" class="note">Cargando…</div>
     </div>
   </section>
@@ -1634,7 +1634,7 @@ async function descargas() {
     const r = await fetch("datos/descargas/indice.json", {cache: "no-cache"}); if (!r.ok) throw 0;
     const d = await r.json(), mb = b => b >= 1e6 ? num(b / 1e6, 1) + " MB" : num(Math.max(1, b / 1e3), 0) + " kB";
     const fm = new Intl.DateTimeFormat("es", {month: "long", year: "numeric", timeZone: "UTC"});
-    const meses = d.archivos.filter(a => /^clima_galapagos_\d{4}-\d{2}\.csv\.gz$/.test(a.archivo)).sort((a, b) => b.archivo.localeCompare(a.archivo));
+    const meses = d.archivos.filter(a => /^clima_galapagos_\d{4}-\d{2}\.zip$/.test(a.archivo)).sort((a, b) => b.archivo.localeCompare(a.archivo));
     const url = a => "datos/descargas/" + encodeURIComponent(a);
     el.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0">
         <label for="dlMes">Mes</label>
