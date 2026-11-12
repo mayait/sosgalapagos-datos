@@ -477,8 +477,8 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
       <p class="note" style="color:var(--ink2)"><b>Mareas.</b> Caldwell, P. C., M. A. Merrifield, P. R. Thompson (2015). Sea level measured by tide gauges from global oceans — the Joint Archive for Sea Level holdings (NCEI Accession 0019568). NOAA NCEI.</p>
       <p class="note" style="color:var(--ink2)"><b>Productos de SOS Galápagos.</b> SOS Galápagos (2026). Nivel de lluvia peligrosa (regla <span id="citaV"></span>) y pronóstico experimental de lluvia fuerte. Estimaciones no oficiales. https://sosgalapagos.org/clima/</p>
       <h3>Descargar los datos crudos</h3>
-      <p class="note">Todas las observaciones de las estaciones, tal como llegan, en un CSV por mes (comprimido con gzip), más la lista de estaciones y el histórico diario del GSC. Se regeneran cada hora. Antes de usarlos, lea el <a href="datos/descargas/LEEME.txt">LEEME</a>: explica las columnas, los cortes de transmisión y las estaciones marcadas como dañadas. Cite a cada operador como se indica arriba.</p>
-      <div id="descargas" class="lst"><p class="note">Cargando la lista de archivos…</p></div>
+      <p class="note">Todas las mediciones de las estaciones, tal como llegan. Un archivo CSV por mes (comprimido). Lea el <a href="datos/descargas/LEEME.txt">LEEME</a> antes de usarlos y cite a cada fuente como se indica arriba.</p>
+      <div id="descargas" class="note">Cargando…</div>
     </div>
   </section>
 </main>
@@ -1171,16 +1171,35 @@ function red() {
 }
 // Leaflet solo se carga si hace falta un mapa (Ciencia)
 let leafletP; const TACTIL = matchMedia("(pointer: coarse)").matches;
-function leaflet() {
-  return leafletP ||= new Promise((res, rej) => {
-    const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"; document.head.append(l);
-    const s = document.createElement("script"); s.src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"; s.onload = () => res(window.L); s.onerror = rej; document.head.append(s);
+// Leaflet desde tres CDN, con límite de tiempo. Si todos fallan (conexión lenta), no se guarda el
+// error: el siguiente repintado o el botón «Reintentar» lo vuelven a intentar.
+const LEAFLET_CDN = [
+  ["https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js", "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"],
+  ["https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js", "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"],
+  ["https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"]];
+function cargarLeaflet(js, css, ms = 20000) {
+  return new Promise((res, rej) => {
+    if (!document.querySelector(`link[href="${css}"]`)) { const l = document.createElement("link"); l.rel = "stylesheet"; l.href = css; document.head.append(l); }
+    const s = document.createElement("script"); s.src = js;
+    const t = setTimeout(() => { s.remove(); rej(new Error("tiempo")); }, ms);
+    s.onload = () => { clearTimeout(t); window.L ? res(window.L) : rej(new Error("sin L")); };
+    s.onerror = () => { clearTimeout(t); s.remove(); rej(new Error("error")); };
+    document.head.append(s);
   });
 }
+function leaflet() {
+  if (window.L) return Promise.resolve(window.L);
+  return leafletP ||= (async () => {
+    for (const [js, css] of LEAFLET_CDN) { try { return await cargarLeaflet(js, css); } catch {} }
+    leafletP = null; // no recordar el fallo
+    throw new Error("No se pudo cargar Leaflet");
+  })();
+}
+const sinMapa = id => { $(id).innerHTML = `<p class="empty">No se pudo cargar el mapa (conexión lenta o bloqueada). <button type="button" class="chip" onclick="pintar()">Reintentar</button></p>`; };
 let MAPR, CAPAR;
 async function mapaRed(vs) {
   if (!vs.length) return;
-  let L; try { L = await leaflet(); } catch (e) { $("redMap").innerHTML = `<p class="empty">No se pudo cargar el mapa.</p>`; return; }
+  let L; try { L = await leaflet(); } catch (e) { MAPR = null; sinMapa("redMap"); return; }
   if (!MAPR) {
     MAPR = L.map("redMap", {scrollWheelZoom: false, dragging: !TACTIL});
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 17, attribution: "Esri"}).addTo(MAPR);
@@ -1371,7 +1390,7 @@ function regla() {
   const propias = zonas().filter(z => z.umbrales), cab = `<tr><th class="l">Nivel</th><th>1 h</th><th>3 h</th><th>24 h</th><th class="l">Probabilidad (cualitativa)</th></tr>`;
   $("umbrales").innerHTML = `<thead>${propias.length ? `<tr><th class="l" colspan="5">Generales (calibrados con La Cascada, 30-oct)</th></tr>` : ""}${cab}</thead><tbody>${U.map(filaU).join("")}</tbody>` +
     propias.map(z => `<tbody><tr><th class="l" colspan="5" style="padding-top:12px">${esc(z.zona)}: umbrales propios, sin rebaja por suelo húmedo</th></tr>${z.umbrales.map(filaU).join("")}<tr><td class="l" colspan="5"><span class="m">${esc(z.nota || "")}</span></td></tr></tbody>`).join("");
-  $("metodo").innerHTML = `<details class="um" open><summary>Cómo se calcula</summary><p>La lluvia de referencia de cada zona (R) es la mayor entre sus estaciones válidas, con un peso por estación, en ventanas de 1, 3 y 24 horas. Basta que una ventana supere su umbral. Los umbrales bajan un 20 % si el suelo está húmedo (más de 53 mm en los 5 días previos). San Cristóbal tiene umbrales propios, calibrados con lo que pasó el 31-oct y el 12-nov, y sin esa rebaja. El nivel se mantiene ${I.persistencia_horas || 8} horas, porque la crecida llega 1,5–3,5 h después de la lluvia y el agua tarda en bajar. Si las estaciones dejan de transmitir con el nivel en «alto» o más, el nivel pasa a «muy alto»: el silencio durante una alerta se trata como alarma (en Comunidad se muestra como «sin datos en lluvia fuerte»). Una estación se excluye si en la última hora o en las últimas 3 horas recibió menos del 80 % de sus datos, o si marca 0 mm mientras otra registra 10 mm o más en 3 h. Una estación que revisamos y marcamos como dañada no se usa hasta que se repare. Datos de más de 60 minutos: el nivel se muestra como «sin datos».</p><p>Calibrada con un solo evento (30-oct-2026). Santa Rosa y Los Guayabillos están fuera de la cuenca de La Cascada. Que no conste una inundación no significa que no la hubo.</p></details>`;
+  $("metodo").innerHTML = `<details class="um" open><summary>Cómo se calcula</summary><p>La lluvia de referencia de cada zona (R) es la mayor entre sus estaciones válidas, con un peso por estación, en ventanas de 1, 3 y 24 horas. Basta que una ventana supere su umbral. Los umbrales bajan un 20 % si el suelo está húmedo (más de 53 mm en los 5 días previos). San Cristóbal tiene umbrales propios, calibrados con lo que pasó el 31-oct y el 12-nov, y sin esa rebaja. El nivel se mantiene ${I.persistencia_horas || 8} horas, porque la crecida llega 1,5–3,5 h después de la lluvia y el agua tarda en bajar. El nivel se calcula cada 5 minutos, así que un «alto» que dura poco también se mantiene esas horas. Si ninguna estación de la zona transmite durante más de 60 minutos con el nivel en «alto» o más, el nivel pasa a «muy alto»: el silencio durante una alerta se trata como alarma (en Comunidad se muestra como «sin datos en lluvia fuerte»). Las ventanas de cada estación terminan en su último dato, porque algunas fuentes llegan con 10–20 minutos de retraso. Una estación se excluye si su último dato tiene más de 30 minutos, si en la última hora o en las últimas 3 horas antes de ese dato recibió menos del 80 % de sus datos, o si marca 0 mm mientras otra registra 10 mm o más en 3 h. Una estación que revisamos y marcamos como dañada no se usa hasta que se repare. Datos de más de 60 minutos: el nivel se muestra como «sin datos».</p><p>Calibrada con un solo evento (30-oct-2026). Santa Rosa y Los Guayabillos están fuera de la cuenca de La Cascada. Que no conste una inundación no significa que no la hubo.</p></details>`;
   const z = zonaActual();
   $("fAcum").innerHTML = fig("acum", `${esc(z.zona)} <span>últimas 72 h frente al 30–31 oct</span>`, (el, o) => acumZona(el, o, z),
     {pie: `<span><i class="ln" style="border-color:var(--rain)"></i>últimas 72 h</span><span><i class="ln" style="border-color:var(--ref)"></i>30–31 oct, alineado al inicio</span><span><i class="dsh" style="border-color:var(--red)"></i>umbrales de 24 h de la regla</span><span><i class="hx"></i>sin datos</span>`,
@@ -1475,7 +1494,7 @@ const colRr = r => r >= 20 ? "#0d366b" : r >= 10 ? "#1c5cab" : r >= 5 ? "#3987e5
 const colRayo = mn => mn <= 10 ? "#facc15" : mn <= 30 ? "#fb923c" : "#a8a29e";
 let MAPS, GS = {}; const VIS = {nucleos: true, lluvia: true, rayos: true};
 async function mapaSat() {
-  let L; try { L = await leaflet(); } catch (e) { $("satMap").innerHTML = `<p class="empty">No se pudo cargar el mapa.</p>`; return; }
+  let L; try { L = await leaflet(); } catch (e) { MAPS = null; sinMapa("satMap"); return; }
   if (!MAPS) {
     MAPS = L.map("satMap", {scrollWheelZoom: false, dragging: !TACTIL});
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 13, attribution: "Esri · GOES-19 NOAA"}).addTo(MAPS);
@@ -1614,13 +1633,18 @@ async function descargas() {
   try {
     const r = await fetch("datos/descargas/indice.json", {cache: "no-cache"}); if (!r.ok) throw 0;
     const d = await r.json(), mb = b => b >= 1e6 ? num(b / 1e6, 1) + " MB" : num(Math.max(1, b / 1e3), 0) + " kB";
-    const orden = a => a.archivo.startsWith("clima_galapagos_") ? "1" + (9999 - +a.archivo.slice(16, 20)) + (99 - +a.archivo.slice(21, 23)) : "0" + a.archivo;
-    el.innerHTML = d.archivos.slice().sort((a, b) => orden(a).localeCompare(orden(b))).map(a => {
-      const m = a.archivo.match(/^clima_galapagos_(\d{4})-(\d{2})/), tit = m ? `Observaciones de ${new Intl.DateTimeFormat("es", {month: "long", year: "numeric", timeZone: "UTC"}).format(new Date(Date.UTC(+m[1], +m[2] - 1, 15)))}` : ({"estaciones.csv": "Estaciones (nombre, isla, coordenadas, altitud, operador)", "historico_lluvia_diaria.csv": "Lluvia diaria del GSC desde 2015", "LEEME.txt": "LEEME: columnas, avisos y cómo citar"})[a.archivo] || a.archivo;
-      return `<div class="it"><span style="text-align:center">⬇</span><div><a href="datos/descargas/${encodeURIComponent(a.archivo)}" download><b>${esc(tit)}</b></a><small>${esc(a.archivo)} · ${mb(a.bytes)}</small></div><small style="text-align:right">act. ${fH.format(new Date(a.actualizado))}</small></div>`;
-    }).join("");
+    const fm = new Intl.DateTimeFormat("es", {month: "long", year: "numeric", timeZone: "UTC"});
+    const meses = d.archivos.filter(a => /^clima_galapagos_\d{4}-\d{2}\.csv\.gz$/.test(a.archivo)).sort((a, b) => b.archivo.localeCompare(a.archivo));
+    const url = a => "datos/descargas/" + encodeURIComponent(a);
+    el.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0">
+        <label for="dlMes">Mes</label>
+        <select id="dlMes">${meses.map(a => { const [y, m] = a.archivo.slice(16, 23).split("-"); return `<option value="${esc(a.archivo)}">${fm.format(new Date(Date.UTC(+y, +m - 1, 15)))} · ${mb(a.bytes)}</option>`; }).join("")}</select>
+        <a id="dlBtn" class="chip" href="${meses[0] ? url(meses[0].archivo) : "#"}" download>⬇ Descargar</a>
+      </div>
+      <div>También: <a href="${url("estaciones.csv")}" download>lista de estaciones</a> · <a href="${url("historico_lluvia_diaria.csv")}" download>lluvia diaria del GSC desde 2015</a> · <a href="${url("LEEME.txt")}">LEEME</a></div>`;
+    $("dlMes").onchange = ev => { $("dlBtn").href = url(ev.target.value); };
     el.dataset.ok = 1;
-  } catch { el.innerHTML = `<p class="note">La lista de descargas no está disponible ahora.</p>`; }
+  } catch { el.textContent = "La lista de descargas no está disponible ahora."; }
 }
 function fuentes() {
   descargas();

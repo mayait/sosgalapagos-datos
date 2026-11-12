@@ -266,7 +266,7 @@ def niveles(con, zona_regla, ini, fin, paso_min=10) -> pd.DataFrame:
             series[c] = (f, s)
     filas, t = [], ini
     while t <= fin:
-        nv, R, ant, _ = inundacion._evaluar(series, zona_regla, t, {})
+        nv, R, ant, *_ = inundacion._evaluar(series, zona_regla, t, {})
         filas.append({"ts": t, "nivel": nv["nivel"] if nv else None, **(R or {})})
         t += dt.timedelta(minutes=paso_min)
     return pd.DataFrame(filas).set_index("ts")
