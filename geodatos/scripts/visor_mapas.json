@@ -1,6 +1,6 @@
 {
  "_nota": "Ajustes del visor público sosgalapagos.org/mapas/ (10_publicar_web.py los aplica sobre el manifiesto de la app y las capas de los estudios). No cambian el mapa de la app ResponseGrid. Orden de los grupos, qué se ve al abrir, colores de riesgo, capas fusionadas o divididas, plano de dibujo («pane») e índice del buscador. Si un id no existe, el script falla: así un cambio de nombre no borra un ajuste sin avisar.",
- "_colores": "Riesgo de inundación por lluvia: rojo oscuro = alta, naranja = media, amarillo = baja (secuencia de luminosidad creciente, legible con daltonismo). Sin verde: «baja» sigue siendo zona susceptible. El agua simulada (modelo 2D) va en azul porque es profundidad, no prioridad.",
+ "_colores": "Riesgo de inundación por lluvia: la susceptibilidad va en azules (oscuro = alta, medio = media, claro = baja); los puntos potenciales y los cruces quebrada–vía, en rojo y naranja. Sin verde: «baja» sigue siendo zona susceptible. El modelo 2D también va en azul (profundidad).",
 
  "fusionar": [
   {"id": "cruces_alta", "de": ["sc_cruces_alta", "sx_cruces_alta"], "archivo": "cruces_quebrada_via_alta.geojson",
@@ -87,6 +87,7 @@
   "puntos_criticos": {"visible": true},
 
   "quebradas": {"corto": "Quebrada", "visible": true},
+  "sx_canadas": {"visible": true},
   "cuencas_localidad": {"visible": false},
   "drenaje": {"visible": false},
   "barrios": {"visible": true, "estilo": {"color": "#1f2937", "weight": 1, "opacity": 0.6, "fill": true, "fillOpacity": 0}},
