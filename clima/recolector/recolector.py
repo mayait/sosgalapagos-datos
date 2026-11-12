@@ -28,6 +28,7 @@ import csv
 import datetime as dt
 import gzip
 import json
+import io
 import os
 import re
 import shutil
@@ -36,6 +37,7 @@ import sys
 import time
 import traceback
 import urllib.request
+import zipfile
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
@@ -183,10 +185,11 @@ def importar_ierse(con, carpeta):
 
 GSC_VARS = {"Rain_Tot": "lluvia_mm", "Air_Temp": "temp_c", "SR": "rad_wm2", "RH": "hr_pct"}
 GSC_EST = {  # id: (nombre, lat, lon, altitud) — del mapa de la app
-    "merceditas": ("Merceditas", -0.889712, -89.442020, 100),
-    "junco": ("El Junco", -0.896537, -89.481624, 548),
-    "cerro_alto": ("Cerro Alto", -0.887049, -89.530986, 517),
-    "mirador": ("El Mirador", -0.886248, -89.539587, 387),
+    # también son estaciones del INAMHI: se muestran los dos nombres (GSC · nombre y código del INAMHI)
+    "merceditas": ("Merceditas · USFQ - SAN CRISTOBAL EN LAS MERCEDITAS (M5300)", -0.889712, -89.442020, 100),
+    "junco": ("El Junco · USFQ - SAN CRISTOBAL EN EL JUNCO (M5301)", -0.896537, -89.481624, 548),
+    "cerro_alto": ("Cerro Alto · USFQ - SAN CRISTOBAL EN CERRO ALTO (M5302)", -0.887049, -89.530986, 517),
+    "mirador": ("El Mirador · USFQ - SAN CRISTOBAL EN EL MIRADOR (M5303)", -0.886248, -89.539587, 387),
     "gsc": ("GSC (Puerto Baquerizo Moreno)", -0.895653, -89.608702, 20),
 }
 
@@ -493,7 +496,7 @@ CÓMO CITAR
   datos de sus dueños, publicados con su panel público; citar la estación y la plataforma.
 
 ARCHIVOS
-clima_galapagos_AAAA-MM.csv.gz   todas las observaciones de estaciones del mes
+clima_galapagos_AAAA-MM.zip      todas las observaciones de estaciones del mes (un CSV dentro)
     ts_utc     hora en UTC (Galápagos = UTC-6)
     fuente     ierse | gsc | inamhi | ioc | metar | weatherlink | tempest | ambient | wunderground
     estacion   identificador (ver estaciones.csv)
@@ -554,11 +557,14 @@ def exportar_descargas(con, meses=2):
     marcas = ",".join("?" * len(FUENTES_ESTACION))
     for (mes,) in con.execute(f"SELECT DISTINCT substr(ts,1,7) FROM obs WHERE fuente IN ({marcas}) "
                               "AND variable!='lluvia_dia_mm'", FUENTES_ESTACION).fetchall():
-        ruta = destino / f"clima_galapagos_{mes}.csv.gz"
+        # ZIP con un CSV dentro: se abre con doble clic en Windows, macOS y Linux (el .gz no siempre)
+        ruta = destino / f"clima_galapagos_{mes}.zip"
         if ruta.exists() and mes < (hoy - dt.timedelta(days=31 * meses)).strftime("%Y-%m"):
             continue
-        tmp = ruta.with_suffix(".tmp")
-        with gzip.open(tmp, "wt", newline="") as f:
+        tmp = ruta.with_name(f".{ruta.name}.{os.getpid()}.tmp")
+        with zipfile.ZipFile(tmp, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as z, \
+                z.open(f"clima_galapagos_{mes}.csv", "w") as crudo, \
+                io.TextIOWrapper(crudo, encoding="utf-8", newline="") as f:
             w = csv.writer(f)
             w.writerow(["ts_utc", "fuente", "estacion", "variable", "valor"])
             w.writerows(con.execute(f"SELECT ts, fuente, estacion, variable, valor FROM obs WHERE substr(ts,1,7)=? "
@@ -574,7 +580,10 @@ def exportar_descargas(con, meses=2):
     texto = LEEME_DESCARGA.format(generado=ahora_utc(), danadas=aviso)
     (PRIVADO / "LEEME.txt").write_text(texto)
     (destino / "LEEME.txt").write_text(texto)
-    archivos = sorted(p for p in destino.iterdir() if p.is_file() and p.suffix in (".gz", ".csv", ".txt"))
+    for viejo in destino.glob("*.csv.gz"):  # formato anterior (hasta el 12-nov-2026)
+        viejo.unlink()
+    archivos = sorted(p for p in destino.iterdir() if p.is_file() and not p.name.startswith(".")
+                      and p.suffix in (".zip", ".csv", ".txt"))
     escribir(destino / "indice.json", {"generado": ahora_utc(), "archivos": [
         {"archivo": p.name, "bytes": p.stat().st_size,
          "actualizado": dt.datetime.fromtimestamp(p.stat().st_mtime, UTC).strftime("%Y-%m-%dT%H:%M:%SZ")}
