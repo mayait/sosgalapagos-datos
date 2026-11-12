@@ -53,9 +53,9 @@
    "titulo": "Susceptibilidad a inundación por quebradas (modelo)",
    "estilo": {"weight": 0.4, "fillOpacity": 0.3},
    "clasificar": {"propiedad": "nivel", "valores": {
-    "3": {"etiqueta": "Alta: hasta 1 m sobre el cauce", "color": "#800026", "fillColor": "#bd0026", "fillOpacity": 0.5},
-    "2": {"etiqueta": "Media: hasta 2,5 m", "color": "#c2410c", "fillColor": "#fd8d3c", "fillOpacity": 0.42},
-    "1": {"etiqueta": "Baja: hasta 5 m (sigue siendo susceptible)", "color": "#ca8a04", "fillColor": "#fed976", "fillOpacity": 0.38}}}},
+    "3": {"etiqueta": "Alta: hasta 1 m sobre el cauce", "color": "#173f8a", "fillColor": "#1d4a9e", "fillOpacity": 0.5},
+    "2": {"etiqueta": "Media: hasta 2,5 m", "color": "#3b7fd0", "fillColor": "#4f8fdb", "fillOpacity": 0.42},
+    "1": {"etiqueta": "Baja: hasta 5 m (sigue siendo susceptible)", "color": "#7fb3e6", "fillColor": "#a9cdf0", "fillOpacity": 0.38}}}},
 
   "sc_puntos": {"corto": "Punto de inundación", "visible": true, "pane": "riesgo_pt",
    "titulo": "Puntos potenciales de inundación · Santa Cruz",
