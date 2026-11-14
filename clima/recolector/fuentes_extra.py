@@ -640,18 +640,20 @@ def fuente_wunderground(con):
         if con.execute("SELECT 1 FROM obs WHERE fuente='wunderground' AND estacion=? AND ts=? LIMIT 1", (cod, ts)).fetchone():
             continue  # sin dato nuevo
         acum = d["lluvia_dia_mm"]
-        # incremento respecto de la última lectura del mismo día de Galápagos
-        dia0 = t.astimezone(GALAPAGOS).replace(hour=0, minute=0, second=0, microsecond=0).astimezone(UTC)
+        # Incremento respecto de la lectura anterior, sea del día que sea. El acumulado que publica
+        # la página NO se reinicia a la medianoche de Galápagos: baja por tramos a cualquier hora
+        # (03:09, 11:09, 15:59 UTC…), como una ventana móvil. Por eso solo se cuentan las subidas:
+        # una bajada vale 0 mm. Antes, la primera lectura tras las 06:00 UTC guardaba todo el
+        # acumulado como lluvia de 5 min (33,5 mm el 13-nov-2026 sin que lloviera). Mientras sale
+        # lluvia vieja de la ventana, la lluvia nueva queda subestimada.
         prev = con.execute("SELECT ts, valor FROM obs WHERE fuente='wunderground' AND estacion=? "
-                           "AND variable='lluvia_dia_acum_mm' AND ts>=? AND ts<? ORDER BY ts DESC LIMIT 1",
-                           (cod, dia0.strftime("%Y-%m-%dT%H:%M:%SZ"), ts)).fetchone()
+                           "AND variable='lluvia_dia_acum_mm' AND ts<? ORDER BY ts DESC LIMIT 1", (cod, ts)).fetchone()
         filas.append((cod, "lluvia_dia_acum_mm", t, acum))
-        if prev is not None:
+        if prev is not None and prev[1] is not None:
             horas = max((t - dt.datetime.fromisoformat(prev[0].replace("Z", "+00:00"))).total_seconds() / 3600, 1 / 60)
             inc = round(max(0.0, acum - prev[1]), 2)
-            filas.append((cod, "lluvia_mm", t, None if inc > max(10, MAX_MM_H * horas) else inc))
-        elif t - dia0 < dt.timedelta(minutes=10):
-            filas.append((cod, "lluvia_mm", t, acum))  # primera lectura del día, justo tras el reinicio
+            if horas <= 24:  # tras un corte más largo no se sabe cuándo llovió
+                filas.append((cod, "lluvia_mm", t, None if inc > max(10, MAX_MM_H * horas) else inc))
         for var in ("temp_c", "hr_pct", "presion_hpa", "viento_ms"):
             if var in d:
                 filas.append((cod, var, t, d[var]))

@@ -1,12 +1,17 @@
-"""Nivel PRELIMINAR de inundación por zona (regla v0.2 de umbrales_inundacion.json).
+"""Nivel PRELIMINAR de inundación por zona (regla v0.3 de umbrales_inundacion.json).
 
-R_v = máx. sobre las estaciones válidas de (peso × lluvia en la ventana v), v ∈ {1 h, 3 h, 24 h}.
-Una estación es válida si tiene ≥ 80 % de cobertura en las ventanas cortas (1 h y 3 h) y no marca
-0 mm en 3 h mientras otra válida marca ≥ 10 mm (pluviómetro obstruido). Con suelo húmedo (lluvia
-de los 5 días previos > 53 mm) los umbrales bajan un 20 %. El nivel se mantiene 8 h. Si las
-estaciones callan cuando el nivel era «alto» o más en las últimas 8 h, el nivel pasa a «muy alto»
-(silencio en alerta = alarma). Sin estaciones válidas ni alerta previa: «sin datos», nunca «bajo».
-Las estaciones marcadas como dañadas en estaciones_danadas.json no se usan desde su fecha «desde».
+R_v = máx. sobre las estaciones usadas de (peso × lluvia en la ventana v), v ∈ {1 h, 3 h, 24 h}.
+Una estación es válida si su último dato tiene ≤ 30 min, tiene ≥ 80 % de cobertura en las ventanas
+cortas (1 h y 3 h) y no marca 0 mm en 3 h mientras otra válida marca ≥ 10 mm (pluviómetro
+obstruido). Con cobertura entre el 50 y el 80 % la estación es «parcial»: su lluvia es un mínimo,
+así que puede subir R, pero sola no basta para decir «bajo». En las fuentes que dan la lluvia por
+diferencia de un acumulado, el registro que sigue a un corte trae toda la lluvia del corte: cuenta
+para 24 h, no para 1 h ni 3 h. La rebaja del 20 % con suelo húmedo (lluvia de los 5 días previos
+> 53 mm) solo se aplica en las zonas sin «ajuste_humedad: false»; hoy, en ninguna. El nivel se
+mantiene 8 h. Si las estaciones callan cuando el nivel era «alto» o más en las últimas 8 h, el
+nivel pasa a «muy alto» (silencio en alerta = alarma). Sin estaciones válidas ni alerta previa:
+«sin datos», nunca «bajo». Las estaciones marcadas como dañadas en estaciones_danadas.json no se
+usan desde su fecha «desde».
 """
 import bisect
 import datetime as dt
@@ -21,27 +26,46 @@ FRESCURA_MAX_MIN = REGLA.get("frescura_max_min", 30)  # estación usable si su �
 SILENCIO_MIN = REGLA.get("silencio_min", 60)  # zona «callada» si ninguna estación mandó nada en 60 min
 PASO_EVAL_MIN = 5  # el nivel se evalúa cada 5 min para la persistencia y el silencio
 PASO_MIN = {"ierse": 5, "gsc": 5, "inamhi": 5, "weatherlink": 5, "tempest": 5, "ambient": 5, "wunderground": 5}  # resolución esperada por fuente
+# Fuentes que dan la lluvia por diferencia de un acumulado: al volver de un corte, toda la lluvia
+# del corte cae en un solo registro. Ese registro no dice cuándo llovió: cuenta para 24 h y para
+# la humedad antecedente, pero no para 1 h ni 3 h. Si el corte pasa de HUECO_DESCARTE_H, no cuenta.
+POR_DIFERENCIA = {"weatherlink", "ambient", "wunderground"}
+HUECO_MAX_MIN = REGLA.get("hueco_max_min", 15)
+HUECO_DESCARTE_H = 12
+COB_PARCIAL = REGLA.get("cobertura_parcial", 0.5)  # entre este valor y cobertura_minima, la lluvia cuenta como mínimo
 
 
 def _serie(con, clave, desde):
     f, e = clave.split("/", 1)
     filas = con.execute("SELECT ts, valor FROM obs WHERE fuente=? AND estacion=? AND variable='lluvia_mm' "
                         "AND ts>=? ORDER BY ts", (f, e, desde.strftime("%Y-%m-%dT%H:%M:%SZ"))).fetchall()
-    ts_l, cs, cn = [], [0.0], [0]
+    # cs: lluvia acumulada (ventana de 24 h y humedad antecedente); cc: ídem sin los registros que
+    # traen la lluvia de un corte (ventanas de 1 h y 3 h); cn: registros, para la cobertura
+    ts_l, cs, cc, cn = [], [0.0], [0.0], [0]
     for ts, v in filas:
-        ts_l.append(dt.datetime.fromisoformat(ts.replace("Z", "+00:00")).timestamp())
+        t = dt.datetime.fromisoformat(ts.replace("Z", "+00:00")).timestamp()
         # fila horaria de respaldo (INAMHI horario o respaldo CWOP de Erna): cuenta como 12 registros
         horaria = f in ("inamhi", "weatherlink") and ts[17:19] == "30"
-        cs.append(cs[-1] + (v or 0.0))
-        cn.append(cn[-1] + (12 if horaria else 1))
-    return f, (ts_l, cs, cn) if ts_l else None
+        v, n = v or 0.0, 12 if horaria else 1
+        hueco = (t - ts_l[-1]) / 60 if ts_l else 0
+        if f in POR_DIFERENCIA and not horaria and hueco > HUECO_MAX_MIN:
+            cs.append(cs[-1] + (v if hueco <= HUECO_DESCARTE_H * 60 else 0.0))
+            cc.append(cc[-1])
+            cn.append(cn[-1])
+        else:
+            cs.append(cs[-1] + v)
+            cc.append(cc[-1] + v)
+            cn.append(cn[-1] + n)
+        ts_l.append(t)
+    return f, (ts_l, cs, cc, cn) if ts_l else None
 
 
 def _ventana(serie, fin, horas, paso):
-    ts_l, cs, cn = serie
+    ts_l, cs, cc, cn = serie
     a = bisect.bisect_right(ts_l, (fin - dt.timedelta(hours=horas)).timestamp())
     b = bisect.bisect_right(ts_l, fin.timestamp())
-    return cs[b] - cs[a], min(1.0, (cn[b] - cn[a]) / (horas * 60 / paso))
+    c = cc if horas <= 3 else cs
+    return c[b] - c[a], min(1.0, (cn[b] - cn[a]) / (horas * 60 / paso))
 
 
 def _umbrales(zona, nv):
@@ -84,22 +108,30 @@ def _evaluar(series, zona, fin, nombres):
     cob = lambda v: min(v[k][1] for k in cortas)  # noqa: E731
     fresca = lambda c: edad[c] <= FRESCURA_MAX_MIN  # noqa: E731
     validas = {c: x for c, x in cand.items() if fresca(c) and cob(x[1]) >= cob_min}
+    # Cobertura parcial (le faltan registros): lo que midió es un mínimo. Puede subir R, que es un
+    # máximo, pero no basta para decir «bajo» ni entra en la humedad antecedente.
+    parciales = {c: x for c, x in cand.items() if fresca(c) and COB_PARCIAL <= cob(x[1]) < cob_min}
     # Zona «callada»: ninguna estación (no dañada) mandó datos en los últimos SILENCIO_MIN minutos.
     callada = bool(cand) and all(e > SILENCIO_MIN for e in edad.values())
     otros3h = {c: x[1]["R3h"][0] for c, x in validas.items()}
     for c in list(validas):
         if otros3h[c] == 0 and any(o >= REGLA["excluir_cero_si_otra_mm_3h"] for k, o in otros3h.items() if k != c):
             validas.pop(c)
+    usadas = {**validas, **parciales}
+    R = {k: round(max(p * v[k][0] for p, v, _ in usadas.values()), 1) for k in ("R1h", "R3h", "R24h")} if usadas else {}
+    if not validas and (not parciales or _nivel(R, 1.0, zona) is REGLA["niveles"][-1]):
+        usadas, R = {}, {}  # solo mediciones incompletas y sin lluvia fuerte: no se puede decir «bajo»
     for c, (peso, v, p5) in cand.items():
         motivo = None if c in validas else (
             f"datos con retraso: el último llegó hace {round(edad[c])} min" if not fresca(c)
+            else "le faltan registros: su lluvia cuenta como mínimo" if c in usadas
             else "cobertura menor del 80 % en la última hora o 3 h" if cob(v) < cob_min
             else "marca 0 mm mientras otra estación registra lluvia")
-        detalle.append({"estacion": nombres.get(c, c), "peso": peso, "usada": c in validas, "motivo": motivo,
+        detalle.append({"estacion": nombres.get(c, c), "peso": peso, "usada": c in usadas, "motivo": motivo,
+                        **({"parcial": True} if c in usadas and c in parciales else {}),
                         "mm": {k: round(x[0], 1) for k, x in v.items()}})
-    if not validas:
+    if not usadas:
         return None, {}, None, detalle, callada
-    R = {k: round(max(p * v[k][0] for p, v, _ in validas.values()), 1) for k in ("R1h", "R3h", "R24h")}
     p5 = [p * x[0] for p, _, x in validas.values() if x[1] >= cob_min]
     P5d = round(max(p5), 1) if p5 else None
     ha = REGLA["humedad_antecedente"]

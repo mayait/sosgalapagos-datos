@@ -1,7 +1,7 @@
 {
- "version": "0.2-preliminar",
- "fecha": "2026-11-02",
- "advertencia": "Nivel preliminar y no oficial, calculado por SOS Galápagos con la lluvia medida y un estudio técnico preliminar que tiene un solo evento de referencia (30-oct-2026). No es una alerta oficial: siga siempre las indicaciones del COE, la SNGR y el ECU 911.",
+ "version": "0.3-preliminar",
+ "fecha": "2026-11-14",
+ "advertencia": "Nivel preliminar y no oficial, calculado por SOS Galápagos con la lluvia medida y un estudio técnico preliminar. En La Cascada se calibró con una inundación (30-oct-2026) y dos crecidas sin inundación (11 y 14-nov-2026). No es una alerta oficial: siga siempre las indicaciones del COE, la SNGR y el ECU 911.",
  "niveles": [
   {
    "nivel": "muy alto",
@@ -9,7 +9,7 @@
    "si_alguno": {
     "R1h": 45,
     "R3h": 90,
-    "R24h": 150
+    "R24h": 225
    },
    "probabilidad": "muy probable"
   },
@@ -19,7 +19,7 @@
    "si_alguno": {
     "R1h": 30,
     "R3h": 60,
-    "R24h": 100
+    "R24h": 150
    },
    "probabilidad": "probable"
   },
@@ -61,7 +61,7 @@
    "zona": "La Cascada (Puerto Ayora)",
    "isla": "Santa Cruz",
    "calibrada": true,
-   "nota": "calibrada con un solo evento (30-oct-2026)",
+   "nota": "calibrada con una inundación (30-oct-2026) y dos crecidas sin inundación (11 y 14-nov-2026)",
    "estaciones": [
     [
      "ierse/n_glps05",
@@ -72,21 +72,61 @@
      0.75
     ],
     [
+     "ambient/miconia",
+     0.55
+    ],
+    [
      "inamhi/M0191",
      1.0
     ],
     [
      "weatherlink/pa_weatherlink",
      1.0
+    ],
+    [
+     "ambient/evolucion",
+     1.0
+    ],
+    [
+     "ambient/epmapasc_espol",
+     1.0
     ]
-   ]
+   ],
+   "ajuste_humedad": false,
+   "calibracion": {
+    "fecha": "2026-11-14",
+    "eventos": {
+     "2026-10-30": {
+      "impacto": "inundación de La Cascada",
+      "R1h": 63.8,
+      "R3h": 137.6,
+      "R24h": 184.9,
+      "fuente": "Los Guayabillos, Santa Rosa ×0,75, Miconia ×0,55 y la costa (INAMHI, Evolución, EPMAPASC)"
+     },
+     "2026-11-11": {
+      "impacto": "la quebrada creció; sin inundación (reporte de la coordinación)",
+      "R1h": 26.4,
+      "R3h": 57.4,
+      "R24h": 66.2,
+      "fuente": "Santa Rosa ×0,75 y Miconia ×0,55; en la costa casi no llovió"
+     },
+     "2026-11-14": {
+      "impacto": "la quebrada creció; sin inundación (reporte de la coordinación; datos hasta las 13:35)",
+      "R1h": 28.4,
+      "R3h": 55.3,
+      "R24h": 121.4,
+      "fuente": "Miconia ×0,55, Santa Rosa ×0,75 y la costa (INAMHI, Evolución, EPMAPASC, Erna)"
+     }
+    },
+    "criterio": "«Alto» en 1 h y 3 h (30 y 60 mm) no cambia: las dos crecidas sin inundación quedaron justo debajo (26–28 mm y 55–57 mm) y el 30-oct lo superó a las 15:40. El umbral de 24 h sube de 100/150 a 150/225 mm: el 14-nov se acumularon 121 mm sin inundación y el 30-oct el aviso llegó por la intensidad, no por las 24 h. Sin rebaja por suelo húmedo: el 14-nov llovió sobre suelo muy húmedo y no se inundó. Pesos: Santa Rosa ×0,75 y Miconia ×0,55 (cociente con Los Guayabillos el 30-oct y en los 67 días comunes)."
+   }
   },
   {
    "id": "santa-cruz-alta",
    "zona": "Parte alta de Santa Cruz (Bellavista, Santa Rosa)",
    "isla": "Santa Cruz",
    "calibrada": false,
-   "nota": "sin calibrar; el riesgo principal son los cruces de quebradas con vías",
+   "nota": "sin calibrar con impactos; Miconia cuenta ×0,7 (mide un 40 % más que Santa Rosa). El riesgo principal son los cruces de quebradas con vías",
    "estaciones": [
     [
      "ierse/n_glps09",
@@ -95,8 +135,17 @@
     [
      "ierse/n_glps05",
      1.0
+    ],
+    [
+     "ambient/miconia",
+     0.7
+    ],
+    [
+     "ambient/manzanillo_espol",
+     1.0
     ]
-   ]
+   ],
+   "ajuste_humedad": false
   },
   {
    "id": "san-cristobal",
@@ -174,7 +223,7 @@
    "estaciones": []
   }
  ],
- "revision": "2-nov-2026: revisión del especialista en gestión de riesgos del comité de estudios (silencio en alerta = alarma, cobertura solo en ventanas cortas, persistencia 8 h, sin ajuste en seco, probabilidad cualitativa)",
+ "revision": "2-nov-2026: revisión del especialista en gestión de riesgos del comité de estudios (silencio en alerta = alarma, cobertura solo en ventanas cortas, persistencia 8 h, sin ajuste en seco, probabilidad cualitativa); 14-nov-2026 (v0.3): estaciones nuevas de Santa Cruz (Miconia, Evolución, EPMAPASC–ESPOL, El Manzanillo–ESPOL), umbral de 24 h a 150/225 mm, sin rebaja por suelo húmedo en Santa Cruz, cobertura parcial y lluvia de cortes fuera de 1 h y 3 h",
  "cobertura_ventanas": [
   "R1h",
   "R3h"
@@ -183,5 +232,7 @@
   "desde_nivel": "alto",
   "nivel": "muy alto",
   "horas": 8
- }
+ },
+ "hueco_max_min": 15,
+ "cobertura_parcial": 0.5
 }

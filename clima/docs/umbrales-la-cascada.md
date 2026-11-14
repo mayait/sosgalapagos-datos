@@ -1,4 +1,6 @@
-# Nivel preliminar de inundación (v0.2, 2-nov-2026)
+# Nivel preliminar de inundación (v0.3, 14-nov-2026)
+
+> La versión vigente es la **v0.3** (sección final). Lo que sigue se conserva como historia de la v0.1 y la v0.2.
 
 Regla propuesta por la sesión de coordinación a partir del informe técnico de La Cascada (`geodatos/estudios/la-cascada`, secciones de hidrología y `resumen.json`) y del registro de IERSE de abril a noviembre de 2026. **Pendiente de revisión por quien hizo el informe.** El JSON que usa el recolector es `recolector/umbrales_inundacion.json` y el cálculo está en `recolector/inundacion.py`.
 
@@ -114,3 +116,60 @@ Hasta el 12-nov, San Cristóbal usaba los umbrales de La Cascada y estaba «sin 
 - **Persistencia cada 5 minutos.** Antes, el nivel solo se guardaba a la hora en punto: un «alto» que ocurría entre dos horas desaparecía en la siguiente corrida (15 min después) en vez de mantenerse 8 h, y el silencio en alerta podía no activarse. Ahora el nivel instantáneo se evalúa cada 5 min de las últimas 80 h; el historial de 72 h muestra el nivel más alto de cada hora.
 - **Ventanas hasta el último dato de cada estación.** Antes, la cobertura del 80 % se contaba hasta la hora actual: una estación con 15 min o más de retraso (el INAMHI llega con 10–17 min) quedaba fuera aunque estuviera midiendo lluvia fuerte. Ahora las ventanas de 1, 3 y 24 h terminan en su último dato, y la estación se usa si ese dato tiene 30 min o menos (`frescura_max_min`).
 - **Silencio solo si de verdad callan.** Antes, si todas las estaciones llegaban con retraso, la regla podía publicar «muy alto» por un silencio que era solo latencia. Ahora la zona solo está «callada» si ninguna estación mandó datos en los últimos 60 min (`silencio_min`).
+
+## v0.3 (14-nov-2026): estaciones nuevas de Santa Cruz y dos crecidas sin inundación
+
+**Por qué.** La regla seguía usando solo cuatro estaciones en La Cascada (Los Guayabillos, Santa Rosa, INAMHI M0191 y Erna). Con Los Guayabillos dañado y Santa Rosa con cortes, el 14-nov a las 13:35 el nivel dependía de una sola estación (Erna). Las estaciones que entraron al panel el 6 y el 12-nov (Miconia, Evolución, las dos de la ESPOL, Punta Estrada y Casa Marina) se mostraban, pero no entraban en el nivel.
+
+Además hay dos eventos nuevos con resultado conocido (reporte de la coordinación): el **11-nov** y el **14-nov** la quebrada de La Cascada creció y **no hubo inundación**.
+
+### Qué se midió (máximos del día; hora de Galápagos)
+
+| Evento | Miconia (422 m) | Santa Rosa (416 m) | Puerto Ayora (INAMHI, Evolución) | Qué pasó |
+|---|---|---|---|---|
+| 30-oct | 82 mm/1 h · 172 mm/3 h · 336 mm/24 h | 73 · 139 · 240 | 36 · 54 · 118 (y otros 50 · 109 en 1 y 3 h a la 01:00 del 31) | inundación |
+| 11-nov | 28 · 58 · 66 | 35 · 77 · 88 | 2 · 5 · 6 | creció, sin inundación |
+| 14-nov (hasta las 13:35) | 52 · 100 · 221 | 27 · 54 · 128 | 19 · 42 · 92 | creció, sin inundación |
+
+- El 14-nov llovió casi tanto en 24 h como el 30-oct a la hora de la inundación, y sobre suelo muy húmedo (Miconia: unos 200 mm en los 5 días previos). **Lo que separa al 30-oct es la intensidad:** las tres estaciones de la parte alta llegaron a 64–82 mm en 1 h y 138–172 mm en 3 h (máximos entre las 20:55 y las 21:35).
+- El primer pulso del 30-oct (15:00–17:00: Santa Rosa 43 mm/1 h y 69 mm/3 h) se parece a las dos crecidas sin inundación. Con la lluvia sola no se puede distinguir una crecida de la primera fase de una inundación: por eso «alto» sigue saltando ahí.
+
+### Cambios
+
+1. **Estaciones de La Cascada:** se añaden Miconia ×0,55, Evolución ×1 y EPMAPASC–ESPOL ×1.
+   - Miconia está a 3,4 km de la cuenca y llueve más que en ella: Los Guayabillos midió 0,53 de Miconia el 30-oct (179/336) y 0,50 en los 67 días comunes. Es el mismo criterio que el ×0,75 de Santa Rosa.
+   - Evolución (centro de Puerto Ayora) registra cada 5 min sin cortes desde ago-2024.
+   - EPMAPASC–ESPOL es la más cercana al barrio (0,8 km de la cuenca), pero se apaga unas 5 h cada noche y al volver entrega de golpe la lluvia acumulada (113 mm en un registro el 31-oct).
+2. **Parte alta de Santa Cruz:** se añaden Miconia ×0,7 y El Manzanillo–ESPOL ×1. Miconia mide un 40 % más que Santa Rosa (cociente 0,71 en 70 días comunes); con ×1 la zona habría marcado «muy alto» el 14-nov a las 06:00; con ×0,7 marcó «alto», igual que la v0.2. La zona sigue **sin calibrar con impactos**.
+3. **No entran en el nivel:**
+   - **Punta Estrada (Tempest):** su sensor háptico midió 0,28–0,35 de lo que midieron Evolución y el INAMHI en los cuatro días de lluvia fuerte (35 frente a 110 mm el 30-oct; 23 frente a 82 mm el 14-nov). Como R es un máximo, no aporta; y si quedara como única estación válida, daría un «bajo» falso.
+   - **Casa Marina (Weather Underground):** el acumulado que publica no se reinicia a medianoche; baja por tramos, como una ventana móvil. El recolector guardaba todo el acumulado como lluvia de 5 min en la primera lectura tras las 06:00 UTC (33,5 mm el 13-nov sin lluvia). Se corrigió la lectura (`fuente_wunderground`), pero la serie no sirve para fechar bien la lluvia.
+   - **Cerro Crocker** sigue fuera: midió 5 mm el 30-oct y 4 mm el 14-nov.
+4. **Umbral de 24 h:** «alto» pasa de 100 a 150 mm y «muy alto» de 150 a 225 mm (Santa Cruz; San Cristóbal conserva los suyos).
+   - Con 100 mm, la regla marcó «alto» el 4-oct, el 1-nov y (con Miconia) el 14-nov, sin inundación conocida.
+   - El 30-oct, «alto» saltó a las 15:40 por la lluvia de 1 h y «muy alto» a las 20:35 por la de 1–3 h. El umbral de 24 h no adelantó nada.
+   - El estudio de tormentas sintéticas propone 190 mm; 150 queda por debajo.
+5. **Sin rebaja por suelo húmedo en Santa Cruz** (`ajuste_humedad: false`, como en San Cristóbal). En el registro, la rebaja solo subió el nivel en días sin inundación conocida (23-oct, 2-nov, 14-nov). Con Miconia en la zona, el suelo estaría «húmedo» casi toda la temporada y los umbrales quedarían rebajados de forma permanente. La lluvia de los 5 días previos se sigue mostrando.
+6. **Los umbrales de 1 h y 3 h no cambian** (15/30, 30/60 y 45/90 mm). Las dos crecidas sin inundación quedaron justo debajo de «alto» (26–28 mm en 1 h y 55–57 mm en 3 h).
+7. **Cobertura parcial** (`cobertura_parcial`: 0,5). Una estación con entre el 50 y el 80 % de sus registros ya no se descarta: lo que midió es un mínimo y puede subir R. El 14-nov, el INAMHI perdió 3 de 12 registros en la hora y quedó fuera con 35 mm en 3 h. Si solo hay estaciones parciales y no marcan lluvia fuerte, el nivel sigue siendo «sin datos».
+8. **Lluvia de un corte** (`hueco_max_min`: 15). En Ambient, WeatherLink y Weather Underground la lluvia sale por diferencia de un acumulado. El registro que sigue a un corte de más de 15 min cuenta para 24 h y para la humedad, pero no para 1 h ni 3 h. Si el corte pasa de 12 h, no cuenta.
+
+### Prueba retrospectiva (23-ago a 14-nov-2026, nivel instantáneo cada 5 min)
+
+| | v0.2 | v0.3 |
+|---|---|---|
+| 30-oct | medio 15:10 · alto 15:40 · muy alto 20:35 | igual |
+| 30-oct con la red de hoy (sin Los Guayabillos) | igual | igual |
+| 4-oct y 1-nov | alto (por las 24 h) | medio |
+| 11-nov | medio | medio (R: 26 / 57 / 66 mm) |
+| 14-nov | medio; a las 13:35 solo con Erna | medio (R: 28 / 55 / 121 mm), con Miconia, INAMHI y Erna |
+| 14-nov si solo se hubieran añadido las estaciones | — | muy alto a las 12:55 (falsa alarma) |
+| Tiempo «sin datos» | 1,1 % (3,2 % sin Los Guayabillos) | 0 % |
+| Parte alta, 11 y 14-nov | alto | alto |
+
+### Lo que sigue pendiente
+
+- **Las dos crecidas quedaron a menos del 10 % de «alto».** El margen es mínimo: hace falta anotar de cada crecida la hora, hasta dónde llegó el agua y si el vaso rebosó.
+- La parte alta sigue sin un solo impacto conocido para calibrar.
+- Los Guayabillos, la mejor estación de la cuenca, sigue dañada. Casi todas las particulares de Puerto Ayora dependen de la luz y el internet del pueblo: el 14-nov a las 12:50 dejaron de llegar a la vez Evolución, EPMAPASC, Casa Marina, Punta Estrada y Santa Rosa. Miconia y el INAMHI siguieron.
+- El pluviómetro en la cuenca media (issue #19) sigue siendo la mejora más útil.
