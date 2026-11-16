@@ -1,0 +1,9 @@
+{
+ "_nota": "Nivel puesto a mano por la coordinación a partir de reportes de campo. Solo SUBE el nivel calculado, nunca lo baja, y vale entre «desde» y «hasta» (UTC). Para quitarlo, borrar la entrada o dejar que venza. El recolector lo relee en cada corrida.",
+ "santa-cruz-alta": {
+  "nivel": "alto",
+  "desde": "2026-11-16T02:30:00Z",
+  "hasta": "2026-11-17T02:30:00Z",
+  "motivo": "Reportes de campo del 15-nov: inundaciones fuertes en Bellavista y Santa Rosa con el suelo saturado (210 mm en Miconia el 14-nov), aunque hoy casi no llovió."
+ }
+}
