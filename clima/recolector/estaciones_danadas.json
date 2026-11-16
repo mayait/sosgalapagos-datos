@@ -1,9 +1,27 @@
 {
- "_nota": "Estaciones o sensores marcados como dañados a mano. Sus datos se siguen guardando en la base (crudos), pero desde «desde» no se usan para el nivel de inundación ni se publican en la página. Para reactivar una estación, quitarla de esta lista y volver a publicar.",
+ "_nota": "Estaciones o sensores con errores, marcados a mano. Sus datos se siguen guardando en la base (crudos), pero desde «desde» no se usan para el nivel de inundación ni se publican en la página. Para reactivar una estación, quitarla de esta lista y volver a publicar.",
  "ierse/n_glps05": {
-  "desde": "2026-11-08T12:00:00Z",
-  "variables": ["lluvia_mm"],
-  "motivo": "Pluviómetro dañado: marca lluvias imposibles (hasta 663 mm en una hora) que ninguna otra estación registra",
-  "marcada": "2026-11-09"
+  "desde": "2026-10-31T06:00:00Z",
+  "variables": [
+   "lluvia_mm"
+  ],
+  "motivo": "Pluviómetro con errores: marcó 0 mm desde el 31-oct mientras las demás estaciones registraban 90–140 mm, y desde el 8-nov marca lluvias imposibles (hasta 663 mm en una hora)",
+  "marcada": "2026-11-09; fecha de inicio corregida el 2026-11-15"
+ },
+ "ierse/n_glps01": {
+  "desde": "2026-10-20T06:00:00Z",
+  "variables": [
+   "lluvia_mm"
+  ],
+  "motivo": "Pluviómetro con errores (probablemente obstruido): casi no registra lluvia; 5 mm el 30-oct y 3,6 mm el 14-nov, cuando Santa Rosa midió 238 y 120 mm y Miconia 336 y 210 mm",
+  "marcada": "2026-11-15"
+ },
+ "wunderground/casa_marina": {
+  "desde": "2026-11-06T00:00:00Z",
+  "variables": [
+   "lluvia_mm"
+  ],
+  "motivo": "Lluvia con errores: el acumulado del día no se reinicia a medianoche de Galápagos y la lluvia se cuenta dos veces (102 mm el 15-nov, cuando las estaciones vecinas midieron unos 10 mm)",
+  "marcada": "2026-11-15"
  }
 }
