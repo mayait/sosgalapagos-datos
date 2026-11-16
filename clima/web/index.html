@@ -750,7 +750,7 @@ function ref30(z) {
 // Cobertura de una estación en las últimas n horas (0–1)
 function cobertura(k, n) { const b = finH(), s = horaria(k, b - n * HORA, b); return s.filter(x => x.v != null).length / n; }
 function estadoEst(e) {
-  if (e.danada) return {c: "crit", i: "⚠", t: "dañada: su lluvia no se usa"};
+  if (e.danada) return {c: "crit", i: "⚠", t: "con errores: su lluvia no se usa"};
   if (e.en_vivo === false) return {c: "warn", i: "○", t: `sin datos en vivo (red de investigación; último dato publicado: ${e.datos_hasta || "?"})${e.nota ? "; " + e.nota : ""}`};
   const m = minDesde(e.ultimo);
   if (m <= 30) return {c: "ok", i: "●", t: `hace ${Math.max(1, Math.round(m))} min`};
@@ -1065,7 +1065,7 @@ function cercanas(z) {
   $("cercanas").innerHTML = (!vs.length ? `<div class="nota-gris" style="font-weight:700">No tenemos estaciones en ${esc(z.isla)}. Siga al INAMHI y al COE de ${esc(z.isla)}.</div>` : "") +
     `<div class="lst">${vs.map(e => {
       const s = estadoEst(e), v = e.lluvia?.["24h"], cob = cobertura(clave(e), 24);
-      return `<div class="it"><span class="ico-${s.c}" style="font-size:18px;text-align:center" aria-label="${e.danada ? "dañada" : s.c === "ok" ? "transmite" : s.c === "warn" ? "con retraso" : "apagada"}">${s.i}</span>
+      return `<div class="it"><span class="ico-${s.c}" style="font-size:18px;text-align:center" aria-label="${e.danada ? "con errores" : s.c === "ok" ? "transmite" : s.c === "warn" ? "con retraso" : "apagada"}">${s.i}</span>
         <div><b>${esc(e.nombre)}</b><small>${esc(e.operador)} · ${e.altitud_m ?? "?"} m · ${s.t}</small></div>
         <div class="r">${v == null ? "—" : mmTxt(v, cob < .99)}<small>en 24 h</small></div></div>`;
     }).join("")}</div>`;
@@ -1147,7 +1147,7 @@ function red() {
   const bandera = e => {
     if (sinVivo(e)) return ["gris", "sin datos en vivo"];
     if (!conLluvia(e)) return ["gris", e.fuente === "ioc" ? "mareógrafo" : "sin pluviómetro"];
-    if (e.danada) return ["crit", "dañada"];
+    if (e.danada) return ["crit", "con errores"];
     const m = minDesde(e.ultimo);
     if (m > 180) return ["crit", "sin datos"];
     const v = e.lluvia?.["24h"], vec = E.estaciones.filter(x => x !== e && x.isla === e.isla && conLluvia(x) && (x.lluvia?.["24h"] ?? 0) >= 10);
@@ -1396,7 +1396,7 @@ function regla() {
     propias.map(z => { const c72 = z.umbrales.some(u => u.R72h);
       const fila = u => filaU(u).replace(/<td class="l">([^<]*)<\/td><\/tr>$/, (m0, p) => (c72 ? `<td>${u.R72h ? "≥ " + u.R72h + " (72 h)" : "—"}</td>` : "") + `<td class="l">${p}</td></tr>`);
       return `<tbody><tr><th class="l" colspan="${c72 ? 6 : 5}" style="padding-top:12px">${esc(z.zona)}: umbrales propios${z.factor === 1 && !c72 ? ", sin rebaja por suelo húmedo" : c72 ? " (con 72 h: suelo saturado)" : ""}</th></tr>${z.umbrales.map(fila).join("")}<tr><td class="l" colspan="${c72 ? 6 : 5}"><span class="m">${esc(z.nota || "")}</span></td></tr></tbody>`; }).join("");
-  $("metodo").innerHTML = `<details class="um" open><summary>Cómo se calcula</summary><p>La lluvia de referencia de cada zona (R) es la mayor entre sus estaciones válidas, con un peso por estación, en ventanas de 1, 3 y 24 horas. Basta que una ventana supere su umbral. Los umbrales bajan un 20 % si el suelo está húmedo (más de 53 mm en los 5 días previos). San Cristóbal tiene umbrales propios, calibrados con lo que pasó el 31-oct y el 12-nov, y sin esa rebaja. El nivel se mantiene ${I.persistencia_horas || 8} horas, porque la crecida llega 1,5–3,5 h después de la lluvia y el agua tarda en bajar. El nivel se calcula cada 5 minutos, así que un «alto» que dura poco también se mantiene esas horas. Si ninguna estación de la zona transmite durante más de 60 minutos con el nivel en «alto» o más, el nivel pasa a «muy alto»: el silencio durante una alerta se trata como alarma (en Comunidad se muestra como «sin datos en lluvia fuerte»). Las ventanas de cada estación terminan en su último dato, porque algunas fuentes llegan con 10–20 minutos de retraso. Una estación se excluye si su último dato tiene más de 30 minutos, si en la última hora o en las últimas 3 horas antes de ese dato recibió menos del 80 % de sus datos, o si marca 0 mm mientras otra registra 10 mm o más en 3 h. Una estación que revisamos y marcamos como dañada no se usa hasta que se repare. Datos de más de 60 minutos: el nivel se muestra como «sin datos».</p><p>Calibrada con un solo evento (30-oct-2026). Santa Rosa y Los Guayabillos están fuera de la cuenca de La Cascada. Que no conste una inundación no significa que no la hubo.</p></details>`;
+  $("metodo").innerHTML = `<details class="um" open><summary>Cómo se calcula</summary><p>La lluvia de referencia de cada zona (R) es la mayor entre sus estaciones válidas, con un peso por estación, en ventanas de 1, 3 y 24 horas. Basta que una ventana supere su umbral. Los umbrales bajan un 20 % si el suelo está húmedo (más de 53 mm en los 5 días previos). San Cristóbal tiene umbrales propios, calibrados con lo que pasó el 31-oct y el 12-nov, y sin esa rebaja. El nivel se mantiene ${I.persistencia_horas || 8} horas, porque la crecida llega 1,5–3,5 h después de la lluvia y el agua tarda en bajar. El nivel se calcula cada 5 minutos, así que un «alto» que dura poco también se mantiene esas horas. Si ninguna estación de la zona transmite durante más de 60 minutos con el nivel en «alto» o más, el nivel pasa a «muy alto»: el silencio durante una alerta se trata como alarma (en Comunidad se muestra como «sin datos en lluvia fuerte»). Las ventanas de cada estación terminan en su último dato, porque algunas fuentes llegan con 10–20 minutos de retraso. Una estación se excluye si su último dato tiene más de 30 minutos, si en la última hora o en las últimas 3 horas antes de ese dato recibió menos del 80 % de sus datos, o si marca 0 mm mientras otra registra 10 mm o más en 3 h. Una estación que revisamos y marcamos «con errores» no se usa hasta que se repare. Datos de más de 60 minutos: el nivel se muestra como «sin datos».</p><p>Calibrada con un solo evento (30-oct-2026). Santa Rosa y Los Guayabillos están fuera de la cuenca de La Cascada. Que no conste una inundación no significa que no la hubo.</p></details>`;
   const z = zonaActual();
   $("fAcum").innerHTML = fig("acum", `${esc(z.zona)} <span>últimas 72 h frente al 30–31 oct</span>`, (el, o) => acumZona(el, o, z),
     {pie: `<span><i class="ln" style="border-color:var(--rain)"></i>últimas 72 h</span><span><i class="ln" style="border-color:var(--ref)"></i>30–31 oct, alineado al inicio</span><span><i class="dsh" style="border-color:var(--red)"></i>umbrales de 24 h de la regla</span><span><i class="hx"></i>sin datos</span>`,

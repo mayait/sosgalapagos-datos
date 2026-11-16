@@ -575,7 +575,7 @@ def exportar_descargas(con, meses=2):
         shutil.copyfile(PRIVADO / "csv" / nombre, destino / nombre)
     marcadas = [f"- {k}: {x.get('motivo', 'dañada')} (desde {x['desde']}; variables: {', '.join(x['variables'])})."
                 for k, x in danadas.DANADAS.items()]
-    aviso = ("\nESTACIONES MARCADAS COMO DAÑADAS (sus datos siguen aquí, pero la página no los usa):\n"
+    aviso = ("\nESTACIONES MARCADAS CON ERRORES (sus datos siguen aquí, pero la página no los usa):\n"
              + "\n".join(marcadas) + "\n") if marcadas else ""
     texto = LEEME_DESCARGA.format(generado=ahora_utc(), danadas=aviso)
     (PRIVADO / "LEEME.txt").write_text(texto)

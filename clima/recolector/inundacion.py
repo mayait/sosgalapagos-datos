@@ -65,7 +65,7 @@ def _evaluar(series, zona, fin, nombres):
     for clave, peso in zona["estaciones"]:
         if danada(clave, "lluvia_mm", fin):
             detalle.append({"estacion": nombres.get(clave, clave), "peso": peso, "usada": False,
-                            "danada": True, "motivo": "estación dañada (pluviómetro): sus datos no se usan"})
+                            "danada": True, "motivo": "estación con errores (pluviómetro): sus datos no se usan"})
             continue
         if clave not in series:
             detalle.append({"estacion": nombres.get(clave, clave), "usada": False, "motivo": "sin datos"})
