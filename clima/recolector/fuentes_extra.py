@@ -268,21 +268,10 @@ def fuente_weatherlink(con):
             continue  # sin dato nuevo
         num = lambda k: None if d.get(k) in (None, "", "--") else float(d[k])  # noqa: E731
         acum = round(num("dailyRain") * (25.4 if d.get("rainUnit", "in") == "in" else 1), 2)
-        # incremento respecto de la última lectura del mismo día de Galápagos
-        dia0 = t.astimezone(GALAPAGOS).replace(hour=0, minute=0, second=0, microsecond=0).astimezone(UTC)
-        prev = con.execute("SELECT valor FROM obs WHERE fuente='weatherlink' AND estacion=? AND variable='lluvia_dia_acum_mm' "
-                           "AND ts>=? AND ts<? ORDER BY ts DESC LIMIT 1",
-                           (cod, dia0.strftime("%Y-%m-%dT%H:%M:%SZ"), ts)).fetchone()
+        mm = lluvia_por_diferencia(t, acum, _acum_anterior(con, "weatherlink", cod, ts))
         filas.append((cod, "lluvia_dia_acum_mm", t, acum))
-        if prev is not None:
-            ult_t = con.execute("SELECT MAX(ts) FROM obs WHERE fuente='weatherlink' AND estacion=? "
-                                "AND variable='lluvia_dia_acum_mm' AND ts<?", (cod, ts)).fetchone()[0]
-            horas = max((t - dt.datetime.fromisoformat(ult_t.replace("Z", "+00:00"))).total_seconds() / 3600, 1 / 60)
-            inc = round(max(0.0, acum - prev[0]), 2)
-            # pluviómetro de balancín de 0,01" (0,254 mm); se descartan saltos imposibles (> 100 mm/h y > 10 mm)
-            filas.append((cod, "lluvia_mm", t, None if inc > max(10, MAX_MM_H * horas) else inc))
-        elif t - dia0 < dt.timedelta(minutes=10):
-            filas.append((cod, "lluvia_mm", t, acum))  # primera lectura del día, justo tras el reinicio
+        if mm is not None:
+            filas.append((cod, "lluvia_mm", t, mm))
         temp = num("temperature")
         if temp is not None:
             filas.append((cod, "temp_c", t, round((temp - 32) / 1.8 if "F" in d.get("temperatureUnit", "F") else temp, 2)))
@@ -300,6 +289,57 @@ def fuente_weatherlink(con):
     if not activas and errores:
         raise RuntimeError("; ".join(errores)[:400])
     return n
+
+
+# ---------------------------------------------------------------- lluvia por diferencia del acumulado
+# WeatherLink y Weather Underground dan el acumulado del día; la lluvia de cada lectura es la
+# diferencia con la lectura ANTERIOR (sea del día que sea): el contador de algunas estaciones no se
+# reinicia a medianoche de Galápagos (Casa Marina lo hacía a otras horas y se contaba dos veces).
+# Si el acumulado vuelve a ~0 (≤ 1 mm), el contador se reinició: cuenta solo lo nuevo; si baja sin
+# llegar a 0 (Casa Marina descuenta la lluvia vieja a lo largo del día), no cuenta nada. Tras un hueco de
+# más de HUECO_MAX_MIN no se atribuye nada a esa lectura (antes, todo el hueco caía en un registro).
+HUECO_MAX_MIN = 60
+
+
+def lluvia_por_diferencia(t, acum, prev):
+    """prev: (ts_datetime, acumulado) de la lectura anterior o None. Devuelve mm o None (sin dato)."""
+    if prev is None or acum is None or prev[1] is None:
+        return None
+    minutos = (t - prev[0]).total_seconds() / 60
+    if minutos <= 0 or minutos > HUECO_MAX_MIN:
+        return None
+    if acum >= prev[1]:
+        inc = acum - prev[1]
+    elif acum <= 1.0:
+        inc = acum  # reinicio del contador (vuelve a ~0) entre las dos lecturas
+    else:
+        inc = 0.0  # baja sin llegar a 0: redondeo, o un total que va descontando lluvia vieja (Casa Marina)
+    if inc > max(10, MAX_MM_H * minutos / 60):
+        return None  # salto imposible
+    return round(inc, 2)
+
+
+def _acum_anterior(con, fuente, cod, ts):
+    r = con.execute("SELECT ts, valor FROM obs WHERE fuente=? AND estacion=? AND variable='lluvia_dia_acum_mm' "
+                    "AND ts<? ORDER BY ts DESC LIMIT 1", (fuente, cod, ts)).fetchone()
+    return (dt.datetime.fromisoformat(r[0].replace("Z", "+00:00")), r[1]) if r else None
+
+
+def recalcular_lluvia(con, clave, desde):
+    """Rehace lluvia_mm de una estación de WeatherLink o WU a partir de su acumulado guardado."""
+    f, cod = clave.split("/", 1)
+    filas = con.execute("SELECT ts, valor FROM obs WHERE fuente=? AND estacion=? AND variable='lluvia_dia_acum_mm' "
+                        "AND ts>=? ORDER BY ts", (f, cod, desde.strftime("%Y-%m-%dT%H:%M:%SZ"))).fetchall()
+    con.execute("DELETE FROM obs WHERE fuente=? AND estacion=? AND variable='lluvia_mm' AND ts>=? "
+                "AND substr(ts,18,2)!='30'", (f, cod, desde.strftime("%Y-%m-%dT%H:%M:%SZ")))
+    prev, nuevas = _acum_anterior(con, f, cod, filas[0][0]) if filas else None, []
+    for ts, v in filas:
+        t = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        mm = lluvia_por_diferencia(t, v, prev)
+        if mm is not None:
+            nuevas.append((cod, "lluvia_mm", t, mm))
+        prev = (t, v)
+    return guardar(con, f, nuevas)
 
 
 # Respaldo de la estación de Erna: la misma consola Davis transmite por CWOP (DW5750) y NOAA MADIS
@@ -481,7 +521,8 @@ def _ambient_filas(cod, registros):
             horas = max((t - t0).total_seconds() / 3600, 1 / 60)
             inc = acum[0] - anio0 if acum[0] >= anio0 else (acum[1] - dia0 if acum[1] >= dia0 else acum[1])
             mm = round(inc * 25.4, 2)
-            filas.append((cod, "lluvia_mm", b, None if mm > max(10, MAX_MM_H * horas) else mm))
+            if horas * 60 <= HUECO_MAX_MIN:  # tras un corte no se atribuye todo el hueco a un registro
+                filas.append((cod, "lluvia_mm", b, None if mm > max(10, MAX_MM_H * horas) else mm))
         if None not in acum:
             ant = (t, acum)
         tf = pulg(r, "tempf")
@@ -640,18 +681,10 @@ def fuente_wunderground(con):
         if con.execute("SELECT 1 FROM obs WHERE fuente='wunderground' AND estacion=? AND ts=? LIMIT 1", (cod, ts)).fetchone():
             continue  # sin dato nuevo
         acum = d["lluvia_dia_mm"]
-        # incremento respecto de la última lectura del mismo día de Galápagos
-        dia0 = t.astimezone(GALAPAGOS).replace(hour=0, minute=0, second=0, microsecond=0).astimezone(UTC)
-        prev = con.execute("SELECT ts, valor FROM obs WHERE fuente='wunderground' AND estacion=? "
-                           "AND variable='lluvia_dia_acum_mm' AND ts>=? AND ts<? ORDER BY ts DESC LIMIT 1",
-                           (cod, dia0.strftime("%Y-%m-%dT%H:%M:%SZ"), ts)).fetchone()
+        mm = lluvia_por_diferencia(t, acum, _acum_anterior(con, "wunderground", cod, ts))
         filas.append((cod, "lluvia_dia_acum_mm", t, acum))
-        if prev is not None:
-            horas = max((t - dt.datetime.fromisoformat(prev[0].replace("Z", "+00:00"))).total_seconds() / 3600, 1 / 60)
-            inc = round(max(0.0, acum - prev[1]), 2)
-            filas.append((cod, "lluvia_mm", t, None if inc > max(10, MAX_MM_H * horas) else inc))
-        elif t - dia0 < dt.timedelta(minutes=10):
-            filas.append((cod, "lluvia_mm", t, acum))  # primera lectura del día, justo tras el reinicio
+        if mm is not None:
+            filas.append((cod, "lluvia_mm", t, mm))
         for var in ("temp_c", "hr_pct", "presion_hpa", "viento_ms"):
             if var in d:
                 filas.append((cod, var, t, d[var]))
