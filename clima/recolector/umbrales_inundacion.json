@@ -86,17 +86,62 @@
    "zona": "Parte alta de Santa Cruz (Bellavista, Santa Rosa)",
    "isla": "Santa Cruz",
    "calibrada": false,
-   "nota": "sin calibrar; el riesgo principal son los cruces de quebradas con vías",
+   "nota": "sin calibrar en 1–24 h (umbrales de La Cascada); en 72 h, umbral de saturación según el 14/15-nov-2026: inundaciones fuertes en Bellavista y Santa Rosa un día después de 210 mm en Miconia, casi sin lluvia ese día",
    "estaciones": [
     [
      "ierse/n_glps09",
      1.0
     ],
     [
+     "ambient/miconia",
+     1.0
+    ],
+    [
      "ierse/n_glps05",
      1.0
     ]
-   ]
+   ],
+   "umbrales": {
+    "muy alto": {
+     "R1h": 45,
+     "R3h": 90,
+     "R24h": 150,
+     "R72h": 320
+    },
+    "alto": {
+     "R1h": 30,
+     "R3h": 60,
+     "R24h": 100,
+     "R72h": 200
+    },
+    "medio": {
+     "R1h": 15,
+     "R3h": 30,
+     "R24h": 50,
+     "R72h": 120
+    }
+   },
+   "calibracion": {
+    "fecha": "2026-11-15",
+    "eventos": {
+     "2026-11-15": {
+      "impacto": "alto (reporte de la coordinación)",
+      "R24h_14nov": {
+       "miconia": 210.3,
+       "santa_rosa": 120.4
+      },
+      "R72h_15nov_20h": {
+       "miconia": 244.9,
+       "santa_rosa": 141.0
+      },
+      "lluvia_15nov": {
+       "miconia": 11.2,
+       "santa_rosa": 5.0
+      }
+     }
+    },
+    "criterio": "Inundación por saturación del suelo y agua subterránea, con retraso de ~1 día. R72h ≥ 200 → alto (el 11–13-nov sumó ≈160 en Miconia y no se reportaron inundaciones: queda en medio). Muy alto = 1,6 × alto. Sin rebaja por suelo húmedo en 72 h."
+   }
   },
   {
    "id": "san-cristobal",

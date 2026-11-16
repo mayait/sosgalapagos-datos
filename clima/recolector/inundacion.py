@@ -19,6 +19,7 @@ UTC = dt.timezone.utc
 REGLA = json.loads((Path(__file__).resolve().parent / "umbrales_inundacion.json").read_text())
 FRESCURA_MAX_MIN = REGLA.get("frescura_max_min", 30)  # estación usable si su último dato tiene ≤ 30 min
 SILENCIO_MIN = REGLA.get("silencio_min", 60)  # zona «callada» si ninguna estación mandó nada en 60 min
+VENTANAS = (("R1h", 1), ("R3h", 3), ("R24h", 24), ("R72h", 72))  # R72h: saturación (solo zonas con umbral)
 PASO_EVAL_MIN = 5  # el nivel se evalúa cada 5 min para la persistencia y el silencio
 PASO_MIN = {"ierse": 5, "gsc": 5, "inamhi": 5, "weatherlink": 5, "tempest": 5, "ambient": 5, "wunderground": 5}  # resolución esperada por fuente
 
@@ -50,8 +51,10 @@ def _umbrales(zona, nv):
 
 
 def _nivel(R, factor, zona):
+    # la rebaja por suelo húmedo no se aplica a 72 h: esa ventana ya mide la saturación
+    f = lambda k: 1.0 if k == "R72h" else factor  # noqa: E731
     for nv in REGLA["niveles"][:-1]:
-        if any(R.get(k) is not None and R[k] >= u * factor for k, u in _umbrales(zona, nv).items()):
+        if any(R.get(k) is not None and R[k] >= u * f(k) for k, u in _umbrales(zona, nv).items()):
             return nv
     return REGLA["niveles"][-1]
 
@@ -77,7 +80,7 @@ def _evaluar(series, zona, fin, nombres):
             continue
         ult = dt.datetime.fromtimestamp(s[0][i], UTC)
         edad[clave] = (fin - ult).total_seconds() / 60
-        v = {k: _ventana(s, ult, h, paso) for k, h in (("R1h", 1), ("R3h", 3), ("R24h", 24))}
+        v = {k: _ventana(s, ult, h, paso) for k, h in VENTANAS}
         p5 = _ventana(s, ult - dt.timedelta(hours=24), 120, paso)
         cand[clave] = (peso, v, p5)
     cortas = REGLA.get("cobertura_ventanas", ["R1h", "R3h", "R24h"])
@@ -99,7 +102,7 @@ def _evaluar(series, zona, fin, nombres):
                         "mm": {k: round(x[0], 1) for k, x in v.items()}})
     if not validas:
         return None, {}, None, detalle, callada
-    R = {k: round(max(p * v[k][0] for p, v, _ in validas.values()), 1) for k in ("R1h", "R3h", "R24h")}
+    R = {k: round(max(p * v[k][0] for p, v, _ in validas.values()), 1) for k, _ in VENTANAS}
     p5 = [p * x[0] for p, _, x in validas.values() if x[1] >= cob_min]
     P5d = round(max(p5), 1) if p5 else None
     ha = REGLA["humedad_antecedente"]
@@ -114,6 +117,22 @@ def _evaluar(series, zona, fin, nombres):
     if zona.get("ajuste_humedad") is False:
         factor = 1.0  # calibrada con eventos reales en suelo húmedo: no se rebaja otra vez
     return _nivel(R, factor, zona), R, (P5d, amc, factor), detalle, callada
+
+
+def _manual(zona_id, ahora):
+    """Nivel puesto a mano por la coordinación a partir de reportes de campo (niveles_manuales.json),
+    vigente entre «desde» y «hasta». Se relee en cada corrida: no hace falta reiniciar nada."""
+    try:
+        d = json.loads((Path(__file__).resolve().parent / "niveles_manuales.json").read_text())
+    except (OSError, ValueError):
+        return None
+    x = d.get(zona_id)
+    if not isinstance(x, dict) or x.get("nivel") not in {n["nivel"] for n in REGLA["niveles"]}:
+        return None
+    t = lambda k: dt.datetime.fromisoformat(x[k].replace("Z", "+00:00"))  # noqa: E731
+    if not (t("desde") <= ahora < t("hasta")):
+        return None
+    return {"nivel": x["nivel"], "desde": x["desde"], "hasta": x["hasta"], "motivo": x.get("motivo", "")}
 
 
 def _recoleccion_viva(con):
@@ -186,6 +205,11 @@ def calcular(con, ahora=None, recoleccion_ok=None):
         nivel, silencio = aplicar(actual, inst, ok(ahora) and callada)
         if actual is None and not ok(ahora) and nivel:
             nivel = None  # fallo de nuestra recolección: se informa «sin datos» con el último nivel
+        manual = _manual(z["id"], ahora)
+        if manual and (nivel is None or nivel == "sin datos" or orden.index(manual["nivel"]) < orden.index(nivel)):
+            nivel = manual["nivel"]  # los reportes de campo solo suben el nivel, nunca lo bajan
+        else:
+            manual = None
         ultimo = next((x for x in reversed(inst) if x), None)
         info = info_n.get(nivel)
         zonas.append({"id": z["id"], "zona": z["zona"], "isla": z["isla"], "calibrada": z["calibrada"], "nota": z["nota"],
@@ -197,6 +221,7 @@ def calcular(con, ahora=None, recoleccion_ok=None):
                       "factor": ant[2] if ant else None, "estaciones": detalle,
                       **({"umbrales": [{"nivel": n["nivel"], "color": n["color"], "prob": n["probabilidad"],
                                         **_umbrales(z, n)} for n in REGLA["niveles"]]} if z.get("umbrales") else {}),
+                      **({"manual": manual} if manual else {}),
                       "historial_72h": hist})
     umbrales = [{"nivel": n["nivel"], "color": n["color"], "prob": n["probabilidad"], **n.get("si_alguno", {})}
                 for n in REGLA["niveles"]]
