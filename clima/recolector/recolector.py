@@ -671,6 +671,8 @@ def main():
     ap.add_argument("--importar-inamhi", metavar="JSON", help="historial horario archivado del INAMHI")
     ap.add_argument("--tempest-desde", metavar="AAAA-MM-DD", help="carga histórica de Tempest desde esa fecha (UTC)")
     ap.add_argument("--ambient-desde", metavar="AAAA-MM-DD", help="carga histórica de Ambient Weather desde esa fecha (UTC)")
+    ap.add_argument("--recalcular-lluvia", nargs=2, metavar=("FUENTE/ESTACION", "AAAA-MM-DD"),
+                    help="rehace lluvia_mm de WeatherLink o WU desde su acumulado guardado")
     ap.add_argument("--emitir", metavar="FUENTE")
     ap.add_argument("--horas", type=int, default=6)
     ap.add_argument("--recibir", action="store_true")
@@ -697,8 +699,13 @@ def main():
         from fuentes_extra import ambient_historico
         desde = dt.datetime.fromisoformat(a.ambient_desde).replace(tzinfo=UTC)
         print(f"Ambient Weather: {ambient_historico(con, desde)} registros importados")
+    if a.recalcular_lluvia:
+        from fuentes_extra import recalcular_lluvia
+        n = recalcular_lluvia(con, a.recalcular_lluvia[0], dt.datetime.fromisoformat(a.recalcular_lluvia[1]).replace(tzinfo=UTC))
+        con.commit()
+        print(f"{a.recalcular_lluvia[0]}: {n} registros de lluvia recalculados")
     if not (a.solo_exportar or a.importar_ierse or a.importar_gsc_historico or a.importar_inamhi or a.tempest_desde
-            or a.ambient_desde):
+            or a.ambient_desde or a.recalcular_lluvia):
         env = [x for x in os.environ.get("CLIMA_FUENTES", "").split(",") if x]
         correr(con, a.fuentes or env or list(FUENTES))
     exportar(con)
