@@ -1,9 +1,15 @@
 {
  "_nota": "Nivel puesto a mano por la coordinación a partir de reportes de campo. Solo SUBE el nivel calculado, nunca lo baja, y vale entre «desde» y «hasta» (UTC). Para quitarlo, borrar la entrada o dejar que venza. El recolector lo relee en cada corrida.",
  "santa-cruz-alta": {
-  "nivel": "alto",
-  "desde": "2026-11-16T02:30:00Z",
-  "hasta": "2026-11-17T02:30:00Z",
-  "motivo": "Reportes de campo del 15-nov: inundaciones fuertes en Bellavista y Santa Rosa con el suelo saturado (210 mm en Miconia el 14-nov), aunque hoy casi no llovió."
+  "nivel": "muy alto",
+  "desde": "2026-11-21T11:00:00Z",
+  "hasta": "2026-11-22T12:30:00Z",
+  "motivo": "Reportes de campo del 21-nov: inundación en toda la parte alta de Santa Cruz, con ríos desbordados sobre las carreteras."
+ },
+ "la-cascada": {
+  "nivel": "muy alto",
+  "desde": "2026-11-21T11:00:00Z",
+  "hasta": "2026-11-22T12:30:00Z",
+  "motivo": "Reporte de campo del 21-nov: desbordamiento e inundación en La Cascada hacia las 05:00 (hora de Galápagos), con el agua casi al nivel del 30-oct."
  }
 }
