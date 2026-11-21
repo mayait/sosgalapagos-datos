@@ -44,6 +44,8 @@ python3 -m http.server -d geodatos/publicar/mapas 8766          # verlo en local
 
 En un *worktree*, `reportes/privado` es un enlace a la carpeta de la copia principal, igual que `geodatos/descargas`.
 
+El WhatsApp de trabajo se exporta en la subcarpeta `Trabajo/` de la carpeta de WhatsApp, con su propio `remitentes.json`: `01_ingerir.py` solo mira un nivel, así que se ingiere en una segunda corrida (otro lote) con una carpeta que tenga solo los chats con reportes, sin los grupos ajenos a la emergencia. Los videos que llegan como documento (`.mov`) no pasan por `02_medios.py`: sus fotogramas se sacan a mano en `privado/<fecha>/fotogramas/<id8>_<n>.jpg`.
+
 ### Revisar un lote gastando poco
 
 La revisión es el único paso que necesita criterio. Para que cueste poco:
