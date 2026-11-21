@@ -126,7 +126,7 @@ El 15-nov hubo inundaciones fuertes en Bellavista y Santa Rosa casi sin lluvia e
 
 ## Calibración del 21-nov-2026 (segundo evento)
 
-El 21-nov hacia las 05:00 (hora de Galápagos) La Cascada volvió a desbordarse, con el agua casi al nivel del 30-oct, y se inundó la parte alta. Comparación en `eventos/2026-11-21_inundacion/` (`scripts/08_comparar_eventos.py`).
+El 21-nov hacia las 05:00 (hora de Galápagos) La Cascada volvió a desbordarse, con una inundación más fuerte que la del 30-oct según los reportes, y se inundó la parte alta. Comparación en `eventos/2026-11-21_inundacion/` (`scripts/08_comparar_eventos.py`).
 
 | | 30-oct (21:20) | 21-nov (~05:00) |
 |---|---|---|
