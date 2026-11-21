@@ -2,8 +2,8 @@
  "evento": "2026-11-21",
  "titulo": "Inundación del 21 de noviembre de 2026 en Santa Cruz",
  "nota": "Reportes ciudadanos recogidos de grupos de WhatsApp. No son datos oficiales ni están verificados en campo, salvo donde se indica. Horas de Galápagos (UTC−6). Las ubicaciones salen del nombre de la calle o del barrio que dio quien reportó.",
- "corte": "2026-11-21T08:45:00-06:00",
- "lotes_revisados": 1,
+ "corte": "2026-11-21T10:07:00-06:00",
+ "lotes_revisados": 2,
  "gravedad": {
   "1": "Leve: agua en la calle, se puede pasar",
   "2": "Moderada: calle inundada o agua empozada",
@@ -19,37 +19,44 @@
   {"hora": "07:29", "fuente": "NOTAM reenviado en los grupos", "texto": "Aeropuerto de Baltra cerrado temporalmente."},
   {"hora": "08:05", "fuente": "Vecinos", "texto": "Piden picos, barras y sacos de arena para destapar alcantarillas."},
   {"hora": "08:14", "fuente": "COE cantonal, por mensaje", "texto": "Afectaciones reportadas, todavía generales: Divino Niño, Miramar, La Fortuna, Media Luna, El Bosque, Tomás de Berlanga, vía a Baltra a la altura del km 4½, Los Cerezos y La Cascada."},
-  {"hora": "08:37", "fuente": "Vecinos", "texto": "Marea alta hacia las 12:00 (1,3–1,4 m): con marea alta el agua de lluvia drena peor."}
+  {"hora": "08:37", "fuente": "Vecinos", "texto": "Marea alta hacia las 12:00 (1,3–1,4 m): con marea alta el agua de lluvia drena peor."},
+  {"hora": "08:53", "fuente": "Vecinos y voluntarios", "texto": "Faltan remos para los kayaks guardados en bodegas, cabos y personas que sepan operar los zodiacs. Entre las 08:45 y las 09:40 operadores de turismo envían más zodiacs y kayaks a La Cascada."},
+  {"hora": "09:08", "fuente": "Vecinos", "texto": "La lluvia vuelve a arreciar en Santa Rosa y Bellavista, con truenos; también es muy fuerte en Tomás de Berlanga, Cascajo, Aguacatal y Occidente. Avisan que el agua vuelve a bajar fuerte hacia Puerto Ayora. A las 09:24 para de llover en Bellavista."},
+  {"hora": "09:15", "fuente": "COE cantonal, comunicado oficial reenviado en los grupos", "texto": "Mantiene la alerta máxima y la evacuación de La Cascada y sectores aledaños, extendida a El Edén, Miraflores, Las Acacias, Pelican Bay hasta el cementerio y las zonas bajas del barrio Central. Puntos de evacuación temporal: Unidad Educativa Miguel Ángel Cazares (Puerto Ayora), cancha del barrio Las Palmas (Bellavista) y polideportivo Segundo Chapi (Santa Rosa). Pide no cruzar sectores inundados."},
+  {"hora": "09:23", "fuente": "Vecinos", "texto": "Tablas de marea compartidas en los grupos: pleamar hacia las 12:02–12:17, de unos 1,5 m; después empieza a bajar."},
+  {"hora": "09:39", "fuente": "Fundación local, reenviado en los grupos", "texto": "Pide voluntarios para su comedor, que prepara almuerzo para las personas afectadas."},
+  {"hora": "09:41", "fuente": "INAMHI, audio de una pronosticadora reenviado en los grupos", "texto": "Sigue la convección sobre Santa Cruz. Seguirá lloviendo hasta pasado el mediodía; entre las 14:00 y las 15:00 la intensidad empezaría a bajar. En la parte alta llueve más."}
  ],
  "reportes": [
   {
-   "id": "r01", "hora": "04:21", "hora_fin": "08:35",
+   "id": "r01", "hora": "04:21", "hora_fin": "10:07",
    "lugar": "La Cascada: pie de la cascada", "barrio": "La Cascada",
    "lat": -0.73290, "lon": -90.31420, "precision": "aproximada",
-   "tipo": "desbordamiento", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 9,
+   "tipo": "desbordamiento", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 12,
    "titulo": "Se desborda La Cascada",
-   "descripcion": "A las 03:20 la cascada ya llenaba el terreno vacío del fondo. Hacia las 04:21 se desborda y a las 04:34 se llena toda la parte de atrás del barrio. A las 05:34 vecinos describen un caudal que nunca habían visto, con dos o tres saltos más a los lados. A las 07:13 la cascada baja de intensidad y la marea también baja. A las 08:05 el agua está en su tope; a las 08:35 había bajado unos 50 cm.",
+   "descripcion": "A las 03:20 la cascada ya llenaba el terreno vacío del fondo. Hacia las 04:21 se desborda y a las 04:34 se llena toda la parte de atrás del barrio. A las 05:34 vecinos describen un caudal que nunca habían visto, con dos o tres saltos más a los lados. A las 07:13 la cascada baja de intensidad y la marea también baja. A las 08:05 el agua está en su tope; a las 08:35 había bajado unos 50 cm y a las 08:52 otros 10 cm. A las 09:05 un voluntario dice que baja porque el agua se desvía hacia Puerto Ayora. A las 10:01 la cascada sigue cayendo con fuerza y la corriente impide remar hacia ella. A las 10:07 el agua sigue bajando.",
    "medios": [
     {"id": "36cac8bb", "fotograma": 2, "hora": "05:40", "pie": "La cascada cae sobre el barrio al amanecer"},
+    {"id": "3ee300c1", "fotograma": 2, "hora": "10:01", "pie": "10:01: la cascada sigue cayendo, vista desde un kayak"},
     {"id": "fce95a92", "fotograma": 2, "hora": "06:29", "pie": "Varios saltos de agua a lo largo del escarpe"},
     {"id": "a9fcf372", "fotograma": 3, "hora": "06:05", "pie": "El barrio inundado con la cascada al fondo"},
     {"id": "04e2ca91", "hora": "03:21", "pie": "03:21: el agua empieza a llenar el fondo del barrio"}
    ],
-   "mensajes": ["6fc17d7f", "bdb", "c016104d", "f8059046", "0a0ed2dc", "0bcc2f7d", "36cac8bb", "fce95a92", "a9fcf372", "6bc1f63b"]
+   "mensajes": ["6fc17d7f", "bdb", "c016104d", "f8059046", "0a0ed2dc", "0bcc2f7d", "36cac8bb", "fce95a92", "a9fcf372", "6bc1f63b", "c321f210", "cfa59838", "3ee300c1", "3c3dcb6d", "971e99e1"]
   },
   {
-   "id": "r02", "hora": "03:53", "hora_fin": "08:32",
+   "id": "r02", "hora": "03:53", "hora_fin": "09:48",
    "lugar": "La Cascada: pasaje 5", "barrio": "La Cascada",
    "lat": -0.73332, "lon": -90.31448, "precision": "calle",
-   "tipo": "inundacion", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 9,
-   "titulo": "Pasaje 5: evacuado de madrugada, casas tapadas",
-   "descripcion": "Es la última calle, la más cercana a la cascada. La Policía avisa y los vecinos salen hacia las 03:50; algunos se quedan. A las 05:09 la calle es un río. A las 06:47 piden un kayak para sacar a personas de segundos pisos. A las 07:26 el agua llega al pecho; a las 07:32 baja poco a poco. A las 08:25 todavía piden rescate. A las 08:32 un vecino dice que su casa quedó tapada y que el nivel empieza a bajar.",
+   "tipo": "personas_atrapadas", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 12,
+   "titulo": "Pasaje 5: casas tapadas y familias aún en segundos pisos",
+   "descripcion": "Es la última calle, la más cercana a la cascada. La Policía avisa y los vecinos salen hacia las 03:50; algunos se quedan. A las 05:09 la calle es un río. A las 06:47 piden un kayak para sacar a personas de segundos pisos. A las 07:26 el agua llega al pecho; a las 07:32 baja poco a poco. A las 08:25 todavía piden rescate. A las 08:32 un vecino dice que su casa quedó tapada y que el nivel empieza a bajar. A las 08:49 piden rescatar a un joven que sigue en un segundo piso al fondo del barrio, con más gente. A las 09:41 circula otro pedido: una familia atrapada en un segundo piso del pasaje 5. A las 09:47 van dos kayaks al pasaje 5; a las 09:48 la Policía pide a quienes esperan que levanten la mano y envíen su ubicación.",
    "medios": [
     {"id": "c0d6cb52", "hora": "05:09", "pie": "05:09: el pasaje 5 convertido en río"},
     {"id": "b9424be0", "fotograma": 2, "hora": "07:26", "pie": "07:26: el agua cubre la calle"},
     {"id": "b0e3fb50", "fotograma": 2, "hora": "05:41", "pie": "05:41: visto desde una terraza"}
    ],
-   "mensajes": ["44e68732", "0266fdae", "c0d6cb52", "b0e3fb50", "b9424be0", "778b2eea", "a1abd810", "f07b5d7a", "fa41a491"]
+   "mensajes": ["44e68732", "0266fdae", "c0d6cb52", "b0e3fb50", "b9424be0", "778b2eea", "a1abd810", "f07b5d7a", "fa41a491", "ac6f19fb", "546fb650", "60335468", "5889602a", "d2077ee1", "4eadd73a"]
   },
   {
    "id": "r03", "hora": "04:37", "hora_fin": "08:16",
@@ -67,14 +74,14 @@
    "mensajes": ["db9aa38f", "24ea4de5", "1118c79c", "c1e43376", "1e0e642d", "fb456094", "b9da2611", "69382e2a", "6c3a30dd"]
   },
   {
-   "id": "r04", "hora": "05:48", "hora_fin": "08:32",
+   "id": "r04", "hora": "05:48", "hora_fin": "09:58",
    "lugar": "La Cascada: pasaje 3", "barrio": "La Cascada",
    "lat": -0.73393, "lon": -90.31462, "precision": "aproximada",
    "tipo": "personas_atrapadas", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 5,
    "titulo": "Pasaje 3: piden kayak o zodiac",
-   "descripcion": "A las 05:48 el agua está al tope hasta el pasaje 3. Entre las 06:30 y las 08:06 piden noticias de dos niñas que esperan en un segundo piso. A las 06:56 piden un kayak: el agua llega al segundo piso. A las 08:16 todavía hay personas atrapadas que piden un zodiac. A las 08:32 el agua ha bajado unos 40 cm, con la marea baja.",
+   "descripcion": "A las 05:48 el agua está al tope hasta el pasaje 3. Entre las 06:30 y las 08:06 piden noticias de dos niñas que esperan en un segundo piso. A las 06:56 piden un kayak: el agua llega al segundo piso. A las 08:16 todavía hay personas atrapadas que piden un zodiac. A las 08:32 el agua ha bajado unos 40 cm, con la marea baja. A las 09:45 vuelven a pedir ayuda: a las 09:47 una familia sigue atrapada. A las 09:58 envían una ubicación cerca de un minimercado del barrio y repiten el pedido.",
    "medios": [],
-   "mensajes": ["ebec4a56", "335", "4e2", "154634ff", "a39ed8d5", "75cfad0a"]
+   "mensajes": ["ebec4a56", "335", "4e2", "154634ff", "a39ed8d5", "75cfad0a", "6719f657", "f50c3263", "ad04d656", "b4e00072"]
   },
   {
    "id": "r05", "hora": "05:12", "hora_fin": "07:14",
@@ -119,36 +126,37 @@
    "mensajes": ["5f992ccf", "7e1e1df4", "f4d025db"]
   },
   {
-   "id": "r08", "hora": "05:43", "hora_fin": "08:36",
+   "id": "r08", "hora": "05:43", "hora_fin": "10:07",
    "lugar": "La Cascada: interior del barrio", "barrio": "La Cascada",
    "lat": -0.73380, "lon": -90.31370, "precision": "barrio",
-   "tipo": "rescate", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 8,
+   "tipo": "rescate", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 14,
    "titulo": "Rescates con zodiac y kayak",
-   "descripcion": "A las 05:43 llega la Armada. Desde las 05:55 un zodiac saca gente entre las casas; después se suman kayaks de vecinos, de operadores de turismo y del Parque Nacional. A las 08:36 todavía hay personas atrapadas en las últimas calles. Los rescatistas van sin teléfono: los vecinos piden hacerles señas hacia los pasajes que necesitan ayuda.",
+   "descripcion": "A las 05:43 llega la Armada. Desde las 05:55 un zodiac saca gente entre las casas; después se suman kayaks de vecinos, de operadores de turismo y del Parque Nacional. A las 08:36 todavía hay personas atrapadas en las últimas calles. Los rescatistas van sin teléfono: los vecinos piden hacerles señas hacia los pasajes que necesitan ayuda. Entre las 08:45 y las 09:40 operadores de turismo mandan más zodiacs y kayaks; faltan remos, cabos y personas que sepan operar los zodiacs. A las 09:49 la Policía pide a quienes esperan rescate que envíen su ubicación. A las 10:07 un voluntario en kayak dice que en su zona ya casi no queda nadie.",
    "medios": [
     {"id": "db0e6410", "hora": "05:55", "pie": "05:55: un zodiac entre las casas"},
     {"id": "21f6fea2", "fotograma": 2, "hora": "05:58", "pie": "05:58: el zodiac frente al escarpe"},
     {"id": "8e3b26c0", "fotograma": 2, "hora": "07:56", "pie": "07:56: rescate en kayak"},
+    {"id": "0921d56c", "hora": "09:29", "pie": "09:29: kayaks listos para entrar al barrio"},
     {"id": "11e0971f", "hora": "05:43", "pie": "05:43: personal de la Armada en la entrada del barrio"}
    ],
-   "mensajes": ["11e0971f", "db0e6410", "422ac154", "21f6fea2", "287a6945", "8e3b26c0", "9a824d79", "ef433967"]
+   "mensajes": ["11e0971f", "db0e6410", "422ac154", "21f6fea2", "287a6945", "8e3b26c0", "9a824d79", "ef433967", "ddcabe02", "d5606d47", "e7fa451d", "f57034b9", "bd173a65", "0921d56c", "4eadd73a", "e0deef6a", "aace2948"]
   },
   {
-   "id": "r09", "hora": "05:35", "hora_fin": "07:27",
+   "id": "r09", "hora": "05:35", "hora_fin": "10:07",
    "lugar": "La Cascada: vista general", "barrio": "La Cascada",
    "lat": -0.73345, "lon": -90.31395, "precision": "barrio",
-   "tipo": "inundacion", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 11,
+   "tipo": "inundacion", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 13,
    "titulo": "El barrio con el agua a la altura de los techos",
-   "descripcion": "Entre las 05:35 y las 07:00 las fotos desde terrazas muestran el barrio como una laguna: primeras plantas cubiertas, autos bajo el agua y muebles flotando. A las 06:49 el agua seguía subiendo. A las 07:05 un vecino muestra casas tapadas: el agua llega a la segunda planta y la encañada arrastra basura. Desde las 07:24 varios vecinos reportan que baja despacio.",
+   "descripcion": "Entre las 05:35 y las 07:00 las fotos desde terrazas muestran el barrio como una laguna: primeras plantas cubiertas, autos bajo el agua y muebles flotando. A las 06:49 el agua seguía subiendo. A las 07:05 un vecino muestra casas tapadas: el agua llega a la segunda planta y la encañada arrastra basura. Desde las 07:24 varios vecinos reportan que baja despacio. A las 08:55 el agua sigue a la altura de la primera planta. A las 10:07 las calles junto al escarpe siguen inundadas y casi no queda gente.",
    "medios": [
     {"id": "e9441c13", "hora": "05:55", "pie": "05:55: casas con la primera planta cubierta"},
+    {"id": "d35f0320", "fotograma": 2, "hora": "08:55", "pie": "08:55: el agua sigue en la primera planta"},
     {"id": "9dbb1bd2", "hora": "05:58", "pie": "05:58: vecinos en los pisos altos"},
-    {"id": "393acdc2", "hora": "06:59", "pie": "06:59"},
     {"id": "4500280b", "fotograma": 2, "hora": "05:39", "pie": "05:39: autos bajo el agua"},
-    {"id": "5498f2fc", "fotograma": 1, "hora": "05:46", "pie": "05:46: corriente entre las casas"},
-    {"id": "cffa98c2", "hora": "06:26", "pie": "06:26"}
+    {"id": "e0deef6a", "fotograma": 2, "hora": "10:07", "pie": "10:07: la calle junto al escarpe, todavía inundada"},
+    {"id": "5498f2fc", "fotograma": 1, "hora": "05:46", "pie": "05:46: corriente entre las casas"}
    ],
-   "mensajes": ["2e8fc149", "4500280b", "e9441c13", "9dbb1bd2", "0c4b3fe5", "5498f2fc", "cffa98c2", "393acdc2", "549967fe", "1ff96f53", "22c69c86", "fd826233"]
+   "mensajes": ["2e8fc149", "4500280b", "e9441c13", "9dbb1bd2", "0c4b3fe5", "5498f2fc", "cffa98c2", "393acdc2", "549967fe", "1ff96f53", "22c69c86", "fd826233", "d35f0320", "e0deef6a"]
   },
   {
    "id": "r10", "hora": "06:29", "hora_fin": "07:07",
@@ -174,17 +182,17 @@
    "mensajes": ["b1b", "7ca"]
   },
   {
-   "id": "r12", "hora": "05:49", "hora_fin": "06:31",
+   "id": "r12", "hora": "05:49", "hora_fin": "08:45",
    "lugar": "La Unión: cancha y calle 8", "barrio": "La Unión",
    "lat": -0.73598, "lon": -90.31549, "precision": "barrio",
    "tipo": "inundacion", "gravedad": 3, "estado": "varias_fuentes", "n_fuentes": 4,
    "titulo": "La Unión: el agua llega a la cancha y a las casas",
-   "descripcion": "A las 05:49 el agua llega a la cancha de La Unión y a las 05:52 se llena la calle 8. A las 06:20 una familia evacúa porque el agua llegó a su casa. A las 06:31 reportan que empieza a bajar.",
+   "descripcion": "A las 05:49 el agua llega a la cancha de La Unión y a las 05:52 se llena la calle 8. A las 06:20 una familia evacúa porque el agua llegó a su casa. A las 06:31 reportan que empieza a bajar. A las 08:45 vuelven a decir que el agua empieza a bajar en La Unión.",
    "medios": [
     {"id": "c5d30651", "hora": "05:49", "pie": "05:49: la cancha y el parque infantil"},
     {"id": "855fde22", "fotograma": 2, "hora": "05:51", "pie": "05:51: calle 8"}
    ],
-   "mensajes": ["d8a", "c5d30651", "855fde22", "77e248fe", "515d0431"]
+   "mensajes": ["d8a", "c5d30651", "855fde22", "77e248fe", "515d0431", "e22db2ae"]
   },
   {
    "id": "r13", "hora": "05:12", "hora_fin": "05:16",
@@ -199,19 +207,19 @@
    "mensajes": ["03ded27e", "7a3"]
   },
   {
-   "id": "r14", "hora": "06:37", "hora_fin": "08:43",
+   "id": "r14", "hora": "06:37", "hora_fin": "09:26",
    "lugar": "Matazarnos: Seymour y Marchena", "barrio": "Matazarnos",
    "lat": -0.73613, "lon": -90.31295, "precision": "aproximada",
    "tipo": "personas_atrapadas", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 6,
    "titulo": "Matazarnos: calles inundadas y una mujer embarazada rescatada",
-   "descripcion": "A las 06:37 el agua corre por las calles. A las 06:39 el agua tapa la bodega de desechos del subcentro de salud. A las 07:01 la cancha está inundada. A las 07:10, en Seymour y Marchena, el agua casi llega al segundo piso. Desde las 07:51 piden un zodiac para una mujer embarazada con niñas en Seymour y Marchena; a las 08:43 confirman que la sacaron. A las 08:17 hay personas en una losa esperando rescate.",
+   "descripcion": "A las 06:37 el agua corre por las calles. A las 06:39 el agua tapa la bodega de desechos del subcentro de salud. A las 07:01 la cancha está inundada. A las 07:10, en Seymour y Marchena, el agua casi llega al segundo piso. Desde las 07:51 piden un zodiac para una mujer embarazada con niñas en Seymour y Marchena; a las 08:43 confirman que la sacaron. A las 08:17 hay personas en una losa esperando rescate. A las 09:17 vuelve a circular la foto pidiendo un zodiac; a las 09:26 una persona responde que ya las rescataron. Sin confirmar.",
    "medios": [
     {"id": "edec78f1", "hora": "07:23", "pie": "07:23: cruce inundado"},
     {"id": "2c155068", "hora": "07:01", "pie": "07:01: cancha de Matazarnos"},
     {"id": "54f98973", "hora": "08:17", "pie": "08:17: vecinos esperan sobre una losa"},
     {"id": "4814d97e", "fotograma": 2, "hora": "06:37", "pie": "06:37: el agua corre por la calle"}
    ],
-   "mensajes": ["4814d97e", "2c155068", "edec78f1", "eb29a97c", "54f98973", "44d", "713a75f5", "9e82066d"]
+   "mensajes": ["4814d97e", "2c155068", "edec78f1", "eb29a97c", "54f98973", "44d", "713a75f5", "9e82066d", "7ac5ec2d", "757fafdb"]
   },
   {
    "id": "r15", "hora": "06:38", "hora_fin": "08:21",
@@ -226,18 +234,20 @@
    "mensajes": ["296", "712", "bfa88182", "b2eef425", "77eda581", "af082f3a"]
   },
   {
-   "id": "r16", "hora": "07:05", "hora_fin": "08:31",
+   "id": "r16", "hora": "07:05", "hora_fin": "09:12",
    "lugar": "El Edén: calle que baja de la iglesia", "barrio": "El Edén",
    "lat": -0.73930, "lon": -90.31262, "precision": "calle",
-   "tipo": "desbordamiento", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 9,
+   "tipo": "desbordamiento", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 11,
    "titulo": "El Edén: un torrente baja por la calle Seymour",
-   "descripcion": "Al llenarse La Cascada, el agua rebosa hacia El Edén. A las 07:05 baja un torrente por la calle. A las 07:22 arrastra una camioneta. A las 07:54 el caudal sigue igual de fuerte en el centro del barrio. A las 07:58 no se puede circular por el barrio. A las 08:14 hay gente que no logra salir y pide auxilio. A las 08:31 el agua sigue saliendo por El Edén.",
+   "descripcion": "Al llenarse La Cascada, el agua rebosa hacia El Edén. A las 07:05 baja un torrente por la calle. A las 07:22 arrastra una camioneta. A las 07:54 el caudal sigue igual de fuerte en el centro del barrio. A las 07:58 no se puede circular por el barrio. A las 08:14 hay gente que no logra salir y pide auxilio. A las 08:31 el agua sigue saliendo por El Edén. A las 09:07 y a las 09:12 el torrente sigue bajando desde la iglesia hacia el hotel Fernandina.",
    "medios": [
     {"id": "29250521", "fotograma": 2, "hora": "07:54", "pie": "07:54: el torrente inclina un poste"},
+    {"id": "ce6be810", "fotograma": 2, "hora": "09:07", "pie": "09:07: el torrente sigue cruzando la calle bajo la iglesia"},
     {"id": "9cf14b79", "fotograma": 2, "hora": "07:22", "pie": "07:22: una camioneta arrastrada"},
+    {"id": "c1a57d9b", "fotograma": 1, "hora": "09:12", "pie": "09:12: la bajada de la iglesia hacia el hotel Fernandina"},
     {"id": "f7ed9b0a", "fotograma": 2, "hora": "07:05", "pie": "07:05"}
    ],
-   "mensajes": ["f7ed9b0a", "9cf14b79", "7d1cd463", "29250521", "9dc", "d70c3a0a", "f5ff03d5", "f5193a6b", "30f31c85"]
+   "mensajes": ["f7ed9b0a", "9cf14b79", "7d1cd463", "29250521", "9dc", "d70c3a0a", "f5ff03d5", "f5193a6b", "30f31c85", "ce6be810", "c1a57d9b"]
   },
   {
    "id": "r17", "hora": "07:51", "hora_fin": "08:17",
@@ -276,14 +286,14 @@
    "mensajes": ["6c5e0ba0"]
   },
   {
-   "id": "r20", "hora": "05:28",
+   "id": "r20", "hora": "05:28", "hora_fin": "09:15",
    "lugar": "Colegio Miguel Ángel Cazares", "barrio": "Puerto Ayora",
    "lat": -0.73846, "lon": -90.31817, "precision": "exacta",
-   "tipo": "refugio", "gravedad": null, "estado": "oficial", "n_fuentes": 4,
+   "tipo": "refugio", "gravedad": null, "estado": "oficial", "n_fuentes": 6,
    "titulo": "Refugio abierto: colegio Miguel Ángel Cazares",
-   "descripcion": "Refugio abierto desde la madrugada para las personas evacuadas. A las 07:57 seguía siendo el punto indicado. Aviso: a las 07:59 se reporta que las vías para llegar están inundadas.",
+   "descripcion": "Refugio abierto desde la madrugada para las personas evacuadas. A las 07:57 seguía siendo el punto indicado. Aviso: a las 07:59 se reporta que las vías para llegar están inundadas. A las 08:58 un video desde el colegio confirma el refugio activo y pide a la gente de zonas de riesgo que vaya. A las 09:15 el COE lo ratifica como punto de evacuación temporal de Puerto Ayora.",
    "medios": [],
-   "mensajes": ["1fc", "309604f0", "9d85766c"]
+   "mensajes": ["1fc", "309604f0", "9d85766c", "dc31b8d4", "4bd33d2c", "1deb2ec2"]
   },
   {
    "id": "r21", "hora": "05:30", "hora_fin": "08:10",
@@ -291,7 +301,7 @@
    "lat": -0.72300, "lon": -90.32610, "precision": "por_confirmar",
    "tipo": "via_cortada", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 7,
    "titulo": "Curva Brava: vía cortada entre Puerto Ayora y la parte alta",
-   "descripcion": "A las 05:30 el agua corre por la vía. A las 05:42 ya no hay paso. A las 05:59 una encañada cruza la carretera con mucho caudal. A las 06:39 no se puede subir ni bajar. A las 08:03 la gente cruza a pie como puede y la maquinaria intenta desviar el cauce, que se va hacia otro lado. A las 08:07 la calzada está rota; a las 08:10 la vía sigue cerrada.",
+   "descripcion": "A las 05:30 el agua corre por la vía. A las 05:42 ya no hay paso. A las 05:59 una encañada cruza la carretera con mucho caudal. A las 06:39 no se puede subir ni bajar. A las 08:03 la gente cruza a pie como puede y la maquinaria intenta desviar el cauce, que se va hacia otro lado. A las 08:07 la calzada está rota; a las 08:10 la vía sigue cerrada. Entre las 09:40 y las 10:00 preguntan en los grupos si ya hay paso hacia Baltra; nadie lo confirma.",
    "medios": [
     {"id": "f5160fa5", "fotograma": 3, "hora": "05:59", "pie": "05:59: la encañada cruza la vía"},
     {"id": "1c800caa", "hora": "08:07", "pie": "08:07: maquinaria sobre la calzada rota"},
@@ -341,16 +351,16 @@
    "mensajes": ["238", "3c1f7a73", "df7f9999", "b96571ae", "d7bef31f"]
   },
   {
-   "id": "r25", "hora": "04:19", "hora_fin": "08:32",
+   "id": "r25", "hora": "04:19", "hora_fin": "09:29",
    "lugar": "Bellavista: sector del estadio", "barrio": "Bellavista",
    "lat": -0.69496, "lon": -90.32654, "precision": "aproximada",
-   "tipo": "desbordamiento", "gravedad": 3, "estado": "varias_fuentes", "n_fuentes": 6,
+   "tipo": "desbordamiento", "gravedad": 3, "estado": "varias_fuentes", "n_fuentes": 10,
    "titulo": "Bellavista: encañadas desbordadas",
-   "descripcion": "A las 04:19 se desborda la encañada que pasa por el estadio. Llueve casi sin parar desde la noche: baja a las 05:08, vuelve a las 06:53 y arrecia a las 08:06. A las 07:32 vecinos de la parte alta dicen que no pueden salir de sus casas. A las 07:34 no hay paso hacia la parte alta ni hacia Santa Rosa. A las 08:32 sigue lloviendo fuerte en la parte alta.",
+   "descripcion": "A las 04:19 se desborda la encañada que pasa por el estadio. Llueve casi sin parar desde la noche: baja a las 05:08, vuelve a las 06:53 y arrecia a las 08:06. A las 07:32 vecinos de la parte alta dicen que no pueden salir de sus casas. A las 07:34 no hay paso hacia la parte alta ni hacia Santa Rosa. A las 08:32 sigue lloviendo fuerte en la parte alta. A las 08:43 circula que se desbordó otra encañada en Bellavista, sin decir cuál. La lluvia sigue fuerte hasta las 09:12; a las 09:24 para y a las 09:29 escampa.",
    "medios": [
     {"id": "2493cb41", "fotograma": 2, "hora": "07:34", "pie": "07:34"}
    ],
-   "mensajes": ["ba7", "2493cb41", "451", "815", "1cedf25c", "669dd814", "8bcbd4c3"]
+   "mensajes": ["ba7", "2493cb41", "451", "815", "1cedf25c", "669dd814", "8bcbd4c3", "15260afb", "83540aa8", "62657731", "8132f0e8"]
   },
   {
    "id": "r26", "hora": "03:06", "hora_fin": "05:05",
@@ -377,26 +387,26 @@
    "mensajes": ["529db6cf", "be152b6d"]
   },
   {
-   "id": "r28", "hora": "03:00", "hora_fin": "06:06",
-   "lugar": "Escuela Loma Linda", "barrio": "La Cascada",
-   "lat": null, "lon": null, "precision": "sin_ubicar",
-   "tipo": "personas_atrapadas", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 3,
-   "titulo": "Escuela Loma Linda: el agua abre el portón",
-   "descripcion": "A las 03:00 el agua ya subía junto a la escuela. A las 05:29 la fuerza del agua abre la puerta. A las 06:05 una familia con niños no puede salir por ese sector.",
+   "id": "r28", "hora": "03:00", "hora_fin": "09:57",
+   "lugar": "Escuela Loma Linda: calle D", "barrio": "La Cascada",
+   "lat": -0.73395, "lon": -90.31295, "precision": "aproximada",
+   "tipo": "personas_atrapadas", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 5,
+   "titulo": "Escuela Loma Linda: personas encerradas",
+   "descripcion": "A las 03:00 el agua ya subía junto a la escuela. A las 05:29 la fuerza del agua abre la puerta. A las 06:05 una familia con niños no puede salir por ese sector. Hacia las 08:27 circula un pedido de ayuda atrás del pasaje 5, entrando por la escuela. A las 09:56 piden rescate cerca de la escuela, en diagonal al gimnasio, y marcan en un mapa la calle D al este de la calle Marchena; a las 09:57 siguen encerrados. Ubicación aproximada: el punto va a esa calle.",
    "medios": [
     {"id": "519647f2", "fotograma": 2, "hora": "05:29", "pie": "05:29"}
    ],
-   "mensajes": ["6e3e395e", "519647f2", "8ba"]
+   "mensajes": ["6e3e395e", "519647f2", "8ba", "bae2510b", "39685694", "374a8889", "f6074055"]
   },
   {
-   "id": "r29", "hora": "04:47", "hora_fin": "08:33",
+   "id": "r29", "hora": "04:47", "hora_fin": "09:48",
    "lugar": "Sector de la cabeza de Darwin", "barrio": "La Cascada",
    "lat": null, "lon": null, "precision": "sin_ubicar",
-   "tipo": "inundacion", "gravedad": 3, "estado": "varias_fuentes", "n_fuentes": 3,
-   "titulo": "Cabeza de Darwin: primera planta tapada",
-   "descripcion": "A las 04:47 el agua vuelve a tapar la primera planta de una casa en este sector. A las 08:25 todavía hay gente que pide rescate en el sector. A las 08:33 piden rescatar animales que quedaron sobre una piedra.",
+   "tipo": "personas_atrapadas", "gravedad": 4, "estado": "varias_fuentes", "n_fuentes": 6,
+   "titulo": "Cabeza de Darwin: piden rescate para una madre con su bebé",
+   "descripcion": "A las 04:47 el agua vuelve a tapar la primera planta de una casa en este sector. A las 08:25 todavía hay gente que pide rescate en el sector. A las 08:33 piden rescatar animales que quedaron sobre una piedra. A las 09:25 piden un kayak para una madre con su bebé de tres meses, «por la cabeza de Darwin, a la izquierda»; otras personas del sector ya habían sido evacuadas. A las 09:29 circula que la madre está bien, pero a las 09:33 llega un pedido de una madre con su bebé que no puede salir porque tiene agua a los dos lados de la casa. Puede tratarse de dos personas distintas. A las 09:48 los rescatistas piden la ubicación. Sin confirmar si las sacaron.",
    "medios": [],
-   "mensajes": ["9c9dbe8e", "36de5906", "fa41a491"]
+   "mensajes": ["9c9dbe8e", "36de5906", "fa41a491", "283f67d2", "a5eb3349", "9df2b6bc", "25c44467", "faf46778", "376880a1", "e6ed8dea"]
   },
   {
    "id": "r30", "hora": "06:43", "hora_fin": "08:14",
@@ -427,6 +437,79 @@
    "descripcion": "A las 07:48 una persona que intenta pasar dice que no hay paso a la altura del parque artesanal. No dice en qué calle.",
    "medios": [],
    "mensajes": ["e7a8091b", "5b1b6824"]
+  },
+  {
+   "id": "r33", "hora": "08:58", "hora_fin": "09:38",
+   "lugar": "Cementerio de Puerto Ayora", "barrio": "Pelican Bay",
+   "lat": -0.74213, "lon": -90.30939, "precision": "aproximada",
+   "tipo": "via_cortada", "gravedad": 3, "estado": "varias_fuentes", "n_fuentes": 4,
+   "titulo": "El agua llega al cementerio: no hay salida",
+   "descripcion": "El agua que baja de La Cascada y El Edén llega al cementerio, junto a la estación Charles Darwin. A las 08:58 dicen que ya no hay salida por el cementerio. A las 09:23 vecinos rompen una pared para que el agua siga por el manglar hacia el mar. A las 09:29 y a las 09:38 videos muestran la calle del cementerio cubierta por una corriente de agua y lodo. Ubicación aproximada: centro del cementerio según el IGM.",
+   "medios": [
+    {"id": "6d75b6f9", "fotograma": 3, "hora": "09:23", "pie": "09:23: la corriente junto a la cerca"},
+    {"id": "789646e4", "fotograma": 3, "hora": "09:29", "pie": "09:29: la calle del cementerio bajo el agua"},
+    {"id": "6d75b6f9", "fotograma": 1, "hora": "09:23", "pie": "09:23: el agua busca salida hacia el manglar"}
+   ],
+   "mensajes": ["0e4c8cf8", "6d75b6f9", "789646e4", "1ea50828", "1466a6b9"]
+  },
+  {
+   "id": "r34", "hora": "09:17", "hora_fin": "09:22",
+   "lugar": "Avenida Galápagos", "barrio": "La Unión",
+   "lat": -0.73494, "lon": -90.31659, "precision": "calle",
+   "tipo": "inundacion", "gravedad": 2, "estado": "sin_verificar", "n_fuentes": 1,
+   "titulo": "Avenida Galápagos: baja agua de la parte alta",
+   "descripcion": "A las 09:17 un vecino avisa que baja agua de la parte alta por la avenida Galápagos y que se junta con la de La Cascada; pide precaución. A las 09:22 la misma persona comparte una foto de la avenida. No dice en qué tramo.",
+   "medios": [
+    {"id": "c8fb7f0d", "fotograma": 1, "hora": "09:17", "pie": "09:17: el agua cruza la calzada"},
+    {"id": "c8fb7f0d", "fotograma": 3, "hora": "09:17", "pie": "09:17: la vereda de la avenida"}
+   ],
+   "mensajes": ["c8fb7f0d", "80bc63f4"]
+  },
+  {
+   "id": "r35", "hora": "08:59",
+   "lugar": "Bellavista: detrás del centro de salud", "barrio": "Bellavista",
+   "lat": -0.69311, "lon": -90.32589, "precision": "exacta",
+   "tipo": "desbordamiento", "gravedad": 2, "estado": "sin_verificar", "n_fuentes": 1,
+   "titulo": "Bellavista: lodo y piedras detrás del centro de salud",
+   "descripcion": "A las 08:59 un video detrás del centro de salud muestra lodo, piedras y una tubería arrastrados por el agua, y una corriente de agua turbia más abajo. La coordenada sale de la marca de GPS del video.",
+   "medios": [
+    {"id": "60332802", "fotograma": 1, "hora": "08:59", "pie": "08:59: lodo, piedras y una tubería"},
+    {"id": "60332802", "fotograma": 2, "hora": "08:59", "pie": "08:59: el agua corre bajo los árboles"}
+   ],
+   "mensajes": ["60332802"]
+  },
+  {
+   "id": "r36", "hora": "09:15",
+   "lugar": "Bellavista: cancha del barrio Las Palmas", "barrio": "Las Palmas",
+   "lat": -0.69707, "lon": -90.32419, "precision": "barrio",
+   "tipo": "refugio", "gravedad": null, "estado": "oficial", "n_fuentes": 1,
+   "titulo": "Punto de evacuación: cancha de Las Palmas",
+   "descripcion": "Punto de evacuación temporal de Bellavista según el comunicado del COE cantonal reenviado a las 09:15. Ubicación aproximada: centro del barrio; el comunicado no da la dirección de la cancha.",
+   "medios": [],
+   "mensajes": ["1deb2ec2"]
+  },
+  {
+   "id": "r37", "hora": "09:15",
+   "lugar": "Santa Rosa: polideportivo Segundo Chapi", "barrio": "Santa Rosa",
+   "lat": -0.65385, "lon": -90.40729, "precision": "barrio",
+   "tipo": "refugio", "gravedad": null, "estado": "oficial", "n_fuentes": 1,
+   "titulo": "Punto de evacuación: polideportivo de Santa Rosa",
+   "descripcion": "Punto de evacuación temporal de Santa Rosa según el comunicado del COE cantonal reenviado a las 09:15. Ubicación aproximada: centro del poblado.",
+   "medios": [],
+   "mensajes": ["1deb2ec2"]
+  },
+  {
+   "id": "r38", "hora": "09:58",
+   "lugar": "Los Guayabillos", "barrio": "Los Guayabillos",
+   "lat": -0.70020, "lon": -90.34270, "precision": "aproximada",
+   "tipo": "inundacion", "gravedad": 3, "estado": "sin_verificar", "n_fuentes": 1,
+   "titulo": "Los Guayabillos: el agua tapa la parte de atrás de un hotel",
+   "descripcion": "A las 09:58 un vecino que recorre el sector muestra terrenos bajo el agua: la parte de atrás del hotel Piedras Blancas está tapada y el agua sale por el filo. Ubicación aproximada: el poblado según el IGM.",
+   "medios": [
+    {"id": "693fa20b", "fotograma": 3, "hora": "09:58", "pie": "09:58: terreno inundado junto a una construcción"},
+    {"id": "693fa20b", "fotograma": 1, "hora": "09:58", "pie": "09:58: el agua cubre el camino"}
+   ],
+   "mensajes": ["693fa20b", "237758a6"]
   }
  ]
 }
