@@ -865,7 +865,7 @@ function tarjetaZona(z) {
     const [w, wn] = ws.reduce((m, x) => (R[x[0]] ?? 0) / uA[x[0]] > (R[m[0]] ?? 0) / uA[m[0]] ? x : m, ws[2]);
     const ref = ref30(z), rv = ref?.[w], v = R[w] ?? 0;
     const marcas = U.filter(u => u[w]).map(u => ({n: u.nivel, v: u[w] * (w === "R72h" ? 1 : f)}));
-    const max = Math.max(rv || 0, ...marcas.map(m => m.v)) * 1.08;
+    const max = Math.max(v, rv || 0, ...marcas.map(m => m.v)) * 1.08; // la escala crece si la lluvia supera todas las marcas
     const pc = x => Math.min(100, x / max * 100).toFixed(1) + "%";
     const oscuro = n.fg === "#FFFFFF";
     pista = `<div class="track"><div class="tt"><span>Lluvia en ${wn}: <b>${mmTxt(v)}</b> · la ventana que más se acerca a su umbral</span><span>marcas: ▲ medio · ▼ alto · ● muy alto${f !== 1 ? ` (umbrales ×${num(f, 1)}: suelo ${z.humedad || ""})` : ""}</span></div>
@@ -873,7 +873,7 @@ function tarjetaZona(z) {
         <div class="fill" style="width:${pc(v)};background:${oscuro ? "#fff" : "#141414"};opacity:.85"></div>
         ${marcas.map(m => `<div class="mk" style="left:${pc(m.v)};background:${n.fg}"><span title="${esc(m.n)}">${niv(m.n).sh} ${num(m.v, 0)}</span></div>`).join("")}
         ${rv ? `<div class="ref" style="left:${pc(rv)};border-color:${n.fg}"><span style="${rv / max > .7 ? "transform:translateX(-100%);margin-left:-4px" : ""}">30-oct: ${num(rv, 0)} mm</span></div>` : ""}
-      </div><div class="tn">${rv ? `El 30 de octubre, en esta zona, cayeron ${num(rv, 0)} mm en ${wn}.` : ""}</div></div>`;
+      </div><div class="tn">${rv ? `El 30 de octubre, en esta zona, cayeron ${num(rv, 0)} mm en ${wn}${v > rv ? `; ahora van ${num(v, 0)} mm` : ""}.` : ""}</div></div>`;
   }
   const satZ = SAT?.zonas?.[z.id], satV = satZ && satEstado(satZ) === "vigilancia";
   const msg = `${zinfo(z).corto}: nivel de lluvia peligrosa «${z.silencio ? "sin datos en plena lluvia fuerte" : nivel}» a las ${hm(Date.parse(E.generado))} (estimación de SOS Galápagos, no oficial). ${f1} Alertas oficiales: COE, SNGR, ECU 911. https://sosgalapagos.org/clima/?zona=${z.id}`;
