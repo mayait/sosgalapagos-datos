@@ -27,14 +27,14 @@
   {
    "id": "s01", "tipo": "servicio", "fuente": "electrica", "reportes": ["r01"],
    "nombre": "Corte de energía en La Cascada y Las Acacias",
-   "detalle": "05:34: vecinos confirman que no hay energía en La Cascada. 05:39 y 07:10: la empresa eléctrica suspende el servicio por seguridad en La Cascada y barrios aledaños. Solo se dibuja La Cascada con Las Orquídeas: los avisos no dicen qué barrios aledaños. 06:20: se reporta un corte más amplio en la isla; 07:05: Bellavista seguía con energía. 10:01–10:04: vecinos dicen que hay luz en El Mirador y en Miraflores y que no hay en Las Acacias; se suma Las Acacias (una sola fuente).",
+   "detalle": "05:34: vecinos confirman que no hay energía en La Cascada. 05:39 y 07:10: la empresa eléctrica suspende el servicio por seguridad en La Cascada y barrios aledaños. Solo se dibuja La Cascada con Las Orquídeas: los avisos no dicen qué barrios aledaños. 06:20: se reporta un corte más amplio en la isla; 07:05: Bellavista seguía con energía. 10:01–10:04: vecinos dicen que hay luz en El Mirador y en Miraflores y que no hay en Las Acacias; se suma Las Acacias (una sola fuente). 11:20: La Cascada sigue sin luz.",
    "geometria": {"union": [{"barrio": "LA CASCADA"}, {"barrio": "LAS ORQUIDEAS"}, {"barrio": "LAS ACACIAS"}]}
   },
   {
    "id": "a01", "tipo": "inundacion", "fuente": "reportes",
    "reportes": ["r01", "r02", "r03", "r04", "r05", "r06", "r07", "r08", "r09", "r28", "r30"],
    "nombre": "La Cascada y Las Orquídeas: agua hasta la primera planta y más",
-   "detalle": "La zona más grave. 03:50: la Policía hace salir el pasaje 5. 04:21: se desborda la cascada. Desde las 05:15 el agua cubre la primera planta en los pasajes 1 a 5, la calle Miconia, el parque y la iglesia; a las 06:44 llega a la segunda planta y hay familias atrapadas. Rescates en zodiac y kayak desde las 05:43. Desde las 07:24 baja despacio: 40 a 50 cm menos a las 08:32–08:35 y otros 10 cm a las 08:52; a las 09:05 se dice que baja porque el agua se desvía hacia Puerto Ayora. 09:41–09:58: siguen pidiendo rescate para familias en segundos pisos de los pasajes 3 y 5 y cerca de la escuela Loma Linda. 10:01: la cascada sigue cayendo con fuerza. 10:07: el agua sigue bajando y casi no queda gente. Se usa el polígono de los dos barrios porque los reportes hablan de todo el barrio.",
+   "detalle": "La zona más grave. 03:50: la Policía hace salir el pasaje 5. 04:21: se desborda la cascada. Desde las 05:15 el agua cubre la primera planta en los pasajes 1 a 5, la calle Miconia, el parque y la iglesia; a las 06:44 llega a la segunda planta y hay familias atrapadas. Rescates en zodiac y kayak desde las 05:43. Desde las 07:24 baja despacio: 40 a 50 cm menos a las 08:32–08:35 y otros 10 cm a las 08:52; a las 09:05 se dice que baja porque el agua se desvía hacia Puerto Ayora. 09:41–09:58: siguen pidiendo rescate para familias en segundos pisos de los pasajes 3 y 5 y cerca de la escuela Loma Linda. 10:01: la cascada sigue cayendo con fuerza. 10:07: el agua sigue bajando y casi no queda gente. 10:56: la cascada vuelve a caer con más fuerza. 11:10: todavía hay gente en terrazas. 11:45: mucho caudal y agua en la primera planta al pie de la cascada. 12:55: baja, pero lento. 13:45: aún no hay cómo salir. 14:12: el agua sigue en las calles. Se usa el polígono de los dos barrios porque los reportes hablan de todo el barrio.",
    "geometria": {"union": [{"barrio": "LA CASCADA"}, {"barrio": "LAS ORQUIDEAS"}]}
   },
   {
@@ -54,27 +54,28 @@
    "geometria": {"interseccion": [{"barrio": "LA UNION"}, {"reporte": "r12", "buffer_m": 90}]}
   },
   {
-   "id": "a04", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r14"],
+   "id": "a04", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r14", "r40"],
    "nombre": "Matazarnos: Seymour y Marchena",
-   "detalle": "06:37: el agua corre por las calles. 06:39: tapa la bodega de desechos del subcentro de salud. 07:01: la cancha está inundada. 07:10: en Seymour y Marchena el agua casi llega al segundo piso. 08:17: vecinos esperan rescate sobre una losa. 08:43: sacan a una mujer embarazada. 09:26: una persona dice que ya rescataron a quienes esperaban en la losa (sin confirmar). Trazo: 80 m alrededor del cruce y franja de 25 m por Seymour, dentro del barrio.",
+   "detalle": "06:37: el agua corre por las calles. 06:39: tapa la bodega de desechos del subcentro de salud. 07:01: la cancha está inundada. 07:10: en Seymour y Marchena el agua casi llega al segundo piso. 08:17: vecinos esperan rescate sobre una losa. 08:43: sacan a una mujer embarazada. 09:26: una persona dice que ya rescataron a quienes esperaban en la losa (sin confirmar). 08:57: inundación severa y escombros en Seymour y Juan León Mera, junto a la UTPL. 13:53: enseres y escombros arrastrados por el agua. Trazo: 80 m alrededor del cruce y franja de 25 m por Seymour, dentro del barrio.",
    "geometria": {"interseccion": [
     {"barrio": "MATAZARNOS"},
     {"union": [{"reporte": "r14", "buffer_m": 80}, {"via": "Seymour", "buffer_m": 25}]}
    ]}
   },
   {
-   "id": "a05", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r15"],
+   "id": "a05", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r15", "r39", "r42"],
    "nombre": "Los Arrayanes: casas inundadas",
-   "detalle": "06:38: se inunda una casa con niñas dentro. 07:17: cae un muro. 07:44: las casas se llenan; vecinos y municipio intentan abrir un drenaje. 08:20: el agua baja como río hacia El Edén. Trazo: 60 m alrededor del punto del reporte y franja de 30 m por la calle Arrayanes, dentro del barrio.",
+   "detalle": "06:38: se inunda una casa con niñas dentro. 07:17: cae un muro. 07:44: las casas se llenan; vecinos y municipio intentan abrir un drenaje. 08:20: el agua baja como río hacia El Edén. 08:54: inundación moderada en Juan León Mera entre Daphne y la calle 63. 14:20: la calle Marchena cubierta de agua entre Cormorán y Piquero. Trazo: 60 m alrededor del punto del reporte de Arrayanes, 50 m alrededor de los otros dos puntos y franja de 30 m por la calle Arrayanes, dentro del barrio.",
    "geometria": {"interseccion": [
     {"barrio": "LOS ARRAYANES"},
-    {"union": [{"reporte": "r15", "buffer_m": 60}, {"via": "Arrayanes", "buffer_m": 30}]}
+    {"union": [{"reporte": "r15", "buffer_m": 60}, {"via": "Arrayanes", "buffer_m": 30},
+               {"reporte": "r39", "buffer_m": 50}, {"reporte": "r42", "buffer_m": 50}]}
    ]}
   },
   {
    "id": "a06", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r16", "r17", "r18"],
    "nombre": "El Edén: Seymour, Fragata y Petrel",
-   "detalle": "07:05: baja un torrente por la calle que viene de la iglesia. 07:22: arrastra una camioneta. 07:51: una persona encerrada en un segundo piso en la calle Fragata. 08:00: el agua entra por los portones de Fragata y sigue hacia el parque. 08:18: Seymour y Petrel bajo el agua. 08:31: sigue saliendo agua por El Edén. 09:07–09:12: el torrente sigue bajando de la iglesia hacia el hotel Fernandina. Trazo: franja de 30 m por Seymour y por Fragata cerca de Seymour, y 50 m alrededor de los puntos, dentro del barrio.",
+   "detalle": "07:05: baja un torrente por la calle que viene de la iglesia. 07:22: arrastra una camioneta. 07:51: una persona encerrada en un segundo piso en la calle Fragata. 08:00: el agua entra por los portones de Fragata y sigue hacia el parque. 08:18: Seymour y Petrel bajo el agua. 08:31: sigue saliendo agua por El Edén. 09:07–09:12: el torrente sigue bajando de la iglesia hacia el hotel Fernandina. 08:47: en Fragata el flujo se frena y vecinos piden evacuar en kayak. 08:49: en Seymour y Petrel el agua cubre la primera planta. 10:40: el torrente rompe la calzada bajo la iglesia. 11:14: ya no corre agua; queda un socavón que corta la calle Seymour. Trazo: franja de 30 m por Seymour y por Fragata cerca de Seymour, y 50 m alrededor de los puntos, dentro del barrio.",
    "geometria": {"interseccion": [
     {"barrio": "EL EDEN"},
     {"union": [
@@ -85,9 +86,9 @@
    ]}
   },
   {
-   "id": "c01", "tipo": "riesgo", "fuente": "reportes", "reportes": ["r15", "r16", "r17", "r18", "r19", "r33"],
+   "id": "c01", "tipo": "riesgo", "fuente": "reportes", "reportes": ["r15", "r16", "r17", "r18", "r19", "r33", "r40", "r41"],
    "nombre": "Corredor del agua: Seymour, de Matazarnos a Pelican Bay",
-   "detalle": "El agua que rebosa de La Cascada baja por la calle Seymour hacia El Edén y Pelican Bay. 08:21: «la calle que baja de Arrayanes hasta El Edén: Seymour». 07:05 a 07:54: torrente en Seymour. 08:00: entra por Fragata hacia el parque. 08:18: Seymour y Petrel con corriente. 07:25: toda el agua baja hacia Pelican Bay y no hay paso. 09:12: el torrente sigue en la bajada de la iglesia de El Edén. 08:58–09:38: el agua llega al cementerio y busca salida por el manglar hacia el mar (zona a07). No cruzar mientras corra agua. Trazo: 12 m a cada lado del eje de las calles de OSM; Fragata y Petrel solo cerca de Seymour.",
+   "detalle": "El agua que rebosa de La Cascada baja por la calle Seymour hacia El Edén y Pelican Bay. 08:21: «la calle que baja de Arrayanes hasta El Edén: Seymour». 07:05 a 07:54: torrente en Seymour. 08:00: entra por Fragata hacia el parque. 08:18: Seymour y Petrel con corriente. 07:25: toda el agua baja hacia Pelican Bay y no hay paso. 09:12: el torrente sigue en la bajada de la iglesia de El Edén. 08:58–09:38: el agua llega al cementerio y busca salida por el manglar hacia el mar (zona a07). 11:14: ya no corre agua bajo la iglesia de El Edén; queda un socavón que corta la calle. 11:31: agua en la avenida Charles Darwin, en Pelican Bay. No cruzar mientras corra agua. Trazo: 12 m a cada lado del eje de las calles de OSM; Fragata y Petrel solo cerca de Seymour.",
    "geometria": {"union": [
     {"via": "Seymour", "buffer_m": 12},
     {"interseccion": [{"via": "Fragata", "buffer_m": 12}, {"via": "Seymour", "buffer_m": 150}]},
@@ -96,14 +97,14 @@
   },
   {
    "id": "c02", "tipo": "riesgo", "fuente": "reportes", "reportes": ["r21"],
-   "nombre": "Encañada en la Curva Brava: vía cortada",
-   "detalle": "05:30: el agua corre por la vía. 05:42: no hay paso. 05:59: la encañada cruza la carretera con mucho caudal. 08:03: la maquinaria intenta desviar el cauce. 08:07: calzada rota. 08:10: la vía sigue cerrada. Ubicación por confirmar: círculo de 50 m sobre la curva cerrada de la vía a Bellavista; ningún mensaje da el punto exacto.",
+   "nombre": "Curva Brava: encañada sobre la vía, habilitada desde las 11:02",
+   "detalle": "05:30: el agua corre por la vía. 05:42: no hay paso. 05:59: la encañada cruza la carretera con mucho caudal. 06:36: una corriente con piedras cubre todo el ancho. 08:03: la maquinaria intenta desviar el cauce. 08:07: calzada rota. 09:01: nivel alto con flujo constante. 10:59: paso restaurado con control de tráfico. 11:02: vía habilitada (vecinos y Consejo de Gobierno). La calzada quedó dañada. Círculo de 50 m sobre el punto de un reporte directo en el km 4,4–4,5 de la vía a Bellavista, confirmado por la coordinación de SOS Galápagos.",
    "geometria": {"reporte": "r21", "buffer_m": 50}
   },
   {
    "id": "c03", "tipo": "riesgo", "fuente": "reportes", "reportes": ["r22"],
-   "nombre": "Encañada en el km 4½ de la vía",
-   "detalle": "05:08: agua frente a las casas. 05:31: no se puede llegar a las bombas del pozo. 06:36: una corriente con piedras cubre todo el ancho de la vía. 08:14: el COE lo cuenta entre los sitios afectados. Ubicación por confirmar: círculo de 60 m en el pozo del IGM; 4,5 km medidos por la vía desde el inicio de la avenida Baltra caen unos 800 m más al sur, cerca de Miramar.",
+   "nombre": "Encañada en el sector del pozo profundo",
+   "detalle": "05:08: agua frente a las casas. 05:31: no se puede llegar a las bombas del pozo. 11:44: la encañada está desbordada, con las tuberías fuera de su sitio y cerramientos destruidos; ya pasan vehículos. El «km 4½» del aviso del COE corresponde a la Curva Brava, un kilómetro al sur. Ubicación por confirmar: círculo de 60 m en el pozo del IGM.",
    "geometria": {"reporte": "r22", "buffer_m": 60}
   },
   {
@@ -115,7 +116,7 @@
   {
    "id": "c05", "tipo": "riesgo", "fuente": "reportes", "reportes": ["r24"],
    "nombre": "Encañadas en El Bosque",
-   "detalle": "03:28: la encañada baja llena. 05:27: el parque queda aislado entre dos encañadas. 05:50: un árbol cierra la vía a la altura del tanque de agua; 08:03 vecinos abren un paso. Ubicación aproximada: círculo de 80 m en el barrio.",
+   "detalle": "03:28: la encañada baja llena. 05:27: el parque queda aislado entre dos encañadas. 05:50: un árbol cierra la vía a la altura del tanque de agua; 08:03 vecinos abren un paso. 13:43: un cable caído en la corriente. 14:01: un reporte directo dice que la encañada pasa crecida desde la 01:00. Ubicación aproximada: círculo de 80 m en el barrio.",
    "geometria": {"reporte": "r24", "buffer_m": 80}
   },
   {
@@ -131,10 +132,10 @@
    "geometria": {"reporte": "r31", "buffer_m": 80}
   },
   {
-   "id": "a07", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r33"],
-   "nombre": "Pelican Bay: el agua llega al cementerio",
-   "detalle": "08:58: ya no hay salida por el cementerio. 09:23: vecinos rompen una pared para que el agua siga por el manglar hacia el mar. 09:29 y 09:38: la calle del cementerio cubierta por una corriente de agua y lodo. Ubicación aproximada: círculo de 100 m alrededor del cementerio del IGM; los reportes no dicen hasta dónde llega el agua.",
-   "geometria": {"reporte": "r33", "buffer_m": 100}
+   "id": "a07", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r33", "r19", "r41"],
+   "nombre": "Pelican Bay: cementerio y avenida Charles Darwin",
+   "detalle": "08:58: ya no hay salida por el cementerio. 09:23: vecinos rompen una pared para que el agua siga por el manglar hacia el mar. 09:29 y 09:38: la calle del cementerio cubierta por una corriente de agua y lodo. 11:31: la avenida Charles Darwin cubierta de agua de vereda a vereda. La coordinación de SOS Galápagos confirma que en Pelican Bay hubo inundación. Ubicación aproximada: círculo de 100 m alrededor del cementerio del IGM y de 60 m sobre la avenida a la altura de Seymour; los reportes no dicen el tramo ni hasta dónde llega el agua.",
+   "geometria": {"union": [{"reporte": "r33", "buffer_m": 100}, {"reporte": "r41", "buffer_m": 60}]}
   },
   {
    "id": "a08", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r38"],
@@ -153,6 +154,12 @@
    "nombre": "Bellavista: encañada detrás del centro de salud",
    "detalle": "08:59: lodo, piedras y una tubería arrastrados detrás del centro de salud, con corriente más abajo. 08:43: circula que se desbordó otra encañada en Bellavista. Círculo de 60 m sobre la marca de GPS del video.",
    "geometria": {"reporte": "r35", "buffer_m": 60}
+  },
+  {
+   "id": "a09", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r43"],
+   "nombre": "Jardines de Bellavista: terrenos bajos junto al camino viejo",
+   "detalle": "14:01: un reporte directo dice que los callejones 2, 3 y 4 bajan de la vía a Baltra hacia terrenos junto al camino viejo; el agua no logra salir y se acumula en los terrenos más bajos, donde hay cuatro viviendas, una ya desalojada. Una sola fuente. Ubicación aproximada: círculo de 80 m sobre el poblado del IGM; el reporte no da el punto.",
+   "geometria": {"reporte": "r43", "buffer_m": 80}
   }
  ]
 }
