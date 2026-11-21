@@ -379,5 +379,5 @@ script = "10_publicar_web.py"
 nota = "Genera publicar/mapas con las capas de los estudios (no publica)"
 entradas = ["estudios/estudios.json", "scripts/capas_estudios.json", "scripts/visor_mapas.json", "web/index.html", "export/galapagos/*", "export/galapagos-completo/*.geojson",
             "estudios/*/datos/*.geojson", "estudios/*/datos/*/*.geojson", "estudios/santa-cruz/datos/modelo2d/b_central/*.geojson",
-            "teselas/dtm_sgiar/teselas.json", "datos/dtm_sgiar/dtm_sgiar_5m.tif"]
+            "teselas/dtm_sgiar/teselas.json", "datos/dtm_sgiar/dtm_sgiar_5m.tif", "../reportes/publicar/2026-11-21/reportes.geojson"]
 salidas = ["publicar/mapas/index.html"]

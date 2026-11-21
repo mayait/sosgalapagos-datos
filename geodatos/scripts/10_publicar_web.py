@@ -159,6 +159,41 @@ def grupos_estudios():
     return grupos, sorted(TMP_ESTUDIOS.glob("*.geojson"))
 
 
+# ---------------------------------------------------------------- reportes ciudadanos de la emergencia (reportes/)
+EVENTO = "2026-11-21"
+REPORTES = ROOT.parent / "reportes" / "publicar" / EVENTO      # lo deja reportes/scripts/03_publicar.py (sin EXIF, sin mensajes)
+ARCHIVO_REPORTES = "reportes_21nov.geojson"
+GRAVEDAD = {1: "1 · Leve", 2: "2 · Moderada", 3: "3 · Grave", 4: "4 · Muy grave"}
+CAPA_REPORTES = {"id": "reportes_21nov", "titulo": "Reportes ciudadanos del 21-nov (sin verificar)", "archivo": ARCHIVO_REPORTES,
+                 "tipo": "punto", "visible": True, "fotos_base": f"reportes/{EVENTO}/",
+                 "fuente": "Reportes de vecinos por WhatsApp, sin verificar. No es información oficial.",
+                 "descripcion": "Reportes de vecinos por WhatsApp, sin verificar. No es información oficial. "
+                                "Cada punto resume varios mensajes y fotos; la ubicación puede ser aproximada."}
+
+
+def preparar_reportes(destino):
+    """Copia la capa de reportes y sus fotos a `destino` (datos/<variante>/). Falla si falta lo que deja 03_publicar.py.
+    Solo toca reportes/publicar/<evento>/ (ya depurado): nunca reportes/privado/. Devuelve el GeoJSON publicado."""
+    for p in (REPORTES / "reportes.geojson", REPORTES / "fotos", REPORTES / "mini"):
+        if not p.exists():
+            raise SystemExit(f"Falta {p.relative_to(ROOT.parent)}. Corre antes: geodatos/.venv/bin/python -I reportes/scripts/03_publicar.py")
+    data = json.loads((REPORTES / "reportes.geojson").read_text())
+    for f in data["features"]:
+        p = f["properties"]
+        hora = p.get("hora") or ""
+        if p.get("hora_fin") and p["hora_fin"] != hora: hora = f"{hora} a {p['hora_fin']}"
+        p["hora_txt"] = hora + " (hora de Galápagos)" if hora else None
+        p["gravedad_txt"] = GRAVEDAD.get(p.get("gravedad"))
+        p["ubicacion_txt"] = "Ubicación aproximada" if p.get("precision") in ("aproximada", "por_confirmar") else None
+        for ft in p.get("fotos") or []:
+            for k in ("archivo", "mini"):
+                if not (REPORTES / ft[k]).exists(): raise SystemExit(f"Falta la foto {REPORTES / ft[k]}; corre 03_publicar.py")
+    (destino / ARCHIVO_REPORTES).write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    base = destino / "reportes" / EVENTO
+    for d in ("fotos", "mini"): shutil.copytree(REPORTES / d, base / d)
+    return data
+
+
 # ---------------------------------------------------------------- ajustes propios del visor público
 VISOR = ROOT / "scripts" / "visor_mapas.json"
 
@@ -342,6 +377,9 @@ def main():
         g_rel = next(g for g in man["grupos"] if g["id"] == "relieve")
         g_rel["capas"].insert(0, json.loads(json.dumps(CAPA_DTM)))
         shutil.copytree(TESELAS_DTM, OUT / "teselas" / "dtm_sgiar")
+    g_em = next((g for g in man["grupos"] if g["id"] == "emergencia"), None)
+    if g_em is None: raise SystemExit("El manifiesto no trae el grupo «emergencia»")
+    g_em["capas"].insert(0, json.loads(json.dumps(CAPA_REPORTES)))
     man = aplicar_visor(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
     publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
@@ -359,6 +397,7 @@ def main():
         d_datos = OUT / "datos" / var; d_desc = OUT / "descargas" / var
         d_datos.mkdir(parents=True); d_desc.mkdir(parents=True)
         shutil.copytree(src / "raster", d_datos / "raster")
+        reportes = preparar_reportes(d_datos)
         info = {"titulo": TITULO_VAR[var], "archivos": {}}
         todo_shp = zipfile.ZipFile(d_desc / f"todo-{var}-shp.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
         todo_gj = zipfile.ZipFile(d_desc / f"todo-{var}-geojson.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
@@ -393,6 +432,8 @@ def main():
             info["archivos"][gj.name] = {"titulo": titulo, "elementos": len(feats),
                                          "shp": {"url": f"descargas/{var}/{zpath.name}", "tam": tam(zpath.stat().st_size)},
                                          "geojson": {"url": f"datos/{var}/{gj.name}", "tam": tam(gj.stat().st_size)}}
+        info["archivos"][ARCHIVO_REPORTES] = {"titulo": CAPA_REPORTES["titulo"], "elementos": len(reportes["features"]),
+            "geojson": {"url": f"datos/{var}/{ARCHIVO_REPORTES}", "tam": tam((d_datos / ARCHIVO_REPORTES).stat().st_size)}}
         # Rásters: PNG + archivo de georreferencia (.pgw) + .prj
         lim = json.loads((src / "raster" / "limites.json").read_text())
         for kind in sorted({p.stem.split("_")[-1] for p in (src / "raster").glob("*.png")}):

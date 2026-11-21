@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reportes de campo · SOS Galápagos</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+:root{--g1:#f5c518;--g2:#f28c28;--g3:#d62828;--g4:#6a0f5c;--ref:#2a9d4a;--fondo:#fff;--tx:#1d2733;--bor:#d9dee4;--sec:#f4f6f8}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font:15px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--tx)}
+#app{display:flex;flex-direction:column;height:100%}
+#mapa{flex:1 1 auto;min-height:0}
+#panel{flex:0 0 auto;max-height:46vh;display:flex;flex-direction:column;background:var(--fondo);border-top:2px solid var(--bor);z-index:500}
+#panel.plegado{max-height:none}
+#panel.plegado #cuerpo{display:none}
+#cab{display:flex;align-items:center;gap:8px;padding:8px 12px;cursor:pointer}
+#cab h1{font-size:15px;margin:0;flex:1}
+#cab button{border:1px solid var(--bor);background:var(--sec);border-radius:6px;padding:4px 10px;font-size:13px}
+#cuerpo{overflow:auto;padding:0 12px 12px}
+.nota{background:#fff3cd;border:2px solid #e0a800;border-radius:6px;padding:8px 10px;font-weight:600;margin:4px 0 8px}
+.chico{font-size:12px;color:#5b6773}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin:14px 0 6px;color:#5b6773}
+.leyenda,.filtros{display:flex;flex-wrap:wrap;gap:6px 12px}
+.leyenda span,.filtros label{display:inline-flex;align-items:center;gap:5px;font-size:13px}
+.punto{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #333}
+.punto.apr{border:2px dashed #333;box-shadow:none}
+.punto.ref{border-radius:3px}
+.lista{list-style:none;margin:0;padding:0}
+.lista li{display:flex;gap:8px;align-items:flex-start;padding:7px 4px;border-bottom:1px solid var(--bor);cursor:pointer}
+.lista li:hover,.lista li:focus{background:var(--sec)}
+.lista .h{font-variant-numeric:tabular-nums;color:#5b6773;font-size:12px;min-width:38px}
+.aviso{padding:6px 0;border-bottom:1px solid var(--bor);font-size:13px}
+.marca{width:26px;height:26px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1.5px #222;color:#fff;font:700 13px/20px system-ui;text-align:center}
+.marca.apr{border:3px dashed #fff;box-shadow:0 0 0 1.5px #222}
+.marca.ref{border-radius:5px}
+.etq{display:inline-block;color:#fff;border-radius:4px;padding:1px 7px;font-size:12px;font-weight:600}
+.pop h3{margin:0 0 4px;font-size:15px}
+.pop .m{font-size:12px;color:#5b6773;margin-bottom:6px}
+.pop p{margin:6px 0}
+.pop .apx{background:#fff3cd;border-radius:4px;padding:3px 6px;font-size:12px;margin:6px 0}
+.tira{display:flex;gap:4px;overflow-x:auto;padding-bottom:4px}
+.tira img{height:64px;width:auto;border-radius:4px;cursor:pointer;flex:0 0 auto}
+.leaflet-popup-content{margin:10px 12px;width:min(300px,70vw)!important}
+#visor{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;display:none;flex-direction:column;align-items:center;justify-content:center;color:#fff}
+#visor.on{display:flex}
+#visor img{max-width:96vw;max-height:76vh;object-fit:contain}
+#visor .pie{padding:10px 56px;text-align:center;max-width:800px}
+#visor button{position:absolute;background:rgba(255,255,255,.18);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:22px;cursor:pointer}
+#visor .ant{left:8px;top:50%}#visor .sig{right:8px;top:50%}#visor .cer{right:8px;top:8px}
+@media(min-width:800px){
+ #app{flex-direction:row}
+ #panel{order:-1;width:380px;max-height:none;border-top:0;border-right:2px solid var(--bor)}
+ #panel.plegado{width:380px}
+ #panel.plegado #cuerpo{display:block}
+ #cab{cursor:default}#cab button{display:none}
+}
+</style>
+</head>
+<body>
+<div id="app">
+ <div id="mapa" role="application" aria-label="Mapa de reportes"></div>
+ <aside id="panel">
+  <div id="cab"><h1 id="titulo">Reportes de campo</h1><button id="plegar" type="button">Ver lista</button></div>
+  <div id="cuerpo">
+   <div class="nota">Reportes ciudadanos sin verificar. No es información oficial.</div>
+   <div class="chico" id="corte"></div>
+   <h2>Leyenda</h2><div class="leyenda" id="leyenda"></div>
+   <h2>Filtros</h2><div class="filtros" id="fgrav"></div><div class="filtros" id="ftipo" style="margin-top:6px"></div>
+   <h2>Reportes <span id="n" class="chico"></span></h2><ul class="lista" id="lista"></ul>
+   <h2>Por ubicar</h2><ul class="lista" id="sinub"></ul>
+   <h2>Avisos</h2><div id="avisos"></div>
+  </div>
+ </aside>
+</div>
+<div id="visor" role="dialog" aria-modal="true" aria-label="Foto">
+ <button class="cer" type="button" aria-label="Cerrar">×</button>
+ <button class="ant" type="button" aria-label="Anterior">‹</button>
+ <img alt="">
+ <button class="sig" type="button" aria-label="Siguiente">›</button>
+ <div class="pie"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function(){
+'use strict';
+var COL={1:'#f5c518',2:'#f28c28',3:'#d62828',4:'#6a0f5c',0:'#8a949e'};
+var GRAV_TXT={1:'Leve',2:'Moderada',3:'Grave',4:'Muy grave',0:'Sin dato'};
+var TIPOS={inundacion:'Inundación',desbordamiento:'Desbordamiento',personas_atrapadas:'Personas atrapadas',via_cortada:'Vía cortada',rescate:'Rescate',refugio:'Refugio',necesidad:'Necesidad'};
+var ESC={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};
+function e(t){return t==null?'':String(t).replace(/[&<>"']/g,function(c){return ESC[c];});}
+function $(id){return document.getElementById(id);}
+function g(p){return p.tipo==='refugio'?'ref':(p.gravedad||0);}
+function color(p){return p.tipo==='refugio'?'#2a9d4a':COL[p.gravedad||0];}
+function aprox(p){return p.precision==='aproximada'||p.precision==='por_confirmar';}
+function etq(p){return p.tipo==='refugio'?'<span class="etq" style="background:#2a9d4a">Refugio</span>':'<span class="etq" style="background:'+color(p)+(p.gravedad===1?';color:#222':'')+'">'+e(GRAV_TXT[p.gravedad||0])+'</span>';}
+function horas(p){return e(p.hora||'')+(p.hora_fin&&p.hora_fin!==p.hora?'–'+e(p.hora_fin):'');}
+
+var mapa=L.map('mapa',{zoomControl:true}).setView([-0.74,-90.32],13);
+var osm=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'});
+var sat=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Esri World Imagery'});
+osm.addTo(mapa);
+L.control.layers({'Calles (OpenStreetMap)':osm,'Satélite (Esri)':sat},null,{collapsed:true}).addTo(mapa);
+
+var feats=[],marc={},capa=L.layerGroup().addTo(mapa);
+var fg={},ft={};
+var visor={fotos:[],i:0};
+
+function pinReporte(color,glifo,aprox,w){
+  var tinta=color.toLowerCase()==='#facc15'?'#422006':'#fff';
+  var G={foto:'<path d="M9.5 10.5h3l1.2-1.8h4.6l1.2 1.8h3v8.5h-13z" fill="'+tinta+'"/><circle cx="16" cy="14.8" r="2.7" fill="'+color+'"/>',
+    aviso:'<path d="M16 8.3l7.2 12.4H8.8z" fill="'+tinta+'" stroke="'+tinta+'" stroke-width="1" stroke-linejoin="round"/><rect x="15.2" y="12.6" width="1.6" height="4" fill="'+color+'"/><circle cx="16" cy="18.6" r=".95" fill="'+color+'"/>',
+    refugio:'<text x="16" y="20" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="800" fill="'+tinta+'">R</text>',nada:''};
+  var d='M16 38C16 38 3 24 3 14.5a13 13 0 0 1 26 0C29 24 16 38 16 38z';
+  return '<svg viewBox="0 0 32 40" width="'+w+'" height="'+w*1.25+'" aria-hidden="true" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))"><path d="'+d+'" fill="'+color+'" stroke="#fff" stroke-width="2.5"/>'+
+    (aprox?'<path d="'+d+'" fill="none" stroke="#111" stroke-width="1.3" stroke-dasharray="3 2.5"/>':'')+(G[glifo]||'')+'</svg>';
+}
+function icono(p){
+  var ref=p.tipo==='refugio',gl=ref?'refugio':(p.fotos&&p.fotos.length?'foto':'aviso');
+  return L.divIcon({className:'',html:pinReporte(ref?'#16a34a':color(p),gl,aprox(p),32),iconSize:[32,40],iconAnchor:[16,39],popupAnchor:[0,-36]});
+}
+function popup(p){
+  var h='<div class="pop"><h3>'+e(p.titulo)+'</h3><div class="m">'+horas(p)+(p.lugar?' · '+e(p.lugar):'')+'</div><div>'+etq(p)+' <span class="chico">'+e(TIPOS[p.tipo]||p.tipo)+'</span></div>';
+  if(aprox(p))h+='<div class="apx">Ubicación aproximada</div>';
+  h+='<p>'+e(p.descripcion)+'</p>';
+  if(p.fotos&&p.fotos.length){h+='<div class="tira">';p.fotos.forEach(function(f,i){h+='<img src="'+e(f.mini)+'" alt="'+e(f.pie||'Foto')+'" loading="lazy" data-r="'+e(p.id)+'" data-i="'+i+'">';});h+='</div>';}
+  return h+'<div class="chico">'+e(p.fuente)+'</div></div>';
+}
+function abrirVisor(p,i){visor.fotos=p.fotos;visor.i=i;mostrar();$('visor').classList.add('on');}
+function mostrar(){var f=visor.fotos[visor.i],v=$('visor');v.querySelector('img').src=f.archivo;v.querySelector('img').alt=f.pie||'Foto';
+  v.querySelector('.pie').textContent=(f.hora?f.hora+' · ':'')+(f.pie||'')+'  ('+(visor.i+1)+'/'+visor.fotos.length+')';
+  var m=visor.fotos.length>1;v.querySelector('.ant').style.display=v.querySelector('.sig').style.display=m?'':'none';}
+function mover(d){var n=visor.fotos.length;visor.i=(visor.i+d+n)%n;mostrar();}
+function cerrar(){$('visor').classList.remove('on');}
+$('visor').addEventListener('click',function(ev){var c=ev.target;
+  if(c.classList.contains('cer')||c===this||c.classList.contains('pie'))cerrar();
+  else if(c.classList.contains('ant'))mover(-1);else if(c.classList.contains('sig'))mover(1);});
+document.addEventListener('keydown',function(ev){if(!$('visor').classList.contains('on'))return;
+  if(ev.key==='Escape')cerrar();else if(ev.key==='ArrowLeft')mover(-1);else if(ev.key==='ArrowRight')mover(1);});
+mapa.on('popupopen',function(ev){var el=ev.popup.getElement();
+  el.addEventListener('click',function(x){var t=x.target;if(t.tagName==='IMG'&&t.dataset.r){var p=feats.filter(function(f){return f.id===t.dataset.r;})[0];if(p)abrirVisor(p,+t.dataset.i);}});});
+
+function ordenar(a,b){var ga=a.tipo==='refugio'?-1:-(a.gravedad||0),gb=b.tipo==='refugio'?-1:-(b.gravedad||0);return ga-gb||String(a.hora).localeCompare(String(b.hora));}
+function visible(p){return fg[g(p)]!==false&&ft[p.tipo]!==false;}
+function itemLista(p,onclick){var li=document.createElement('li');li.tabIndex=0;
+  li.innerHTML='<span class="punto'+(aprox(p)?' apr':'')+(p.tipo==='refugio'?' ref':'')+'" style="background:'+color(p)+'"></span><div><div><span class="h">'+e(p.hora)+'</span> <b>'+e(p.titulo)+'</b></div><div class="chico">'+e(p.lugar||'')+'</div></div>';
+  li.addEventListener('click',onclick);li.addEventListener('keydown',function(k){if(k.key==='Enter')onclick();});return li;}
+function pintar(){
+  capa.clearLayers();var ul=$('lista');ul.innerHTML='';var n=0;
+  feats.slice().sort(ordenar).forEach(function(p){
+    if(!visible(p))return;n++;capa.addLayer(marc[p.id].m);
+    ul.appendChild(itemLista(p,function(){var m=marc[p.id];mapa.flyTo(m.m.getLatLng(),Math.max(mapa.getZoom(),17),{duration:.6});m.m.openPopup();if(window.innerWidth<800)$('panel').classList.add('plegado');}));});
+  $('n').textContent='('+n+' de '+feats.length+')';
+}
+function filtro(cont,clave,est,defs){var c=$(cont);defs.forEach(function(d){var l=document.createElement('label');
+  l.innerHTML='<input type="checkbox" checked> '+e(d[1]);l.firstChild.addEventListener('change',function(){est[d[0]]=this.checked;pintar();});c.appendChild(l);});}
+
+$('plegar').addEventListener('click',function(){var p=$('panel');p.classList.toggle('plegado');this.textContent=p.classList.contains('plegado')?'Ver lista':'Ocultar';setTimeout(function(){mapa.invalidateSize();},50);});
+$('cab').addEventListener('click',function(ev){if(ev.target.id!=='plegar'&&window.innerWidth<800)$('plegar').click();});
+if(window.innerWidth<800)$('panel').classList.add('plegado');
+
+function cargar(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json();});}
+Promise.all([cargar('evento.json'),cargar('reportes.geojson')]).then(function(r){
+  var ev=r[0],gj=r[1];
+  document.title=(ev.titulo||'Reportes de campo')+' · SOS Galápagos';$('titulo').textContent=ev.titulo||'Reportes de campo';
+  if(ev.corte){var d=new Date(ev.corte);$('corte').textContent='Reportes hasta las '+d.toLocaleTimeString('es-EC',{hour:'2-digit',minute:'2-digit',timeZone:'Pacific/Galapagos'})+' del '+d.toLocaleDateString('es-EC',{day:'numeric',month:'long',year:'numeric',timeZone:'Pacific/Galapagos'})+' (hora de Galápagos).';}
+  var ley=$('leyenda');[1,2,3,4].forEach(function(k){ley.innerHTML+='<span>'+pinReporte(COL[k],'nada',false,16)+e(k+' · '+((ev.gravedad&&ev.gravedad[k])||GRAV_TXT[k]).split(':')[0])+'</span>';});
+  ley.innerHTML+='<span>'+pinReporte('#16a34a','refugio',false,20)+'Refugio</span><span>'+pinReporte('#8a949e','foto',false,20)+'Reporte con foto</span><span>'+pinReporte('#8a949e','aviso',false,20)+'Reporte sin foto</span><span>'+pinReporte('#8a949e','nada',true,16)+'Borde punteado: ubicación aproximada o por confirmar</span><span>'+pinReporte(COL[0],'nada',false,16)+'Sin dato de gravedad</span>';
+  feats=gj.features.map(function(f){var p=f.properties;p._ll=[f.geometry.coordinates[1],f.geometry.coordinates[0]];return p;});
+  var tipos={};feats.forEach(function(p){tipos[p.tipo]=1;});
+  filtro('fgrav','g',fg,[[4,'4 Muy grave'],[3,'3 Grave'],[2,'2 Moderada'],[1,'1 Leve'],[0,'Sin dato'],['ref','Refugio']]);
+  filtro('ftipo','t',ft,Object.keys(tipos).map(function(t){return [t,TIPOS[t]||t];}));
+  feats.forEach(function(p){var m=L.marker(p._ll,{icon:icono(p),title:p.titulo,keyboard:true});m.bindPopup(popup(p),{maxHeight:380});marc[p.id]={m:m};});
+  pintar();
+  if(feats.length)mapa.fitBounds(L.latLngBounds(feats.map(function(p){return p._ll;})),{padding:[40,40],maxZoom:16});
+  var su=$('sinub');(ev.sin_ubicar||[]).sort(ordenar).forEach(function(p){
+    var li=itemLista(p,function(){});li.style.cursor='default';
+    var d=document.createElement('div');d.className='chico';d.textContent=p.descripcion||'';li.lastChild.appendChild(d);su.appendChild(li);});
+  if(!su.children.length)su.innerHTML='<li class="chico" style="cursor:default">Ninguno.</li>';
+  var av=$('avisos');(ev.avisos||[]).forEach(function(a){var d=document.createElement('div');d.className='aviso';
+    d.innerHTML='<b>'+e(a.hora)+'</b> · '+e(a.texto)+'<div class="chico">'+e(a.fuente)+'</div>';av.appendChild(d);});
+}).catch(function(err){$('cuerpo').insertAdjacentHTML('afterbegin','<div class="nota">No se pudieron cargar los reportes. '+e(err.message)+'</div>');});
+})();
+</script>
+</body>
+</html>
