@@ -1,0 +1,252 @@
+{
+ "nota": "Lluvia medida por estaciones; el nivel es la estimación preliminar de SOS Galápagos, no una alerta oficial. Horas en UTC; Galápagos = UTC−6.",
+ "eventos": {
+  "30-oct": {
+   "desbordamiento": "2026-10-31T03:20:00Z",
+   "etiqueta": "30-oct, 21:20 (informe de La Cascada)",
+   "estaciones": {
+    "ambient/miconia": {
+     "nombre": "Miconia · 422 m",
+     "zona": "alta",
+     "danada": false,
+     "max_R1h": 81.8,
+     "max_R1h_fin": "2026-10-31T02:55:00Z",
+     "max_R3h": 164.3,
+     "max_R3h_fin": "2026-10-31T03:20:00Z",
+     "R24h": 260.2,
+     "R24h_cobertura": 0.99,
+     "R72h": 270.3,
+     "R72h_cobertura": 1.0,
+     "P5d_antes": 16.7
+    },
+    "ierse/n_glps09": {
+     "nombre": "Santa Rosa · 416 m",
+     "zona": "alta",
+     "danada": false,
+     "max_R1h": 70.6,
+     "max_R1h_fin": "2026-10-31T03:15:00Z",
+     "max_R3h": 136.0,
+     "max_R3h_fin": "2026-10-31T03:20:00Z",
+     "R24h": 231.6,
+     "R24h_cobertura": 0.94,
+     "R72h": 236.6,
+     "R72h_cobertura": 0.95,
+     "P5d_antes": 5.0
+    },
+    "ierse/n_glps05": {
+     "nombre": "Los Guayabillos · 178 m",
+     "zona": "media",
+     "danada": false,
+     "max_R1h": 63.4,
+     "max_R1h_fin": "2026-10-31T03:05:00Z",
+     "max_R3h": 131.4,
+     "max_R3h_fin": "2026-10-31T03:20:00Z",
+     "R24h": 167.6,
+     "R24h_cobertura": 0.97,
+     "R72h": 177.8,
+     "R72h_cobertura": 0.97,
+     "P5d_antes": 12.0
+    },
+    "ambient/epmapasc_espol": {
+     "nombre": "EPMAPASC · 22 m",
+     "zona": "costa",
+     "danada": false,
+     "max_R1h": 23.4,
+     "max_R1h_fin": "2026-10-30T23:25:00Z",
+     "max_R3h": 39.1,
+     "max_R3h_fin": "2026-10-31T01:00:00Z",
+     "R24h": 65.5,
+     "R24h_cobertura": 0.75,
+     "R72h": 66.7,
+     "R72h_cobertura": 0.76,
+     "P5d_antes": 1.2
+    },
+    "ambient/evolucion": {
+     "nombre": "Evolución · 10 m",
+     "zona": "costa",
+     "danada": false,
+     "max_R1h": 22.1,
+     "max_R1h_fin": "2026-10-30T23:10:00Z",
+     "max_R3h": 32.0,
+     "max_R3h_fin": "2026-10-31T01:00:00Z",
+     "R24h": 55.8,
+     "R24h_cobertura": 1.0,
+     "R72h": 57.3,
+     "R72h_cobertura": 1.0,
+     "P5d_antes": 1.5
+    },
+    "tempest/punta_estrada": {
+     "nombre": "Punta Estrada · 8 m",
+     "zona": "costa",
+     "danada": false,
+     "max_R1h": 8.1,
+     "max_R1h_fin": "2026-10-30T23:15:00Z",
+     "max_R3h": 9.3,
+     "max_R3h_fin": "2026-10-31T00:55:00Z",
+     "R24h": 12.5,
+     "R24h_cobertura": 1.0,
+     "R72h": 12.9,
+     "R72h_cobertura": 1.0,
+     "P5d_antes": 0.5
+    }
+   },
+   "nivel_regla_la-cascada-anterior": {
+    "al_desbordar": "muy alto",
+    "primera_hora_relativa": {
+     "bajo": -30.0,
+     "medio": -6.17,
+     "alto": -5.67,
+     "muy alto": -0.67
+    }
+   },
+   "nivel_regla_la-cascada": {
+    "al_desbordar": "muy alto",
+    "primera_hora_relativa": {
+     "bajo": -30.0,
+     "medio": -6.17,
+     "alto": -5.67,
+     "muy alto": -0.67
+    }
+   },
+   "nivel_regla_santa-cruz-alta": {
+    "al_desbordar": "muy alto",
+    "primera_hora_relativa": {
+     "bajo": -30.0,
+     "medio": -6.33,
+     "alto": -6.0,
+     "muy alto": -1.83
+    }
+   }
+  },
+  "21-nov": {
+   "desbordamiento": "2026-11-21T11:00:00Z",
+   "etiqueta": "21-nov, ~05:00 (reporte de campo)",
+   "estaciones": {
+    "ambient/miconia": {
+     "nombre": "Miconia · 422 m",
+     "zona": "alta",
+     "danada": false,
+     "max_R1h": 54.4,
+     "max_R1h_fin": "2026-11-21T08:10:00Z",
+     "max_R3h": 100.1,
+     "max_R3h_fin": "2026-11-21T10:10:00Z",
+     "R24h": 146.4,
+     "R24h_cobertura": 1.0,
+     "R72h": 281.7,
+     "R72h_cobertura": 0.99,
+     "P5d_antes": 190.6
+    },
+    "ierse/n_glps09": {
+     "nombre": "Santa Rosa · 416 m",
+     "zona": "alta",
+     "danada": false,
+     "max_R1h": 22.4,
+     "max_R1h_fin": "2026-11-21T08:40:00Z",
+     "max_R3h": 54.6,
+     "max_R3h_fin": "2026-11-21T10:25:00Z",
+     "R24h": 91.8,
+     "R24h_cobertura": 0.94,
+     "R72h": 179.2,
+     "R72h_cobertura": 0.8,
+     "P5d_antes": 94.2
+    },
+    "ierse/n_glps05": {
+     "nombre": "Los Guayabillos · 178 m",
+     "zona": "media",
+     "danada": true,
+     "max_R1h": 169.6,
+     "max_R1h_fin": "2026-11-21T03:45:00Z",
+     "max_R3h": 211.4,
+     "max_R3h_fin": "2026-11-20T14:00:00Z",
+     "R24h": 761.6,
+     "R24h_cobertura": 0.99,
+     "R72h": 829.0,
+     "R72h_cobertura": 0.75,
+     "P5d_antes": 99.6
+    },
+    "ambient/epmapasc_espol": {
+     "nombre": "EPMAPASC · 22 m",
+     "zona": "costa",
+     "danada": false,
+     "max_R1h": 37.8,
+     "max_R1h_fin": "2026-11-21T10:45:00Z",
+     "max_R3h": 96.8,
+     "max_R3h_fin": "2026-11-21T11:00:00Z",
+     "R24h": 161.7,
+     "R24h_cobertura": 1.0,
+     "R72h": 174.3,
+     "R72h_cobertura": 1.0,
+     "P5d_antes": 44.8
+    },
+    "ambient/evolucion": {
+     "nombre": "Evolución · 10 m",
+     "zona": "costa",
+     "danada": false,
+     "max_R1h": 42.9,
+     "max_R1h_fin": "2026-11-21T09:00:00Z",
+     "max_R3h": 110.2,
+     "max_R3h_fin": "2026-11-21T11:00:00Z",
+     "R24h": 172.8,
+     "R24h_cobertura": 1.0,
+     "R72h": 186.4,
+     "R72h_cobertura": 1.0,
+     "P5d_antes": 46.1
+    },
+    "weatherlink/pa_weatherlink": {
+     "nombre": "Erna · 10 m",
+     "zona": "costa",
+     "danada": false,
+     "max_R1h": 31.5,
+     "max_R1h_fin": "2026-11-21T09:10:00Z",
+     "max_R3h": 73.9,
+     "max_R3h_fin": "2026-11-21T11:00:00Z",
+     "R24h": 126.2,
+     "R24h_cobertura": 1.0,
+     "R72h": 143.5,
+     "R72h_cobertura": 1.0,
+     "P5d_antes": 24.4
+    },
+    "wunderground/casa_marina": {
+     "nombre": "Casa Marina · 3 m",
+     "zona": "costa",
+     "danada": false,
+     "max_R1h": 42.7,
+     "max_R1h_fin": "2026-11-21T09:10:00Z",
+     "max_R3h": 100.1,
+     "max_R3h_fin": "2026-11-21T10:55:00Z",
+     "R24h": 164.3,
+     "R24h_cobertura": 1.0,
+     "R72h": 174.8,
+     "R72h_cobertura": 1.0,
+     "P5d_antes": 43.2
+    }
+   },
+   "nivel_regla_la-cascada-anterior": {
+    "al_desbordar": "alto",
+    "primera_hora_relativa": {
+     "bajo": -30.0,
+     "medio": -16.17,
+     "alto": -1.83
+    }
+   },
+   "nivel_regla_la-cascada": {
+    "al_desbordar": "muy alto",
+    "primera_hora_relativa": {
+     "bajo": -30.0,
+     "medio": -16.17,
+     "alto": -2.5,
+     "muy alto": -2.17
+    }
+   },
+   "nivel_regla_santa-cruz-alta": {
+    "al_desbordar": "muy alto",
+    "primera_hora_relativa": {
+     "medio": -30.0,
+     "alto": -16.83,
+     "muy alto": -3.17
+    }
+   }
+  }
+ },
+ "datos_hasta": "2026-11-21T12:30:00Z"
+}
