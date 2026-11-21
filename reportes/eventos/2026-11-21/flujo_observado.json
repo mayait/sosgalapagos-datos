@@ -1,0 +1,27 @@
+{
+ "evento": "2026-11-21",
+ "titulo": "Por dónde bajó el agua el 21-nov (observado)",
+ "fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+ "nota": "Fuente editable. La genera reportes/scripts/05_flujo.py en flujo_observado.geojson. Coordenadas [lon, lat] (EPSG:4326). Un tramo {\"via\": nombre, \"desde_lonlat\", \"hasta_lonlat\"} sigue la calle de OSM con ese nombre entre los dos puntos (se proyectan sobre la calle); un tramo {\"puntos_lonlat\": [...]} usa esos vértices tal cual (donde no hay calle: vértices digitalizados del dibujo, ±25 m, revisados contra el DTM de 1 m de la SGIAR). El sentido de la línea es el sentido del agua.",
+ "elementos": [
+  {"id": "f01", "tipo": "flujo", "nombre": "Bajada por la calle Seymour",
+   "detalle": "El agua baja por Seymour desde Karl Angermeyer / Juan León Mera hasta el cruce con Fragata (Islander Coffee Roasters). En el DTM la calle pierde unos 6 m en 270 m (de ≈13,8 a ≈7,4 m).",
+   "reportes": ["r16", "r17", "r18"],
+   "tramos": [{"via": "Seymour", "desde_lonlat": [-90.31285, -0.73809], "hasta_lonlat": [-90.312018, -0.740485]}]},
+  {"id": "f02", "tipo": "flujo", "nombre": "Desborde al oeste por Fragata",
+   "detalle": "Desde el cruce de Seymour y Fragata parte del agua sigue al oeste por Fragata, hacia Isla Floreana. En el DTM Fragata sube ≈1 m en ese sentido: es agua que se desborda del charco del cruce, no un cauce.",
+   "reportes": ["r17"],
+   "tramos": [{"via": "Fragata", "desde_lonlat": [-90.312018, -0.740485], "hasta_lonlat": [-90.31262, -0.74072]}]},
+  {"id": "f03", "tipo": "remolino", "nombre": "Remolino y agua empozada al este del cruce Seymour–Fragata",
+   "detalle": "Manzana entre Seymour y Daphne, a ambos lados de Fragata, donde el agua se arremolinó o se empozó. El DTM tiene ahí una depresión cerrada (cruce de Seymour, Petrel y Fragata) que se llena hasta ≈8,2 m. Trazo aproximado (±25 m).",
+   "reportes": ["r17", "r18"],
+   "tramos": [{"puntos_lonlat": [[-90.31141, -0.74033], [-90.31155, -0.74007], [-90.31119, -0.73979], [-90.31076, -0.73964], [-90.31047, -0.73971],
+                                 [-90.31044, -0.74000], [-90.31055, -0.74036], [-90.31076, -0.74055], [-90.31119, -0.74058], [-90.31148, -0.74051], [-90.31141, -0.74033]]}]},
+  {"id": "f04", "tipo": "salida", "nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+   "detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+   "reportes": ["r19", "r33"],
+   "tramos": [{"puntos_lonlat": [[-90.31055, -0.73995], [-90.31026, -0.74004], [-90.31005, -0.74019], [-90.30990, -0.74055], [-90.30990, -0.74098],
+                                 [-90.30980, -0.74127], [-90.30969, -0.74170], [-90.30933, -0.74178], [-90.30911, -0.74199], [-90.30904, -0.74236],
+                                 [-90.30906, -0.74299]]}]}
+ ]
+}

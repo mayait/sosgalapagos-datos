@@ -22,10 +22,10 @@
  },
 
  "grupos": [
-  {"id": "emergencia", "titulo": "Emergencia en curso", "capas": ["reportes_21nov", "areas_afectadas"]},
+  {"id": "emergencia", "titulo": "Emergencia en curso", "capas": ["reportes_21nov", "flujo_21nov", "areas_afectadas"]},
   {"id": "lluvia", "titulo": "Riesgo de inundación por lluvia",
    "descripcion": "Lo que conviene mirar ahora. La susceptibilidad, los puntos y los cruces salen de modelos propios sobre un relieve de 30 m (de 5 m con el DTM de la SGIAR en Puerto Ayora, el escarpe y Bellavista): sirven para priorizar inspecciones, no son delimitaciones oficiales.",
-   "capas": ["susceptibilidad", "sc_puntos", "sx_puntos", "cruces_alta", "cruces_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
+   "capas": ["susceptibilidad", "sc_vaso_21nov", "sc_control_21nov", "sc_puntos", "sx_puntos", "cruces_alta", "cruces_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
   {"id": "hidrografia", "titulo": "Quebradas y drenaje", "capas": ["quebradas", "sx_canadas"]},
   {"id": "puntos", "titulo": "Puntos clave: refugios, salud y servicios"},
   {"id": "vias", "titulo": "Vías y calles", "capas": ["vias", "nombres_vias"]},
@@ -64,8 +64,22 @@
     "riesgo": {"etiqueta": "Riesgo inminente", "color": "#111827", "fillColor": "#111827", "fillOpacity": 0.12},
     "evacuacion": {"etiqueta": "Zona de evacuación (COE)", "color": "#c2410c", "fillColor": "#f97316", "fillOpacity": 0.04, "weight": 2.5}}}},
 
+  "flujo_21nov": {"visible": true, "pane": "emergencia",
+   "fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+   "descripcion": "Por dónde bajó el agua el 21 de noviembre en El Edén y Pelican Bay, según reportes y videos: bajada por Seymour, desborde por Fragata, remolino al este del cruce y salida al mar junto a Blu Galápagos. Las flechas marcan el sentido. Trazo aproximado (±25 m donde no hay calle), sin verificar en campo.",
+   "estilo": {"weight": 4, "color": "#0284c7", "opacity": 0.95},
+   "borde": {"color": "#ffffff", "weight": 8, "opacity": 0.85, "fill": false},
+   "clasificar": {"propiedad": "tipo", "valores": {
+    "flujo": {"etiqueta": "Corriente por la calle (observado)", "color": "#0284c7", "weight": 4},
+    "salida": {"etiqueta": "Salida al mar (observado)", "color": "#1e40af", "weight": 6},
+    "remolino": {"etiqueta": "Agua arremolinada o empozada", "color": "#0284c7", "fillColor": "#38bdf8", "fillOpacity": 0.18, "weight": 2.5, "dashArray": "6 4"},
+    "flecha": {"etiqueta": "Sentido del agua", "color": "#0c4a6e", "weight": 3.5}}},
+   "popup": {"titulo": "nombre", "campos": {"detalle": "Qué se observó", "reportes": "Reportes", "fuente": "Fuente"}}},
+
   "susceptibilidad": {"visible": true, "pane": "riesgo",
-   "titulo": "Susceptibilidad a inundación por quebradas (modelo)",
+   "titulo": "Susceptibilidad a inundación por quebradas (modelo ajustado con el 21-nov)",
+   "fuente": "Modelo HAND propio (DTM 1 m: SGIAR (Vricon/Maxar) en Puerto Ayora, el escarpe y Bellavista; Copernicus GLO-30 y quebradas IGM en el resto), ajustado con lo observado el 21-nov-2026 (reportes sin verificar). Modelo propio, no es una delimitación oficial.",
+   "descripcion": "Altura del terreno sobre la quebrada más cercana, ajustada con lo observado el 21-nov-2026 (reportes sin verificar): en Puerto Ayora, el escarpe y Bellavista sube de clase donde el agua se vio y el modelo decía baja o nada (La Cascada llena hasta ≈17 m, bajada por Seymour y salida al mar por Pelican Bay, Arrayanes, cementerio). Modelo propio, no es una delimitación oficial: sirve para priorizar. En terreno muy plano (Puerto Villamil) sobrestima.",
    "estilo": {"weight": 0.4, "fillOpacity": 0.3},
    "clasificar": {"propiedad": "nivel", "valores": {
     "3": {"etiqueta": "Alta: hasta 1 m sobre el cauce", "color": "#173f8a", "fillColor": "#1d4a9e", "fillOpacity": 0.5},
@@ -90,6 +104,14 @@
   "oficiales_lluvia": {"visible": false, "pane": "riesgo"},
   "oficiales": {"visible": false, "pane": "riesgo"},
   "franja": {"visible": false},
+  "sc_vaso_21nov": {"visible": false, "pane": "riesgo",
+   "clasificar": {"propiedad": "clase", "valores": {
+    "0–0,5 m": {"etiqueta": "0–0,5 m", "color": "#c6dbef", "fillColor": "#c6dbef", "fillOpacity": 0.55},
+    "0,5–1 m": {"etiqueta": "0,5–1 m", "color": "#6baed6", "fillColor": "#6baed6", "fillOpacity": 0.55},
+    "1–2 m": {"etiqueta": "1–2 m", "color": "#2171b5", "fillColor": "#2171b5", "fillOpacity": 0.55},
+    "2–3 m": {"etiqueta": "2–3 m", "color": "#08519c", "fillColor": "#08519c", "fillOpacity": 0.6},
+    "> 3 m": {"etiqueta": "Más de 3 m", "color": "#08306b", "fillColor": "#08306b", "fillOpacity": 0.6}}}},
+  "sc_control_21nov": {"visible": true, "pane": "riesgo_pt"},
   "sc_modelo2d": {"titulo": "Modelo 2D · Santa Cruz: profundidad máxima del agua el 30-oct", "pane": "riesgo",
    "clasificar": {"propiedad": "clase", "valores": {
     "0,1–0,5 m": {"etiqueta": "0,1–0,5 m", "color": "#c6dbef", "fillColor": "#c6dbef"},

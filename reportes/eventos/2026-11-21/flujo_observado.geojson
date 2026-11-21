@@ -1,0 +1,714 @@
+{
+"type": "FeatureCollection",
+"name": "flujo_observado",
+"features": [
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312849,
+-0.73809
+],
+[
+-90.312645,
+-0.738742
+],
+[
+-90.312439,
+-0.739293
+],
+[
+-90.31224,
+-0.739905
+],
+[
+-90.312018,
+-0.740485
+]
+]
+},
+"properties": {
+"id": "f01",
+"nombre": "Bajada por la calle Seymour",
+"tipo": "flujo",
+"detalle": "El agua baja por Seymour desde Karl Angermeyer / Juan León Mera hasta el cruce con Fragata (Islander Coffee Roasters). En el DTM la calle pierde unos 6 m en 270 m (de ≈13,8 a ≈7,4 m).",
+"reportes": "r16, r17, r18",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": 281
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312773,
+-0.738434
+],
+[
+-90.312728,
+-0.738478
+],
+[
+-90.312716,
+-0.738416
+]
+]
+},
+"properties": {
+"id": "f01",
+"nombre": "Bajada por la calle Seymour",
+"tipo": "flecha",
+"detalle": "El agua baja por Seymour desde Karl Angermeyer / Juan León Mera hasta el cruce con Fragata (Islander Coffee Roasters). En el DTM la calle pierde unos 6 m en 270 m (de ≈13,8 a ≈7,4 m).",
+"reportes": "r16, r17, r18",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312647,
+-0.738822
+],
+[
+-90.3126,
+-0.738864
+],
+[
+-90.312591,
+-0.738801
+]
+]
+},
+"properties": {
+"id": "f01",
+"nombre": "Bajada por la calle Seymour",
+"tipo": "flecha",
+"detalle": "El agua baja por Seymour desde Karl Angermeyer / Juan León Mera hasta el cruce con Fragata (Islander Coffee Roasters). En el DTM la calle pierde unos 6 m en 270 m (de ≈13,8 a ≈7,4 m).",
+"reportes": "r16, r17, r18",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312505,
+-0.739203
+],
+[
+-90.312457,
+-0.739245
+],
+[
+-90.312449,
+-0.739182
+]
+]
+},
+"properties": {
+"id": "f01",
+"nombre": "Bajada por la calle Seymour",
+"tipo": "flecha",
+"detalle": "El agua baja por Seymour desde Karl Angermeyer / Juan León Mera hasta el cruce con Fragata (Islander Coffee Roasters). En el DTM la calle pierde unos 6 m en 270 m (de ≈13,8 a ≈7,4 m).",
+"reportes": "r16, r17, r18",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312375,
+-0.739587
+],
+[
+-90.312329,
+-0.739631
+],
+[
+-90.312319,
+-0.739568
+]
+]
+},
+"properties": {
+"id": "f01",
+"nombre": "Bajada por la calle Seymour",
+"tipo": "flecha",
+"detalle": "El agua baja por Seymour desde Karl Angermeyer / Juan León Mera hasta el cruce con Fragata (Islander Coffee Roasters). En el DTM la calle pierde unos 6 m en 270 m (de ≈13,8 a ≈7,4 m).",
+"reportes": "r16, r17, r18",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312245,
+-0.739974
+],
+[
+-90.312198,
+-0.740015
+],
+[
+-90.31219,
+-0.739953
+]
+]
+},
+"properties": {
+"id": "f01",
+"nombre": "Bajada por la calle Seymour",
+"tipo": "flecha",
+"detalle": "El agua baja por Seymour desde Karl Angermeyer / Juan León Mera hasta el cruce con Fragata (Islander Coffee Roasters). En el DTM la calle pierde unos 6 m en 270 m (de ≈13,8 a ≈7,4 m).",
+"reportes": "r16, r17, r18",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312066,
+-0.740444
+],
+[
+-90.312018,
+-0.740485
+],
+[
+-90.31201,
+-0.740422
+]
+]
+},
+"properties": {
+"id": "f01",
+"nombre": "Bajada por la calle Seymour",
+"tipo": "flecha",
+"detalle": "El agua baja por Seymour desde Karl Angermeyer / Juan León Mera hasta el cruce con Fragata (Islander Coffee Roasters). En el DTM la calle pierde unos 6 m en 270 m (de ≈13,8 a ≈7,4 m).",
+"reportes": "r16, r17, r18",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312018,
+-0.740485
+],
+[
+-90.312628,
+-0.740695
+]
+]
+},
+"properties": {
+"id": "f02",
+"nombre": "Desborde al oeste por Fragata",
+"tipo": "flujo",
+"detalle": "Desde el cruce de Seymour y Fragata parte del agua sigue al oeste por Fragata, hacia Isla Floreana. En el DTM Fragata sube ≈1 m en ese sentido: es agua que se desborda del charco del cruce, no un cauce.",
+"reportes": "r17",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": 72
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312358,
+-0.740571
+],
+[
+-90.3124,
+-0.740617
+],
+[
+-90.312338,
+-0.740627
+]
+]
+},
+"properties": {
+"id": "f02",
+"nombre": "Desborde al oeste por Fragata",
+"tipo": "flecha",
+"detalle": "Desde el cruce de Seymour y Fragata parte del agua sigue al oeste por Fragata, hacia Isla Floreana. En el DTM Fragata sube ≈1 m en ese sentido: es agua que se desborda del charco del cruce, no un cauce.",
+"reportes": "r17",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.312585,
+-0.740649
+],
+[
+-90.312628,
+-0.740695
+],
+[
+-90.312566,
+-0.740705
+]
+]
+},
+"properties": {
+"id": "f02",
+"nombre": "Desborde al oeste por Fragata",
+"tipo": "flecha",
+"detalle": "Desde el cruce de Seymour y Fragata parte del agua sigue al oeste por Fragata, hacia Isla Floreana. En el DTM Fragata sube ≈1 m en ese sentido: es agua que se desborda del charco del cruce, no un cauce.",
+"reportes": "r17",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-90.31141,
+-0.74033
+],
+[
+-90.31155,
+-0.74007
+],
+[
+-90.31119,
+-0.73979
+],
+[
+-90.31076,
+-0.73964
+],
+[
+-90.31047,
+-0.73971
+],
+[
+-90.31044,
+-0.74
+],
+[
+-90.31055,
+-0.74036
+],
+[
+-90.31076,
+-0.74055
+],
+[
+-90.31119,
+-0.74058
+],
+[
+-90.31148,
+-0.74051
+],
+[
+-90.31141,
+-0.74033
+]
+]
+]
+},
+"properties": {
+"id": "f03",
+"nombre": "Remolino y agua empozada al este del cruce Seymour–Fragata",
+"tipo": "remolino",
+"detalle": "Manzana entre Seymour y Daphne, a ambos lados de Fragata, donde el agua se arremolinó o se empozó. El DTM tiene ahí una depresión cerrada (cruce de Seymour, Petrel y Fragata) que se llena hasta ≈8,2 m. Trazo aproximado (±25 m).",
+"reportes": "r17, r18",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"area_m2": 9370
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.31055,
+-0.73995
+],
+[
+-90.31026,
+-0.74004
+],
+[
+-90.31005,
+-0.74019
+],
+[
+-90.3099,
+-0.74055
+],
+[
+-90.3099,
+-0.74098
+],
+[
+-90.3098,
+-0.74127
+],
+[
+-90.30969,
+-0.7417
+],
+[
+-90.30933,
+-0.74178
+],
+[
+-90.30911,
+-0.74199
+],
+[
+-90.30904,
+-0.74236
+],
+[
+-90.30906,
+-0.74299
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "salida",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": 422
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.31024,
+-0.740091
+],
+[
+-90.310178,
+-0.740099
+],
+[
+-90.310206,
+-0.740042
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.310003,
+-0.74038
+],
+[
+-90.309954,
+-0.74042
+],
+[
+-90.309948,
+-0.740357
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.30993,
+-0.74076
+],
+[
+-90.3099,
+-0.740816
+],
+[
+-90.30987,
+-0.74076
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.309867,
+-0.741166
+],
+[
+-90.309821,
+-0.741209
+],
+[
+-90.309811,
+-0.741147
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.309758,
+-0.741555
+],
+[
+-90.309715,
+-0.741602
+],
+[
+-90.3097,
+-0.74154
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.309454,
+-0.741783
+],
+[
+-90.309393,
+-0.741766
+],
+[
+-90.309441,
+-0.741725
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.309143,
+-0.741976
+],
+[
+-90.309103,
+-0.742026
+],
+[
+-90.309085,
+-0.741965
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.30907,
+-0.74237
+],
+[
+-90.309042,
+-0.742427
+],
+[
+-90.309011,
+-0.742372
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.309083,
+-0.742777
+],
+[
+-90.309055,
+-0.742833
+],
+[
+-90.309024,
+-0.742778
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-90.309088,
+-0.742933
+],
+[
+-90.30906,
+-0.74299
+],
+[
+-90.309029,
+-0.742935
+]
+]
+},
+"properties": {
+"id": "f04",
+"nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+"tipo": "flecha",
+"detalle": "Desde Fragata y Daphne el agua sigue al este y luego al sur por el borde de la zona verde, pasa junto al cementerio y llega al mar en Pelican Bay. Casi sin calle: vértices del dibujo, ±25 m.",
+"reportes": "r19, r33",
+"fuente": "Trazo del coordinador de SOS Galápagos a partir de reportes y videos del 21-nov-2026. Observado, sin levantamiento en campo; no es un dato oficial.",
+"largo_m": null
+}
+}
+]
+}

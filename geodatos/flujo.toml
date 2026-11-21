@@ -374,10 +374,37 @@ nota = "Checklist automático antes de publicar (falla si algo no pasa)"
 entradas = ["publicar/estudios/index.html"]
 salidas = []
 
+[pasos.flujo_21nov]
+cmd = ["{py} ../reportes/scripts/05_flujo.py"]
+nota = "Trazo observado del 21-nov (Seymour → Fragata → Pelican Bay) sobre las calles de OSM, con flechas"
+entradas = ["../reportes/scripts/05_flujo.py", "../reportes/eventos/2026-11-21/flujo_observado.json", "capas/osm/vias.geojson"]
+salidas = ["../reportes/eventos/2026-11-21/flujo_observado.geojson"]
+
+[pasos.ajuste_21nov]
+script = "est_21nov_ajuste.py"
+codigo = ["37_cascada_dtm.py"]
+nota = "Susceptibilidad de Puerto Ayora ajustada con lo observado el 21-nov (puntos de control de fotos, DTM 1 m SGIAR)"
+entradas = ["../reportes/eventos/2026-11-21/puntos_control.json", "../reportes/eventos/2026-11-21/reportes.geojson",
+            "../reportes/eventos/2026-11-21/flujo_observado.geojson", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "datos/dtm_sgiar/*.tif",
+            "descargas/dem_recortes/santa_cruz_dtm_mar_5m.tif", "estudios/la-cascada/datos/dtm1m/resumen_dtm.json",
+            "export/galapagos-completo/susceptibilidad_inundacion.geojson"]
+salidas = ["estudios/santa-cruz/datos/ajuste_21nov/susceptibilidad_ajuste_21nov.geojson", "estudios/santa-cruz/datos/ajuste_21nov/vaso_21nov.geojson",
+           "estudios/santa-cruz/datos/ajuste_21nov/puntos_control_21nov.geojson", "estudios/santa-cruz/datos/ajuste_21nov/resumen_ajuste.json"]
+
+[pasos.contraste_21nov]
+script = "est_21nov_contraste.py"
+nota = "Contraste de la susceptibilidad (antes y después del ajuste) y del modelo 2D con lo observado el 21-nov"
+entradas = ["capas/operativas/areas_afectadas.geojson", "../reportes/eventos/2026-11-21/reportes.geojson",
+            "../reportes/eventos/2026-11-21/flujo_observado.geojson", "export/galapagos-completo/susceptibilidad_inundacion.geojson",
+            "estudios/santa-cruz/datos/ajuste_21nov/susceptibilidad_ajuste_21nov.geojson",
+            "estudios/santa-cruz/datos/modelo2d/b_central/calado_max_clases.geojson"]
+salidas = ["estudios/santa-cruz/datos/contraste_21nov.json"]
+
 [pasos.mapas]
 script = "10_publicar_web.py"
 nota = "Genera publicar/mapas con las capas de los estudios (no publica)"
 entradas = ["estudios/estudios.json", "scripts/capas_estudios.json", "scripts/visor_mapas.json", "web/index.html", "export/galapagos/*", "export/galapagos-completo/*.geojson",
             "estudios/*/datos/*.geojson", "estudios/*/datos/*/*.geojson", "estudios/santa-cruz/datos/modelo2d/b_central/*.geojson",
-            "teselas/dtm_sgiar/teselas.json", "datos/dtm_sgiar/dtm_sgiar_5m.tif", "../reportes/publicar/2026-11-21/reportes.geojson"]
+            "teselas/dtm_sgiar/teselas.json", "datos/dtm_sgiar/dtm_sgiar_5m.tif", "../reportes/publicar/2026-11-21/reportes.geojson",
+            "../reportes/eventos/2026-11-21/flujo_observado.geojson"]
 salidas = ["publicar/mapas/index.html"]

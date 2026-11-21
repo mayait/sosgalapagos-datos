@@ -1,0 +1,1067 @@
+{
+ "nota": "Porcentaje de lo observado en cada clase de susceptibilidad (clase máxima en ese lugar). «antes» = HAND publicado; «despues» = HAND + ajuste del 21-nov (calibrado con estos mismos reportes: no es una validación independiente). modelo2d = % en agua del modelo 2D del 30-oct (lluvia de otro evento). Lo observado son trazos aproximados de reportes sin verificar.",
+ "puerto_ayora": {
+  "area": {
+   "antes": {
+    "alta": 37.3,
+    "media": 22.8,
+    "baja": 15.2,
+    "fuera": 24.6
+   },
+   "despues": {
+    "alta": 73.7,
+    "media": 11.7,
+    "baja": 5.0,
+    "fuera": 9.5
+   },
+   "modelo2d_≥ 0,1 m": 74.3,
+   "modelo2d_≥ 0,5 m": 59.4,
+   "dentro_dominio_2d_pct": 100.0,
+   "n": 9,
+   "magnitud": 33.63,
+   "unidad": "ha"
+  },
+  "flujo_linea": {
+   "antes": {
+    "alta": 32.6,
+    "media": 2.7,
+    "baja": 11.8,
+    "fuera": 52.9
+   },
+   "despues": {
+    "alta": 100.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "modelo2d_≥ 0,1 m": 63.4,
+   "modelo2d_≥ 0,5 m": 45.5,
+   "dentro_dominio_2d_pct": 100.0,
+   "n": 3,
+   "magnitud": 775,
+   "unidad": "m"
+  },
+  "reporte": {
+   "antes": {
+    "alta": 57.1,
+    "media": 9.5,
+    "baja": 14.3,
+    "fuera": 19.0
+   },
+   "despues": {
+    "alta": 100.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "modelo2d_≥ 0,1 m": 100.0,
+   "modelo2d_≥ 0,5 m": 90.5,
+   "dentro_dominio_2d_pct": 100.0,
+   "n": 21,
+   "magnitud": 21,
+   "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+  }
+ },
+ "todo_santa_cruz": {
+  "area": {
+   "antes": {
+    "alta": 26.1,
+    "media": 17.0,
+    "baja": 13.8,
+    "fuera": 43.0
+   },
+   "despues": {
+    "alta": 56.1,
+    "media": 11.7,
+    "baja": 6.7,
+    "fuera": 25.5
+   },
+   "modelo2d_≥ 0,1 m": 59.5,
+   "modelo2d_≥ 0,5 m": 40.0,
+   "dentro_dominio_2d_pct": 100.0,
+   "n": 18,
+   "magnitud": 51.44,
+   "unidad": "ha"
+  },
+  "flujo_linea": {
+   "antes": {
+    "alta": 32.6,
+    "media": 2.7,
+    "baja": 11.8,
+    "fuera": 52.9
+   },
+   "despues": {
+    "alta": 100.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "modelo2d_≥ 0,1 m": 63.4,
+   "modelo2d_≥ 0,5 m": 45.5,
+   "dentro_dominio_2d_pct": 100.0,
+   "n": 3,
+   "magnitud": 775,
+   "unidad": "m"
+  },
+  "reporte": {
+   "antes": {
+    "alta": 44.8,
+    "media": 6.9,
+    "baja": 10.3,
+    "fuera": 37.9
+   },
+   "despues": {
+    "alta": 93.1,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 6.9
+   },
+   "modelo2d_≥ 0,1 m": 86.2,
+   "modelo2d_≥ 0,5 m": 65.5,
+   "dentro_dominio_2d_pct": 100.0,
+   "n": 29,
+   "magnitud": 29,
+   "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+  }
+ },
+ "por_zona": {
+  "La Cascada (vaso)": {
+   "area": {
+    "antes": {
+     "alta": 42.8,
+     "media": 25.3,
+     "baja": 17.7,
+     "fuera": 14.2
+    },
+    "despues": {
+     "alta": 75.3,
+     "media": 8.1,
+     "baja": 9.6,
+     "fuera": 7.1
+    },
+    "modelo2d_≥ 0,1 m": 74.1,
+    "modelo2d_≥ 0,5 m": 66.3,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 10.99,
+    "unidad": "ha"
+   },
+   "reporte": {
+    "antes": {
+     "alta": 80.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 20.0
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 100.0,
+    "modelo2d_≥ 0,5 m": 100.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 10,
+    "magnitud": 10,
+    "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+   }
+  },
+  "Rebose de La Cascada hacia el sur (Scalesia, escuelas, La Unión)": {
+   "area": {
+    "antes": {
+     "alta": 25.1,
+     "media": 36.0,
+     "baja": 31.8,
+     "fuera": 7.2
+    },
+    "despues": {
+     "alta": 70.9,
+     "media": 18.5,
+     "baja": 7.1,
+     "fuera": 3.4
+    },
+    "modelo2d_≥ 0,1 m": 53.5,
+    "modelo2d_≥ 0,5 m": 40.7,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 2,
+    "magnitud": 7.26,
+    "unidad": "ha"
+   },
+   "reporte": {
+    "antes": {
+     "alta": 25.0,
+     "media": 50.0,
+     "baja": 25.0,
+     "fuera": 0.0
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 100.0,
+    "modelo2d_≥ 0,5 m": 75.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 4,
+    "magnitud": 4,
+    "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+   }
+  },
+  "Matazarnos (Seymour y Marchena)": {
+   "area": {
+    "antes": {
+     "alta": 66.8,
+     "media": 33.2,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "despues": {
+     "alta": 92.7,
+     "media": 7.3,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 89.1,
+    "modelo2d_≥ 0,5 m": 72.3,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 2.47,
+    "unidad": "ha"
+   },
+   "reporte": {
+    "antes": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 100.0,
+    "modelo2d_≥ 0,5 m": 100.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 1,
+    "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+   }
+  },
+  "Los Arrayanes": {
+   "area": {
+    "antes": {
+     "alta": 0.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 100.0
+    },
+    "despues": {
+     "alta": 64.0,
+     "media": 29.6,
+     "baja": 0.0,
+     "fuera": 6.4
+    },
+    "modelo2d_≥ 0,1 m": 75.6,
+    "modelo2d_≥ 0,5 m": 46.5,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 1.67,
+    "unidad": "ha"
+   },
+   "reporte": {
+    "antes": {
+     "alta": 0.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 100.0
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 100.0,
+    "modelo2d_≥ 0,5 m": 100.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 1,
+    "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+   }
+  },
+  "El Edén: bajada por Seymour y cruce con Fragata": {
+   "area": {
+    "antes": {
+     "alta": 53.9,
+     "media": 18.0,
+     "baja": 10.7,
+     "fuera": 17.4
+    },
+    "despues": {
+     "alta": 72.3,
+     "media": 12.8,
+     "baja": 1.4,
+     "fuera": 13.5
+    },
+    "modelo2d_≥ 0,1 m": 98.3,
+    "modelo2d_≥ 0,5 m": 77.5,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 3,
+    "magnitud": 8.14,
+    "unidad": "ha"
+   },
+   "flujo_linea": {
+    "antes": {
+     "alta": 71.8,
+     "media": 5.9,
+     "baja": 13.2,
+     "fuera": 9.1
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 100.0,
+    "modelo2d_≥ 0,5 m": 100.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 2,
+    "magnitud": 353,
+    "unidad": "m"
+   },
+   "reporte": {
+    "antes": {
+     "alta": 66.7,
+     "media": 0.0,
+     "baja": 33.3,
+     "fuera": 0.0
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 100.0,
+    "modelo2d_≥ 0,5 m": 100.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 3,
+    "magnitud": 3,
+    "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+   }
+  },
+  "Salida al mar: Pelican Bay y cementerio": {
+   "area": {
+    "antes": {
+     "alta": 0.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 100.0
+    },
+    "despues": {
+     "alta": 68.5,
+     "media": 0.1,
+     "baja": 0.0,
+     "fuera": 31.5
+    },
+    "modelo2d_≥ 0,1 m": 48.3,
+    "modelo2d_≥ 0,5 m": 27.5,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 3.11,
+    "unidad": "ha"
+   },
+   "flujo_linea": {
+    "antes": {
+     "alta": 0.0,
+     "media": 0.0,
+     "baja": 10.6,
+     "fuera": 89.4
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 32.9,
+    "modelo2d_≥ 0,5 m": 0.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 423,
+    "unidad": "m"
+   },
+   "reporte": {
+    "antes": {
+     "alta": 0.0,
+     "media": 0.0,
+     "baja": 50.0,
+     "fuera": 50.0
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 100.0,
+    "modelo2d_≥ 0,5 m": 50.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 2,
+    "magnitud": 2,
+    "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+   }
+  },
+  "Parte alta y vía a Bellavista (encañadas)": {
+   "area": {
+    "antes": {
+     "alta": 4.7,
+     "media": 4.3,
+     "baja": 11.4,
+     "fuera": 79.6
+    },
+    "despues": {
+     "alta": 23.7,
+     "media": 12.2,
+     "baja": 12.4,
+     "fuera": 51.7
+    },
+    "modelo2d_≥ 0,1 m": 40.5,
+    "modelo2d_≥ 0,5 m": 0.4,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 7,
+    "magnitud": 10.96,
+    "unidad": "ha"
+   },
+   "reporte": {
+    "antes": {
+     "alta": 14.3,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 85.7
+    },
+    "despues": {
+     "alta": 71.4,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 28.6
+    },
+    "modelo2d_≥ 0,1 m": 57.1,
+    "modelo2d_≥ 0,5 m": 0.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 7,
+    "magnitud": 7,
+    "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+   }
+  },
+  "Los Guayabillos": {
+   "area": {
+    "antes": {
+     "alta": 0.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 100.0
+    },
+    "despues": {
+     "alta": 11.1,
+     "media": 5.0,
+     "baja": 1.4,
+     "fuera": 82.4
+    },
+    "modelo2d_≥ 0,1 m": 0.0,
+    "modelo2d_≥ 0,5 m": 0.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 4.47,
+    "unidad": "ha"
+   },
+   "reporte": {
+    "antes": {
+     "alta": 0.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 100.0
+    },
+    "despues": {
+     "alta": 100.0,
+     "media": 0.0,
+     "baja": 0.0,
+     "fuera": 0.0
+    },
+    "modelo2d_≥ 0,1 m": 0.0,
+    "modelo2d_≥ 0,5 m": 0.0,
+    "dentro_dominio_2d_pct": 100.0,
+    "n": 1,
+    "magnitud": 1,
+    "unidad": "reportes (en el punto; 2D: a ≤ 25 m)"
+   }
+  }
+ },
+ "por_elemento": {
+  "a01": {
+   "tipo": "area",
+   "nombre": "La Cascada y Las Orquídeas: agua hasta la primera planta y más",
+   "antes": {
+    "alta": 42.8,
+    "media": 25.3,
+    "baja": 17.7,
+    "fuera": 14.2
+   },
+   "despues": {
+    "alta": 75.3,
+    "media": 8.1,
+    "baja": 9.6,
+    "fuera": 7.1
+   },
+   "modelo2d_≥0,1m": 74.1
+  },
+  "a02": {
+   "tipo": "area",
+   "nombre": "Scalesia: calles Scalesia e Ignacio Hernández",
+   "antes": {
+    "alta": 38.4,
+    "media": 43.3,
+    "baja": 11.3,
+    "fuera": 7.1
+   },
+   "despues": {
+    "alta": 80.5,
+    "media": 9.8,
+    "baja": 5.0,
+    "fuera": 4.6
+   },
+   "modelo2d_≥0,1m": 75.6
+  },
+  "a03": {
+   "tipo": "area",
+   "nombre": "La Unión: cancha y calle 8",
+   "antes": {
+    "alta": 0.0,
+    "media": 22.3,
+    "baja": 70.4,
+    "fuera": 7.2
+   },
+   "despues": {
+    "alta": 52.9,
+    "media": 34.8,
+    "baja": 11.0,
+    "fuera": 1.2
+   },
+   "modelo2d_≥0,1m": 11.7
+  },
+  "a04": {
+   "tipo": "area",
+   "nombre": "Matazarnos: Seymour y Marchena",
+   "antes": {
+    "alta": 66.8,
+    "media": 33.2,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "despues": {
+    "alta": 92.7,
+    "media": 7.3,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "modelo2d_≥0,1m": 89.1
+  },
+  "a05": {
+   "tipo": "area",
+   "nombre": "Los Arrayanes: casas inundadas",
+   "antes": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 100.0
+   },
+   "despues": {
+    "alta": 64.0,
+    "media": 29.6,
+    "baja": 0.0,
+    "fuera": 6.4
+   },
+   "modelo2d_≥0,1m": 75.6
+  },
+  "a06": {
+   "tipo": "area",
+   "nombre": "El Edén: Seymour, Fragata y Petrel",
+   "antes": {
+    "alta": 54.6,
+    "media": 15.9,
+    "baja": 12.5,
+    "fuera": 17.1
+   },
+   "despues": {
+    "alta": 72.7,
+    "media": 14.7,
+    "baja": 1.9,
+    "fuera": 10.7
+   },
+   "modelo2d_≥0,1m": 99.9
+  },
+  "a07": {
+   "tipo": "area",
+   "nombre": "Pelican Bay: el agua llega al cementerio",
+   "antes": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 100.0
+   },
+   "despues": {
+    "alta": 68.5,
+    "media": 0.1,
+    "baja": 0.0,
+    "fuera": 31.5
+   },
+   "modelo2d_≥0,1m": 48.3
+  },
+  "a08": {
+   "tipo": "area",
+   "nombre": "Los Guayabillos: terrenos bajo el agua",
+   "antes": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 100.0
+   },
+   "despues": {
+    "alta": 11.1,
+    "media": 5.0,
+    "baja": 1.4,
+    "fuera": 82.4
+   },
+   "modelo2d_≥0,1m": 0.0
+  },
+  "c01": {
+   "tipo": "area",
+   "nombre": "Corredor del agua: Seymour, de Matazarnos a Pelican Bay",
+   "antes": {
+    "alta": 51.2,
+    "media": 19.1,
+    "baja": 6.8,
+    "fuera": 22.9
+   },
+   "despues": {
+    "alta": 63.7,
+    "media": 14.2,
+    "baja": 1.2,
+    "fuera": 21.0
+   },
+   "modelo2d_≥0,1m": 99.2
+  },
+  "c02": {
+   "tipo": "area",
+   "nombre": "Encañada en la Curva Brava: vía cortada",
+   "antes": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 100.0
+   },
+   "despues": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 100.0
+   },
+   "modelo2d_≥0,1m": 8.6
+  },
+  "c03": {
+   "tipo": "area",
+   "nombre": "Encañada en el km 4½ de la vía",
+   "antes": {
+    "alta": 22.1,
+    "media": 31.8,
+    "baja": 34.7,
+    "fuera": 11.4
+   },
+   "despues": {
+    "alta": 22.1,
+    "media": 31.8,
+    "baja": 34.7,
+    "fuera": 11.4
+   },
+   "modelo2d_≥0,1m": 100.0
+  },
+  "c04": {
+   "tipo": "area",
+   "nombre": "Encañada en Miramar",
+   "antes": {
+    "alta": 0.2,
+    "media": 4.4,
+    "baja": 0.0,
+    "fuera": 95.4
+   },
+   "despues": {
+    "alta": 36.1,
+    "media": 25.1,
+    "baja": 0.3,
+    "fuera": 38.6
+   },
+   "modelo2d_≥0,1m": 2.4
+  },
+  "c05": {
+   "tipo": "area",
+   "nombre": "Encañadas en El Bosque",
+   "antes": {
+    "alta": 13.2,
+    "media": 1.4,
+    "baja": 34.9,
+    "fuera": 50.5
+   },
+   "despues": {
+    "alta": 13.2,
+    "media": 1.4,
+    "baja": 34.9,
+    "fuera": 50.5
+   },
+   "modelo2d_≥0,1m": 75.1
+  },
+  "c06": {
+   "tipo": "area",
+   "nombre": "Encañada en Bellavista, sector del estadio",
+   "antes": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 8.4,
+    "fuera": 91.6
+   },
+   "despues": {
+    "alta": 29.7,
+    "media": 9.7,
+    "baja": 8.5,
+    "fuera": 52.1
+   },
+   "modelo2d_≥0,1m": 86.3
+  },
+  "c07": {
+   "tipo": "area",
+   "nombre": "Encañada en Tomás de Berlanga",
+   "antes": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 100.0
+   },
+   "despues": {
+    "alta": 39.4,
+    "media": 13.2,
+    "baja": 4.9,
+    "fuera": 42.6
+   },
+   "modelo2d_≥0,1m": 0.0
+  },
+  "c08": {
+   "tipo": "area",
+   "nombre": "Avenida Galápagos: baja agua de la parte alta",
+   "antes": {
+    "alta": 15.3,
+    "media": 25.5,
+    "baja": 31.1,
+    "fuera": 28.1
+   },
+   "despues": {
+    "alta": 40.1,
+    "media": 21.1,
+    "baja": 15.4,
+    "fuera": 23.4
+   },
+   "modelo2d_≥0,1m": 50.5
+  },
+  "c09": {
+   "tipo": "area",
+   "nombre": "Bellavista: encañada detrás del centro de salud",
+   "antes": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 0.2,
+    "fuera": 99.8
+   },
+   "despues": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 0.2,
+    "fuera": 99.8
+   },
+   "modelo2d_≥0,1m": 0.0
+  },
+  "f01": {
+   "tipo": "flujo",
+   "nombre": "Bajada por la calle Seymour",
+   "antes": {
+    "alta": 64.5,
+    "media": 7.5,
+    "baja": 16.6,
+    "fuera": 11.4
+   },
+   "despues": {
+    "alta": 100.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "modelo2d_≥0,1m": 100.0
+  },
+  "f02": {
+   "tipo": "flujo",
+   "nombre": "Desborde al oeste por Fragata",
+   "antes": {
+    "alta": 100.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "despues": {
+    "alta": 100.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "modelo2d_≥0,1m": 100.0
+  },
+  "f03": {
+   "tipo": "flujo",
+   "nombre": "Remolino y agua empozada al este del cruce Seymour–Fragata",
+   "antes": {
+    "alta": 60.1,
+    "media": 23.5,
+    "baja": 16.3,
+    "fuera": 0.0
+   },
+   "despues": {
+    "alta": 100.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "modelo2d_≥0,1m": 88.6
+  },
+  "f04": {
+   "tipo": "flujo",
+   "nombre": "Salida al mar por Pelican Bay (junto a Blu Galápagos)",
+   "antes": {
+    "alta": 0.0,
+    "media": 0.0,
+    "baja": 10.6,
+    "fuera": 89.4
+   },
+   "despues": {
+    "alta": 100.0,
+    "media": 0.0,
+    "baja": 0.0,
+    "fuera": 0.0
+   },
+   "modelo2d_≥0,1m": 32.9
+  },
+  "r01": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: pie de la cascada",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r02": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: pasaje 5",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r03": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: pasaje 4 y calle Scalesia",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r04": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: pasaje 3",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r05": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: pasaje 1",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r06": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: parque e iglesia",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r07": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: calle Miconia",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r08": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: interior del barrio",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r09": {
+   "tipo": "reporte",
+   "nombre": "La Cascada: vista general",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r10": {
+   "tipo": "reporte",
+   "nombre": "Scalesia e Ignacio Hernández",
+   "antes": "media",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r11": {
+   "tipo": "reporte",
+   "nombre": "Frente a la escuela Oswaldo Guayasamín",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r12": {
+   "tipo": "reporte",
+   "nombre": "La Unión: cancha y calle 8",
+   "antes": "baja",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r14": {
+   "tipo": "reporte",
+   "nombre": "Matazarnos: Seymour y Marchena",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r15": {
+   "tipo": "reporte",
+   "nombre": "Los Arrayanes",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r16": {
+   "tipo": "reporte",
+   "nombre": "El Edén: calle que baja de la iglesia",
+   "antes": "baja",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r17": {
+   "tipo": "reporte",
+   "nombre": "El Edén: calle Fragata y Seymour",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r18": {
+   "tipo": "reporte",
+   "nombre": "El Edén: Seymour y Petrel",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r19": {
+   "tipo": "reporte",
+   "nombre": "Pelican Bay",
+   "antes": "baja",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r21": {
+   "tipo": "reporte",
+   "nombre": "Vía a Bellavista: Curva Brava",
+   "antes": "fuera",
+   "despues": "fuera",
+   "modelo2d_≥0,1m": false
+  },
+  "r22": {
+   "tipo": "reporte",
+   "nombre": "Vía a Baltra, km 4½",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r23": {
+   "tipo": "reporte",
+   "nombre": "Miramar: salida a la vía",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": false
+  },
+  "r24": {
+   "tipo": "reporte",
+   "nombre": "El Bosque: parque",
+   "antes": "fuera",
+   "despues": "fuera",
+   "modelo2d_≥0,1m": true
+  },
+  "r25": {
+   "tipo": "reporte",
+   "nombre": "Bellavista: sector del estadio",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r28": {
+   "tipo": "reporte",
+   "nombre": "Escuela Loma Linda: calle D",
+   "antes": "media",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r30": {
+   "tipo": "reporte",
+   "nombre": "Las Orquídeas",
+   "antes": "alta",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r31": {
+   "tipo": "reporte",
+   "nombre": "Tomás de Berlanga: camino viejo",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": false
+  },
+  "r32": {
+   "tipo": "reporte",
+   "nombre": "Parque artesanal",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r33": {
+   "tipo": "reporte",
+   "nombre": "Cementerio de Puerto Ayora",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": true
+  },
+  "r38": {
+   "tipo": "reporte",
+   "nombre": "Los Guayabillos",
+   "antes": "fuera",
+   "despues": "alta",
+   "modelo2d_≥0,1m": false
+  }
+ }
+}
