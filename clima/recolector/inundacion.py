@@ -205,7 +205,7 @@ def calcular(con, ahora=None, recoleccion_ok=None):
         nivel, silencio = aplicar(actual, inst, ok(ahora) and callada)
         if actual is None and not ok(ahora) and nivel:
             nivel = None  # fallo de nuestra recolección: se informa «sin datos» con el último nivel
-        manual = _manual(z["id"], ahora)
+        manual = reporte = _manual(z["id"], ahora)  # reporte: hay un reporte de campo vigente, suba o no el nivel
         if manual and (nivel is None or nivel == "sin datos" or orden.index(manual["nivel"]) < orden.index(nivel)):
             nivel = manual["nivel"]  # los reportes de campo solo suben el nivel, nunca lo bajan
         else:
@@ -222,6 +222,7 @@ def calcular(con, ahora=None, recoleccion_ok=None):
                       **({"umbrales": [{"nivel": n["nivel"], "color": n["color"], "prob": n["probabilidad"],
                                         **_umbrales(z, n)} for n in REGLA["niveles"]]} if z.get("umbrales") else {}),
                       **({"manual": manual} if manual else {}),
+                      **({"reporte": reporte} if reporte else {}),
                       "historial_72h": hist})
     umbrales = [{"nivel": n["nivel"], "color": n["color"], "prob": n["probabilidad"], **n.get("si_alguno", {})}
                 for n in REGLA["niveles"]]

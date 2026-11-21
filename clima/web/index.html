@@ -840,6 +840,7 @@ function frases(z, nivel) {
     "alto": `${nom} puede inundarse. Prepárese para salir.`,
     "muy alto": "Lluvia muy peligrosa, cerca de la que inundó La Cascada el 30 de octubre. Salga de las zonas bajas.",
   }[nivel] || "";
+  if (z.reporte) f1 = `Se reportan inundaciones en ${nom}. Salga de las zonas bajas y aléjese de quebradas y ríos crecidos.`;
   let f2 = r24 < .1 ? "No ha llovido en las últimas 24 horas." : `En 24 h cayeron ${mmTxt(r24, minimo)}`;
   if (r24 >= .1 && ref && ref.R24h > 0 && r24 / ref.R24h >= .08) f2 += `: ${FRAC(r24 / ref.R24h)}${r24 / ref.R24h >= 1.05 ? " que" : " de lo que cayó"} el 30 de octubre.`;
   else if (r24 >= .1) f2 += ".";
@@ -847,6 +848,7 @@ function frases(z, nivel) {
   const r72 = z.R?.R72h, u72 = umbralesZona(z).find(u => u.nivel === "medio")?.R72h;
   if (r72 != null && u72 && r72 >= u72) f2 += ` En 72 h cayeron ${mmTxt(r72)}: el suelo está saturado y puede haber inundaciones aunque ahora llueva poco.`;
   if (z.manual) f2 += ` Nivel elevado por reportes de campo: ${z.manual.motivo}`;
+  else if (z.reporte) f2 += ` ${z.reporte.motivo}`;
   if (!z.calibrada) f2 += " Zona sin calibrar: los umbrales vienen de La Cascada.";
   return [f1, f2];
 }
