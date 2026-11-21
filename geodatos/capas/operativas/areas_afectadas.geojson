@@ -70,9 +70,9 @@
     "estado": "por_validar",
     "isla": "Santa Cruz",
     "fecha": "2026-11-21",
-    "detalle": "07:24: el COE mantiene la alerta máxima y la evacuación desde las 04:00 y la extiende a El Edén, Miraflores, Las Acacias, Pelican Bay hasta el cementerio y las zonas bajas del barrio Central. Refugio: colegio Miguel Ángel Cazares. Trazo: polígonos de los cuatro barrios; Pelican Bay se corta a la altura del cementerio. Las zonas bajas del barrio Central no se dibujan: el aviso no dice hasta dónde llegan.",
+    "detalle": "07:24: el COE mantiene la alerta máxima y la evacuación desde las 04:00 y la extiende a El Edén, Miraflores, Las Acacias, Pelican Bay hasta el cementerio y las zonas bajas del barrio Central. Refugio: colegio Miguel Ángel Cazares. Trazo: polígonos de los cuatro barrios; Pelican Bay se corta a la altura del cementerio. Las zonas bajas del barrio Central no se dibujan: el aviso no dice hasta dónde llegan. 09:15: un comunicado del COE ratifica la evacuación y suma puntos de evacuación temporal en Bellavista (cancha de Las Palmas) y Santa Rosa (polideportivo Segundo Chapi). 08:58–09:38: el agua llega al cementerio.",
     "fuente": "Aviso del COE cantonal reenviado en los grupos de WhatsApp el 21-nov-2026. El trazo es aproximado, de SOS Galápagos sobre los barrios del CGREG; no es un dato oficial.",
-    "reportes": "r16, r17, r18, r19, r20",
+    "reportes": "r16, r17, r18, r19, r20, r33",
     "area_ha": 48.23
    },
    "geometry": {
@@ -231,55 +231,121 @@
    "type": "Feature",
    "properties": {
     "id": "s01",
-    "nombre": "Corte de energía en La Cascada",
+    "nombre": "Corte de energía en La Cascada y Las Acacias",
     "tipo": "servicio",
     "estado": "por_validar",
     "isla": "Santa Cruz",
     "fecha": "2026-11-21",
-    "detalle": "05:34: vecinos confirman que no hay energía en La Cascada. 05:39 y 07:10: la empresa eléctrica suspende el servicio por seguridad en La Cascada y barrios aledaños. Solo se dibuja La Cascada con Las Orquídeas: los avisos no dicen qué barrios aledaños. 06:20: se reporta un corte más amplio en la isla; 07:05: Bellavista seguía con energía.",
+    "detalle": "05:34: vecinos confirman que no hay energía en La Cascada. 05:39 y 07:10: la empresa eléctrica suspende el servicio por seguridad en La Cascada y barrios aledaños. Solo se dibuja La Cascada con Las Orquídeas: los avisos no dicen qué barrios aledaños. 06:20: se reporta un corte más amplio en la isla; 07:05: Bellavista seguía con energía. 10:01–10:04: vecinos dicen que hay luz en El Mirador y en Miraflores y que no hay en Las Acacias; se suma Las Acacias (una sola fuente).",
     "fuente": "Avisos de la empresa eléctrica y del COE cantonal reenviados en los grupos de WhatsApp, y reportes ciudadanos sin verificar, del 21-nov-2026. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
     "reportes": "r01",
-    "area_ha": 10.99
+    "area_ha": 20.26
    },
    "geometry": {
-    "type": "Polygon",
+    "type": "MultiPolygon",
     "coordinates": [
      [
       [
-       -90.315929,
-       -0.733646
-      ],
+       [
+        -90.314928,
+        -0.741772
+       ],
+       [
+        -90.314637,
+        -0.740526
+       ],
+       [
+        -90.313602,
+        -0.740369
+       ],
+       [
+        -90.313279,
+        -0.741691
+       ],
+       [
+        -90.312955,
+        -0.742134
+       ],
+       [
+        -90.31265,
+        -0.742606
+       ],
+       [
+        -90.31314,
+        -0.743021
+       ],
+       [
+        -90.313297,
+        -0.743216
+       ],
+       [
+        -90.31339,
+        -0.743474
+       ],
+       [
+        -90.313343,
+        -0.743964
+       ],
+       [
+        -90.313778,
+        -0.744066
+       ],
+       [
+        -90.315036,
+        -0.744286
+       ],
+       [
+        -90.31521,
+        -0.743946
+       ],
+       [
+        -90.316088,
+        -0.743049
+       ],
+       [
+        -90.314928,
+        -0.741772
+       ]
+      ]
+     ],
+     [
       [
-       -90.315235,
-       -0.732553
-      ],
-      [
-       -90.311575,
-       -0.733601
-      ],
-      [
-       -90.311791,
-       -0.734511
-      ],
-      [
-       -90.313316,
-       -0.734187
-      ],
-      [
-       -90.312789,
-       -0.73573
-      ],
-      [
-       -90.316657,
-       -0.734888
-      ],
-      [
-       -90.316057,
-       -0.733847
-      ],
-      [
-       -90.315929,
-       -0.733646
+       [
+        -90.311575,
+        -0.733601
+       ],
+       [
+        -90.311791,
+        -0.734511
+       ],
+       [
+        -90.313316,
+        -0.734187
+       ],
+       [
+        -90.312789,
+        -0.73573
+       ],
+       [
+        -90.316657,
+        -0.734888
+       ],
+       [
+        -90.316057,
+        -0.733847
+       ],
+       [
+        -90.315929,
+        -0.733646
+       ],
+       [
+        -90.315235,
+        -0.732553
+       ],
+       [
+        -90.311575,
+        -0.733601
+       ]
       ]
      ]
     ]
@@ -294,9 +360,9 @@
     "estado": "por_validar",
     "isla": "Santa Cruz",
     "fecha": "2026-11-21",
-    "detalle": "La zona más grave. 03:50: la Policía hace salir el pasaje 5. 04:21: se desborda la cascada. Desde las 05:15 el agua cubre la primera planta en los pasajes 1 a 5, la calle Miconia, el parque y la iglesia; a las 06:44 llega a la segunda planta y hay familias atrapadas. Rescates en zodiac y kayak desde las 05:43. Desde las 07:24 baja despacio: 40 a 50 cm menos a las 08:32–08:35. Se usa el polígono de los dos barrios porque los reportes hablan de todo el barrio.",
+    "detalle": "La zona más grave. 03:50: la Policía hace salir el pasaje 5. 04:21: se desborda la cascada. Desde las 05:15 el agua cubre la primera planta en los pasajes 1 a 5, la calle Miconia, el parque y la iglesia; a las 06:44 llega a la segunda planta y hay familias atrapadas. Rescates en zodiac y kayak desde las 05:43. Desde las 07:24 baja despacio: 40 a 50 cm menos a las 08:32–08:35 y otros 10 cm a las 08:52; a las 09:05 se dice que baja porque el agua se desvía hacia Puerto Ayora. 09:41–09:58: siguen pidiendo rescate para familias en segundos pisos de los pasajes 3 y 5 y cerca de la escuela Loma Linda. 10:01: la cascada sigue cayendo con fuerza. 10:07: el agua sigue bajando y casi no queda gente. Se usa el polígono de los dos barrios porque los reportes hablan de todo el barrio.",
     "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
-    "reportes": "r01, r02, r03, r04, r05, r06, r07, r08, r09, r30",
+    "reportes": "r01, r02, r03, r04, r05, r06, r07, r08, r09, r28, r30",
     "area_ha": 10.99
    },
    "geometry": {
@@ -548,7 +614,7 @@
     "estado": "por_validar",
     "isla": "Santa Cruz",
     "fecha": "2026-11-21",
-    "detalle": "05:49: el agua llega a la cancha. 05:52: se llena la calle 8. 06:20: una familia evacúa porque el agua entró a su casa. 06:31: empieza a bajar. 08:05: vecinos cuentan La Unión entre los barrios en el tope de la inundación. Trazo: 90 m alrededor de la cancha, dentro del barrio; los reportes no dicen hasta dónde llegó el agua.",
+    "detalle": "05:49: el agua llega a la cancha. 05:52: se llena la calle 8. 06:20: una familia evacúa porque el agua entró a su casa. 06:31: empieza a bajar. 08:45: vuelven a decir que baja. 08:05: vecinos cuentan La Unión entre los barrios en el tope de la inundación. Trazo: 90 m alrededor de la cancha, dentro del barrio; los reportes no dicen hasta dónde llegó el agua.",
     "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
     "reportes": "r12",
     "area_ha": 2.52
@@ -670,7 +736,7 @@
     "estado": "por_validar",
     "isla": "Santa Cruz",
     "fecha": "2026-11-21",
-    "detalle": "06:37: el agua corre por las calles. 06:39: tapa la bodega de desechos del subcentro de salud. 07:01: la cancha está inundada. 07:10: en Seymour y Marchena el agua casi llega al segundo piso. 08:17: vecinos esperan rescate sobre una losa. 08:43: sacan a una mujer embarazada. Trazo: 80 m alrededor del cruce y franja de 25 m por Seymour, dentro del barrio.",
+    "detalle": "06:37: el agua corre por las calles. 06:39: tapa la bodega de desechos del subcentro de salud. 07:01: la cancha está inundada. 07:10: en Seymour y Marchena el agua casi llega al segundo piso. 08:17: vecinos esperan rescate sobre una losa. 08:43: sacan a una mujer embarazada. 09:26: una persona dice que ya rescataron a quienes esperaban en la losa (sin confirmar). Trazo: 80 m alrededor del cruce y franja de 25 m por Seymour, dentro del barrio.",
     "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
     "reportes": "r14",
     "area_ha": 2.47
@@ -1062,7 +1128,7 @@
     "estado": "por_validar",
     "isla": "Santa Cruz",
     "fecha": "2026-11-21",
-    "detalle": "07:05: baja un torrente por la calle que viene de la iglesia. 07:22: arrastra una camioneta. 07:51: una persona encerrada en un segundo piso en la calle Fragata. 08:00: el agua entra por los portones de Fragata y sigue hacia el parque. 08:18: Seymour y Petrel bajo el agua. 08:31: sigue saliendo agua por El Edén. Trazo: franja de 30 m por Seymour y por Fragata cerca de Seymour, y 50 m alrededor de los puntos, dentro del barrio.",
+    "detalle": "07:05: baja un torrente por la calle que viene de la iglesia. 07:22: arrastra una camioneta. 07:51: una persona encerrada en un segundo piso en la calle Fragata. 08:00: el agua entra por los portones de Fragata y sigue hacia el parque. 08:18: Seymour y Petrel bajo el agua. 08:31: sigue saliendo agua por El Edén. 09:07–09:12: el torrente sigue bajando de la iglesia hacia el hotel Fernandina. Trazo: franja de 30 m por Seymour y por Fragata cerca de Seymour, y 50 m alrededor de los puntos, dentro del barrio.",
     "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
     "reportes": "r16, r17, r18",
     "area_ha": 4.04
@@ -1340,9 +1406,9 @@
     "estado": "por_validar",
     "isla": "Santa Cruz",
     "fecha": "2026-11-21",
-    "detalle": "El agua que rebosa de La Cascada baja por la calle Seymour hacia El Edén y Pelican Bay. 08:21: «la calle que baja de Arrayanes hasta El Edén: Seymour». 07:05 a 07:54: torrente en Seymour. 08:00: entra por Fragata hacia el parque. 08:18: Seymour y Petrel con corriente. 07:25: toda el agua baja hacia Pelican Bay y no hay paso. No cruzar mientras corra agua. Trazo: 12 m a cada lado del eje de las calles de OSM; Fragata y Petrel solo cerca de Seymour.",
+    "detalle": "El agua que rebosa de La Cascada baja por la calle Seymour hacia El Edén y Pelican Bay. 08:21: «la calle que baja de Arrayanes hasta El Edén: Seymour». 07:05 a 07:54: torrente en Seymour. 08:00: entra por Fragata hacia el parque. 08:18: Seymour y Petrel con corriente. 07:25: toda el agua baja hacia Pelican Bay y no hay paso. 09:12: el torrente sigue en la bajada de la iglesia de El Edén. 08:58–09:38: el agua llega al cementerio y busca salida por el manglar hacia el mar (zona a07). No cruzar mientras corra agua. Trazo: 12 m a cada lado del eje de las calles de OSM; Fragata y Petrel solo cerca de Seymour.",
     "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
-    "reportes": "r15, r16, r17, r18, r19",
+    "reportes": "r15, r16, r17, r18, r19, r33",
     "area_ha": 3.16
    },
    "geometry": {
@@ -2484,6 +2550,694 @@
       [
        -90.321996,
        -0.710497
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "a07",
+    "nombre": "Pelican Bay: el agua llega al cementerio",
+    "tipo": "inundacion",
+    "estado": "por_validar",
+    "isla": "Santa Cruz",
+    "fecha": "2026-11-21",
+    "detalle": "08:58: ya no hay salida por el cementerio. 09:23: vecinos rompen una pared para que el agua siga por el manglar hacia el mar. 09:29 y 09:38: la calle del cementerio cubierta por una corriente de agua y lodo. Ubicación aproximada: círculo de 100 m alrededor del cementerio del IGM; los reportes no dicen hasta dónde llega el agua.",
+    "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
+    "reportes": "r33",
+    "area_ha": 3.11
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -90.308523,
+       -0.742363
+      ],
+      [
+       -90.308612,
+       -0.742581
+      ],
+      [
+       -90.308755,
+       -0.742769
+      ],
+      [
+       -90.308941,
+       -0.742912
+      ],
+      [
+       -90.309157,
+       -0.743003
+      ],
+      [
+       -90.309389,
+       -0.743034
+      ],
+      [
+       -90.309622,
+       -0.743003
+      ],
+      [
+       -90.309838,
+       -0.742913
+      ],
+      [
+       -90.310024,
+       -0.742769
+      ],
+      [
+       -90.310167,
+       -0.742582
+      ],
+      [
+       -90.310257,
+       -0.742364
+      ],
+      [
+       -90.310288,
+       -0.742131
+      ],
+      [
+       -90.310257,
+       -0.741897
+      ],
+      [
+       -90.310168,
+       -0.741679
+      ],
+      [
+       -90.310025,
+       -0.741491
+      ],
+      [
+       -90.309839,
+       -0.741348
+      ],
+      [
+       -90.309623,
+       -0.741257
+      ],
+      [
+       -90.309391,
+       -0.741226
+      ],
+      [
+       -90.309158,
+       -0.741257
+      ],
+      [
+       -90.308942,
+       -0.741347
+      ],
+      [
+       -90.308756,
+       -0.741491
+      ],
+      [
+       -90.308613,
+       -0.741678
+      ],
+      [
+       -90.308523,
+       -0.741896
+      ],
+      [
+       -90.308492,
+       -0.742129
+      ],
+      [
+       -90.308523,
+       -0.742363
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "a08",
+    "nombre": "Los Guayabillos: terrenos bajo el agua",
+    "tipo": "inundacion",
+    "estado": "por_validar",
+    "isla": "Santa Cruz",
+    "fecha": "2026-11-21",
+    "detalle": "09:58: un vecino muestra terrenos inundados y la parte de atrás de un hotel tapada; el agua sale por el filo. Ubicación aproximada: círculo de 120 m sobre el poblado del IGM; el video no dice el punto.",
+    "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
+    "reportes": "r38",
+    "area_ha": 4.47
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -90.341659,
+       -0.70048
+      ],
+      [
+       -90.341767,
+       -0.700742
+      ],
+      [
+       -90.341938,
+       -0.700966
+      ],
+      [
+       -90.342161,
+       -0.701139
+      ],
+      [
+       -90.342421,
+       -0.701247
+      ],
+      [
+       -90.342699,
+       -0.701285
+      ],
+      [
+       -90.342978,
+       -0.701248
+      ],
+      [
+       -90.343238,
+       -0.70114
+      ],
+      [
+       -90.343461,
+       -0.700967
+      ],
+      [
+       -90.343633,
+       -0.700743
+      ],
+      [
+       -90.34374,
+       -0.700481
+      ],
+      [
+       -90.343777,
+       -0.700201
+      ],
+      [
+       -90.343741,
+       -0.69992
+      ],
+      [
+       -90.343633,
+       -0.699658
+      ],
+      [
+       -90.343462,
+       -0.699434
+      ],
+      [
+       -90.343239,
+       -0.699261
+      ],
+      [
+       -90.342979,
+       -0.699153
+      ],
+      [
+       -90.342701,
+       -0.699115
+      ],
+      [
+       -90.342422,
+       -0.699152
+      ],
+      [
+       -90.342162,
+       -0.69926
+      ],
+      [
+       -90.341939,
+       -0.699433
+      ],
+      [
+       -90.341767,
+       -0.699657
+      ],
+      [
+       -90.34166,
+       -0.699919
+      ],
+      [
+       -90.341623,
+       -0.700199
+      ],
+      [
+       -90.341659,
+       -0.70048
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "c08",
+    "nombre": "Avenida Galápagos: baja agua de la parte alta",
+    "tipo": "riesgo",
+    "estado": "por_validar",
+    "isla": "Santa Cruz",
+    "fecha": "2026-11-21",
+    "detalle": "09:17: baja agua de la parte alta por la avenida Galápagos y se junta con la de La Cascada; piden precaución. Una sola fuente. Ubicación aproximada: franja de 12 m a cada lado de toda la avenida en OSM, porque el aviso no dice el tramo.",
+    "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
+    "reportes": "r34",
+    "area_ha": 2.37
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -90.319561,
+       -0.739325
+      ],
+      [
+       -90.319113,
+       -0.738715
+      ],
+      [
+       -90.31883,
+       -0.738282
+      ],
+      [
+       -90.318083,
+       -0.73713
+      ],
+      [
+       -90.317846,
+       -0.736766
+      ],
+      [
+       -90.317592,
+       -0.736371
+      ],
+      [
+       -90.317256,
+       -0.735846
+      ],
+      [
+       -90.31692,
+       -0.735267
+      ],
+      [
+       -90.316919,
+       -0.735265
+      ],
+      [
+       -90.316686,
+       -0.734881
+      ],
+      [
+       -90.316474,
+       -0.734491
+      ],
+      [
+       -90.31631,
+       -0.734177
+      ],
+      [
+       -90.316306,
+       -0.734171
+      ],
+      [
+       -90.316149,
+       -0.733916
+      ],
+      [
+       -90.315965,
+       -0.733601
+      ],
+      [
+       -90.315798,
+       -0.733306
+      ],
+      [
+       -90.315796,
+       -0.733303
+      ],
+      [
+       -90.315632,
+       -0.733034
+      ],
+      [
+       -90.315477,
+       -0.732757
+      ],
+      [
+       -90.315476,
+       -0.732755
+      ],
+      [
+       -90.315322,
+       -0.732496
+      ],
+      [
+       -90.315305,
+       -0.732474
+      ],
+      [
+       -90.315282,
+       -0.732457
+      ],
+      [
+       -90.315256,
+       -0.732447
+      ],
+      [
+       -90.315228,
+       -0.732444
+      ],
+      [
+       -90.3152,
+       -0.732448
+      ],
+      [
+       -90.315174,
+       -0.732459
+      ],
+      [
+       -90.315152,
+       -0.732477
+      ],
+      [
+       -90.315136,
+       -0.732499
+      ],
+      [
+       -90.315125,
+       -0.732526
+      ],
+      [
+       -90.315122,
+       -0.732554
+      ],
+      [
+       -90.315126,
+       -0.732582
+      ],
+      [
+       -90.315137,
+       -0.732608
+      ],
+      [
+       -90.31529,
+       -0.732865
+      ],
+      [
+       -90.315445,
+       -0.733142
+      ],
+      [
+       -90.315447,
+       -0.733146
+      ],
+      [
+       -90.315612,
+       -0.733415
+      ],
+      [
+       -90.315778,
+       -0.733709
+      ],
+      [
+       -90.315778,
+       -0.73371
+      ],
+      [
+       -90.315779,
+       -0.733711
+      ],
+      [
+       -90.315965,
+       -0.734027
+      ],
+      [
+       -90.315966,
+       -0.734029
+      ],
+      [
+       -90.316121,
+       -0.734282
+      ],
+      [
+       -90.316284,
+       -0.734593
+      ],
+      [
+       -90.316285,
+       -0.734595
+      ],
+      [
+       -90.316498,
+       -0.734987
+      ],
+      [
+       -90.3165,
+       -0.734989
+      ],
+      [
+       -90.316501,
+       -0.734992
+      ],
+      [
+       -90.316734,
+       -0.735377
+      ],
+      [
+       -90.317071,
+       -0.735958
+      ],
+      [
+       -90.317074,
+       -0.735962
+      ],
+      [
+       -90.317411,
+       -0.736488
+      ],
+      [
+       -90.317665,
+       -0.736884
+      ],
+      [
+       -90.317666,
+       -0.736885
+      ],
+      [
+       -90.317903,
+       -0.737249
+      ],
+      [
+       -90.31865,
+       -0.7384
+      ],
+      [
+       -90.31865,
+       -0.738401
+      ],
+      [
+       -90.318935,
+       -0.738837
+      ],
+      [
+       -90.318938,
+       -0.738841
+      ],
+      [
+       -90.319387,
+       -0.739453
+      ],
+      [
+       -90.319763,
+       -0.740009
+      ],
+      [
+       -90.319782,
+       -0.74003
+      ],
+      [
+       -90.319806,
+       -0.740046
+      ],
+      [
+       -90.319832,
+       -0.740055
+      ],
+      [
+       -90.31986,
+       -0.740056
+      ],
+      [
+       -90.319888,
+       -0.74005
+      ],
+      [
+       -90.319913,
+       -0.740038
+      ],
+      [
+       -90.319934,
+       -0.740019
+      ],
+      [
+       -90.319949,
+       -0.739995
+      ],
+      [
+       -90.319958,
+       -0.739968
+      ],
+      [
+       -90.31996,
+       -0.73994
+      ],
+      [
+       -90.319954,
+       -0.739912
+      ],
+      [
+       -90.319941,
+       -0.739887
+      ],
+      [
+       -90.319564,
+       -0.739329
+      ],
+      [
+       -90.319561,
+       -0.739325
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "c09",
+    "nombre": "Bellavista: encañada detrás del centro de salud",
+    "tipo": "riesgo",
+    "estado": "por_validar",
+    "isla": "Santa Cruz",
+    "fecha": "2026-11-21",
+    "detalle": "08:59: lodo, piedras y una tubería arrastrados detrás del centro de salud, con corriente más abajo. 08:43: circula que se desbordó otra encañada en Bellavista. Círculo de 60 m sobre la marca de GPS del video.",
+    "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
+    "reportes": "r35",
+    "area_ha": 1.12
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -90.32537,
+       -0.69325
+      ],
+      [
+       -90.325423,
+       -0.693381
+      ],
+      [
+       -90.325509,
+       -0.693493
+      ],
+      [
+       -90.32562,
+       -0.693579
+      ],
+      [
+       -90.32575,
+       -0.693634
+      ],
+      [
+       -90.32589,
+       -0.693652
+      ],
+      [
+       -90.326029,
+       -0.693634
+      ],
+      [
+       -90.326159,
+       -0.69358
+      ],
+      [
+       -90.326271,
+       -0.693494
+      ],
+      [
+       -90.326356,
+       -0.693381
+      ],
+      [
+       -90.32641,
+       -0.693251
+      ],
+      [
+       -90.326429,
+       -0.69311
+      ],
+      [
+       -90.32641,
+       -0.69297
+      ],
+      [
+       -90.326357,
+       -0.692839
+      ],
+      [
+       -90.326271,
+       -0.692727
+      ],
+      [
+       -90.32616,
+       -0.692641
+      ],
+      [
+       -90.32603,
+       -0.692586
+      ],
+      [
+       -90.32589,
+       -0.692568
+      ],
+      [
+       -90.325751,
+       -0.692586
+      ],
+      [
+       -90.325621,
+       -0.69264
+      ],
+      [
+       -90.325509,
+       -0.692726
+      ],
+      [
+       -90.325424,
+       -0.692839
+      ],
+      [
+       -90.32537,
+       -0.692969
+      ],
+      [
+       -90.325351,
+       -0.69311
+      ],
+      [
+       -90.32537,
+       -0.69325
       ]
      ]
     ]
