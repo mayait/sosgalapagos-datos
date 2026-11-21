@@ -114,7 +114,7 @@ svg .tx-ink{fill:var(--ink)}svg .tx-b{font-weight:700}
 .legend i.ln{height:0;border-top:2.5px solid;border-radius:0;width:18px}
 .legend i.dsh{height:0;border-top:2px dashed;border-radius:0;width:18px}
 .hx{background:repeating-linear-gradient(45deg,var(--hatch) 0 1px,transparent 1px 4px),repeating-linear-gradient(-45deg,var(--hatch) 0 1px,transparent 1px 4px)}
-.vh{border:1.5px dashed var(--fc);background:repeating-linear-gradient(45deg,var(--fc) 0 2px,transparent 2px 6px)}
+.vh{border:1.5px dashed var(--rain);background:repeating-linear-gradient(45deg,var(--rain) 0 2px,transparent 2px 6px)}
 /* pronóstico diario */
 .dias{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:12px}
 @media (max-width:640px){.dias{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.dia{padding:10px 11px}.dots{max-width:120px}}
@@ -641,8 +641,8 @@ function pasoBonito(max, n = 4) {
 function ticks(max, n = 4) { const p = pasoBonito(max, n), out = []; for (let v = 0; v <= max + 1e-9; v += p) out.push(+v.toFixed(6)); return out; }
 const DEFS = `<defs>
   <pattern id="xh" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 0L7 7M7 0L0 7" stroke="var(--hatch)" stroke-width=".9"/></pattern>
-  <pattern id="vh" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.6" height="7" fill="var(--fc)" opacity=".75"/></pattern>
-  <pattern id="vhL" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.2" height="7" fill="var(--fc)" opacity=".32"/></pattern>
+  <pattern id="vh" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.6" height="7" fill="var(--rain)" opacity=".7"/></pattern>
+  <pattern id="vhL" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.2" height="7" fill="var(--rain)" opacity=".3"/></pattern>
 </defs>`;
 // Bandas de noche (18:00–06:00 de Galápagos) entre a y b
 function noches(a, b, x, y0, h) {
@@ -865,7 +865,7 @@ function tarjetaZona(z) {
     const [w, wn] = ws.reduce((m, x) => (R[x[0]] ?? 0) / uA[x[0]] > (R[m[0]] ?? 0) / uA[m[0]] ? x : m, ws[2]);
     const ref = ref30(z), rv = ref?.[w], v = R[w] ?? 0;
     const marcas = U.filter(u => u[w]).map(u => ({n: u.nivel, v: u[w] * (w === "R72h" ? 1 : f)}));
-    const max = Math.max(rv || 0, ...marcas.map(m => m.v)) * 1.08;
+    const max = Math.max(v, rv || 0, ...marcas.map(m => m.v)) * 1.08; // la escala crece si la lluvia supera todas las marcas
     const pc = x => Math.min(100, x / max * 100).toFixed(1) + "%";
     const oscuro = n.fg === "#FFFFFF";
     pista = `<div class="track"><div class="tt"><span>Lluvia en ${wn}: <b>${mmTxt(v)}</b> · la ventana que más se acerca a su umbral</span><span>marcas: ▲ medio · ▼ alto · ● muy alto${f !== 1 ? ` (umbrales ×${num(f, 1)}: suelo ${z.humedad || ""})` : ""}</span></div>
@@ -873,7 +873,7 @@ function tarjetaZona(z) {
         <div class="fill" style="width:${pc(v)};background:${oscuro ? "#fff" : "#141414"};opacity:.85"></div>
         ${marcas.map(m => `<div class="mk" style="left:${pc(m.v)};background:${n.fg}"><span title="${esc(m.n)}">${niv(m.n).sh} ${num(m.v, 0)}</span></div>`).join("")}
         ${rv ? `<div class="ref" style="left:${pc(rv)};border-color:${n.fg}"><span style="${rv / max > .7 ? "transform:translateX(-100%);margin-left:-4px" : ""}">30-oct: ${num(rv, 0)} mm</span></div>` : ""}
-      </div><div class="tn">${rv ? `El 30 de octubre, en esta zona, cayeron ${num(rv, 0)} mm en ${wn}.` : ""}</div></div>`;
+      </div><div class="tn">${rv ? `El 30 de octubre, en esta zona, cayeron ${num(rv, 0)} mm en ${wn}${v > rv ? `; ahora van ${num(v, 0)} mm` : ""}.` : ""}</div></div>`;
   }
   const satZ = SAT?.zonas?.[z.id], satV = satZ && satEstado(satZ) === "vigilancia";
   const msg = `${zinfo(z).corto}: nivel de lluvia peligrosa «${z.silencio ? "sin datos en plena lluvia fuerte" : nivel}» a las ${hm(Date.parse(E.generado))} (estimación de SOS Galápagos, no oficial). ${f1} Alertas oficiales: COE, SNGR, ECU 911. https://sosgalapagos.org/clima/?zona=${z.id}`;
@@ -907,6 +907,8 @@ function puntoZona(z, preferirAlta = true) {
   const elegido = S.punto[z.id] && pz.puntos.find(p => p.id === S.punto[z.id]);
   return elegido || (preferirAlta ? pz.puntos.find(p => p.tipo === "alta" && p.bloques6h?.length) : null) || pz.puntos.find(p => p.bloques6h?.length) || pz.puntos[0];
 }
+let ctxTx; // ancho real de una etiqueta en negrita de 12 px, para no montarla sobre la vecina
+const anchoTx = t => { ctxTx ??= document.createElement("canvas").getContext("2d"); ctxTx.font = `700 12px ${getComputedStyle(document.body).fontFamily}`; return ctxTx.measureText(t).width; };
 // Cuándo se concentra la lluvia según los conjuntos (milímetros de modelo: sirven para ver cuándo, no cuánto)
 const SENAL6 = b => b.mediana >= 3 || b.p90 >= 8 ? ["más lluvia", "url(#vh)", 2] : b.mediana >= 1 || b.p90 >= 3 ? ["algo de lluvia", "url(#vhL)", 1] : ["", "none", 0];
 function viene(z) {
@@ -932,11 +934,18 @@ function viene(z) {
     bl.forEach(q => {
       const [w, fill] = SENAL6(q), i0 = Math.max(ahora, q.t0), x0 = x(i0) + 2, ww = x(q.t0 + 6 * HORA) - x(i0) - 4;
       if (ww <= 2) return;
-      g += `<rect x="${x0.toFixed(1)}" y="${y2}" width="${ww.toFixed(1)}" height="${y3 - y2 - 4}" rx="3" fill="${fill === "none" ? "transparent" : fill}" stroke="var(--fc)" stroke-width="1.3" stroke-dasharray="4 3"/>`;
-      if (w && ww > 44) g += `<text x="${(x0 + ww / 2).toFixed(1)}" y="${(y2 + (y3 - y2) / 2 + 2).toFixed(1)}" text-anchor="middle" class="tx-b" style="fill:var(--fc2)">${w}</text>`;
+      g += `<rect x="${x0.toFixed(1)}" y="${y2}" width="${ww.toFixed(1)}" height="${y3 - y2 - 4}" rx="3" fill="${fill === "none" ? "transparent" : fill}" stroke="var(--rain)" stroke-width="1.3" stroke-dasharray="4 3"/>`;
+    });
+    // Una etiqueta por tramo de bloques seguidos con la misma señal, y solo si cabe (si no, la corta; si tampoco, ninguna)
+    const tramos = [];
+    bl.forEach(q => { const n = SENAL6(q)[2], i0 = Math.max(ahora, q.t0), u = tramos.at(-1); if (u && u.n === n && u.t1 === q.t0) u.t1 = q.t0 + 6 * HORA; else tramos.push({n, t0: i0, t1: q.t0 + 6 * HORA}); });
+    tramos.forEach(r => {
+      if (!r.n) return;
+      const ww = x(Math.min(b, r.t1)) - x(r.t0) - 6, et = (r.n === 2 ? ["más lluvia", "más"] : ["algo de lluvia", "algo"]).find(t => anchoTx(t) + 8 <= ww);
+      if (et) g += `<text x="${((x(r.t0) + x(Math.min(b, r.t1))) / 2).toFixed(1)}" y="${(y2 + (y3 - y2) / 2 + 2).toFixed(1)}" text-anchor="middle" class="tx-b" style="fill:var(--ink);paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round">${et}</text>`;
     });
     if (!bl.length) g += `<text x="${(x(ahora) + W - m.r) / 2}" y="${y2 + 22}" text-anchor="middle">sin pronóstico por bloques ahora</text>`;
-    g += `<text x="${x(ahora) + 6}" y="${y2 - 6}" style="fill:var(--fc2);font-weight:700">${W < 560 ? "modelos →" : "cuándo esperan lluvia los modelos →"}</text>`;
+    g += `<text x="${x(ahora) + 6}" y="${y2 - 6}" style="fill:var(--rain);font-weight:700">${W < 560 ? "modelos →" : "cuándo esperan lluvia los modelos →"}</text>`;
     g += ejeX(a, b, x, m.t, y3 - m.t, true);
     g += `<line x1="${x(ahora)}" x2="${x(ahora)}" y1="${m.t - 14}" y2="${y3}" stroke="var(--ink)" stroke-width="2"/><text x="${x(ahora) - 6}" y="${m.t - 8}" text-anchor="end" class="tx-ink tx-b">← medido</text><text x="${x(ahora) + 6}" y="${m.t - 8}" class="tx-ink tx-b">ahora</text>`;
     const mx = s.reduce((mm, q) => (q.v || 0) > (mm?.v || 0) ? q : mm, null);
