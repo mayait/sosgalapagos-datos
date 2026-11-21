@@ -22,7 +22,7 @@
  },
 
  "grupos": [
-  {"id": "emergencia", "titulo": "Emergencia en curso", "capas": ["reportes_21nov", "flujo_21nov", "areas_afectadas"]},
+  {"id": "emergencia", "titulo": "Emergencia en curso", "capas": ["reportes_21nov", "buenas_21nov", "flujo_21nov", "areas_afectadas"]},
   {"id": "lluvia", "titulo": "Riesgo de inundación por lluvia",
    "descripcion": "Lo que conviene mirar ahora. La susceptibilidad, los puntos y los cruces salen de modelos propios sobre un relieve de 30 m (de 5 m con el DTM de la SGIAR en Puerto Ayora, el escarpe y Bellavista): sirven para priorizar inspecciones, no son delimitaciones oficiales.",
    "capas": ["susceptibilidad", "sc_vaso_21nov", "sc_control_21nov", "sc_puntos", "sx_puntos", "cruces_alta", "cruces_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
@@ -50,6 +50,11 @@
     "4": {"etiqueta": "Gravedad 4: muy grave", "fillColor": "#581c87"}},
     "otro": {"etiqueta": "Sin gravedad o refugio", "fillColor": "#16a34a"}},
    "popup": {"titulo": "titulo", "campos": {"hora_txt": "Hora", "lugar": "Lugar", "gravedad_txt": "Gravedad", "ubicacion_txt": "Ubicación", "fuente": "Fuente"},
+    "texto": "descripcion", "fotos": "fotos"}},
+
+  "buenas_21nov": {"visible": true, "pane": "reportes", "marcador": "corazon",
+   "estilo": {"radius": 8, "weight": 2, "color": "#ffffff", "fillColor": "#db2777", "fillOpacity": 1},
+   "popup": {"titulo": "titulo", "campos": {"autor": "Quién lo hace", "hora_txt": "Hora", "lugar": "Lugar", "estado_txt": "Estado", "ubicacion_txt": "Ubicación", "fuente": "Fuente"},
     "texto": "descripcion", "fotos": "fotos"}},
 
   "areas_afectadas": {"visible": true, "pane": "emergencia",

@@ -170,6 +170,17 @@ CAPA_REPORTES = {"id": "reportes_21nov", "titulo": "Reportes ciudadanos del 21-n
                  "descripcion": "Reportes de vecinos por WhatsApp, sin verificar. No es información oficial. "
                                 "Cada punto resume varios mensajes y fotos; la ubicación puede ser aproximada."}
 
+# Buenas noticias y ayuda del 21-nov (reportes/scripts/06_buenas.py): capa aparte, con corazón, sin gravedad
+BUENAS = REPORTES / "buenas"
+ARCHIVO_BUENAS = "buenas_noticias_21nov.geojson"
+ESTADO_ACCION = {"anunciado": "Anunciado, sin confirmar", "en_curso": "En curso", "realizado": "Realizado"}
+CAPA_BUENAS = {"id": "buenas_21nov", "titulo": "Buenas noticias y ayuda del 21-nov (sin verificar)", "archivo": ARCHIVO_BUENAS,
+               "tipo": "punto", "visible": True, "fotos_base": f"buenas/{EVENTO}/",
+               "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar. No es información oficial.",
+               "descripcion": "Entregas de comida, cocinas comunitarias, donaciones, rescates de voluntarios y vías rehabilitadas, "
+                              "según mensajes de vecinos y organizaciones, sin verificar. Cada punto dice quién lo hace y si está "
+                              "anunciado o ya se hizo; la ubicación puede ser aproximada."}
+
 
 # Flujo observado del 21-nov (reportes/scripts/05_flujo.py): va al grupo «Emergencia en curso», con sus descargas
 FLUJO = ROOT.parent / "reportes" / "eventos" / EVENTO / "flujo_observado.geojson"
@@ -215,6 +226,29 @@ def preparar_reportes(destino):
     (destino / ARCHIVO_REPORTES).write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     base = destino / "reportes" / EVENTO
     for d in ("fotos", "mini"): shutil.copytree(REPORTES / d, base / d)
+    return data
+
+
+def preparar_buenas(destino):
+    """Copia la capa de buenas noticias y sus fotos a `destino`. Falla si falta lo que deja reportes/scripts/06_buenas.py.
+    Solo toca reportes/publicar/<evento>/buenas/ (ya depurado): nunca reportes/privado/. Devuelve el GeoJSON publicado."""
+    for p in (BUENAS / "buenas_noticias.geojson", BUENAS / "fotos", BUENAS / "mini"):
+        if not p.exists():
+            raise SystemExit(f"Falta {p.relative_to(ROOT.parent)}. Corre antes: geodatos/.venv/bin/python -I reportes/scripts/06_buenas.py")
+    data = json.loads((BUENAS / "buenas_noticias.geojson").read_text())
+    for f in data["features"]:
+        p = f["properties"]
+        hora = p.get("hora") or ""
+        if p.get("hora_fin") and p["hora_fin"] != hora: hora = f"{hora} a {p['hora_fin']}"
+        p["hora_txt"] = hora + " (hora de Galápagos)" if hora else None
+        p["estado_txt"] = ESTADO_ACCION.get(p.get("estado_accion"))
+        p["ubicacion_txt"] = "Ubicación aproximada" if p.get("precision") in ("aproximada", "por_confirmar", "barrio") else None
+        for ft in p.get("fotos") or []:
+            for k in ("archivo", "mini"):
+                if not (BUENAS / ft[k]).exists(): raise SystemExit(f"Falta la foto {BUENAS / ft[k]}; corre 06_buenas.py")
+    (destino / ARCHIVO_BUENAS).write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    base = destino / "buenas" / EVENTO
+    for d in ("fotos", "mini"): shutil.copytree(BUENAS / d, base / d)
     return data
 
 
@@ -404,9 +438,10 @@ def main():
     g_em = next((g for g in man["grupos"] if g["id"] == "emergencia"), None)
     if g_em is None: raise SystemExit("El manifiesto no trae el grupo «emergencia»")
     g_em["capas"].insert(0, json.loads(json.dumps(CAPA_REPORTES)))
+    g_em["capas"].insert(1, json.loads(json.dumps(CAPA_BUENAS)))
     if not FLUJO.exists(): raise SystemExit(f"Falta {FLUJO.relative_to(ROOT.parent)}. Corre antes: geodatos/.venv/bin/python -I reportes/scripts/05_flujo.py")
     shutil.copy(FLUJO, TMP_ESTUDIOS / ARCHIVO_FLUJO)
-    g_em["capas"].insert(1, json.loads(json.dumps(CAPA_FLUJO)))
+    g_em["capas"].insert(2, json.loads(json.dumps(CAPA_FLUJO)))
     man = aplicar_visor(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
     publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
@@ -425,6 +460,7 @@ def main():
         d_datos.mkdir(parents=True); d_desc.mkdir(parents=True)
         shutil.copytree(src / "raster", d_datos / "raster")
         reportes = preparar_reportes(d_datos)
+        buenas = preparar_buenas(d_datos)
         info = {"titulo": TITULO_VAR[var], "archivos": {}}
         todo_shp = zipfile.ZipFile(d_desc / f"todo-{var}-shp.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
         todo_gj = zipfile.ZipFile(d_desc / f"todo-{var}-geojson.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
@@ -463,6 +499,8 @@ def main():
                                          "geojson": {"url": f"datos/{var}/{gj.name}", "tam": tam(gj.stat().st_size)}}
         info["archivos"][ARCHIVO_REPORTES] = {"titulo": CAPA_REPORTES["titulo"], "elementos": len(reportes["features"]),
             "geojson": {"url": f"datos/{var}/{ARCHIVO_REPORTES}", "tam": tam((d_datos / ARCHIVO_REPORTES).stat().st_size)}}
+        info["archivos"][ARCHIVO_BUENAS] = {"titulo": CAPA_BUENAS["titulo"], "elementos": len(buenas["features"]),
+            "geojson": {"url": f"datos/{var}/{ARCHIVO_BUENAS}", "tam": tam((d_datos / ARCHIVO_BUENAS).stat().st_size)}}
         # Rásters: PNG + archivo de georreferencia (.pgw) + .prj
         lim = json.loads((src / "raster" / "limites.json").read_text())
         for kind in sorted({p.stem.split("_")[-1] for p in (src / "raster").glob("*.png")}):
