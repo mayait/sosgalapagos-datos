@@ -1,0 +1,251 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b01",
+    "hora": "05:28",
+    "hora_fin": "13:19",
+    "lugar": "Colegio Miguel Ángel Cazares",
+    "barrio": "Puerto Ayora",
+    "autor": "COE cantonal (refugio); Fundación Paraíso Solidario y comedor Pan de la Inmaculada (comida)",
+    "estado_accion": "en_curso",
+    "precision": "exacta",
+    "titulo": "Refugio abierto con comida en el colegio Miguel Ángel Cazares",
+    "descripcion": "Refugio abierto desde la madrugada para las personas evacuadas. A las 11:50 se informa que la cocina del refugio, a cargo del COE, tiene comida para dos días. Según la cocina comunitaria (13:19), la Fundación Paraíso Solidario entregó sándwiches y bebida y ofrece 400 cenas, y el comedor Pan de la Inmaculada ofrece 200 desayunos, 200 almuerzos y pan con colada por la noche, durante 15 días. A las 12:25 la Fundación Torraja envía a uno de sus cocineros para ver qué falta. Las cantidades son las anunciadas, no entregas confirmadas.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31817,
+     -0.73846
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b02",
+    "hora": "10:36",
+    "hora_fin": "13:19",
+    "lugar": "Cocina comunitaria, calle de los kioskos (Charles Binford)",
+    "barrio": "Puerto Ayora",
+    "autor": "Fundación Torraja (cocina, con voluntarios y donaciones); FUNCAVID (generador); FIRMAG y GLF (alimentos); FCD, por confirmar (alimentos)",
+    "estado_accion": "en_curso",
+    "precision": "aproximada",
+    "titulo": "Cocina comunitaria de la Fundación Torraja: almuerzos para las personas afectadas",
+    "descripcion": "La cocina funciona sin parar desde hace tres semanas con voluntarios y donaciones, y hoy espera llegar a 2000 porciones. A las 10:36 pide un generador porque está sin luz ni agua; a las 11:48 FUNCAVID llega con uno y a las 12:00 queda instalado. A las 11:59 hay 350 porciones listas. A las 13:19 reparte almuerzos arriba de la cancha sintética del coliseo y anuncia 500 desayunos, 900 almuerzos y 500 cenas diarias durante 15 días. A las 13:19 la alianza FIRMAG–GLF entrega provisiones a los comedores comunitarios; otra organización avisa a las 11:54 que también aporta alimentos. A las 13:03 la cocina todavía pide combustible para el generador. Ubicación aproximada: el punto va a la calle de los kioskos, no al local.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/7d41ee16_3.jpg",
+      "mini": "mini/7d41ee16_3.jpg",
+      "hora": "10:36",
+      "pie": "10:36: las ollas de la cocina comunitaria"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31351,
+     -0.74533
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b03",
+    "hora": "13:37",
+    "hora_fin": "13:45",
+    "lugar": "Parque de La Unión, calle Duncan",
+    "barrio": "La Unión",
+    "autor": "Autor sin identificar: el anuncio dice «los carros de la fundación» y no la nombra",
+    "estado_accion": "anunciado",
+    "precision": "aproximada",
+    "titulo": "Entrega de comida en carros: La Unión, calle Galápagos y la PJ",
+    "descripcion": "Un anuncio que circula a las 13:37 dice que los carros de una fundación entregan comida a las 13:45 en tres puntos: cerca del parque de La Unión, en la calle Duncan; en la calle Galápagos, por la toma de agua; y en la PJ. Al mismo tiempo se entrega comida en el comedor. Anunciado: ningún mensaje confirma la entrega. El punto va al parque de La Unión; los otros dos sitios no se pudieron ubicar.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31549,
+     -0.73598
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b04",
+    "hora": "10:59",
+    "hora_fin": "11:44",
+    "lugar": "Vía a Bellavista, km 4,5: Curva Brava",
+    "barrio": "Vía a Baltra",
+    "autor": "Ministerio de Infraestructura y Transporte, Consejo de Gobierno de Galápagos y municipio de Santa Cruz",
+    "estado_accion": "realizado",
+    "precision": "exacta",
+    "titulo": "Curva Brava: la vía a la parte alta vuelve a tener paso",
+    "descripcion": "La vía estuvo cortada desde las 05:42. La maquinaria trabajó desde antes de las 08:00. A las 10:59 se avisa que el paso está restaurado con control de tráfico y a las 11:02 un vecino lo confirma con una foto. El Consejo de Gobierno publica que habilitó la vía Puerto Ayora–Canal de Itabaca junto con el ministerio y el municipio. A las 11:44 pasan vehículos. La calzada quedó dañada: pasar con cuidado.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/3f98a4b6.jpg",
+      "mini": "mini/3f98a4b6.jpg",
+      "hora": "11:02",
+      "pie": "11:02: maquinaria en la vía, ya habilitada"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.325905,
+     -0.71333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b05",
+    "hora": "05:43",
+    "hora_fin": "14:14",
+    "lugar": "La Cascada",
+    "barrio": "La Cascada",
+    "autor": "Armada, Bomberos, Policía, municipio, Parque Nacional Galápagos, ABG, Fundación Torraja, FIRMAG, Ética y vecinos voluntarios con kayaks",
+    "estado_accion": "en_curso",
+    "precision": "barrio",
+    "titulo": "Rescates en zodiac y kayak en La Cascada",
+    "descripcion": "A las 05:43 llega la Armada y desde las 05:55 un zodiac saca gente entre las casas. A las 06:23 policías, marinos, bomberos y personal municipal evacúan el barrio. A las 07:26 el Parque Nacional envía embarcaciones. A las 08:20 FIRMAG pone sus kayaks a disposición de los rescatistas. Entre las 08:45 y las 09:40 se anuncia que Ética manda un zodiac y cuatro kayaks, que un yate de turismo manda kayaks y que el zodiac de la ABG va en camino. A las 10:57 la Fundación Torraja cuenta que sus voluntarios rescatan gente desde la madrugada con un zodiac prestado. A las 10:19 las vecinas de una cuadra sacan a un adulto mayor. A las 14:14 voluntarios siguen gestionando un zodiac para rescatar animales. Lo de Ética, el yate y la ABG es lo anunciado: los mensajes no confirman la llegada.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/f10eabf7_2.jpg",
+      "mini": "mini/f10eabf7_2.jpg",
+      "hora": "10:57",
+      "pie": "10:57: voluntarios llevan un zodiac por la calle inundada"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3133,
+     -0.73415
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b06",
+    "hora": "08:03",
+    "hora_fin": null,
+    "lugar": "El Bosque: vía hacia Bellavista",
+    "barrio": "El Bosque",
+    "autor": "Vecinos de El Bosque",
+    "estado_accion": "realizado",
+    "precision": "barrio",
+    "titulo": "El Bosque: vecinos abren paso con motosierra",
+    "descripcion": "A las 05:50 un árbol caído cerraba la vía a la altura del tanque de agua. A las 08:03 vecinos con motosierra abren un paso; quedan restos de árboles en la vía. Ubicación aproximada: centro del barrio.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.32823,
+     -0.70564
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b07",
+    "hora": "07:44",
+    "hora_fin": "08:17",
+    "lugar": "Los Arrayanes",
+    "barrio": "Los Arrayanes",
+    "autor": "Vecinos de Los Arrayanes y personal del municipio",
+    "estado_accion": "realizado",
+    "precision": "calle",
+    "titulo": "Los Arrayanes: vecinos y municipio abren un drenaje",
+    "descripcion": "A las 07:44, con las casas llenándose de agua, vecinos y personal del municipio intentan abrir un drenaje. A las 08:05 piden picos, barras y sacos de arena; a las 08:17 avisan que consiguieron la barra.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3102,
+     -0.73636
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b08",
+    "hora": "08:43",
+    "hora_fin": null,
+    "lugar": "Matazarnos: Seymour y Marchena",
+    "barrio": "Matazarnos",
+    "autor": "Autor sin identificar: el mensaje no dice quién la rescató",
+    "estado_accion": "realizado",
+    "precision": "aproximada",
+    "titulo": "Matazarnos: rescatan a una mujer embarazada",
+    "descripcion": "Desde las 07:51 pedían un zodiac para una mujer embarazada con niñas, atrapada por el agua en el sector de Seymour y Marchena. A las 08:43 un vecino confirma que ya la sacaron. El punto va al cruce, no a la casa.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31295,
+     -0.73613
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "b09",
+    "hora": "11:30",
+    "hora_fin": "11:33",
+    "lugar": "Vía a Baltra: sector del pozo profundo",
+    "barrio": "Vía a Baltra",
+    "autor": "Oceans Finance Company (OFC) y GLF",
+    "estado_accion": "anunciado",
+    "precision": "aproximada",
+    "titulo": "Anuncian 8,4 km de tubería para reconstruir la red de agua",
+    "descripcion": "A las 11:30 se anuncia la entrega de 8,4 km de tubería para reconstruir la red de distribución de agua de Santa Cruz. Técnicos que trabajan con OFC y GLF gestionan la reposición de la tubería que se perdió en la Curva Brava y de las conexiones entre el pozo profundo y La Camiseta, y piden información de las encañadas para que la obra dure. Anunciado: no hay fecha de entrega. Ubicación aproximada: el pozo según el IGM.",
+    "tipo": "buena_noticia",
+    "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3257,
+     -0.7036
+    ]
+   }
+  }
+ ]
+}
