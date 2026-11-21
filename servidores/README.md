@@ -13,7 +13,8 @@ Esta carpeta es el **índice de la parte de servidor**. El código de cada servi
   ┌─────────────────────────────┴──────────────────────────────────────────┐
   │  Docker compose (repo mayait/sosgalapagos → deploy/sosgalapagos/)       │
   │   caddy ─┬─ /            → app ResponseGrid (web + API /backend)        │
-  │          ├─ /mapas/      → /srv/sosgalapagos-mapas     (estático)       │
+  │          ├─ /riesgos/    → plataforma:8000 (repo sosgalapagos-plataforma) │
+  │          ├─ /mapas/…     → /srv/sosgalapagos-mapas     (datos; la página redirige a /riesgos/) │
   │          ├─ /estudios/   → /srv/sosgalapagos-estudios  (estático)       │
   │          ├─ /descargas/  → /srv/sosgalapagos-descargas (PDF de la portada) │
   │          ├─ /estudios/api/* → contenedor «comentarios» (volumen comentariosdata) │
@@ -33,7 +34,8 @@ Esta carpeta es el **índice de la parte de servidor**. El código de cada servi
 
 | Servicio | URL | Qué es | Código fuente (este repo) | En el servidor | Publicar |
 |---|---|---|---|---|---|
-| **Mapas** | `/mapas/` | Visor Leaflet (buscador, puntos de análisis, «Mis puntos» guardados solo en el navegador, imagen con leyenda) y descargas en Shapefile y GeoJSON de todas las capas (islas completas) | `geodatos/scripts/10_publicar_web.py`, `geodatos/scripts/visor_mapas.json` (orden, colores y capas encendidas del visor), `geodatos/web/index.html`, `geodatos/scripts/publicar_mapas.sh` | `/srv/sosgalapagos-mapas`, montado en Caddy como `/srv/mapas` (solo lectura) | `servidores/publicar.sh mapas` |
+| **Datos del mapa** | `/mapas/…` | **Sin visor desde el 21-nov-2026**: `/mapas/` redirige a `/riesgos/`. Aquí se publican el manifiesto (`capas.json`), las capas, las teselas y las descargas en Shapefile y GeoJSON (islas completas). **No dar de baja esta carpeta: `/riesgos/` lee todo de aquí** | `geodatos/scripts/10_publicar_web.py`, `geodatos/scripts/visor_mapas.json` (orden, colores, capas encendidas y buscador), `geodatos/scripts/publicar_mapas.sh`. El visor anterior está en `Archivo/visor-mapas/` | `/srv/sosgalapagos-mapas`, montado en Caddy como `/srv/mapas` (solo lectura) | `servidores/publicar.sh mapas` |
+| **Mapa de riesgos** | `/riesgos/` | El mapa único del sitio: reportes ciudadanos, capas, buscador, descargas e informe | repo `mayait/sosgalapagos-plataforma` | código en `/opt/sosgalapagos-plataforma`, Compose aparte `sosgalapagos-plataforma` | `despliegue/produccion/desplegar.sh` de ese repo |
 | **Estudios / Informes** | `/estudios/` (alias `/informes`) | **Retirado el 5-nov-2026**: los informes y los textos de los estudios son solo locales. La ruta redirige a la portada | — | `/srv/sosgalapagos-estudios` (solo una redirección; la copia anterior quedó en `/root/respaldo-estudios-2026-11-05/`) | no se publica |
 | **Informes descargables** | `/descargas/` y la sección «Informes y mapas para descargar» de la portada | Mapas e informes en PDF que Julián decide publicar (desde el 21-nov-2026). Los archivos no están en git: viven en `~/dev/sosgalapagos-informes/publicar/` con su `indice.json` | `servidores/publicar_descargas.sh` | `/srv/sosgalapagos-descargas`, montado en Caddy (sirve solo `.pdf`, `.jpg` y `.png`) y en la web (lee `indice.json`) | `servidores/publicar.sh descargas` |
 | **Comentarios** | `/estudios/api/*` | API de comentarios del antiguo sitio de estudios (sin uso desde el 4-nov-2026; el contenedor y el volumen se conservan) | repo `mayait/sosgalapagos`: `deploy/sosgalapagos/comentarios/servidor.py` | contenedor `comentarios`, volumen `comentariosdata` | despliegue de la app |
@@ -59,7 +61,9 @@ ssh root@152.44.45.89 /opt/sosgalapagos/deploy/sosgalapagos/deploy.sh
 ## Comprobar que todo está vivo
 
 ```bash
-curl -sI https://sosgalapagos.org/mapas/ | head -1
+curl -sI https://sosgalapagos.org/riesgos/ | head -1            # el mapa
+curl -sI https://sosgalapagos.org/mapas/capas.json | head -1   # los datos que lee el mapa
+curl -sI https://sosgalapagos.org/mapas/ | head -1             # 302 a /riesgos/
 curl -sI https://sosgalapagos.org/estudios/ | head -1
 curl -s https://sosgalapagos.org/clima/datos/estado.json | head -c 300
 ssh root@152.44.45.89 'systemctl list-timers "sosgalapagos-clima*" --no-pager; cat /srv/sosgalapagos-*/version.txt /opt/sosgalapagos-clima/version.txt 2>/dev/null'

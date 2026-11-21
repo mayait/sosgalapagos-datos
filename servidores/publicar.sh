@@ -1,6 +1,6 @@
 #!/bin/sh
 # Publica un servicio en sosgalapagos.org desde main, con el árbol limpio.
-#   servidores/publicar.sh mapas      → /mapas/    (geodatos/scripts/publicar_mapas.sh)
+#   servidores/publicar.sh mapas      → datos de /mapas/, que muestra /riesgos/ (geodatos/scripts/publicar_mapas.sh)
 #   servidores/publicar.sh clima      → /clima/    (clima/deploy/publicar.sh; admite --historico)
 #   servidores/publicar.sh descargas  → /descargas/ y la sección «Informes» de la portada (servidores/publicar_descargas.sh)
 # Variables: SERVIDOR (por defecto root@152.44.45.89), PERMITIR_RAMA=1 para probar desde otra rama.

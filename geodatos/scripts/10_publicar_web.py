@@ -4,12 +4,11 @@ Toma los dos paquetes exportados por 08_exportar.py:
   export/galapagos/           → «Zona poblada» (recortado al área de interés)
   export/galapagos-completo/  → «Islas completas» (sin recorte, incluye el parque)
 y genera en publicar/mapas/:
-  index.html                       visor (de web/index.html)
-  datos/<variante>/*.geojson       capas que lee el visor (+ .gz precomprimido)
+  datos/<variante>/*.geojson       capas que lee el mapa de /riesgos/ (+ .gz precomprimido)
   descargas/<variante>/*.zip       Shapefile por capa (WGS84, UTF-8) con LEEME
   descargas/<variante>/*.geojson   GeoJSON por capa (enlace directo a datos/)
   descargas/<variante>/todo-*.zip  todas las capas juntas
-  descargas.json                   índice que usa el visor (rutas y tamaños)
+  descargas.json                   índice que usa /riesgos/ (rutas y tamaños)
 
 Uso: .venv/bin/python -I scripts/10_publicar_web.py
 Publicar: scripts/publicar_mapas.sh
@@ -542,8 +541,9 @@ def main():
     if TMP_AJUSTE.exists(): shutil.rmtree(TMP_AJUSTE)
     (OUT / "capas.json").write_text(json.dumps(man, ensure_ascii=False, separators=(",", ":")))
     (OUT / "descargas.json").write_text(json.dumps(indice, ensure_ascii=False, separators=(",", ":")))
-    html = (ROOT / "web" / "index.html").read_text().replace("__VERSION__", HOY.replace("-", "") + datetime.datetime.now().strftime("%H%M"))
-    (OUT / "index.html").write_text(html)
+    # El visor de /mapas se retiró el 21-nov-2026: el mapa único es /riesgos/ (repo sosgalapagos-plataforma),
+    # que lee este manifiesto, las capas y las descargas. Aquí ya no se escribe ningún index.html
+    # (el visor anterior está en Archivo/visor-mapas/).
     # Precompresión para Caddy (file_server precompressed gzip)
     for p in OUT.rglob("*"):
         if p.suffix in (".geojson", ".json", ".html"):

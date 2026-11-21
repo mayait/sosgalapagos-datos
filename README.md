@@ -4,7 +4,7 @@ Datos geográficos, mediciones del clima y modelos que se usaron para responder 
 
 - **Responsable:** Julián Maya, Universidad San Francisco de Quito (USFQ) · jamaya@usfq.edu.ec. Coordinación: USFQ Galápagos.
 - **En línea:**
-  - [sosgalapagos.org/mapas](https://sosgalapagos.org/mapas/)(https://sosgalapagos.org/mapas/) — visor y descargas de capas;
+  - [sosgalapagos.org/riesgos](https://sosgalapagos.org/riesgos/) — el mapa de riesgos, que muestra estas capas (su código está en [`sosgalapagos-plataforma`](https://github.com/mayait/sosgalapagos-plataforma)); las [descargas](https://sosgalapagos.org/riesgos/descargas/) y los datos se publican bajo `/mapas/`;
   - [/clima](https://sosgalapagos.org/clima/) — lluvia en vivo, nivel preliminar de inundación, pronóstico y satélite.
 - **Plataforma de coordinación** (ResponseGrid): vive en otro repositorio, [mayait/sosgalapagos](https://github.com/mayait/sosgalapagos).
 
@@ -83,7 +83,7 @@ Es lo único que permite **validar** los modelos y la alerta. Hoy ninguna cifra 
 | **Todo el repositorio** (capas, clima y scripts) | [ZIP de `main`](https://github.com/mayait/sosgalapagos-datos/archive/refs/heads/main.zip) |
 | **Capas de las islas completas** en Shapefile o GeoJSON (WGS84, UTF-8, con LEEME) | [Versiones publicadas](https://github.com/mayait/sosgalapagos-datos/releases/latest) → `todo-completo-shp.zip` · `todo-completo-geojson.zip` |
 | **Datos del clima** (IERSE, INAMHI, FCD) | [Versiones publicadas](https://github.com/mayait/sosgalapagos-datos/releases/latest) → `clima-datos-*.zip` · carpeta [`clima/datos/`](clima/datos/) |
-| Capas del mapa de la emergencia, una por una | [`mapas-galapagos/datos/`](mapas-galapagos/datos/) o el visor [/mapas](https://sosgalapagos.org/mapas/) |
+| Capas del mapa de la emergencia, una por una | [`mapas-galapagos/datos/`](mapas-galapagos/datos/) o el mapa de [/riesgos](https://sosgalapagos.org/riesgos/) y sus [descargas](https://sosgalapagos.org/riesgos/descargas/) |
 | Datos de cada estudio (los que alimentan las capas de los modelos) | [`geodatos/estudios/`](geodatos/estudios/) |
 
 Todas las capas están en **EPSG:4326**. Las horas se guardan en UTC; Galápagos está en UTC−6.
@@ -101,7 +101,7 @@ docs/              explicaciones transversales (modelo HAND)
 | Si buscas… | Ve a |
 |---|---|
 | Qué método se usó y con qué datos | [`mapas-galapagos/documentacion/02-metodologia.md`](mapas-galapagos/documentacion/02-metodologia.md) y [`docs/modelo-hand.md`](docs/modelo-hand.md) |
-| Las capas listas para usar | [`mapas-galapagos/`](mapas-galapagos/00-LEEME.md) o [/mapas](https://sosgalapagos.org/mapas/) |
+| Las capas listas para usar | [`mapas-galapagos/`](mapas-galapagos/00-LEEME.md) o [/riesgos/descargas](https://sosgalapagos.org/riesgos/descargas/) |
 | Cómo se hacen las capas | [`geodatos/LEEME.md`](geodatos/LEEME.md) |
 | Las mediciones del clima, el pronóstico y el satélite | [`clima/LEEME.md`](clima/LEEME.md) |
 | De dónde sale cada dato | [`geodatos/docs/fuentes-oficiales.md`](geodatos/docs/fuentes-oficiales.md) y [`03-fuentes-y-licencias.md`](mapas-galapagos/documentacion/03-fuentes-y-licencias.md) |
@@ -117,7 +117,7 @@ Las fuentes meteorológicas se citan como piden sus autores. Los servicios (endp
 
 ## Servidores
 
-`/mapas` son archivos estáticos que se generan aquí. `/clima` es un recolector en el servidor (systemd, cada 5 min) con un panel estático.
+`/mapas` son los datos estáticos que se generan aquí (manifiesto, capas y descargas); desde el 21-nov-2026 no tiene visor propio: los muestra `/riesgos/`. `/clima` es un recolector en el servidor (systemd, cada 5 min) con un panel estático.
 
 ```bash
 servidores/publicar.sh mapas | clima     # solo desde main y con el árbol limpio
