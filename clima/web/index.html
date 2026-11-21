@@ -893,7 +893,7 @@ function tarjetaZona(z) {
       <button id="bShare" style="background:transparent;color:inherit;border:2px solid currentColor">Compartir por WhatsApp</button>
     </div>
     <div class="help" id="qh" hidden><b>${qh.t}</b><ul>${qh.l.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-      <div class="pie">Texto provisional, pendiente de revisión con el COE. Siga siempre sus indicaciones. Refugios oficiales: <a href="/mapas/">visor de mapas (capa de refugios)</a> · Emergencias: <a href="tel:911"><b>llame al 911</b></a></div></div>`;
+      <div class="pie">Texto provisional, pendiente de revisión con el COE. Siga siempre sus indicaciones. Refugios oficiales: <a href="/riesgos/">mapa de riesgos (capa de refugios)</a> · Emergencias: <a href="tel:911"><b>llame al 911</b></a></div></div>`;
   $("bQue").onclick = () => { const h = $("qh"); h.hidden = !h.hidden; $("bQue").setAttribute("aria-expanded", !h.hidden); };
   $("bShare").onclick = async () => {
     if (navigator.share) { try { await navigator.share({text: msg}); return; } catch (e) { if (e.name === "AbortError") return; } }

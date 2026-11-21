@@ -12,7 +12,7 @@ La capa operativa es `datos/areas_afectadas.geojson`: polígonos que se dibujan 
    | Propiedad | Valores | Efecto en el mapa |
    |---|---|---|
    | `nombre` | texto | Título de la ficha |
-   | `tipo` | `inundacion` · `servicio` · `deslave` · `riesgo` · `evacuacion` | Color: azul, morado, marrón, rojo o naranja. En el visor público `/mapas/` los colores los fija `geodatos/scripts/visor_mapas.json`. `evacuacion` es la zona que el COE manda evacuar |
+   | `tipo` | `inundacion` · `servicio` · `deslave` · `riesgo` · `evacuacion` | Color: azul, morado, marrón, rojo o naranja. En el mapa público `/riesgos/` los colores los fija `geodatos/scripts/visor_mapas.json`. `evacuacion` es la zona que el COE manda evacuar |
    | `estado` | `validada` u otro valor (`por_validar`…) | `validada` se dibuja con línea continua; cualquier otro valor, con línea discontinua |
    | `detalle`, `fuente`, `fecha` | texto | Aparecen en la ficha |
 

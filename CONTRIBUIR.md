@@ -17,7 +17,7 @@ Cada archivo generado sale de un único script. Si no sabes cuál, búscalo con 
 | Dominio | Carpetas | Comparte con otros dominios |
 |---|---|---|
 | **Capas base** (geografía) | `geodatos/scripts/01–09`, `geodatos/capas/`, `geodatos/docs/` | `geodatos/scripts/capas.json` (manifiesto) |
-| **Publicación de mapas** (servidor) | `geodatos/scripts/10_publicar_web.py`, `visor_mapas.json`, `11_geoserver_local.py`, `publicar_mapas.sh`, `geodatos/web/index.html` | lee `geodatos/export/` |
+| **Publicación de mapas** (servidor) | `geodatos/scripts/10_publicar_web.py`, `visor_mapas.json`, `11_geoserver_local.py`, `publicar_mapas.sh` (el visor se retiró: el mapa es `/riesgos/`, repo `sosgalapagos-plataforma`) | lee `geodatos/export/` |
 | **Estudios** | `geodatos/estudios/<estudio>/`, `geodatos/scripts/12–20` y `grd_*.py`, `geodatos/web/estudios.*`, `19_estudios_web.py` | `geodatos/estudios/estudios.json`; lee capas y `clima/datos` |
 | **Clima** | `clima/` | sus datos los leen los estudios |
 | **Entregable** | `mapas-galapagos/` (lo genera `09_entregable.py`) | — |
@@ -100,7 +100,7 @@ Ver `geodatos/docs/05-como-actualizar.md`, apartado A. Se reemplaza `geodatos/ca
 Solo desde `main`, con el árbol limpio y por quien tenga acceso al servidor:
 
 ```bash
-servidores/publicar.sh mapas      # sosgalapagos.org/mapas/
+servidores/publicar.sh mapas      # los datos de sosgalapagos.org/mapas/, que muestra /riesgos/
 servidores/publicar.sh clima      # sosgalapagos.org/clima/ (recolector y panel)
 ```
 

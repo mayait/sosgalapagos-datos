@@ -38,7 +38,7 @@ $PY -I reportes/scripts/04_areas.py                             # escribe geodat
 # buenas noticias y ayuda (capa aparte, con corazón): editar eventos/<fecha>/buenas_noticias.json y generar
 $PY -I reportes/scripts/06_buenas.py
 python3 -m http.server -d reportes/publicar/<fecha> 8765        # verlo en local
-# Sumarlos al visor público /mapas/ (capa «Reportes ciudadanos del 21-nov (sin verificar)», grupo «Emergencia en curso»):
+# Sumarlos al mapa público /riesgos/, que lee lo que se publica en /mapas/ (capa «Reportes ciudadanos del 21-nov (sin verificar)», grupo «Emergencia en curso»):
 $PY -I geodatos/scripts/10_publicar_web.py                      # copia la capa y las fotos a geodatos/publicar/mapas/
 python3 -m http.server -d geodatos/publicar/mapas 8766          # verlo en local
 ```
@@ -77,7 +77,7 @@ Van en una capa propia del grupo «Emergencia en curso» («Buenas noticias y ay
 - `06_buenas.py` hace la misma validación de teléfonos y nombres que `03_publicar.py`. Si el nombre de una organización coincide con el de un contacto de los grupos, se declara en la lista `organizaciones` del JSON; la comprobación no se quita.
 - `estado_accion`: `anunciado` (se ofreció o se avisó, sin confirmar), `en_curso` o `realizado`. El texto dice siempre qué está confirmado y qué no.
 - `mensajes` guarda de qué mensaje sale cada una (solo el identificador), para completar autores después.
-- Las fotos siguen las mismas reglas de arriba. El marcador (`pinCorazon`) está en `geodatos/web/index.html` y la capa en `geodatos/scripts/visor_mapas.json` (`marcador: corazon`).
+- Las fotos siguen las mismas reglas de arriba. El marcador lo dibuja `/riesgos/` (repo `sosgalapagos-plataforma`, `estaticos/mapa/capas.js`) y la capa en `geodatos/scripts/visor_mapas.json` (`marcador: corazon`).
 
 ## Gravedad
 
@@ -91,4 +91,4 @@ Van en una capa propia del grupo «Emergencia en curso» («Buenas noticias y ay
 ## Pendiente
 
 - Publicar el visor propio de `reportes/publicar/` en `sosgalapagos.org`: falta la ruta en el Caddy (repositorio `sosgalapagos`) y el paso en `servidores/publicar.sh`. No se despliega sin que Julián lo pida.
-- Desplegar `/mapas/` con la capa nueva: lo hace Julián con `servidores/publicar.sh mapas` desde `main`.
+- Publicar los datos de `/mapas/` con la capa nueva (se ve en `/riesgos/`): lo hace Julián con `servidores/publicar.sh mapas` desde `main`.
