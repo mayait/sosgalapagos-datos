@@ -123,3 +123,24 @@ El 15-nov hubo inundaciones fuertes en Bellavista y Santa Rosa casi sin lluvia e
 - **Ventana de 72 h** solo en esta zona: medio ≥ 120 mm, alto ≥ 200 mm, muy alto ≥ 320 mm, sin rebaja por suelo húmedo (esa ventana ya mide la saturación). Prueba: el 15-nov a las 20:35 da «alto» (Miconia ≈ 250 mm en 72 h); el 13-nov, después de 160 mm sin inundaciones reportadas, da «medio». Es un solo evento: hay que ajustarlo con los siguientes.
 - **Nivel por reportes de campo** (`recolector/niveles_manuales.json`): la coordinación puede subir el nivel de una zona con un motivo y una fecha de vencimiento. Nunca baja el nivel calculado. La página lo muestra con «✋ Nivel elevado por reportes de campo». El 15-nov se puso «alto» en la parte alta hasta el 16-nov a las 20:30 (hora de Galápagos).
 - **Pendiente:** Cerro Crocker marcó solo 3,6 mm el 14-nov (Miconia 210 mm): su pluviómetro parece obstruido. Revisarlo antes de usarlo.
+
+## Calibración del 21-nov-2026 (segundo evento)
+
+El 21-nov hacia las 05:00 (hora de Galápagos) La Cascada volvió a desbordarse, con el agua casi al nivel del 30-oct, y se inundó la parte alta. Comparación en `eventos/2026-11-21_inundacion/` (`scripts/08_comparar_eventos.py`).
+
+| | 30-oct (21:20) | 21-nov (~05:00) |
+|---|---|---|
+| Dónde llovió fuerte | parte alta: Miconia 82 / 164 / 260 mm (1 h / 3 h / 24 h), Santa Rosa 71 / 136 / 232 | Puerto Ayora: Evolución 43 / 110 / 173, Casa Marina 43 / 100 / 164, Erna 32 / 74 / 126; parte alta menos (Miconia 54 / 100 / 146, Santa Rosa 22 / 55 / 92) |
+| Lluvia de los 5 días previos | casi nada (Miconia 17 mm) | suelo saturado (Miconia 191 mm, Santa Rosa 94 mm) |
+| Regla anterior en La Cascada | «alto» 5,7 h antes y «muy alto» 40 min antes | solo «alto», 1,8 h antes: Los Guayabillos dañada, Charles Darwin en 0 y Erna era la única estación válida |
+
+**Cambio:** se añaden a La Cascada Evolución y Casa Marina (Puerto Ayora) con peso 1. Los umbrales no cambian.
+
+- **21-nov:** la regla da «alto» 2,5 h antes y «muy alto» 2,2 h antes del desbordamiento. Además, la humedad antecedente pasa a «húmeda», con umbrales ×0,8.
+- **30-oct:** sin cambio.
+- **Historia de Evolución (ago-2024 a nov-2026):**
+  - «muy alto» solo sale el 30/31-oct y el 21-nov.
+  - «alto» sale además el 25–27-mar-2025, el 24-feb-2026, el 2-nov y el 14-nov.
+  - **Hay que confirmar si hubo anegamientos esos días.**
+
+Lección: el desbordamiento no exige lluvia extrema en la parte alta. Con el suelo saturado, unos 100–110 mm en 3 h sobre la parte baja bastaron.

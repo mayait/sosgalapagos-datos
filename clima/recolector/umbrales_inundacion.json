@@ -1,7 +1,7 @@
 {
  "version": "0.2-preliminar",
  "fecha": "2026-11-02",
- "advertencia": "Nivel preliminar y no oficial, calculado por SOS Galápagos con la lluvia medida y un estudio técnico preliminar que tiene un solo evento de referencia (30-oct-2026). No es una alerta oficial: siga siempre las indicaciones del COE, la SNGR y el ECU 911.",
+ "advertencia": "Nivel preliminar y no oficial, calculado por SOS Galápagos con la lluvia medida y un estudio técnico preliminar que tiene dos eventos de referencia (30-oct y 21-nov de 2026). No es una alerta oficial: siga siempre las indicaciones del COE, la SNGR y el ECU 911.",
  "niveles": [
   {
    "nivel": "muy alto",
@@ -61,7 +61,7 @@
    "zona": "La Cascada (Puerto Ayora)",
    "isla": "Santa Cruz",
    "calibrada": true,
-   "nota": "calibrada con un solo evento (30-oct-2026)",
+   "nota": "calibrada con dos eventos (30-oct y 21-nov de 2026)",
    "estaciones": [
     [
      "ierse/n_glps05",
@@ -78,8 +78,30 @@
     [
      "weatherlink/pa_weatherlink",
      1.0
+    ],
+    [
+     "ambient/evolucion",
+     1.0
+    ],
+    [
+     "wunderground/casa_marina",
+     1.0
     ]
-   ]
+   ],
+   "calibracion": {
+    "fecha": "2026-11-21",
+    "eventos": {
+     "2026-10-30": {
+      "impacto": "desbordamiento 21:20 (informe de La Cascada)",
+      "lluvia": "sobre todo en la parte alta: Santa Rosa R3h 136, Miconia 164; Evolución 32"
+     },
+     "2026-11-21": {
+      "impacto": "desbordamiento ~05:00 (reporte de campo), agua casi al nivel del 30-oct",
+      "lluvia": "sobre todo en la parte baja: Evolución R3h 110, Casa Marina 100, Erna 74; Miconia 100, Santa Rosa 55; suelo saturado (Miconia 191 mm en los 5 días previos)"
+     }
+    },
+    "criterio": "Se añaden Evolución y Casa Marina (Puerto Ayora) con peso 1: el 21-nov la lluvia fuerte cayó en la parte baja y la zona solo tenía a Erna (Los Guayabillos dañada, Charles Darwin en 0). Con ellas la regla da «muy alto» 2,2 h antes del desbordamiento del 21-nov y no cambia el 30-oct. En la historia de Evolución (ago-2024 a nov-2026) «muy alto» solo sale el 30/31-oct y el 21-nov; «alto» sale además el 25–27-mar-2025, el 24-feb-2026, el 2-nov y el 14-nov (sin inundación confirmada). Umbrales sin cambio."
+   }
   },
   {
    "id": "santa-cruz-alta",
