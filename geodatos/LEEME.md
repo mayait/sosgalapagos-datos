@@ -38,6 +38,7 @@ Mini proyecto para reunir, depurar y revisar la información geográfica de Sant
 .venv/bin/python -I scripts/08b_nombres_vias.py # rótulos de nombres de calles (nombres_vias.geojson)
 .venv/bin/python -I scripts/09_entregable.py   # actualiza ../mapas-galapagos/ (entregable final)
 .venv/bin/python -I scripts/36_teselas_dtm.py  # teselas del DTM SGIAR para /mapas (teselas/, no va a git)
+.venv/bin/python -I scripts/37_teselas_relieve3d.py  # cota del archipiélago para la vista 3D del mapa de reportes (teselas/, no va a git)
 ```
 
 El visor lee `export/galapagos/capas.json`, que es el mismo paquete que pasa al proyecto principal (ver `export/INTEGRACION.md`). Los estilos se editan en `scripts/capas.json`.

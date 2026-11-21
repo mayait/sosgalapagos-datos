@@ -124,6 +124,12 @@ nota = "Teselas del DTM SGIAR para /mapas (relieve 11–17 y cota Terrarium 16);
 entradas = ["datos/dtm_sgiar/*.tif", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "descargas/dem_recortes/santa_cruz_dtm_mar_5m.tif"]
 salidas = ["teselas/dtm_sgiar/teselas.json"]
 
+[pasos.teselas_relieve3d]
+script = "37_teselas_relieve3d.py"
+nota = "Cota Terrarium del archipiélago (zoom 8–14) para la vista 3D del mapa de reportes; no va a git"
+entradas = ["datos/dtm_sgiar/*.tif", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "descargas/dem/Copernicus_DSM_COG_10_*_DEM.tif", "scripts/relieve_sgiar.py"]
+salidas = ["teselas/relieve3d/teselas.json"]
+
 [pasos.cascada_figuras]
 script = "13_cascada_figuras.py"
 entradas = ["descargas/dem_recortes/santa_cruz_dem.tif", "estudios/la-cascada/datos/*.*json", "estudios/la-cascada/datos/*.csv",
@@ -379,5 +385,5 @@ script = "10_publicar_web.py"
 nota = "Genera publicar/mapas con las capas de los estudios (no publica)"
 entradas = ["estudios/estudios.json", "scripts/capas_estudios.json", "scripts/visor_mapas.json", "web/index.html", "export/galapagos/*", "export/galapagos-completo/*.geojson",
             "estudios/*/datos/*.geojson", "estudios/*/datos/*/*.geojson", "estudios/santa-cruz/datos/modelo2d/b_central/*.geojson",
-            "teselas/dtm_sgiar/teselas.json", "datos/dtm_sgiar/dtm_sgiar_5m.tif", "../reportes/publicar/2026-11-21/reportes.geojson"]
+            "teselas/dtm_sgiar/teselas.json", "teselas/relieve3d/teselas.json", "datos/dtm_sgiar/dtm_sgiar_5m.tif", "../reportes/publicar/2026-11-21/reportes.geojson"]
 salidas = ["publicar/mapas/index.html"]
