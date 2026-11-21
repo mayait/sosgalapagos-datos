@@ -2,6 +2,7 @@
 # Publica un servicio en sosgalapagos.org desde main, con el árbol limpio.
 #   servidores/publicar.sh mapas      → /mapas/    (geodatos/scripts/publicar_mapas.sh)
 #   servidores/publicar.sh clima      → /clima/    (clima/deploy/publicar.sh; admite --historico)
+#   servidores/publicar.sh descargas  → /descargas/ y la sección «Informes» de la portada (servidores/publicar_descargas.sh)
 # Variables: SERVIDOR (por defecto root@152.44.45.89), PERMITIR_RAMA=1 para probar desde otra rama.
 set -eu
 RAIZ="$(cd "$(dirname "$0")/.." && pwd)"
@@ -10,7 +11,7 @@ export SERVIDOR
 servicio=${1:-}
 [ $# -gt 0 ] && shift
 
-uso() { sed -n '2,6p' "$0" | sed 's/^# \{0,1\}//'; exit 2; }
+uso() { sed -n '2,7p' "$0" | sed 's/^# \{0,1\}//'; exit 2; }
 
 rama=$(git -C "$RAIZ" rev-parse --abbrev-ref HEAD)
 if [ "$rama" != "main" ] && [ "${PERMITIR_RAMA:-0}" != "1" ]; then
@@ -26,6 +27,7 @@ case "$servicio" in
   estudios|informes)
     echo "Los informes y los estudios son solo locales desde el 5-nov-2026: no se publican (AGENTS.md, regla 6)." >&2; exit 1 ;;
   clima)    "$RAIZ/clima/deploy/publicar.sh" "$@";              destino=/opt/sosgalapagos-clima ;;
+  descargas) "$RAIZ/servidores/publicar_descargas.sh" "$@";     destino=/srv/sosgalapagos-descargas ;;
   *) uso ;;
 esac
 

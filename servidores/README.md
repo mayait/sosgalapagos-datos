@@ -15,6 +15,7 @@ Esta carpeta es el **índice de la parte de servidor**. El código de cada servi
   │   caddy ─┬─ /            → app ResponseGrid (web + API /backend)        │
   │          ├─ /mapas/      → /srv/sosgalapagos-mapas     (estático)       │
   │          ├─ /estudios/   → /srv/sosgalapagos-estudios  (estático)       │
+  │          ├─ /descargas/  → /srv/sosgalapagos-descargas (PDF de la portada) │
   │          ├─ /estudios/api/* → contenedor «comentarios» (volumen comentariosdata) │
   │          └─ /clima/      → /srv/sosgalapagos-clima     (solo index + 3 JSON) │
   │                                                                          │
@@ -34,6 +35,7 @@ Esta carpeta es el **índice de la parte de servidor**. El código de cada servi
 |---|---|---|---|---|---|
 | **Mapas** | `/mapas/` | Visor Leaflet (buscador, puntos de análisis, «Mis puntos» guardados solo en el navegador, imagen con leyenda) y descargas en Shapefile y GeoJSON de todas las capas (islas completas) | `geodatos/scripts/10_publicar_web.py`, `geodatos/scripts/visor_mapas.json` (orden, colores y capas encendidas del visor), `geodatos/web/index.html`, `geodatos/scripts/publicar_mapas.sh` | `/srv/sosgalapagos-mapas`, montado en Caddy como `/srv/mapas` (solo lectura) | `servidores/publicar.sh mapas` |
 | **Estudios / Informes** | `/estudios/` (alias `/informes`) | **Retirado el 5-nov-2026**: los informes y los textos de los estudios son solo locales. La ruta redirige a la portada | — | `/srv/sosgalapagos-estudios` (solo una redirección; la copia anterior quedó en `/root/respaldo-estudios-2026-11-05/`) | no se publica |
+| **Informes descargables** | `/descargas/` y la sección «Informes y mapas para descargar» de la portada | Mapas e informes en PDF que Julián decide publicar (desde el 21-nov-2026). Los archivos no están en git: viven en `~/dev/sosgalapagos-informes/publicar/` con su `indice.json` | `servidores/publicar_descargas.sh` | `/srv/sosgalapagos-descargas`, montado en Caddy (sirve solo `.pdf`, `.jpg` y `.png`) y en la web (lee `indice.json`) | `servidores/publicar.sh descargas` |
 | **Comentarios** | `/estudios/api/*` | API de comentarios del antiguo sitio de estudios (sin uso desde el 4-nov-2026; el contenedor y el volumen se conservan) | repo `mayait/sosgalapagos`: `deploy/sosgalapagos/comentarios/servidor.py` | contenedor `comentarios`, volumen `comentariosdata` | despliegue de la app |
 | **Clima en vivo** | `/clima/` | Panel con lluvia, temperatura, humedad y presión de las estaciones; se actualiza cada 5 min | `clima/recolector/recolector.py`, `clima/web/index.html`, `clima/deploy/` | código en `/opt/sosgalapagos-clima`; base en `/var/lib/sosgalapagos-clima/clima.db` (respaldos de 14 días); JSON en `/srv/sosgalapagos-clima/datos` | `servidores/publicar.sh clima` (`--historico` recarga el histórico) |
 | **Puente IERSE** | — | Reenvía IERSE desde la Mac al servidor | `clima/puente/` | usuario `clima`, que solo puede ejecutar `recibir.sh` | `launchctl` en la Mac (ver `clima/LEEME.md`) |
