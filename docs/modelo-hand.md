@@ -69,6 +69,17 @@ Efecto en la exposición de Santa Cruz (`resumen_exposicion.json`): los edificio
 
 Frente a los puntos acotados del IGM, el DTM queda en mediana 1,0 m más bajo y el Copernicus 1,8 m más bajo; por encima de 100 m de altura el DTM se acerca al IGM 1,3 a 2 m más que el Copernicus. El DTM es de terreno, pero **no ve alcantarillas ni muros**, y las imágenes son de 2020–2024.
 
+## Ajuste con lo observado el 21-nov-2026 (Puerto Ayora, el escarpe y Bellavista)
+
+La susceptibilidad publicada en `/mapas/` es la HAND **más** un ajuste calibrado con la inundación del 21-nov. Es un **modelo propio ajustado con reportes sin verificar, no una delimitación oficial**. Solo **sube** de clase; nada baja y las demás islas no cambian.
+
+- **Puntos de control** (`reportes/eventos/2026-11-21/puntos_control.json`): la altura del agua leída a ojo en fotos y videos se pasa a una profundidad con su rango (al pecho ≈ 1,25 m; llega a la primera planta ≈ 2 m; la cubre ≈ 2,75 m; alcanza la segunda planta ≈ 3 m; calle con corriente ≈ 0,3 m; gravedad 3 o 4 sin altura descrita: 0,5 y 1 m). Cota del agua = cota del DTM de la SGIAR + profundidad.
+- **La Cascada**: los 8 puntos con altura dan una cota del agua de 15,7 a 18,1 m (mediana ≈ 17,0 m). Es unos 2 m **por encima** del rebose del DTM (15,04 m): el vaso no se quedó en su rebose, rebosó con carga. Llenarlo hasta 17 m cubre ≈ 34 ha (el vaso hasta el rebose son 5,8 ha) y lo desborda hacia el sur, hacia Matazarnos y la calle Seymour. Es la misma ruta que trazó el coordinador. Error en los puntos: el vaso hasta el rebose subestima ≈ 1,9 m; el ajuste, ≈ 0,7 m de media (0,9 m si se deja fuera el propio punto).
+- **Corredor observado** (`flujo_observado.geojson`): se calcula la HAND respecto a las líneas por las que se vio bajar el agua, a 40 m como máximo. Sus clases son las de siempre (≤ 1, ≤ 2,5 y ≤ 5 m). Además se llenan las depresiones cerradas del DTM que toca el agua observada. Un ejemplo: el cruce de Seymour, Petrel y Fragata se llena hasta 8,2 m en el DTM, y los reportes dan 7,7–8,4 m.
+- **Otros reportes** (Arrayanes, cementerio, escuelas, La Unión, vía a Bellavista): se rellena alrededor del punto, en un radio que depende de su precisión (15–60 m). Alta queda bajo la cota del agua; media hasta 1 m sobre ella; baja hasta 2,5 m sobre ella.
+- **Scripts**: `geodatos/scripts/est_21nov_ajuste.py` escribe `estudios/santa-cruz/datos/ajuste_21nov/`; ahí están las hectáreas por clase antes y después y por zona, en `resumen_ajuste.json`. `10_publicar_web.py` lo suma a la capa al publicar. `est_21nov_contraste.py` escribe `contraste_21nov.json`, que compara lo observado con la HAND antes y después del ajuste y con el modelo 2D.
+- **Límites**: las profundidades son estimaciones a ojo y las ubicaciones, aproximadas. Es un modelo de topografía, no de hidráulica: no ve muros, casas ni alcantarillas. El «después» se calibró con esos mismos reportes, así que **no es una validación**. Hace falta medir marcas de agua en campo.
+
 ## Límites (decirlos siempre que se muestre el mapa)
 
 1. **Fuera del DTM de la SGIAR, el DEM es de superficie (DSM)**: incluye techos y copas de árboles. En la ciudad y el bosque la cota está sesgada; frente al IGM hay un sesgo de −2 a −3 m. No usar cotas absolutas como umbrales normativos.

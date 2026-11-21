@@ -171,6 +171,30 @@ CAPA_REPORTES = {"id": "reportes_21nov", "titulo": "Reportes ciudadanos del 21-n
                                 "Cada punto resume varios mensajes y fotos; la ubicación puede ser aproximada."}
 
 
+# Flujo observado del 21-nov (reportes/scripts/05_flujo.py): va al grupo «Emergencia en curso», con sus descargas
+FLUJO = ROOT.parent / "reportes" / "eventos" / EVENTO / "flujo_observado.geojson"
+ARCHIVO_FLUJO = "flujo_observado_21nov.geojson"
+CAPA_FLUJO = {"id": "flujo_21nov", "titulo": "Por dónde bajó el agua el 21-nov (observado)", "archivo": ARCHIVO_FLUJO,
+              "tipo": "linea", "visible": True}   # estilo, ficha y descripción: visor_mapas.json
+
+# Susceptibilidad ajustada con lo observado el 21-nov (scripts/est_21nov_ajuste.py): se SUMA a la publicada (solo sube de
+# clase, en Puerto Ayora, el escarpe y Bellavista). Mismo archivo, id, clases y colores; el resto de islas no cambia.
+SUSC_AJUSTE = ROOT / "estudios" / "santa-cruz" / "datos" / "ajuste_21nov" / "susceptibilidad_ajuste_21nov.geojson"
+TMP_AJUSTE = ROOT / "publicar" / "_ajuste"
+
+
+def susceptibilidad_ajustada(src):
+    """Escribe en publicar/_ajuste/ la susceptibilidad de `src` más el ajuste del 21-nov y devuelve su ruta."""
+    if not SUSC_AJUSTE.exists():
+        raise SystemExit(f"Falta {SUSC_AJUSTE.relative_to(ROOT)}. Corre antes: .venv/bin/python -I scripts/est_21nov_ajuste.py")
+    data = json.loads((src / "susceptibilidad_inundacion.geojson").read_text())
+    data["features"] += json.loads(SUSC_AJUSTE.read_text())["features"]
+    TMP_AJUSTE.mkdir(parents=True, exist_ok=True)
+    out = TMP_AJUSTE / "susceptibilidad_inundacion.geojson"
+    out.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    return out
+
+
 def preparar_reportes(destino):
     """Copia la capa de reportes y sus fotos a `destino` (datos/<variante>/). Falla si falta lo que deja 03_publicar.py.
     Solo toca reportes/publicar/<evento>/ (ya depurado): nunca reportes/privado/. Devuelve el GeoJSON publicado."""
@@ -380,6 +404,9 @@ def main():
     g_em = next((g for g in man["grupos"] if g["id"] == "emergencia"), None)
     if g_em is None: raise SystemExit("El manifiesto no trae el grupo «emergencia»")
     g_em["capas"].insert(0, json.loads(json.dumps(CAPA_REPORTES)))
+    if not FLUJO.exists(): raise SystemExit(f"Falta {FLUJO.relative_to(ROOT.parent)}. Corre antes: geodatos/.venv/bin/python -I reportes/scripts/05_flujo.py")
+    shutil.copy(FLUJO, TMP_ESTUDIOS / ARCHIVO_FLUJO)
+    g_em["capas"].insert(1, json.loads(json.dumps(CAPA_FLUJO)))
     man = aplicar_visor(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
     publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
@@ -404,6 +431,8 @@ def main():
         for gj in sorted(src.glob("*.geojson")) + f_est:
             if var == "zona" and gj.name in SIEMPRE_COMPLETAS:
                 gj = ROOT / "export" / "galapagos-completo" / gj.name   # sin recorte también en «Zona poblada»
+            if gj.name == "susceptibilidad_inundacion.geojson":
+                gj = susceptibilidad_ajustada(gj.parent)
             data = json.loads(gj.read_text())
             feats = [f for f in data["features"] if f.get("geometry")]
             shutil.copy(gj, d_datos / gj.name)
@@ -472,6 +501,7 @@ def main():
         indice["variantes"][var] = info
     if tmp.exists(): shutil.rmtree(tmp)
     if TMP_ESTUDIOS.exists(): shutil.rmtree(TMP_ESTUDIOS)
+    if TMP_AJUSTE.exists(): shutil.rmtree(TMP_AJUSTE)
     (OUT / "capas.json").write_text(json.dumps(man, ensure_ascii=False, separators=(",", ":")))
     (OUT / "descargas.json").write_text(json.dumps(indice, ensure_ascii=False, separators=(",", ":")))
     html = (ROOT / "web" / "index.html").read_text().replace("__VERSION__", HOY.replace("-", "") + datetime.datetime.now().strftime("%H%M"))

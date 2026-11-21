@@ -58,7 +58,20 @@
     "id": "sc_tdb_edificios", "titulo": "Tomás de Berlanga: edificios junto a los cauces", "tipo": "poligono",
     "descripcion": "Edificios a 30 m o menos de los cauces mayores del sector; algunos quedan sobre la línea del cauce.",
     "estilo": {"color": "#9a3412", "weight": 0.8, "fillColor": "#f97316", "fillOpacity": 0.6},
-    "popup": {"titulo_defecto": "Edificio", "campos": {"dist_cauce_m": "Distancia al cauce (m)", "sobre_linea": "Sobre la línea del cauce", "fuente": "Fuente"}}}
+    "popup": {"titulo_defecto": "Edificio", "campos": {"dist_cauce_m": "Distancia al cauce (m)", "sobre_linea": "Sobre la línea del cauce", "fuente": "Fuente"}}},
+   {"despues_de": "Modelo 2D: calado máximo el 30-oct", "archivo": "estudios/santa-cruz/datos/ajuste_21nov/vaso_21nov.geojson",
+    "id": "sc_vaso_21nov", "titulo": "La Cascada llena hasta el nivel observado el 21-nov (modelo ajustado)", "tipo": "poligono",
+    "fuente": "Modelo propio ajustado con reportes sin verificar del 21-nov-2026 sobre el DTM 1 m: SGIAR (Vricon/Maxar). No es una delimitación oficial.",
+    "descripcion": "Profundidad del agua si el vaso de La Cascada se llena hasta la cota que dan las fotos y videos del 21-nov (≈17 m, unos 2 m sobre su rebose). Llenado tipo bañera sobre el relieve: no simula el flujo, y las alturas son estimaciones a ojo de reportes sin verificar.",
+    "popup": {"titulo": "clase", "campos": {"cota_espejo_m": "Cota del agua (m, DTM SGIAR)", "area_ha": "Área (ha)", "fuente": "Fuente"}}},
+   {"despues_de": "Modelo 2D: calado máximo el 30-oct", "archivo": "estudios/santa-cruz/datos/ajuste_21nov/puntos_control_21nov.geojson",
+    "id": "sc_control_21nov", "titulo": "Altura del agua el 21-nov según fotos (puntos de control)", "tipo": "punto",
+    "fuente": "Profundidad estimada a ojo en fotos y videos de vecinos (reportes sin verificar). No es una medida.",
+    "descripcion": "Profundidad del agua que se lee en fotos y videos del 21-nov y la que da el modelo ajustado en ese punto. Sirven para calibrar el modelo; ubicaciones aproximadas.",
+    "estilo": {"radius": 5, "color": "#ffffff", "weight": 1.5, "fillColor": "#0c4a6e", "fillOpacity": 1},
+    "popup": {"titulo": "lugar", "campos": {"hora": "Hora", "lectura": "Lectura de las fotos", "prof_obs_txt": "Profundidad observada",
+              "cota_terreno_m": "Cota del terreno (m, DTM SGIAR)", "espejo_m": "Cota del agua observada (m)",
+              "prof_mod_rebose_m": "Modelo anterior: profundidad hasta el rebose (m)", "prof_mod_ajuste_m": "Modelo ajustado: profundidad (m)"}}}
   ]
  },
  "san-cristobal": {

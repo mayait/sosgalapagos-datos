@@ -12,8 +12,11 @@ Convierte lo que la gente reporta por WhatsApp durante una emergencia en una cap
 | `scripts/02_medios.py` | fuente | Fotogramas de los videos, láminas de contacto y transcripciones (whisper.cpp) |
 | `scripts/03_publicar.py` | fuente | Valida lo curado y genera la capa, las fotos públicas y el visor |
 | `scripts/04_areas.py` | fuente | Genera la capa de áreas afectadas (`geodatos/capas/operativas/areas_afectadas.geojson`) desde `areas.json`, los reportes, los barrios y las vías. Hace la misma validación de teléfonos y nombres |
+| `scripts/05_flujo.py` | fuente | Genera `eventos/<fecha>/flujo_observado.geojson` («Por dónde bajó el agua», con flechas) desde `flujo_observado.json` y las calles de OSM. `10_publicar_web.py` la suma al grupo «Emergencia en curso» |
 | `eventos/<fecha>/reportes.json` | **fuente, curada** | Un reporte por lugar: hora, coordenadas, tipo, gravedad, texto y fotos elegidas |
 | `eventos/<fecha>/areas.json` | **fuente, curada** | Zonas del evento: inundadas, corredores y encañadas (`riesgo`), evacuación del COE y cortes de servicio. Cada una dice su geometría base (barrio, franja sobre calles de OSM o círculo alrededor de un reporte), los reportes que la sustentan y el detalle con horas |
+| `eventos/<fecha>/flujo_observado.json` | **fuente, curada** | Trazo del coordinador: por dónde bajó el agua (tramos sobre calles de OSM o vértices libres, en el sentido del agua) |
+| `eventos/<fecha>/puntos_control.json` | **fuente, curada** | Profundidad del agua leída en fotos y videos (tabla de equivalencias). Calibra la susceptibilidad ajustada (`geodatos/scripts/est_21nov_ajuste.py`, ver `docs/modelo-hand.md`) |
 | `eventos/<fecha>/reportes.geojson` | generado | La capa. No se edita a mano |
 | `web/index.html` | fuente | Visor (Leaflet) |
 | `privado/` | **no va a git** | Mensajes con nombres y teléfonos, medios crudos, láminas, transcripciones |
