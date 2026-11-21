@@ -1,0 +1,1103 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r01",
+    "hora": "04:21",
+    "hora_fin": "08:35",
+    "lugar": "La Cascada: pie de la cascada",
+    "barrio": "La Cascada",
+    "tipo": "desbordamiento",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 9,
+    "precision": "aproximada",
+    "titulo": "Se desborda La Cascada",
+    "descripcion": "A las 03:20 la cascada ya llenaba el terreno vacío del fondo. Hacia las 04:21 se desborda y a las 04:34 se llena toda la parte de atrás del barrio. A las 05:34 vecinos describen un caudal que nunca habían visto, con dos o tres saltos más a los lados. A las 07:13 la cascada baja de intensidad y la marea también baja. A las 08:05 el agua está en su tope; a las 08:35 había bajado unos 50 cm.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/36cac8bb_2.jpg",
+      "mini": "mini/36cac8bb_2.jpg",
+      "hora": "05:40",
+      "pie": "La cascada cae sobre el barrio al amanecer"
+     },
+     {
+      "archivo": "fotos/fce95a92_2.jpg",
+      "mini": "mini/fce95a92_2.jpg",
+      "hora": "06:29",
+      "pie": "Varios saltos de agua a lo largo del escarpe"
+     },
+     {
+      "archivo": "fotos/a9fcf372_3.jpg",
+      "mini": "mini/a9fcf372_3.jpg",
+      "hora": "06:05",
+      "pie": "El barrio inundado con la cascada al fondo"
+     },
+     {
+      "archivo": "fotos/04e2ca91.jpg",
+      "mini": "mini/04e2ca91.jpg",
+      "hora": "03:21",
+      "pie": "03:21: el agua empieza a llenar el fondo del barrio"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3142,
+     -0.7329
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r02",
+    "hora": "03:53",
+    "hora_fin": "08:32",
+    "lugar": "La Cascada: pasaje 5",
+    "barrio": "La Cascada",
+    "tipo": "inundacion",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 9,
+    "precision": "calle",
+    "titulo": "Pasaje 5: evacuado de madrugada, casas tapadas",
+    "descripcion": "Es la última calle, la más cercana a la cascada. La Policía avisa y los vecinos salen hacia las 03:50; algunos se quedan. A las 05:09 la calle es un río. A las 06:47 piden un kayak para sacar a personas de segundos pisos. A las 07:26 el agua llega al pecho; a las 07:32 baja poco a poco. A las 08:25 todavía piden rescate. A las 08:32 un vecino dice que su casa quedó tapada y que el nivel empieza a bajar.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/c0d6cb52.jpg",
+      "mini": "mini/c0d6cb52.jpg",
+      "hora": "05:09",
+      "pie": "05:09: el pasaje 5 convertido en río"
+     },
+     {
+      "archivo": "fotos/b9424be0_2.jpg",
+      "mini": "mini/b9424be0_2.jpg",
+      "hora": "07:26",
+      "pie": "07:26: el agua cubre la calle"
+     },
+     {
+      "archivo": "fotos/b0e3fb50_2.jpg",
+      "mini": "mini/b0e3fb50_2.jpg",
+      "hora": "05:41",
+      "pie": "05:41: visto desde una terraza"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31448,
+     -0.73332
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r03",
+    "hora": "04:37",
+    "hora_fin": "08:16",
+    "lugar": "La Cascada: pasaje 4 y calle Scalesia",
+    "barrio": "La Cascada",
+    "tipo": "personas_atrapadas",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 7,
+    "precision": "aproximada",
+    "titulo": "Pasaje 4: familias atrapadas en segundos pisos",
+    "descripcion": "A las 04:37 los bomberos sacan gente. A las 05:15 está inundado por completo y hay personas atrapadas que piden botes. A las 06:06 el agua empieza a alcanzar la segunda planta. A las 07:19 piden rescatar a niños en una casa de tres pisos. A las 07:25 baja unos 10 cm. A las 08:10 siguen pidiendo ayuda para animales amarrados.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/fb456094.jpg",
+      "mini": "mini/fb456094.jpg",
+      "hora": "06:44",
+      "pie": "06:44: el agua a la altura de los techos de la primera planta"
+     },
+     {
+      "archivo": "fotos/1118c79c_3.jpg",
+      "mini": "mini/1118c79c_3.jpg",
+      "hora": "05:15",
+      "pie": "05:15: pasaje 4 y Scalesia"
+     },
+     {
+      "archivo": "fotos/1e0e642d_2.jpg",
+      "mini": "mini/1e0e642d_2.jpg",
+      "hora": "05:40",
+      "pie": "05:40: callejón 4"
+     },
+     {
+      "archivo": "fotos/e057179c.jpg",
+      "mini": "mini/e057179c.jpg",
+      "hora": "07:12",
+      "pie": "07:12: marca del nivel al empezar a bajar"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31174,
+     -0.7342
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r04",
+    "hora": "05:48",
+    "hora_fin": "08:32",
+    "lugar": "La Cascada: pasaje 3",
+    "barrio": "La Cascada",
+    "tipo": "personas_atrapadas",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 5,
+    "precision": "aproximada",
+    "titulo": "Pasaje 3: piden kayak o zodiac",
+    "descripcion": "A las 05:48 el agua está al tope hasta el pasaje 3. Entre las 06:30 y las 08:06 piden noticias de dos niñas que esperan en un segundo piso. A las 06:56 piden un kayak: el agua llega al segundo piso. A las 08:16 todavía hay personas atrapadas que piden un zodiac. A las 08:32 el agua ha bajado unos 40 cm, con la marea baja.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31462,
+     -0.73393
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r05",
+    "hora": "05:12",
+    "hora_fin": "07:14",
+    "lugar": "La Cascada: pasaje 1",
+    "barrio": "La Cascada",
+    "tipo": "personas_atrapadas",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 5,
+    "precision": "calle",
+    "titulo": "Pasaje 1: agua hasta la segunda planta, piden sacar a un bebé",
+    "descripcion": "A las 05:12 el agua corre por el pasaje. A las 06:29 está inundado. Entre las 06:39 y las 07:14 dos familias piden ayuda para sacar a un bebé y a una madre con su hijo de año y medio: el agua llega a la segunda planta.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/4f9b829f.jpg",
+      "mini": "mini/4f9b829f.jpg",
+      "hora": "07:10",
+      "pie": "07:10: solo se ven los techos"
+     },
+     {
+      "archivo": "fotos/befbad03.jpg",
+      "mini": "mini/befbad03.jpg",
+      "hora": "05:32",
+      "pie": "05:32: pasaje 1"
+     },
+     {
+      "archivo": "fotos/ce5b3070_3.jpg",
+      "mini": "mini/ce5b3070_3.jpg",
+      "hora": "05:12",
+      "pie": "05:12: el agua empieza a correr"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31466,
+     -0.73457
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r06",
+    "hora": "05:00",
+    "hora_fin": "08:07",
+    "lugar": "La Cascada: parque e iglesia",
+    "barrio": "La Cascada",
+    "tipo": "inundacion",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 5,
+    "precision": "exacta",
+    "titulo": "Parque e iglesia de La Cascada bajo el agua",
+    "descripcion": "A las 05:00 el agua ya cruza el parque. A las 05:37 la iglesia y el parque están inundados. A las 06:50 en el parque el agua sube y baja. A las 08:07 el agua llega a la primera planta y se circula en kayak.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/72cd5429.jpg",
+      "mini": "mini/72cd5429.jpg",
+      "hora": "08:06",
+      "pie": "08:06: kayaks frente a los locales"
+     },
+     {
+      "archivo": "fotos/a1ba8560_2.jpg",
+      "mini": "mini/a1ba8560_2.jpg",
+      "hora": "05:37",
+      "pie": "05:37: la esquina del parque"
+     },
+     {
+      "archivo": "fotos/e0c0987a.jpg",
+      "mini": "mini/e0c0987a.jpg",
+      "hora": "08:05",
+      "pie": "08:05: la calle de la iglesia"
+     },
+     {
+      "archivo": "fotos/080722ef_3.jpg",
+      "mini": "mini/080722ef_3.jpg",
+      "hora": "05:00",
+      "pie": "05:00: el agua entra al parque"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31418,
+     -0.73395
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r07",
+    "hora": "05:27",
+    "hora_fin": "08:42",
+    "lugar": "La Cascada: calle Miconia",
+    "barrio": "La Cascada",
+    "tipo": "inundacion",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 3,
+    "precision": "calle",
+    "titulo": "Calle Miconia inundada",
+    "descripcion": "A las 04:12 la calle solo estaba mojada. A las 05:27 ya está inundada. A las 08:42 el agua cubre la primera planta y los rescatistas pasan en kayak.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/f4d025db_2.jpg",
+      "mini": "mini/f4d025db_2.jpg",
+      "hora": "08:42",
+      "pie": "08:42: kayaks en la calle Miconia"
+     },
+     {
+      "archivo": "fotos/7e1e1df4_2.jpg",
+      "mini": "mini/7e1e1df4_2.jpg",
+      "hora": "05:27",
+      "pie": "05:27: la calle empieza a llenarse"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31467,
+     -0.7349
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r08",
+    "hora": "05:43",
+    "hora_fin": "08:36",
+    "lugar": "La Cascada: interior del barrio",
+    "barrio": "La Cascada",
+    "tipo": "rescate",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 8,
+    "precision": "barrio",
+    "titulo": "Rescates con zodiac y kayak",
+    "descripcion": "A las 05:43 llega la Armada. Desde las 05:55 un zodiac saca gente entre las casas; después se suman kayaks de vecinos, de operadores de turismo y del Parque Nacional. A las 08:36 todavía hay personas atrapadas en las últimas calles. Los rescatistas van sin teléfono: los vecinos piden hacerles señas hacia los pasajes que necesitan ayuda.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/db0e6410.jpg",
+      "mini": "mini/db0e6410.jpg",
+      "hora": "05:55",
+      "pie": "05:55: un zodiac entre las casas"
+     },
+     {
+      "archivo": "fotos/21f6fea2_2.jpg",
+      "mini": "mini/21f6fea2_2.jpg",
+      "hora": "05:58",
+      "pie": "05:58: el zodiac frente al escarpe"
+     },
+     {
+      "archivo": "fotos/8e3b26c0_2.jpg",
+      "mini": "mini/8e3b26c0_2.jpg",
+      "hora": "07:56",
+      "pie": "07:56: rescate en kayak"
+     },
+     {
+      "archivo": "fotos/11e0971f.jpg",
+      "mini": "mini/11e0971f.jpg",
+      "hora": "05:43",
+      "pie": "05:43: personal de la Armada en la entrada del barrio"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3137,
+     -0.7338
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r09",
+    "hora": "05:35",
+    "hora_fin": "07:27",
+    "lugar": "La Cascada: vista general",
+    "barrio": "La Cascada",
+    "tipo": "inundacion",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 11,
+    "precision": "barrio",
+    "titulo": "El barrio con el agua a la altura de los techos",
+    "descripcion": "Entre las 05:35 y las 07:00 las fotos desde terrazas muestran el barrio como una laguna: primeras plantas cubiertas, autos bajo el agua y muebles flotando. A las 06:49 el agua seguía subiendo. A las 07:05 un vecino muestra casas tapadas: el agua llega a la segunda planta y la encañada arrastra basura. Desde las 07:24 varios vecinos reportan que baja despacio.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/e9441c13.jpg",
+      "mini": "mini/e9441c13.jpg",
+      "hora": "05:55",
+      "pie": "05:55: casas con la primera planta cubierta"
+     },
+     {
+      "archivo": "fotos/9dbb1bd2.jpg",
+      "mini": "mini/9dbb1bd2.jpg",
+      "hora": "05:58",
+      "pie": "05:58: vecinos en los pisos altos"
+     },
+     {
+      "archivo": "fotos/393acdc2.jpg",
+      "mini": "mini/393acdc2.jpg",
+      "hora": "06:59",
+      "pie": "06:59"
+     },
+     {
+      "archivo": "fotos/4500280b_2.jpg",
+      "mini": "mini/4500280b_2.jpg",
+      "hora": "05:39",
+      "pie": "05:39: autos bajo el agua"
+     },
+     {
+      "archivo": "fotos/5498f2fc_1.jpg",
+      "mini": "mini/5498f2fc_1.jpg",
+      "hora": "05:46",
+      "pie": "05:46: corriente entre las casas"
+     },
+     {
+      "archivo": "fotos/cffa98c2.jpg",
+      "mini": "mini/cffa98c2.jpg",
+      "hora": "06:26",
+      "pie": "06:26"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31395,
+     -0.73345
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r10",
+    "hora": "06:29",
+    "hora_fin": "07:07",
+    "lugar": "Scalesia e Ignacio Hernández",
+    "barrio": "Scalesia",
+    "tipo": "inundacion",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 3,
+    "precision": "cruce",
+    "titulo": "Scalesia e Ignacio Hernández: agua hasta los techos",
+    "descripcion": "A las 06:29 en la calle Ignacio Hernández el agua llega a los techos de las casas bajas. A las 06:35 en la calle Scalesia el agua sube rápido y llega a la esquina. A las 07:07, desde Scalesia e Ignacio Hernández, se ve el agua contra el escarpe con techos y enseres flotando.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/a5ad9a9a.jpg",
+      "mini": "mini/a5ad9a9a.jpg",
+      "hora": "07:07",
+      "pie": "07:07: Scalesia e Ignacio Hernández"
+     },
+     {
+      "archivo": "fotos/1753504a.jpg",
+      "mini": "mini/1753504a.jpg",
+      "hora": "06:29",
+      "pie": "06:29: calle Ignacio Hernández"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31149,
+     -0.73516
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r11",
+    "hora": "06:35",
+    "hora_fin": "08:06",
+    "lugar": "Frente a la escuela Oswaldo Guayasamín",
+    "barrio": "La Unión",
+    "tipo": "personas_atrapadas",
+    "gravedad": 4,
+    "estado": "sin_verificar",
+    "n_fuentes": 2,
+    "precision": "aproximada",
+    "titulo": "Personas atrapadas frente a la escuela Guayasamín",
+    "descripcion": "A las 06:35 piden un zodiac para una persona atrapada en su casa frente a la escuela. A las 08:06 otra persona pregunta por una casa en diagonal a la escuela.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3124,
+     -0.7346
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r12",
+    "hora": "05:49",
+    "hora_fin": "06:31",
+    "lugar": "La Unión: cancha y calle 8",
+    "barrio": "La Unión",
+    "tipo": "inundacion",
+    "gravedad": 3,
+    "estado": "varias_fuentes",
+    "n_fuentes": 4,
+    "precision": "barrio",
+    "titulo": "La Unión: el agua llega a la cancha y a las casas",
+    "descripcion": "A las 05:49 el agua llega a la cancha de La Unión y a las 05:52 se llena la calle 8. A las 06:20 una familia evacúa porque el agua llegó a su casa. A las 06:31 reportan que empieza a bajar.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/c5d30651.jpg",
+      "mini": "mini/c5d30651.jpg",
+      "hora": "05:49",
+      "pie": "05:49: la cancha y el parque infantil"
+     },
+     {
+      "archivo": "fotos/855fde22_2.jpg",
+      "mini": "mini/855fde22_2.jpg",
+      "hora": "05:51",
+      "pie": "05:51: calle 8"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31549,
+     -0.73598
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r13",
+    "hora": "05:12",
+    "hora_fin": "05:16",
+    "lugar": "Los Cactus",
+    "barrio": "Los Cactus",
+    "tipo": "inundacion",
+    "gravedad": 2,
+    "estado": "varias_fuentes",
+    "n_fuentes": 2,
+    "precision": "barrio",
+    "titulo": "Los Cactus: agua empozada donde baja la corriente",
+    "descripcion": "A las 05:12 hay agua en las calles. No es todo el barrio: se empoza donde baja el agua.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/03ded27e_2.jpg",
+      "mini": "mini/03ded27e_2.jpg",
+      "hora": "05:12",
+      "pie": "05:12"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31519,
+     -0.73749
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r14",
+    "hora": "06:37",
+    "hora_fin": "08:43",
+    "lugar": "Matazarnos: Seymour y Marchena",
+    "barrio": "Matazarnos",
+    "tipo": "personas_atrapadas",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 6,
+    "precision": "aproximada",
+    "titulo": "Matazarnos: calles inundadas y una mujer embarazada rescatada",
+    "descripcion": "A las 06:37 el agua corre por las calles. A las 06:39 el agua tapa la bodega de desechos del subcentro de salud. A las 07:01 la cancha está inundada. A las 07:10, en Seymour y Marchena, el agua casi llega al segundo piso. Desde las 07:51 piden un zodiac para una mujer embarazada con niñas en Seymour y Marchena; a las 08:43 confirman que la sacaron. A las 08:17 hay personas en una losa esperando rescate.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/edec78f1.jpg",
+      "mini": "mini/edec78f1.jpg",
+      "hora": "07:23",
+      "pie": "07:23: cruce inundado"
+     },
+     {
+      "archivo": "fotos/2c155068.jpg",
+      "mini": "mini/2c155068.jpg",
+      "hora": "07:01",
+      "pie": "07:01: cancha de Matazarnos"
+     },
+     {
+      "archivo": "fotos/54f98973.jpg",
+      "mini": "mini/54f98973.jpg",
+      "hora": "08:17",
+      "pie": "08:17: vecinos esperan sobre una losa"
+     },
+     {
+      "archivo": "fotos/4814d97e_2.jpg",
+      "mini": "mini/4814d97e_2.jpg",
+      "hora": "06:37",
+      "pie": "06:37: el agua corre por la calle"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31295,
+     -0.73613
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r15",
+    "hora": "06:38",
+    "hora_fin": "08:21",
+    "lugar": "Los Arrayanes",
+    "barrio": "Los Arrayanes",
+    "tipo": "inundacion",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 4,
+    "precision": "calle",
+    "titulo": "Arrayanes: casas inundadas y un muro caído",
+    "descripcion": "A las 06:38 piden auxilio: se inundó una casa con niñas dentro. A las 07:17 reportan un muro derrumbado. A las 07:44 las casas se llenan de agua; vecinos y personal del municipio intentan abrir un drenaje y a las 08:17 consiguen una barra. A las 08:20 el agua baja como río por la calle que va de Arrayanes a El Edén.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/bfa88182_2.jpg",
+      "mini": "mini/bfa88182_2.jpg",
+      "hora": "08:20",
+      "pie": "08:20: la calle que baja hacia El Edén"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3102,
+     -0.73636
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r16",
+    "hora": "07:05",
+    "hora_fin": "08:31",
+    "lugar": "El Edén: calle que baja de la iglesia",
+    "barrio": "El Edén",
+    "tipo": "desbordamiento",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 9,
+    "precision": "calle",
+    "titulo": "El Edén: un torrente baja por la calle Seymour",
+    "descripcion": "Al llenarse La Cascada, el agua rebosa hacia El Edén. A las 07:05 baja un torrente por la calle. A las 07:22 arrastra una camioneta. A las 07:54 el caudal sigue igual de fuerte en el centro del barrio. A las 07:58 no se puede circular por el barrio. A las 08:14 hay gente que no logra salir y pide auxilio. A las 08:31 el agua sigue saliendo por El Edén.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/29250521_2.jpg",
+      "mini": "mini/29250521_2.jpg",
+      "hora": "07:54",
+      "pie": "07:54: el torrente inclina un poste"
+     },
+     {
+      "archivo": "fotos/9cf14b79_2.jpg",
+      "mini": "mini/9cf14b79_2.jpg",
+      "hora": "07:22",
+      "pie": "07:22: una camioneta arrastrada"
+     },
+     {
+      "archivo": "fotos/f7ed9b0a_2.jpg",
+      "mini": "mini/f7ed9b0a_2.jpg",
+      "hora": "07:05",
+      "pie": "07:05"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31262,
+     -0.7393
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r17",
+    "hora": "07:51",
+    "hora_fin": "08:17",
+    "lugar": "El Edén: calle Fragata y Seymour",
+    "barrio": "El Edén",
+    "tipo": "personas_atrapadas",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 3,
+    "precision": "cruce",
+    "titulo": "Calle Fragata: el agua entra a las casas",
+    "descripcion": "A las 07:51 una persona está encerrada en un segundo piso en la calle del Islander Coffee. A las 08:00 el agua entra con fuerza por los portones de la calle Fragata y sigue hacia el parque de El Edén.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/6d995b99.jpg",
+      "mini": "mini/6d995b99.jpg",
+      "hora": "08:00",
+      "pie": "08:00: calle Fragata"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31202,
+     -0.74048
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r18",
+    "hora": "08:18",
+    "hora_fin": null,
+    "lugar": "El Edén: Seymour y Petrel",
+    "barrio": "El Edén",
+    "tipo": "inundacion",
+    "gravedad": 3,
+    "estado": "sin_verificar",
+    "n_fuentes": 1,
+    "precision": "cruce",
+    "titulo": "Seymour y Petrel inundado",
+    "descripcion": "A las 08:18 el cruce y los patios están bajo el agua, con corriente.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/ea404482.jpg",
+      "mini": "mini/ea404482.jpg",
+      "hora": "08:18",
+      "pie": "08:18: Seymour y Petrel"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31224,
+     -0.7399
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r19",
+    "hora": "07:25",
+    "hora_fin": null,
+    "lugar": "Pelican Bay",
+    "barrio": "Pelican Bay",
+    "tipo": "via_cortada",
+    "gravedad": 3,
+    "estado": "sin_verificar",
+    "n_fuentes": 1,
+    "precision": "barrio",
+    "titulo": "El agua baja hacia Pelican Bay: no hay paso",
+    "descripcion": "A las 07:25 toda el agua baja hacia Pelican Bay y la calle está cortada por la corriente.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/6c5e0ba0_2.jpg",
+      "mini": "mini/6c5e0ba0_2.jpg",
+      "hora": "07:25",
+      "pie": "07:25"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31356,
+     -0.73978
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r20",
+    "hora": "05:28",
+    "hora_fin": null,
+    "lugar": "Colegio Miguel Ángel Cazares",
+    "barrio": "Puerto Ayora",
+    "tipo": "refugio",
+    "gravedad": null,
+    "estado": "oficial",
+    "n_fuentes": 4,
+    "precision": "exacta",
+    "titulo": "Refugio abierto: colegio Miguel Ángel Cazares",
+    "descripcion": "Refugio abierto desde la madrugada para las personas evacuadas. A las 07:57 seguía siendo el punto indicado. Aviso: a las 07:59 se reporta que las vías para llegar están inundadas.",
+    "fuente": "Aviso oficial reenviado",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31817,
+     -0.73846
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r21",
+    "hora": "05:30",
+    "hora_fin": "08:10",
+    "lugar": "Vía a Bellavista: Curva Brava",
+    "barrio": "Vía a Baltra",
+    "tipo": "via_cortada",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 7,
+    "precision": "por_confirmar",
+    "titulo": "Curva Brava: vía cortada entre Puerto Ayora y la parte alta",
+    "descripcion": "A las 05:30 el agua corre por la vía. A las 05:42 ya no hay paso. A las 05:59 una encañada cruza la carretera con mucho caudal. A las 06:39 no se puede subir ni bajar. A las 08:03 la gente cruza a pie como puede y la maquinaria intenta desviar el cauce, que se va hacia otro lado. A las 08:07 la calzada está rota; a las 08:10 la vía sigue cerrada.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/f5160fa5_3.jpg",
+      "mini": "mini/f5160fa5_3.jpg",
+      "hora": "05:59",
+      "pie": "05:59: la encañada cruza la vía"
+     },
+     {
+      "archivo": "fotos/1c800caa.jpg",
+      "mini": "mini/1c800caa.jpg",
+      "hora": "08:07",
+      "pie": "08:07: maquinaria sobre la calzada rota"
+     },
+     {
+      "archivo": "fotos/ff4f4afe_2.jpg",
+      "mini": "mini/ff4f4afe_2.jpg",
+      "hora": "08:03",
+      "pie": "08:03: la vía destruida"
+     },
+     {
+      "archivo": "fotos/b87ff755_2.jpg",
+      "mini": "mini/b87ff755_2.jpg",
+      "hora": "05:30",
+      "pie": "05:30: el agua corre por la vía"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3261,
+     -0.723
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r22",
+    "hora": "04:40",
+    "hora_fin": "06:36",
+    "lugar": "Vía a Baltra, km 4½",
+    "barrio": "Vía a Baltra",
+    "tipo": "via_cortada",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 4,
+    "precision": "por_confirmar",
+    "titulo": "Km 4½: la encañada cubre la carretera",
+    "descripcion": "A las 05:08 hay agua frente a las casas. A las 06:36 una corriente con piedras cubre todo el ancho de la vía. El COE cantonal lo incluye entre los sitios afectados. Sector de la toma de agua: a las 05:31 no se podía entrar a apagar las bombas del pozo.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/c3ddadf1_2.jpg",
+      "mini": "mini/c3ddadf1_2.jpg",
+      "hora": "06:36",
+      "pie": "06:36: la corriente cubre la vía"
+     },
+     {
+      "archivo": "fotos/2e6ea6b6_3.jpg",
+      "mini": "mini/2e6ea6b6_3.jpg",
+      "hora": "05:08",
+      "pie": "05:08"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.3257,
+     -0.7036
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r23",
+    "hora": "04:52",
+    "hora_fin": "06:51",
+    "lugar": "Miramar: salida a la vía",
+    "barrio": "Miramar",
+    "tipo": "desbordamiento",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 3,
+    "precision": "barrio",
+    "titulo": "Miramar: la encañada corre por la calle",
+    "descripcion": "A las 04:52 una corriente fuerte pasa junto a las casas. A las 05:26 la salida de Miramar está colapsada. A las 06:51 el agua se lleva la tubería que se había reparado tras la crecida anterior y socava el borde de la vía.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/802e3bb2_2.jpg",
+      "mini": "mini/802e3bb2_2.jpg",
+      "hora": "05:26",
+      "pie": "05:26: salida de Miramar"
+     },
+     {
+      "archivo": "fotos/a864824d_2.jpg",
+      "mini": "mini/a864824d_2.jpg",
+      "hora": "06:51",
+      "pie": "06:51: el agua socava el borde de la vía"
+     },
+     {
+      "archivo": "fotos/58e0b788_2.jpg",
+      "mini": "mini/58e0b788_2.jpg",
+      "hora": "04:52",
+      "pie": "04:52"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.32679,
+     -0.71092
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r24",
+    "hora": "05:27",
+    "hora_fin": "08:03",
+    "lugar": "El Bosque: parque",
+    "barrio": "El Bosque",
+    "tipo": "desbordamiento",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 3,
+    "precision": "barrio",
+    "titulo": "El Bosque: aislados entre dos encañadas",
+    "descripcion": "A las 03:28 la encañada que va a El Bosque ya bajaba llena. A las 05:27 el sector del parque está aislado: lo cruzan dos encañadas. A las 05:50 un árbol caído cierra la vía a la altura del tanque de agua, entre El Bosque y Bellavista. A las 08:03 vecinos con motosierra abren un paso; quedan restos de árboles en la vía.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/3c1f7a73_2.jpg",
+      "mini": "mini/3c1f7a73_2.jpg",
+      "hora": "05:27",
+      "pie": "05:27: parque El Bosque"
+     },
+     {
+      "archivo": "fotos/b96571ae_2.jpg",
+      "mini": "mini/b96571ae_2.jpg",
+      "hora": "05:50",
+      "pie": "05:50: árboles caídos, sector El Bosque–Miramar"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.32823,
+     -0.70564
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r25",
+    "hora": "04:19",
+    "hora_fin": "08:32",
+    "lugar": "Bellavista: sector del estadio",
+    "barrio": "Bellavista",
+    "tipo": "desbordamiento",
+    "gravedad": 3,
+    "estado": "varias_fuentes",
+    "n_fuentes": 6,
+    "precision": "aproximada",
+    "titulo": "Bellavista: encañadas desbordadas",
+    "descripcion": "A las 04:19 se desborda la encañada que pasa por el estadio. Llueve casi sin parar desde la noche: baja a las 05:08, vuelve a las 06:53 y arrecia a las 08:06. A las 07:32 vecinos de la parte alta dicen que no pueden salir de sus casas. A las 07:34 no hay paso hacia la parte alta ni hacia Santa Rosa. A las 08:32 sigue lloviendo fuerte en la parte alta.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": [
+     {
+      "archivo": "fotos/2493cb41_2.jpg",
+      "mini": "mini/2493cb41_2.jpg",
+      "hora": "07:34",
+      "pie": "07:34"
+     }
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.32654,
+     -0.69496
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r30",
+    "hora": "06:43",
+    "hora_fin": "08:14",
+    "lugar": "Las Orquídeas",
+    "barrio": "Las Orquídeas",
+    "tipo": "inundacion",
+    "gravedad": 4,
+    "estado": "varias_fuentes",
+    "n_fuentes": 2,
+    "precision": "barrio",
+    "titulo": "Las Orquídeas: el agua llega al segundo piso",
+    "descripcion": "Barrio vecino de La Cascada, al sur. A las 06:43 el agua sube rápido y llega al segundo piso, también en Las Orquídeas; piden zodiacs o kayaks en cada cuadra. A las 08:14 el barrio sigue en la lista de sectores inundados que circula en los grupos.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.31483,
+     -0.73454
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r31",
+    "hora": "08:10",
+    "hora_fin": "08:12",
+    "lugar": "Tomás de Berlanga: camino viejo",
+    "barrio": "Tomás de Berlanga",
+    "tipo": "desbordamiento",
+    "gravedad": 3,
+    "estado": "varias_fuentes",
+    "n_fuentes": 2,
+    "precision": "barrio",
+    "titulo": "Tomás de Berlanga: la encañada baja por el camino viejo",
+    "descripcion": "A las 08:12 la encañada baja por el barrio, por el camino viejo, y arrancó los dos tubos del paso. Llueve fuerte. El COE lo incluye entre los sitios afectados.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.32269,
+     -0.71031
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "r32",
+    "hora": "07:48",
+    "hora_fin": "07:50",
+    "lugar": "Parque artesanal",
+    "barrio": "Parque Ecológico Artesanal",
+    "tipo": "via_cortada",
+    "gravedad": 3,
+    "estado": "sin_verificar",
+    "n_fuentes": 1,
+    "precision": "barrio",
+    "titulo": "Parque artesanal: no hay paso",
+    "descripcion": "A las 07:48 una persona que intenta pasar dice que no hay paso a la altura del parque artesanal. No dice en qué calle.",
+    "fuente": "Reporte ciudadano por WhatsApp, sin verificar",
+    "fotos": []
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.33068,
+     -0.71764
+    ]
+   }
+  }
+ ]
+}

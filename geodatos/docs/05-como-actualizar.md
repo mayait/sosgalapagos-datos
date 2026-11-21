@@ -4,13 +4,15 @@
 
 La capa operativa es `datos/areas_afectadas.geojson`: polígonos que se dibujan en el grupo «Emergencia en curso».
 
+**Durante el evento del 21-nov-2026 la capa no se dibuja a mano: la genera `reportes/scripts/04_areas.py`** a partir de `reportes/eventos/2026-11-21/areas.json` (qué zonas, con qué geometría base y por qué), de los reportes curados y de los barrios y las vías. Para cambiar una zona se edita `areas.json` y se corre `geodatos/.venv/bin/python -I reportes/scripts/04_areas.py`; luego se sigue desde el paso 3. Ver `reportes/LEEME.md`.
+
 1. Dibujar o recibir los polígonos. Pueden venir del COE, de la SNGR, de un vuelo de dron, de geojson.io, QGIS o Google My Maps exportado a GeoJSON. Deben estar en **EPSG:4326**.
 2. Poner a cada polígono estas propiedades:
 
    | Propiedad | Valores | Efecto en el mapa |
    |---|---|---|
    | `nombre` | texto | Título de la ficha |
-   | `tipo` | `inundacion` · `servicio` · `deslave` · `riesgo` | Color: azul, morado, marrón o rojo |
+   | `tipo` | `inundacion` · `servicio` · `deslave` · `riesgo` · `evacuacion` | Color: azul, morado, marrón, rojo o naranja. En el visor público `/mapas/` los colores los fija `geodatos/scripts/visor_mapas.json`. `evacuacion` es la zona que el COE manda evacuar |
    | `estado` | `validada` u otro valor (`por_validar`…) | `validada` se dibuja con línea continua; cualquier otro valor, con línea discontinua |
    | `detalle`, `fuente`, `fecha` | texto | Aparecen en la ficha |
 

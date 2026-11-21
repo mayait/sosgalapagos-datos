@@ -52,3 +52,6 @@ geodatos/estudios/*/figuras/
 geodatos/estudios/*/*.pdf
 geodatos/estudios/pendientes/
 geodatos/estudios/PUBLICAR.md
+
+# Reportes de campo: lo que se sirve en la web se regenera con 03_publicar.py
+reportes/publicar/

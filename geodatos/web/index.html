@@ -80,6 +80,9 @@ details.card summary{cursor:pointer;font-weight:600;font-size:13px}
 .pp table{border-collapse:collapse}.pp td{padding:2px 8px 2px 0;vertical-align:top}.pp td:first-child{color:#777;white-space:nowrap}
 .pp button{margin-top:8px;border:1px solid #0b5cad;background:#0b5cad;color:#fff;border-radius:7px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer}
 .pp button.sec{background:#fff;color:#0b5cad}
+.pp-d{margin:6px 0 0;max-height:130px;overflow:auto;line-height:1.35}
+.pp-f{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;max-height:230px;overflow:auto}.pp-f figure{margin:0;width:104px;font-size:10.5px;color:#666;line-height:1.25}
+.pp-f img{display:block;width:104px;height:78px;object-fit:cover;border-radius:5px;border:1px solid #ddd;background:#eee}
 .pp ul{margin:4px 0 0;padding-left:16px}.pp li{margin:1px 0}
 .pin{width:19px;height:19px;border-radius:50%;color:#fff;font:800 11px/15px system-ui;text-align:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.45)}
 .pin.risk{box-shadow:0 0 0 3px #111827,0 1px 4px rgba(0,0,0,.45)}
@@ -282,8 +285,24 @@ function estiloDe(capa, props) {
   }
   return s;
 }
+function pinReporte(color, glifo, aprox, w) {
+  const tinta = color.toLowerCase() === '#facc15' ? '#422006' : '#fff';
+  const g = { foto: `<path d="M9.5 10.5h3l1.2-1.8h4.6l1.2 1.8h3v8.5h-13z" fill="${tinta}"/><circle cx="16" cy="14.8" r="2.7" fill="${color}"/>`,
+    aviso: `<path d="M16 8.3l7.2 12.4H8.8z" fill="${tinta}" stroke="${tinta}" stroke-width="1" stroke-linejoin="round"/><rect x="15.2" y="12.6" width="1.6" height="4" fill="${color}"/><circle cx="16" cy="18.6" r=".95" fill="${color}"/>`,
+    refugio: `<text x="16" y="20" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="800" fill="${tinta}">R</text>`, nada: '' }[glifo] ?? '';
+  const d = 'M16 38C16 38 3 24 3 14.5a13 13 0 0 1 26 0C29 24 16 38 16 38z';
+  return `<svg viewBox="0 0 32 40" width="${w}" height="${w * 1.25}" aria-hidden="true" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))"><path d="${d}" fill="${color}" stroke="#fff" stroke-width="2.5"/>` +
+    (aprox ? `<path d="${d}" fill="none" stroke="#111" stroke-width="1.3" stroke-dasharray="3 2.5"/>` : '') + g + '</svg>';
+}
 function leyendaDe(capa) {
   if (capa.solo_rotulo) return [];
+  if (capa.marcador === 'reporte') {
+    const c = capa.clasificar, it = [...Object.values(c.valores), c.otro];
+    return [...it.map(v => ({ forma: 'reporte', texto: v.etiqueta, svg: pinReporte(v.fillColor, 'nada', false, 16) })),
+      { forma: 'reporte', texto: 'Reporte con foto', svg: pinReporte('#6b7280', 'foto', false, 20) },
+      { forma: 'reporte', texto: 'Reporte sin foto', svg: pinReporte('#6b7280', 'aviso', false, 20) },
+      { forma: 'reporte', texto: 'Borde punteado: ubicación aproximada o por confirmar', svg: pinReporte('#6b7280', 'nada', true, 16) }];
+  }
   if (capa.leyenda) return capa.leyenda.map(([color, texto]) => ({ color, texto, forma: 'area' }));
   const forma = capa.tipo === 'linea' ? 'linea' : capa.tipo === 'punto' ? 'punto' : 'area';
   const c = capa.clasificar;
@@ -293,7 +312,7 @@ function leyendaDe(capa) {
   for (const r of capa.estilo_si ?? []) if (r.etiqueta) out.push({ color: '#6b7280', texto: r.etiqueta, forma: 'linea', dash: r.estilo.dashArray });
   return out;
 }
-const icono = it => it.forma === 'punto' ? `<i class="pt" style="background:${it.color}">${esc(it.simbolo ?? '')}</i>`
+const icono = it => it.forma === 'reporte' ? `<i style="width:22px;height:auto;background:none;margin-right:5px;display:inline-flex;justify-content:center;vertical-align:middle">${it.svg}</i>` : it.forma === 'punto' ? `<i class="pt" style="background:${it.color}">${esc(it.simbolo ?? '')}</i>`
   : it.forma === 'linea' ? `<i class="ln" style="border-color:${it.color};${it.dash ? 'border-top-style:dashed' : ''}"></i>` : `<i style="background:${it.color}"></i>`;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fmt = v => v === true ? 'Sí' : v === false ? 'No' : typeof v === 'number' ? v.toLocaleString('es') : v;
@@ -305,7 +324,15 @@ function popupDe(capa, props) {
   const p = capa.popup ?? {}; const cls = claseDe(capa, props); const titulo = tituloDe(capa, props);
   let h = `<div class="pp"><div class="pp-t">${esc(titulo)}</div><div class="pp-s">${esc(cls?.etiqueta && cls.etiqueta !== titulo ? cls.etiqueta + ' · ' : '')}${esc(capa.titulo)}</div><table>`;
   for (const [k, lab] of Object.entries(p.campos ?? {})) { const v = props[k]; if (v == null || v === '') continue; h += `<tr><td>${esc(lab)}</td><td>${esc(fmt(v))}</td></tr>`; }
-  return h + '</table></div>';
+  h += '</table>';
+  // Genérico: popup.texto = propiedad con un párrafo; popup.fotos = propiedad con [{archivo, mini, hora, pie}] (rutas relativas a capa.fotos_base)
+  if (p.texto && props[p.texto]) h += `<div class="pp-d">${esc(props[p.texto])}</div>`;
+  const fotos = p.fotos && Array.isArray(props[p.fotos]) ? props[p.fotos] : [];
+  if (fotos.length) {
+    const base = datos() + (capa.fotos_base ?? '');
+    h += '<div class="pp-f">' + fotos.map(f => `<figure><a href="${esc(base + f.archivo)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(base + (f.mini ?? f.archivo))}" alt="${esc(f.pie ?? 'Foto')}"></a><figcaption>${esc((f.hora ? f.hora + ' · ' : '') + (f.pie ?? ''))}</figcaption></figure>`).join('') + '</div>';
+  }
+  return h + '</div>';
 }
 function rendererPatron(pt, pane) {
   const r = L.svg({ pane });
@@ -363,13 +390,17 @@ async function crearCapa(capa) {
     pointToLayer: (f, ll) => {
       if (capa.solo_rotulo) return L.circleMarker(ll, { pane, renderer: rend, radius: 0, stroke: false, fill: false, interactive: false });
       const s = estiloDe(capa, f.properties); const cl = claseDe(capa, f.properties);
+      if (capa.marcador === 'reporte') { const q = f.properties, ap = q.precision === 'aproximada' || q.precision === 'por_confirmar';
+        const glifo = q.tipo === 'refugio' ? 'refugio' : Array.isArray(q.fotos) && q.fotos.length ? 'foto' : 'aviso';
+        return L.marker(ll, { pane, icon: L.divIcon({ className: '', iconSize: [32, 40], iconAnchor: [16, 39], popupAnchor: [0, -36],
+          html: pinReporte(q.tipo === 'refugio' ? '#16a34a' : s.fillColor, glifo, ap, 32) }) }); }
       if (cl?.simbolo) return L.marker(ll, { pane, icon: L.divIcon({ className: '', iconSize: [19, 19],
         html: `<div class="pin${f.properties.en_susc_alta_media ? ' risk' : ''}" style="background:${s.fillColor}">${esc(cl.simbolo)}</div>` }) });
       return L.circleMarker(ll, { pane, renderer: rend, radius: s.radius ?? 5, color: f.properties.en_susc_alta_media ? '#111827' : (s.color ?? '#fff'),
         weight: f.properties.en_susc_alta_media ? 2.5 : 1.5, fillColor: s.fillColor, fillOpacity: 1 });
     },
     onEachFeature: (f, l) => {
-      if (!capa.solo_rotulo) l.bindPopup(() => popupDe(capa, f.properties));
+      if (!capa.solo_rotulo) l.bindPopup(() => popupDe(capa, f.properties), capa.popup?.fotos ? { maxWidth: 340, minWidth: 240 } : undefined);
       const r = capa.rotulo; const txt = r && f.properties?.[r.propiedad];
       if (txt != null && txt !== '') l.bindTooltip(esc(txt) + esc(r.sufijo ?? ''), r.permanente
         ? { permanent: true, direction: 'center', className: capa.solo_rotulo ? 'rot via' : 'rot' } : { sticky: true });
@@ -433,7 +464,7 @@ const quitarTildes = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '
 L.Popup.mergeOptions({ autoPanPaddingTopLeft: L.point(10, 60), autoPanPaddingBottomRight: L.point(10, 16) });
 const map = L.map('map', { zoomControl: true, minZoom: 7 });
 L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
-for (const [n, z] of [['fondo', 350], ['parque', 390], ['riesgo', 400], ['areas', 410], ['lineas', 430], ['emergencia', 450], ['puntos', 620], ['riesgo_pt', 630], ['usuario', 640]]) map.createPane(n).style.zIndex = z;
+for (const [n, z] of [['fondo', 350], ['parque', 390], ['riesgo', 400], ['areas', 410], ['lineas', 430], ['emergencia', 450], ['puntos', 620], ['riesgo_pt', 630], ['reportes', 635], ['usuario', 640]]) map.createPane(n).style.zIndex = z;
 map.getPane('fondo').style.pointerEvents = 'none';
 const ctx = { cache: {}, limites: null, renderers: {} };
 // Varios lienzos (uno por plano): el de arriba recibe todos los clics y Leaflet no los pasa a los de abajo.
@@ -503,7 +534,7 @@ let MAN = null; const filas = [];
       const a = idx.variantes[variante].archivos[clave];
       row.querySelector('.meta').textContent = (capa.fuente ?? '') + (a?.elementos ? ' · ' + a.elementos.toLocaleString('es') + ' elementos' : '');
       row.querySelector('.dl').innerHTML = !a ? '<span>Sin datos en esta cobertura</span>'
-        : `<a href="${a.shp.url}" download>↓ ${a.shp.formato ?? 'Shapefile'} <span>${a.shp.tam}</span></a>` +
+        : (a.shp ? `<a href="${a.shp.url}" download>↓ ${a.shp.formato ?? 'Shapefile'} <span>${a.shp.tam}</span></a>` : '') +
           (a.geojson ? `<a href="${a.geojson.url}" download="${variante}-${capa.archivo}">↓ GeoJSON <span>${a.geojson.tam}</span></a>` : '') +
           (a.extra ? `<a href="${a.extra.url}" target="_blank" rel="noopener">↓ ${esc(a.extra.texto)}</a>` : '');
       const sync = async () => {
