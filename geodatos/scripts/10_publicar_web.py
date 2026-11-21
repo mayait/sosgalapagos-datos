@@ -54,6 +54,7 @@ de El Niño, oct-nov 2026. Responsable: Julián Maya.
 """
 # Teselas del DTM de 1 m de la SGIAR (36_teselas_dtm.py) y su descarga (mosaico de 5 m del repositorio)
 TESELAS_DTM = ROOT / "teselas" / "dtm_sgiar"
+TESELAS_3D = ROOT / "teselas" / "relieve3d"
 DTM_DIR = ROOT / "datos" / "dtm_sgiar"
 DTM_REPO = "https://github.com/mayait/sosgalapagos-datos/tree/main/geodatos/datos/dtm_sgiar"
 CAPA_DTM = {"id": "dtm_sgiar", "titulo": "Relieve del terreno, DTM de 1 m (Santa Cruz)", "tipo": "teselas", "teselas": "dtm_sgiar",
@@ -377,6 +378,9 @@ def main():
         g_rel = next(g for g in man["grupos"] if g["id"] == "relieve")
         g_rel["capas"].insert(0, json.loads(json.dumps(CAPA_DTM)))
         shutil.copytree(TESELAS_DTM, OUT / "teselas" / "dtm_sgiar")
+    # Cota del archipiélago para la vista 3D del mapa de reportes (37_teselas_relieve3d.py). No es una capa del visor.
+    if (TESELAS_3D / "teselas.json").exists():
+        shutil.copytree(TESELAS_3D, OUT / "teselas" / "relieve3d")
     g_em = next((g for g in man["grupos"] if g["id"] == "emergencia"), None)
     if g_em is None: raise SystemExit("El manifiesto no trae el grupo «emergencia»")
     g_em["capas"].insert(0, json.loads(json.dumps(CAPA_REPORTES)))
