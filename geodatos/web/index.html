@@ -511,8 +511,30 @@ let MAN = null; const filas = [];
   // Saltos
   const zi = $('islas');
   const saltos = { 'Archipiélago': { bounds: ARCHIPIELAGO }, ...man.islas };
-  for (const [k, v] of Object.entries(saltos)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = k; b.onclick = () => map.fitBounds(v.bounds); zi.appendChild(b); }
-  map.fitBounds(ARCHIPIELAGO);
+  // Enlaces a un lugar: /mapas/#ptoayora, /mapas/#la-cascada o /mapas/#-0.7365,-90.3135,16 (lat,lon,zoom).
+  // Al mover el mapa la URL pasa a lat,lon,zoom, para poder copiar el enlace de lo que se está viendo.
+  const clave = t => quitarTildes(t).toLowerCase().replace(/[^a-z0-9]/g, '');
+  const lugares = {};
+  for (const [k, v] of Object.entries(saltos)) lugares[clave(k)] = v.bounds;
+  Object.assign(lugares, { lacascada: [[-0.7362, -90.3168], [-0.7322, -90.3105]], bellavista: [[-0.7000, -90.3330], [-0.6890, -90.3200]] });
+  for (const [alias, k] of Object.entries({ ptoayora: 'puertoayora', ayora: 'puertoayora', cascada: 'lacascada', sancristobal: 'sancristobal', galapagos: 'archipielago' })) if (lugares[k]) lugares[alias] = lugares[k];
+  let saltando = false;
+  const saltar = (hacer) => { saltando = true; hacer(); };
+  const irSegunURL = () => {
+    let h = ''; try { h = decodeURIComponent(location.hash.slice(1)); } catch { return false; }
+    const m = h.match(/^(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)(?:,(\d+(?:\.\d+)?))?$/);
+    if (m && Math.abs(+m[1]) <= 90 && Math.abs(+m[2]) <= 180) { saltar(() => map.setView([+m[1], +m[2]], Math.min(19, +(m[3] ?? 16)))); return true; }
+    const b = lugares[clave(h)]; if (!b) return false;
+    saltar(() => map.fitBounds(b)); return true;
+  };
+  for (const [k, v] of Object.entries(saltos)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = k;
+    b.onclick = () => { saltar(() => map.fitBounds(v.bounds)); history.replaceState(null, '', '#' + clave(k)); }; zi.appendChild(b); }
+  if (!irSegunURL()) saltar(() => map.fitBounds(ARCHIPIELAGO));
+  window.addEventListener('hashchange', irSegunURL);
+  map.on('moveend', () => {
+    if (saltando) { saltando = false; return; }   // salto pedido por la URL o por un botón: se conserva el nombre
+    const c = map.getCenter(); history.replaceState(null, '', `#${c.lat.toFixed(5)},${c.lng.toFixed(5)},${map.getZoom()}`);
+  });
 
   // Panel de capas
   const cont = $('grupos');
