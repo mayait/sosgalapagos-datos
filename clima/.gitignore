@@ -20,3 +20,4 @@ satelite/estado-local/
 pronostico/fase0/conjuntos/cache/
 pronostico/fase0/conjuntos/ens_eventos.csv
 pronostico/fase0/conjuntos/casos.json
+pronostico/fase0/cape_validacion_cruzada.csv.gz
