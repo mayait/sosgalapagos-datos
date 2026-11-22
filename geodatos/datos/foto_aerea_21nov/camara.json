@@ -1,0 +1,24 @@
+{
+ "descripcion": "Cámara estenopeica ajustada con 20 puntos de control sobre el DTM de la SGIAR",
+ "lon": -90.31093,
+ "lat": -0.72887,
+ "altura_m": 519,
+ "rumbo_grados": 198.7,
+ "inclinacion_bajo_horizonte_grados": 31.2,
+ "alabeo_grados": -0.25,
+ "focal_px": 1338.3,
+ "foto_px": [
+  1600,
+  1067
+ ],
+ "error_mediano_px": 5.8,
+ "parametros_utm32715": [
+  799312.2732,
+  9919348.4307,
+  519.075,
+  3.4672,
+  0.5448,
+  -0.0044,
+  1338.3474
+ ]
+}
