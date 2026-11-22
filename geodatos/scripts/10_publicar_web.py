@@ -19,6 +19,8 @@ from PIL import Image
 from shapely.geometry import shape
 from shapely.geometry.polygon import orient
 from shapely import make_valid
+from shapely.ops import transform as stransform, unary_union
+from pyproj import Transformer
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT = ROOT / "publicar" / "mapas"
@@ -233,14 +235,54 @@ CAPA_FLUJO = {"id": "flujo_21nov", "titulo": "Por dónde bajó el agua el 21-nov
 # clase, en Puerto Ayora, el escarpe y Bellavista). Mismo archivo, id, clases y colores; el resto de islas no cambia.
 SUSC_AJUSTE = ROOT / "estudios" / "santa-cruz" / "datos" / "ajuste_21nov" / "susceptibilidad_ajuste_21nov.geojson"
 TMP_AJUSTE = ROOT / "publicar" / "_ajuste"
+# Correcciones por conocimiento local (redactadas a mano): zonas donde la coordinación dice que no se inunda. Se QUITA de
+# ellas la susceptibilidad (HAND y ajuste). Es lo único que baja de clase; cada zona dice por qué y quién lo afirma.
+CORRECCIONES = ROOT / "estudios" / "santa-cruz" / "datos" / "correcciones_locales.geojson"
+
+
+def zonas_corregidas():
+    """Une las zonas de CORRECCIONES (un punto con «radio_m» es un círculo de ese radio, en UTM 15 S)."""
+    a_m = Transformer.from_crs("EPSG:4326", "EPSG:32715", always_xy=True).transform
+    a_g = Transformer.from_crs("EPSG:32715", "EPSG:4326", always_xy=True).transform
+    zonas = []
+    for f in json.loads(CORRECCIONES.read_text())["features"]:
+        p, g = f["properties"], shape(f["geometry"])
+        for k in ("id", "nombre", "motivo", "fuente", "fecha"):
+            if not p.get(k): raise SystemExit(f"{CORRECCIONES.name}: a {p.get('id', '?')} le falta «{k}»")
+        if g.geom_type == "Point":
+            if not p.get("radio_m"): raise SystemExit(f"{CORRECCIONES.name}: {p['id']} es un punto sin «radio_m»")
+            g = stransform(a_g, stransform(a_m, g).buffer(p["radio_m"], 64))
+        if g.is_empty or not g.is_valid or g.geom_type not in ("Polygon", "MultiPolygon"):
+            raise SystemExit(f"{CORRECCIONES.name}: {p['id']} no es un polígono válido")
+        zonas.append(g)
+    return unary_union(zonas)
+
+
+def corregir(features):
+    """Quita de cada polígono de susceptibilidad las zonas corregidas por conocimiento local."""
+    zona = zonas_corregidas()
+    out = []
+    for f in features:
+        if not f.get("geometry"): out.append(f); continue
+        g = shape(f["geometry"])
+        if not g.intersects(zona): out.append(f); continue
+        g = make_valid(g.difference(zona))
+        polys = [p for p in getattr(g, "geoms", [g]) if p.geom_type in ("Polygon", "MultiPolygon") and not p.is_empty]
+        if not polys: continue
+        out.append({**f, "geometry": json.loads(json.dumps(unary_union(polys).__geo_interface__), parse_float=lambda s: round(float(s), 6))})
+    return out
 
 
 def susceptibilidad_ajustada(src):
-    """Escribe en publicar/_ajuste/ la susceptibilidad de `src` más el ajuste del 21-nov y devuelve su ruta."""
+    """Escribe en publicar/_ajuste/ la susceptibilidad de `src` más el ajuste del 21-nov, menos las correcciones por
+    conocimiento local, y devuelve su ruta."""
     if not SUSC_AJUSTE.exists():
         raise SystemExit(f"Falta {SUSC_AJUSTE.relative_to(ROOT)}. Corre antes: .venv/bin/python -I scripts/est_21nov_ajuste.py")
+    if not CORRECCIONES.exists():
+        raise SystemExit(f"Falta {CORRECCIONES.relative_to(ROOT)} (correcciones por conocimiento local)")
     data = json.loads((src / "susceptibilidad_inundacion.geojson").read_text())
     data["features"] += json.loads(SUSC_AJUSTE.read_text())["features"]
+    data["features"] = corregir(data["features"])
     TMP_AJUSTE.mkdir(parents=True, exist_ok=True)
     out = TMP_AJUSTE / "susceptibilidad_inundacion.geojson"
     out.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))

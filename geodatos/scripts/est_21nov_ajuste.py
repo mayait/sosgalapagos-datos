@@ -21,6 +21,8 @@ Método (todo con cotas del DTM de la SGIAR; nunca se mezclan con umbrales del C
   4. Resto de puntos de control (Matazarnos, Arrayanes, cementerio, El Edén, Bellavista…): llenado local en un radio que
      depende de la precisión del reporte: alta ≤ espejo, media ≤ espejo + 1 m, baja ≤ espejo + 2,5 m.
   5. Solo se SUBE de clase: lo que ya era alta, media o baja en el HAND se conserva.
+     (Lo que baja son las correcciones por conocimiento local: estudios/santa-cruz/datos/correcciones_locales.geojson,
+     que 10_publicar_web.py recorta al publicar. Ver docs/modelo-hand.md.)
 
 Salidas (estudios/santa-cruz/datos/ajuste_21nov/)
   susceptibilidad_ajuste_21nov.geojson   solo lo que se añade a cada clase (acumuladas, como la capa publicada);
