@@ -1,0 +1,69 @@
+{
+ "edificios_con_huella": 742,
+ "edificios": 775,
+ "de_2_o_mas_pisos": 341,
+ "pisos_medios": 1.48,
+ "viviendas": 1308,
+ "personas": 4252,
+ "por_gravedad": {
+  "1": {
+   "edificios": 349,
+   "viviendas": 588,
+   "personas": 1913
+  },
+  "2": {
+   "edificios": 135,
+   "viviendas": 210,
+   "personas": 683
+  },
+  "3": {
+   "edificios": 37,
+   "viviendas": 59,
+   "personas": 191
+  },
+  "4": {
+   "edificios": 255,
+   "viviendas": 451,
+   "personas": 1465
+  }
+ },
+ "por_tamano": {
+  "P": {
+   "edificios_con_huella": 144,
+   "pisos_medios": 1.11,
+   "altura_m": 3.3,
+   "viviendas_por_edificio": 0.82,
+   "muestra": 27
+  },
+  "M": {
+   "edificios_con_huella": 373,
+   "pisos_medios": 1.41,
+   "altura_m": 4.2,
+   "viviendas_por_edificio": 1.39,
+   "muestra": 70
+  },
+  "G": {
+   "edificios_con_huella": 225,
+   "pisos_medios": 1.81,
+   "altura_m": 5.4,
+   "viviendas_por_edificio": 2.74,
+   "muestra": 42
+  }
+ },
+ "viviendas_ic95": [
+  1135,
+  1483
+ ],
+ "personas_ic95": [
+  3689,
+  4820
+ ],
+ "censo": {
+  "viviendas": 691,
+  "personas": 2957
+ },
+ "zona_ha": 28.2,
+ "reportes_usados": 26,
+ "razon_edificios_por_huella": 1.045,
+ "personas_por_hogar": 3.25
+}
