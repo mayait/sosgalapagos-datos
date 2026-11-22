@@ -28,8 +28,8 @@ cape_eventos.csv (solo grupos con datos públicos) y cape_validacion_cruzada.csv
 Caché: datos/pronostico-archivo/cape/ (no versionado).
 
 Uso:
-    geodatos/.venv/bin/python -I clima/scripts/08_pronostico_cape.py            # descarga lo que falte y evalúa
-    geodatos/.venv/bin/python -I clima/scripts/08_pronostico_cape.py --sin-descarga
+    geodatos/.venv/bin/python -I clima/scripts/09_pronostico_cape.py            # descarga lo que falte y evalúa
+    geodatos/.venv/bin/python -I clima/scripts/09_pronostico_cape.py --sin-descarga
 """
 import argparse
 import csv
@@ -366,7 +366,7 @@ def veredicto(met):
 def informe(met, octubre, eventos, hay_gsc, dia):
     aporta, n_celdas, mejora = veredicto(met)
     L = ["# Anexo de la fase 0: ¿aporta el CAPE?", "",
-         f"Generado por `clima/scripts/08_pronostico_cape.py` el {pd.Timestamp.now(tz='UTC'):%d-%m-%Y}. **No edites este archivo a mano.**",
+         f"Generado por `clima/scripts/09_pronostico_cape.py` el {pd.Timestamp.now(tz='UTC'):%d-%m-%Y}. **No edites este archivo a mano.**",
          "", "> El CAPE, la lluvia y las probabilidades de este anexo son estimaciones de modelos, no datos oficiales. "
          "El pronóstico oficial lo emite el INAMHI. **Esta prueba no cambia la calibración publicada.**", "",
          "## Qué se probó", "",

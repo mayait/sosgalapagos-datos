@@ -1,6 +1,6 @@
 # Anexo de la fase 0: ¿aporta el CAPE?
 
-Generado por `clima/scripts/08_pronostico_cape.py` el 22-11-2026. **No edites este archivo a mano.**
+Generado por `clima/scripts/09_pronostico_cape.py` el 22-11-2026. **No edites este archivo a mano.**
 
 > El CAPE, la lluvia y las probabilidades de este anexo son estimaciones de modelos, no datos oficiales. El pronóstico oficial lo emite el INAMHI. **Esta prueba no cambia la calibración publicada.**
 
