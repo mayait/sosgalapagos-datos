@@ -319,6 +319,7 @@ footer.pie [data-sos-app]{margin-top:14px}
 .isla .mar{display:flex;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
 .isla .mar span{padding:5px 9px;border-radius:999px;background:var(--soft)}.isla .mar b{font-variant-numeric:tabular-nums}
 </style>
+<link rel="stylesheet" href="lluvia-mapa.css">
 </head>
 <body>
 <div class="aviso-sitio" role="note"><span><strong>Estimaciones preliminares, no oficiales.</strong> Emergencias: <a href="tel:911">911</a></span></div>
@@ -376,6 +377,12 @@ footer.pie [data-sos-app]{margin-top:14px}
     <div class="hd"><h2>Hoy en cada isla</h2><span class="sub">pronóstico oficial del INAMHI · mareas de la tabla oficial del INOCAR</span></div>
     <div class="islas" id="islasB"></div>
     <p class="note">La curva de marea se dibuja entre las pleamares y bajamares de la tabla del INOCAR; las alturas son metros sobre la bajamar de sicigia. El oleaje viene de un modelo y es solo orientativo. Con El Niño el mar está más alto que la tabla.</p>
+  </section>
+
+  <!-- Mapa de lluvia y viento de los modelos (tipo Windy). Se monta solo cuando se acerca a la vista. -->
+  <section class="card" id="cLluviaMapa">
+    <div class="hd"><h2>Mapa de lluvia y viento</h2><span class="sub">lluvia y viento de modelos globales, próximos 5 días · pronóstico de modelo, no oficial</span></div>
+    <div id="lluviaMapa" style="min-height:420px"></div>
   </section>
 
   <div class="grid2" style="margin-top:14px">
@@ -1952,6 +1959,18 @@ setInterval(cargar, 5 * 60 * 1000);
   }).join("");
   if (tarjetas) { document.getElementById("islasB").innerHTML = tarjetas; document.getElementById("cIslas").hidden = false; }
 })().catch(() => {});
+</script>
+<script src="lluvia-mapa.js" defer></script>
+<script>
+// El mapa de lluvia (lluvia-mapa.js) pesa: se monta cuando su tarjeta se acerca a la pantalla.
+addEventListener("DOMContentLoaded", () => {
+  const caja = document.getElementById("lluviaMapa");
+  if (!caja || !window.LluviaMapa) return;
+  const montar = () => LluviaMapa.montar(caja, {datos: "datos/lluvia-mapa.json", leaflet: obtenerLeaflet});
+  if (!("IntersectionObserver" in window)) return montar();
+  const ob = new IntersectionObserver((es) => { if (es.some(e => e.isIntersecting)) { ob.disconnect(); montar(); } }, {rootMargin: "300px"});
+  ob.observe(caja);
+});
 </script>
 <script src="/riesgos/app.js" defer></script>
 </body>
