@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Paso 6 · Publicar las buenas noticias y la ayuda como capa de mapa (un corazón por acción).
 
 Lee `eventos/<evento>/buenas_noticias.json` (curado a mano), lo valida y produce:

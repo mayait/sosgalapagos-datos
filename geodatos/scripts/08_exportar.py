@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Recorta todas las capas al área de interés (zonas pobladas, zona agrícola y vías; se excluye el parque),
 suaviza los polígonos derivados de píxeles, quita duplicados y exporta un paquete listo para el proyecto
 principal: export/galapagos/*.geojson + capas.json (manifiesto con grupos, estilos y leyendas).

@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Diagnóstico urbano preliminar de dos ámbitos (complementa 16_cruces_quebradas_vias.py):
 
   A. Sector Tomás de Berlanga (Santa Cruz, −0,7109; −90,3198), parte alta de la cuenca de La Cascada.

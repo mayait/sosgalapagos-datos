@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Contraste de los modelos con lo observado el 21-nov-2026 en Santa Cruz.
 
 Cruza lo observado (áreas inundadas y corredores de areas_afectadas.geojson, reportes de gravedad 3–4 y el flujo observado

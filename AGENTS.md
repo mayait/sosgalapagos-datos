@@ -15,6 +15,8 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 6. **Informes y textos de estudios son solo locales.** `informes/` y `geodatos/estudios/*/{texto,figuras}/` (y sus PDF) están en `.gitignore`: no se suben al repositorio ni se publican en la web. Los datos de los estudios sí se versionan. **Única excepción (desde el 21-nov-2026):** los mapas e informes en PDF que Julián pida publicar uno por uno van a la sección de descargas de la portada con `servidores/publicar.sh descargas`. Siguen fuera de git y nunca se publica uno que él no haya pedido.
 7. **Trabaja en tu rama** (mejor en un *worktree*) y no toques el dominio de otra sesión sin coordinarlo. Entre sesiones de Claude Code: `ListAgents` y `SendMessage`.
 
+8. **Licencia (desde el 22-nov-2026).** El código tiene todos los derechos reservados ([`LICENSE`](LICENSE)); lo propio que no es código va bajo CC BY-NC-ND 4.0 y lo de terceros conserva su licencia ([`LICENCIA-DATOS.md`](LICENCIA-DATOS.md)). Cada archivo de código propio (`.py`, `.sh`, páginas) empieza con el aviso de autoría de dos líneas (USFQ · SOS Galápagos · Julián Maya): ponlo en los archivos nuevos y no lo quites. Donde se muestre o se descargue un dato de terceros, se nombra su licencia.
+
 ## Convenciones
 
 - Idioma: español claro. En SOS Galápagos se dice **«refugio»**, nunca «albergue».
@@ -35,7 +37,7 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 | Ver qué falta | [Issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues) (etiquetas P1–P3 y por tipo) |
 | Publicar o tocar un servidor | `servidores/README.md` |
 | Rehacer los estudios tras un dato nuevo | `geodatos/flujo.toml` + `geodatos/scripts/flujo.py --seco` |
-| Tocar el clima | `clima/LEEME.md` |
+| Tocar el clima | El que corre en vivo: repo `sosgalapagos-plataforma`, app `clima/`. Aquí: el panel (`clima/web/`) y los análisis (`clima/LEEME.md`) |
 | Tocar el pronóstico de lluvia | `clima/pronostico/LEEME.md` (evaluación en `fase0/informe.md`) |
 
 ## Árbol de repositorios de SOS Galápagos
@@ -100,7 +102,7 @@ SOS Galápagos no es un solo repositorio, son seis. No hay organización de GitH
 
 ### Reglas que cruzan repositorios
 
-- **No se copia código de `sosgalapagos` (AGPL-3.0) a `sosgalapagos-plataforma` (Apache 2.0).**
+- **No se copia código de `sosgalapagos` (AGPL-3.0) a `sosgalapagos-plataforma`** (todos los derechos reservados desde el 22-nov-2026; antes, Apache 2.0).
 - **Nada de un repositorio privado pasa a uno público.** Ni los datos personales de `estudiantes-riesgo-nino` ni la lógica de detección de estafas del bot (`src/analista.ts`).
 - **Cada repositorio tiene sus propias reglas de commit y de ramas.** Léelas en su `AGENTS.md` o `LEEME.md` antes de hacer commit. Dos que cambian: en `sosgalapagos` los commits van como «IA Humana» y sin `Co-Authored-By`; en `sosgalapagos-datos` y en `sosgalapagos-plataforma` se trabaja en una rama con pull request, también sin `Co-Authored-By`.
 - **Desplegar es un paso aparte y manual.** Subir a `main` no publica nada en `sosgalapagos.org`. No despliegues si no te lo piden.

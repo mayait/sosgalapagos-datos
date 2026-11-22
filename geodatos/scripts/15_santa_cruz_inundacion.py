@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Puntos potenciales de inundación en las zonas pobladas de Santa Cruz (fuera de La Cascada).
 
 Tres tipos de punto, todos sobre Copernicus GLO-30 (DSM, 30 m) reproyectado a UTM 15S:

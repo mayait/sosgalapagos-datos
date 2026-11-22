@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Checklist automático antes de publicar sosgalapagos.org/estudios/ (ver estudios/PUBLICAR.md).
 
 Revisa el sitio ya generado (publicar/estudios, de 19_estudios_web.py) y las fuentes versionadas. Sale con código 1 si

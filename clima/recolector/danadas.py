@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Estaciones marcadas como dañadas a mano (estaciones_danadas.json).
 
 Los datos crudos se siguen guardando; desde la fecha «desde», las variables marcadas no se usan

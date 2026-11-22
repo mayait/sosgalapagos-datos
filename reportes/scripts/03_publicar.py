@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Paso 3 · Publicar los reportes curados como capa de mapa con fotos.
 
 Lee `eventos/<evento>/reportes.json` (curado a mano), lo valida y produce:

@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Línea del tiempo del evento de Santa Cruz (28-ago a 2-nov-2026), en hora de Galápagos (UTC−6).
 
 Uso (desde geodatos/):  .venv/bin/python -I scripts/grd_linea_tiempo.py

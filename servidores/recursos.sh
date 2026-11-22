@@ -1,4 +1,6 @@
 #!/bin/sh
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 # Uso de recursos del servidor de sosgalapagos.org.
 #   recursos.sh            muestra el estado de ahora, para leerlo una persona
 #   recursos.sh --registrar añade una línea a /var/log/sosgalapagos-recursos.csv (lo corre el timer cada 15 min)

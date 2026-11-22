@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Bloque de mareas del dashboard: predicción astronómica (scripts/05_mareas.py), nivel observado por los
 mareógrafos IOC y anomalía (observado − predicho), que en 2026 recoge sobre todo la señal de El Niño.
 

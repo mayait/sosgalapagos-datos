@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Fase S0 · evalúa la señal de GOES-19 (rayos GLM, topes fríos de la banda 13 y RRQPE)
 frente a la lluvia medida en Santa Cruz.
 

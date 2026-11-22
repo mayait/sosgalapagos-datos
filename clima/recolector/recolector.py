@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Recolector meteorológico de Galápagos: corre cada 5 minutos (systemd timer).
 
 Baja las mediciones más recientes de cada fuente, las guarda en SQLite (horas en UTC)

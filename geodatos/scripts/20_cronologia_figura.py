@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Figura de la cronología del 30-oct-2026 en Santa Cruz: lluvia medida (10 min), hidrograma de La Cascada e hitos.
 
 Uso: .venv/bin/python -I scripts/20_cronologia_figura.py

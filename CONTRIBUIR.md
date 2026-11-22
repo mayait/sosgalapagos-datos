@@ -85,8 +85,8 @@ Ver `geodatos/docs/05-como-actualizar.md`, apartado A. Se reemplaza `geodatos/ca
 
 ### Añadir una fuente meteorológica
 1. `clima/datos/<fuente>/crudos/`: tal cual llega, con un archivo por día y sin correcciones.
-2. Una función `fuente_<nombre>()` en `clima/recolector/recolector.py`, con las horas en UTC.
-3. **Los endpoints van solo en `clima/privado/`**, que no se versiona. En el repositorio y en la web se nombra la fuente, pero sin enlaces.
+2. Un módulo `clima/fuentes/<nombre>.py` con `recoger()` **en el repositorio `sosgalapagos-plataforma`** (ahí corre todo el clima desde el 22-nov-2026), con las horas en UTC, y su entrada en `REGISTRO`.
+3. **Los endpoints van solo en el entorno del servidor** (`.env` de la plataforma) y en `clima/privado/`, que no se versiona. En el repositorio y en la web se nombra la fuente, pero sin enlaces.
 4. Antes de mostrar una fuente nueva en el panel público, hay que preguntar a Julián.
 
 ### Añadir o actualizar un estudio

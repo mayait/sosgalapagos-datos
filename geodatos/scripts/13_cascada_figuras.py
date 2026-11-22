@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Figuras del informe técnico sobre La Cascada (Puerto Ayora, Santa Cruz).
 
 Lee los resultados de 12_cascada_analisis.py en estudios/la-cascada/datos/ y escribe PNG en estudios/la-cascada/figuras/.

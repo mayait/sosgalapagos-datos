@@ -20,14 +20,15 @@ Esta carpeta es el **índice de la parte de servidor**. El código de cada servi
   │          ├─ /estudios/api/* → contenedor «comentarios» (volumen comentariosdata) │
   │          └─ /clima/      → /srv/sosgalapagos-clima     (solo index + 3 JSON) │
   │                                                                          │
-  │  Host (systemd, fuera de Docker)                                         │
-  │   sosgalapagos-clima.timer      cada 5 min → recolector.py → clima.db    │
-  │   sosgalapagos-clima-csv.timer  cada hora  → CSV privados + respaldo diario │
+  │  Compose «sosgalapagos-plataforma»: postgis, plataforma, trabajador,     │
+  │   reloj y satelite. Ahí corre TODO el clima (fuentes, nivel, pronóstico, │
+  │   mareas, satélite) y escribe /srv/sosgalapagos-clima/datos              │
+  │  Host (systemd): solo respaldo diario y monitor de recursos              │
   └──────────────────────────────────────────────────────────────────────────┘
-            ▲ ssh (llave restringida id_clima_puente → clima@servidor)
+            ▲ https, con una llave (POST /riesgos/api/clima/relevo/ierse)
             │
-  Mac de Julián: launchd org.sosgalapagos.clima-puente (cada 5 min)
-  └─ clima/puente/puente_ierse.sh  (IERSE no responde a IPs de EE. UU.)
+  Una máquina en Ecuador: relevo de IERSE cada 5 min (IERSE solo responde
+  desde Ecuador). Programa mínimo: despliegue/relevo/ de la plataforma
 ```
 
 ## Servicios
@@ -39,8 +40,8 @@ Esta carpeta es el **índice de la parte de servidor**. El código de cada servi
 | **Estudios / Informes** | `/estudios/` (alias `/informes`) | **Retirado el 5-nov-2026**: los informes y los textos de los estudios son solo locales. La ruta redirige a la portada | — | `/srv/sosgalapagos-estudios` (solo una redirección; la copia anterior quedó en `/root/respaldo-estudios-2026-11-05/`) | no se publica |
 | **Informes descargables** | `/descargas/` y la sección «Informes y mapas para descargar» de la portada | Mapas e informes en PDF que Julián decide publicar (desde el 21-nov-2026). Los archivos no están en git: viven en `~/dev/sosgalapagos-informes/publicar/` con su `indice.json` | `servidores/publicar_descargas.sh` | `/srv/sosgalapagos-descargas`, montado en Caddy (sirve solo `.pdf`, `.jpg` y `.png`) y en la web (lee `indice.json`) | `servidores/publicar.sh descargas` |
 | **Comentarios** | `/estudios/api/*` | API de comentarios del antiguo sitio de estudios (sin uso desde el 4-nov-2026; el contenedor y el volumen se conservan) | repo `mayait/sosgalapagos`: `deploy/sosgalapagos/comentarios/servidor.py` | contenedor `comentarios`, volumen `comentariosdata` | despliegue de la app |
-| **Clima en vivo** | `/clima/` | Panel con el nivel de lluvia peligrosa, lluvia, pronóstico, mareas y lo oficial (INAMHI, INOCAR). **Desde el 22-nov-2026 los datos los recoge y los genera la plataforma (Django)**, cada 5 min | Panel: `clima/web/index.html` (este repo). Recolección, cálculos y datos del panel: repo `mayait/sosgalapagos-plataforma`, app `clima/` (plan y vuelta atrás en su `docs/plan-clima.md`). Satélite: `clima/satelite/` (este repo) | Datos en PostgreSQL (contenedor `postgis` de la plataforma); JSON del panel en `/srv/sosgalapagos-clima/datos`; el satélite y el puente de IERSE siguen escribiendo en `/var/lib/sosgalapagos-clima/clima.db`, de donde la plataforma los copia. Timers `sosgalapagos-clima.timer` y `-csv.timer`: **detenidos y deshabilitados**, no borrados | Panel: copiar `clima/web/index.html` a `/srv/sosgalapagos-clima/` (no usar `servidores/publicar.sh clima`, que reinstala el recolector anterior). Lo demás: `despliegue/produccion/desplegar.sh` de la plataforma |
-| **Puente IERSE** | — | Reenvía IERSE desde la Mac al servidor | `clima/puente/` | usuario `clima`, que solo puede ejecutar `recibir.sh` | `launchctl` en la Mac (ver `clima/LEEME.md`) |
+| **Clima en vivo** | `/clima/` | Panel con el nivel de lluvia peligrosa, lluvia, pronóstico, mareas, oleaje, satélite y lo oficial (INAMHI, INOCAR). **Desde el 22-nov-2026 todo corre en la plataforma, en un solo stack y sobre PostgreSQL** | Panel: `clima/web/index.html` (este repo). Todo lo demás: repo `mayait/sosgalapagos-plataforma`, app `clima/` (`docs/plan-clima.md`) | Datos en PostgreSQL (contenedor `postgis`); JSON del panel y descargas en `/srv/sosgalapagos-clima/datos`. **Sin uso, sin borrar:** `/var/lib/sosgalapagos-clima/clima.db`, `/opt/sosgalapagos-clima/` y los timers `sosgalapagos-clima*.timer` (detenidos y deshabilitados) | Panel: `servidores/publicar.sh clima`. Lo demás: `despliegue/produccion/desplegar.sh` de la plataforma |
+| **Relevo de IERSE** | — | IERSE solo responde desde Ecuador: una máquina allá pide lo que la plataforma le indica y devuelve las respuestas. Sin base ni SSH | repo `mayait/sosgalapagos-plataforma`: `despliegue/relevo/` | puerta `/riesgos/api/clima/relevo/ierse`, con la llave `CLIMA_RELEVO_LLAVE` | `sh despliegue/relevo/instalar.sh` en la máquina de Ecuador. El puente anterior está en `Archivo/clima-servicio-anterior/` |
 | **Capas de la app** | `/capas/galapagos-2026/` | Las capas que muestra el mapa de ResponseGrid | `geodatos/export/galapagos/` + `geodatos/export/integracion/` | dentro de la imagen web de la app | `09_entregable.py` / `copiar-a-app.sh` + despliegue de la app |
 | **GeoServer (demo)** | `http://127.0.0.1:8085/geoserver` | WMS/WFS **local** para probar en QGIS. No está en producción | `geodatos/scripts/11_geoserver_local.py` | — | — |
 | **Visor local** | `http://127.0.0.1:8765/visor/` | Revisar capas antes de publicar | `geodatos/scripts/servir.sh`, `mapas-galapagos/ver-mapa.sh` | — | — |
@@ -81,7 +82,7 @@ sosgalapagos-recursos --resumen  # promedios y máximos de los últimos 7 días
 **Lo que se optimizó el 22-nov-2026:**
 
 - **Caché de compilación de Docker: 42 GB.** Era el mayor consumo de disco y no servía para nada. Se limpió lo que llevaba más de 7 días sin usarse (`docker builder prune --filter until=168h`). Conviene repetirlo cada mes.
-- **Respaldos del clima: 3,7 GB → menos de 1 GB.** Eran 14 copias de la base sin comprimir; ahora se guardan con gzip (`clima/deploy/respaldo.sh`).
+- **Respaldos del clima: 3,7 GB → menos de 1 GB.** Eran 14 copias de la base sin comprimir; ahora se guardan con gzip (`Archivo/clima-servicio-anterior/deploy/respaldo.sh`; hoy el respaldo es el de la plataforma).
 - **Una sola app instalable** para la portada, el mapa y el clima, en lugar de dos manifiestos.
 
 **Lo que se puede optimizar después** (no se tocó):

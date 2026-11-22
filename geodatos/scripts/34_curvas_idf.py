@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Curvas IDF (intensidad–duración–frecuencia) PROVISIONALES de Santa Cruz y San Cristóbal (#24) y periodo de retorno
 de las 500 tormentas sintéticas de cada isla (#26).
 

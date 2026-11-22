@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Fuentes adicionales del recolector: INAMHI, mareógrafos IOC, METAR de los aeropuertos y estaciones
 particulares (WeatherLink, Tempest, Ambient Weather y Weather Underground).
 

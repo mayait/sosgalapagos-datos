@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Relieve fusionado de Santa Cruz: DTM de 1 m de la SGIAR donde hay cobertura y Copernicus GLO-30 fuera de ella.
 
 Lo usa 03_dem.py. El DTM (datos/dtm_sgiar/, 35_dtm_sgiar.py) es de TERRENO (sin techos ni copas) y cubre Puerto Ayora,

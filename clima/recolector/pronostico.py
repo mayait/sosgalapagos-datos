@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Pronóstico de lluvia por zona (modelos globales; NO es un dato oficial ni una alerta).
 
 Qué se publica y por qué (evaluación en clima/pronostico/fase0/, con 2024–2026):
