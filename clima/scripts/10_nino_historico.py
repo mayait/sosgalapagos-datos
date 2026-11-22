@@ -14,7 +14,7 @@ Ecuador es el comité ERFEN. Las anomalías de CRW (base 1985–2012) y de OISST
 se mezclan: en Niño 1+2, CRW da unos 0,6 °C más.
 
 Uso, desde la raíz del repositorio:
-  geodatos/.venv/bin/python -I clima/scripts/09_nino_historico.py [--diario]
+  geodatos/.venv/bin/python -I clima/scripts/10_nino_historico.py [--diario]
 Necesita en clima/privado/fuentes.env (o en el entorno): CLIMA_CPC_ONI_URL, CLIMA_CPC_SEMANAL_URL,
 CLIMA_CPC_MENSUAL_URL, CLIMA_CRW_MENSUAL_ERDDAP y, para --diario, CLIMA_OISST_FINAL_ERDDAP.
 Solo biblioteca estándar.
