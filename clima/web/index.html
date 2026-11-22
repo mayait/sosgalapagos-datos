@@ -8,6 +8,10 @@
 <meta name="description" content="Nivel de lluvia peligrosa por zona, lluvia medida cada 5 minutos, pronóstico experimental y mareas en Santa Cruz, San Cristóbal e Isabela. Estimaciones de SOS Galápagos, no oficiales.">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
+<!-- Clima es parte de la misma app que la portada y el mapa de riesgos: mismo manifiesto. -->
+<link rel="manifest" href="/riesgos/app.webmanifest">
+<link rel="apple-touch-icon" href="/riesgos/estaticos/app/icono-192.png">
+<meta name="color-scheme" content="light only">
 <style>
 :root{color-scheme:light;
   --bg:#FFFFFF;--panel:#FFFFFF;--ink:#141414;--ink2:#3D3D3D;--mut:#666666;--line:#E3E3E3;--line2:#F0F0F0;--grid:#EBEBEB;--night:#F3F3F3;--soft:#F5F5F5;
@@ -240,9 +244,41 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
   .franja,.vista,.tema,.zsel,.acts,.amp,.sci-nav,#tip,.controls{display:none!important}
   body{background:#fff}.card{break-inside:avoid;box-shadow:none}
 }
+
+/* ═══ Identidad igual a /riesgos/ (22-nov-2026) ═══
+   Misma tipografía de títulos, mismo aviso superior, botones en píldora negra y la misma firma.
+   Fondo blanco siempre: aquí tampoco hay modo oscuro. Los colores de los gráficos no cambian. */
+@font-face{font-family:"Zalando Sans Expanded";src:url("/riesgos/estaticos/marca/ZalandoSansExpanded.ttf") format("truetype");font-weight:200 900;font-display:swap}
+:root{--ink:#1D1D1B;--titulo:"Zalando Sans Expanded","Helvetica Neue",Helvetica,Arial,sans-serif;--aviso-alto:26px}
+html,body{font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif}
+body{padding-top:var(--aviso-alto)}
+.aviso-sitio{position:fixed;inset:0 0 auto 0;z-index:3000;height:var(--aviso-alto);display:flex;align-items:center;justify-content:center;gap:6px;padding:0 10px;background:#fff;border-bottom:1px solid var(--line);font-size:11.5px;color:var(--mut);white-space:nowrap;overflow:hidden}
+.aviso-sitio strong{color:var(--ink);font-weight:700}.aviso-sitio a{color:var(--red);font-weight:700;text-decoration:none}
+.franja{background:#fff;border-top:0;font-size:12px;color:var(--mut)}
+.franja .lab{background:none;color:var(--ink);padding:0;letter-spacing:.06em;font-size:10.5px}
+.franja .der{color:var(--mut)}
+header.top{padding:18px 0 10px}
+.migas{display:flex;flex-wrap:wrap;gap:4px 16px;margin:0 0 8px;font-size:13.5px}
+.migas a{color:var(--mut);text-decoration:none}.migas a:hover{color:var(--ink)}
+h1{font:900 27px/0.95 var(--titulo);letter-spacing:-.01em;text-transform:uppercase;border-left:0;padding-left:0;margin:0}
+.card .hd h2,.zcard h2,.sci-sec h2{font-family:var(--titulo);font-weight:800;letter-spacing:0}
+.vista{border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.vista button{border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--mut);min-height:38px;background:transparent}
+.vista button.on{background:#000;color:#fff}
+.tema{display:none}
+footer.pie .firma-lema{font:400 11px/1 var(--titulo);letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
+footer.pie .firma-lema b{display:inline-block;margin-left:5px;padding:4px 6px 3px;background:var(--red);color:#fff;font-weight:900}
+footer.pie .firma-enlaces{display:flex;flex-direction:column;gap:5px;margin-top:14px;font-size:12px}
+footer.pie .firma-enlaces span{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+footer.pie .firma-logo{display:block;height:18px;width:auto;margin-top:14px;opacity:.55}
+footer.pie .firma-pie{margin:10px 0 0;font-size:11.5px;color:var(--mut)}
+footer.pie [data-sos-app]{margin-top:14px}
+@media (max-width:640px){h1{font-size:23px}.aviso-sitio{font-size:10.5px}}
+@media print{.aviso-sitio,[data-sos-app],.migas{display:none!important}body{padding-top:0}}
 </style>
 </head>
 <body>
+<div class="aviso-sitio" role="note"><span><strong>Estimaciones preliminares, no oficiales.</strong> Emergencias: <a href="tel:911">911</a></span></div>
 <div class="franja" role="region" aria-label="Alertas oficiales">
   <div class="in">
     <span class="lab">ALERTAS OFICIALES</span>
@@ -257,8 +293,8 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
 <div class="wrap">
 <header class="top">
   <div>
-    <a class="back" href="/">← SOS Galápagos</a>
-    <h1>Clima en vivo · Galápagos</h1>
+    <nav class="migas" aria-label="SOS Galápagos"><a href="/riesgos/">← Mapa de riesgos</a><a href="/riesgos/informe/">Línea del tiempo</a><a href="/">Inicio</a></nav>
+    <h1>Clima en vivo</h1>
   </div>
   <div style="display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap">
     <span class="upd" id="upd">Cargando…</span>
@@ -266,7 +302,6 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
       <button id="bCom" role="tab" class="on">Comunidad</button>
       <button id="bSci" role="tab">Ciencia</button>
     </div>
-    <button class="tema" id="bTema" title="Cambiar entre modo claro y oscuro" aria-label="Cambiar modo claro u oscuro">◐</button>
   </div>
 </header>
 
@@ -487,9 +522,17 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
 <footer class="pie">
   <div class="aviso"><b>Modelos preliminares.</b> El nivel de lluvia peligrosa, el pronóstico de lluvia fuerte y la señal satelital son modelos preliminares de SOS Galápagos, todavía en evaluación: no son datos ni alertas oficiales y pueden fallar. El nivel se calibró con dos eventos (30-oct y 21-nov de 2026) y el pronóstico sale de modelos globales ajustados con la lluvia medida. Las alertas las emiten la SNGR, el COE y el ECU 911, y el pronóstico oficial es del INAMHI. Horas de Galápagos (UTC−6).</div>
   <p class="repo">Código, métodos y datos abiertos en GitHub: <a href="https://github.com/mayait/sosgalapagos-datos" target="_blank" rel="noopener">github.com/mayait/sosgalapagos-datos</a></p>
-  <div class="cierre">
-    <p class="more" lang="en"><span>MORE DATA,</span><span class="blk">MORE DRAGONS.</span></p>
-    <p class="inst">Universidad San Francisco de Quito<span>Galápagos</span></p>
+  <div class="cierre" style="display:block">
+    <div class="firma-lema" lang="en">More humans,<b>More dragons.</b></div>
+    <div data-sos-app aria-label="La app en tu teléfono"></div>
+    <nav class="firma-enlaces" aria-label="Mira también">
+      <span>Mira también</span>
+      <a href="/riesgos/">El mapa de riesgos</a>
+      <a href="/riesgos/informe/">La línea del tiempo de los reportes</a>
+      <a href="/riesgos/descargas/">Descarga las capas de riesgo</a>
+    </nav>
+    <img class="firma-logo" src="/riesgos/estaticos/marca/usfq-galapagos-color.svg" alt="USFQ Galápagos" width="96" height="18">
+    <p class="firma-pie">SOS Galápagos · USFQ Galápagos. Modelos y mediciones preliminares: no son datos ni alertas oficiales.</p>
   </div>
 </footer>
 </div>
@@ -1676,11 +1719,7 @@ function fuentes() {
 $("bCom").onclick = () => { S.vista = "comunidad"; pintar(); scrollTo({top: 0}); };
 $("bSci").onclick = () => irCiencia(null);
 $("verRed").onclick = ev => { ev.preventDefault(); irCiencia("red"); };
-$("bTema").onclick = () => {
-  const r = document.documentElement, oscuro = r.dataset.theme === "dark";
-  r.dataset.theme = oscuro ? "light" : "dark"; store.set("clima-tema", r.dataset.theme); if (E) pintar();
-};
-{ const t = store.get("clima-tema"); if (t) document.documentElement.dataset.theme = t; }
+// Sin modo oscuro: la identidad del sitio es de fondo blanco (igual que /riesgos/).
 const exSel = (id, fn) => document.querySelectorAll(`#${id} button`).forEach(b => b.onclick = () => { fn(b); explorador(); dibujar($("explorador")); escribirURL(); });
 exSel("periodo", b => { S.per = b.dataset.h === "todo" ? "todo" : +b.dataset.h; S.desde = S.hasta = null; const h = S.per === "todo" ? 1e9 : S.per; S.g = h <= 72 ? 1 : h <= 168 ? S.g : h <= 720 ? Math.max(S.g, 6) : 24; });
 exSel("grupo", b => { S.g = +b.dataset.g; });
@@ -1700,5 +1739,6 @@ leerURL();
 cargar().then(() => { if (S.vista === "ciencia" && location.hash) setTimeout(() => irSec(location.hash.slice(1), false), 60); });
 setInterval(cargar, 5 * 60 * 1000);
 </script>
+<script src="/riesgos/app.js" defer></script>
 </body>
 </html>
