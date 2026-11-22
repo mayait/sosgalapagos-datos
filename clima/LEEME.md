@@ -1,14 +1,16 @@
 # Clima Galápagos: datos medidos para analizar eventos y simular
 
-> **Desde el 22-nov-2026 el clima corre dentro de la plataforma (Django).** El recolector, el nivel de lluvia peligrosa y los datos del panel están en [`sosgalapagos-plataforma`](https://github.com/mayait/sosgalapagos-plataforma) (`clima/`, plan en `docs/plan-clima.md`). **Un arreglo de una fuente se hace allí** (`clima/anterior/`), no aquí.
+> **Desde el 22-nov-2026 todo el clima corre dentro de la plataforma**, en un solo stack: [`sosgalapagos-plataforma`](https://github.com/mayait/sosgalapagos-plataforma), app `clima/` (plan en su `docs/plan-clima.md`). Recoge las fuentes, calcula el nivel de lluvia, el pronóstico, las mareas y el satélite, y escribe los datos del panel. Todo en PostgreSQL: **ya no hay SQLite ni timers de systemd**. Un arreglo de una fuente se hace allá (`clima/fuentes/`).
 >
 > Lo que sigue vivo en esta carpeta:
-> - `web/index.html`: el panel de `/clima/` (lee los mismos `datos/*.json`, que ahora escribe la plataforma);
-> - `satelite/`: el colector GOES-19, con su timer de systemd;
-> - `puente/` y `recolector/recolector.py --recibir`: la entrada de IERSE desde una Mac en Ecuador a la base SQLite, de donde la plataforma la copia;
-> - `scripts/` y `pronostico/`: análisis y calibración fuera de línea.
+> - `web/index.html`: el panel de `/clima/`. Se publica con `servidores/publicar.sh clima` (solo copia la página);
+> - `datos/`: los crudos históricos, que nunca se modifican. Se cargan a la plataforma con `manage.py clima_importar`;
+> - `scripts/05_mareas.py`: genera la predicción de mareas. Su salida (`recolector/mareas_prediccion.json`) se copia a `clima/datos/` de la plataforma;
+> - `pronostico/` y `satelite/` (evaluaciones `fase0` y `s0`): análisis y calibración fuera de línea. La calibración que producen (`recolector/pronostico_calibracion.json`) también se copia a la plataforma.
 >
-> Los timers `sosgalapagos-clima.timer` y `sosgalapagos-clima-csv.timer` están detenidos y deshabilitados, no borrados. Los niveles puestos a mano y los sensores dañados se editan en el admin de la plataforma, ya no en `niveles_manuales.json` ni `estaciones_danadas.json`.
+> **Ya no corre nada de:** `recolector/` y `satelite/colector.py` (quedan como referencia: los scripts de evaluación los importan) ni lo archivado en `Archivo/clima-servicio-anterior/` (instalación, timers y el puente de IERSE). IERSE entra ahora por un relevo mínimo (`despliegue/relevo/` de la plataforma). Lo que sigue de este documento describe el diseño original y se conserva como historia.
+>
+> **Licencias:** cada fuente conserva la suya y se publica con permiso de su operador (IERSE, GSC, FCD e INAMHI: confirmado el 22-nov-2026). Ver `LICENCIA-DATOS.md`.
 
 Proyecto para **ir guardando las mediciones meteorológicas** de Galápagos y cruzarlas con lo que pasó en cada emergencia (por ejemplo, la inundación de La Cascada del 30/31-oct-2026). La meta es tener, con el tiempo, una serie propia y continua que sirva para calibrar modelos de lluvia y escorrentía (ver `../geodatos/estudios/la-cascada/`).
 

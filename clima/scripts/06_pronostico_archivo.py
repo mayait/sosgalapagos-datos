@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Fase 0 del pronóstico: baja el archivo de pronósticos pasados de los modelos globales
 en las estaciones con lluvia medida, para comparar «lo que se pronosticó» con «lo que llovió».
 

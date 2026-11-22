@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Acceso mínimo a GOES-19 (ABI y GLM) en el archivo abierto de NOAA en AWS.
 
 - Sin clave. La raíz del bucket va en la variable de entorno CLIMA_GOES_S3

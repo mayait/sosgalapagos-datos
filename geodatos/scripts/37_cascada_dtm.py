@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """La Cascada (Puerto Ayora) a la resolución del DTM de 1 m de la SGIAR: punto bajo, cota de rebose y vaso.
 
 12_cascada_analisis.py estudia la cuenca y el vaso con el relieve de 30 m. Aquí se repite SOLO la parte topográfica del

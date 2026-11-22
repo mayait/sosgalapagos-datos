@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Fase 0 del pronóstico de lluvia: ¿los conjuntos de ECMWF (IFS ENS y AIFS ENS)
 anticiparon con 1, 2 y 3 días las lluvias fuertes en Galápagos?
 

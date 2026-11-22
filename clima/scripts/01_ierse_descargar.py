@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Descarga incremental de la red de estaciones IERSE-WSN Galápagos (U. del Azuay).
 
 Fuente: red IERSE-WSN, Galápagos. El endpoint se lee de CLIMA_IERSE_API (entorno o

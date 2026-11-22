@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """DTM de 1 m de Santa Cruz (Puerto Ayora–Bellavista) entregado por la SGIAR: lo prepara para el repositorio.
 
 Fuente
@@ -53,7 +55,7 @@ CITA = (f"{FUENTE} (2026). {TITULO} [conjunto de datos]. Producto Vricon DTM (Ma
         "pedido 7032308101286995205. Recomprimido por SOS Galápagos (USFQ): "
         "https://github.com/mayait/sosgalapagos-datos/tree/main/geodatos/datos/dtm_sgiar")
 LICENCIA = ("Dato de la SGIAR sobre un producto de Vricon/Maxar, sujeto al EULA de Vricon. La SGIAR autorizó su "
-            "publicación en este repositorio. Cite a la SGIAR en todo uso. La licencia CC BY 4.0 del repositorio no se aplica a este dato (ver LICENCIA-DATOS.md).")
+            "publicación en este repositorio. Cite a la SGIAR en todo uso. La licencia del repositorio no se aplica a este dato (ver LICENCIA-DATOS.md).")
 COPYRIGHT = "Vricon DTM, Copyright 2026 Vricon Inc. (Maxar); uso limitado por el EULA de Vricon. Provisto por la SGIAR."
 
 

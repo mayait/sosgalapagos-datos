@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Estudio hidrológico preliminar de San Cristóbal: Puerto Baquerizo Moreno, El Progreso y la quebrada del campus USFQ / GSC.
 
 Reutiliza los métodos de 12_cascada_analisis.py (La Cascada):

@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Gestión del riesgo (sección 7): exposición de instalaciones críticas, recurrencia SNGR
 y umbrales de lluvia para el SAT, para Santa Cruz y San Cristóbal.
 

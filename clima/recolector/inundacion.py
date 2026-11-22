@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Nivel PRELIMINAR de inundación por zona (regla v0.2 de umbrales_inundacion.json).
 
 R_v = máx. sobre las estaciones válidas de (peso × lluvia en la ventana v), v ∈ {1 h, 3 h, 24 h}.

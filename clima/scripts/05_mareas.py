@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Marea astronómica de Puerto Ayora (Santa Cruz) y Baltra a partir de las series horarias de UHSLC.
 
 1. Ajusta las constantes armónicas con UTide sobre un tramo reciente y continuo (2022 → último dato).

@@ -1,4 +1,6 @@
 #!/bin/sh
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 # Publica los informes y mapas descargables de la portada: https://sosgalapagos.org/#informes
 #
 # Los PDF NO están en este repositorio (AGENTS.md, regla 6). Viven en una carpeta local, junto a

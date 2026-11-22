@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Fase 0 del pronóstico: ¿cuánto sirven los modelos globales para anticipar la lluvia en Galápagos?
 
 Compara el archivo de pronósticos (06_pronostico_archivo.py) con la lluvia medida:

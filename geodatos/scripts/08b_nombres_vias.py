@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Puntos de rótulo para los nombres de calles, a partir de vias.geojson ya exportado.
 
 Une los tramos con el mismo nombre (por isla) y pone un rótulo en el medio de cada

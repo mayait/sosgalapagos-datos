@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
 """Animaciones 3D para video (reels 9:16 y YouTube 16:9) sobre las inundaciones del 30-oct-2026 en Galápagos.
 
 Motor: PyVista/VTK fuera de pantalla (GPU), terreno Copernicus GLO-30 (y, en Santa Cruz, el DTM de 1 m de la SGIAR como relieve
