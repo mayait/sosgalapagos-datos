@@ -13,7 +13,7 @@ y genera en publicar/mapas/:
 Uso: .venv/bin/python -I scripts/10_publicar_web.py
 Publicar: scripts/publicar_mapas.sh
 """
-import json, pathlib, shutil, zipfile, gzip, io, datetime
+import json, pathlib, re, shutil, zipfile, gzip, io, datetime
 import shapefile                       # pyshp
 from PIL import Image
 from shapely.geometry import shape
@@ -64,6 +64,7 @@ CAPA_DTM = {"id": "dtm_sgiar", "titulo": "Relieve del terreno, DTM de 1 m (Santa
                            "Dato de la SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo; imágenes de 2020 a 2024. "
                            "Con la capa encendida, abajo se ve la cota del terreno bajo el cursor (m sobre el nivel del mar, EGM2008).",
             "leyenda": [["#dfe9c6", "Costa y zona baja"], ["#8fbf6f", "Zona media"], ["#a8876a", "Parte alta (≈850 m)"]]}
+EVENTO = "2026-11-21"      # la emergencia en curso: reportes, buenas noticias, flujo observado y foto aérea
 # Foto aérea del 21-nov-2026 en Puerto Ayora (datos/foto_aerea_21nov/, ver su LEEME.md): la foto rectificada va como teselas
 # (est_21nov_foto_teselas.py) y la zona inundada y los techos, como capas vectoriales. Todo apagado al abrir.
 FOTO_DIR = ROOT / "datos" / "foto_aerea_21nov"
@@ -71,13 +72,37 @@ TESELAS_FOTO = ROOT / "teselas" / "ortofoto_21nov"
 CREDITO_FOTO = "Foto: Tui De Roy"
 CAPA_ORTOFOTO = {"id": "ortofoto_21nov", "titulo": "Foto aérea del 21-nov, Puerto Ayora (rectificada)", "tipo": "teselas", "teselas": "ortofoto_21nov",
                  "visible": False, "opacidad": 1, "fuente": CREDITO_FOTO + ". Rectificada por SOS Galápagos sobre el DTM 1 m: SGIAR (Vricon/Maxar).",
-                 "descripcion": "Foto aérea oblicua de Puerto Ayora inundado el 21 de noviembre de 2026, puesta sobre el mapa. " + CREDITO_FOTO + ". "
+                 "descripcion": "Foto aérea oblicua de Puerto Ayora inundado el 21 de noviembre de 2026, tomada a las 14:00 y puesta sobre el mapa. " + CREDITO_FOTO + ". "
                                 "No es una ortofoto oficial: sale de una sola foto tomada de lado, así que los edificios se ven inclinados hacia el sur "
                                 "y lo que tapan no aparece. Sirve para ubicar el agua calle por calle, no para medir. Tiene más detalle cerca de La Cascada."}
 CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona inundada el 21-nov según la foto aérea (estimación)", "archivo": "zona_inundada_foto_21nov.geojson",
                   "tipo": "poligono", "visible": False}    # estilo, ficha y descripción: visor_mapas.json
 CAPA_TECHOS_FOTO = {"id": "techos_foto_21nov", "titulo": "Techos en la zona inundada del 21-nov (detección automática)", "archivo": "techos_foto_21nov.geojson",
                     "tipo": "poligono", "visible": False}
+# La estimación de familias afectadas que sale de esa foto: un punto con hora, para que salga en la línea del tiempo
+# de /riesgos/informe/ (que lee las capas con «marcador: reporte» y la fecha de `fotos_base`). No es un reporte ciudadano.
+ARCHIVO_ESTIMACION = "estimacion_foto_21nov.geojson"
+CAPA_ESTIMACION = {"id": "estimacion_foto_21nov", "titulo": "Estimación de familias afectadas el 21-nov (SOS Galápagos)", "archivo": ARCHIVO_ESTIMACION,
+                   "tipo": "punto", "visible": False, "fotos_base": f"estimaciones/{EVENTO}/"}    # estilo, ficha y descripción: visor_mapas.json
+
+
+def preparar_estimacion(destino):
+    """Copia la estimación del 21-nov y su foto (con miniatura) a `destino` (datos/<variante>/). Devuelve el GeoJSON publicado."""
+    data = json.loads((FOTO_DIR / "estimacion_21nov.geojson").read_text())
+    base = destino / "estimaciones" / EVENTO
+    for f in data["features"]:
+        if not re.match(r"^\d{1,2}:\d{2}$", f["properties"].get("hora") or ""): raise SystemExit("estimacion_21nov.geojson: falta la hora (HH:MM)")
+        for ft in f["properties"].get("fotos") or []:
+            src = FOTO_DIR / pathlib.Path(ft["archivo"]).name
+            if not src.exists(): raise SystemExit(f"Falta {src.relative_to(ROOT)}")
+            for k, ancho in (("archivo", 1400), ("mini", 480)):
+                out = base / ft[k]; out.parent.mkdir(parents=True, exist_ok=True)
+                im = Image.open(src).convert("RGB"); im.thumbnail((ancho, ancho * 2))
+                im.save(out, "JPEG", quality=84)          # se vuelve a guardar: sin metadatos
+    (destino / ARCHIVO_ESTIMACION).write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    return data
+
+
 # Capas que se publican completas (islas enteras) también en la cobertura «Zona poblada»
 SIEMPRE_COMPLETAS = {"quebradas.geojson"}
 # Capas que no están en el manifiesto de la app pero se publican aquí
@@ -176,7 +201,6 @@ def grupos_estudios():
 
 
 # ---------------------------------------------------------------- reportes ciudadanos de la emergencia (reportes/)
-EVENTO = "2026-11-21"
 REPORTES = ROOT.parent / "reportes" / "publicar" / EVENTO      # lo deja reportes/scripts/03_publicar.py (sin EXIF, sin mensajes)
 ARCHIVO_REPORTES = "reportes_21nov.geojson"
 GRAVEDAD = {1: "1 · Leve", 2: "2 · Moderada", 3: "3 · Grave", 4: "4 · Muy grave"}
@@ -465,7 +489,7 @@ def main():
     shutil.copytree(TESELAS_FOTO, OUT / "teselas" / "ortofoto_21nov")
     for c in (CAPA_ZONA_FOTO, CAPA_TECHOS_FOTO):
         shutil.copy(FOTO_DIR / c["archivo"], TMP_ESTUDIOS / c["archivo"])
-    g_em["capas"] += [json.loads(json.dumps(c)) for c in (CAPA_ORTOFOTO, CAPA_ZONA_FOTO, CAPA_TECHOS_FOTO)]
+    g_em["capas"] += [json.loads(json.dumps(c)) for c in (CAPA_ESTIMACION, CAPA_ORTOFOTO, CAPA_ZONA_FOTO, CAPA_TECHOS_FOTO)]
     man = aplicar_visor(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
     publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
@@ -486,6 +510,7 @@ def main():
         shutil.copytree(src / "raster", d_datos / "raster")
         reportes = preparar_reportes(d_datos)
         buenas = preparar_buenas(d_datos)
+        estimacion = preparar_estimacion(d_datos)
         info = {"titulo": TITULO_VAR[var], "archivos": {}}
         todo_shp = zipfile.ZipFile(d_desc / f"todo-{var}-shp.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
         todo_gj = zipfile.ZipFile(d_desc / f"todo-{var}-geojson.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
@@ -526,6 +551,8 @@ def main():
             "geojson": {"url": f"datos/{var}/{ARCHIVO_REPORTES}", "tam": tam((d_datos / ARCHIVO_REPORTES).stat().st_size)}}
         info["archivos"][ARCHIVO_BUENAS] = {"titulo": CAPA_BUENAS["titulo"], "elementos": len(buenas["features"]),
             "geojson": {"url": f"datos/{var}/{ARCHIVO_BUENAS}", "tam": tam((d_datos / ARCHIVO_BUENAS).stat().st_size)}}
+        info["archivos"][ARCHIVO_ESTIMACION] = {"titulo": CAPA_ESTIMACION["titulo"], "elementos": len(estimacion["features"]),
+            "geojson": {"url": f"datos/{var}/{ARCHIVO_ESTIMACION}", "tam": tam((d_datos / ARCHIVO_ESTIMACION).stat().st_size)}}
         # Rásters: PNG + archivo de georreferencia (.pgw) + .prj
         lim = json.loads((src / "raster" / "limites.json").read_text())
         for kind in sorted({p.stem.split("_")[-1] for p in (src / "raster").glob("*.png")}):
