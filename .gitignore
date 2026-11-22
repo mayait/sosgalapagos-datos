@@ -57,3 +57,6 @@ geodatos/estudios/PUBLICAR.md
 
 # Reportes de campo: lo que se sirve en la web se regenera con 03_publicar.py
 reportes/publicar/
+
+# Caché de 09_nino_historico.py --diario (se regenera)
+clima/datos/nino/.cache_oisst/
