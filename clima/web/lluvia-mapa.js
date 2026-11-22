@@ -11,7 +11,7 @@
  * Uso:
  *   <link rel="stylesheet" href="lluvia-mapa.css"><script src="lluvia-mapa.js"></script>
  *   LluviaMapa.montar(document.getElementById("lluvia"), {datos: "datos/lluvia-mapa.json"});
- * Necesita Leaflet 1.9 (window.L). Si no está, lo carga de cdnjs.
+ * Necesita Leaflet 1.9 (window.L). Si no está, lo carga de cdnjs; con `leaflet: () => Promise<L>` se usa otro cargador.
  */
 (function () {
   "use strict";
@@ -158,7 +158,7 @@
     raiz.innerHTML = `<div class="lm-mapa"></div>`;
     let L, j;
     try {
-      [L, j] = await Promise.all([cargarLeaflet(), fetch(op.datos || "datos/lluvia-mapa.json", {cache: "no-cache"}).then(r => {
+      [L, j] = await Promise.all([(op.leaflet || cargarLeaflet)(), fetch(op.datos || "datos/lluvia-mapa.json", {cache: "no-cache"}).then(r => {
         if (!r.ok) throw new Error("HTTP " + r.status); return r.json();
       })]);
     } catch (e) {

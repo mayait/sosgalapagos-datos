@@ -8,5 +8,6 @@ set -eu
 AQUI="$(cd "$(dirname "$0")" && pwd)"
 SERVIDOR=${SERVIDOR:-root@152.44.45.89}
 scp -q "$AQUI/web/index.html" "$SERVIDOR":/tmp/clima-index.nuevo.html
-ssh "$SERVIDOR" 'mkdir -p /root/respaldo-clima-panel && cp /srv/sosgalapagos-clima/index.html "/root/respaldo-clima-panel/index-$(date -u +%Y%m%dT%H%M%SZ).html" && install -m 644 /tmp/clima-index.nuevo.html /srv/sosgalapagos-clima/index.html && rm -f /tmp/clima-index.nuevo.html'
+scp -q "$AQUI/web/lluvia-mapa.js" "$AQUI/web/lluvia-mapa.css" "$SERVIDOR":/tmp/
+ssh "$SERVIDOR" 'mkdir -p /root/respaldo-clima-panel && cp /srv/sosgalapagos-clima/index.html "/root/respaldo-clima-panel/index-$(date -u +%Y%m%dT%H%M%SZ).html" && install -m 644 /tmp/clima-index.nuevo.html /srv/sosgalapagos-clima/index.html && install -m 644 /tmp/lluvia-mapa.js /tmp/lluvia-mapa.css /srv/sosgalapagos-clima/ && rm -f /tmp/clima-index.nuevo.html /tmp/lluvia-mapa.js /tmp/lluvia-mapa.css'
 echo "Panel de /clima/ publicado."
