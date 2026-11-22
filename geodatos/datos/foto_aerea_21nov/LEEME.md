@@ -25,6 +25,8 @@
 6. **Edificios.** Huellas de OpenStreetMap y Google Open Buildings con el centro dentro de la zona: 742. Una muestra de 16 celdas de 60 m, inventariada edificio por edificio sobre la foto (139 edificios), da 1,045 edificios por cada huella: unos 775 edificios.
 7. **Pisos, familias y personas.** No se miden edificio por edificio. En la muestra, los edificios pequeños tienen 1,1 pisos de media, los medianos 1,4 y los grandes 1,8 (3 m por piso). Las huellas del mapa se reparten en pequeñas, medianas y grandes en la misma proporción que la muestra, por orden de área. Viviendas por edificio = máx(1; pisos × huella × 0,80 ÷ 60 m²), con huella de 45, 75 o 120 m² y uso dudoso contado a la mitad; una familia por vivienda y 3,25 personas por hogar. Resultado: 1.308 familias (1.135 a 1.483) y 4.252 personas. El censo, repartido por manzana, da 691 viviendas y 2.957 personas. **Rango que se publica: entre 690 y 1.310 familias y entre 2.950 y 4.250 personas.**
 
+En el mapa de `/riesgos/`, la capa de edificios lleva `extrusion` en `visor_mapas.json`: en la vista 3D se enciende sola y cada edificio se levanta hasta `altura_m` con el color de su gravedad.
+
 ## Límites
 
 - La zona no dice profundidad: la foto no deja ver la orilla real del agua entre las casas. «Gravedad» es lo que aparenta la foto.
