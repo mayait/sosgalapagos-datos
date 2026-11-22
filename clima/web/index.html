@@ -275,17 +275,46 @@ footer.pie .firma-pie{margin:10px 0 0;font-size:11.5px;color:var(--mut)}
 footer.pie [data-sos-app]{margin-top:14px}
 @media (max-width:640px){h1{font-size:23px}.aviso-sitio{font-size:10.5px}}
 @media print{.aviso-sitio,[data-sos-app],.migas{display:none!important}body{padding-top:0}}
-
-/* Tarjeta «Lo oficial» */
-.ofi-bol{border-left:4px solid var(--ink);padding:8px 0 8px 12px;margin:10px 0}
-.ofi-bol.gal{border-left-color:var(--red)}
-.ofi-bol .t{font-weight:800;font-size:14.5px}.ofi-bol .m{font-size:12.5px;color:var(--mut);margin:2px 0}
-.ofi-bol p{margin:4px 0 6px;font-size:14px;line-height:1.4}
-.ofi-rej{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:12px}
-.ofi-caja{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px}
-.ofi-caja b{display:block;font-size:14px;margin-bottom:3px}.ofi-caja small{color:var(--mut);font-size:12px}
-.ofi-caja table{width:100%;border-collapse:collapse;margin-top:4px;font-size:13px}.ofi-caja td{padding:2px 0}.ofi-caja td:last-child{text-align:right;font-weight:700}
-.ofi-tit{margin:16px 0 0;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
+/* ═══ Avisos oficiales e islas (INAMHI, INOCAR) ═══ */
+.avisos-of{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin:14px 0}
+.av{position:relative;display:flex;flex-direction:column;gap:10px;padding:16px 16px 14px;border-radius:16px;background:var(--soft);border:1px solid var(--line)}
+.av.gal{background:#fff;border-color:var(--ink);box-shadow:0 2px 0 var(--ink)}
+.av .cab{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.av .inst{font:800 10.5px/1 var(--titulo);letter-spacing:.06em;padding:5px 7px 4px;background:var(--ink);color:#fff;border-radius:4px}
+.av .tipo{font-weight:700;font-size:13px;color:var(--ink2)}
+.av .niv{margin-left:auto;font:800 11px/1 inherit;letter-spacing:.03em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--redsoft);color:var(--red2)}
+.av p{margin:0;font-size:14px;line-height:1.45;color:var(--ink2);text-wrap:pretty}
+.av .cifras{display:flex;gap:8px;flex-wrap:wrap}
+.av .cif{flex:1 1 86px;padding:10px 11px;border-radius:10px;background:#fff;border:1px solid var(--line)}
+.av.gal .cif{background:var(--soft);border-color:transparent}
+.av .cif b{display:block;font:900 20px/1 var(--titulo);letter-spacing:-.01em}
+.av .cif span{display:block;margin-top:4px;font-size:11px;color:var(--mut)}
+.av .vig{display:grid;gap:5px}
+.av .vig .barra{height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+.av .vig .barra i{display:block;height:100%;background:var(--ink);border-radius:2px}
+.av .vig small{font-size:11.5px;color:var(--mut)}
+.av .pie{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:2px;font-size:12px;color:var(--mut)}
+.av .pie a{font-weight:700;color:var(--ink);white-space:nowrap}
+.islas{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin-top:6px}
+.isla{border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:14px;background:#fff}
+.isla .nom{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.isla .nom b{font:900 18px/1 var(--titulo);text-transform:uppercase;letter-spacing:-.01em}
+.isla .nom span{font:700 16px/1 inherit;font-variant-numeric:tabular-nums}
+.isla .nom span small{font-weight:400;font-size:12px;color:var(--mut)}
+.isla .tramos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.isla .tramo{display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 4px 9px;border-radius:12px;background:var(--soft);text-align:center}
+.isla .tramo.ahora{background:var(--ink);color:#fff}
+.isla .tramo svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.isla .tramo .gota{stroke:var(--rain)}.isla .tramo.ahora .gota{stroke:#9DC3E6}
+.isla .tramo .rayo{stroke:var(--red);fill:var(--red)}.isla .tramo.ahora .rayo{stroke:#FF8A8E;fill:#FF8A8E}
+.isla .tramo em{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.7}
+.isla .tramo span{font-size:11.5px;line-height:1.2;font-weight:600}
+.isla .sec{font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);display:flex;justify-content:space-between;gap:8px;margin-bottom:2px}
+.isla .sec span{font-weight:400;text-transform:none;letter-spacing:0}
+.isla svg.g{display:block;width:100%;height:auto;overflow:visible}
+.isla svg.g text{font-size:10.5px;fill:var(--mut)}.isla svg.g text.v{fill:var(--ink);font-weight:700}
+.isla .mar{display:flex;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
+.isla .mar span{padding:5px 9px;border-radius:999px;background:var(--soft)}.isla .mar b{font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -322,11 +351,8 @@ footer.pie [data-sos-app]{margin-top:14px}
 <main id="vCom">
   <section id="zcard" class="zcard" aria-live="polite"><p>Cargando el nivel de su zona…</p></section>
 
-  <!-- Lo que dicen las instituciones y la tabla oficial de mareas. Lo sirve la plataforma (Django): /riesgos/api/clima/… -->
-  <section class="card" id="cOficial" hidden>
-    <div class="hd"><h2>Lo oficial</h2><span class="sub">INAMHI e INOCAR · los resúmenes son automáticos: el documento oficial manda</span></div>
-    <div id="oficialB"></div>
-  </section>
+  <!-- Avisos oficiales vigentes: compactos, arriba. Los sirve la plataforma (Django): /riesgos/api/clima/… -->
+  <section id="cAvisos" class="avisos-of" hidden aria-label="Avisos oficiales vigentes"></section>
 
   <section class="card" id="cViene">
     <div class="hd"><h2>¿Cómo viene?</h2><span class="sub">Arriba, lluvia medida por hora en las últimas 48 h. Abajo, cuándo esperan lluvia los modelos en las próximas 72 h.</span></div>
@@ -341,6 +367,12 @@ footer.pie [data-sos-app]{margin-top:14px}
   <section class="card" id="cMar">
     <div class="hd"><h2>¿Cuándo sube el mar y cuánto?</h2><span class="sub" id="marSub"></span></div>
     <div id="marCont"></div>
+  </section>
+
+  <section class="card" id="cIslas" hidden>
+    <div class="hd"><h2>Hoy en cada isla</h2><span class="sub">pronóstico oficial del INAMHI · mareas de la tabla oficial del INOCAR</span></div>
+    <div class="islas" id="islasB"></div>
+    <p class="note">La curva de marea se dibuja entre las pleamares y bajamares de la tabla del INOCAR; las alturas son metros sobre la bajamar de sicigia. El oleaje viene de un modelo y es solo orientativo. Con El Niño el mar está más alto que la tabla.</p>
   </section>
 
   <div class="grid2" style="margin-top:14px">
@@ -549,7 +581,7 @@ footer.pie [data-sos-app]{margin-top:14px}
       <a href="/riesgos/descargas/">Descarga las capas de riesgo</a>
     </nav>
     <img class="firma-logo" src="/riesgos/estaticos/marca/usfq-galapagos-color.svg" alt="USFQ Galápagos" width="96" height="18">
-    <p class="firma-pie">SOS Galápagos · USFQ Galápagos. Modelos y mediciones preliminares: no son datos ni alertas oficiales.</p>
+    <p class="firma-pie">SOS Galápagos · Universidad San Francisco de Quito, Galápagos. Modelos y mediciones preliminares: no son datos ni alertas oficiales.</p>
   </div>
 </footer>
 </div>
@@ -1757,39 +1789,113 @@ cargar().then(() => { if (S.vista === "ciencia" && location.hash) setTimeout(() 
 setInterval(cargar, 5 * 60 * 1000);
 </script>
 <script>
-// «Lo oficial»: boletines vigentes, pronóstico del INAMHI por isla y mareas de la tabla del INOCAR.
-// Si la plataforma no responde, la tarjeta simplemente no aparece.
+// Avisos oficiales (arriba) y «Hoy en cada isla» (pronóstico del INAMHI, mareas del INOCAR, oleaje).
+// Los datos los sirve la plataforma (Django). Si no responde, estas secciones no aparecen.
 (async () => {
   const x = v => String(v ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const local = t => t ? new Date(t).toLocaleString("es-EC", { timeZone: "Pacific/Galapagos", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "";
-  const NOMBRE = { advertencia: "Advertencia meteorológica", oleaje: "Boletín de oleaje", erfen: "Boletín ERFEN (El Niño)" };
-  const ISLA = { "santa-cruz": "Santa Cruz", "san-cristobal": "San Cristóbal", isabela: "Isabela" };
-  try {
-    const [o, m] = await Promise.all(["oficial", "mar"].map(n => fetch("/riesgos/api/clima/" + n).then(r => r.ok ? r.json() : null).catch(() => null)));
-    if (!o && !m) return;
-    let h = "";
-    const boletines = (o && o.boletines || []).filter(b => b.resumen);
-    for (const b of boletines) {
-      h += `<div class="ofi-bol${b.afecta_galapagos ? " gal" : ""}"><div class="t">${x(b.fuente)} · ${x(NOMBRE[b.tipo] || b.titulo)}${b.numero ? " n.º " + x(b.numero) : ""}</div>
-        <div class="m">${b.vigente_hasta ? "Vigente hasta el " + x(local(b.vigente_hasta)) + " (hora de Galápagos)" : ""}${b.nivel ? " · nivel para Galápagos: <b>" + x(b.nivel) + "</b>" : ""}</div>
-        <p>${x(b.resumen)}</p>${b.enlace ? `<a href="${x(b.enlace)}" target="_blank" rel="noopener">Ver el documento oficial</a>` : ""}</div>`;
+  const GAL = "Pacific/Galapagos";
+  const fecha = (t, o) => new Date(t).toLocaleString("es-EC", { timeZone: GAL, ...o });
+  const hhmm = t => fecha(t, { hour: "2-digit", minute: "2-digit", hour12: false });
+  const num = (v, d = 1) => Number(v).toLocaleString("es", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const [o, m] = await Promise.all(["oficial", "mar"].map(n => fetch("/riesgos/api/clima/" + n).then(r => r.ok ? r.json() : null).catch(() => null)));
+  const ahora = Date.now();
+
+  // ── Avisos oficiales vigentes ──────────────────────────────────────────────
+  const TIPO = { advertencia: "Advertencia meteorológica", oleaje: "Oleaje", erfen: "El Niño · ERFEN" };
+  const boletines = (o && o.boletines || []).filter(b => b.resumen);
+  if (boletines.length) {
+    document.getElementById("cAvisos").innerHTML = boletines.map(b => {
+      const d = b.datos || {}, cifras = [];
+      if (d.ola_max_m) cifras.push([`${d.ola_min_m ? num(d.ola_min_m) + "–" : ""}${num(d.ola_max_m)} m`, "altura de ola en Galápagos"]);
+      if (d.periodo_s) cifras.push([`${Math.round(d.periodo_s)} s`, "período de las olas"]);
+      let vig = "";
+      if (b.vigente_hasta) {
+        const fin = new Date(b.vigente_hasta).getTime(), ini = b.vigente_desde ? new Date(b.vigente_desde).getTime() : fin - 4 * 864e5;
+        const pct = Math.max(4, Math.min(100, 100 * (ahora - ini) / (fin - ini))), faltan = (fin - ahora) / 36e5;
+        vig = `<div class="vig"><div class="barra"><i style="width:${pct.toFixed(0)}%"></i></div><small>Vigente hasta el ${x(fecha(fin, { weekday: "long", day: "numeric", month: "short" }))}, ${x(hhmm(fin))} · ${faltan < 48 ? "quedan " + Math.max(1, Math.round(faltan)) + " h" : "quedan " + Math.round(faltan / 24) + " días"}</small></div>`;
+      }
+      return `<article class="av${b.afecta_galapagos ? " gal" : ""}">
+        <div class="cab"><span class="inst">${x(b.fuente)}</span><span class="tipo">${x(TIPO[b.tipo] || b.tipo)}${b.numero ? " · n.º " + x(String(b.numero).replace(/^N[°º.]*\s*/i, "")) : ""}</span>${b.nivel ? `<span class="niv">${x(b.nivel)}</span>` : ""}</div>
+        ${cifras.length ? `<div class="cifras">${cifras.map(([v, t]) => `<div class="cif"><b>${x(v)}</b><span>${x(t)}</span></div>`).join("")}</div>` : ""}
+        <p>${x(b.resumen)}</p>${vig}
+        <div class="pie"><span>Resumen automático${b.revisado ? ", revisado" : ""}</span>${b.enlace ? `<a href="${x(b.enlace)}" target="_blank" rel="noopener">Documento oficial →</a>` : ""}</div></article>`;
+    }).join("");
+    document.getElementById("cAvisos").hidden = false;
+  }
+
+  // ── Hoy en cada isla ───────────────────────────────────────────────────────
+  const ICONO = {
+    sol: '<circle cx="16" cy="16" r="5.5"/><path d="M16 4v3M16 25v3M4 16h3M25 16h3M7.5 7.5l2.1 2.1M22.4 22.4l2.1 2.1M7.5 24.5l2.1-2.1M22.4 9.6l2.1-2.1"/>',
+    claros: '<circle cx="11" cy="11" r="4"/><path d="M11 3.5v2M3.5 11h2M5.7 5.7l1.4 1.4M16.3 5.7l-1.4 1.4"/><path d="M12 25h11a4.5 4.5 0 0 0 .6-8.96A6.5 6.5 0 0 0 11 17.4 3.8 3.8 0 0 0 12 25z"/>',
+    nube: '<path d="M9 23h14a5 5 0 0 0 .7-9.95A7.2 7.2 0 0 0 9.8 14.6 4.2 4.2 0 0 0 9 23z"/>',
+    llovizna: '<path d="M9 19h14a5 5 0 0 0 .7-9.95A7.2 7.2 0 0 0 9.8 10.6 4.2 4.2 0 0 0 9 19z"/><path class="gota" d="M11 23v1.5M16 23v1.5M21 23v1.5"/>',
+    lluvia: '<path d="M9 18h14a5 5 0 0 0 .7-9.95A7.2 7.2 0 0 0 9.8 9.6 4.2 4.2 0 0 0 9 18z"/><path class="gota" d="M11 21.5l-1.4 5M16 21.5l-1.4 5M21 21.5l-1.4 5"/>',
+    tormenta: '<path d="M9 17h14a5 5 0 0 0 .7-9.95A7.2 7.2 0 0 0 9.8 8.6 4.2 4.2 0 0 0 9 17z"/><path class="rayo" d="M17 18.5l-4 5.5h3.4l-1.4 4.5 4.6-6.2h-3.4z"/>',
+  };
+  const icono = c => { c = (c || "").toLowerCase(); return /tormenta/.test(c) ? "tormenta" : /lluvia/.test(c) ? "lluvia" : /llovizna/.test(c) ? "llovizna" : /claros|parcial/.test(c) ? "claros" : /nublado|cubierto/.test(c) ? "nube" : "sol"; };
+  const corto = c => { c = (c || "").split(",")[0].trim().replace(/\s+(dia|noche)$/i, ""); return c.charAt(0).toUpperCase() + c.slice(1); };
+  const horaLocal = +hhmm(ahora).slice(0, 2);
+  const tramoAhora = horaLocal < 6 ? "Madrugada" : horaLocal < 12 ? "Mañana" : horaLocal < 18 ? "Tarde" : "Noche";
+
+  // Curva de marea: coseno entre cada pleamar y bajamar de la tabla, unas 45 horas desde ahora.
+  function curva(extremos) {
+    const pts = extremos.map(e => [new Date(e.ts).getTime(), e.altura_m, e.tipo]).sort((a, b) => a[0] - b[0]);
+    if (pts.length < 3) return "";
+    const t0 = ahora - 3 * 36e5, t1 = ahora + 45 * 36e5, W = 320, H = 132, m = { i: 6, d: 6, a: 24, b: 22 };
+    const hmax = Math.max(...pts.map(p => p[1])), X = t => m.i + (t - t0) / (t1 - t0) * (W - m.i - m.d), Y = h => m.a + (1 - h / hmax) * (H - m.a - m.b);
+    const nivel = t => { for (let i = 0; i < pts.length - 1; i++) { const [a, ha] = pts[i], [b, hb] = pts[i + 1]; if (t >= a && t <= b) return ha + (hb - ha) * (1 - Math.cos(Math.PI * (t - a) / (b - a))) / 2; } return null; };
+    let d = "", primero = null, ultimo = null;
+    for (let t = t0; t <= t1; t += 15 * 6e4) { const h = nivel(t); if (h == null) continue; d += `${d ? "L" : "M"}${X(t).toFixed(1)} ${Y(h).toFixed(1)}`; primero ??= t; ultimo = t; }
+    if (!d) return "";
+    let g = `<path d="${d}L${X(ultimo).toFixed(1)} ${H - m.b}L${X(primero).toFixed(1)} ${H - m.b}Z" fill="var(--rain)" opacity=".12"/><path d="${d}" fill="none" stroke="var(--rain)" stroke-width="2" stroke-linejoin="round"/>`;
+    g += `<line x1="${m.i}" x2="${W - m.d}" y1="${H - m.b}" y2="${H - m.b}" stroke="var(--line)"/>`;
+    for (const [t, h, tipo] of pts) {
+      if (t < t0 + 36e5 || t > t1 - 36e5) continue;
+      const alta = tipo === "pleamar", cx = X(t), cy = Y(h);
+      g += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="4" fill="var(--rain)" stroke="#fff" stroke-width="2"><title>${alta ? "Pleamar" : "Bajamar"}: ${num(h, 2)} m · ${fecha(t, { weekday: "short" })} ${hhmm(t)}</title></circle>`;
+      if (alta && Math.abs(t - ahora) > 3 * 36e5) g += `<text class="v" x="${cx.toFixed(1)}" y="${(cy - 9).toFixed(1)}" text-anchor="middle">${num(h, 2)} m</text>`;
+      g += `<text x="${cx.toFixed(1)}" y="${H - 7}" text-anchor="middle">${hhmm(t)}</text>`;
     }
-    if (!boletines.length) h += '<p class="note">No hay advertencias ni boletines oficiales vigentes leídos por el sistema. Revisa siempre los canales del INAMHI, la SNGR y el COE.</p>';
-    const pron = (o && o.pronostico_inamhi || []).filter(p => p.periodos && p.periodos.length);
-    if (pron.length) {
-      h += '<p class="ofi-tit">Pronóstico del INAMHI para hoy</p><div class="ofi-rej">' + pron.slice(0, 3).map(p => `<div class="ofi-caja"><b>${x(ISLA[p.isla] || p.isla)}</b>
-        <small>${p.minima_c != null ? x(p.minima_c) + "° a " + x(p.maxima_c) + "°" : ""}</small><table>${p.periodos.map(q => `<tr><td>${x(q.periodo)}</td><td>${x(q.condicion)}</td></tr>`).join("")}</table></div>`).join("") + "</div>";
+    const ha = nivel(ahora);
+    if (ha != null) g += `<line x1="${X(ahora).toFixed(1)}" x2="${X(ahora).toFixed(1)}" y1="${m.a - 10}" y2="${H - m.b}" stroke="var(--ink)" stroke-width="1.5"/><circle cx="${X(ahora).toFixed(1)}" cy="${Y(ha).toFixed(1)}" r="4.5" fill="var(--ink)" stroke="#fff" stroke-width="2"/><text class="v" x="${(X(ahora) + 7).toFixed(1)}" y="${m.a - 12}">ahora ${num(ha, 1)} m</text>`;
+    return `<svg class="g" viewBox="0 0 ${W} ${H}" role="img" aria-label="Curva de marea de las próximas 45 horas">${g}</svg>`;
+  }
+  // Lluvia que el INAMHI espera hora a hora: barras de probabilidad.
+  function lluviaHoras(horas) {
+    const hs = (horas || []).filter(h => h.tipo !== "anterior" && h.p != null).slice(0, 8);
+    if (hs.length < 3) return "";
+    const W = 320, H = 72, w = W / hs.length, max = Math.max(...hs.map(h => h.p));
+    let g = `<line x1="0" x2="${W}" y1="50" y2="50" stroke="var(--line)"/>`;
+    hs.forEach((h, i) => {
+      const alto = Math.max(2, h.p / 100 * 36), cx = i * w + w / 2, r = Math.min(4, alto);
+      g += `<path d="M${cx - 9} 50v${-(alto - r)}q0 ${-r} ${r} ${-r}h${18 - 2 * r}q${r} 0 ${r} ${r}v${alto - r}z" fill="var(--rain)" opacity="${h.p === max ? 1 : .5}"><title>${x(h.hora)}: ${h.p} % de probabilidad${h.mm != null ? ", " + num(h.mm) + " mm" : ""}</title></path>`;
+      if (h.p === max && hs.findIndex(q => q.p === max) === i) g += `<text class="v" x="${cx}" y="${50 - alto - 4}" text-anchor="middle">${h.p} %</text>`;
+      g += `<text x="${cx}" y="65" text-anchor="middle">${x(String(h.hora).slice(0, 2))} h</text>`;
+    });
+    return `<svg class="g" viewBox="0 0 ${W} ${H}" role="img" aria-label="Probabilidad de lluvia por hora según el INAMHI">${g}</svg>`;
+  }
+
+  const ISLAS = [["santa-cruz", "Santa Cruz"], ["san-cristobal", "San Cristóbal"], ["isabela", "Isabela"]];
+  const tarjetas = ISLAS.map(([id, nombre]) => {
+    const p = (o && o.pronostico_inamhi || []).filter(q => q.isla === id)[0];
+    const puerto = (m && m.puertos || []).find(q => q.puerto === id);
+    if (!p && !puerto) return "";
+    let h = `<div class="nom"><b>${x(nombre)}</b>${p && p.maxima_c != null ? `<span>${Math.round(p.maxima_c)}° <small>máx · ${Math.round(p.minima_c)}° mín</small></span>` : ""}</div>`;
+    if (p && p.periodos && p.periodos.length) {
+      h += `<div class="tramos">${p.periodos.map(q => `<div class="tramo${q.periodo === tramoAhora ? " ahora" : ""}"><em>${x(q.periodo)}</em><svg viewBox="0 0 32 32" aria-hidden="true">${ICONO[icono(q.condicion)]}</svg><span>${x(corto(q.condicion))}</span></div>`).join("")}</div>`;
+      const barras = lluviaHoras(p.lluvia_horas);
+      if (barras) h += `<div><div class="sec">Probabilidad de lluvia <span>INAMHI · próximas horas</span></div>${barras}</div>`;
     }
-    const puertos = (m && m.puertos || []).filter(p => p.mareas.extremos.length && p.puerto !== "baltra");
-    if (puertos.length) {
-      h += '<p class="ofi-tit">Mareas · tabla del INOCAR (hora de Galápagos, metros sobre la bajamar de sicigia)</p><div class="ofi-rej">' + puertos.map(p => `<div class="ofi-caja"><b>${x(p.nombre)}</b>
-        <small>${x(p.mareas.fuente)}</small><table>${p.mareas.extremos.slice(0, 6).map(e => `<tr><td>${x(e.local)} · ${x(e.tipo)}</td><td>${x(e.altura_m.toFixed(2))} m</td></tr>`).join("")}</table>
-        ${p.mar_72h ? `<small>Oleaje (modelo): hasta ${x(p.mar_72h.ola_max_m)} m en 72 h · agua ${x(Math.round(p.mar_72h.agua_c))} °C</small>` : ""}</div>`).join("") + "</div>";
+    if (puerto && puerto.mareas.extremos.length) {
+      const sigue = puerto.mareas.extremos.find(e => new Date(e.ts).getTime() > ahora);
+      h += `<div><div class="sec">Marea <span>${sigue ? `próxima ${x(sigue.tipo)}: ${x(hhmm(sigue.ts))}` : ""}</span></div>${curva(puerto.mareas.extremos)}</div>`;
+      const mm = puerto.mar_72h;
+      if (mm) h += `<div class="mar"><span>Olas hasta <b>${num(mm.ola_max_m)} m</b></span>${mm.periodo_s ? `<span>período <b>${Math.round(mm.periodo_s)} s</b></span>` : ""}${mm.agua_c ? `<span>agua <b>${Math.round(mm.agua_c)} °C</b></span>` : ""}</div>`;
     }
-    document.getElementById("oficialB").innerHTML = h;
-    document.getElementById("cOficial").hidden = false;
-  } catch (e) { /* sin tarjeta */ }
-})();
+    return `<article class="isla">${h}</article>`;
+  }).join("");
+  if (tarjetas) { document.getElementById("islasB").innerHTML = tarjetas; document.getElementById("cIslas").hidden = false; }
+})().catch(() => {});
 </script>
 <script src="/riesgos/app.js" defer></script>
 </body>
