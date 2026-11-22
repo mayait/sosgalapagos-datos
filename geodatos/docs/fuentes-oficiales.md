@@ -229,8 +229,8 @@ Capas `galapagos50k:*` descargadas (con el bbox de las tres islas):
 - **Qué es:** una foto aérea oblicua del pueblo inundado, tomada desde el norte de La Cascada. **Crédito: Tui De Roy.** No es una fuente oficial.
 - **Fecha:** 21 de noviembre de 2026.
 - **Licencia:** la foto y su versión rectificada son de su autora; no quedan bajo CC BY 4.0. Se cita siempre «Foto: Tui De Roy».
-- **Qué se deriva:** la foto rectificada, la zona inundada estimada y los techos detectados. Son **estimaciones propias por visión artificial**, no datos oficiales. Método y límites en `geodatos/datos/foto_aerea_21nov/LEEME.md`.
-- **En el mapa:** tres capas del grupo «Emergencia en curso», apagadas al abrir y con descarga.
+- **Qué se deriva:** la foto rectificada, la zona afectada con su gravedad aparente y los edificios dentro de ella, con pisos, familias y personas estimados. Son **estimaciones propias por visión artificial**, no datos oficiales. Método y límites en `geodatos/datos/foto_aerea_21nov/LEEME.md`.
+- **En el mapa:** cuatro capas del grupo «Emergencia en curso», apagadas al abrir y con descarga; la estimación sale además en la línea del tiempo, a las 14:00.
 
 ## 6. Infraestructura crítica
 

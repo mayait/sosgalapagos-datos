@@ -17,17 +17,17 @@
     "hora": "14:00",
     "fecha": "2026-11-21",
     "isla": "Santa Cruz",
-    "lugar": "Puerto Ayora: La Cascada y seis barrios más",
+    "lugar": "Puerto Ayora: La Cascada y los barrios al sur",
     "barrio": "La Cascada",
-    "titulo": "Estimación de SOS Galápagos: entre 450 y 870 familias afectadas",
+    "titulo": "Estimación de SOS Galápagos: entre 690 y 1.310 familias afectadas",
     "autor": "SOS Galápagos (estimación propia, no es un reporte ciudadano)",
-    "descripcion": "Una foto aérea tomada a las 14:00 muestra unas 21 hectáreas inundadas en siete barrios de Puerto Ayora, de La Cascada hacia el sur. Dentro de esa zona hay unos 515 edificios (entre 451 y 580). SOS Galápagos estima entre 450 y 870 familias y entre 2.000 y 2.800 personas afectadas. Es una estimación por visión artificial y muestreo, no un censo de daños ni un dato oficial; debe verificarse en campo. La nota de una página, con el método y la fórmula, está en la portada: sosgalapagos.org, «Informes y mapas para descargar». Foto: Tui De Roy.",
+    "descripcion": "Una foto aérea tomada a las 14:00 muestra unas 28 hectáreas afectadas en Puerto Ayora, de La Cascada hacia el sur. Dentro de esa zona hay unos 775 edificios; 255 están donde la afectación parece muy grave. SOS Galápagos estima entre 690 y 1.310 familias y entre 2.950 y 4.250 personas afectadas. Es una estimación por visión artificial y muestreo, no un censo de daños ni un dato oficial; debe verificarse en campo. La gravedad es aparente: no mide la profundidad del agua. La nota de una página, con el método y la fórmula, está en la portada: sosgalapagos.org, «Informes y mapas para descargar». Foto: Tui De Roy.",
     "fotos": [
      {
       "archivo": "fotos/estimacion_21nov.jpg",
       "mini": "mini/estimacion_21nov.jpg",
       "hora": "14:00",
-      "pie": "Puerto Ayora desde el norte. Línea blanca: zona inundada. En rojo: edificios dentro de la zona. Foto: Tui De Roy."
+      "pie": "Puerto Ayora desde el norte: zona afectada por gravedad aparente y edificios del mapa en 3D. Foto: Tui De Roy."
      }
     ],
     "fuente": "Estimación de SOS Galápagos sobre una foto aérea de las 14:00 del 21-nov-2026 (Foto: Tui De Roy). No es un dato oficial."

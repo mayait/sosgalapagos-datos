@@ -47,9 +47,10 @@ Información y Análisis de Riesgo; producto Vricon/Maxar).
   de 30 m y, en Santa Cruz, sobre el DTM de la SGIAR a 5 m): sirven para priorizar, no son
   delimitaciones oficiales.
 - La población por manzana es una estimación (viviendas SNGR), no el censo.
-- Foto aérea del 21-nov-2026 en Puerto Ayora, y la zona inundada y los techos que salen de ella:
+- Foto aérea del 21-nov-2026 en Puerto Ayora, y la zona afectada y los edificios que salen de ella:
   Foto: Tui De Roy. La foto y su versión rectificada son de su autora (no quedan bajo CC BY 4.0).
-  La zona y los techos son una ESTIMACIÓN por visión artificial, no un dato oficial ni un censo de daños.
+  La zona, su gravedad aparente y los pisos, familias y personas por edificio son una ESTIMACIÓN por visión
+  artificial y muestreo, no un dato oficial ni un censo de daños.
 
 Preparado por SOS Galápagos (https://sosgalapagos.org) para la respuesta a las inundaciones
 de El Niño, oct-nov 2026. Responsable: Julián Maya.
@@ -66,7 +67,7 @@ CAPA_DTM = {"id": "dtm_sgiar", "titulo": "Relieve del terreno, DTM de 1 m (Santa
             "leyenda": [["#dfe9c6", "Costa y zona baja"], ["#8fbf6f", "Zona media"], ["#a8876a", "Parte alta (≈850 m)"]]}
 EVENTO = "2026-11-21"      # la emergencia en curso: reportes, buenas noticias, flujo observado y foto aérea
 # Foto aérea del 21-nov-2026 en Puerto Ayora (datos/foto_aerea_21nov/, ver su LEEME.md): la foto rectificada va como teselas
-# (est_21nov_foto_teselas.py) y la zona inundada y los techos, como capas vectoriales. Todo apagado al abrir.
+# (est_21nov_foto_teselas.py) y la zona afectada (con su gravedad aparente) y los edificios, como capas vectoriales. Todo apagado al abrir.
 FOTO_DIR = ROOT / "datos" / "foto_aerea_21nov"
 TESELAS_FOTO = ROOT / "teselas" / "ortofoto_21nov"
 CREDITO_FOTO = "Foto: Tui De Roy"
@@ -75,10 +76,10 @@ CAPA_ORTOFOTO = {"id": "ortofoto_21nov", "titulo": "Foto aérea del 21-nov, Puer
                  "descripcion": "Foto aérea oblicua de Puerto Ayora inundado el 21 de noviembre de 2026, tomada a las 14:00 y puesta sobre el mapa. " + CREDITO_FOTO + ". "
                                 "No es una ortofoto oficial: sale de una sola foto tomada de lado, así que los edificios se ven inclinados hacia el sur "
                                 "y lo que tapan no aparece. Sirve para ubicar el agua calle por calle, no para medir. Tiene más detalle cerca de La Cascada."}
-CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona inundada el 21-nov según la foto aérea (estimación)", "archivo": "zona_inundada_foto_21nov.geojson",
+CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona afectada el 21-nov y gravedad aparente, según la foto aérea (estimación)", "archivo": "zona_inundada_foto_21nov.geojson",
                   "tipo": "poligono", "visible": False}    # estilo, ficha y descripción: visor_mapas.json
-CAPA_TECHOS_FOTO = {"id": "techos_foto_21nov", "titulo": "Techos en la zona inundada del 21-nov (detección automática)", "archivo": "techos_foto_21nov.geojson",
-                    "tipo": "poligono", "visible": False}
+CAPA_EDIFICIOS_FOTO = {"id": "edificios_foto_21nov", "titulo": "Edificios en la zona afectada del 21-nov: pisos, familias y personas (estimación)",
+                       "archivo": "edificios_afectados_foto_21nov.geojson", "tipo": "poligono", "visible": False}
 # La estimación de familias afectadas que sale de esa foto: un punto con hora, para que salga en la línea del tiempo
 # de /riesgos/informe/ (que lee las capas con «marcador: reporte» y la fecha de `fotos_base`). No es un reporte ciudadano.
 ARCHIVO_ESTIMACION = "estimacion_foto_21nov.geojson"
@@ -482,14 +483,14 @@ def main():
     if not FLUJO.exists(): raise SystemExit(f"Falta {FLUJO.relative_to(ROOT.parent)}. Corre antes: geodatos/.venv/bin/python -I reportes/scripts/05_flujo.py")
     shutil.copy(FLUJO, TMP_ESTUDIOS / ARCHIVO_FLUJO)
     g_em["capas"].insert(2, json.loads(json.dumps(CAPA_FLUJO)))
-    for nm in (CAPA_ZONA_FOTO["archivo"], CAPA_TECHOS_FOTO["archivo"], "ortofoto_21nov.tif", "LEEME.md"):
+    for nm in (CAPA_ZONA_FOTO["archivo"], CAPA_EDIFICIOS_FOTO["archivo"], "ortofoto_21nov.tif", "LEEME.md"):
         if not (FOTO_DIR / nm).exists(): raise SystemExit(f"Falta {(FOTO_DIR / nm).relative_to(ROOT)}")
     if not (TESELAS_FOTO / "teselas.json").exists():
         raise SystemExit("Faltan las teselas de la foto del 21-nov. Corre antes: .venv/bin/python -I scripts/est_21nov_foto_teselas.py")
     shutil.copytree(TESELAS_FOTO, OUT / "teselas" / "ortofoto_21nov")
-    for c in (CAPA_ZONA_FOTO, CAPA_TECHOS_FOTO):
+    for c in (CAPA_ZONA_FOTO, CAPA_EDIFICIOS_FOTO):
         shutil.copy(FOTO_DIR / c["archivo"], TMP_ESTUDIOS / c["archivo"])
-    g_em["capas"] += [json.loads(json.dumps(c)) for c in (CAPA_ESTIMACION, CAPA_ORTOFOTO, CAPA_ZONA_FOTO, CAPA_TECHOS_FOTO)]
+    g_em["capas"] += [json.loads(json.dumps(c)) for c in (CAPA_ESTIMACION, CAPA_ORTOFOTO, CAPA_ZONA_FOTO, CAPA_EDIFICIOS_FOTO)]
     man = aplicar_visor(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
     publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
