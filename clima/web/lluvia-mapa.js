@@ -24,7 +24,7 @@
 
   // Paletas (valor, [r, g, b, a]). Tonos de Windy: azul claro → azul → verde → amarillo → naranja → rojo → magenta.
   const PALETAS = {
-    hora: {unidad: "mm/h", marcas: [1, 3, 10, 20, 40], max: 60, paradas: [
+    hora: {unidad: "mm/h · prom. 3 h", marcas: [1, 3, 10, 20, 40], max: 60, paradas: [
       [0.1, [120, 180, 235, 0]], [0.3, [110, 170, 235, 110]], [0.7, [70, 130, 225, 170]], [1.5, [45, 95, 210, 200]],
       [3, [40, 175, 205, 210]], [5, [55, 190, 95, 220]], [8, [235, 220, 55, 230]], [13, [245, 150, 40, 235]],
       [20, [230, 55, 45, 240]], [32, [205, 40, 150, 245]], [50, [150, 70, 225, 250]], [60, [235, 210, 255, 250]]]},
@@ -175,7 +175,7 @@
     const E = {
       modelo: op.modelo && j.modelos.some(m => m.id === op.modelo) ? op.modelo : j.modelos[0].id,
       modo: op.modo === "dia" ? "dia" : "hora",
-      viento: op.viento !== false,
+      viento: op.viento !== false && !matchMedia("(prefers-reduced-motion: reduce)").matches,
       t: 0, jugando: false,
     };
     // Cuadro inicial: el periodo de 3 h que contiene «ahora» (o el primero que se muestra)
@@ -254,7 +254,6 @@
     const cx = cv.getContext("2d");
     const u = new Float32Array(D.n), v = new Float32Array(D.n);
     let parts = [], dpr = 1;
-    const reducir = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function vientoActual() {
       const f0 = Math.floor(E.t), f1 = Math.min(f0 + 1, tMax), w = E.t - f0;
@@ -436,7 +435,7 @@
         rango.value = E.t;
         actualizar(false);
       }
-      if (!reducir || E.viento) pasoParticulas();
+      pasoParticulas();
     }
     // No gastar batería si el mapa no se ve
     if ("IntersectionObserver" in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; previo = 0; }).observe(raiz);
