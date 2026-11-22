@@ -1,3 +1,5 @@
+/* SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+ * Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE). */
 /* Mapa de lluvia y viento de modelos, al estilo de Windy, para el panel de /clima/.
  *
  * Lee el JSON que escribe la plataforma (clima/lluvia_mapa.py → datos/lluvia-mapa.json): una rejilla
