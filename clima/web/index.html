@@ -275,6 +275,17 @@ footer.pie .firma-pie{margin:10px 0 0;font-size:11.5px;color:var(--mut)}
 footer.pie [data-sos-app]{margin-top:14px}
 @media (max-width:640px){h1{font-size:23px}.aviso-sitio{font-size:10.5px}}
 @media print{.aviso-sitio,[data-sos-app],.migas{display:none!important}body{padding-top:0}}
+
+/* Tarjeta «Lo oficial» */
+.ofi-bol{border-left:4px solid var(--ink);padding:8px 0 8px 12px;margin:10px 0}
+.ofi-bol.gal{border-left-color:var(--red)}
+.ofi-bol .t{font-weight:800;font-size:14.5px}.ofi-bol .m{font-size:12.5px;color:var(--mut);margin:2px 0}
+.ofi-bol p{margin:4px 0 6px;font-size:14px;line-height:1.4}
+.ofi-rej{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:12px}
+.ofi-caja{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px}
+.ofi-caja b{display:block;font-size:14px;margin-bottom:3px}.ofi-caja small{color:var(--mut);font-size:12px}
+.ofi-caja table{width:100%;border-collapse:collapse;margin-top:4px;font-size:13px}.ofi-caja td{padding:2px 0}.ofi-caja td:last-child{text-align:right;font-weight:700}
+.ofi-tit{margin:16px 0 0;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
 </style>
 </head>
 <body>
@@ -310,6 +321,12 @@ footer.pie [data-sos-app]{margin-top:14px}
 <!-- ═══════════ COMUNIDAD ═══════════ -->
 <main id="vCom">
   <section id="zcard" class="zcard" aria-live="polite"><p>Cargando el nivel de su zona…</p></section>
+
+  <!-- Lo que dicen las instituciones y la tabla oficial de mareas. Lo sirve la plataforma (Django): /riesgos/api/clima/… -->
+  <section class="card" id="cOficial" hidden>
+    <div class="hd"><h2>Lo oficial</h2><span class="sub">INAMHI e INOCAR · los resúmenes son automáticos: el documento oficial manda</span></div>
+    <div id="oficialB"></div>
+  </section>
 
   <section class="card" id="cViene">
     <div class="hd"><h2>¿Cómo viene?</h2><span class="sub">Arriba, lluvia medida por hora en las últimas 48 h. Abajo, cuándo esperan lluvia los modelos en las próximas 72 h.</span></div>
@@ -1738,6 +1755,41 @@ document.querySelectorAll(".hoy").forEach(x => x.textContent = new Intl.DateTime
 leerURL();
 cargar().then(() => { if (S.vista === "ciencia" && location.hash) setTimeout(() => irSec(location.hash.slice(1), false), 60); });
 setInterval(cargar, 5 * 60 * 1000);
+</script>
+<script>
+// «Lo oficial»: boletines vigentes, pronóstico del INAMHI por isla y mareas de la tabla del INOCAR.
+// Si la plataforma no responde, la tarjeta simplemente no aparece.
+(async () => {
+  const x = v => String(v ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const local = t => t ? new Date(t).toLocaleString("es-EC", { timeZone: "Pacific/Galapagos", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "";
+  const NOMBRE = { advertencia: "Advertencia meteorológica", oleaje: "Boletín de oleaje", erfen: "Boletín ERFEN (El Niño)" };
+  const ISLA = { "santa-cruz": "Santa Cruz", "san-cristobal": "San Cristóbal", isabela: "Isabela" };
+  try {
+    const [o, m] = await Promise.all(["oficial", "mar"].map(n => fetch("/riesgos/api/clima/" + n).then(r => r.ok ? r.json() : null).catch(() => null)));
+    if (!o && !m) return;
+    let h = "";
+    const boletines = (o && o.boletines || []).filter(b => b.resumen);
+    for (const b of boletines) {
+      h += `<div class="ofi-bol${b.afecta_galapagos ? " gal" : ""}"><div class="t">${x(b.fuente)} · ${x(NOMBRE[b.tipo] || b.titulo)}${b.numero ? " n.º " + x(b.numero) : ""}</div>
+        <div class="m">${b.vigente_hasta ? "Vigente hasta el " + x(local(b.vigente_hasta)) + " (hora de Galápagos)" : ""}${b.nivel ? " · nivel para Galápagos: <b>" + x(b.nivel) + "</b>" : ""}</div>
+        <p>${x(b.resumen)}</p>${b.enlace ? `<a href="${x(b.enlace)}" target="_blank" rel="noopener">Ver el documento oficial</a>` : ""}</div>`;
+    }
+    if (!boletines.length) h += '<p class="note">No hay advertencias ni boletines oficiales vigentes leídos por el sistema. Revisa siempre los canales del INAMHI, la SNGR y el COE.</p>';
+    const pron = (o && o.pronostico_inamhi || []).filter(p => p.periodos && p.periodos.length);
+    if (pron.length) {
+      h += '<p class="ofi-tit">Pronóstico del INAMHI para hoy</p><div class="ofi-rej">' + pron.slice(0, 3).map(p => `<div class="ofi-caja"><b>${x(ISLA[p.isla] || p.isla)}</b>
+        <small>${p.minima_c != null ? x(p.minima_c) + "° a " + x(p.maxima_c) + "°" : ""}</small><table>${p.periodos.map(q => `<tr><td>${x(q.periodo)}</td><td>${x(q.condicion)}</td></tr>`).join("")}</table></div>`).join("") + "</div>";
+    }
+    const puertos = (m && m.puertos || []).filter(p => p.mareas.extremos.length && p.puerto !== "baltra");
+    if (puertos.length) {
+      h += '<p class="ofi-tit">Mareas · tabla del INOCAR (hora de Galápagos, metros sobre la bajamar de sicigia)</p><div class="ofi-rej">' + puertos.map(p => `<div class="ofi-caja"><b>${x(p.nombre)}</b>
+        <small>${x(p.mareas.fuente)}</small><table>${p.mareas.extremos.slice(0, 6).map(e => `<tr><td>${x(e.local)} · ${x(e.tipo)}</td><td>${x(e.altura_m.toFixed(2))} m</td></tr>`).join("")}</table>
+        ${p.mar_72h ? `<small>Oleaje (modelo): hasta ${x(p.mar_72h.ola_max_m)} m en 72 h · agua ${x(Math.round(p.mar_72h.agua_c))} °C</small>` : ""}</div>`).join("") + "</div>";
+    }
+    document.getElementById("oficialB").innerHTML = h;
+    document.getElementById("cOficial").hidden = false;
+  } catch (e) { /* sin tarjeta */ }
+})();
 </script>
 <script src="/riesgos/app.js" defer></script>
 </body>
