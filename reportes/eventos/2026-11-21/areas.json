@@ -126,12 +126,6 @@
    "geometria": {"reporte": "r25", "buffer_m": 80}
   },
   {
-   "id": "c07", "tipo": "riesgo", "fuente": "reportes", "reportes": ["r31"],
-   "nombre": "Encañada en Tomás de Berlanga",
-   "detalle": "08:12: la encañada baja por el camino viejo y arranca los dos tubos del paso. El COE cuenta el barrio entre los sitios afectados. Ubicación aproximada: círculo de 80 m en el centro del barrio.",
-   "geometria": {"reporte": "r31", "buffer_m": 80}
-  },
-  {
    "id": "a07", "tipo": "inundacion", "fuente": "reportes", "reportes": ["r33", "r19", "r41"],
    "nombre": "Pelican Bay: cementerio y avenida Charles Darwin",
    "detalle": "08:58: ya no hay salida por el cementerio. 09:23: vecinos rompen una pared para que el agua siga por el manglar hacia el mar. 09:29 y 09:38: la calle del cementerio cubierta por una corriente de agua y lodo. 11:31: la avenida Charles Darwin cubierta de agua de vereda a vereda. La coordinación de SOS Galápagos confirma que en Pelican Bay hubo inundación. Ubicación aproximada: círculo de 100 m alrededor del cementerio del IGM y de 60 m sobre la avenida a la altura de Seymour; los reportes no dicen el tramo ni hasta dónde llega el agua.",

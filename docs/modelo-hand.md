@@ -71,7 +71,7 @@ Frente a los puntos acotados del IGM, el DTM queda en mediana 1,0 m más bajo y 
 
 ## Ajuste con lo observado el 21-nov-2026 (Puerto Ayora, el escarpe y Bellavista)
 
-La susceptibilidad publicada en `/mapas/` es la HAND **más** un ajuste calibrado con la inundación del 21-nov. Es un **modelo propio ajustado con reportes sin verificar, no una delimitación oficial**. Solo **sube** de clase; nada baja y las demás islas no cambian.
+La susceptibilidad publicada en `/mapas/` es la HAND **más** un ajuste calibrado con la inundación del 21-nov. Es un **modelo propio ajustado con reportes sin verificar, no una delimitación oficial**. El ajuste solo **sube** de clase y las demás islas no cambian. Lo único que baja son las **correcciones por conocimiento local** (ver abajo).
 
 - **Puntos de control** (`reportes/eventos/2026-11-21/puntos_control.json`): la altura del agua leída a ojo en fotos y videos se pasa a una profundidad con su rango (al pecho ≈ 1,25 m; llega a la primera planta ≈ 2 m; la cubre ≈ 2,75 m; alcanza la segunda planta ≈ 3 m; calle con corriente ≈ 0,3 m; gravedad 3 o 4 sin altura descrita: 0,5 y 1 m). Cota del agua = cota del DTM de la SGIAR + profundidad.
 - **La Cascada**: los 8 puntos con altura dan una cota del agua de 15,7 a 18,1 m (mediana ≈ 17,0 m). Es unos 2 m **por encima** del rebose del DTM (15,04 m): el vaso no se quedó en su rebose, rebosó con carga. Llenarlo hasta 17 m cubre ≈ 34 ha (el vaso hasta el rebose son 5,8 ha) y lo desborda hacia el sur, hacia Matazarnos y la calle Seymour. Es la misma ruta que trazó el coordinador. Error en los puntos: el vaso hasta el rebose subestima ≈ 1,9 m; el ajuste, ≈ 0,7 m de media (0,9 m si se deja fuera el propio punto).
@@ -79,6 +79,17 @@ La susceptibilidad publicada en `/mapas/` es la HAND **más** un ajuste calibrad
 - **Otros reportes** (Arrayanes, cementerio, escuelas, La Unión, vía a Bellavista): se rellena alrededor del punto, en un radio que depende de su precisión (15–60 m). Alta queda bajo la cota del agua; media hasta 1 m sobre ella; baja hasta 2,5 m sobre ella.
 - **Scripts**: `geodatos/scripts/est_21nov_ajuste.py` escribe `estudios/santa-cruz/datos/ajuste_21nov/`; ahí están las hectáreas por clase antes y después y por zona, en `resumen_ajuste.json`. `10_publicar_web.py` lo suma a la capa al publicar. `est_21nov_contraste.py` escribe `contraste_21nov.json`, que compara lo observado con la HAND antes y después del ajuste y con el modelo 2D.
 - **Límites**: las profundidades son estimaciones a ojo y las ubicaciones, aproximadas. Es un modelo de topografía, no de hidráulica: no ve muros, casas ni alcantarillas. El «después» se calibró con esos mismos reportes, así que **no es una validación**. Hace falta medir marcas de agua en campo.
+
+### Correcciones por conocimiento local
+
+En algunas zonas la coordinación de SOS Galápagos sabe que el agua no llega, aunque el modelo marque una quebrada o el ajuste haya rellenado alrededor de un reporte mal ubicado. Allí **se quita** la susceptibilidad publicada, tanto la HAND como el ajuste.
+
+- **Archivo**: `geodatos/estudios/santa-cruz/datos/correcciones_locales.geojson`, redactado a mano. Cada zona lleva su motivo, su fecha y quién lo afirma. Un punto con `radio_m` es un círculo de ese radio. Los bordes se trazan sobre las vías de OSM.
+- **Aplicación**: `10_publicar_web.py` (`susceptibilidad_ajustada`) recorta la capa al publicar. No se modifican la HAND ni el ajuste. Si el archivo falta, falla.
+- **22-nov-2026, Tomás de Berlanga**:
+  - `k01`: entre el camino viejo y el camino a SX Gardens y al hotel Tortuga Bay, incluida la escuela Mangle ALC. La HAND marca ahí el paso de una quebrada, pero nunca se ha inundado.
+  - `k02`: el centro del barrio, alrededor del reporte `r31`. El ajuste rellenaba ahí un círculo de 60 m, pero el reporte habla de daños en las vías, no de una inundación. El `r31` también se sacó de los puntos de control y del área afectada `c07`.
+- **Límite**: es conocimiento local sin verificar en campo. Tampoco es una delimitación oficial.
 
 ## Límites (decirlos siempre que se muestre el mapa)
 

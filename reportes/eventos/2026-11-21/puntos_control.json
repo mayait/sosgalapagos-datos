@@ -37,7 +37,6 @@
   {"reporte": "r33", "zona": "fuera", "hora": "08:58", "lectura": "calle_con_corriente", "base": "la calle del cementerio cubierta por una corriente de agua y lodo"},
   {"reporte": "r23", "zona": "fuera", "hora": "04:52", "lectura": "grave_sin_nivel", "base": "Miramar: una corriente fuerte pasa junto a las casas"},
   {"reporte": "r25", "zona": "fuera", "hora": "04:19", "lectura": "grave_sin_nivel", "base": "Bellavista, sector del estadio"},
-  {"reporte": "r31", "zona": "fuera", "hora": "08:10", "lectura": "grave_sin_nivel", "base": "Tomás de Berlanga: camino viejo"},
   {"reporte": "r32", "zona": "fuera", "hora": "07:48", "lectura": "grave_sin_nivel", "base": "parque artesanal: no hay paso"},
   {"reporte": "r38", "zona": "fuera", "hora": "09:58", "lectura": "grave_sin_nivel", "base": "Los Guayabillos: terrenos bajo el agua"}
  ],
@@ -45,6 +44,7 @@
   "r21": "Curva Brava: ubicación por confirmar",
   "r22": "vía a Baltra km 4½: ubicación por confirmar",
   "r24": "El Bosque: árbol caído que cierra la vía; no describe altura de agua",
-  "r29": "cabeza de Darwin: sin ubicar en el mapa"
+  "r29": "cabeza de Darwin: sin ubicar en el mapa",
+  "r31": "Tomás de Berlanga: daños en las vías, no inundación; el punto está en el centro del barrio, que según la coordinación es seguro (22-nov-2026)"
  }
 }
