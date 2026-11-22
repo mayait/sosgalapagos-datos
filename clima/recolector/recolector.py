@@ -682,7 +682,9 @@ def main():
         return emitir(con, a.emitir, a.horas)
     if a.recibir:
         recibir(con)
-        return exportar(con)
+        # Desde el 22-nov-2026 el panel lo genera la plataforma (Django), que copia de esta base lo
+        # que llega por el puente. Con CLIMA_SIN_EXPORTAR=1 aquí solo se reciben las filas.
+        return None if os.environ.get("CLIMA_SIN_EXPORTAR") == "1" else exportar(con)
     if a.importar_ierse:
         importar_ierse(con, a.importar_ierse)
     if a.importar_gsc_historico:

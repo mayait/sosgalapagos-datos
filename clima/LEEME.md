@@ -1,5 +1,15 @@
 # Clima Galápagos: datos medidos para analizar eventos y simular
 
+> **Desde el 22-nov-2026 el clima corre dentro de la plataforma (Django).** El recolector, el nivel de lluvia peligrosa y los datos del panel están en [`sosgalapagos-plataforma`](https://github.com/mayait/sosgalapagos-plataforma) (`clima/`, plan en `docs/plan-clima.md`). **Un arreglo de una fuente se hace allí** (`clima/anterior/`), no aquí.
+>
+> Lo que sigue vivo en esta carpeta:
+> - `web/index.html`: el panel de `/clima/` (lee los mismos `datos/*.json`, que ahora escribe la plataforma);
+> - `satelite/`: el colector GOES-19, con su timer de systemd;
+> - `puente/` y `recolector/recolector.py --recibir`: la entrada de IERSE desde una Mac en Ecuador a la base SQLite, de donde la plataforma la copia;
+> - `scripts/` y `pronostico/`: análisis y calibración fuera de línea.
+>
+> Los timers `sosgalapagos-clima.timer` y `sosgalapagos-clima-csv.timer` están detenidos y deshabilitados, no borrados. Los niveles puestos a mano y los sensores dañados se editan en el admin de la plataforma, ya no en `niveles_manuales.json` ni `estaciones_danadas.json`.
+
 Proyecto para **ir guardando las mediciones meteorológicas** de Galápagos y cruzarlas con lo que pasó en cada emergencia (por ejemplo, la inundación de La Cascada del 30/31-oct-2026). La meta es tener, con el tiempo, una serie propia y continua que sirva para calibrar modelos de lluvia y escorrentía (ver `../geodatos/estudios/la-cascada/`).
 
 Por ahora tiene una fuente: la red de estaciones **IERSE-WSN** de la Universidad del Azuay. El diseño permite añadir otras (FCD, INAMHI, Open-Meteo, pluviómetros ciudadanos) como carpetas hermanas dentro de `datos/`.
