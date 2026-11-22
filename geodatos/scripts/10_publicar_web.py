@@ -47,6 +47,9 @@ Información y Análisis de Riesgo; producto Vricon/Maxar).
   de 30 m y, en Santa Cruz, sobre el DTM de la SGIAR a 5 m): sirven para priorizar, no son
   delimitaciones oficiales.
 - La población por manzana es una estimación (viviendas SNGR), no el censo.
+- Foto aérea del 21-nov-2026 en Puerto Ayora, y la zona inundada y los techos que salen de ella:
+  Foto: Tui De Roy. La foto y su versión rectificada son de su autora (no quedan bajo CC BY 4.0).
+  La zona y los techos son una ESTIMACIÓN por visión artificial, no un dato oficial ni un censo de daños.
 
 Preparado por SOS Galápagos (https://sosgalapagos.org) para la respuesta a las inundaciones
 de El Niño, oct-nov 2026. Responsable: Julián Maya.
@@ -61,6 +64,20 @@ CAPA_DTM = {"id": "dtm_sgiar", "titulo": "Relieve del terreno, DTM de 1 m (Santa
                            "Dato de la SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo; imágenes de 2020 a 2024. "
                            "Con la capa encendida, abajo se ve la cota del terreno bajo el cursor (m sobre el nivel del mar, EGM2008).",
             "leyenda": [["#dfe9c6", "Costa y zona baja"], ["#8fbf6f", "Zona media"], ["#a8876a", "Parte alta (≈850 m)"]]}
+# Foto aérea del 21-nov-2026 en Puerto Ayora (datos/foto_aerea_21nov/, ver su LEEME.md): la foto rectificada va como teselas
+# (est_21nov_foto_teselas.py) y la zona inundada y los techos, como capas vectoriales. Todo apagado al abrir.
+FOTO_DIR = ROOT / "datos" / "foto_aerea_21nov"
+TESELAS_FOTO = ROOT / "teselas" / "ortofoto_21nov"
+CREDITO_FOTO = "Foto: Tui De Roy"
+CAPA_ORTOFOTO = {"id": "ortofoto_21nov", "titulo": "Foto aérea del 21-nov, Puerto Ayora (rectificada)", "tipo": "teselas", "teselas": "ortofoto_21nov",
+                 "visible": False, "opacidad": 1, "fuente": CREDITO_FOTO + ". Rectificada por SOS Galápagos sobre el DTM 1 m: SGIAR (Vricon/Maxar).",
+                 "descripcion": "Foto aérea oblicua de Puerto Ayora inundado el 21 de noviembre de 2026, puesta sobre el mapa. " + CREDITO_FOTO + ". "
+                                "No es una ortofoto oficial: sale de una sola foto tomada de lado, así que los edificios se ven inclinados hacia el sur "
+                                "y lo que tapan no aparece. Sirve para ubicar el agua calle por calle, no para medir. Tiene más detalle cerca de La Cascada."}
+CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona inundada el 21-nov según la foto aérea (estimación)", "archivo": "zona_inundada_foto_21nov.geojson",
+                  "tipo": "poligono", "visible": False}    # estilo, ficha y descripción: visor_mapas.json
+CAPA_TECHOS_FOTO = {"id": "techos_foto_21nov", "titulo": "Techos en la zona inundada del 21-nov (detección automática)", "archivo": "techos_foto_21nov.geojson",
+                    "tipo": "poligono", "visible": False}
 # Capas que se publican completas (islas enteras) también en la cobertura «Zona poblada»
 SIEMPRE_COMPLETAS = {"quebradas.geojson"}
 # Capas que no están en el manifiesto de la app pero se publican aquí
@@ -441,6 +458,14 @@ def main():
     if not FLUJO.exists(): raise SystemExit(f"Falta {FLUJO.relative_to(ROOT.parent)}. Corre antes: geodatos/.venv/bin/python -I reportes/scripts/05_flujo.py")
     shutil.copy(FLUJO, TMP_ESTUDIOS / ARCHIVO_FLUJO)
     g_em["capas"].insert(2, json.loads(json.dumps(CAPA_FLUJO)))
+    for nm in (CAPA_ZONA_FOTO["archivo"], CAPA_TECHOS_FOTO["archivo"], "ortofoto_21nov.tif", "LEEME.md"):
+        if not (FOTO_DIR / nm).exists(): raise SystemExit(f"Falta {(FOTO_DIR / nm).relative_to(ROOT)}")
+    if not (TESELAS_FOTO / "teselas.json").exists():
+        raise SystemExit("Faltan las teselas de la foto del 21-nov. Corre antes: .venv/bin/python -I scripts/est_21nov_foto_teselas.py")
+    shutil.copytree(TESELAS_FOTO, OUT / "teselas" / "ortofoto_21nov")
+    for c in (CAPA_ZONA_FOTO, CAPA_TECHOS_FOTO):
+        shutil.copy(FOTO_DIR / c["archivo"], TMP_ESTUDIOS / c["archivo"])
+    g_em["capas"] += [json.loads(json.dumps(c)) for c in (CAPA_ORTOFOTO, CAPA_ZONA_FOTO, CAPA_TECHOS_FOTO)]
     man = aplicar_visor(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
     publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
@@ -452,6 +477,7 @@ def main():
         for c in g["capas"]:
             if c.get("archivo"): titulos.setdefault(c["archivo"], c["titulo"] if c["archivo"] != "puntos_clave.geojson" else "Puntos clave (todas las categorías)")
             if c.get("raster"): titulos.setdefault("raster:" + c["raster"], c["titulo"])
+            if c.get("teselas"): titulos.setdefault("teselas:" + c["teselas"], c["titulo"])
     indice = {"generado": HOY, "variantes": {}}
     tmp = ROOT / "publicar" / "_tmp"
     for var, src in VARIANTES.items():
@@ -528,6 +554,13 @@ def main():
             info["archivos"]["teselas:dtm_sgiar"] = {"titulo": CAPA_DTM["titulo"],
                 "shp": {"url": f"descargas/{var}/{zpath.name}", "tam": tam(zpath.stat().st_size), "formato": "GeoTIFF 5 m"},
                 "extra": {"url": DTM_REPO, "texto": "1 m (repositorio)"}}
+        # Foto aérea del 21-nov rectificada: GeoTIFF con su ficha (crédito de la foto y método)
+        zpath = d_desc / "ortofoto_21nov.zip"
+        with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
+            for nm in ("ortofoto_21nov.tif", "LEEME.md", "camara.json"):
+                z.write(FOTO_DIR / nm, nm)
+        info["archivos"]["teselas:ortofoto_21nov"] = {"titulo": titulos["teselas:ortofoto_21nov"],
+            "shp": {"url": f"descargas/{var}/{zpath.name}", "tam": tam(zpath.stat().st_size), "formato": "GeoTIFF 0,5 m"}}
         for z in (todo_shp, todo_gj):
             z.writestr(f"{var}/LEEME.txt", leeme(f"Capas de la emergencia — Galápagos ({TITULO_VAR[var]})", "todas", var, "—"))
             z.writestr(f"{var}/capas.json", json.dumps(man, ensure_ascii=False, indent=1))

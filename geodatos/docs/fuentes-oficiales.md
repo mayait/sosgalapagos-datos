@@ -224,6 +224,14 @@ Capas `galapagos50k:*` descargadas (con el bbox de las tres islas):
 
 ---
 
+### 5.1 Foto aérea del 21-nov-2026 en Puerto Ayora (Tui De Roy) ✅
+
+- **Qué es:** una foto aérea oblicua del pueblo inundado, tomada desde el norte de La Cascada. **Crédito: Tui De Roy.** No es una fuente oficial.
+- **Fecha:** 21 de noviembre de 2026.
+- **Licencia:** la foto y su versión rectificada son de su autora; no quedan bajo CC BY 4.0. Se cita siempre «Foto: Tui De Roy».
+- **Qué se deriva:** la foto rectificada, la zona inundada estimada y los techos detectados. Son **estimaciones propias por visión artificial**, no datos oficiales. Método y límites en `geodatos/datos/foto_aerea_21nov/LEEME.md`.
+- **En el mapa:** tres capas del grupo «Emergencia en curso», apagadas al abrir y con descarga.
+
 ## 6. Infraestructura crítica
 
 | Capa | Fuente y endpoint | Entidades | Archivo | Notas |

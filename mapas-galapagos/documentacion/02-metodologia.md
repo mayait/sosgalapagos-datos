@@ -94,3 +94,15 @@ Celdas del DEM con cota de 0–3 m, de 3–5 m y de 5–10 m, suavizadas. Sirven
 - **Curvas:** cada 10 m, con maestras cada 50 m, a partir del DEM suavizado (gaussiano σ = 1,2 celdas) y recortadas al área de interés.
 - **Pendientes:** rangos de 15–25°, 25–35° y más de 35°.
 - **Relieve sombreado:** azimut 315°, elevación 45°.
+
+## 10. Zona inundada y techos a partir de la foto aérea del 21-nov-2026 (Puerto Ayora)
+
+**Es una estimación propia por visión artificial, no un dato oficial ni un censo de daños.** Foto: Tui De Roy.
+
+1. **Cámara.** Se ajustó un modelo de cámara a la foto con 20 puntos de control sobre el DTM 1 m: SGIAR (Vricon/Maxar). Error mediano: 6 píxeles (3 a 6 m en el suelo cerca de La Cascada).
+2. **Foto rectificada.** Cada punto del suelo toma el color del píxel que lo mira. No es una ortofoto verdadera: los edificios se ven inclinados y lo que tapan no aparece.
+3. **Agua.** Consenso de dos de tres modelos sobre la foto (regla de color, k-medias y bosque aleatorio). La zona suma una franja de 12 m alrededor del agua vista y las áreas que el coordinador marcó a mano. No dice profundidad.
+4. **Techos.** Segmentación automática con SAM. Cuenta de menos: no separa losas grises ni terrazas oscuras.
+
+Detalle, archivos y límites: `geodatos/datos/foto_aerea_21nov/LEEME.md`.
+
