@@ -1,0 +1,6 @@
+[Unit]
+Description=Registro del uso de recursos del servidor de SOS Galápagos
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/sosgalapagos-recursos --registrar

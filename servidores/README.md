@@ -58,6 +58,41 @@ ssh root@152.44.45.89 /opt/sosgalapagos/deploy/sosgalapagos/deploy.sh
 3. Los endpoints de las fuentes de clima están en `clima/privado/` (en la Mac) y en el servidor (`EnvironmentFile` de systemd). **Nunca en git.**
 4. Acceso: `root@152.44.45.89` solo con llave. El `.env` de producción vive solo en el servidor.
 
+## Uso de recursos y eficiencia
+
+El servidor es compartido: además de SOS Galápagos corren otros proyectos (`regresion-*`, `miplata-*`). Tiene 4 CPU, 8 GB de memoria y 99 GB de disco.
+
+**Medición del 22-nov-2026, 07:30 UTC:** carga 0,4 (de 4), 3,3 GB de memoria usados y 4,6 GB disponibles, disco al 63 %. SOS Galápagos no aprieta el servidor:
+
+| Parte | Memoria |
+|---|---|
+| Mapa de riesgos (web, trabajador, reloj, PostGIS) | ≈ 360 MB |
+| Sitio (portada Next, API Nest, Postgres, Redis, Caddy, comentarios) | ≈ 280 MB |
+| Clima | Sin proceso permanente: corre cada 5 min con systemd y termina |
+| Otros proyectos del servidor | ≈ 950 MB |
+
+**Registro continuo.** `servidores/recursos.sh` se instala como `/usr/local/bin/sosgalapagos-recursos`, y el timer `sosgalapagos-recursos.timer` añade una línea cada 15 minutos a `/var/log/sosgalapagos-recursos.csv` (memoria, carga, disco y memoria por grupo de contenedores).
+
+```bash
+sosgalapagos-recursos            # estado de ahora
+sosgalapagos-recursos --resumen  # promedios y máximos de los últimos 7 días
+```
+
+**Lo que se optimizó el 22-nov-2026:**
+
+- **Caché de compilación de Docker: 42 GB.** Era el mayor consumo de disco y no servía para nada. Se limpió lo que llevaba más de 7 días sin usarse (`docker builder prune --filter until=168h`). Conviene repetirlo cada mes.
+- **Respaldos del clima: 3,7 GB → menos de 1 GB.** Eran 14 copias de la base sin comprimir; ahora se guardan con gzip (`clima/deploy/respaldo.sh`).
+- **Una sola app instalable** para la portada, el mapa y el clima, en lugar de dos manifiestos.
+
+**Lo que se puede optimizar después** (no se tocó):
+
+- El contenedor `comentarios` no se usa desde el 4-nov-2026. Se puede detener sin borrarlo.
+- El sitio de coordinación (Next + Nest + Postgres + Redis, ≈ 280 MB) se retira en la fase 4 del plan, cuando la portada pase al mismo stack del mapa.
+- `horario.json` del clima pesa 960 KB (55 KB comprimido) y el panel lo baja entero. Si crece, partirlo por mes.
+- El mapa de riesgos usa tres procesos de Python para web, trabajador y reloj. El reloj podría ir dentro del trabajador y ahorrar ≈ 60 MB.
+
+**¿Hace falta reescribir el clima en el stack del mapa (Django)?** No, por ahora. El panel ya es del mismo tipo que el mapa: HTML y JavaScript sin compilación. El recolector es Python con systemd y no deja ningún proceso corriendo entre corridas, que es lo más barato que puede ser. Pasarlo a Django añadiría un proceso permanente y riesgo durante la emergencia, sin ahorrar nada. Lo que sí se hizo fue darle la misma identidad gráfica y meterlo en la misma app.
+
 ## Comprobar que todo está vivo
 
 ```bash
