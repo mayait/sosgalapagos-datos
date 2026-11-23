@@ -6,6 +6,7 @@ Mediciones guardadas por SOS Galápagos para analizar las inundaciones de 2026 y
 |---|---|---|---|---|
 | `ierse-wsn/` | **IERSE** (Universidad del Azuay), red de estaciones de Galápagos | 4 estaciones en Santa Cruz (Cerro Crocker, Santa Rosa, Los Guayabillos, Militar): lluvia, temperatura, humedad y presión cada ~5 min. `crudos/AAAA-MM/AAAA-MM-DD.csv.gz` + `serie_5min.csv.gz`, `horario.csv`, `diario.csv` (con `cobertura_pct`) y `estaciones.geojson` | abr-2026 → hoy | UTC−6 |
 | `inamhi/historial/` | **INAMHI** | Historial horario de las estaciones automáticas. **Irrecuperable**: la fuente solo guarda 90 días | 16-oct → 2-nov-2026 | UTC−5 |
+| `nino/` | **NOAA** (CPC, Coral Reef Watch, OISST) | ONI, índices Niño 1+2, 3, 3.4 y 4 mensuales y semanales, y la temperatura y anomalía del mar alrededor del archipiélago (mensual desde 1985 y diaria desde 1981). Se regenera con `scripts/10_nino_historico.py`. Dominio público. **Contexto, no dato oficial**: la voz oficial sobre El Niño es el ERFEN | 1950 → hoy | UTC |
 | `fcd/` | **Fundación Charles Darwin** | Series diarias de Puerto Ayora (desde 1965) y Bellavista. Licencia **CC BY-NC-SA** | 1964 → 2026 | — |
 
 ## Cómo citar
