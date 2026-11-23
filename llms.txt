@@ -1,0 +1,33 @@
+# SOS Galápagos · datos y modelos de las inundaciones de 2026
+
+> Datos geográficos, mediciones del clima y modelos de riesgo de inundación para Santa Cruz, San Cristóbal e Isabela (Galápagos, Ecuador). Universidad San Francisco de Quito (USFQ) · Julián Maya <jamaya@usfq.edu.ec>. Código Apache 2.0; datos propios CC BY 4.0; los de terceros conservan su licencia. Todo es preliminar: modelo propio ≠ dato oficial. Textos en español.
+
+Reglas para agentes que trabajen en este repositorio: AGENTS.md. Horas en UTC (Galápagos = UTC−6), coordenadas en EPSG:4326.
+
+## Clima (datos y cómo reproducir los cálculos)
+
+- [Guía para agentes: bajar los datos del clima y reproducir los cálculos](https://github.com/mayait/sosgalapagos-datos/blob/main/clima/PARA-AGENTES.md): qué hay, formato, trampas, eventos de referencia
+- [Todo el clima en un ZIP, se rehace cada noche](https://sosgalapagos.org/clima/datos/descargas/clima_galapagos_todo.zip): estaciones cada 5 min desde 2024, lluvia diaria desde 1965, nivel por zona, pronóstico, modelos, satélite GOES-19, mar modelado y la regla del nivel
+- [Catálogo legible por máquina](https://github.com/mayait/sosgalapagos-datos/blob/main/clima/catalogo.json): URLs, columnas, unidades, licencias, eventos y resultados esperados
+- [Script que reproduce el nivel de lluvia peligrosa](https://github.com/mayait/sosgalapagos-datos/blob/main/clima/replicar/nivel.py): Python 3.9+, sin dependencias; `python3 -I clima/replicar/nivel.py --verificar`
+- [Índice de descargas del clima](https://sosgalapagos.org/clima/datos/descargas/indice.json)
+- [Panel en vivo](https://sosgalapagos.org/clima/)
+- [Regla de La Cascada y su calibración](https://github.com/mayait/sosgalapagos-datos/blob/main/clima/docs/umbrales-la-cascada.md)
+- [Pronóstico de lluvia fuerte: método y evaluación](https://github.com/mayait/sosgalapagos-datos/blob/main/clima/pronostico/LEEME.md)
+- [Satélite GOES-19: método y evaluación](https://github.com/mayait/sosgalapagos-datos/blob/main/clima/satelite/LEEME.md)
+- [Código en vivo del clima (plataforma)](https://github.com/mayait/sosgalapagos-plataforma/tree/main/clima)
+
+## Capas y modelos de riesgo
+
+- [README: qué hay y cómo descargarlo](https://github.com/mayait/sosgalapagos-datos/blob/main/README.md)
+- [Catálogo de capas](https://github.com/mayait/sosgalapagos-datos/blob/main/mapas-galapagos/documentacion/01-catalogo-de-capas.md)
+- [Metodología](https://github.com/mayait/sosgalapagos-datos/blob/main/mapas-galapagos/documentacion/02-metodologia.md)
+- [Modelo HAND de susceptibilidad a inundación](https://github.com/mayait/sosgalapagos-datos/blob/main/docs/modelo-hand.md)
+- [Fuentes oficiales de los datos](https://github.com/mayait/sosgalapagos-datos/blob/main/geodatos/docs/fuentes-oficiales.md)
+- [Capas completas en Shapefile y GeoJSON](https://github.com/mayait/sosgalapagos-datos/releases/latest)
+
+## Opcional
+
+- [Cómo contribuir](https://github.com/mayait/sosgalapagos-datos/blob/main/CONTRIBUIR.md)
+- [Licencias de los datos](https://github.com/mayait/sosgalapagos-datos/blob/main/LICENCIA-DATOS.md)
+- [Issues: qué datos faltan](https://github.com/mayait/sosgalapagos-datos/issues)

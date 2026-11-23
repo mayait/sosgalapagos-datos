@@ -40,6 +40,7 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 | Ver qué falta | [Issues del proyecto](https://github.com/mayait/sosgalapagos-datos/issues) (etiquetas P1–P3 y por tipo) |
 | Publicar o tocar un servidor | `servidores/README.md` |
 | Rehacer los estudios tras un dato nuevo | `geodatos/flujo.toml` + `geodatos/scripts/flujo.py --seco` |
+| Bajar los datos del clima o reproducir sus cálculos | `clima/PARA-AGENTES.md` (ZIP con todo, formato, trampas) y `clima/replicar/nivel.py` (sin dependencias) |
 | Tocar el clima | El que corre en vivo: repo `sosgalapagos-plataforma`, app `clima/`. Aquí: el panel (`clima/web/`) y los análisis (`clima/LEEME.md`) |
 | Tocar el pronóstico de lluvia | `clima/pronostico/LEEME.md` (evaluación en `fase0/informe.md`) |
 

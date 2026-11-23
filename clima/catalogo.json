@@ -1,0 +1,86 @@
+{
+  "nombre": "Clima de Galápagos · SOS Galápagos",
+  "descripcion": "Mediciones de estaciones meteorológicas de Galápagos (lluvia cada 5 min y otras variables, desde ago-2024; lluvia diaria desde 1965) y estimaciones propias: nivel de lluvia peligrosa por zona, pronóstico de lluvia fuerte, satélite GOES-19 y mar modelado.",
+  "guia": "https://github.com/mayait/sosgalapagos-datos/blob/main/clima/PARA-AGENTES.md",
+  "panel": "https://sosgalapagos.org/clima/",
+  "responsable": "Julián Maya · Universidad San Francisco de Quito (USFQ) · jamaya@usfq.edu.ec",
+  "advertencia": "Las estimaciones (nivel, pronóstico, satélite, mar modelado) son modelos propios y preliminares, NO datos ni alertas oficiales. Pronóstico oficial: INAMHI. Alertas: SNGR, COE, ECU 911.",
+  "descargas": {
+    "todo": {
+      "url": "https://sosgalapagos.org/clima/datos/descargas/clima_galapagos_todo.zip",
+      "actualizacion": "cada noche desde las 02:00 de Galápagos (08:00 UTC)",
+      "formato": "ZIP con CSV (UTF-8, separador coma) y JSON"
+    },
+    "mes": {
+      "url": "https://sosgalapagos.org/clima/datos/descargas/clima_galapagos_{AAAA-MM}.zip",
+      "actualizacion": "cada hora; los meses cerrados no cambian"
+    },
+    "indice": "https://sosgalapagos.org/clima/datos/descargas/indice.json",
+    "en_vivo": "https://sosgalapagos.org/clima/datos/estado.json"
+  },
+  "convenciones": {
+    "hora": "UTC en todos los archivos (Galápagos = UTC−6). Las fuentes en hora continental (GSC, INAMHI) ya vienen convertidas.",
+    "lluvia_mm": "lluvia del intervalo (~5 min), no acumulada. Las filas de inamhi y weatherlink con segundos :30 son respaldos de 1 hora.",
+    "huecos": "sin fila no es cero: durante los cortes la lluvia no se mide ni se acumula después",
+    "estaciones_danadas": "regla/estaciones_danadas.csv: sus datos están en el ZIP, pero la regla no los usa",
+    "modelos": "los mm de los modelos globales se quedan cortos por 35–45 mm/día en las islas: sirven para el cuándo, no el cuánto"
+  },
+  "archivos": {
+    "estaciones.csv": ["fuente", "estacion", "nombre", "isla", "lat", "lon", "altitud_m", "operador"],
+    "mediciones/clima_galapagos_AAAA-MM.csv": ["ts_utc", "fuente", "estacion", "variable", "valor"],
+    "historico_lluvia_diaria.csv": ["fecha_local", "fuente", "estacion", "lluvia_mm"],
+    "estimaciones/nivel_zona.csv": ["zona", "calculado_utc", "nivel", "instantaneo", "silencio", "R1h", "R3h", "R24h", "R72h"],
+    "estimaciones/nivel_manual.csv": ["zona", "nivel", "desde_utc", "hasta_utc"],
+    "estimaciones/pronostico_publicado.csv": ["punto", "emitido_utc", "fecha", "anticipacion_dias", "prob10", "prob20", "prob50", "consenso", "n_modelos", "mediana_mm", "nivel", "calibrado"],
+    "estimaciones/pronostico_modelos.csv": ["punto", "modelo", "obtenido_utc", "fecha", "anticipacion_dias", "mm", "miembros"],
+    "estimaciones/satelite_goes.csv": ["ts_utc", "zona", "variable", "valor"],
+    "estimaciones/mar_modelo.csv": ["puerto", "hora_utc", "nivel_m", "ola_m", "fondo_m", "periodo_s", "direccion", "viento_ms", "agua_c"],
+    "regla/umbrales_inundacion.json": "zonas, estaciones y pesos, umbrales por nivel, humedad previa, persistencia",
+    "regla/estaciones_danadas.csv": ["fuente", "estacion", "variable", "desde_utc", "hasta_utc", "motivo"]
+  },
+  "variables": {
+    "lluvia_mm": "mm en el intervalo",
+    "lluvia_dia_acum_mm": "mm acumulados en el día, como los da la estación",
+    "temp_c": "°C",
+    "hr_pct": "% de humedad relativa",
+    "presion_hpa": "hPa",
+    "rad_wm2": "W/m²",
+    "viento_ms": "m/s",
+    "nivel_mar_m": "m (cero UHSLC)",
+    "lluvia_codigo": "METAR: 0 nada, 1 débil, 2 moderada, 3 fuerte o tormenta"
+  },
+  "fuentes": {
+    "ierse": {"operador": "IERSE-WSN (Universidad del Azuay)", "isla": "Santa Cruz", "licencia": "CC BY-NC-ND 4.0"},
+    "gsc": {"operador": "Galapagos Science Center (USFQ)", "isla": "San Cristóbal", "licencia": "publicado con permiso; sin licencia abierta"},
+    "inamhi": {"operador": "INAMHI", "isla": "Santa Cruz y San Cristóbal", "licencia": "publicado con permiso; sin licencia abierta"},
+    "fcd": {"operador": "Fundación Charles Darwin", "isla": "Santa Cruz", "licencia": "CC BY-NC-SA", "nota": "solo lluvia diaria histórica"},
+    "weatherlink": {"operador": "estación particular (WeatherLink)", "licencia": "publicada con permiso del dueño"},
+    "ambient": {"operador": "estaciones particulares (Ambient Weather)", "licencia": "publicadas con permiso de los dueños"},
+    "wunderground": {"operador": "estación particular (Weather Underground)", "licencia": "publicada con permiso del dueño"},
+    "tempest": {"operador": "estación particular (Tempest)", "licencia": "publicada con permiso del dueño"},
+    "ioc": {"operador": "UNESCO/IOC Sea Level Station Monitoring Facility", "licencia": "datos públicos; cite al operador"},
+    "metar": {"operador": "aeropuertos de Baltra y San Cristóbal", "licencia": "datos públicos"}
+  },
+  "licencia_recopilacion": "CC BY 4.0 · SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya. Donde una fuente es más restrictiva, manda la de la fuente.",
+  "zonas": ["la-cascada", "santa-cruz-alta", "san-cristobal", "isabela"],
+  "eventos": [
+    {"fecha": "2026-10-30", "zona": "la-cascada", "impacto_utc": "2026-10-31T03:20:00Z", "descripcion": "desbordamiento de La Cascada (Puerto Ayora); aguacero en la parte alta sobre suelo seco", "analisis": "clima/eventos/2026-10-30_inundacion/"},
+    {"fecha": "2026-11-15", "zona": "santa-cruz-alta", "impacto_utc": null, "descripcion": "inundación de la parte alta de Santa Cruz tras 370 mm en 72 h en Miconia"},
+    {"fecha": "2026-11-21", "zona": "la-cascada", "impacto_utc": "2026-11-21T11:00:00Z", "descripcion": "desbordamiento de La Cascada (más fuerte que el 30-oct según los reportes) e inundación de la parte alta; lluvia fuerte en Puerto Ayora sobre suelo saturado", "analisis": "clima/eventos/2026-11-21_inundacion/"}
+  ],
+  "replicar": {
+    "nivel": {
+      "script": "clima/replicar/nivel.py",
+      "requisitos": "Python 3.9+, sin dependencias",
+      "verificar": "python3 -I clima/replicar/nivel.py --verificar",
+      "esperado": {
+        "2026-10-30": "muy alto 2026-10-31T02:35Z, 0,8 h antes del desbordamiento",
+        "2026-11-21": "muy alto 2026-11-21T08:50Z, 2,2 h antes del desbordamiento",
+        "comparar": "99,8 % de coincidencia con estimaciones/nivel_zona.csv (22–23-nov-2026)"
+      }
+    },
+    "pronostico": "clima/pronostico/LEEME.md y clima/pronostico/fase0/informe.md",
+    "satelite": "clima/satelite/LEEME.md y clima/satelite/evaluacion-s0.md",
+    "codigo_en_vivo": "https://github.com/mayait/sosgalapagos-plataforma (app clima/)"
+  }
+}
