@@ -75,6 +75,7 @@ Es lo único que permite **validar** los modelos y la alerta. Hoy ninguna cifra 
 | 3–4 nov | **500 tormentas sintéticas** por isla, **curvas IDF provisionales**, vigilancia satelital **GOES-19** |
 | 4 nov | Licencia © USFQ (Apache 2.0 + CC BY 4.0) |
 | 22 nov | Licencia nueva: código con todos los derechos reservados (uso con permiso) y contenido propio bajo CC BY-NC-ND 4.0. El clima corre entero en la plataforma (un solo stack, sin SQLite) |
+| 23 nov | Vuelven las licencias abiertas: código bajo Apache 2.0 y contenido propio bajo CC BY 4.0 |
 | 5 nov | **DTM de 1 m de la SGIAR** en Santa Cruz: HAND, La Cascada, modelo 2D y tormentas rehechos; relieve del DTM en [/mapas](https://sosgalapagos.org/mapas/) |
 
 ## Descargar los datos
@@ -143,18 +144,16 @@ Detalle: [`servidores/README.md`](servidores/README.md).
 
 **© 2026 Universidad San Francisco de Quito (USFQ) · SOS Galápagos. Autor: Julián Maya (jamaya@usfq.edu.ec).**
 
-Desde el 22-nov-2026:
-
 | Qué | Licencia |
 |---|---|
-| Código | [Todos los derechos reservados](LICENSE): se puede leer; usarlo, copiarlo, modificarlo o crear algo a partir de él requiere **permiso escrito del autor**. El aviso de autoría de cada archivo y el [`NOTICE`](NOTICE) se conservan |
-| Textos, figuras, mapas y salidas de los modelos propios | [CC BY-NC-ND 4.0](LICENCIA-DATOS.md): con atribución, **sin uso comercial y sin obras derivadas**. Para otro uso, permiso del autor |
+| Código | [Apache 2.0](LICENSE): se puede usar, copiar, modificar y redistribuir dando crédito. El aviso de autoría de cada archivo y el [`NOTICE`](NOTICE) se conservan |
+| Datos, textos, figuras, mapas, capas y salidas de los modelos propios | [CC BY 4.0](LICENCIA-DATOS.md): se pueden copiar, adaptar y usar, también con fines comerciales, **dando crédito** |
 | Datos de terceros y lo que se deriva de ellos | Conservan su licencia, que prevalece (IERSE CC BY-NC-ND, FCD CC BY-NC-SA, OSM ODbL…). Se publican con permiso de IERSE, el GSC, la FCD y el INAMHI; ver [`LICENCIA-DATOS.md`](LICENCIA-DATOS.md) |
 
-Toda cita o uso autorizado nombra a **SOS Galápagos, a la USFQ y a Julián Maya**. Las versiones anteriores al 22-nov-2026 salieron bajo Apache 2.0 y CC BY 4.0 (`Archivo/licencias-anteriores/`).
+Todo uso da crédito a **SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya <jamaya@usfq.edu.ec>**. Historia: hasta el 22-nov-2026, Apache 2.0 y CC BY 4.0; del 22 al 23-nov-2026, derechos reservados y CC BY-NC-ND 4.0; desde el 23-nov-2026, de nuevo Apache 2.0 y CC BY 4.0 (`Archivo/licencias-anteriores/`).
 
 **Cómo citar:**
-- **El repositorio:** «Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). Licencia CC BY-NC-ND 4.0». También en [`CITATION.cff`](CITATION.cff) y en «Cite this repository».
+- **El repositorio:** «Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). Licencia CC BY 4.0». También en [`CITATION.cff`](CITATION.cff) y en «Cite this repository».
 
 **Datos personales:** se eliminan los nombres y teléfonos que traen las capas oficiales. Nunca se publican nombres de personas afectadas.
 

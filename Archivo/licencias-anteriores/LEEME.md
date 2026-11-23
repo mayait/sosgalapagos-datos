@@ -1,5 +1,11 @@
-# Licencias anteriores (hasta el 22-nov-2026)
+# Licencias anteriores
 
-Hasta el 22 de noviembre de 2026 este repositorio se publicó con el código bajo Apache 2.0 y los textos y datos propios bajo CC BY 4.0. Esos dos textos se guardan aquí.
+Este repositorio ha tenido tres períodos de licencia. Aquí se guardan los textos de los dos anteriores al vigente.
 
-Ese día el titular cambió la licencia (ver `LICENSE` y `LICENCIA-DATOS.md` en la raíz). El cambio vale para todo lo publicado desde entonces. Las versiones anteriores que alguien ya obtuvo bajo las licencias de esta carpeta conservan, para esas versiones, las condiciones con que se publicaron: una licencia abierta ya concedida no se puede retirar.
+| Período | Código | Contenido propio (datos, modelos, textos) | Textos en esta carpeta |
+|---|---|---|---|
+| Hasta el 22-nov-2026 | Apache 2.0 | CC BY 4.0 | `LICENSE-Apache-2.0.txt`, `LICENCIA-CC-BY-4.0.txt` |
+| Del 22 al 23-nov-2026 | Todos los derechos reservados (uso con permiso del autor) | CC BY-NC-ND 4.0 | `LICENSE-uso-con-permiso-2026-11-22.txt`, `NOTICE-2026-11-22.txt`, `LICENCIA-DATOS-2026-11-22.md` |
+| **Desde el 23-nov-2026** (vigente) | **Apache 2.0** | **CC BY 4.0** | `LICENSE`, `NOTICE` y `LICENCIA-DATOS.md`, en la raíz |
+
+El 23 de noviembre de 2026 el titular volvió a Apache 2.0 y CC BY 4.0. Los textos del 22-nov se guardan solo como historia: ya no rigen. Los datos de terceros conservan en todos los períodos la licencia de su fuente.

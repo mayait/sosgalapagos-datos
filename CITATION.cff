@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: >-
   Si usa o publica datos, modelos, figuras o código de este repositorio, cítelo
-  así (atribución obligatoria). Desde el 22-nov-2026: código con todos los derechos
-  reservados (LICENSE) y contenido propio bajo CC BY-NC-ND 4.0 (LICENCIA-DATOS.md).
+  así (atribución obligatoria). Código bajo Apache 2.0 (LICENSE y NOTICE) y
+  contenido propio bajo CC BY 4.0 (LICENCIA-DATOS.md).
   Los datos de terceros conservan sus licencias: ver LICENCIA-DATOS.md.
 title: "SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)"
 type: software
@@ -15,7 +15,7 @@ authors:
     city: Quito
     country: EC
 repository-code: "https://github.com/mayait/sosgalapagos-datos"
-license: CC-BY-NC-ND-4.0
+license: CC-BY-4.0
 date-released: "2026-11-04"
 keywords:
   - Galápagos
@@ -36,4 +36,4 @@ preferred-citation:
     name: Universidad San Francisco de Quito (USFQ)
   year: 2026
   url: "https://github.com/mayait/sosgalapagos-datos"
-  notes: "Textos, figuras y modelos bajo CC BY-NC-ND 4.0; código con todos los derechos reservados (uso con permiso del autor)."
+  notes: "Datos, textos, figuras y modelos bajo CC BY 4.0; código bajo Apache-2.0."

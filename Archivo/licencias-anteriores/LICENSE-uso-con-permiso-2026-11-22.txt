@@ -1,0 +1,54 @@
+SOS GALÁPAGOS — LICENCIA DE USO CON PERMISO
+Versión 1.0 · 22 de noviembre de 2026
+
+© 2026 Universidad San Francisco de Quito (USFQ) · SOS Galápagos
+Autor y responsable: Julián Maya <jamaya@usfq.edu.ec>
+
+Todos los derechos reservados. Este código se publica para que se pueda ver
+cómo funciona una herramienta de interés público, no para que se reutilice
+libremente. Las condiciones son estas:
+
+1. LEER ESTÁ PERMITIDO. Cualquier persona puede leer y estudiar este código, y
+   citar fragmentos breves con la atribución del punto 4.
+
+2. USARLO REQUIERE PERMISO. Hace falta el permiso previo y por escrito del autor
+   para: ejecutar este código fuera de SOS Galápagos; copiarlo o redistribuirlo,
+   entero o en parte; modificarlo, adaptarlo o traducirlo a otro lenguaje;
+   incorporarlo a otro programa; y crear con él, o a partir de él, cualquier
+   producto, servicio u obra derivada, incluidos los que se obtengan por
+   ingeniería inversa de este código o del servicio que lo ejecuta.
+   El permiso se pide a jamaya@usfq.edu.ec. No se cobra por pedirlo.
+
+3. SIN USO COMERCIAL, salvo que el permiso escrito lo autorice expresamente.
+
+4. ATRIBUCIÓN SIEMPRE. Todo uso autorizado y toda cita deben nombrar, de forma
+   visible, a los tres:
+       SOS Galápagos · Universidad San Francisco de Quito (USFQ) ·
+       Autor: Julián Maya (jamaya@usfq.edu.ec)
+   y enlazar este repositorio. Los avisos de autoría que llevan los archivos no
+   se quitan ni se alteran.
+
+5. MATERIAL DE TERCEROS. Las bibliotecas, tipografías, mapas base y datos de
+   terceros que este proyecto usa conservan sus propias licencias (ver NOTICE y
+   LICENCIA-DATOS.md). Esta licencia no las cambia.
+
+6. DATOS, MODELOS Y TEXTOS. No se rigen por este archivo, sino por
+   LICENCIA-DATOS.md (Creative Commons Atribución-NoComercial-SinDerivadas 4.0
+   para lo propio; la licencia de cada fuente para lo de terceros).
+
+7. VERSIONES ANTERIORES. Lo publicado en este repositorio antes del 22 de
+   noviembre de 2026 salió bajo Apache 2.0 (código) y CC BY 4.0 (contenido).
+   Quien obtuvo esas versiones conserva, para esas versiones, las condiciones
+   con que se publicaron. Los textos están en Archivo/licencias-anteriores/.
+
+8. PLATAFORMA DE ALOJAMIENTO. Ver este repositorio y bifurcarlo dentro de la
+   plataforma que lo aloja, según las condiciones de servicio de esa
+   plataforma, no concede ningún derecho más que los de esta licencia.
+
+9. SIN GARANTÍA. El código se ofrece «tal cual», sin garantía de ningún tipo.
+   La información que produce es preliminar y no es oficial: en una emergencia,
+   llame al 911 y siga a las autoridades. Los autores no responden por los daños
+   que resulten de su uso.
+
+10. FIN DEL PERMISO. Quien incumpla estas condiciones pierde de inmediato
+    cualquier permiso que se le haya dado.
