@@ -1881,11 +1881,22 @@ setInterval(cargar, 5 * 60 * 1000);
     if (pts.length < 3) return "";
     const t0 = ahora - 3 * 36e5, t1 = ahora + 45 * 36e5, W = 320, H = 132, m = { i: 6, d: 6, a: 24, b: 22 };
     const hmax = Math.max(...pts.map(p => p[1])), X = t => m.i + (t - t0) / (t1 - t0) * (W - m.i - m.d), Y = h => m.a + (1 - h / hmax) * (H - m.a - m.b);
-    const nivel = t => { for (let i = 0; i < pts.length - 1; i++) { const [a, ha] = pts[i], [b, hb] = pts[i + 1]; if (t >= a && t <= b) return ha + (hb - ha) * (1 - Math.cos(Math.PI * (t - a) / (b - a))) / 2; } return null; };
-    let d = "", primero = null, ultimo = null;
-    for (let t = t0; t <= t1; t += 15 * 6e4) { const h = nivel(t); if (h == null) continue; d += `${d ? "L" : "M"}${X(t).toFixed(1)} ${Y(h).toFixed(1)}`; primero ??= t; ultimo = t; }
-    if (!d) return "";
-    let g = `<path d="${d}L${X(ultimo).toFixed(1)} ${H - m.b}L${X(primero).toFixed(1)} ${H - m.b}Z" fill="var(--rain)" opacity=".12"/><path d="${d}" fill="none" stroke="var(--rain)" stroke-width="2" stroke-linejoin="round"/>`;
+    // Entre una pleamar y una bajamar hay unas 6 h. Si a la tabla le falta un tramo (más de 8 h entre
+    // dos extremos), la curva se corta: no se inventa una marea donde no hay dato.
+    const HUECO = 8 * 36e5;
+    const nivel = t => { for (let i = 0; i < pts.length - 1; i++) { const [a, ha] = pts[i], [b, hb] = pts[i + 1]; if (t >= a && t <= b) return b - a > HUECO ? null : ha + (hb - ha) * (1 - Math.cos(Math.PI * (t - a) / (b - a))) / 2; } return null; };
+    const tramos = []; let tramo = null;
+    for (let t = t0; t <= t1; t += 15 * 6e4) { const h = nivel(t); if (h == null) { tramo = null; continue; } if (!tramo) tramos.push(tramo = []); tramo.push([X(t), Y(h)]); }
+    if (!tramos.length) return "";
+    let g = "", d = "";
+    for (const tr of tramos) {
+      const l = tr.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)} ${y.toFixed(1)}`).join("");
+      g += `<path d="${l}L${tr.at(-1)[0].toFixed(1)} ${H - m.b}L${tr[0][0].toFixed(1)} ${H - m.b}Z" fill="var(--rain)" opacity=".12"/>`;
+      d += l;
+    }
+    g += `<path d="${d}" fill="none" stroke="var(--rain)" stroke-width="2" stroke-linejoin="round"/>`;
+    const fin = tramos.at(-1).at(-1)[0];
+    if (fin < W - m.d - 30) g += `<text x="${((fin + W - m.d) / 2).toFixed(1)}" y="${(H - m.b - 8).toFixed(1)}" text-anchor="middle">sin tabla</text>`;
     g += `<line x1="${m.i}" x2="${W - m.d}" y1="${H - m.b}" y2="${H - m.b}" stroke="var(--line)"/>`;
     for (const [t, h, tipo] of pts) {
       if (t < t0 + 36e5 || t > t1 - 36e5) continue;
