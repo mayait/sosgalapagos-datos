@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Descarga todas las capas del WFS IGM Galápagos 1:25 000 a GeoJSON (EPSG:4326)."""
 import re, json, sys, pathlib, requests, time
 from concurrent.futures import ThreadPoolExecutor

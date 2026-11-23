@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Lluvia MEDIDA del evento del 30/31-oct-2026 en Santa Cruz (red IERSE-WSN) y su
 comparación con los modelos (Open-Meteo, script 15) y con la climatología de la FCD.
 

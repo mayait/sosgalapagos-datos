@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Copia la lluvia medida por la red IERSE-WSN (Universidad del Azuay) desde clima/datos/ a los datos de los estudios.
 
 Hasta ahora estas copias se hacían a mano. Con este paso, el flujo incremental (scripts/flujo.py) detecta cuando llega

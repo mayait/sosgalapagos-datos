@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Figuras y animaciones de la biblioteca de tormentas sintéticas (script 32).
 
   .venv/bin/python -I scripts/33_tormentas_figuras.py todo <isla>          generador, frecuencia, umbrales, mapa de pluviómetros

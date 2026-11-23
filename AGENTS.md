@@ -18,7 +18,7 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 6. **Informes y textos de estudios son solo locales.** `informes/` y `geodatos/estudios/*/{texto,figuras}/` (y sus PDF) están en `.gitignore`: no se suben al repositorio ni se publican en la web. Los datos de los estudios sí se versionan. **Única excepción (desde el 21-nov-2026):** los mapas e informes en PDF que Julián pida publicar uno por uno van a la sección de descargas de la portada con `servidores/publicar.sh descargas`. Siguen fuera de git y nunca se publica uno que él no haya pedido.
 7. **Trabaja en tu rama** (mejor en un *worktree*) y no toques el dominio de otra sesión sin coordinarlo. Entre sesiones de Claude Code: `ListAgents` y `SendMessage`.
 
-8. **Licencia (desde el 22-nov-2026).** El código tiene todos los derechos reservados ([`LICENSE`](LICENSE)); lo propio que no es código va bajo CC BY-NC-ND 4.0 y lo de terceros conserva su licencia ([`LICENCIA-DATOS.md`](LICENCIA-DATOS.md)). Cada archivo de código propio (`.py`, `.sh`, páginas) empieza con el aviso de autoría de dos líneas (USFQ · SOS Galápagos · Julián Maya): ponlo en los archivos nuevos y no lo quites. Donde se muestre o se descargue un dato de terceros, se nombra su licencia.
+8. **Licencia (desde el 23-nov-2026).** El código va bajo Apache 2.0 ([`LICENSE`](LICENSE) y [`NOTICE`](NOTICE)); lo propio que no es código va bajo CC BY 4.0 y lo de terceros conserva su licencia, que prevalece ([`LICENCIA-DATOS.md`](LICENCIA-DATOS.md)). Crédito: «SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya <jamaya@usfq.edu.ec>». Del 22 al 23-nov-2026 rigieron derechos reservados y CC BY-NC-ND 4.0. Cada archivo de código propio (`.py`, `.sh`, páginas) empieza con el aviso de autoría de dos líneas (USFQ · SOS Galápagos · Julián Maya): ponlo en los archivos nuevos y no lo quites. Donde se muestre o se descargue un dato de terceros, se nombra su licencia.
 
 ## Convenciones
 
@@ -48,15 +48,15 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 **Estás en:** `sosgalapagos-datos`. Los datos, el clima y los modelos. La plataforma vive en otro repositorio.
 
 <!-- arbol-repos:inicio -->
-> **Este bloque es idéntico en los seis repositorios** (en su `AGENTS.md`). Si cambias algo, cámbialo en los seis. Última revisión: 2026-11-22 (el mapa único es `/riesgos/`; el visor de `/mapas` se retiró; todo el clima corre en `sosgalapagos-plataforma`; licencia nueva en `sosgalapagos-datos` y `sosgalapagos-plataforma`).
+> **Este bloque es idéntico en los seis repositorios** (en su `AGENTS.md`). Si cambias algo, cámbialo en los seis. Última revisión: 2026-11-23 (vuelven Apache 2.0 y CC BY 4.0 en `sosgalapagos-datos` y `sosgalapagos-plataforma`; el mapa único es `/riesgos/`; el visor de `/mapas` se retiró; todo el clima corre en `sosgalapagos-plataforma`).
 
 SOS Galápagos no es un solo repositorio, son seis. No hay organización de GitHub: todos están en la cuenta `mayait`. En la Mac de Julián cada uno se clona en `~/dev/<nombre>`.
 
 | Repositorio | Visibilidad | Qué contiene | Qué publica |
 |---|---|---|---|
 | [`sosgalapagos`](https://github.com/mayait/sosgalapagos) | público | La plataforma de coordinación: web y API. Es un fork de `GlobalEmergency/ResponseGrid`. También guarda el Caddy y el Docker Compose de **todo** el servidor (`deploy/sosgalapagos/`). | `sosgalapagos.org/` y `/backend` |
-| [`sosgalapagos-datos`](https://github.com/mayait/sosgalapagos-datos) | público | Geodatos, estudios de riesgo, modelos y el panel de `/clima/`. Su carpeta `servidores/` es el índice de qué corre dónde. Código con derechos reservados: uso con permiso. | Los datos de `/mapas/…` (capas y descargas, sin visor) y la página de `/clima/` |
-| [`sosgalapagos-plataforma`](https://github.com/mayait/sosgalapagos-plataforma) | público | El mapa de riesgos: reportes ciudadanos con vencimiento sobre las capas de riesgo, buscador, descargas e informe. Django + PostGIS. También corre todo el clima (un solo stack, desde el 22-nov-2026). Código con derechos reservados: uso con permiso. Es el único mapa del sitio desde el 21-nov-2026. | `/riesgos/` |
+| [`sosgalapagos-datos`](https://github.com/mayait/sosgalapagos-datos) | público | Geodatos, estudios de riesgo, modelos y el panel de `/clima/`. Su carpeta `servidores/` es el índice de qué corre dónde. Código Apache 2.0; datos propios CC BY 4.0. | Los datos de `/mapas/…` (capas y descargas, sin visor) y la página de `/clima/` |
+| [`sosgalapagos-plataforma`](https://github.com/mayait/sosgalapagos-plataforma) | público | El mapa de riesgos: reportes ciudadanos con vencimiento sobre las capas de riesgo, buscador, descargas e informe. Django + PostGIS. También corre todo el clima (un solo stack, desde el 22-nov-2026). Código Apache 2.0; datos propios CC BY 4.0. Es el único mapa del sitio desde el 21-nov-2026. | `/riesgos/` |
 | [`sosgalapagos-bot`](https://github.com/mayait/sosgalapagos-bot) | **privado** | Asistente de WhatsApp: lee grupos, clasifica mensajes y crea pedidos en la plataforma. | Nada en la web; es un servicio systemd aparte (ver su `LEEME.md`) |
 | [`RESPONSEGRID_GALAPAGOS`](https://github.com/mayait/RESPONSEGRID_GALAPAGOS) | público | Carpeta de trabajo local: arranque en la Mac y datos semilla. Clona `sosgalapagos` dentro de `app/`, que git ignora. Conserva la historia de geodatos hasta el 2-nov-2026. | Nada |
 | [`estudiantes-riesgo-nino`](https://github.com/mayait/estudiantes-riesgo-nino) | **privado** | Viviendas de estudiantes de USFQ Galápagos cruzadas con el riesgo de inundación. Tiene datos personales. | `/usfq/`, con contraseña |
@@ -106,9 +106,9 @@ SOS Galápagos no es un solo repositorio, son seis. No hay organización de GitH
 
 ### Reglas que cruzan repositorios
 
-- **No se copia código de `sosgalapagos` (AGPL-3.0) a `sosgalapagos-plataforma`** (todos los derechos reservados desde el 22-nov-2026; antes, Apache 2.0).
+- **No se copia código de `sosgalapagos` (AGPL-3.0) a `sosgalapagos-plataforma`** (Apache 2.0): la AGPL obligaría a publicar la plataforma bajo AGPL.
 - **Nada de un repositorio privado pasa a uno público.** Ni los datos personales de `estudiantes-riesgo-nino` ni la lógica de detección de estafas del bot (`src/analista.ts`).
-- **Licencias.** `sosgalapagos` es AGPL-3.0 (fork de ResponseGrid) y no cambia. `sosgalapagos-datos` y `sosgalapagos-plataforma` tienen, desde el 22-nov-2026, el código con todos los derechos reservados (usarlo requiere permiso escrito de Julián Maya) y lo propio que no es código bajo CC BY-NC-ND 4.0; cada archivo de código lleva su aviso de autoría. Los datos de terceros conservan la licencia de su fuente.
+- **Licencias.** `sosgalapagos` es AGPL-3.0 (fork de ResponseGrid) y no cambia. `sosgalapagos-datos` y `sosgalapagos-plataforma` tienen, desde el 23-nov-2026, el código bajo Apache 2.0 (con `NOTICE`) y lo propio que no es código bajo CC BY 4.0, con crédito a «SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya <jamaya@usfq.edu.ec>»; cada archivo de código lleva su aviso de autoría. Del 22 al 23-nov-2026 tuvieron derechos reservados y CC BY-NC-ND 4.0. Los datos de terceros conservan la licencia de su fuente.
 - **Cada repositorio tiene sus propias reglas de commit y de ramas.** Léelas en su `AGENTS.md` o `LEEME.md` antes de hacer commit. Dos que cambian: en `sosgalapagos` los commits van como «IA Humana» y sin `Co-Authored-By`; en `sosgalapagos-datos` y en `sosgalapagos-plataforma` se trabaja en una rama con pull request, también sin `Co-Authored-By`.
 - **Desplegar es un paso aparte y manual.** Subir a `main` no publica nada en `sosgalapagos.org`. No despliegues si no te lo piden.
 <!-- arbol-repos:fin -->

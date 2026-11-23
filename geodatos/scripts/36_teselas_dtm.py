@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Teselas XYZ del DTM de 1 m de la SGIAR (Santa Cruz) para el visor de /mapas.
 
 Dos juegos de teselas (EPSG:3857, 256 px, esquema XYZ de OpenStreetMap):

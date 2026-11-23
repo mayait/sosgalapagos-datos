@@ -1,6 +1,6 @@
 #!/bin/sh
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 # Genera y publica los datos de https://sosgalapagos.org/mapas/ (manifiesto, capas y descargas Shapefile/GeoJSON).
 # El mapa que los muestra es https://sosgalapagos.org/riesgos/ (repo sosgalapagos-plataforma). El visor que había
 # en /mapas/ se retiró el 21-nov-2026 (Archivo/visor-mapas/): por eso index.html no se sube ni se toca.

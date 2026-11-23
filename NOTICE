@@ -1,37 +1,40 @@
 SOS Galápagos — datos, modelos y herramientas para las inundaciones de 2026
 en Santa Cruz y San Cristóbal (Galápagos, Ecuador)
 
-Copyright 2026 Universidad San Francisco de Quito (USFQ)
+Copyright © 2026 Universidad San Francisco de Quito (USFQ) · SOS Galápagos
 
+Autor y responsable: Julián Maya <jamaya@usfq.edu.ec>
 Desarrollado en USFQ Galápagos.
-Responsable: Julián Maya (jamaya@usfq.edu.ec), Universidad San Francisco de Quito (USFQ).
 Repositorio: https://github.com/mayait/sosgalapagos-datos
 
-Autor: Julián Maya (jamaya@usfq.edu.ec).
+El código se distribuye bajo la Licencia Apache, versión 2.0 (archivo LICENSE).
+Según su sección 4(d), toda redistribución o trabajo derivado debe conservar
+este aviso NOTICE y los avisos de autoría de cada archivo.
 
-Desde el 22-nov-2026 el código tiene todos los derechos reservados: se puede
-leer, pero usarlo, copiarlo, modificarlo o crear productos a partir de él
-requiere permiso escrito del autor (archivo LICENSE). Este aviso se conserva.
+Los datos, modelos, textos, figuras, mapas y capas propios se distribuyen bajo
+Creative Commons Atribución 4.0 Internacional (CC BY 4.0;
+https://creativecommons.org/licenses/by/4.0/deed.es; ver LICENCIA-DATOS.md).
+Se pueden copiar, adaptar y usar, también con fines comerciales, dando crédito
+así:
 
-Los textos, figuras, informes, capas modeladas, salidas de los modelos y demás
-contenido propio se distribuyen bajo Creative Commons
-Atribución-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0; ver
-LICENCIA-DATOS.md): con atribución, sin uso comercial y sin obras derivadas.
-Para cualquier otro uso, pida permiso al autor. Toda cita o reproducción,
-incluida su publicación en artículos, informes, tesis o medios, debe
-atribuirlo así:
+  SOS Galápagos · Universidad San Francisco de Quito (USFQ) ·
+  Julián Maya <jamaya@usfq.edu.ec>. Licencia CC BY 4.0.
 
+Para una cita académica:
 
   Maya, J. (2026). SOS Galápagos: datos, modelos y herramientas para las
   inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos).
   Universidad San Francisco de Quito (USFQ).
-  https://github.com/mayait/sosgalapagos-datos
-
-Las versiones anteriores al 22-nov-2026 se publicaron bajo Apache 2.0 y
-CC BY 4.0 (Archivo/licencias-anteriores/).
+  https://github.com/mayait/sosgalapagos-datos. Licencia CC BY 4.0.
 
 Los datos de terceros (IGM, CGREG, FCD, SNGR, INOCAR, INEC, INAMHI, IERSE,
-USFQ GSC, OpenStreetMap, Copernicus, Google Open Buildings, GAR, Open-Meteo y
-otros) conservan sus propias licencias y atribuciones. Ver LICENCIA-DATOS.md.
+USFQ GSC, SGIAR, OpenStreetMap, Copernicus, Google Open Buildings, GAR,
+Open-Meteo y otros) y lo que se deriva de ellos conservan la licencia de su
+fuente, que prevalece sobre CC BY 4.0. Ver LICENCIA-DATOS.md.
+
+Historia: hasta el 22-nov-2026, Apache 2.0 y CC BY 4.0; del 22 al 23-nov-2026,
+código con todos los derechos reservados y contenido propio bajo CC BY-NC-ND
+4.0; desde el 23-nov-2026, de nuevo Apache 2.0 y CC BY 4.0
+(Archivo/licencias-anteriores/).
 
 Los modelos de este repositorio son estimaciones propias, no datos oficiales.

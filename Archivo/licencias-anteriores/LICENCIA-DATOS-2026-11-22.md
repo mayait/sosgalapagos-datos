@@ -1,0 +1,52 @@
+# Licencias del repositorio
+
+© 2026 **Universidad San Francisco de Quito (USFQ)**, USFQ Galápagos. Responsable: **Julián Maya** (jamaya@usfq.edu.ec).
+
+**Desde el 22 de noviembre de 2026** el repositorio tiene estas licencias propias, según el tipo de material, y respeta las de las fuentes externas. Las versiones anteriores salieron bajo Apache 2.0 y CC BY 4.0, y quien las obtuvo conserva esas condiciones para esas versiones (`Archivo/licencias-anteriores/`).
+
+| Qué | Licencia | Archivo |
+|---|---|---|
+| **Código**: scripts, modelos como programa, web y plantillas | **Todos los derechos reservados.** Se puede leer; usarlo, copiarlo, modificarlo o crear productos a partir de él requiere **permiso escrito del autor** (jamaya@usfq.edu.ec). Cada archivo lleva el aviso de autoría, que no se quita | [`LICENSE`](LICENSE), [`NOTICE`](NOTICE) |
+| **Contenido propio**: textos, estudios, figuras, mapas, capas y salidas de los modelos propios (HAND, cuencas, modelo 2D, tormentas sintéticas, curvas IDF, umbrales, pronóstico, nivel de lluvia) | [Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es): con atribución, **sin uso comercial y sin obras derivadas**. Para otro uso, permiso escrito del autor | este archivo |
+| **Datos de terceros** y lo que se deriva de ellos | La licencia de cada fuente (tabla de abajo), que **prevalece** sobre la nuestra. Se publican con permiso de cada operador | — |
+
+**Tres nombres en toda atribución:** SOS Galápagos · Universidad San Francisco de Quito (USFQ) · autor: Julián Maya (jamaya@usfq.edu.ec).
+
+**Dos excepciones que la ley impone, y se respetan:** las bases de datos derivadas de OpenStreetMap se publican bajo ODbL, y lo derivado de las series de la Fundación Charles Darwin, bajo CC BY-NC-SA. En esos dos casos no rige «sin obras derivadas».
+
+## Atribución obligatoria
+
+La licencia exige atribuir el material cada vez que se reproduce o se publica: en artículos, tesis, informes, mapas, medios o software. La atribución debe incluir el autor, la institución, el título, el enlace y la licencia, e indicar si se hicieron cambios. Use esta forma:
+
+> Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). https://github.com/mayait/sosgalapagos-datos. Licencia CC BY-NC-ND 4.0.
+
+Si usa los modelos o resultados en una publicación académica, cite el repositorio. GitHub muestra la cita en formato BibTeX y APA en «Cite this repository», a partir de [`CITATION.cff`](CITATION.cff).
+
+> **Alcance de la obligación.** Una licencia rige la **copia y la adaptación** del material: código, textos, figuras, capas y datos. No puede obligar a citar ideas o resultados que se describen con palabras propias sin reproducir el material. Para esos casos se aplica la norma académica de citar la fuente, y por eso se publica `CITATION.cff`.
+
+## Datos de terceros
+
+Estas fuentes conservan su licencia. Los productos que se derivan de ellas quedan sujetos a esas condiciones.
+
+| Fuente | Licencia o condición | Efecto en lo derivado |
+|---|---|---|
+| OpenStreetMap | ODbL 1.0 | Las bases de datos derivadas se publican bajo ODbL, con «© colaboradores de OpenStreetMap» |
+| Copernicus GLO-30 DEM | Licencia Copernicus DEM, libre con atribución | Texto de atribución de `mapas-galapagos/documentacion/03-fuentes-y-licencias.md` |
+| **SGIAR**, Subsecretaría de Gestión de la Información y Análisis de Riesgo: DTM de 1 m de Santa Cruz (producto Vricon/Maxar) | EULA de Vricon/Maxar; entregado por la SGIAR, que autorizó publicarlo aquí. Cita obligatoria a la SGIAR (`geodatos/datos/dtm_sgiar/LEEME.md`) | No queda bajo nuestra licencia. Lo derivado (HAND, cuencas, modelo 2D) cita a la SGIAR como fuente del relieve |
+| **Foto aérea del 21-nov-2026 en Puerto Ayora** (Tui De Roy) | De su autora. Se publica con el crédito «Foto: Tui De Roy» (`geodatos/datos/foto_aerea_21nov/LEEME.md`) | La foto rectificada y sus teselas no quedan bajo nuestra licencia. La zona afectada y los edificios derivados citan la foto |
+| Google Open Buildings v3 | CC BY 4.0 (u ODbL) | Atribución «Google Open Buildings» |
+| IGM, CGREG, SNGR, INOCAR, INEC, MSP, MINEDUC, CONALI | Información pública con cita a la institución | Citar a la institución. Para usos formales, confirmar con ella |
+| IERSE (Universidad del Azuay), red WSN | CC BY-NC-ND 4.0, con cita obligatoria (`clima/datos/LEEME.md`). **Publicado con su permiso** (confirmado por Julián Maya el 22-nov-2026) | Sin uso comercial y sin obras derivadas para terceros. Quien quiera derivar de su lluvia pide permiso a IERSE |
+| Fundación Charles Darwin (FCD), series climáticas | CC BY-NC-SA. **Publicado con su permiso** (22-nov-2026) | Lo derivado (p. ej., curvas IDF) se comparte **sin uso comercial y con la misma licencia** |
+| USFQ GSC, estaciones de San Cristóbal | No declara una licencia abierta. **Publicado con su permiso** (22-nov-2026) | Sus series se publican con la cita que pide el GSC. Para reutilizarlas, pedir permiso al GSC |
+| INAMHI, estaciones automáticas, pronóstico y advertencias | No declara una licencia abierta. **Publicado con su permiso** (22-nov-2026) | Citar al INAMHI. El documento oficial manda |
+| Proyecto DARWIN (U. de Marburgo) | Acuerdo de datos que prohíbe redistribuir (#76) | Solo metadatos y DOI |
+| GAR (TU Berlín) | CC BY 4.0 | Cita a Schmidt et al. (2025) |
+| Open-Meteo | CC BY 4.0 | Atribución «Open-Meteo» |
+| NOAA (GOES-19) | Dominio público | Se agradece la cita |
+
+Catálogo completo de las fuentes: `mapas-galapagos/documentacion/03-fuentes-y-licencias.md` y `geodatos/docs/fuentes-oficiales.md`.
+
+## Sin garantía
+
+Todo se entrega **tal cual, sin garantía** (`LICENSE`, punto 9; CC BY-NC-ND 4.0, §5). Los modelos son estimaciones propias, **no datos oficiales**. No sirven para delimitar zonas, normar ni diseñar obras.

@@ -21,7 +21,7 @@ Todas las fuentes se consultaron el **1 de noviembre de 2026**. Hay un catálogo
 
 ## Atribución sugerida para el mapa
 
-> Fuentes: IGM 1:25 000; CGREG/FCD (zonificación PNG 2017, riesgos, encañadas, barrios); SNGR/INOCAR; MSP; MINEDUC; INEC MGN 2026; © colaboradores de OpenStreetMap (ODbL); Google Open Buildings (CC BY 4.0); Copernicus GLO-30 © DLR, Airbus, UE/ESA; DTM 1 m de Santa Cruz: SGIAR (Vricon/Maxar). Capas modeladas: elaboración propia (USFQ Galápagos), noviembre de 2026.
+> Fuentes: IGM 1:25 000; CGREG/FCD (zonificación PNG 2017, riesgos, encañadas, barrios); SNGR/INOCAR; MSP; MINEDUC; INEC MGN 2026; © colaboradores de OpenStreetMap (ODbL); Google Open Buildings (CC BY 4.0); Copernicus GLO-30 © DLR, Airbus, UE/ESA; DTM 1 m de Santa Cruz: SGIAR (Vricon/Maxar). Capas modeladas: elaboración propia (SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya), noviembre de 2026, licencia CC BY 4.0.
 
 ## Datos personales y privacidad
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 # Publica un servicio en sosgalapagos.org desde main, con el árbol limpio.
 #   servidores/publicar.sh mapas      → datos de /mapas/, que muestra /riesgos/ (geodatos/scripts/publicar_mapas.sh)
 #   servidores/publicar.sh clima      → la página de /clima/ (clima/publicar_panel.sh). Los datos los genera la plataforma

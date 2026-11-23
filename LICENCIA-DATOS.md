@@ -1,24 +1,28 @@
 # Licencias del repositorio
 
-© 2026 **Universidad San Francisco de Quito (USFQ)**, USFQ Galápagos. Responsable: **Julián Maya** (jamaya@usfq.edu.ec).
+© 2026 **Universidad San Francisco de Quito (USFQ) · SOS Galápagos**. Autor y responsable: **Julián Maya** (jamaya@usfq.edu.ec).
 
-**Desde el 22 de noviembre de 2026** el repositorio tiene estas licencias propias, según el tipo de material, y respeta las de las fuentes externas. Las versiones anteriores salieron bajo Apache 2.0 y CC BY 4.0, y quien las obtuvo conserva esas condiciones para esas versiones (`Archivo/licencias-anteriores/`).
+El repositorio tiene dos licencias propias, según el tipo de material, y respeta las de las fuentes externas.
 
 | Qué | Licencia | Archivo |
 |---|---|---|
-| **Código**: scripts, modelos como programa, web y plantillas | **Todos los derechos reservados.** Se puede leer; usarlo, copiarlo, modificarlo o crear productos a partir de él requiere **permiso escrito del autor** (jamaya@usfq.edu.ec). Cada archivo lleva el aviso de autoría, que no se quita | [`LICENSE`](LICENSE), [`NOTICE`](NOTICE) |
-| **Contenido propio**: textos, estudios, figuras, mapas, capas y salidas de los modelos propios (HAND, cuencas, modelo 2D, tormentas sintéticas, curvas IDF, umbrales, pronóstico, nivel de lluvia) | [Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es): con atribución, **sin uso comercial y sin obras derivadas**. Para otro uso, permiso escrito del autor | este archivo |
-| **Datos de terceros** y lo que se deriva de ellos | La licencia de cada fuente (tabla de abajo), que **prevalece** sobre la nuestra. Se publican con permiso de cada operador | — |
+| **Código**: scripts, modelos como programa, web y plantillas | [Apache 2.0](LICENSE): se puede usar, copiar, modificar y redistribuir, también con fines comerciales. Toda copia o trabajo derivado conserva el [`NOTICE`](NOTICE) y el aviso de autoría de cada archivo | [`LICENSE`](LICENSE), [`NOTICE`](NOTICE) |
+| **Contenido propio**: datos, textos, estudios, figuras, mapas, capas y salidas de los modelos propios (HAND, cuencas, modelo 2D, tormentas sintéticas, curvas IDF, umbrales, pronóstico, nivel de lluvia) | [Creative Commons Atribución 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.es): se puede copiar, adaptar y usar, también con fines comerciales, **dando crédito** | este archivo |
+| **Datos de terceros** y lo que se deriva de ellos | La licencia de cada fuente (tabla de abajo), que **prevalece** sobre CC BY 4.0. Se publican con permiso de cada operador | — |
 
-**Tres nombres en toda atribución:** SOS Galápagos · Universidad San Francisco de Quito (USFQ) · autor: Julián Maya (jamaya@usfq.edu.ec).
+**Crédito en toda atribución:** SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya <jamaya@usfq.edu.ec>.
 
-**Dos excepciones que la ley impone, y se respetan:** las bases de datos derivadas de OpenStreetMap se publican bajo ODbL, y lo derivado de las series de la Fundación Charles Darwin, bajo CC BY-NC-SA. En esos dos casos no rige «sin obras derivadas».
+**Donde una fuente es más restrictiva, manda la fuente.** Por ejemplo: las bases de datos derivadas de OpenStreetMap se publican bajo ODbL; lo derivado de las series de la Fundación Charles Darwin, bajo CC BY-NC-SA; la lluvia de IERSE, bajo CC BY-NC-ND 4.0. En esos casos no rige CC BY 4.0.
 
 ## Atribución obligatoria
 
-La licencia exige atribuir el material cada vez que se reproduce o se publica: en artículos, tesis, informes, mapas, medios o software. La atribución debe incluir el autor, la institución, el título, el enlace y la licencia, e indicar si se hicieron cambios. Use esta forma:
+La licencia CC BY 4.0 exige atribuir el material cada vez que se reproduce, se adapta o se publica: en artículos, tesis, informes, mapas, medios o software. La atribución debe incluir el autor, la institución, el título, el enlace y la licencia, e indicar si se hicieron cambios. Use esta forma corta:
 
-> Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). https://github.com/mayait/sosgalapagos-datos. Licencia CC BY-NC-ND 4.0.
+> SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya <jamaya@usfq.edu.ec>. Licencia CC BY 4.0.
+
+O esta, para una cita académica:
+
+> Maya, J. (2026). *SOS Galápagos: datos, modelos y herramientas para las inundaciones de 2026 en Santa Cruz y San Cristóbal (Galápagos)*. Universidad San Francisco de Quito (USFQ). https://github.com/mayait/sosgalapagos-datos. Licencia CC BY 4.0.
 
 Si usa los modelos o resultados en una publicación académica, cite el repositorio. GitHub muestra la cita en formato BibTeX y APA en «Cite this repository», a partir de [`CITATION.cff`](CITATION.cff).
 
@@ -49,4 +53,8 @@ Catálogo completo de las fuentes: `mapas-galapagos/documentacion/03-fuentes-y-l
 
 ## Sin garantía
 
-Todo se entrega **tal cual, sin garantía** (`LICENSE`, punto 9; CC BY-NC-ND 4.0, §5). Los modelos son estimaciones propias, **no datos oficiales**. No sirven para delimitar zonas, normar ni diseñar obras.
+Todo se entrega **tal cual, sin garantía de ningún tipo** y sin responsabilidad del autor ni de la USFQ por su uso: para el código, según la Licencia Apache 2.0, secciones 7 (exclusión de garantía) y 8 (limitación de responsabilidad); para el contenido propio, según CC BY 4.0, sección 5. Los modelos son estimaciones propias, **no datos oficiales**. No sirven para delimitar zonas, normar ni diseñar obras.
+
+## Historia
+
+Hasta el 22-nov-2026 el repositorio salió bajo Apache 2.0 y CC BY 4.0. Del 22 al 23-nov-2026 el código tuvo todos los derechos reservados y lo propio, CC BY-NC-ND 4.0. Desde el 23-nov-2026 vuelven Apache 2.0 y CC BY 4.0. Los textos anteriores están en `Archivo/licencias-anteriores/`.

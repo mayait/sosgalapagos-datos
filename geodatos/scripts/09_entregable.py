@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Arma la carpeta final `mapas-galapagos/` (junto a geodatos/) a partir de export/ y de la app:
 datos listos, visor, capturas, código y parche para ResponseGrid, y el catálogo de capas generado.
 
