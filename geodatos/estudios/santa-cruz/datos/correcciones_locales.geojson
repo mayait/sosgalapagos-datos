@@ -6,7 +6,7 @@
   {"type": "Feature",
    "properties": {"id": "k02", "isla": "Santa Cruz", "fecha": "2026-11-22", "radio_m": 65,
     "nombre": "Tomás de Berlanga: centro del barrio (Casita de Chocolate)",
-    "motivo": "El ajuste del 21-nov llenó un círculo de 60 m alrededor del reporte r31, ubicado en el centro del barrio porque el reporte solo daba el nombre del barrio. Ese lugar es seguro y no se ha inundado. En Tomás de Berlanga el 21-nov hubo daños en las vías, no inundación.",
+    "motivo": "El ajuste del 21-nov llenó un círculo de 60 m alrededor del reporte r31, puesto por error en el centro del barrio porque el reporte solo daba el nombre del barrio. Este punto concreto es seguro y no se ha inundado. La encañada que describe r31 se desborda en el camino viejo (punto crítico 1 del informe de campo del barrio), que sigue marcado.",
     "fuente": "Conocimiento local de la coordinación de SOS Galápagos (22-nov-2026), sin verificar en campo."},
    "geometry": {"type": "Point", "coordinates": [-90.32269, -0.71031]}}
  ]

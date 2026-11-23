@@ -1,5 +1,5 @@
 {
- "fuente": "Ajuste con lo observado el 21-nov-2026 (reportes sin verificar) sobre el DTM 1 m: SGIAR (Vricon/Maxar). Modelo propio, no es una delimitación oficial.",
+ "fuente": "Ajuste con lo observado el 21-nov-2026 (reportes sin verificar) y con el informe de campo del barrio Tomás de Berlanga (13-nov-2026) sobre el DTM 1 m: SGIAR (Vricon/Maxar). Modelo propio, no es una delimitación oficial.",
  "relieve": "DTM 1 m: SGIAR (Vricon/Maxar), promediado a 2 m",
  "la_cascada": {
   "cota_punto_bajo_m": 12.97,
@@ -104,18 +104,18 @@
  "hectareas_por_clase_ventana": {
   "Alta": {
    "antes_ha": 215.94,
-   "despues_ha": 251.78,
-   "anadido_ha": 35.83
+   "despues_ha": 251.88,
+   "anadido_ha": 35.94
   },
   "Media": {
    "antes_ha": 423.04,
-   "despues_ha": 466.3,
-   "anadido_ha": 43.27
+   "despues_ha": 465.91,
+   "anadido_ha": 42.87
   },
   "Baja": {
    "antes_ha": 715.01,
-   "despues_ha": 742.26,
-   "anadido_ha": 27.25
+   "despues_ha": 741.59,
+   "anadido_ha": 26.57
   }
  },
  "hectareas_anadidas_por_zona": {
@@ -130,9 +130,9 @@
    "Baja": 3.77
   },
   "depresiones": {
-   "Alta": 2.23,
-   "Media": 2.12,
-   "Baja": 2.05
+   "Alta": 2.21,
+   "Media": 2.1,
+   "Baja": 2.03
   },
   "r10": {
    "Alta": 0.13,
@@ -184,11 +184,6 @@
    "Media": 0.78,
    "Baja": 0.78
   },
-  "r31": {
-   "Alta": 0.77,
-   "Media": 1.03,
-   "Baja": 1.13
-  },
   "r32": {
    "Alta": 0.66,
    "Media": 1.13,
@@ -198,6 +193,27 @@
    "Alta": 0.5,
    "Media": 0.72,
    "Baja": 0.78
+  },
+  "btb-pc1": {
+   "Alta": 0.03
+  },
+  "btb-pc2": {
+   "Alta": 0.05
+  },
+  "btb-pc3": {
+   "Alta": 0.43,
+   "Media": 0.24,
+   "Baja": 0.06
+  },
+  "btb-pc4": {
+   "Alta": 0.13,
+   "Media": 0.13,
+   "Baja": 0.13
+  },
+  "btb-pc5": {
+   "Alta": 0.25,
+   "Media": 0.28,
+   "Baja": 0.28
   }
  },
  "ventana_lonlat": [
@@ -814,7 +830,7 @@
     -0.7399
    ],
    "lugar": "El Edén: Seymour y Petrel",
-   "gravedad": 3,
+   "gravedad": 4,
    "precision": "cruce",
    "radio_m": 20,
    "cota_terreno_m": 7.21,
@@ -964,38 +980,6 @@
    "cota_relleno_dtm_m": 178.38
   },
   {
-   "reporte": "r31",
-   "zona": "fuera",
-   "hora": "08:10",
-   "lectura": "grave_sin_nivel",
-   "base": "Tomás de Berlanga: camino viejo",
-   "lonlat": [
-    -90.32269,
-    -0.71031
-   ],
-   "lugar": "Tomás de Berlanga: camino viejo",
-   "gravedad": 3,
-   "precision": "barrio",
-   "radio_m": 60,
-   "cota_terreno_m": 134.35,
-   "cota_terreno_p10_p90_m": [
-    132.88,
-    135.78
-   ],
-   "prof_obs_m": 0.5,
-   "prof_obs_rango_m": [
-    0.3,
-    0.8
-   ],
-   "espejo_m": 134.85,
-   "espejo_rango_m": [
-    134.65,
-    135.15
-   ],
-   "con_altura": false,
-   "cota_relleno_dtm_m": 134.35
-  },
-  {
    "reporte": "r32",
    "zona": "fuera",
    "hora": "07:48",
@@ -1058,6 +1042,166 @@
    ],
    "con_altura": false,
    "cota_relleno_dtm_m": 173.46
+  },
+  {
+   "reporte": "btb-pc1",
+   "zona": "fuera",
+   "hora": null,
+   "lectura": "grave_sin_nivel",
+   "base": "Informe de campo del barrio Tomás de Berlanga (2026-10-30; 2026-11-02): Camino viejo a Bellavista, alcantarilla",
+   "lonlat": [
+    -90.321969,
+    -0.706314
+   ],
+   "lugar": "Camino viejo a Bellavista, alcantarilla",
+   "gravedad": null,
+   "precision": "calle",
+   "radio_m": 30,
+   "cota_terreno_m": 140.02,
+   "cota_terreno_p10_p90_m": [
+    139.67,
+    140.7
+   ],
+   "prof_obs_m": 0.5,
+   "prof_obs_rango_m": [
+    0.3,
+    0.8
+   ],
+   "espejo_m": 140.52,
+   "espejo_rango_m": [
+    140.32,
+    140.82
+   ],
+   "con_altura": false,
+   "cota_relleno_dtm_m": 140.02
+  },
+  {
+   "reporte": "btb-pc2",
+   "zona": "fuera",
+   "hora": null,
+   "lectura": "grave_sin_nivel",
+   "base": "Informe de campo del barrio Tomás de Berlanga (2026-10-30): Camino público de acceso a siete familias",
+   "lonlat": [
+    -90.321156,
+    -0.706844
+   ],
+   "lugar": "Camino público de acceso a siete familias",
+   "gravedad": null,
+   "precision": "cruce",
+   "radio_m": 20,
+   "cota_terreno_m": 137.04,
+   "cota_terreno_p10_p90_m": [
+    136.49,
+    137.39
+   ],
+   "prof_obs_m": 0.5,
+   "prof_obs_rango_m": [
+    0.3,
+    0.8
+   ],
+   "espejo_m": 137.54,
+   "espejo_rango_m": [
+    137.34,
+    137.84
+   ],
+   "con_altura": false,
+   "cota_relleno_dtm_m": 137.04
+  },
+  {
+   "reporte": "btb-pc3",
+   "zona": "fuera",
+   "hora": null,
+   "lectura": "informe_dos_metros",
+   "base": "Informe de campo del barrio Tomás de Berlanga (2016; 2026-10-30): Lindero norte de un predio junto a la encañada principal",
+   "lonlat": [
+    -90.320092,
+    -0.707761
+   ],
+   "lugar": "Lindero norte de un predio junto a la encañada principal",
+   "gravedad": null,
+   "precision": "aproximada",
+   "radio_m": 50,
+   "cota_terreno_m": 128.99,
+   "cota_terreno_p10_p90_m": [
+    127.93,
+    131.41
+   ],
+   "prof_obs_m": 2.0,
+   "prof_obs_rango_m": [
+    1.0,
+    2.5
+   ],
+   "espejo_m": 130.99,
+   "espejo_rango_m": [
+    129.99,
+    131.49
+   ],
+   "con_altura": true,
+   "cota_relleno_dtm_m": 128.99
+  },
+  {
+   "reporte": "btb-pc4",
+   "zona": "fuera",
+   "hora": null,
+   "lectura": "grave_sin_nivel",
+   "base": "Informe de campo del barrio Tomás de Berlanga (2026-10-30): Área pública entre la Av. del Sol y el pasaje Scalesia",
+   "lonlat": [
+    -90.319319,
+    -0.709253
+   ],
+   "lugar": "Área pública entre la Av. del Sol y el pasaje Scalesia",
+   "gravedad": null,
+   "precision": "cruce",
+   "radio_m": 20,
+   "cota_terreno_m": 127.84,
+   "cota_terreno_p10_p90_m": [
+    127.54,
+    127.95
+   ],
+   "prof_obs_m": 0.5,
+   "prof_obs_rango_m": [
+    0.3,
+    0.8
+   ],
+   "espejo_m": 128.34,
+   "espejo_rango_m": [
+    128.14,
+    128.64
+   ],
+   "con_altura": false,
+   "cota_relleno_dtm_m": 127.84
+  },
+  {
+   "reporte": "btb-pc5",
+   "zona": "fuera",
+   "hora": null,
+   "lectura": "grave_sin_nivel",
+   "base": "Informe de campo del barrio Tomás de Berlanga (2016; 2026-11-02): Vía al hotel Tortuga Bay, frente a Santa Cruz Gardens",
+   "lonlat": [
+    -90.317981,
+    -0.708586
+   ],
+   "lugar": "Vía al hotel Tortuga Bay, frente a Santa Cruz Gardens",
+   "gravedad": null,
+   "precision": "calle",
+   "radio_m": 30,
+   "cota_terreno_m": 128.33,
+   "cota_terreno_p10_p90_m": [
+    127.69,
+    128.84
+   ],
+   "prof_obs_m": 0.5,
+   "prof_obs_rango_m": [
+    0.3,
+    0.8
+   ],
+   "espejo_m": 128.83,
+   "espejo_rango_m": [
+    128.63,
+    129.13
+   ],
+   "con_altura": false,
+   "cota_relleno_dtm_m": 128.33
   }
  ],
  "limitaciones": [

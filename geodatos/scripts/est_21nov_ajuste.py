@@ -20,6 +20,9 @@ Método (todo con cotas del DTM de la SGIAR; nunca se mezclan con umbrales del C
      cerradas del DTM (≥ 50 m²) que toca el agua observada se llenan (alta).
   4. Resto de puntos de control (Matazarnos, Arrayanes, cementerio, El Edén, Bellavista…): llenado local en un radio que
      depende de la precisión del reporte: alta ≤ espejo, media ≤ espejo + 1 m, baja ≤ espejo + 2,5 m.
+  4b. Observaciones de campo del barrio Tomás de Berlanga (estudios/santa-cruz/datos/observaciones_campo_tomas_de_berlanga.geojson,
+     informe comunitario del 13-nov-2026 sobre los desbordes del 30-oct, el 2-nov y 2016): mismo llenado local que el paso 4.
+     No son del 21-nov; la ficha de la capa lo dice.
   5. Solo se SUBE de clase: lo que ya era alta, media o baja en el HAND se conserva.
      (Lo que baja son las correcciones por conocimiento local: estudios/santa-cruz/datos/correcciones_locales.geojson,
      que 10_publicar_web.py recorta al publicar. Ver docs/modelo-hand.md.)
@@ -51,6 +54,7 @@ EV = REPO / "reportes" / "eventos" / "2026-11-21"
 OUT = ROOT / "estudios" / "santa-cruz" / "datos" / "ajuste_21nov"
 SUSC = ROOT / "export" / "galapagos-completo" / "susceptibilidad_inundacion.geojson"
 RESUMEN_DTM = ROOT / "estudios" / "la-cascada" / "datos" / "dtm1m" / "resumen_dtm.json"
+CAMPO_BTB = ROOT / "estudios" / "santa-cruz" / "datos" / "observaciones_campo_tomas_de_berlanga.geojson"
 _spec = importlib.util.spec_from_file_location("cascada_dtm", ROOT / "scripts" / "37_cascada_dtm.py")
 cd = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(cd)   # leer(), rellenar(), T, TI (mismo DTM y máscara de mar)
 
@@ -58,8 +62,8 @@ RES = 2                                              # m (en el vaso, 1 m y 2 m 
 LONLAT = (-90.3460, -0.7465, -90.2995, -0.6890)      # Puerto Ayora, escarpe y Bellavista (dentro del DTM)
 ESPEJO_SIN_NIVEL = ("grave_sin_nivel", "muy_grave_sin_nivel")
 NOMBRE = {3: "Alta", 2: "Media", 1: "Baja"}
-FUENTE = ("Ajuste con lo observado el 21-nov-2026 (reportes sin verificar) sobre el DTM 1 m: SGIAR (Vricon/Maxar). "
-          "Modelo propio, no es una delimitación oficial.")
+FUENTE = ("Ajuste con lo observado el 21-nov-2026 (reportes sin verificar) y con el informe de campo del barrio Tomás de "
+          "Berlanga (13-nov-2026) sobre el DTM 1 m: SGIAR (Vricon/Maxar). Modelo propio, no es una delimitación oficial.")
 DESC = {3: "Ajuste 21-nov: bajo el agua observada o ≤ 1 m sobre el flujo observado",
         2: "Ajuste 21-nov: ≤ 1 m sobre el agua observada o ≤ 2,5 m sobre el flujo observado",
         1: "Ajuste 21-nov: ≤ 2,5 m sobre el agua observada o ≤ 5 m sobre el flujo observado"}
@@ -104,16 +108,29 @@ def main():
     eq, radio = pc["equivalencias_m"], pc["radio_por_precision_m"]
     rep = {f["properties"]["id"]: f for f in json.loads((EV / "reportes.geojson").read_text())["features"]}
     pts = []
-    for p in pc["puntos"]:
-        f = rep[p["reporte"]]; lon, lat = f["geometry"]["coordinates"]; e = eq[p["lectura"]]
+
+    def control(p, lon, lat, lugar, gravedad, precision):
+        e = eq[p["lectura"]]
         zs = zz[disco(lon, lat, 10)]
-        zr = zz[disco(lon, lat, radio[f["properties"]["precision"]])]
+        zr = zz[disco(lon, lat, radio[precision])]
         zt = float(np.median(zs))
-        pts.append({**p, "lonlat": [lon, lat], "lugar": f["properties"]["lugar"], "gravedad": f["properties"]["gravedad"],
-                    "precision": f["properties"]["precision"], "radio_m": radio[f["properties"]["precision"]],
+        pts.append({**p, "lonlat": [lon, lat], "lugar": lugar, "gravedad": gravedad,
+                    "precision": precision, "radio_m": radio[precision],
                     "cota_terreno_m": round(zt, 2), "cota_terreno_p10_p90_m": [round(float(np.percentile(zr, q)), 2) for q in (10, 90)],
                     "prof_obs_m": e["central"], "prof_obs_rango_m": [e["min"], e["max"]], "espejo_m": round(zt + e["central"], 2),
                     "espejo_rango_m": [round(zt + e["min"], 2), round(zt + e["max"], 2)], "con_altura": p["lectura"] not in ESPEJO_SIN_NIVEL})
+
+    for p in pc["puntos"]:
+        f = rep[p["reporte"]]; lon, lat = f["geometry"]["coordinates"]
+        control(p, lon, lat, f["properties"]["lugar"], f["properties"]["gravedad"], f["properties"]["precision"])
+    # Observaciones de campo del barrio Tomás de Berlanga (30-oct, 2-nov y 2016, no del 21-nov): se llenan igual que el paso 4
+    for f in json.loads(CAMPO_BTB.read_text())["features"]:
+        q = f["properties"]
+        if not q.get("lectura"): continue
+        lon, lat = f["geometry"]["coordinates"]
+        control({"reporte": q["id"], "zona": "fuera", "hora": None, "lectura": q["lectura"],
+                 "base": f"Informe de campo del barrio Tomás de Berlanga ({q['fechas']}): {q['lugar']}"},
+                lon, lat, q["lugar"], None, q["precision"])
 
     # ------------------------------------------------------------ 2. La Cascada: vaso a la cota observada
     ref = json.loads(RESUMEN_DTM.read_text())["referencia"]

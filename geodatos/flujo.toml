@@ -387,7 +387,7 @@ nota = "Susceptibilidad de Puerto Ayora ajustada con lo observado el 21-nov (pun
 entradas = ["../reportes/eventos/2026-11-21/puntos_control.json", "../reportes/eventos/2026-11-21/reportes.geojson",
             "../reportes/eventos/2026-11-21/flujo_observado.geojson", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "datos/dtm_sgiar/*.tif",
             "descargas/dem_recortes/santa_cruz_dtm_mar_5m.tif", "estudios/la-cascada/datos/dtm1m/resumen_dtm.json",
-            "export/galapagos-completo/susceptibilidad_inundacion.geojson"]
+            "export/galapagos-completo/susceptibilidad_inundacion.geojson", "estudios/santa-cruz/datos/observaciones_campo_tomas_de_berlanga.geojson"]
 salidas = ["estudios/santa-cruz/datos/ajuste_21nov/susceptibilidad_ajuste_21nov.geojson", "estudios/santa-cruz/datos/ajuste_21nov/vaso_21nov.geojson",
            "estudios/santa-cruz/datos/ajuste_21nov/puntos_control_21nov.geojson", "estudios/santa-cruz/datos/ajuste_21nov/resumen_ajuste.json"]
 

@@ -80,6 +80,16 @@ La susceptibilidad publicada en `/mapas/` es la HAND **más** un ajuste calibrad
 - **Scripts**: `geodatos/scripts/est_21nov_ajuste.py` escribe `estudios/santa-cruz/datos/ajuste_21nov/`; ahí están las hectáreas por clase antes y después y por zona, en `resumen_ajuste.json`. `10_publicar_web.py` lo suma a la capa al publicar. `est_21nov_contraste.py` escribe `contraste_21nov.json`, que compara lo observado con la HAND antes y después del ajuste y con el modelo 2D.
 - **Límites**: las profundidades son estimaciones a ojo y las ubicaciones, aproximadas. Es un modelo de topografía, no de hidráulica: no ve muros, casas ni alcantarillas. El «después» se calibró con esos mismos reportes, así que **no es una validación**. Hace falta medir marcas de agua en campo.
 
+### Observaciones de campo del barrio Tomás de Berlanga
+
+El 10-nov-2026 la Comisión de Vías y Encañadas del barrio recorrió sus dos encañadas y levantó con GPS cinco puntos críticos. El informe es del 13-nov y el oficio al COE, del 18-nov. Están en `geodatos/estudios/santa-cruz/datos/observaciones_campo_tomas_de_berlanga.geojson`, sin nombres de propietarios ni de personas afectadas. `est_21nov_ajuste.py` los usa como puntos de control, con el mismo llenado local del paso 4.
+
+- En el punto crítico 3 se inundó cerca de 1 ha, con unos 2 m de agua sin medir. Se toma como 2 m, con un rango de 1 a 2,5 m.
+- Los demás puntos se toman como «grave sin nivel», 0,5 m.
+- Son desbordes del 30-oct, del 2-nov y de 2016, no del 21-nov. La ficha de la capa lo dice.
+- El punto crítico 5, en la vía al hotel Tortuga Bay, no tenía susceptibilidad en la HAND: es un hueco del modelo que el barrio sí ve.
+- Es información comunitaria sin verificar en campo por SOS Galápagos.
+
 ### Correcciones por conocimiento local
 
 En algunas zonas la coordinación de SOS Galápagos sabe que el agua no llega, aunque el modelo marque una quebrada o el ajuste haya rellenado alrededor de un reporte mal ubicado. Allí **se quita** la susceptibilidad publicada, tanto la HAND como el ajuste.
@@ -88,7 +98,7 @@ En algunas zonas la coordinación de SOS Galápagos sabe que el agua no llega, a
 - **Aplicación**: `10_publicar_web.py` (`susceptibilidad_ajustada`) recorta la capa al publicar. No se modifican la HAND ni el ajuste. Si el archivo falta, falla.
 - **22-nov-2026, Tomás de Berlanga**:
   - `k01` (**retirada el 23-nov-2026**): borraba la quebrada entre el camino viejo y la vía al hotel Tortuga Bay. El informe de campo del barrio Tomás de Berlanga (recorrido del 10-nov, informe del 13-nov y oficio al COE del 18-nov) la contradice: sus cinco puntos críticos están sobre esa quebrada, cuatro en susceptibilidad alta. En el lindero norte del punto crítico 3 la encañada inundó cerca de 1 ha, con unos 2 m de agua, y hubo que evacuar viviendas. La vía al hotel Tortuga Bay se desbordó en 2016 y el 2-nov-2026. Antes de quitar una quebrada, hay que contrastarla con lo observado en campo.
-  - `k02`: el centro del barrio, alrededor del reporte `r31`. El ajuste rellenaba ahí un círculo de 60 m, pero el reporte habla de daños en las vías, no de una inundación. El `r31` también se sacó de los puntos de control y del área afectada `c07`.
+  - `k02`: el centro del barrio, alrededor de donde estaba el reporte `r31`. El ajuste rellenaba ahí un círculo de 60 m, pero el punto estaba mal ubicado. La inundación que describe `r31` es la de la encañada en el camino viejo, el punto crítico 1 del informe del barrio. Ahí vuelve el área afectada `c07` y ahí entra como punto de control `btb-pc1`.
 - **Límite**: es conocimiento local sin verificar en campo. Tampoco es una delimitación oficial.
 
 ## Límites (decirlos siempre que se muestre el mapa)
