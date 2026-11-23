@@ -530,10 +530,11 @@ footer.pie [data-sos-app]{margin-top:14px}
             <label><input type="checkbox" data-c="rayos" checked><i style="background:#facc15;border:1px solid #a16207"></i>rayos (GLM)</label>
           </div>
           <p class="note" id="satHora"></p>
+          <p class="note" id="satAtrib">Imágenes: NASA GIBS / NOAA GOES-East. Lluvia estimada: NOAA (RRQPE) o, si falta, PDIR-Now (CHRS, Universidad de California, Irvine).</p>
         </div>
         <div id="satZonas"></div>
       </div>
-      <div class="nota-gris"><b>Qué es esto.</b> Lo que ve el satélite GOES-19 de la NOAA sobre Galápagos: la temperatura del tope de las nubes (una nube muy fría, por debajo de −50 °C, es una tormenta de gran desarrollo), los rayos detectados desde el espacio y una tasa de lluvia que el satélite <b>estima</b>. No es lluvia medida ni una alerta oficial. Las imágenes de nubes y la lluvia estimada llegan al panel entre 15 y 25 minutos después de tomadas: unos 10 minutos hasta que la NOAA las publica, más hasta 10 de nuestra actualización. Los rayos se cuentan en intervalos de 10 minutos y llegan con 10 a 20 minutos de retraso. La garúa y la lluvia de nubes bajas casi no se ven desde el satélite.</div>
+      <div class="nota-gris"><b>Qué es esto.</b> Lo que ve el satélite GOES-19 de la NOAA sobre Galápagos: la temperatura del tope de las nubes (una nube muy fría, por debajo de −50 °C, es una tormenta de gran desarrollo), los rayos detectados desde el espacio y una tasa de lluvia que el satélite <b>estima</b>. De fondo, la imagen GeoColor del satélite (en color de día, infrarrojo de noche), cada 10 minutos, con unos 60 minutos de retraso: dele a ▶ para ver cómo se movieron las nubes. No es lluvia medida ni una alerta oficial. Las imágenes de nubes y la lluvia estimada llegan al panel entre 15 y 25 minutos después de tomadas: unos 10 minutos hasta que la NOAA las publica, más hasta 10 de nuestra actualización. Los rayos se cuentan en intervalos de 10 minutos y llegan con 10 a 20 minutos de retraso. La garúa y la lluvia de nubes bajas casi no se ven desde el satélite.</div>
       <details class="um"><summary>¿Cómo se calcula la «señal satelital»?</summary><div id="satMetodo"></div></details>
     </div>
   </section>
@@ -1640,7 +1641,24 @@ const satEstado = z => !satFresco() ? "sin datos" : z.evaluada === false ? "sin_
 const colTb = t => t < 200 ? "#4c1d95" : t < 210 ? "#9f1239" : t < 221 ? "#c2410c" : "#f59e0b";
 const colRr = r => r >= 20 ? "#0d366b" : r >= 10 ? "#1c5cab" : r >= 5 ? "#3987e5" : "#86b6ef";
 const colRayo = mn => mn <= 10 ? "#facc15" : mn <= 30 ? "#fb923c" : "#a8a29e";
-let MAPS, GS = {}; const VIS = {nucleos: true, lluvia: true, rayos: true};
+let MAPS, GS = {}, FONDO = null; const VIS = {nucleos: true, lluvia: true, rayos: true};
+// Lluvia estimada de PDIR-Now (CHRS, UC Irvine): la sirve la plataforma. Solo se muestra cuando falta el RRQPE de la NOAA;
+// no entra en la señal satelital ni en el nivel de lluvia. Estimación por infrarrojo: no ve la garúa ni las nubes bajas.
+let PDIR = null, PDIR_T = 0;
+const rrFresco = () => { const t = SAT?.ultima_imagen?.rrqpe?.ts; return !!t && Date.parse(SAT.generado) - Date.parse(t) <= 45 * 6e4; };
+const pdirFresco = () => { const h = PDIR?.horas; return !!(h && h.length) && Date.now() - Date.parse(h[h.length - 1].fin) <= 4 * HORA; };
+function pedirPdir() {
+  if (Date.now() - PDIR_T < 10 * 6e4) return;
+  PDIR_T = Date.now();
+  fetch("/riesgos/api/clima/pdirnow.json?t=" + Math.floor(Date.now() / 3e5)).then(r => r.ok ? r.json() : null)
+    .then(d => { if (d && Array.isArray(d.horas)) { PDIR = d; if (SAT) satelite(); } }).catch(() => {});
+}
+const pdirZona = zid => {
+  if (!pdirFresco()) return null;
+  const hs = PDIR.horas.slice(-3), u = hs[hs.length - 1], vs = hs.map(h => h.zonas?.[zid]?.max_mmh).filter(x => x != null);
+  return vs.length ? {ult: u.zonas?.[zid]?.max_mmh ?? null, max: Math.max(...vs), h: u} : null;
+};
+const faltaTxt = V => (V.faltan || []).map(f => f === "RRQPE" && pdirFresco() ? "RRQPE, la lluvia estimada de la NOAA (la que se muestra es de PDIR-Now y no entra en esta señal)" : esc(f)).join(" y ");
 async function mapaSat() {
   let L; try { L = await obtenerLeaflet(); } catch (e) { MAPS = null; sinMapa("satMap"); return; }
   if (!MAPS) {
@@ -1648,12 +1666,16 @@ async function mapaSat() {
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 13, attribution: "Esri · GOES-19 NOAA"}).addTo(MAPS);
     ["zonas", "nucleos", "lluvia", "rayos"].forEach(k => GS[k] = L.layerGroup().addTo(MAPS));
     MAPS.fitBounds([[-1.45, -91.5], [-0.25, -89.2]]);
+    MAPS.createPane("satEtiq").style.zIndex = 390; MAPS.getPane("satEtiq").style.pointerEvents = "none";
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", {maxZoom: 13, pane: "satEtiq"}).addTo(MAPS);
   }
+  if (!FONDO && window.SateliteMapa) FONDO = SateliteMapa.montar(MAPS, L, {capas: "/riesgos/api/clima/satelite-capas"});
   Object.values(GS).forEach(g => g.clearLayers());
   const c = (SAT.celda_grados || .05) / 2, caja = (la, lo) => [[la - c, lo - c], [la + c, lo + c]];
   Object.values(SAT.zonas).forEach(z => { const b = z.bbox, e = SAT_EST[satEstado(z)] || SAT_EST["sin datos"]; L.rectangle([[b[1], b[0]], [b[3], b[2]]], {color: e[0], weight: 2, fill: false, dashArray: "4 3"}).bindTooltip(esc(z.nombre)).addTo(GS.zonas); });
   if (VIS.nucleos) (SAT.nucleos || []).filter(x => x[2] < 235).forEach(([la, lo, t]) => L.rectangle(caja(la, lo), {stroke: false, fillColor: colTb(t), fillOpacity: .55}).bindTooltip(`Tope de nube a ${num(t - 273.15, 0)} °C`).addTo(GS.nucleos));
-  if (VIS.lluvia) (SAT.lluvia_sat || []).forEach(([la, lo, r]) => L.rectangle(caja(la, lo), {stroke: false, fillColor: colRr(r), fillOpacity: .5}).bindTooltip(`Lluvia estimada ${num(r, 1)} mm/h`).addTo(GS.lluvia));
+  if (FONDO) FONDO.lluvia(VIS.lluvia && !rrFresco() && pdirFresco() ? PDIR : null);
+  if (VIS.lluvia && rrFresco()) (SAT.lluvia_sat || []).forEach(([la, lo, r]) => L.rectangle(caja(la, lo), {stroke: false, fillColor: colRr(r), fillOpacity: .5}).bindTooltip(`Lluvia estimada ${num(r, 1)} mm/h`).addTo(GS.lluvia));
   if (VIS.rayos) (SAT.rayos || []).slice().sort((p, q) => q[2] - p[2]).forEach(([la, lo, mn]) => L.circleMarker([la, lo], {radius: mn <= 10 ? 4 : 3, color: "#713f12", weight: .6, fillColor: colRayo(mn), fillOpacity: .95}).bindTooltip(`Rayo hace ${mn} min`).addTo(GS.rayos));
   MAPS.invalidateSize();
 }
@@ -1665,30 +1687,36 @@ function chispaSat(z) {
   return `<svg viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="none" aria-label="Tope de nube y rayos, últimas 3 horas"><line x1="0" x2="${W}" y1="${u}" y2="${u}" stroke="#c2410c" stroke-dasharray="3 3" stroke-width=".8"/>${barras}<path d="${tb.map((p, i) => `${i ? "L" : "M"}${x(p[0]).toFixed(1)},${y(p[1]).toFixed(1)}`).join("")}" fill="none" stroke="var(--ink)" stroke-width="1.4"/></svg>`;
 }
 function satelite() {
+  pedirPdir();
   const u = SAT.ultima_imagen || {}, c13 = u.c13?.ts, rr = u.rrqpe?.ts, atraso = minDesde(SAT.generado);
-  const viejo = ts => !ts || Date.parse(SAT.generado) - Date.parse(ts) > 45 * 6e4;
+  const ph = pdirFresco() ? PDIR.horas[PDIR.horas.length - 1] : null;
   $("satHora").innerHTML = (atraso > 20 ? `<span style="font-weight:700">ⓘ El colector del satélite no se actualiza desde hace ${Math.round(atraso)} min: las zonas se muestran sin estado.</span> ` : "") +
-    `Imagen de nubes: <b>${c13 ? fH.format(new Date(c13)) : "sin datos"}</b> · rayos hasta las <b>${SAT.glm_ultimo_intervalo ? hm(Date.parse(SAT.glm_ultimo_intervalo) + 6e5) : "—"}</b> · lluvia estimada: ${viejo(rr) ? `<span style="font-weight:700">ⓘ la NOAA no la está produciendo ahora</span>` : hm(Date.parse(rr))} (hora de Galápagos). Rayos: amarillo, últimos 10 min; naranja, 10–30 min; gris, hasta 3 h.` +
+    `Imagen de nubes: <b>${c13 ? fH.format(new Date(c13)) : "sin datos"}</b> · rayos hasta las <b>${SAT.glm_ultimo_intervalo ? hm(Date.parse(SAT.glm_ultimo_intervalo) + 6e5) : "—"}</b> · lluvia estimada: ${rrFresco() ? `<b>${hm(Date.parse(rr))}</b> (NOAA, RRQPE)` : ph ? `la de la NOAA (RRQPE) no se produce ahora; se muestra la de <b>PDIR-Now</b>, de ${hm(Date.parse(ph.inicio))} a ${hm(Date.parse(ph.fin))}, que no ve la garúa ni la lluvia de nubes bajas` : `<span style="font-weight:700">ⓘ la NOAA no la está produciendo ahora</span>`} (hora de Galápagos). Las nubes muy frías y los rayos son lo último que llegó; el fondo y la lluvia estimada cambian con la hora del control. Rayos: amarillo, últimos 10 min; naranja, 10–30 min; gris, hasta 3 h.` +
     (SAT.paralaje ? ` ${esc(SAT.paralaje)}` : "");
   const serie = (z, v) => (z.series?.[v] || []).map(p => p[1]);
   const ult = (z, v) => { const s = serie(z, v); return s.length ? s[s.length - 1] : null; };
   const suma3 = (z, v) => { const s = serie(z, v).slice(-3).filter(x => x != null); return s.length ? s.reduce((a, x) => a + x, 0) : null; };
   const maxr = (z, v) => { const s = serie(z, v).filter(x => x != null); return s.length ? Math.max(...s) : null; };
   const zs = Object.entries(SAT.zonas).sort((p, q) => (q[1].evaluada === true) - (p[1].evaluada === true));
-  $("satZonas").innerHTML = zs.map(([, z]) => {
+  $("satZonas").innerHTML = zs.map(([zid, z]) => {
     const est = satEstado(z), e = SAT_EST[est] || SAT_EST["sin datos"], V = z.vigilancia || {};
     const mot = est === "vigilancia" ? (V.motivos || []).map(m => esc(m.texto) + (m.activo ? " · se cumple ahora" : (V.motivos.length > 1 && m.ultimo_disparo ? ` · último disparo a las ${hm(Date.parse(m.ultimo_disparo))}` : ""))).join("<br>") : "";
-    const hasta = est === "vigilancia" && V.ultimo_disparo ? `Último disparo a las ${hm(Date.parse(V.ultimo_disparo))}${V.vigilancia_hasta ? `; vigilancia hasta las ${hm(Date.parse(V.vigilancia_hasta))}` : ""}.${(V.faltan || []).length ? ` Falta ${V.faltan.map(esc).join(" y ")}.` : ""}` : "";
-    const nubesBajas = est === "sin señal" || est === "incompleta" ? `<div class="m" style="font-weight:700">No descarta lluvia fuerte de nubes bajas.${est === "incompleta" && (V.faltan || []).length ? ` Falta ${V.faltan.map(esc).join(" y ")}.` : ""}</div>` : "";
-    const tb = ult(z, "tb_min_k"), r = ult(z, "lluvia_sat_max_mmh"), r1 = suma3(z, "rayos_n"), r2 = suma3(z, "rayos_n_25km");
+    const hasta = est === "vigilancia" && V.ultimo_disparo ? `Último disparo a las ${hm(Date.parse(V.ultimo_disparo))}${V.vigilancia_hasta ? `; vigilancia hasta las ${hm(Date.parse(V.vigilancia_hasta))}` : ""}.${(V.faltan || []).length ? ` Falta ${faltaTxt(V)}.` : ""}` : "";
+    const nubesBajas = est === "sin señal" || est === "incompleta" ? `<div class="m" style="font-weight:700">No descarta lluvia fuerte de nubes bajas.${est === "incompleta" && (V.faltan || []).length ? ` Falta ${faltaTxt(V)}.` : ""}</div>` : "";
+    const tb = ult(z, "tb_min_k"), r = rrFresco() ? ult(z, "lluvia_sat_max_mmh") : null, r1 = suma3(z, "rayos_n"), r2 = suma3(z, "rayos_n_25km"), pz = r == null ? pdirZona(zid) : null;
+    const lluviaKv = r != null ? `<span>Lluvia estimada máx. (último / 3 h)</span><b>${num(r, 1)} / ${num(maxr(z, "lluvia_sat_max_mmh"), 1)} mm/h</b>`
+      : pz ? `<span>Lluvia estimada máx. (última hora / 3 h)<br><small style="color:var(--mut)">PDIR-Now, estimación por satélite</small></span><b>${num(pz.ult, 1)} / ${num(pz.max, 1)} mm/h</b>`
+      : `<span>Lluvia estimada máx. (último / 3 h)</span><b>sin dato</b>`;
     return `<div class="sz" style="--sc:${e[0]}${est === "sin_evaluar" || est === "sin datos" ? ";background:var(--soft)" : ""}"><div class="h"><span class="n">${esc(z.nombre)}</span><span class="e">${e[1]}</span></div>
       ${mot ? `<div class="m">${mot}</div>` : ""}${hasta ? `<div class="m">${hasta}</div>` : ""}${nubesBajas}
-      <div class="kv" style="margin-top:6px"><span>Tope de nube más frío</span><b>${tb == null ? "—" : num(tb - 273.15, 0) + " °C"}</b><span>Rayos en 30 min (zona / a 25 km)</span><b>${r1 == null && r2 == null ? "—" : `${r1 == null ? "—" : num(r1, 0)} / ${r2 == null ? "—" : num(r2, 0)}`}</b><span>Lluvia estimada máx. (último / 3 h)</span><b>${r == null ? "sin dato" : num(r, 1) + " / " + num(maxr(z, "lluvia_sat_max_mmh"), 1) + " mm/h"}</b></div>${chispaSat(z)}</div>`;
+      <div class="kv" style="margin-top:6px"><span>Tope de nube más frío</span><b>${tb == null ? "—" : num(tb - 273.15, 0) + " °C"}</b><span>Rayos en 30 min (zona / a 25 km)</span><b>${r1 == null && r2 == null ? "—" : `${r1 == null ? "—" : num(r1, 0)} / ${r2 == null ? "—" : num(r2, 0)}`}</b>${lluviaKv}</div>${chispaSat(z)}</div>`;
   }).join("") + `<p class="note">Línea: tope de nube más frío en la zona (más arriba = más frío; trazos: ${num((SAT.frio_k || 221) - 273.15, 0)} °C). Barras: rayos a menos de 25 km (solo información; la regla no los usa). Solo La Cascada y la parte alta de Santa Cruz tienen la señal evaluada.</p>`;
   const um = SAT.vigilancia_umbrales || {};
   $("satMetodo").innerHTML = `<p>Cada 10 minutos se toma, para cada zona (el rectángulo del mapa) y para la zona ampliada ${SAT.anillo_km ?? 25} km, la temperatura del tope de nube más fría (banda 13 del ABI), el porcentaje de la zona con topes por debajo de ${num((SAT.frio_k || 221) - 273.15, 0)} °C, la tasa de lluvia estimada por la NOAA (RRQPE) y, solo como información, los rayos del GLM.</p>
     <p>La zona pasa a «convección profunda cerca» si se cumple alguna de estas condiciones: ${Object.values(um).map(x => esc(Array.isArray(x) ? x[x.length - 1] : x)).join("; ") || "ver satelite/LEEME.md"}. El estado se mantiene ${SAT.vigilancia_persistencia_h ?? 3} h después del último disparo. Si falta un producto y no hubo disparo, el estado es «datos incompletos»: no se puede decir «sin señal».</p>
-    <p>Esta señal <b>no cambia el nivel de lluvia peligrosa</b>, que se calcula solo con la lluvia medida. Probado con un solo evento convectivo (30 de octubre), con reglas ajustadas a ese evento. Frente al nivel «medio» de la regla de lluvia medida, la vigilancia empezó unas 3,5 horas antes (con 3 horas de persistencia y descontando la latencia, ~20 min), y esa cifra incluye la lluvia estimada (RRQPE). Hoy la NOAA no produce RRQPE: solo con los topes de nube, el aviso habría sido sólido en la parte alta, pero en La Cascada habría dependido de un caso límite (dos imágenes). El 2 de noviembre avisó en La Cascada con 20 minutos, que la latencia anula; en la parte alta no avisó antes del episodio del 1 de noviembre (20:10). No vio las lluvias de nubes bajas del 3 y el 23 de octubre. <b>Que no haya señal no quiere decir que no vaya a llover fuerte.</b></p>`;
+    <p>Esta señal <b>no cambia el nivel de lluvia peligrosa</b>, que se calcula solo con la lluvia medida. Probado con un solo evento convectivo (30 de octubre), con reglas ajustadas a ese evento. Frente al nivel «medio» de la regla de lluvia medida, la vigilancia empezó unas 3,5 horas antes (con 3 horas de persistencia y descontando la latencia, ~20 min), y esa cifra incluye la lluvia estimada (RRQPE). Hoy la NOAA no produce RRQPE: solo con los topes de nube, el aviso habría sido sólido en la parte alta, pero en La Cascada habría dependido de un caso límite (dos imágenes). El 2 de noviembre avisó en La Cascada con 20 minutos, que la latencia anula; en la parte alta no avisó antes del episodio del 1 de noviembre (20:10). No vio las lluvias de nubes bajas del 3 y el 23 de octubre. <b>Que no haya señal no quiere decir que no vaya a llover fuerte.</b></p>
+    <p><b>Lluvia estimada de PDIR-Now.</b> Mientras la NOAA no produce el RRQPE, el mapa y las tarjetas muestran la lluvia que estima PDIR-Now (CHRS, Universidad de California, Irvine): una tasa por hora, en celdas de unos 4 km, que llega unos 20 minutos después de terminar la hora. Es una estimación por infrarrojo, como el RRQPE: <b>no ve la garúa ni la lluvia de nubes bajas</b> (el 22 de noviembre a las 22:00, hora de Galápagos, dio 0 en La Cascada mientras las estaciones medían 3,3 mm/h). Solo se muestra: <b>no entra en la señal satelital ni en el nivel de lluvia</b>. En la tarjeta, el máximo es el de las celdas que tocan la zona.</p>
+    <p><b>Fondo del mapa.</b> La imagen GeoColor de GOES-East (NOAA), servida por NASA GIBS: en color de día y en infrarrojo de noche, cada 10 minutos, con unos 60 minutos de retraso. Es la imagen del satélite, no un dato de lluvia.</p>`;
   mapaSat();
 }
 document.querySelectorAll("#satelite .capas input").forEach(i => i.onchange = () => { VIS[i.dataset.c] = i.checked; if (SAT) mapaSat(); });
@@ -1979,6 +2007,7 @@ setInterval(cargar, 5 * 60 * 1000);
 })().catch(() => {});
 </script>
 <script src="/riesgos/estaticos/mapa/lluvia-mapa.js?v=4" defer></script>
+<script src="/riesgos/estaticos/mapa/satelite.js?v=1" defer></script>
 <script src="/riesgos/estaticos/mapa/nino.js?v=1" defer></script>
 <script>
 // El Niño: se monta cuando su tarjeta se acerca a la pantalla, con el mismo Leaflet del panel.
