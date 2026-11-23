@@ -116,6 +116,7 @@ Si `git status` muestra cambios, los recortes locales son más nuevos que los ve
 ### Reglas
 
 - **No copies `geodatos/descargas/` entre computadores por comodidad.** `descargas/oficiales/` trae nombres y teléfonos. Para regenerar el export (`08_exportar.py`) solo hace falta `oficiales/fcd_zonificacion_png_2017_terrestre.geojson`: cópialo de Mac a Mac, nunca a git ni a la nube.
+- **La revisión automática corre sola**: `publicar_mapas.sh` llama a `scripts/revisar_publicacion.py --mapas` antes de subir y se detiene si hay errores. No necesita los textos de los informes, así que funciona en cualquier computador. Después de publicar, `revisar_publicacion.py --mapas --produccion` compara lo publicado con lo local.
 - **Simula antes de subir** y revisa que no borre capas ni teselas:
   `rsync -azn --delete --itemize-changes --exclude /index.html geodatos/publicar/mapas/ "$SERVIDOR":/srv/sosgalapagos-mapas/`
 - Si cambió una capa en `capas/`, corre `08_exportar.py` **y** `08_exportar.py --completo` y haz commit de los dos exports antes de publicar. Si no, se publica el export viejo.
