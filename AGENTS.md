@@ -9,7 +9,10 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
    - `.venv/`, `clima/privado/`, bases SQLite (`*.db`) ni credenciales;
    - **URLs o endpoints de las fuentes meteorológicas**. Solo se nombran: «IERSE», «USFQ GSC», «INAMHI». Los endpoints viven en `clima/privado/`.
 2. **Datos personales:** las capas oficiales (SNGR, MSP) traen nombres y teléfonos. Se depuran en el script, por ejemplo en `07_oficiales.py`. Nunca publiques nombres de personas afectadas.
-3. **Modelo ≠ dato oficial.** La susceptibilidad HAND, las cuencas, la costa baja y las lluvias de modelos son estimaciones propias. Dilo siempre en mapas, textos y fichas.
+3. **Modelo ≠ dato oficial, dicho una vez.** La susceptibilidad HAND, las cuencas, la costa baja y las lluvias de modelos son estimaciones propias, nunca datos oficiales.
+   - **En la web** lo dice **un solo aviso general por página**: el del menú del sitio. Los boletines oficiales van en su propia sección («Boletines oficiales»). No se ponen sellos ni frases de «no oficial», «estimación» o «experimental» en cada tarjeta (decisión de Julián, 23-nov-2026).
+   - **En las tarjetas** solo van las advertencias que **informan**: cuánto subestima un modelo, qué no ve el satélite, cuándo puede fallar un pronóstico, «para navegar, Capitanía de Puerto».
+   - **Lo que sale de la página** sí lo dice siempre: fichas, PDF, capas descargables y mensajes que se comparten por WhatsApp.
 4. **No edites archivos generados a mano.** Corre el script que los produce (ver CONTRIBUIR §1).
 5. **No despliegues** a `sosgalapagos.org` si no te lo piden, y solo desde `main` (`servidores/publicar.sh`).
 6. **Informes y textos de estudios son solo locales.** `informes/` y `geodatos/estudios/*/{texto,figuras}/` (y sus PDF) están en `.gitignore`: no se suben al repositorio ni se publican en la web. Los datos de los estudios sí se versionan. **Única excepción (desde el 21-nov-2026):** los mapas e informes en PDF que Julián pida publicar uno por uno van a la sección de descargas de la portada con `servidores/publicar.sh descargas`. Siguen fuera de git y nunca se publica uno que él no haya pedido.
