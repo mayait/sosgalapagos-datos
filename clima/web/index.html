@@ -1874,7 +1874,9 @@ async function descargas() {
     const fm = new Intl.DateTimeFormat("es", {month: "long", year: "numeric", timeZone: "UTC"});
     const meses = d.archivos.filter(a => /^clima_galapagos_\d{4}-\d{2}\.zip$/.test(a.archivo)).sort((a, b) => b.archivo.localeCompare(a.archivo));
     const url = a => "datos/descargas/" + encodeURIComponent(a);
-    el.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0">
+    const todo = d.archivos.find(a => a.archivo === "clima_galapagos_todo.zip");
+    el.innerHTML = `${todo ? `<div style="margin:8px 0"><a class="chip" href="${url(todo.archivo)}" download>⬇ Todo en un archivo · ${mb(todo.bytes)}</a> <span>mediciones de todas las estaciones desde 2024, nivel por zona, pronóstico, modelos, satélite y mar modelado; se rehace cada noche (último: ${fH.format(new Date(todo.actualizado))})</span></div>` : ""}
+      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0">
         <label for="dlMes">Mes</label>
         <select id="dlMes">${meses.map(a => { const [y, m] = a.archivo.slice(16, 23).split("-"); return `<option value="${esc(a.archivo)}">${fm.format(new Date(Date.UTC(+y, +m - 1, 15)))} · ${mb(a.bytes)}</option>`; }).join("")}</select>
         <a id="dlBtn" class="chip" href="${meses[0] ? url(meses[0].archivo) : "#"}" download>⬇ Descargar</a>
