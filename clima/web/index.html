@@ -257,6 +257,7 @@ html,body{font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif}
 .sos-menu-aviso b{color:var(--ink)}.sos-menu-aviso a{color:var(--red);font-weight:800;text-decoration:none}
 .sos-aviso-largo{display:none}
 @media (min-width:1024px){.sos-aviso-corto{display:none}.sos-aviso-largo{display:inline}}
+.sos-menu:not(.sos-menu-flotante) .sos-menu-aviso .sos-aviso-tel{display:none}
 /* Advertencia del INAMHI vigente: una línea neutra bajo el aviso, que lleva a «Boletines oficiales» */
 .adv-inamhi{margin:0;padding:9px 16px;background:var(--soft);border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.35;text-align:center;color:var(--ink)}
 .adv-inamhi a{display:inline-block;padding:4px 0;font-weight:700;color:var(--ink);white-space:nowrap}
@@ -355,7 +356,7 @@ footer.pie [data-sos-app]{margin-top:14px}
     <ul class="sos-menu-enlaces"><li><a href="/">Inicio</a></li><li><a href="/riesgos/">Mapa de riesgos</a></li><li><a href="/riesgos/informe/">Línea del tiempo</a></li><li><a href="/clima/" aria-current="page">Clima</a></li><li><a href="/riesgos/mapa-del-tiempo/">Lluvia y viento</a></li><li><a href="/riesgos/descargas/">Descargar capas</a></li><li><a href="/riesgos/puntos/">Puntos</a></li></ul>
     <a class="sos-menu-911" href="tel:911" aria-label="Emergencias: llamar al 911">911</a>
   </div>
-  <p class="sos-menu-aviso" role="note"><span class="sos-aviso-corto"><b>Información de apoyo de SOS Galápagos (USFQ), no oficial.</b> Emergencias: <a class="sos-aviso-911" href="tel:911">911</a></span><span class="sos-aviso-largo"><b>Información de apoyo de SOS Galápagos (USFQ), no oficial.</b> Las alertas las da el COE y el pronóstico oficial es del INAMHI. Emergencias: <a class="sos-aviso-911" href="tel:911">911</a></span></p>
+  <p class="sos-menu-aviso" role="note"><span class="sos-aviso-corto"><b>Información de apoyo de SOS Galápagos (USFQ), no oficial.</b><span class="sos-aviso-tel"> Emergencias: <a class="sos-aviso-911" href="tel:911">911</a></span></span><span class="sos-aviso-largo"><b>Información de apoyo de SOS Galápagos (USFQ), no oficial.</b> Las alertas las da el COE y el pronóstico oficial es del INAMHI.<span class="sos-aviso-tel"> Emergencias: <a class="sos-aviso-911" href="tel:911">911</a></span></span></p>
 </nav>
 <!-- Advertencia del INAMHI vigente para Galápagos (de /riesgos/api/clima/oficial): una línea que lleva a «Boletines oficiales» -->
 <p class="adv-inamhi" id="advInamhi" role="status" hidden></p>
