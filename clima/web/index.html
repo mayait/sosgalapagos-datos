@@ -1204,10 +1204,9 @@ function llueve(z) {
     }).join("");
     return `<div class="fz${x.id === z.id ? " su" : ""}"><span class="zn">${esc(zinfo(x).corto)}</span>${celdas}</div>`;
   }).join("");
-  const costaSin = Object.values(P.zonas).some(q => q.puntos.some(p => p.tipo === "costa" && p.dias.slice(0, 3).some(d => d.nivel === "sin_senal")));
   const falla = (R.aviso || "").match(/Puede fallar[^.]*\./)?.[0] || "Puede fallar en los dos sentidos.";
   cont.innerHTML = `<div class="llueve"><div class="fz cab"><span></span>${etq.map(t => `<span>${t}</span>`).join("")}</div>${filas}
-    <div class="notas"><p>${esc(falla)}</p>${costaSin ? `<p>«Sin señal» en la costa no es garantía: de 8 días con 50 mm o más en Puerto Ayora, 6 no tuvieron señal. Mire la lluvia medida.</p>` : ""}</div></div>
+    <div class="notas"><p>${esc(falla)}</p><p>«Sin señal» en la costa no es garantía: de 8 días con 50 mm o más en Puerto Ayora, 6 no tuvieron señal. Mire la lluvia medida.</p></div></div>
     <a href="?vista=ciencia#pronostico" class="ver-mas" id="verPz">Ver el detalle (Ciencia) →</a>`;
   $("verPz").onclick = ev => { ev.preventDefault(); irCiencia("pronostico"); };
 }
