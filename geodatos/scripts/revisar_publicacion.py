@@ -1,6 +1,19 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
 # Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
-"""Checklist automático antes de publicar sosgalapagos.org/estudios/ (ver estudios/PUBLICAR.md).
+"""Checklist automático antes de publicar.
+
+Con --mapas revisa lo que SÍ se publica hoy: publicar/mapas (de 10_publicar_web.py), que muestra sosgalapagos.org/riesgos/.
+Solo lee lo que está en git y lo generado, así que corre en cualquier computador. Lo llama publicar_mapas.sh antes del rsync.
+
+  a. manifiesto   cada capa de capas.json y cada descarga de descargas.json existe; las teselas tienen su teselas.json
+  b. secretos     igual que el punto 3 de abajo, sobre publicar/mapas
+  c. personales   correos, teléfonos, cédulas y campos de contacto en capas, manifiestos y páginas
+  d. fotos        ninguna foto publicada lleva coordenadas GPS en sus metadatos (EXIF)
+  e. palabras     «albergue» en los datos (aviso)
+
+Sin --mapas revisa el sitio de estudios (publicar/estudios, ver estudios/PUBLICAR.md), que es solo local desde el 5-nov-2026.
+Los textos de los estudios no van a git (AGENTS.md, regla 6): en un computador que no los tiene, las revisiones que
+los leen se saltan con un aviso en vez de detenerse.
 
 Revisa el sitio ya generado (publicar/estudios, de 19_estudios_web.py) y las fuentes versionadas. Sale con código 1 si
 algo no pasa (ERROR); los AVISOS no detienen la publicación, pero hay que leerlos.
@@ -19,7 +32,9 @@ algo no pasa (ERROR); los AVISOS no detienen la publicación, pero hay que leerl
  10. git          cambios sin commit en lo que se publica (aviso; error con --estricto)
 
 Uso (desde geodatos/):
-  .venv/bin/python -I scripts/revisar_publicacion.py              checklist local (lo llama publicar_estudios.sh antes del rsync)
+  .venv/bin/python -I scripts/revisar_publicacion.py --mapas      lo que se publica en /mapas (lo llama publicar_mapas.sh)
+  .venv/bin/python -I scripts/revisar_publicacion.py --mapas --produccion   compara producción con publicar/mapas (después de publicar)
+  .venv/bin/python -I scripts/revisar_publicacion.py              checklist local del sitio de estudios
   .venv/bin/python -I scripts/revisar_publicacion.py --externos   además prueba los enlaces externos (red)
   .venv/bin/python -I scripts/revisar_publicacion.py --produccion compara producción con publicar/estudios (después de publicar)
 """
@@ -27,6 +42,7 @@ import argparse, csv, hashlib, html as H, importlib.util, json, os, pathlib, re,
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT = ROOT / "publicar" / "estudios"
+MAPAS = ROOT / "publicar" / "mapas"
 EST = ROOT / "estudios"
 PRIVADO = ROOT.parent / "clima" / "privado"
 PROD = "https://sosgalapagos.org"
@@ -184,11 +200,11 @@ def secretos():
 GENERICO = re.compile(r"(?:https?|wss?)://[^\s\"'<>)]*(?:ierse|uazuay|weatherlink|weatherflow|tempestwx)[^\s\"'<>)]*", re.I)
 
 
-def buscar_secretos():
+def buscar_secretos(out=OUT):
     sec = secretos()
     if not sec:
         aviso("secretos", "no se encontró clima/privado/fuentes.env: solo se buscan patrones genéricos (IERSE, WeatherLink, Tempest)")
-    publicados = [p for p in OUT.rglob("*") if p.is_file() and p.suffix in TEXTO]
+    publicados = [p for p in out.rglob("*") if p.is_file() and p.suffix in TEXTO]
     fuentes = ([p for p in EST.rglob("*") if p.is_file() and p.suffix in TEXTO]
                + [p for p in (ROOT / "scripts").glob("*") if p.suffix in TEXTO] + list((ROOT / "web").glob("*")) + [ROOT / "flujo.toml"])
     for grupo, archivos in (("publicado", publicados), ("versionado", fuentes)):
@@ -315,6 +331,7 @@ def cifras():
     if not conf.exists():
         aviso("cifras", "no hay estudios/cifras_clave.json"); return
     ok = 0
+    faltan = set()
     for c in json.loads(conf.read_text())["cifras"]:
         try:
             v = round(valor_dato(c["dato"]), c.get("decimales", 0))
@@ -322,7 +339,10 @@ def cifras():
             err("cifras", f"{c['id']}: no se pudo leer el dato ({type(e).__name__}: {e})"); continue
         rx = re.compile(c["patron"].replace("{n}", NUM))
         for ref in c["textos"]:
-            t = leer_texto(ref)
+            try:
+                t = leer_texto(ref)
+            except FileNotFoundError:
+                faltan.add(ref); continue
             ms = list(rx.finditer(t))
             if not ms:
                 aviso("cifras", f"{c['id']}: el patrón ya no aparece en {ref} (¿se reescribió el texto? actualiza cifras_clave.json)"); continue
@@ -334,12 +354,17 @@ def cifras():
                     err("cifras", f"{c['id']} ({c['descripcion']}): {ref} dice {num}, los datos dan {fmt}")
                 else:
                     ok += 1
+    if faltan:
+        aviso("cifras", f"{len(faltan)} texto(s) de estudios no están en este computador (son solo locales, p. ej. {sorted(faltan)[0]}): "
+                        "sus cifras no se comprobaron")
     print(f"  cifras: {ok} coincidencias comprobadas")
 
 
 # ------------------------------------------------------------------ 9. pendientes
 def pendientes():
     cache = EST / "pendientes.json"
+    if not (EST / "pendientes").is_dir():
+        aviso("pendientes", "estudios/pendientes/ no está en este computador (es solo local): no se revisó"); return
     if not cache.exists():
         err("pendientes", "falta estudios/pendientes.json: corre scripts/22_pendientes.py --actualizar"); return
     import datetime
@@ -400,22 +425,128 @@ def produccion():
     return 1 if (distintas or fallos) else 0
 
 
-def main():
-    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--externos", action="store_true", help="prueba también los enlaces externos (red)")
-    ap.add_argument("--estricto", action="store_true", help="los cambios sin commit cuentan como error")
-    ap.add_argument("--produccion", action="store_true", help="compara producción con publicar/estudios y termina")
-    a = ap.parse_args()
-    if a.produccion:
-        sys.exit(produccion())
-    print("Revisión de publicar/estudios")
-    if frescura():
-        enlaces(a.externos)
-        revisar_paginas()
-    buscar_secretos()
-    cifras()
-    pendientes()
-    git(a.estricto)
+# ------------------------------------------------------------------ /mapas
+def _con_clave(x, claves):
+    """Todos los diccionarios anidados de `x` que tienen alguna de `claves`."""
+    if isinstance(x, dict):
+        if any(k in x for k in claves):
+            yield x
+        for v in x.values():
+            yield from _con_clave(v, claves)
+    elif isinstance(x, list):
+        for v in x:
+            yield from _con_clave(v, claves)
+
+
+def mapas_manifiesto():
+    faltan = [n for n in ("capas.json", "descargas.json") if not (MAPAS / n).exists()]
+    if faltan:
+        err("manifiesto", f"falta publicar/mapas/{faltan[0]}: corre scripts/10_publicar_web.py"); return False
+    capas = list(_con_clave(json.loads((MAPAS / "capas.json").read_text()).get("grupos", []), ("archivo", "teselas")))
+    variantes = json.loads((MAPAS / "descargas.json").read_text())["variantes"]
+    for var in variantes:
+        for c in capas:
+            if c.get("archivo") and not (MAPAS / "datos" / var / c["archivo"]).exists():
+                err("manifiesto", f"la capa «{c.get('id')}» apunta a datos/{var}/{c['archivo']}, que no existe")
+    for c in capas:
+        if c.get("teselas") and not (MAPAS / "teselas" / c["teselas"] / "teselas.json").exists():
+            err("manifiesto", f"la capa «{c.get('id')}» necesita teselas/{c['teselas']}/teselas.json, que no existe")
+    # si las teselas versionadas no llegaron a publicar/mapas, el rsync --delete las borraría del servidor
+    for d in sorted((ROOT / "teselas").glob("*/teselas.json")):
+        if not (MAPAS / "teselas" / d.parent.name / "teselas.json").exists():
+            err("manifiesto", f"teselas/{d.parent.name} está en el repositorio pero no en publicar/mapas: al publicar se borraría del servidor")
+    n = 0
+    for d in _con_clave(variantes, ("url",)):
+        if d["url"].startswith(("http://", "https://")):
+            continue
+        n += 1
+        if not (MAPAS / d["url"]).exists():
+            err("manifiesto", f"descargas.json apunta a {d['url']}, que no existe")
+    print(f"  manifiesto: {len(capas)} capas, {n} descargas")
+    return True
+
+
+def mapas_personales():
+    n = 0
+    for p in sorted(MAPAS.rglob("*")):
+        if not p.is_file() or p.suffix not in {".geojson", ".json", ".csv", ".html", ".txt"}:
+            continue
+        n += 1
+        t = p.read_text(encoding="utf-8", errors="ignore")
+        if p.suffix == ".geojson":
+            try:
+                claves = {k for f in json.loads(t).get("features", []) for k in (f.get("properties") or {})}
+            except Exception:
+                claves = set()
+            malas = sorted(k for k in claves if CLAVE_PERSONAL.search(k))
+            if malas:
+                err("personales", f"{rel(p)}: campos con datos de contacto: {', '.join(malas)}")
+        for m in CORREO.finditer(t):
+            institucional = m.group(0).split("@")[0].lower() in BUZONES_INSTITUCIONALES
+            (aviso if institucional else err)("personales", f"{rel(p)}: correo electrónico{' (buzón institucional)' if institucional else ''}: "
+                                              f"{m.group(0)[:3]}…")
+            break
+        suelto = lambda m: not (m.start() and (t[m.start() - 1].isalnum() or t[m.start() - 1] == "_"))   # no es parte de un id (w1559242159)
+        for m in TELEFONO.finditer(t):
+            if suelto(m):
+                err("personales", f"{rel(p)}: número con forma de teléfono: {contexto(t, m, 25)}")
+                break
+        for m in CEDULA.finditer(t):
+            if suelto(m) and cedula_valida(m.group(0)):
+                err("personales", f"{rel(p)}: número con forma de cédula: {contexto(t, m, 25)}")
+                break
+        if re.search(r"albergue", t, re.I):
+            aviso("palabras", f"{rel(p)}: la palabra «albergue» aparece en los datos (issue #44)")
+    print(f"  personales: {n} archivos de texto revisados")
+
+
+def mapas_fotos():
+    from PIL import Image
+    fotos = [p for p in MAPAS.rglob("*") if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"} and "teselas" not in p.parts and "raster" not in p.parts]
+    for p in fotos:
+        try:
+            with Image.open(p) as im:
+                exif = im.getexif()
+                gps = exif.get_ifd(0x8825) if exif else {}
+        except Exception as e:
+            aviso("fotos", f"{rel(p)}: no se pudo leer ({type(e).__name__})"); continue
+        if gps:
+            err("fotos", f"{rel(p)}: la foto lleva coordenadas GPS en sus metadatos (EXIF)")
+        elif exif and any(k in exif for k in (0x010F, 0x0110, 0x013B, 0xA430, 0xA431)):   # marca, modelo, autor, dueño, n.º de serie
+            aviso("fotos", f"{rel(p)}: la foto lleva metadatos del aparato o del autor (EXIF)")
+    print(f"  fotos: {len(fotos)} revisadas")
+
+
+def mapas_produccion():
+    """Compara el manifiesto y las capas de publicar/mapas con lo que sirve producción."""
+    archivos = [MAPAS / "capas.json", MAPAS / "descargas.json", *sorted((MAPAS / "datos").rglob("*.geojson"))]
+    iguales, distintas, fallos = 0, [], []
+    for p in archivos:
+        url = f"{PROD}/mapas/{p.relative_to(MAPAS).as_posix()}"
+        try:
+            rq = urllib.request.Request(url, headers={"User-Agent": "sosgalapagos-revision/1.0", "Accept-Encoding": "identity"})
+            with urllib.request.urlopen(rq, timeout=60) as r:
+                cuerpo = r.read()
+        except Exception as e:
+            fallos.append(f"{url} ({e})"); continue
+        if cuerpo == p.read_bytes():
+            iguales += 1
+        else:
+            distintas.append(url)
+    try:
+        with urllib.request.urlopen(f"{PROD}/mapas/version.txt", timeout=20) as r:
+            print("  versión publicada:", r.read().decode(errors="replace").strip())
+    except Exception:
+        pass
+    print(f"  producción: {iguales} archivos iguales a publicar/mapas, {len(distintas)} distintos, {len(fallos)} sin respuesta")
+    for u in distintas[:20]:
+        print("   distinto:", u)
+    for u in fallos[:20]:
+        print("   sin respuesta:", u)
+    return 1 if (distintas or fallos) else 0
+
+
+def informe():
     for nivel, lista in (("AVISO", avisos), ("ERROR", errores)):
         por = {}
         for c, m in lista:
@@ -427,6 +558,35 @@ def main():
                 print(f"  {nivel} [{c}] … y {len(ms) - 15} más")
     print(f"\n{len(errores)} error(es), {len(avisos)} aviso(s).", "NO PUBLICAR." if errores else "Se puede publicar.")
     sys.exit(1 if errores else 0)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--mapas", action="store_true", help="revisa publicar/mapas (lo que muestra /riesgos/) en vez del sitio de estudios")
+    ap.add_argument("--externos", action="store_true", help="prueba también los enlaces externos (red)")
+    ap.add_argument("--estricto", action="store_true", help="los cambios sin commit cuentan como error")
+    ap.add_argument("--produccion", action="store_true", help="compara producción con lo generado en local y termina")
+    a = ap.parse_args()
+    if a.mapas:
+        if a.produccion:
+            sys.exit(mapas_produccion())
+        print("Revisión de publicar/mapas")
+        if mapas_manifiesto():
+            buscar_secretos(MAPAS)
+            mapas_personales()
+            mapas_fotos()
+        informe()
+    if a.produccion:
+        sys.exit(produccion())
+    print("Revisión de publicar/estudios")
+    if frescura():
+        enlaces(a.externos)
+        revisar_paginas()
+    buscar_secretos()
+    cifras()
+    pendientes()
+    git(a.estricto)
+    informe()
 
 
 if __name__ == "__main__":
