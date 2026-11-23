@@ -17,7 +17,7 @@ Mini proyecto para reunir, depurar y revisar la información geográfica de Sant
 | `descargas/` | Datos crudos: extracto OSM de Geofabrik (31-oct-2026), DEM Copernicus GLO-30, WFS IGM 1:25 000 (70 capas) y capas oficiales (SNGR, INEC, CGREG/FCD, Open Buildings). **No se sube al repositorio** (está en `.gitignore`: pesa 430 MB y contiene datos personales); se regenera con los scripts `01`–`07`. |
 | `capas/osm/`, `capas/igm/`, `capas/dem/` | Capas depuradas por fuente. |
 | `capas/final/` | Capas integradas de las islas completas. |
-| `export/` | **Paquete para ResponseGrid**: capas recortadas al área de interés, manifiesto `capas.json`, motor TypeScript y guía de integración. |
+| `export/` | **Paquete para ResponseGrid**: capas recortadas al área de interés, manifiesto `capas.json`, motor TypeScript y guía de integración. `export/galapagos-completo/` son las mismas capas sin recorte (islas completas): es lo que se publica en `/mapas`. |
 | `datos/dtm_sgiar/` | **DTM de 1 m de Santa Cruz** (Puerto Ayora, escarpe y Bellavista), dato de la **SGIAR** (Subsecretaría de Gestión de la Información y Análisis de Riesgo) sobre un producto Vricon/Maxar. Lo prepara `35_dtm_sgiar.py`; ficha y cita en su `LEEME.md`. |
 | `capas/raster/` | PNG para superponer: relieve, elevación, pendientes y susceptibilidad HAND; los límites están en `limites.json`. |
 | `scripts/` | Proceso reproducible (`01`–`07`); ver abajo. |
@@ -74,6 +74,40 @@ El visor lee `export/galapagos/capas.json`, que es el mismo paquete que pasa al 
   - `puntos_clave` (OSM + IGM: agua, energía, transporte, etc.)
 - **Topografía:** `curvas_nivel` (cada 20 m) y los PNG de relieve.
 - `resumen_exposicion.json`: edificios y población por isla en cada zona de exposición.
+
+## Publicar `/mapas` desde otro computador
+
+`git clone` no basta: `10_publicar_web.py` lee carpetas que git ignora. Antes de correr `servidores/publicar.sh mapas`, cópialas desde la Mac que ya publica.
+
+| Carpeta | Tamaño | ¿En git? | Para qué | Si falta |
+|---|---|---|---|---|
+| `geodatos/export/galapagos-completo/` | 32 MB | **Sí** (desde el 22-nov-2026) | Capas de las islas completas que se publican | Viene con `git pull` |
+| `geodatos/datos/dtm_sgiar/`, `geodatos/datos/foto_aerea_21nov/` | 96 MB y 2,5 MB | Sí | Descargas del DTM y de la foto aérea | Viene con `git pull` |
+| `geodatos/teselas/` (`dtm_sgiar/`, `ortofoto_21nov/`) | 43 MB, 3 457 archivos | No: muchos archivos pequeños | Teselas del relieve y de la foto del 21-nov | Sin `ortofoto_21nov/` el script falla. **Sin `dtm_sgiar/` no falla: publica sin esa capa y el `rsync --delete` borra las teselas del servidor** |
+| `reportes/publicar/2026-11-21/` | 9 MB, 189 archivos | No: fotos de vecinos (se ven personas y casas) | Reportes ciudadanos y buenas noticias, ya depurados | El script falla. Solo se regenera con `reportes/privado/`, que nunca sale de la Mac de origen |
+| `geodatos/descargas/dem_recortes/` | 60 MB, 9 GeoTIFF | No: está dentro de `descargas/` | Solo para **regenerar**: `08_exportar.py`, `est_21nov_ajuste.py`, `36_teselas_dtm.py` | Publicar funciona; regenerar no |
+| `geodatos/.venv/` | — | No | Python | `python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt` |
+
+`geodatos/teselas/ortofoto_21nov/` también se puede regenerar sin copiar nada: `scripts/est_21nov_foto_teselas.py` parte de `datos/foto_aerea_21nov/`, que está en git.
+
+Copia por la red (las dos Mac en la misma red, con «Sesión remota» activada en la de origen). Desde la raíz del repositorio en la Mac nueva:
+
+```bash
+ORIGEN=usuario@mac-de-origen.local:dev/sosgalapagos-datos
+rsync -a --progress "$ORIGEN/geodatos/teselas/"                  geodatos/teselas/
+rsync -a --progress "$ORIGEN/reportes/publicar/"                 reportes/publicar/
+rsync -a --progress "$ORIGEN/geodatos/descargas/dem_recortes/"   geodatos/descargas/dem_recortes/   # solo para regenerar
+```
+
+Sin red, copia esas tres carpetas a un disco y respeta las mismas rutas. Son 112 MB en total.
+
+Reglas:
+
+- **No copies todo `geodatos/descargas/` por comodidad.** `descargas/oficiales/` trae nombres y teléfonos. Si hace falta regenerar el export (`08_exportar.py`), copia solo `dem_recortes/` y `oficiales/fcd_zonificacion_png_2017_terrestre.geojson`, siempre de Mac a Mac, nunca a git ni a la nube.
+- **Simula antes de subir** y revisa que no borre capas ni teselas:
+  `rsync -azn --delete --itemize-changes --exclude /index.html geodatos/publicar/mapas/ "$SERVIDOR":/srv/sosgalapagos-mapas/`
+- Si cambió una capa en `capas/`, corre `08_exportar.py` **y** `08_exportar.py --completo` y haz commit de los dos exports antes de publicar. Si no, se publica el export viejo.
+- La Mac nueva necesita su propia llave SSH autorizada en el servidor. `SERVIDOR` acepta un alias de `~/.ssh/config` (`SERVIDOR=sosgalapagos servidores/publicar.sh mapas`).
 
 ## Límites y advertencias
 

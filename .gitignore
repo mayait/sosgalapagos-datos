@@ -23,8 +23,9 @@ geodatos/descargas
 
 # Páginas públicas generadas (10_publicar_web.py, 19_estudios_web.py); se suben con servidores/publicar.sh
 geodatos/publicar/
-geodatos/export/galapagos-completo/
-geodatos/export/galapagos-completo
+# geodatos/export/galapagos-completo/ SÍ se versiona desde el 22-nov-2026: lo necesitan 10_publicar_web.py y
+# est_21nov_ajuste.py, y regenerarlo (08_exportar.py --completo) pide geodatos/descargas/, que no va a git.
+# Pesa 32 MB (el mayor archivo, 13 MB) y no trae datos personales: son las mismas capas de export/galapagos sin recorte.
 geodatos/geoserver-local/
 # Estado local del flujo incremental (scripts/flujo.py): hashes y registros de corridas
 geodatos/.flujo/
