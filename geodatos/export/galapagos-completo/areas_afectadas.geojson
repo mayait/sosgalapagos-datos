@@ -2550,6 +2550,128 @@
   {
    "type": "Feature",
    "properties": {
+    "id": "c07",
+    "nombre": "Encañada en Tomás de Berlanga: camino viejo",
+    "tipo": "riesgo",
+    "estado": "por_validar",
+    "isla": "Santa Cruz",
+    "fecha": "2026-11-21",
+    "detalle": "08:12: la encañada baja por el camino viejo y arranca los dos tubos del paso. El COE cuenta el barrio entre los sitios afectados. El informe de campo del barrio (13-nov-2026) ubica en este punto la alcantarilla obstruida donde la encañada principal se desborda con unos 40 m de ancho (punto crítico 1). Círculo de 60 m en el punto GPS del informe; antes estaba, por error, en el centro del barrio.",
+    "fuente": "Reportes ciudadanos por WhatsApp del 21-nov-2026, sin verificar. Delimitación aproximada de SOS Galápagos; no es un dato oficial.",
+    "reportes": "r31",
+    "area_ha": 1.12
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -90.321449,
+       -0.706454
+      ],
+      [
+       -90.321502,
+       -0.706585
+      ],
+      [
+       -90.321588,
+       -0.706697
+      ],
+      [
+       -90.321699,
+       -0.706783
+      ],
+      [
+       -90.321829,
+       -0.706838
+      ],
+      [
+       -90.321969,
+       -0.706856
+      ],
+      [
+       -90.322108,
+       -0.706838
+      ],
+      [
+       -90.322238,
+       -0.706784
+      ],
+      [
+       -90.32235,
+       -0.706698
+      ],
+      [
+       -90.322435,
+       -0.706585
+      ],
+      [
+       -90.322489,
+       -0.706455
+      ],
+      [
+       -90.322508,
+       -0.706314
+      ],
+      [
+       -90.322489,
+       -0.706174
+      ],
+      [
+       -90.322436,
+       -0.706043
+      ],
+      [
+       -90.32235,
+       -0.705931
+      ],
+      [
+       -90.322239,
+       -0.705845
+      ],
+      [
+       -90.322109,
+       -0.70579
+      ],
+      [
+       -90.321969,
+       -0.705772
+      ],
+      [
+       -90.32183,
+       -0.70579
+      ],
+      [
+       -90.3217,
+       -0.705844
+      ],
+      [
+       -90.321588,
+       -0.70593
+      ],
+      [
+       -90.321503,
+       -0.706043
+      ],
+      [
+       -90.321449,
+       -0.706173
+      ],
+      [
+       -90.32143,
+       -0.706314
+      ],
+      [
+       -90.321449,
+       -0.706454
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
     "id": "a07",
     "nombre": "Pelican Bay: cementerio y avenida Charles Darwin",
     "tipo": "inundacion",
