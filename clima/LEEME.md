@@ -1,5 +1,7 @@
 # Clima Galápagos: datos medidos para analizar eventos y simular
 
+> **¿Vienes a bajar los datos o a reproducir los cálculos?** Empieza por [`PARA-AGENTES.md`](PARA-AGENTES.md): todo el clima en un ZIP que se rehace cada noche ([`clima_galapagos_todo.zip`](https://sosgalapagos.org/clima/datos/descargas/clima_galapagos_todo.zip)), su formato, las trampas y [`replicar/nivel.py`](replicar/nivel.py), que reproduce el nivel de lluvia peligrosa sin dependencias.
+
 > **Desde el 22-nov-2026 todo el clima corre dentro de la plataforma**, en un solo stack: [`sosgalapagos-plataforma`](https://github.com/mayait/sosgalapagos-plataforma), app `clima/` (plan en su `docs/plan-clima.md`). Recoge las fuentes, calcula el nivel de lluvia, el pronóstico, las mareas y el satélite, y escribe los datos del panel. Todo en PostgreSQL: **ya no hay SQLite ni timers de systemd**. Un arreglo de una fuente se hace allá (`clima/fuentes/`).
 >
 > Lo que sigue vivo en esta carpeta:

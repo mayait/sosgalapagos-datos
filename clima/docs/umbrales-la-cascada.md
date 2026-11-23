@@ -131,8 +131,8 @@ El 21-nov hacia las 05:00 (hora de Galápagos) La Cascada volvió a desbordarse,
 | | 30-oct (21:20) | 21-nov (~05:00) |
 |---|---|---|
 | Dónde llovió fuerte | parte alta: Miconia 82 / 164 / 260 mm (1 h / 3 h / 24 h), Santa Rosa 71 / 136 / 232 | Puerto Ayora: Evolución 43 / 110 / 173, Casa Marina 43 / 100 / 164, Erna 32 / 74 / 126; parte alta menos (Miconia 54 / 100 / 146, Santa Rosa 22 / 55 / 92) |
-| Lluvia de los 5 días previos | casi nada (Miconia 17 mm) | suelo saturado (Miconia 191 mm, Santa Rosa 94 mm) |
-| Regla anterior en La Cascada | «alto» 5,7 h antes y «muy alto» 40 min antes | solo «alto», 1,8 h antes: Los Guayabillos dañada, Charles Darwin en 0 y Erna era la única estación válida |
+| Lluvia de los 5 días previos | casi nada (Miconia 17 mm) | suelo saturado (Miconia 237 mm, Santa Rosa 102 mm, Evolución 75 mm) |
+| Regla anterior en La Cascada | «alto» 5,7 h antes y «muy alto» 40 min antes | solo «alto», 1,8 h antes: Los Guayabillos dañada, Charles Darwin con 0 mm en 3 h (14 en 24 h) y Erna era la única estación válida |
 
 **Cambio:** se añaden a La Cascada Evolución y Casa Marina (Puerto Ayora) con peso 1. Los umbrales no cambian.
 

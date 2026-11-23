@@ -5,7 +5,7 @@ Datos geográficos, mediciones del clima y modelos que se usaron para responder 
 - **Responsable:** Julián Maya, Universidad San Francisco de Quito (USFQ) · jamaya@usfq.edu.ec. Coordinación: USFQ Galápagos.
 - **En línea:**
   - [sosgalapagos.org/riesgos](https://sosgalapagos.org/riesgos/) — el mapa de riesgos, que muestra estas capas (su código está en [`sosgalapagos-plataforma`](https://github.com/mayait/sosgalapagos-plataforma)); las [descargas](https://sosgalapagos.org/riesgos/descargas/) y los datos se publican bajo `/mapas/`;
-  - [/clima](https://sosgalapagos.org/clima/) — lluvia en vivo, nivel preliminar de inundación, pronóstico y satélite.
+  - [/clima](https://sosgalapagos.org/clima/) — lluvia en vivo, nivel preliminar de inundación, pronóstico y satélite. **Todos sus datos en un ZIP que se rehace cada noche:** [`clima_galapagos_todo.zip`](https://sosgalapagos.org/clima/datos/descargas/clima_galapagos_todo.zip). Para agentes de IA y para reproducir los cálculos: [`clima/PARA-AGENTES.md`](clima/PARA-AGENTES.md).
 - **Plataforma de coordinación** (ResponseGrid): vive en otro repositorio, [mayait/sosgalapagos](https://github.com/mayait/sosgalapagos).
 
 > ⚠️ **Todo es preliminar. Modelo propio ≠ dato oficial.** No existe un mapa oficial de amenaza por inundación pluvial para Galápagos. Lo marcado como **modelo** (HAND, cuencas, modelo 2D, tormentas sintéticas, curvas IDF, alerta, pronóstico) sirve para **priorizar y discutir**. No sirve para delimitar zonas, normar ni diseñar obras. Las capas **oficiales** citan su institución.
@@ -84,7 +84,8 @@ Es lo único que permite **validar** los modelos y la alerta. Hoy ninguna cifra 
 |---|---|
 | **Todo el repositorio** (capas, clima y scripts) | [ZIP de `main`](https://github.com/mayait/sosgalapagos-datos/archive/refs/heads/main.zip) |
 | **Capas de las islas completas** en Shapefile o GeoJSON (WGS84, UTF-8, con LEEME) | [Versiones publicadas](https://github.com/mayait/sosgalapagos-datos/releases/latest) → `todo-completo-shp.zip` · `todo-completo-geojson.zip` |
-| **Datos del clima** (IERSE, INAMHI, FCD) | [Versiones publicadas](https://github.com/mayait/sosgalapagos-datos/releases/latest) → `clima-datos-*.zip` · carpeta [`clima/datos/`](clima/datos/) |
+| **Clima: todo en un archivo** (todas las estaciones cada 5 min desde 2024, lluvia diaria desde 1965, nivel por zona, pronóstico, modelos, satélite, mar modelado y la regla), se rehace cada noche | [`clima_galapagos_todo.zip`](https://sosgalapagos.org/clima/datos/descargas/clima_galapagos_todo.zip) · guía y formato en [`clima/PARA-AGENTES.md`](clima/PARA-AGENTES.md) · catálogo legible por máquina en [`clima/catalogo.json`](clima/catalogo.json) |
+| Crudos históricos del clima (IERSE, INAMHI, FCD) | [Versiones publicadas](https://github.com/mayait/sosgalapagos-datos/releases/latest) → `clima-datos-*.zip` · carpeta [`clima/datos/`](clima/datos/) |
 | Capas del mapa de la emergencia, una por una | [`mapas-galapagos/datos/`](mapas-galapagos/datos/) o el mapa de [/riesgos](https://sosgalapagos.org/riesgos/) y sus [descargas](https://sosgalapagos.org/riesgos/descargas/) |
 | Datos de cada estudio (los que alimentan las capas de los modelos) | [`geodatos/estudios/`](geodatos/estudios/) |
 
@@ -106,6 +107,7 @@ docs/              explicaciones transversales (modelo HAND)
 | Las capas listas para usar | [`mapas-galapagos/`](mapas-galapagos/00-LEEME.md) o [/riesgos/descargas](https://sosgalapagos.org/riesgos/descargas/) |
 | Cómo se hacen las capas | [`geodatos/LEEME.md`](geodatos/LEEME.md) |
 | Las mediciones del clima, el pronóstico y el satélite | [`clima/LEEME.md`](clima/LEEME.md) |
+| Bajar todos los datos del clima y reproducir el nivel de lluvia (agentes de IA) | [`clima/PARA-AGENTES.md`](clima/PARA-AGENTES.md) · [`clima/replicar/`](clima/replicar/) |
 | De dónde sale cada dato | [`geodatos/docs/fuentes-oficiales.md`](geodatos/docs/fuentes-oficiales.md) y [`03-fuentes-y-licencias.md`](mapas-galapagos/documentacion/03-fuentes-y-licencias.md) |
 | Rehacer los estudios tras un dato nuevo | [`geodatos/flujo.toml`](geodatos/flujo.toml) + `geodatos/scripts/flujo.py --seco` |
 | Publicar o tocar un servidor | [`servidores/README.md`](servidores/README.md) |
