@@ -318,27 +318,30 @@ footer.pie [data-sos-app]{margin-top:14px}
 .isla svg.g text{font-size:10.5px;fill:var(--mut)}.isla svg.g text.v{fill:var(--ink);font-weight:700}
 .isla .mar{display:flex;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
 .isla .mar span{padding:5px 9px;border-radius:999px;background:var(--soft)}.isla .mar b{font-variant-numeric:tabular-nums}
+/* ═══ Orden y menú como /riesgos/ (23-nov-2026) ═══ */
+.menu-sitio{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.menu-sitio a{border:2px solid #000;border-radius:999px;background:#fff;color:#000;padding:6px 13px;font-size:12.5px;font-weight:700;text-decoration:none;line-height:1.2}
+.menu-sitio a:hover{background:#000;color:#fff}
+.card{border-radius:16px;box-shadow:none;border-color:#E5E5E5}
+.zbtn{border-width:2px;border-color:#E5E5E5;font-weight:600}
+.zbtn.on{border-color:#000;background:#000;color:#fff}
+.avisos-of{margin-top:14px}
+section.franja{margin-top:22px;border:1px solid #E5E5E5;border-radius:16px;background:#fff;font-size:13px;color:var(--ink2)}
+section.franja .in{padding:14px 16px}
+section.franja .lab{font:800 12px/1.1 var(--titulo);letter-spacing:.04em;color:var(--ink);width:100%}
+section.franja .der{margin-left:0;width:100%;color:var(--mut)}
+.card .hd h2,.sci-sec h2{word-spacing:-.14em}
+@media (max-width:640px){.menu-sitio a{padding:6px 11px}}
 </style>
-<link rel="stylesheet" href="/riesgos/estaticos/mapa/lluvia-mapa.css?v=2">
+<link rel="stylesheet" href="/riesgos/estaticos/mapa/lluvia-mapa.css?v=3">
 <link rel="stylesheet" href="/riesgos/estaticos/mapa/nino.css?v=1">
 </head>
 <body>
 <div class="aviso-sitio" role="note"><span><strong>Estimaciones preliminares, no oficiales.</strong> Emergencias: <a href="tel:911">911</a></span></div>
-<div class="franja" role="region" aria-label="Alertas oficiales">
-  <div class="in">
-    <span class="lab">ALERTAS OFICIALES</span>
-    <a href="https://www.gestionderiesgos.gob.ec/" target="_blank" rel="noopener">SNGR</a>
-    <span>COE cantonal</span>
-    <a href="tel:911"><b>ECU 911 · llame al 911</b></a>
-    <span style="opacity:.6">·</span>
-    <span><b>Pronóstico oficial:</b> INAMHI</span>
-    <span class="der">Esta página no emite alertas: siga siempre al COE, la SNGR y el ECU 911.</span>
-  </div>
-</div>
 <div class="wrap">
 <header class="top">
   <div>
-    <nav class="migas" aria-label="SOS Galápagos"><a href="/riesgos/">← Mapa de riesgos</a><a href="/riesgos/informe/">Línea del tiempo</a><a href="/">Inicio</a></nav>
+    <nav class="menu-sitio" aria-label="SOS Galápagos"><a href="/riesgos/">Mapa de riesgos</a><a href="/riesgos/informe/">Línea del tiempo</a><a href="/riesgos/mapa-del-tiempo/">Lluvia y viento</a><a href="/">Inicio</a></nav>
     <h1>Clima en vivo</h1>
   </div>
   <div style="display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap">
@@ -356,28 +359,9 @@ footer.pie [data-sos-app]{margin-top:14px}
 <main id="vCom">
   <section id="zcard" class="zcard" aria-live="polite"><p>Cargando el nivel de su zona…</p></section>
 
-  <!-- Avisos oficiales vigentes: compactos, arriba. Los sirve la plataforma (Django): /riesgos/api/clima/… -->
-  <section id="cAvisos" class="avisos-of" hidden aria-label="Avisos oficiales vigentes"></section>
-
   <section class="card" id="cViene">
     <div class="hd"><h2>¿Cómo viene?</h2><span class="sub">Arriba, lluvia medida por hora en las últimas 48 h. Abajo, cuándo esperan lluvia los modelos en las próximas 72 h.</span></div>
     <div id="fViene"></div>
-  </section>
-
-  <section class="card" id="cDias">
-    <div class="hd"><h2>¿Lloverá fuerte estos días?</h2><span class="sub" id="diasSub">Lluvia fuerte = 20 mm o más en el día · pronóstico experimental de SOS Galápagos, no oficial</span></div>
-    <div id="diasCont"></div>
-  </section>
-
-  <section class="card" id="cMar">
-    <div class="hd"><h2>¿Cuándo sube el mar y cuánto?</h2><span class="sub" id="marSub"></span></div>
-    <div id="marCont"></div>
-  </section>
-
-  <section class="card" id="cIslas" hidden>
-    <div class="hd"><h2>Hoy en cada isla</h2><span class="sub">pronóstico oficial del INAMHI · mareas de la tabla oficial del INOCAR</span></div>
-    <div class="islas" id="islasB"></div>
-    <p class="note">La curva de marea se dibuja entre las pleamares y bajamares de la tabla del INOCAR; las alturas son metros sobre la bajamar de sicigia. El oleaje viene de un modelo y es solo orientativo. Con El Niño el mar está más alto que la tabla.</p>
   </section>
 
   <!-- Mapa de lluvia y viento de los modelos (tipo Windy). Se monta solo cuando se acerca a la vista. -->
@@ -386,10 +370,29 @@ footer.pie [data-sos-app]{margin-top:14px}
     <div id="lluviaMapa" style="min-height:420px"></div>
   </section>
 
+  <section class="card" id="cIslas" hidden>
+    <div class="hd"><h2>Hoy en cada isla</h2><span class="sub">pronóstico oficial del INAMHI · mareas de la tabla oficial del INOCAR</span></div>
+    <div class="islas" id="islasB"></div>
+    <p class="note">La curva de marea se dibuja entre las pleamares y bajamares de la tabla del INOCAR; las alturas son metros sobre la bajamar de sicigia. El oleaje viene de un modelo y es solo orientativo. Con El Niño el mar está más alto que la tabla.</p>
+  </section>
+
+  <section class="card" id="cMar">
+    <div class="hd"><h2>Marea</h2><span class="sub" id="marSub"></span></div>
+    <div id="marCont"></div>
+  </section>
+
+  <!-- Avisos oficiales vigentes: después de lo medido y lo pronosticado. Los sirve la plataforma (Django): /riesgos/api/clima/… -->
+  <section id="cAvisos" class="avisos-of" hidden aria-label="Avisos oficiales vigentes"></section>
+
   <!-- El Niño: boletín ERFEN (oficial) arriba; índices de la NOAA, mar y ZCIT como contexto. Código y datos en la plataforma. -->
   <section class="card" id="cNino">
     <div class="hd"><h2>El Niño</h2><span class="sub">boletín oficial del ERFEN · índices y temperatura del mar de la NOAA como contexto</span></div>
     <div id="nino" style="min-height:200px"></div>
+  </section>
+
+  <section class="card" id="cDias">
+    <div class="hd"><h2>¿Lloverá fuerte estos días?</h2><span class="sub" id="diasSub">Lluvia fuerte = 20 mm o más en el día · pronóstico experimental de SOS Galápagos, no oficial</span></div>
+    <div id="diasCont"></div>
   </section>
 
   <div class="grid2" style="margin-top:14px">
@@ -605,6 +608,18 @@ footer.pie [data-sos-app]{margin-top:14px}
     </div>
   </section>
 </main>
+
+<section class="franja" role="region" aria-label="Alertas oficiales">
+  <div class="in">
+    <span class="lab">ALERTAS OFICIALES</span>
+    <a href="https://www.gestionderiesgos.gob.ec/" target="_blank" rel="noopener">SNGR</a>
+    <span>COE cantonal</span>
+    <a href="tel:911"><b>ECU 911 · llame al 911</b></a>
+    <span style="opacity:.6">·</span>
+    <span><b>Pronóstico oficial:</b> INAMHI</span>
+    <span class="der">Esta página no emite alertas: siga siempre al COE, la SNGR y el ECU 911.</span>
+  </div>
+</section>
 
 <footer class="pie">
   <div class="aviso"><b>Modelos preliminares.</b> El nivel de lluvia peligrosa, el pronóstico de lluvia fuerte y la señal satelital son modelos preliminares de SOS Galápagos, todavía en evaluación: no son datos ni alertas oficiales y pueden fallar. El nivel se calibró con dos eventos (30-oct y 21-nov de 2026) y el pronóstico sale de modelos globales ajustados con la lluvia medida. Las alertas las emiten la SNGR, el COE y el ECU 911, y el pronóstico oficial es del INAMHI. Horas de Galápagos (UTC−6).</div>
@@ -1967,7 +1982,7 @@ setInterval(cargar, 5 * 60 * 1000);
   if (tarjetas) { document.getElementById("islasB").innerHTML = tarjetas; document.getElementById("cIslas").hidden = false; }
 })().catch(() => {});
 </script>
-<script src="/riesgos/estaticos/mapa/lluvia-mapa.js?v=2" defer></script>
+<script src="/riesgos/estaticos/mapa/lluvia-mapa.js?v=3" defer></script>
 <script src="/riesgos/estaticos/mapa/nino.js?v=1" defer></script>
 <script>
 // El Niño: se monta cuando su tarjeta se acerca a la pantalla, con el mismo Leaflet del panel.
