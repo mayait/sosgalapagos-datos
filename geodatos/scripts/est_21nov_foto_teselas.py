@@ -6,7 +6,7 @@
 Entrada: datos/foto_aerea_21nov/ortofoto_21nov.tif (foto oblicua rectificada sobre el DTM de la SGIAR; ver su LEEME.md).
 Salida:  teselas/ortofoto_21nov/relieve/{z}/{x}/{y}.webp (EPSG:3857, 256 px, esquema XYZ; transparente fuera de la foto)
          y teselas.json con la cobertura, los zooms y la atribución (Foto: Tui De Roy).
-La carpeta de salida no va a git: se regenera; 10_publicar_web.py la copia a publicar/mapas/teselas/.
+La carpeta de salida se versiona desde el 22-nov-2026 (haz commit si cambia); 10_publicar_web.py la copia a publicar/mapas/teselas/.
 La clave «relieve» de teselas.json es la que lee el mapa para cualquier capa de tipo «teselas».
 
 Uso, desde geodatos/:

@@ -11,7 +11,7 @@ Dos juegos de teselas (EPSG:3857, 256 px, esquema XYZ de OpenStreetMap):
                              El visor la lee para mostrar la cota bajo el cursor. Alfa 0 = mar o sin dato.
 y teselas.json con la cobertura, los zooms y la atribución.
 
-Salida: teselas/dtm_sgiar/ (no va a git: se regenera; 10_publicar_web.py la copia a publicar/mapas/teselas/).
+Salida: teselas/dtm_sgiar/ (se versiona desde el 22-nov-2026: haz commit si cambia; 10_publicar_web.py la copia a publicar/mapas/teselas/).
 Uso, desde geodatos/:
   .venv/bin/python -I scripts/36_teselas_dtm.py [--procesos 8]
 """

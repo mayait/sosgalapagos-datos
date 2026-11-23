@@ -1,0 +1,27 @@
+{
+ "titulo": "Relieve del DTM de 1 m (SGIAR), Santa Cruz",
+ "atribucion": "DTM 1 m: SGIAR (Vricon/Maxar)",
+ "fuente": "SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo. Producto Vricon DTM (Maxar), imágenes 2020–2024.",
+ "limites": [
+  [
+   -0.772928,
+   -90.391642
+  ],
+  [
+   -0.637745,
+   -90.281401
+  ]
+ ],
+ "relieve": {
+  "url": "relieve/{z}/{x}/{y}.webp",
+  "zoom_min": 11,
+  "zoom_max": 17
+ },
+ "cota": {
+  "url": "cota/{z}/{x}/{y}.png",
+  "zoom": 16,
+  "codificacion": "terrarium",
+  "nota": "cota = R*256 + G + B/256 - 32768 (m, EGM2008); alfa 0 = mar o sin dato"
+ },
+ "script": "geodatos/scripts/36_teselas_dtm.py"
+}
