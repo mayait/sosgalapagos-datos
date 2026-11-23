@@ -80,6 +80,15 @@ La susceptibilidad publicada en `/mapas/` es la HAND **más** un ajuste calibrad
 - **Scripts**: `geodatos/scripts/est_21nov_ajuste.py` escribe `estudios/santa-cruz/datos/ajuste_21nov/`; ahí están las hectáreas por clase antes y después y por zona, en `resumen_ajuste.json`. `10_publicar_web.py` lo suma a la capa al publicar. `est_21nov_contraste.py` escribe `contraste_21nov.json`, que compara lo observado con la HAND antes y después del ajuste y con el modelo 2D.
 - **Límites**: las profundidades son estimaciones a ojo y las ubicaciones, aproximadas. Es un modelo de topografía, no de hidráulica: no ve muros, casas ni alcantarillas. El «después» se calibró con esos mismos reportes, así que **no es una validación**. Hace falta medir marcas de agua en campo.
 
+### Trazos de un experto local en El Edén
+
+El 22-nov-2026 un experto local dibujó a mano, sobre una imagen satelital (Airbus, 2024), por dónde corrió el agua el 21-nov en El Edén y Matazarnos:
+- desde Isla Santiago y Delfín por Seymour hasta Fragata;
+- la bajada por Marchena desde el parque, que él mismo marcó con una pregunta;
+- los ramales de Fragata hacia el bosque y hacia el mar.
+
+El dibujo se georreferenció con tres canchas que se ven en la imagen y en OSM, con un error estimado de 3 a 5 m, y se convirtió en líneas: `geodatos/estudios/santa-cruz/datos/flujo_experto_eden.geojson`. `est_21nov_ajuste.py` lo suma a las líneas del corredor observado (paso 3b). **No se publica como capa**: solo calibra la susceptibilidad. Suma unas 2,3 ha en alta, 1,1 en media y 0,7 en baja. Está sin verificar en campo.
+
 ### Observaciones de campo del barrio Tomás de Berlanga
 
 El 10-nov-2026 la Comisión de Vías y Encañadas del barrio recorrió sus dos encañadas y levantó con GPS cinco puntos críticos. El informe es del 13-nov y el oficio al COE, del 18-nov. Están en `geodatos/estudios/santa-cruz/datos/observaciones_campo_tomas_de_berlanga.geojson`, sin nombres de propietarios ni de personas afectadas. `est_21nov_ajuste.py` los usa como puntos de control, con el mismo llenado local del paso 4.

@@ -18,6 +18,8 @@ Método (todo con cotas del DTM de la SGIAR; nunca se mezclan con umbrales del C
   3. Corredor observado: HAND respecto a las líneas de flujo observadas (altura de cada celda sobre el punto más cercano de
      la línea, a ≤ 40 m), con las clases del HAND publicado: alta ≤ 1 m, media ≤ 2,5 m, baja ≤ 5 m. Las depresiones
      cerradas del DTM (≥ 50 m²) que toca el agua observada se llenan (alta).
+  3b. Trazos de un experto local en El Edén y Matazarnos (estudios/santa-cruz/datos/flujo_experto_eden.geojson), dibujados
+     sobre imagen satelital y georreferenciados: se suman a las líneas de flujo del paso 3. No se publican como capa.
   4. Resto de puntos de control (Matazarnos, Arrayanes, cementerio, El Edén, Bellavista…): llenado local en un radio que
      depende de la precisión del reporte: alta ≤ espejo, media ≤ espejo + 1 m, baja ≤ espejo + 2,5 m.
   4b. Observaciones de campo del barrio Tomás de Berlanga (estudios/santa-cruz/datos/observaciones_campo_tomas_de_berlanga.geojson,
@@ -54,6 +56,7 @@ EV = REPO / "reportes" / "eventos" / "2026-11-21"
 OUT = ROOT / "estudios" / "santa-cruz" / "datos" / "ajuste_21nov"
 SUSC = ROOT / "export" / "galapagos-completo" / "susceptibilidad_inundacion.geojson"
 RESUMEN_DTM = ROOT / "estudios" / "la-cascada" / "datos" / "dtm1m" / "resumen_dtm.json"
+FLUJO_EXPERTO = ROOT / "estudios" / "santa-cruz" / "datos" / "flujo_experto_eden.geojson"
 CAMPO_BTB = ROOT / "estudios" / "santa-cruz" / "datos" / "observaciones_campo_tomas_de_berlanga.geojson"
 _spec = importlib.util.spec_from_file_location("cascada_dtm", ROOT / "scripts" / "37_cascada_dtm.py")
 cd = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(cd)   # leer(), rellenar(), T, TI (mismo DTM y máscara de mar)
@@ -172,6 +175,8 @@ def main():
     flujo = json.loads((EV / "flujo_observado.geojson").read_text())["features"]
     T = lambda g: stransform(cd.T, g)
     lineas = [T(shape(f["geometry"])) for f in flujo if f["properties"]["tipo"] in ("flujo", "salida")]
+    # Trazos del experto local en El Edén (no se publican como capa; solo calibran el corredor)
+    lineas += [T(shape(f["geometry"])) for f in json.loads(FLUJO_EXPERTO.read_text())["features"]]
     remolinos = [T(shape(f["geometry"])) for f in flujo if f["properties"]["tipo"] == "remolino"]
     ml = rasterize([(g, 1) for g in lineas] + [(g.exterior, 1) for g in remolinos], out_shape=zz.shape, transform=tr, all_touched=True).astype(bool) & tierra
     zlin = np.where(ml, ndimage.minimum_filter(np.where(tierra, zz, np.inf), size=3), np.nan)
