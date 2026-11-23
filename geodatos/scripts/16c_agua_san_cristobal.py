@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Tomas de agua del acueducto de San Cristóbal: ubicación con fuentes, conducciones y diagnóstico de exposición.
 
 PRELIMINAR. Ninguna ubicación se ha verificado en campo. Cada punto registra sus fuentes y una confianza en la

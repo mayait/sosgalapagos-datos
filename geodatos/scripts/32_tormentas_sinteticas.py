@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Biblioteca de tormentas sintéticas: cientos de lluvias plausibles sobre Santa Cruz y San Cristóbal, cada una pasada por el
 modelo 2D, para saber QUÉ MARCA CADA PLUVIÓMETRO cuando algo se inunda abajo y derivar de ahí umbrales de alerta (#26, #30).
 

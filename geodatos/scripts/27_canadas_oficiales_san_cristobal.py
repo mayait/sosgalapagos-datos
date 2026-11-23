@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Contraste con el Plan de Acción SC-4-09-2026 (Unidad de Gestión de Riesgos del GAD San Cristóbal).
 
   1. Correspondencia entre las cuencas, cauces y puntos del análisis (scripts 17 y 25) y las encañadas OFICIALES del plan.

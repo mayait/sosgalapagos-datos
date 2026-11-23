@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Lluvias del 15-oct al 2-nov-2026 en San Cristóbal: resumen de modelos (de script 15)
 y tiempo presente observado en los METAR del aeropuerto de San Cristóbal (SEST) y de
 Baltra (SEGS), descargados del archivo ASOS/METAR de Iowa Environmental Mesonet.

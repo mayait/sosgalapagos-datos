@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Paso 4 · Generar la capa de áreas afectadas del evento.
 
 Lee `eventos/<evento>/areas.json` (redactado a mano: qué zonas, con qué geometría base y por qué),

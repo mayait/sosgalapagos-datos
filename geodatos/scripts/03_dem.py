@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Procesa el relieve de cada isla: recorte, relieve sombreado, curvas de nivel, red de drenaje derivada (quebradas),
 cuencas, HAND (susceptibilidad a inundación), zonas costeras bajas y pendientes.
 

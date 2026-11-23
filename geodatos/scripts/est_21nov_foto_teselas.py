@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Teselas XYZ de la foto aérea rectificada del 21-nov-2026 (Puerto Ayora) para el mapa de /riesgos/.
 
 Entrada: datos/foto_aerea_21nov/ortofoto_21nov.tif (foto oblicua rectificada sobre el DTM de la SGIAR; ver su LEEME.md).

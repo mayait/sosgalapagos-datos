@@ -1,5 +1,5 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
-# Todos los derechos reservados. Usar, copiar, modificar o derivar de este código requiere permiso escrito del autor (ver LICENSE).
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Floreana (Puerto Velasco Ibarra): cauces D8 que llegan a la costa del poblado y coherencia topográfica de una conexión de
 ≈500 m entre cañadas para proteger Playa Negra (Plan de Acción SC-4-09-2026, UGR del GAD San Cristóbal). EXPLORATORIO.
 
