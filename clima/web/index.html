@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Clima en vivo · Galápagos</title>
-<meta name="description" content="Nivel de lluvia peligrosa por zona, lluvia medida cada 5 minutos, pronóstico experimental y mareas en Santa Cruz, San Cristóbal e Isabela. Estimaciones de SOS Galápagos, no oficiales.">
+<title>Clima · SOS Galápagos</title>
+<meta name="description" content="Nivel de lluvia peligrosa por zona, lluvia medida cada 5 minutos, pronóstico de lluvia fuerte y mareas en Santa Cruz, San Cristóbal e Isabela. Información de apoyo de SOS Galápagos (USFQ), no oficial.">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <!-- Clima es parte de la misma app que la portada y el mapa de riesgos: mismo manifiesto. -->
@@ -39,12 +39,6 @@ button{font:inherit;cursor:pointer;color:inherit}
 [hidden]{display:none!important}
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-/* franja oficial */
-.franja{background:var(--soft);color:var(--ink);font-size:13px;border-top:4px solid var(--red);border-bottom:1px solid var(--line)}
-.franja .in{max-width:1180px;margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
-.franja a{color:var(--ink)}.franja a:hover{color:var(--red2)}
-.franja .lab{font-weight:800;letter-spacing:.04em;font-size:11px;background:var(--red);color:#fff;padding:3px 7px;border-radius:3px}
-.franja .der{margin-left:auto;color:var(--ink2)}
 /* encabezado */
 header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding:16px 0 10px}
 .back{font-size:13px;color:var(--mut)}
@@ -74,10 +68,6 @@ h1{font-weight:900;font-size:22px;border-left:6px solid var(--red);padding-left:
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
 .grid2>.card{margin-top:0}
 .cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.sello{font-size:12px;font-weight:800;letter-spacing:.02em;padding:4px 8px;border-radius:4px;border:1.5px dashed currentColor;white-space:nowrap}
-.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.03em;padding:2px 7px;border-radius:4px;border:1.5px dashed var(--fc);color:var(--fc);vertical-align:3px;margin-left:6px;white-space:nowrap}
-.tag.est{border-color:var(--brown);color:var(--brown)}
-.tag.med{border-style:solid;border-color:var(--rain);color:var(--rain)}
 /* tarjeta de zona */
 .zcard{border-radius:14px;padding:18px 20px;margin-top:14px;position:relative}
 .zcard .kick{font-size:12px;font-weight:800;letter-spacing:.05em;opacity:.85;text-transform:uppercase}
@@ -91,7 +81,7 @@ h1{font-weight:900;font-size:22px;border-left:6px solid var(--red);padding-left:
 .zcard .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:flex-start}
 .track{margin-top:16px}
 .track .tt{display:flex;justify-content:space-between;font-size:12.5px;opacity:.92;flex-wrap:wrap;gap:4px}
-.track .bar{position:relative;height:30px;margin-top:28px;background:rgba(255,255,255,.55);border-radius:4px}
+.track .bar{position:relative;height:30px;margin-top:28px;background:var(--soft);border-radius:4px}
 .track .fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
 .track .mk{position:absolute;top:-4px;bottom:-4px;width:2px}
 .track .mk span{position:absolute;top:36px;transform:translateX(-50%);font-size:11px;white-space:nowrap;font-weight:700}
@@ -173,12 +163,12 @@ tr.ref td{color:var(--mut);font-size:12.5px;border-bottom-style:dashed}
 .flag.crit{color:#fff;background:#B5161C}
 .flag.gris{color:var(--ink2);border:1.5px dashed var(--hatch)}
 /* ciencia */
-.sci-nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:2px solid var(--line);margin:14px -16px 0;padding:0 16px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.sci-nav{position:sticky;top:var(--sos-barra-alto);z-index:50;background:var(--bg);border-bottom:2px solid var(--line);margin:14px -16px 0;padding:0 16px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
 .sci-nav::-webkit-scrollbar{display:none}
 .sci-nav a{padding:12px 12px 10px;border-bottom:3px solid transparent;margin-bottom:-2px;font-weight:700;font-size:14px;color:var(--mut);text-decoration:none;white-space:nowrap}
 .sci-nav a.on{color:var(--ink);border-bottom-color:var(--red)}
 .sci-nav .tz{margin-left:auto;align-self:center;font-size:12px;color:var(--mut);white-space:nowrap;padding-left:12px}
-.sci-sec{scroll-margin-top:60px}
+.sci-sec{scroll-margin-top:calc(var(--sos-barra-alto) + 60px)}
 .sci-sec>.card:first-child{margin-top:22px}
 .sec-t{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:30px 0 -6px;display:flex;align-items:center;gap:10px}
 .sec-t:after{content:"";flex:1;height:1px;background:var(--line)}
@@ -244,7 +234,7 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
   .sm{grid-template-columns:1fr}
 }
 @media print{
-  .franja,.vista,.tema,.zsel,.acts,.amp,.sci-nav,#tip,.controls{display:none!important}
+  .sos-menu,.adv-inamhi,.vista,.tema,.zsel,.acts,.amp,.sci-nav,#tip,.controls{display:none!important}
   body{background:#fff}.card{break-inside:avoid;box-shadow:none}
 }
 
@@ -252,17 +242,26 @@ dialog#lb::backdrop{background:rgba(0,0,0,.6)}
    Misma tipografía de títulos, mismo aviso superior, botones en píldora negra y la misma firma.
    Fondo blanco siempre: aquí tampoco hay modo oscuro. Los colores de los gráficos no cambian. */
 @font-face{font-family:"Zalando Sans Expanded";src:url("/riesgos/estaticos/marca/ZalandoSansExpanded.ttf") format("truetype");font-weight:200 900;font-display:swap}
-:root{--ink:#1D1D1B;--titulo:"Zalando Sans Expanded","Helvetica Neue",Helvetica,Arial,sans-serif;--aviso-alto:26px}
+:root{--ink:#1D1D1B;--titulo:"Zalando Sans Expanded","Helvetica Neue",Helvetica,Arial,sans-serif}
 html,body{font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif}
-body{padding-top:var(--aviso-alto)}
-.aviso-sitio{position:fixed;inset:0 0 auto 0;z-index:3000;height:var(--aviso-alto);display:flex;align-items:center;justify-content:center;gap:6px;padding:0 10px;background:#fff;border-bottom:1px solid var(--line);font-size:11.5px;color:var(--mut);white-space:nowrap;overflow:hidden}
-.aviso-sitio strong{color:var(--ink);font-weight:700}.aviso-sitio a{color:var(--red);font-weight:700;text-decoration:none}
-.franja{background:#fff;border-top:0;font-size:12px;color:var(--mut)}
-.franja .lab{background:none;color:var(--ink);padding:0;letter-spacing:.06em;font-size:10.5px}
-.franja .der{color:var(--mut)}
+/* Menú del sitio (lo pinta /riesgos/app.js, igual en todo el sitio). Aquí solo se reserva su caja,
+   la misma antes y después de pintarlo, para que la página no salte. */
+:root{--sos-barra-alto:48px;--sos-aviso-alto:34px}
+@media (min-width:600px){:root{--sos-aviso-alto:26px}}
+.sos-menu{display:block;position:relative;padding-top:var(--sos-barra-alto)}
+.sos-menu-barra{position:fixed;inset:0 0 auto 0;z-index:1000;height:var(--sos-barra-alto);display:flex;align-items:center;gap:12px;padding:0 8px 0 16px;background:#fff;border-bottom:1px solid var(--line)}
+.sos-menu:not(.sos-menu-listo) .sos-menu-marca{flex:none;font:900 15px/1 var(--titulo);text-transform:uppercase;text-decoration:none;color:#000}
+.sos-menu:not(.sos-menu-listo) .sos-menu-enlaces{flex:1;min-width:0;display:flex;gap:14px;margin:0;padding:0;list-style:none;overflow-x:auto;white-space:nowrap;font-size:13.5px;scrollbar-width:none}
+.sos-menu:not(.sos-menu-listo) .sos-menu-911{flex:none;display:inline-grid;place-items:center;min-width:56px;height:44px;border-radius:999px;background:var(--red);color:#fff;font-weight:800;text-decoration:none}
+.sos-menu-aviso{display:flex;align-items:center;justify-content:center;height:var(--sos-aviso-alto);margin:0;padding:0 12px;overflow:hidden;background:#fff;border-bottom:1px solid var(--line);font-size:11.5px;line-height:1.3;color:var(--mut);text-align:center}
+.sos-menu-aviso b{color:var(--ink)}.sos-menu-aviso a{color:var(--red);font-weight:800;text-decoration:none}
+.sos-aviso-largo{display:none}
+@media (min-width:1024px){.sos-aviso-corto{display:none}.sos-aviso-largo{display:inline}}
+.sos-menu:not(.sos-menu-flotante) .sos-menu-aviso .sos-aviso-tel{display:none}
+/* Advertencia del INAMHI vigente: una línea neutra bajo el aviso, que lleva a «Boletines oficiales» */
+.adv-inamhi{margin:0;padding:9px 16px;background:var(--soft);border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.35;text-align:center;color:var(--ink)}
+.adv-inamhi a{display:inline-block;padding:4px 0;font-weight:700;color:var(--ink);white-space:nowrap}
 header.top{padding:18px 0 10px}
-.migas{display:flex;flex-wrap:wrap;gap:4px 16px;margin:0 0 8px;font-size:13.5px}
-.migas a{color:var(--mut);text-decoration:none}.migas a:hover{color:var(--ink)}
 h1{font:900 27px/0.95 var(--titulo);letter-spacing:-.01em;text-transform:uppercase;border-left:0;padding-left:0;margin:0}
 .card .hd h2,.zcard h2,.sci-sec h2{font-family:var(--titulo);font-weight:800;letter-spacing:0}
 .vista{border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
@@ -276,8 +275,8 @@ footer.pie .firma-enlaces span{font-size:10.5px;font-weight:700;letter-spacing:.
 footer.pie .firma-logo{display:block;height:18px;width:auto;margin-top:14px;opacity:.55}
 footer.pie .firma-pie{margin:10px 0 0;font-size:11.5px;color:var(--mut)}
 footer.pie [data-sos-app]{margin-top:14px}
-@media (max-width:640px){h1{font-size:23px}.aviso-sitio{font-size:10.5px}}
-@media print{.aviso-sitio,[data-sos-app],.migas{display:none!important}body{padding-top:0}}
+@media (max-width:640px){h1{font-size:23px}}
+@media print{[data-sos-app]{display:none!important}}
 /* ═══ Avisos oficiales e islas (INAMHI, INOCAR) ═══ */
 .avisos-of{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin:14px 0}
 .av{position:relative;display:flex;flex-direction:column;gap:10px;padding:16px 16px 14px;border-radius:16px;background:var(--soft);border:1px solid var(--line)}
@@ -318,27 +317,53 @@ footer.pie [data-sos-app]{margin-top:14px}
 .isla svg.g text{font-size:10.5px;fill:var(--mut)}.isla svg.g text.v{fill:var(--ink);font-weight:700}
 .isla .mar{display:flex;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
 .isla .mar span{padding:5px 9px;border-radius:999px;background:var(--soft)}.isla .mar b{font-variant-numeric:tabular-nums}
-/* ═══ Orden y menú como /riesgos/ (23-nov-2026) ═══ */
-.menu-sitio{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
-.menu-sitio a{border:2px solid #000;border-radius:999px;background:#fff;color:#000;padding:6px 13px;font-size:12.5px;font-weight:700;text-decoration:none;line-height:1.2}
-.menu-sitio a:hover{background:#000;color:#fff}
+/* ═══ Orden como /riesgos/ (23-nov-2026) ═══ */
 .card{border-radius:16px;box-shadow:none;border-color:#E5E5E5}
 .zbtn{border-width:2px;border-color:#E5E5E5;font-weight:600}
 .zbtn.on{border-color:#000;background:#000;color:#fff}
 .avisos-of{margin-top:14px}
 .card .hd h2,.sci-sec h2{word-spacing:-.14em}
-@media (max-width:640px){.menu-sitio a{padding:6px 11px}}
+/* ═══ Comunidad simplificada (23-nov-2026) ═══ */
+.ver-mas{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font-size:14px;font-weight:700}
+.bol-intro{margin:4px 0 0;font-size:13.5px;color:var(--mut)}
+#boletines .avisos-of{margin:12px 0 0}
+.llueve{display:grid;gap:8px;margin-top:12px}
+.llueve .fz{display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:6px;align-items:stretch}
+.llueve .fz.cab{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
+.llueve .fz.cab span{padding:0 4px}
+.llueve .zn{display:flex;align-items:center;font-weight:800;font-size:14px;line-height:1.2;padding-right:4px}
+.llueve .fz.su .zn{color:var(--red2)}
+.llueve .dd{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:8px 8px 7px;border-radius:10px;background:var(--soft);border-top:5px solid var(--c,#d6d5cf)}
+.llueve .dd b{font:900 22px/1 var(--titulo);letter-spacing:-.02em}
+.llueve .dd b small{font-size:12px;font-weight:700}
+.llueve .dd span{font-size:12.5px;font-weight:700;line-height:1.15;color:var(--t,var(--ink2))}
+.llueve .notas{display:grid;gap:6px;margin-top:10px}
+.llueve .notas p{margin:0;font-size:13.5px;color:var(--ink2);max-width:80ch}
+@media (max-width:420px){.llueve .fz{grid-template-columns:minmax(0,.9fr) repeat(3,minmax(0,1fr));gap:4px}.llueve .zn{font-size:12.5px}.llueve .dd{padding:7px 6px}.llueve .dd b{font-size:19px}.llueve .dd span{font-size:11.5px}}
+.umb-zona{margin-top:14px;padding-top:12px;border-top:1px solid var(--line2)}
+.umb-zona:first-of-type{border-top:0;padding-top:0}
+.umb-zona h3{margin:0;font-size:14px}
 </style>
-<link rel="stylesheet" href="/riesgos/estaticos/mapa/lluvia-mapa.css?v=4">
-<link rel="stylesheet" href="/riesgos/estaticos/mapa/nino.css?v=1">
+<link rel="stylesheet" href="/riesgos/estaticos/mapa/lluvia-mapa.css?v=5">
+<link rel="stylesheet" href="/riesgos/estaticos/mapa/nino.css?v=2">
 </head>
 <body>
-<div class="aviso-sitio" role="note"><span><strong>Estimaciones preliminares, no oficiales.</strong> Emergencias: <a href="tel:911">911</a></span></div>
+<!-- Menú del sitio: enlaces de respaldo. /riesgos/app.js (al final) los reemplaza por la barra, el aviso y el panel.
+     Es copia de la lista de la plataforma (reportes/menu.py en sosgalapagos-plataforma): si cambia allí, cámbiela aquí. -->
+<nav data-sos-menu class="sos-menu" aria-label="SOS Galápagos">
+  <div class="sos-menu-barra">
+    <a class="sos-menu-marca" href="/">SOS Galápagos</a>
+    <ul class="sos-menu-enlaces"><li><a href="/">Inicio</a></li><li><a href="/riesgos/">Mapa de riesgos</a></li><li><a href="/riesgos/informe/">Línea del tiempo</a></li><li><a href="/clima/" aria-current="page">Clima</a></li><li><a href="/riesgos/mapa-del-tiempo/">Lluvia y viento</a></li><li><a href="/riesgos/descargas/">Descargar capas</a></li><li><a href="/riesgos/puntos/">Puntos</a></li></ul>
+    <a class="sos-menu-911" href="tel:911" aria-label="Emergencias: llamar al 911">911</a>
+  </div>
+  <p class="sos-menu-aviso" role="note"><span class="sos-aviso-corto"><b>Información de apoyo de SOS Galápagos (USFQ), no oficial.</b><span class="sos-aviso-tel"> Emergencias: <a class="sos-aviso-911" href="tel:911">911</a></span></span><span class="sos-aviso-largo"><b>Información de apoyo de SOS Galápagos (USFQ), no oficial.</b> Las alertas las da el COE y el pronóstico oficial es del INAMHI.<span class="sos-aviso-tel"> Emergencias: <a class="sos-aviso-911" href="tel:911">911</a></span></span></p>
+</nav>
+<!-- Advertencia del INAMHI vigente para Galápagos (de /riesgos/api/clima/oficial): una línea que lleva a «Boletines oficiales» -->
+<p class="adv-inamhi" id="advInamhi" role="status" hidden></p>
 <div class="wrap">
 <header class="top">
   <div>
-    <nav class="menu-sitio" aria-label="SOS Galápagos"><a href="/riesgos/">Mapa de riesgos</a><a href="/riesgos/informe/">Línea del tiempo</a><a href="/riesgos/mapa-del-tiempo/">Lluvia y viento</a><a href="/">Inicio</a></nav>
-    <h1>Clima en vivo</h1>
+    <h1>Clima</h1>
   </div>
   <div style="display:flex;align-items:center;gap:10px 12px;flex-wrap:wrap">
     <span class="upd" id="upd">Cargando…</span>
@@ -356,20 +381,20 @@ footer.pie [data-sos-app]{margin-top:14px}
   <section id="zcard" class="zcard" aria-live="polite"><p>Cargando el nivel de su zona…</p></section>
 
   <section class="card" id="cViene">
-    <div class="hd"><h2>¿Cómo viene?</h2><span class="sub">Arriba, lluvia medida por hora en las últimas 48 h. Abajo, cuándo esperan lluvia los modelos en las próximas 72 h.</span></div>
+    <div class="hd"><h2>¿Cómo viene?</h2><span class="sub">Arriba, lluvia medida por hora en las últimas 48 h. Abajo, cuándo esperan lluvia los modelos en las próximas 72 h: sirve para ver cuándo, no cuánto.</span></div>
     <div id="fViene"></div>
   </section>
 
   <!-- Mapa de lluvia y viento de los modelos (tipo Windy). Se monta solo cuando se acerca a la vista. -->
   <section class="card" id="cLluviaMapa">
-    <div class="hd"><h2>Mapa de lluvia y viento</h2><span class="sub">lluvia y viento de modelos globales, próximos 5 días · pronóstico de modelo, no oficial</span></div>
+    <div class="hd"><h2>Mapa de lluvia y viento</h2><span class="sub">lluvia y viento de modelos globales, próximos 5 días</span></div>
     <div id="lluviaMapa" style="min-height:420px"></div>
   </section>
 
   <section class="card" id="cIslas" hidden>
     <div class="hd"><h2>Hoy en cada isla</h2><span class="sub">pronóstico oficial del INAMHI · mareas de la tabla oficial del INOCAR</span></div>
     <div class="islas" id="islasB"></div>
-    <p class="note">La curva de marea se dibuja entre las pleamares y bajamares de la tabla del INOCAR; las alturas son metros sobre la bajamar de sicigia. El oleaje viene de un modelo y es solo orientativo. Con El Niño el mar está más alto que la tabla.</p>
+    <p class="note">La curva de marea se dibuja entre las pleamares y bajamares de la tabla del INOCAR; las alturas son metros sobre la bajamar de sicigia. Con El Niño el mar está más alto que la tabla.</p>
   </section>
 
   <section class="card" id="cMar">
@@ -377,31 +402,23 @@ footer.pie [data-sos-app]{margin-top:14px}
     <div id="marCont"></div>
   </section>
 
-  <!-- El Niño: boletín ERFEN (oficial) arriba; índices de la NOAA, mar y ZCIT como contexto. Código y datos en la plataforma. -->
+  <!-- El Niño, corto: titular, cifras y qué significa. Índices, boyas y mapa en Ciencia. Código y datos en la plataforma. -->
   <section class="card" id="cNino">
-    <div class="hd"><h2>El Niño</h2><span class="sub">boletín oficial del ERFEN · índices y temperatura del mar de la NOAA como contexto</span></div>
-    <div id="nino" style="min-height:200px"></div>
+    <div class="hd"><h2>El Niño</h2><span class="sub">el mar alrededor de Galápagos</span></div>
+    <div id="nino" style="min-height:150px"></div>
+    <a href="?vista=ciencia#oceano" class="ver-mas" id="verNino">Ver índices, boyas y mapa (Ciencia) →</a>
   </section>
 
-  <!-- Avisos oficiales vigentes: después de lo medido y lo pronosticado. Los sirve la plataforma (Django): /riesgos/api/clima/… -->
-  <section id="cAvisos" class="avisos-of" hidden aria-label="Avisos oficiales vigentes"></section>
-
-  <div class="grid2" style="margin-top:14px">
-    <section class="card">
-      <div class="hd"><h2>Estaciones de la isla</h2><a href="#" id="verRed" style="font-size:13px">ver mapa y calidad (Ciencia)</a></div>
-      <p class="note" style="margin-top:4px">● transmite · ◌ con retraso · ✕ apagada · «al menos» = hubo cortes y el total es un mínimo</p>
-      <div id="cercanas"></div>
-    </section>
-    <section class="card">
-      <div class="hd"><h2>Todas las zonas</h2><span class="sub">ordenadas por nivel</span></div>
-      <div id="todas"></div>
-      <p class="note" id="leyNiv"></p>
-    </section>
-  </div>
+  <!-- Boletines oficiales vigentes (INAMHI, INOCAR, Comité ERFEN). Los sirve la plataforma (Django): /riesgos/api/clima/oficial -->
+  <section class="card" id="boletines" hidden>
+    <div class="hd"><h2>Boletines oficiales</h2></div>
+    <p class="bol-intro">Resúmenes automáticos de documentos oficiales; manda el documento.</p>
+    <div id="cAvisos" class="avisos-of" aria-label="Boletines oficiales vigentes"></div>
+  </section>
 
   <section class="card" id="cDias">
-    <div class="hd"><h2>¿Lloverá fuerte estos días?</h2><span class="sub" id="diasSub">Lluvia fuerte = 20 mm o más en el día · pronóstico experimental de SOS Galápagos, no oficial</span></div>
-    <div id="diasCont"></div>
+    <div class="hd"><h2>¿Lloverá fuerte estos días?</h2><span class="sub">Probabilidad de 20 mm o más en el día, en alguna parte de la zona</span></div>
+    <div id="llueve"></div>
   </section>
 </main>
 
@@ -415,6 +432,7 @@ footer.pie [data-sos-app]{margin-top:14px}
     <a href="#satelite" data-s="satelite" id="navSat" hidden>Satélite</a>
     <a href="#clima" data-s="clima">Climatología</a>
     <a href="#mar" data-s="mar">Mar</a>
+    <a href="#oceano" data-s="oceano">El Niño y el océano</a>
     <a href="#fuentes" data-s="fuentes">Fuentes y citas</a>
     <span class="tz">Horas de Galápagos (UTC−6)</span>
   </nav>
@@ -462,10 +480,14 @@ footer.pie [data-sos-app]{margin-top:14px}
 
   <section class="sci-sec" id="regla">
     <div class="card">
-      <div class="hd"><h2 id="reglaT">Regla del nivel de lluvia peligrosa</h2><span class="tag est">estimación SOS · no oficial</span></div>
+      <div class="hd"><h2 id="reglaT">Regla del nivel de lluvia peligrosa</h2></div>
       <p class="note" id="reglaSub"></p>
       <div class="zgrid" id="zdet"></div>
       <div class="legend" id="leyTira"></div>
+    </div>
+    <div class="card">
+      <div class="hd"><h2>Cada zona frente a sus umbrales</h2><span class="sub">la ventana de lluvia que más se acerca al umbral «alto»</span></div>
+      <div id="umbZonas"></div>
     </div>
     <div class="grid2" style="margin-top:14px">
       <div class="card">
@@ -495,10 +517,14 @@ footer.pie [data-sos-app]{margin-top:14px}
 
   <section class="sci-sec" id="pronostico">
     <div class="card">
-      <div class="hd"><h2>Pronóstico de lluvia fuerte · probabilidad calibrada</h2><span class="tag">pronóstico experimental · no oficial</span></div>
+      <div class="hd"><h2>Pronóstico de lluvia fuerte · probabilidad calibrada</h2></div>
       <p class="note" id="pzCorr"></p>
       <div class="tblwrap"><table id="pzTabla" style="margin-top:10px"></table></div>
       <p class="note">Probabilidad de que alguna estación de la zona mida 20 mm o más ese día (en pasos de 5 %), con 10 y 50 mm al lado. «Normal» = frecuencia de días con 20 mm o más en esta época. Los días más allá de pasado mañana son menos fiables. La probabilidad de 50 mm tiene poca habilidad.</p>
+    </div>
+    <div class="card">
+      <div class="hd"><h2 id="diasT">Día a día, por punto</h2><span class="sub">lluvia fuerte = 20 mm o más en el día · toque un día para ver el detalle</span></div>
+      <div id="diasCont"></div>
     </div>
     <div class="grid2" style="margin-top:14px">
       <div class="card">
@@ -520,7 +546,7 @@ footer.pie [data-sos-app]{margin-top:14px}
 
   <section class="sci-sec" id="satelite" hidden>
     <div class="card">
-      <div class="hd"><h2>Satélite GOES-19 · últimas 3 h</h2><span class="tag est">estimación satelital · no oficial</span></div>
+      <div class="hd"><h2>Satélite GOES-19 · últimas 3 h</h2></div>
       <div class="cols2" style="margin-top:10px">
         <div>
           <div id="satMap"></div>
@@ -530,10 +556,11 @@ footer.pie [data-sos-app]{margin-top:14px}
             <label><input type="checkbox" data-c="rayos" checked><i style="background:#facc15;border:1px solid #a16207"></i>rayos (GLM)</label>
           </div>
           <p class="note" id="satHora"></p>
+          <p class="note" id="satAtrib">Imágenes: NASA GIBS / NOAA GOES-East. Lluvia estimada: NOAA (RRQPE) o, si falta, PDIR-Now (CHRS, Universidad de California, Irvine).</p>
         </div>
         <div id="satZonas"></div>
       </div>
-      <div class="nota-gris"><b>Qué es esto.</b> Lo que ve el satélite GOES-19 de la NOAA sobre Galápagos: la temperatura del tope de las nubes (una nube muy fría, por debajo de −50 °C, es una tormenta de gran desarrollo), los rayos detectados desde el espacio y una tasa de lluvia que el satélite <b>estima</b>. No es lluvia medida ni una alerta oficial. Las imágenes de nubes y la lluvia estimada llegan al panel entre 15 y 25 minutos después de tomadas: unos 10 minutos hasta que la NOAA las publica, más hasta 10 de nuestra actualización. Los rayos se cuentan en intervalos de 10 minutos y llegan con 10 a 20 minutos de retraso. La garúa y la lluvia de nubes bajas casi no se ven desde el satélite.</div>
+      <div class="nota-gris"><b>Qué es esto.</b> Lo que ve el satélite GOES-19 de la NOAA sobre Galápagos: la temperatura del tope de las nubes (una nube muy fría, por debajo de −50 °C, es una tormenta de gran desarrollo), los rayos detectados desde el espacio y una tasa de lluvia que el satélite <b>estima</b>. De fondo, la imagen GeoColor del satélite (en color de día, infrarrojo de noche), cada 10 minutos, con unos 60 minutos de retraso: dele a ▶ para ver cómo se movieron las nubes. No es lluvia medida. Las imágenes de nubes y la lluvia estimada llegan al panel entre 15 y 25 minutos después de tomadas: unos 10 minutos hasta que la NOAA las publica, más hasta 10 de nuestra actualización. Los rayos se cuentan en intervalos de 10 minutos y llegan con 10 a 20 minutos de retraso. La garúa y la lluvia de nubes bajas casi no se ven desde el satélite.</div>
       <details class="um"><summary>¿Cómo se calcula la «señal satelital»?</summary><div id="satMetodo"></div></details>
     </div>
   </section>
@@ -562,6 +589,14 @@ footer.pie [data-sos-app]{margin-top:14px}
         <div id="fAnom"></div>
       </div>
       <p class="note" id="marNota"></p>
+    </div>
+  </section>
+
+  <!-- El Niño y el océano: índices, boyas TAO, MJO, mapa de anomalía, ZCIT y NHC (NinoPanel modo «ciencia»). El boletín ERFEN va en Comunidad. -->
+  <section class="sci-sec" id="oceano">
+    <div class="card">
+      <div class="hd"><h2>El Niño y el océano</h2><span class="sub">índices, boyas, MJO, mapa del mar y ZCIT</span></div>
+      <div id="ninoSci" style="min-height:200px"></div>
     </div>
   </section>
 
@@ -611,15 +646,9 @@ footer.pie [data-sos-app]{margin-top:14px}
   <p class="repo">Código, métodos y datos abiertos en GitHub: <a href="https://github.com/mayait/sosgalapagos-datos" target="_blank" rel="noopener">github.com/mayait/sosgalapagos-datos</a></p>
   <div class="cierre" style="display:block">
     <div class="firma-lema" lang="en">More humans,<b>More dragons.</b></div>
-    <div data-sos-app aria-label="La app en tu teléfono"></div>
-    <nav class="firma-enlaces" aria-label="Mira también">
-      <span>Mira también</span>
-      <a href="/riesgos/">El mapa de riesgos</a>
-      <a href="/riesgos/informe/">La línea del tiempo de los reportes</a>
-      <a href="/riesgos/descargas/">Descarga las capas de riesgo</a>
-    </nav>
+    <div data-sos-app aria-label="La app en el teléfono"></div>
     <img class="firma-logo" src="/riesgos/estaticos/marca/usfq-galapagos-color.svg" alt="USFQ Galápagos" width="96" height="18">
-    <p class="firma-pie">SOS Galápagos · Universidad San Francisco de Quito, Galápagos. Modelos y mediciones preliminares: no son datos ni alertas oficiales.</p>
+    <p class="firma-pie">SOS Galápagos · Universidad San Francisco de Quito, Galápagos.</p>
   </div>
 </footer>
 </div>
@@ -814,11 +843,20 @@ function ejeX(a, b, x, y0, alto, conHoras = false) {
 
 // ═════════════ carga ═════════════
 let E, H, D, P, SAT; // estado, horario, diario, pronóstico, satélite
+// diario.json pesa y solo lo usa Ciencia (explorador, historia, estacionalidad): se pide al abrir Ciencia
+// y, desde entonces, en cada recarga.
+const leerDatos = (n, q) => fetch(`datos/${n}.json${q}`).then(r => { if (!r.ok) throw new Error(n + " " + r.status); return r.json(); });
+let pidiendoDiario = null;
+function pedirDiario() {
+  return pidiendoDiario ||= leerDatos("diario", "?t=" + Math.floor(Date.now() / 60000))
+    .then(d => { D = d; pidiendoDiario = null; if (S.vista === "ciencia") pintar(); })
+    .catch(err => { console.error(err); pidiendoDiario = null; });
+}
 async function cargar() {
   try {
-    const q = "?t=" + Math.floor(Date.now() / 60000);
-    const [e, h, d] = await Promise.all(["estado", "horario", "diario"].map(n => fetch(`datos/${n}.json${q}`).then(r => { if (!r.ok) throw new Error(n + " " + r.status); return r.json(); })));
-    E = e; H = h; D = d; H.t0 = Date.parse(H.inicio);
+    const q = "?t=" + Math.floor(Date.now() / 60000), conDiario = S.vista === "ciencia" || D;
+    const [e, h, d] = await Promise.all(["estado", "horario", ...(conDiario ? ["diario"] : [])].map(n => leerDatos(n, q)));
+    E = e; H = h; if (d) D = d; H.t0 = Date.parse(H.inicio);
     P = E.pronostico && E.pronostico.zonas ? E.pronostico : null;
     SAT = E.satelite && E.satelite.zonas ? E.satelite : null;
     pintar();
@@ -932,7 +970,7 @@ function nivelMostrado(z) { return frescura() === "vieja" ? "sin datos" : z.nive
 function comunidad() {
   const z = zonaActual();
   if (!z) { $("zcard").innerHTML = `<p>El nivel no está disponible ahora.</p>`; return; }
-  tarjetaZona(z); viene(z); dias(z); marCom(z); cercanas(z); todas();
+  tarjetaZona(z); viene(z); marCom(z); llueve(z);
   dibujar($("vCom"));
 }
 const FRAC = f => f < .12 ? "una pequeña parte" : f < .3 ? "cerca de un cuarto" : f < .42 ? "cerca de un tercio" : f < .6 ? "cerca de la mitad" : f < .85 ? "unas tres cuartas partes" : f < 1.05 ? "casi lo mismo" : "más";
@@ -982,12 +1020,10 @@ function frases(z, nivel) {
   if (!z.calibrada) f2 += " Zona sin calibrar: los umbrales vienen de La Cascada.";
   return [f1, f2];
 }
-function tarjetaZona(z) {
-  const nivel = nivelMostrado(z), n = niv(nivel), tr = tendencia(z), dsd = desde(z), [f1, f2] = frases(z, nivel);
-  const ests = z.estaciones || [], usadas = ests.filter(d => d.usada).length;
-  const conf = !ests.length || !usadas ? "baja" : z.calibrada && usadas >= 2 ? "media" : "baja";
-  const qh = QUE_HACER[z.silencio ? "muy alto" : nivel] || QUE_HACER["sin datos"];
-  // Pista: la ventana (1, 3 o 24 h) que más se acerca a su umbral «alto»
+// La ventana (1, 3, 24 o 72 h) que más se acerca a su umbral «alto», con las marcas de cada nivel.
+// Va en Ciencia › Regla de nivel, una por zona (antes estaba en la tarjeta de Comunidad).
+function pistaZona(z) {
+  const nivel = nivelMostrado(z), n = {fg: "#141414"}, ests = z.estaciones || [];
   const U = umbralesZona(z), f = z.factor || 1, uA = U.find(u => u.nivel === "alto"), R = z.R || {};
   let pista = "";
   if (ests.length && nivel !== "sin datos" && uA && z.R) {
@@ -997,33 +1033,38 @@ function tarjetaZona(z) {
     const marcas = U.filter(u => u[w]).map(u => ({n: u.nivel, v: u[w] * (w === "R72h" ? 1 : f)}));
     const max = Math.max(v, rv || 0, ...marcas.map(m => m.v)) * 1.08; // la escala crece si la lluvia supera todas las marcas
     const pc = x => Math.min(100, x / max * 100).toFixed(1) + "%";
-    const oscuro = n.fg === "#FFFFFF";
-    pista = `<div class="track"><div class="tt"><span>Lluvia en ${wn}: <b>${mmTxt(v)}</b> · la ventana que más se acerca a su umbral</span><span>marcas: ▲ medio · ▼ alto · ● muy alto${f !== 1 ? ` (umbrales ×${num(f, 1)}: suelo ${z.humedad || ""})` : ""}</span></div>
-      <div class="bar" style="background:${oscuro ? "rgba(255,255,255,.22)" : "rgba(255,255,255,.6)"}" role="img" aria-label="Lluvia en ${wn}: ${mmTxt(v)}">
-        <div class="fill" style="width:${pc(v)};background:${oscuro ? "#fff" : "#141414"};opacity:.85"></div>
+    pista = `<div class="track" style="margin-top:6px"><div class="tt"><span>Lluvia en ${wn}: <b>${mmTxt(v)}</b> · la ventana que más se acerca a su umbral</span><span>marcas: ▲ medio · ▼ alto · ● muy alto${f !== 1 ? ` (umbrales ×${num(f, 1)}: suelo ${z.humedad || ""})` : ""}</span></div>
+      <div class="bar" role="img" aria-label="Lluvia en ${wn}: ${mmTxt(v)}">
+        <div class="fill" style="width:${pc(v)};background:var(--rain);opacity:.85"></div>
         ${marcas.map(m => `<div class="mk" style="left:${pc(m.v)};background:${n.fg}"><span title="${esc(m.n)}">${niv(m.n).sh} ${num(m.v, 0)}</span></div>`).join("")}
         ${rv ? `<div class="ref" style="left:${pc(rv)};border-color:${n.fg}"><span style="${rv / max > .7 ? "transform:translateX(-100%);margin-left:-4px" : ""}">30-oct: ${num(rv, 0)} mm</span></div>` : ""}
       </div><div class="tn">${rv ? `El 30 de octubre, en esta zona, cayeron ${num(rv, 0)} mm en ${wn}${v > rv ? `; ahora van ${num(v, 0)} mm` : ""}.` : ""}</div></div>`;
   }
+  return pista;
+}
+function tarjetaZona(z) {
+  const nivel = nivelMostrado(z), n = niv(nivel), tr = tendencia(z), dsd = desde(z), [f1, f2] = frases(z, nivel);
+  const ests = z.estaciones || [], usadas = ests.filter(d => d.usada).length;
+  const conf = !ests.length || !usadas ? "baja" : z.calibrada && usadas >= 2 ? "media" : "baja";
+  const qh = QUE_HACER[z.silencio ? "muy alto" : nivel] || QUE_HACER["sin datos"];
   const satZ = SAT?.zonas?.[z.id], satV = satZ && satEstado(satZ) === "vigilancia";
   const msg = `${zinfo(z).corto}: nivel de lluvia peligrosa «${z.silencio ? "sin datos en plena lluvia fuerte" : nivel}» a las ${hm(Date.parse(E.generado))} (estimación de SOS Galápagos, no oficial). ${f1} Alertas oficiales: COE, SNGR, ECU 911. https://sosgalapagos.org/clima/?zona=${z.id}`;
   const el = $("zcard");
   el.className = "zcard" + (n.sd ? " sd" : "");
   el.style.background = n.sd ? "" : n.bg; el.style.color = n.sd ? "" : n.fg;
-  el.innerHTML = `<div class="top"><div><div class="kick">Nivel de lluvia peligrosa · ${esc(z.zona)}</div>
+  el.innerHTML = `<div class="top"><div><div class="kick">Lluvia caída en su zona · ${esc(z.zona)}</div>
       <div class="lvl"><span class="word"><span class="sh" aria-hidden="true">${z.silencio ? "▦" : n.sh}</span>${z.silencio ? "sin datos en lluvia fuerte" : esc(nivel)}</span>
-      ${tr.t && nivel !== "sin datos" ? `<span class="trend">${tr.a} ${tr.t}</span>` : ""}${dsd && nivel !== "sin datos" ? `<span class="since">${dsd}</span>` : ""}</div></div>
-      <span class="sello">estimación SOS · no oficial</span></div>
+      ${tr.t && nivel !== "sin datos" ? `<span class="trend">${tr.a} ${tr.t}</span>` : ""}${dsd && nivel !== "sin datos" ? `<span class="since">${dsd}</span>` : ""}</div></div></div>
     <p class="f1">${esc(f1)}</p><p class="f2">${esc(f2)}</p>
     ${satV ? `<div class="satline">🛰 Convección profunda cerca (estimación satelital): vigile la lluvia medida. No cambia el nivel.</div>` : ""}
-    ${pista}
-    <div class="meta"><span>${ests.length ? `${usadas} de ${ests.length} estaciones válidas` : "sin estaciones"}</span><span style="opacity:.85">dato ${hace(E.generado)}</span><span style="opacity:.85">confianza ${conf}</span></div>
+    <div class="meta"><span>${ests.length ? `${usadas} de ${ests.length} estaciones válidas` : "sin estaciones"}</span><span style="opacity:.85">dato ${hace(E.generado)}</span><span style="opacity:.85">confianza ${conf}</span><a href="?vista=ciencia#regla" id="aRegla" style="color:inherit;opacity:.85">cómo se calcula</a></div>
     <div class="acts">
       <button id="bQue" aria-expanded="false" style="background:${n.sd || n.fg !== "#FFFFFF" ? "#141414" : "#fff"};color:${n.sd || n.fg !== "#FFFFFF" ? "#fff" : "#141414"};border:0">Qué hacer</button>
       <button id="bShare" style="background:transparent;color:inherit;border:2px solid currentColor">Compartir por WhatsApp</button>
     </div>
     <div class="help" id="qh" hidden><b>${qh.t}</b><ul>${qh.l.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
       <div class="pie">Texto provisional, pendiente de revisión con el COE. Siga siempre sus indicaciones. Refugios oficiales: <a href="/riesgos/">mapa de riesgos (capa de refugios)</a> · Emergencias: <a href="tel:911"><b>llame al 911</b></a></div></div>`;
+  $("aRegla").onclick = ev => { ev.preventDefault(); irCiencia("regla"); };
   $("bQue").onclick = () => { const h = $("qh"); h.hidden = !h.hidden; $("bQue").setAttribute("aria-expanded", !h.hidden); };
   $("bShare").onclick = async () => {
     if (navigator.share) { try { await navigator.share({text: msg}); return; } catch (e) { if (e.name === "AbortError") return; } }
@@ -1090,10 +1131,10 @@ function viene(z) {
       }
       const q = bl.find(k => t >= k.t0 && t < k.t0 + 6 * HORA); if (!q) return null;
       const w = SENAL6(q)[0];
-      return {x: x(Math.max(ahora, q.t0)), html: `<b>${fDiaU.format(new Date(q.inicio.slice(0, 10) + "T12:00Z"))}, ${q.inicio.slice(11, 13)}–${String(+q.inicio.slice(11, 13) + 6).padStart(2, "0")} h</b><br>${w ? `${w} según ${q.n_conjuntos} conjuntos de modelos` : "los modelos casi no ven lluvia"}<br><span style="color:var(--mut)">mediana ${num(q.mediana)} mm · escenario lluvioso ${num(q.p90)} mm. Milímetros de modelo: sirven para ver cuándo, no cuánto.</span>`};
+      return {x: x(Math.max(ahora, q.t0)), html: `<b>${fDiaU.format(new Date(q.inicio.slice(0, 10) + "T12:00Z"))}, ${q.inicio.slice(11, 13)}–${String(+q.inicio.slice(11, 13) + 6).padStart(2, "0")} h</b><br>${w ? `${w} según ${q.n_conjuntos} conjuntos de modelos` : "los modelos casi no ven lluvia"}<br><span style="color:var(--mut)">mediana ${num(q.mediana)} mm · escenario lluvioso ${num(q.p90)} mm de modelo</span>`};
     });
-  }, {pie: `<span><i style="background:var(--rain)"></i>lluvia medida (mm por hora, ${(z.estaciones || []).length ? "máximo ponderado de las estaciones de la zona" : "sin estaciones"})</span><span><i class="vh"></i>cuándo esperan lluvia los modelos${pt ? ` (${esc(pt.nombre)})` : ""}: más rayado = más lluvia de modelo; sirve para ver cuándo, no cuánto</span><span><i class="hx"></i>sin datos (no es cero)</span><span><i style="background:var(--night);border:1px solid var(--line)"></i>noche 18:00–06:00</span>`,
-    nota: "Lluvia medida: máximo ponderado de las estaciones de la zona, por hora. Abajo, bloques de 6 h de los conjuntos de modelos: rayado fuerte si la mediana llega a 3 mm o el escenario lluvioso (p90) a 8 mm; rayado suave si llegan a 1 y 3 mm. Son milímetros de modelo, sin calibrar: sirven para ver cuándo se concentra la lluvia, no cuánto lloverá."});
+  }, {pie: `<span><i style="background:var(--rain)"></i>lluvia medida (mm por hora, ${(z.estaciones || []).length ? "máximo ponderado de las estaciones de la zona" : "sin estaciones"})</span><span><i class="vh"></i>cuándo esperan lluvia los modelos${pt ? ` (${esc(pt.nombre)})` : ""}: más rayado = más lluvia de modelo</span><span><i class="hx"></i>sin datos (no es cero)</span><span><i style="background:var(--night);border:1px solid var(--line)"></i>noche 18:00–06:00</span>`,
+    nota: "Lluvia medida: máximo ponderado de las estaciones de la zona, por hora. Abajo, bloques de 6 h de los conjuntos de modelos: rayado fuerte si la mediana llega a 3 mm o el escenario lluvioso (p90) a 8 mm; rayado suave si llegan a 1 y 3 mm. Son milímetros de modelo, sin calibrar."});
 }
 
 // Próximos días: lógica aprobada del pronóstico (no recalcula el nivel; cifra = P(≥20 mm) en pasos de 5 %)
@@ -1106,15 +1147,14 @@ function textoDia(d, R) {
     (d.estado_20 === "sin_eventos" ? "\nEn esta época no se midió ningún día con 20 mm aquí." : "") + (d.estado_20 === "sin_habilidad" || d.nivel === "no_evaluable" ? "\nEn esta época el pronóstico no mostró habilidad: no se da cifra." : "") +
     (d.prestada_de ? (d.prestada_de.startsWith(d.grupo) ? "\nSe usa la curva de la temporada lluviosa: en esta época casi nunca llueve fuerte aquí y no hay con qué calibrar." : "\nSe usa la curva de la parte alta de San Cristóbal: aquí aún no hay datos de esta época.") : "");
 }
-function dias(z) {
+// Ciencia › Pronóstico: el detalle de la zona elegida, 7 días por punto (lo que antes estaba en Comunidad).
+// La nota del pronóstico y la hora de la corrida ya están arriba, en la misma sección.
+function diasDetalle(z) {
   const pz = P?.zonas?.[z.id], cont = $("diasCont");
+  $("diasT").textContent = `Día a día, por punto · ${zinfo(z).corto}`;
   if (!pz) { cont.innerHTML = `<p class="empty">El pronóstico no está disponible ahora.</p>`; return; }
   const R = P.reglas, nv = Object.fromEntries(R.niveles.map(x => [x.id, x])), manana = new Date(Date.parse(P.hoy_local + "T12:00Z") + DIA).toISOString().slice(0, 10);
-  const cons = P.modelos.filter(m => m.en_consenso && m.vigente), ult = cons.map(m => m.corrida_local).filter(Boolean).sort().at(-1);
-  $("diasSub").innerHTML = `Lluvia fuerte = 20 mm o más en el día <span class="tag">pronóstico experimental · no oficial</span>`;
-  cont.innerHTML = `<div class="nota-gris">${esc(R.aviso)}</div>
-    <p class="note" style="color:var(--ink2)"><b>Esto es un pronóstico, no lluvia medida.</b> Sale de ${cons.length} modelos meteorológicos globales, calibrados con la lluvia medida en las islas. Corrida más reciente: ${localTxt(ult)} · revisado ${localTxt(P.generado_local)} (hora de Galápagos).</p>` +
-    pz.puntos.map(p => {
+  cont.innerHTML = pz.puntos.map(p => {
       const d0 = p.dias[0] || {}, g = R.grupos[d0.grupo] || {};
       const costaSin = p.tipo === "costa" && p.dias.some(d => d.nivel === "sin_senal");
       const cab = `<h3>${esc(p.nombre)} <span style="font-weight:400;color:var(--mut);font-size:13px">· ${p.tipo === "alta" ? "parte alta" : "costa"}</span></h3>
@@ -1135,7 +1175,7 @@ function dias(z) {
       }).join("")}</div><div class="nota-gris" id="pzDet-${esc(p.id)}" hidden></div>`;
     }).join("") +
     `<div class="legend" style="margin-top:12px">${R.niveles.map(x => `<span><i style="background:${esc(x.color)}"></i>${esc(x.texto)}${x.desde ? ` (≥ ${Math.round(x.desde * 100)} %)` : ""}</span>`).join("")}</div>
-    <p class="note">«Lo normal»: cuántos días de cada 100 tienen 20 mm o más en esta época. Los días atenuados son menos fiables. <b>Toque un día para ver el detalle.</b> Después de las 18:00 la guía es la lluvia medida. El pronóstico oficial es del INAMHI.</p>`;
+    <p class="note">«Lo normal»: cuántos días de cada 100 tienen 20 mm o más en esta época. Los días atenuados son menos fiables. <b>Toque un día para ver el detalle.</b> Después de las 18:00 la guía es la lluvia medida.</p>`;
   cont.querySelectorAll(".dia[data-k]").forEach(el => el.onclick = el.onkeydown = ev => {
     if (ev.type === "keydown" && ev.key !== "Enter" && ev.key !== " ") return;
     if (ev.type === "keydown") ev.preventDefault();
@@ -1147,6 +1187,31 @@ function dias(z) {
   });
 }
 
+// ¿Lloverá fuerte? en Comunidad: una fila por zona con hoy, mañana y pasado. Cada día, una palabra y el %.
+// Por zona se toma el punto con más probabilidad ese día (la zona tiene un punto en la parte alta y otro en la costa).
+// Las palabras salen de los cortes de nivel del pronóstico: «señal alta» = probable, «moderada» = posible, «sin señal» = poco probable.
+const PALABRA = {alta: "probable", moderada: "posible", sin_senal: "poco probable", no_evaluable: "sin dato"};
+function llueve(z) {
+  const cont = $("llueve");
+  if (!P) { cont.innerHTML = `<p class="empty">El pronóstico no está disponible ahora.</p>`; return; }
+  const R = P.reglas, nv = Object.fromEntries(R.niveles.map(x => [x.id, x])), d0 = Date.parse(P.hoy_local + "T12:00Z");
+  const fechas = [0, 1, 2].map(i => new Date(d0 + i * DIA).toISOString().slice(0, 10)), etq = ["Hoy", "Mañana", "Pasado"];
+  const filas = zonas().filter(x => P.zonas[x.id]).map(x => {
+    const celdas = fechas.map(f => {
+      const ds = P.zonas[x.id].puntos.map(p => p.dias.find(d => d.fecha === f)).filter(d => d && d.nivel !== "no_evaluable" && d.prob?.["20"] != null);
+      if (!ds.length) return `<div class="dd"><b>—</b><span>sin dato</span></div>`;
+      const d = ds.reduce((m, q) => q.prob["20"] > m.prob["20"] ? q : m), n = nv[d.nivel] || nv.no_evaluable;
+      return `<div class="dd" style="--c:${esc(n.color)};--t:${esc(n.texto_color || n.color)}"><b>${r5(d.prob["20"])}<small> %</small></b><span>${PALABRA[d.nivel] || esc(n.texto)}</span></div>`;
+    }).join("");
+    return `<div class="fz${x.id === z.id ? " su" : ""}"><span class="zn">${esc(zinfo(x).corto)}</span>${celdas}</div>`;
+  }).join("");
+  const falla = (R.aviso || "").match(/Puede fallar[^.]*\./)?.[0] || "Puede fallar en los dos sentidos.";
+  cont.innerHTML = `<div class="llueve"><div class="fz cab"><span></span>${etq.map(t => `<span>${t}</span>`).join("")}</div>${filas}
+    <div class="notas"><p>${esc(falla)}</p><p>«Sin señal» en la costa no es garantía: de 8 días con 50 mm o más en Puerto Ayora, 6 no tuvieron señal. Mire la lluvia medida.</p></div></div>
+    <a href="?vista=ciencia#pronostico" class="ver-mas" id="verPz">Ver el detalle (Ciencia) →</a>`;
+  $("verPz").onclick = ev => { ev.preventDefault(); irCiencia("pronostico"); };
+}
+
 // Mar (zonas costeras)
 function marCom(z) {
   const zi = zinfo(z), M = E.mareas, card = $("cMar");
@@ -1156,13 +1221,13 @@ function marCom(z) {
   if (zi.mar.tipo === "obs") {
     const e = M.estaciones[zi.mar.id]; if (!e) { card.hidden = true; return; }
     const ples = e.proximos.filter(p => p.tipo === "pleamar").slice(0, 2);
-    $("marSub").textContent = `Mareógrafo de ${e.nombre} · el oleaje y el viento (modelo) están en «Hoy en cada isla» · para navegar, consulte a la Capitanía de Puerto`;
+    $("marSub").textContent = `Mareógrafo de ${e.nombre}. Aquí la altura va sobre el nivel medio del mar; en «Hoy en cada isla», sobre la bajamar (tabla del INOCAR): por eso las cifras no coinciden. Para navegar, consulte a la Capitanía de Puerto.`;
     $("marCont").innerHTML = `<div class="pleas">${ples.map((p, i) => `<div class="plea"><div class="k">${i ? "SIGUIENTE PLEAMAR" : "PRÓXIMA PLEAMAR"}</div><div class="v">${hm(Date.parse(p.t))} · ${sgn(p.esperado_cm)} cm</div><div class="a">${sgn(p.esperado_cm - p.pred_cm)} cm sobre la marea normal</div><div class="nm" style="font-size:12px;color:var(--mut)">${fH.format(new Date(p.t))}</div></div>`).join("")}
       <div class="plea gris"><div class="k">POR QUÉ ESTÁ MÁS ALTO</div><div style="font-size:14px;margin-top:4px">El mar está ${sgn(e.anomalia_cm)} cm por encima de lo normal, sobre todo por El Niño. Con lluvia fuerte, la zona baja de la costa drena peor en la pleamar.</div></div></div>` +
       fig("marCom", "", (el, o) => curvaMar(el, o, e, true), {pie: `<span><i class="ln" style="border-color:var(--ink)"></i>nivel observado</span><span><i class="dsh" style="border-color:var(--ink)"></i>esperado (marea + anomalía)</span><span><i class="dsh" style="border-color:var(--hatch)"></i>marea astronómica</span><span><i style="background:var(--sand)"></i>anomalía (${sgn(e.anomalia_cm)} cm)</span>`, nota: "Alturas en cm respecto del nivel medio 2017–2024 del mareógrafo; no son cotas del terreno."});
   } else {
     const mo = M.modelo?.[zi.mar.id]; if (!mo) { card.hidden = true; return; }
-    $("marSub").textContent = `${mo.nombre}: no hay mareógrafo. Pleamares: ${mo.pleamares_fuente || "modelo"}${mo.ola_max_m != null ? ` · olas hasta ${num(mo.ola_max_m)} m en 72 h (${mo.ola_fuente || "modelo"}; es un modelo, no una medición)` : ""} · para navegar, consulte a la Capitanía de Puerto`;
+    $("marSub").textContent = `${mo.nombre}: no hay mareógrafo. Pleamares: ${mo.pleamares_fuente || "modelo"}, como en «Hoy en cada isla»${mo.ola_max_m != null ? ` · olas hasta ${num(mo.ola_max_m)} m en 72 h (${mo.ola_fuente || "modelo"})` : ""}. Para navegar, consulte a la Capitanía de Puerto.`;
     $("marCont").innerHTML = `<div class="pleas">${mo.pleamares.slice(0, 2).map((p, i) => `<div class="plea"><div class="k">${i ? "SIGUIENTE PLEAMAR" : "PRÓXIMA PLEAMAR"}</div><div class="v">${hm(Date.parse(p.t))}${p.nivel_m != null ? ` · ${num(p.nivel_m, 2)} m` : ""}</div><div class="nm" style="font-size:12px;color:var(--mut)">${fH.format(new Date(p.t))}</div></div>`).join("")}
       ${anom != null ? `<div class="plea gris"><div class="k">MÁS ALTO QUE LO NORMAL</div><div style="font-size:14px;margin-top:4px">En Puerto Ayora el mar está ${sgn(anom)} cm por encima de lo normal por El Niño. Aquí se espera algo parecido: la pleamar ocurre a la misma hora (±15 min) y con una altura similar.</div></div>` : ""}</div>`;
   }
@@ -1202,29 +1267,6 @@ function curvaMar(el, o, e, com) {
   });
 }
 
-function cercanas(z) {
-  const vs = E.estaciones.filter(e => conLluvia(e) && e.isla === z.isla);
-  $("cercanas").innerHTML = (!vs.length ? `<div class="nota-gris" style="font-weight:700">No tenemos estaciones en ${esc(z.isla)}. Siga al INAMHI y al COE de ${esc(z.isla)}.</div>` : "") +
-    `<div class="lst">${vs.map(e => {
-      const s = estadoEst(e), v = e.lluvia?.["24h"], cob = cobertura(clave(e), 24);
-      return `<div class="it"><span class="ico-${s.c}" style="font-size:18px;text-align:center" aria-label="${e.danada ? "con errores" : s.c === "ok" ? "transmite" : s.c === "warn" ? "con retraso" : "apagada"}">${s.i}</span>
-        <div><b>${esc(e.nombre)}</b><small>${esc(e.operador)} · ${e.altitud_m ?? "?"} m · ${s.t}</small></div>
-        <div class="r">${v == null ? "—" : mmTxt(v, cob < .99)}<small>en 24 h</small></div></div>`;
-    }).join("")}</div>`;
-}
-function todas() {
-  const zs = zonas().slice().sort((p, q) => niv(nivelMostrado(q)).i - niv(nivelMostrado(p)).i);
-  $("todas").innerHTML = `<div class="lst">${zs.map(z => {
-    const nv = nivelMostrado(z), n = niv(nv), ests = z.estaciones || [], us = ests.filter(d => d.usada).length;
-    return `<button class="it" data-z="${esc(z.id)}"><span class="pill${n.sd ? " sd" : ""}" style="background:${n.bg};color:${n.fg}">${n.sh} ${z.silencio ? "sin datos (lluvia fuerte)" : esc(nv)}</span>
-      <div><b>${esc(z.zona)}</b><small>${ests.length ? `${us} de ${ests.length} estaciones válidas${z.calibrada ? "" : " · sin calibrar"}` : "sin estaciones"}</small></div>
-      <small style="text-align:right">${z.R ? `${mmTxt(z.R.R24h)} en 24 h` : ""}</small></button>`;
-  }).join("")}</div>`;
-  $("todas").querySelectorAll("[data-z]").forEach(b => b.onclick = () => { S.zona = b.dataset.z; store.set("clima-zona", S.zona); pintar(); scrollTo({top: 0, behavior: "smooth"}); });
-  $("leyNiv").innerHTML = `Niveles: ■ bajo · ▲ medio · ▼ alto · ● muy alto · ▦ rayado = sin datos. Son estimaciones de SOS Galápagos con la lluvia medida. <a href="?vista=ciencia#regla" id="aRegla">Cómo se calcula</a>`;
-  $("aRegla").onclick = ev => { ev.preventDefault(); irCiencia("regla"); };
-}
-
 // ═════════════ CIENCIA ═════════════
 function irCiencia(sec) {
   S.vista = "ciencia"; pintar();
@@ -1232,9 +1274,18 @@ function irCiencia(sec) {
 }
 function ciencia() {
   $("navSat").hidden = !SAT; $("satelite").hidden = !SAT;
-  islaSeg(); red(); explorador(); regla(); pzCiencia(); if (SAT) satelite(); estacionalidad(); marSci(); fuentes();
+  if (!D) pedirDiario(); // el explorador y la estacionalidad esperan a diario.json; lo demás se pinta ya
+  islaSeg(); red(); explorador(); regla(); pzCiencia(); if (SAT) satelite(); estacionalidad(); marSci(); oceano(); fuentes();
   dibujar($("vSci"));
   espia();
+}
+// El Niño y el océano: NinoPanel en modo «ciencia», una sola vez y con la vista ya visible (Leaflet necesita su tamaño).
+let oceanoListo = false;
+function oceano() {
+  if (oceanoListo) return;
+  if (!window.NinoPanel) { addEventListener("DOMContentLoaded", oceano, {once: true}); return; }
+  oceanoListo = true;
+  obtenerLeaflet().catch(() => null).then(() => NinoPanel.montar($("ninoSci"), {modo: "ciencia"}));
 }
 // Menú: lleva a cada sección y marca en cuál está el lector.
 // Nunca mueve la página por su cuenta: solo desplaza el propio menú en horizontal (antes, scrollIntoView
@@ -1251,7 +1302,7 @@ function irSec(id, suave = true) {
   const el = $(id); if (!el || el.hidden) return;
   marcar(id);
   navLock = Date.now() + 1500; // mientras baja, el menú no cambia de sección a cada paso
-  const y = el.getBoundingClientRect().top + scrollY - $("sciNav").offsetHeight - 6;
+  const y = el.getBoundingClientRect().top + scrollY - $("sciNav").offsetHeight - 48 - 6; // 48: la barra del menú del sitio
   scrollTo({top: Math.max(0, y), behavior: suave && !matchMedia("(prefers-reduced-motion: reduce)").matches ? "smooth" : "auto"});
   history.replaceState(null, "", location.pathname + location.search + "#" + id);
 }
@@ -1392,6 +1443,7 @@ const etiquetaG = () => ({1: "hora", 3: "3 h", 6: "6 h", 24: "día"})[S.g];
 const NCMP = {evento: "inundación 30–31 oct", anterior: "período anterior", anio: "hace un año"};
 function exEstaciones() { return E.estaciones.filter(e => conLluvia(e) && enIsla(e)); }
 function explorador() {
+  if (!D) return; // espera a diario.json
   const {a, b} = ventana();
   document.querySelectorAll("#periodo button").forEach(x => x.classList.toggle("on", !S.desde && String(S.per) === x.dataset.h));
   document.querySelectorAll("#grupo button").forEach(x => { x.classList.toggle("on", +x.dataset.g === S.g); x.disabled = (b - a) > 120 * DIA && +x.dataset.g < 24; });
@@ -1539,6 +1591,7 @@ function regla() {
       const fila = u => filaU(u).replace(/<td class="l">([^<]*)<\/td><\/tr>$/, (m0, p) => (c72 ? `<td>${u.R72h ? "≥ " + u.R72h + " (72 h)" : "—"}</td>` : "") + `<td class="l">${p}</td></tr>`);
       return `<tbody><tr><th class="l" colspan="${c72 ? 6 : 5}" style="padding-top:12px">${esc(z.zona)}: umbrales propios${z.factor === 1 && !c72 ? ", sin rebaja por suelo húmedo" : c72 ? " (con 72 h: suelo saturado)" : ""}</th></tr>${z.umbrales.map(fila).join("")}<tr><td class="l" colspan="${c72 ? 6 : 5}"><span class="m">${esc(z.nota || "")}</span></td></tr></tbody>`; }).join("");
   $("metodo").innerHTML = `<details class="um" open><summary>Cómo se calcula</summary><p>La lluvia de referencia de cada zona (R) es la mayor entre sus estaciones válidas, con un peso por estación, en ventanas de 1, 3 y 24 horas. Basta que una ventana supere su umbral. Los umbrales bajan un 20 % si el suelo está húmedo (más de 53 mm en los 5 días previos). San Cristóbal tiene umbrales propios, calibrados con lo que pasó el 31-oct y el 12-nov, y sin esa rebaja. El nivel se mantiene ${I.persistencia_horas || 8} horas, porque la crecida llega 1,5–3,5 h después de la lluvia y el agua tarda en bajar. El nivel se calcula cada 5 minutos, así que un «alto» que dura poco también se mantiene esas horas. Si ninguna estación de la zona transmite durante más de 60 minutos con el nivel en «alto» o más, el nivel pasa a «muy alto»: el silencio durante una alerta se trata como alarma (en Comunidad se muestra como «sin datos en lluvia fuerte»). Las ventanas de cada estación terminan en su último dato, porque algunas fuentes llegan con 10–20 minutos de retraso. Una estación se excluye si su último dato tiene más de 30 minutos, si en la última hora o en las últimas 3 horas antes de ese dato recibió menos del 80 % de sus datos, o si marca 0 mm mientras otra registra 10 mm o más en 3 h. Una estación que revisamos y marcamos «con errores» no se usa hasta que se repare. Datos de más de 60 minutos: el nivel se muestra como «sin datos».</p><p>Calibrada con dos eventos (30-oct y 21-nov de 2026). Santa Rosa y Los Guayabillos están fuera de la cuenca de La Cascada. Que no conste una inundación no significa que no la hubo.</p></details>`;
+  $("umbZonas").innerHTML = zonas().map(x => { const pi = pistaZona(x); return `<div class="umb-zona"><h3>${esc(x.zona)}</h3>${pi || `<p class="note">Sin estaciones válidas o sin datos ahora.</p>`}</div>`; }).join("");
   const z = zonaActual();
   $("fAcum").innerHTML = fig("acum", `${esc(z.zona)} <span>últimas 72 h frente al 30–31 oct</span>`, (el, o) => acumZona(el, o, z),
     {pie: `<span><i class="ln" style="border-color:var(--rain)"></i>últimas 72 h</span><span><i class="ln" style="border-color:var(--ref)"></i>30–31 oct, alineado al inicio</span><span><i class="dsh" style="border-color:var(--red)"></i>umbrales de 24 h de la regla</span><span><i class="hx"></i>sin datos</span>`,
@@ -1567,7 +1620,7 @@ function acumZona(el, o, z) {
 
 // ── Pronóstico (Ciencia): tabla de probabilidades, acuerdo entre modelos, bloques de 6 h, corridas y evaluación
 function pzCiencia() {
-  if (!P) { $("pzTabla").innerHTML = `<tbody><tr><td class="l">El pronóstico no está disponible ahora.</td></tr></tbody>`; return; }
+  if (!P) { $("pzTabla").innerHTML = `<tbody><tr><td class="l">El pronóstico no está disponible ahora.</td></tr></tbody>`; $("diasCont").innerHTML = ""; return; }
   const R = P.reglas, nv = Object.fromEntries(R.niveles.map(x => [x.id, x])), cons = P.modelos.filter(m => m.en_consenso && m.vigente), ult = cons.map(m => m.corrida_local).filter(Boolean).sort().at(-1);
   $("pzCorr").innerHTML = `<b>Esto es un pronóstico, no lluvia medida.</b> Sale de ${cons.length} modelos meteorológicos globales, calibrados con la lluvia medida en las islas. Corrida más reciente: ${localTxt(ult)} · revisado ${localTxt(P.generado_local)} (hora de Galápagos).`;
   const fechas = [...new Set(Object.values(P.zonas).flatMap(z => z.puntos.flatMap(p => p.dias.map(d => d.fecha))))].sort();
@@ -1585,7 +1638,8 @@ function pzCiencia() {
     nota: "Percentil de la lluvia diaria de cada modelo dentro de su propia climatología en ese punto (2024–2026). El consenso es el promedio y es lo que se convierte en probabilidad con la curva calibrada."}) : `<p class="empty">Sin pronóstico.</p>`;
   $("f6h").innerHTML = pt?.bloques6h?.length ? fig("b6h", "", (el, o) => bloques6(el, o, pt), {pie: `<span><i style="background:var(--fc)"></i>mediana de ${pt.bloques6h[0].n_conjuntos} conjuntos, con raya hasta el escenario lluvioso (p90)</span>${pt.detalle ? `<span><i style="background:var(--ink);transform:rotate(45deg);width:9px;height:9px"></i>${esc(pt.detalle.modelo)} (una corrida, la de más detalle)</span>` : ""}<span><b>Son milímetros de modelo: sirven para ver cuándo se concentra la lluvia, no cuánto lloverá.</b></span>`,
     nota: `${pt.nombre}. Cada barra cubre 6 h desde la hora indicada (hora de Galápagos).`}) : `<p class="empty">Sin bloques de 6 h.</p>`;
-  $("pzAviso").innerHTML = `<span class="tag" style="margin:0 6px 0 0">pronóstico experimental · no oficial</span>${esc(R.aviso)}`;
+  $("pzAviso").textContent = R.aviso;
+  diasDetalle(zonaActual());
   const filas = P.modelos.map(m => `<tr${m.vigente ? "" : ` class="ref"`}><td class="l">${esc(m.nombre)}${m.en_consenso ? "" : ` <span class="m">${m.tipo === "conjunto" ? `conjunto de ${m.miembros}: solo barras de 6 h` : "solo detalle hora a hora"}</span>`}</td><td>${m.corrida_local ? localTxt(m.corrida_local) : "sin dato"}</td><td>${m.corrida_utc ? `${m.corrida_utc.slice(11, 13)} UTC del ${+m.corrida_utc.slice(8, 10)}/${+m.corrida_utc.slice(5, 7)}` : "—"}</td><td>${localTxt(m.disponible_local || m.recibido_local)}</td></tr>`).join("");
   $("pzHoras").innerHTML = R.explicacion_horas.map(t => `<p>${t}</p>`).join("") + `<div class="tblwrap"><table><thead><tr><th class="l">Modelo</th><th>Arranca (Galápagos)</th><th>Arranca (UTC)</th><th>Disponible desde</th></tr></thead><tbody>${filas}</tbody></table></div>`;
   $("pzEval").innerHTML = R.evaluacion.map(t => `<p>${t}</p>`).join("");
@@ -1640,20 +1694,48 @@ const satEstado = z => !satFresco() ? "sin datos" : z.evaluada === false ? "sin_
 const colTb = t => t < 200 ? "#4c1d95" : t < 210 ? "#9f1239" : t < 221 ? "#c2410c" : "#f59e0b";
 const colRr = r => r >= 20 ? "#0d366b" : r >= 10 ? "#1c5cab" : r >= 5 ? "#3987e5" : "#86b6ef";
 const colRayo = mn => mn <= 10 ? "#facc15" : mn <= 30 ? "#fb923c" : "#a8a29e";
-let MAPS, GS = {}; const VIS = {nucleos: true, lluvia: true, rayos: true};
+let MAPS, GS = {}, FONDO = null; const VIS = {nucleos: true, lluvia: true, rayos: true};
+// Lluvia estimada de PDIR-Now (CHRS, UC Irvine): la sirve la plataforma. Solo se muestra cuando falta el RRQPE de la NOAA;
+// no entra en la señal satelital ni en el nivel de lluvia. Estimación por infrarrojo: no ve la garúa ni las nubes bajas.
+let PDIR = null, PDIR_T = 0;
+const rrFresco = () => { const t = SAT?.ultima_imagen?.rrqpe?.ts; return !!t && Date.parse(SAT.generado) - Date.parse(t) <= 45 * 6e4; };
+const pdirFresco = () => { const h = PDIR?.horas; return !!(h && h.length) && Date.now() - Date.parse(h[h.length - 1].fin) <= 4 * HORA; };
+function pedirPdir() {
+  if (Date.now() - PDIR_T < 10 * 6e4) return;
+  PDIR_T = Date.now();
+  fetch("/riesgos/api/clima/pdirnow.json?t=" + Math.floor(Date.now() / 3e5)).then(r => r.ok ? r.json() : null)
+    .then(d => { if (d && Array.isArray(d.horas)) { PDIR = d; if (SAT) satelite(); } }).catch(() => {});
+}
+const pdirZona = zid => {
+  if (!pdirFresco()) return null;
+  const hs = PDIR.horas.slice(-3), u = hs[hs.length - 1], vs = hs.map(h => h.zonas?.[zid]?.max_mmh).filter(x => x != null);
+  return vs.length ? {ult: u.zonas?.[zid]?.max_mmh ?? null, max: Math.max(...vs), h: u} : null;
+};
+const faltaTxt = V => (V.faltan || []).map(f => f === "RRQPE" && pdirFresco() ? "RRQPE, la lluvia estimada de la NOAA (la que se muestra es de PDIR-Now y no entra en esta señal)" : esc(f)).join(" y ");
+// satelite.js (fondo animado y lluvia de PDIR-Now) solo se pide cuando se abre el satélite, en Ciencia.
+let sateliteJs;
+const cargarSateliteJs = () => window.SateliteMapa ? Promise.resolve() : (sateliteJs ||= new Promise(ok => {
+  const s = document.createElement("script"); s.src = "/riesgos/estaticos/mapa/satelite.js?v=1";
+  s.onload = ok; s.onerror = () => { sateliteJs = null; ok(); }; document.head.append(s);
+}));
 async function mapaSat() {
   let L; try { L = await obtenerLeaflet(); } catch (e) { MAPS = null; sinMapa("satMap"); return; }
+  await cargarSateliteJs();
   if (!MAPS) {
     MAPS = L.map("satMap", {scrollWheelZoom: false, dragging: !TACTIL});
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {maxZoom: 13, attribution: "Esri · GOES-19 NOAA"}).addTo(MAPS);
     ["zonas", "nucleos", "lluvia", "rayos"].forEach(k => GS[k] = L.layerGroup().addTo(MAPS));
     MAPS.fitBounds([[-1.45, -91.5], [-0.25, -89.2]]);
+    MAPS.createPane("satEtiq").style.zIndex = 390; MAPS.getPane("satEtiq").style.pointerEvents = "none";
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", {maxZoom: 13, pane: "satEtiq"}).addTo(MAPS);
   }
+  if (!FONDO && window.SateliteMapa) FONDO = SateliteMapa.montar(MAPS, L, {capas: "/riesgos/api/clima/satelite-capas"});
   Object.values(GS).forEach(g => g.clearLayers());
   const c = (SAT.celda_grados || .05) / 2, caja = (la, lo) => [[la - c, lo - c], [la + c, lo + c]];
   Object.values(SAT.zonas).forEach(z => { const b = z.bbox, e = SAT_EST[satEstado(z)] || SAT_EST["sin datos"]; L.rectangle([[b[1], b[0]], [b[3], b[2]]], {color: e[0], weight: 2, fill: false, dashArray: "4 3"}).bindTooltip(esc(z.nombre)).addTo(GS.zonas); });
   if (VIS.nucleos) (SAT.nucleos || []).filter(x => x[2] < 235).forEach(([la, lo, t]) => L.rectangle(caja(la, lo), {stroke: false, fillColor: colTb(t), fillOpacity: .55}).bindTooltip(`Tope de nube a ${num(t - 273.15, 0)} °C`).addTo(GS.nucleos));
-  if (VIS.lluvia) (SAT.lluvia_sat || []).forEach(([la, lo, r]) => L.rectangle(caja(la, lo), {stroke: false, fillColor: colRr(r), fillOpacity: .5}).bindTooltip(`Lluvia estimada ${num(r, 1)} mm/h`).addTo(GS.lluvia));
+  if (FONDO) FONDO.lluvia(VIS.lluvia && !rrFresco() && pdirFresco() ? PDIR : null);
+  if (VIS.lluvia && rrFresco()) (SAT.lluvia_sat || []).forEach(([la, lo, r]) => L.rectangle(caja(la, lo), {stroke: false, fillColor: colRr(r), fillOpacity: .5}).bindTooltip(`Lluvia estimada ${num(r, 1)} mm/h`).addTo(GS.lluvia));
   if (VIS.rayos) (SAT.rayos || []).slice().sort((p, q) => q[2] - p[2]).forEach(([la, lo, mn]) => L.circleMarker([la, lo], {radius: mn <= 10 ? 4 : 3, color: "#713f12", weight: .6, fillColor: colRayo(mn), fillOpacity: .95}).bindTooltip(`Rayo hace ${mn} min`).addTo(GS.rayos));
   MAPS.invalidateSize();
 }
@@ -1665,30 +1747,36 @@ function chispaSat(z) {
   return `<svg viewBox="0 0 ${W} ${Hh}" preserveAspectRatio="none" aria-label="Tope de nube y rayos, últimas 3 horas"><line x1="0" x2="${W}" y1="${u}" y2="${u}" stroke="#c2410c" stroke-dasharray="3 3" stroke-width=".8"/>${barras}<path d="${tb.map((p, i) => `${i ? "L" : "M"}${x(p[0]).toFixed(1)},${y(p[1]).toFixed(1)}`).join("")}" fill="none" stroke="var(--ink)" stroke-width="1.4"/></svg>`;
 }
 function satelite() {
+  pedirPdir();
   const u = SAT.ultima_imagen || {}, c13 = u.c13?.ts, rr = u.rrqpe?.ts, atraso = minDesde(SAT.generado);
-  const viejo = ts => !ts || Date.parse(SAT.generado) - Date.parse(ts) > 45 * 6e4;
+  const ph = pdirFresco() ? PDIR.horas[PDIR.horas.length - 1] : null;
   $("satHora").innerHTML = (atraso > 20 ? `<span style="font-weight:700">ⓘ El colector del satélite no se actualiza desde hace ${Math.round(atraso)} min: las zonas se muestran sin estado.</span> ` : "") +
-    `Imagen de nubes: <b>${c13 ? fH.format(new Date(c13)) : "sin datos"}</b> · rayos hasta las <b>${SAT.glm_ultimo_intervalo ? hm(Date.parse(SAT.glm_ultimo_intervalo) + 6e5) : "—"}</b> · lluvia estimada: ${viejo(rr) ? `<span style="font-weight:700">ⓘ la NOAA no la está produciendo ahora</span>` : hm(Date.parse(rr))} (hora de Galápagos). Rayos: amarillo, últimos 10 min; naranja, 10–30 min; gris, hasta 3 h.` +
+    `Imagen de nubes: <b>${c13 ? fH.format(new Date(c13)) : "sin datos"}</b> · rayos hasta las <b>${SAT.glm_ultimo_intervalo ? hm(Date.parse(SAT.glm_ultimo_intervalo) + 6e5) : "—"}</b> · lluvia estimada: ${rrFresco() ? `<b>${hm(Date.parse(rr))}</b> (NOAA, RRQPE)` : ph ? `la de la NOAA (RRQPE) no se produce ahora; se muestra la de <b>PDIR-Now</b>, de ${hm(Date.parse(ph.inicio))} a ${hm(Date.parse(ph.fin))}, que no ve la garúa ni la lluvia de nubes bajas` : `<span style="font-weight:700">ⓘ la NOAA no la está produciendo ahora</span>`} (hora de Galápagos). Las nubes muy frías y los rayos son lo último que llegó; el fondo y la lluvia estimada cambian con la hora del control. Rayos: amarillo, últimos 10 min; naranja, 10–30 min; gris, hasta 3 h.` +
     (SAT.paralaje ? ` ${esc(SAT.paralaje)}` : "");
   const serie = (z, v) => (z.series?.[v] || []).map(p => p[1]);
   const ult = (z, v) => { const s = serie(z, v); return s.length ? s[s.length - 1] : null; };
   const suma3 = (z, v) => { const s = serie(z, v).slice(-3).filter(x => x != null); return s.length ? s.reduce((a, x) => a + x, 0) : null; };
   const maxr = (z, v) => { const s = serie(z, v).filter(x => x != null); return s.length ? Math.max(...s) : null; };
   const zs = Object.entries(SAT.zonas).sort((p, q) => (q[1].evaluada === true) - (p[1].evaluada === true));
-  $("satZonas").innerHTML = zs.map(([, z]) => {
+  $("satZonas").innerHTML = zs.map(([zid, z]) => {
     const est = satEstado(z), e = SAT_EST[est] || SAT_EST["sin datos"], V = z.vigilancia || {};
     const mot = est === "vigilancia" ? (V.motivos || []).map(m => esc(m.texto) + (m.activo ? " · se cumple ahora" : (V.motivos.length > 1 && m.ultimo_disparo ? ` · último disparo a las ${hm(Date.parse(m.ultimo_disparo))}` : ""))).join("<br>") : "";
-    const hasta = est === "vigilancia" && V.ultimo_disparo ? `Último disparo a las ${hm(Date.parse(V.ultimo_disparo))}${V.vigilancia_hasta ? `; vigilancia hasta las ${hm(Date.parse(V.vigilancia_hasta))}` : ""}.${(V.faltan || []).length ? ` Falta ${V.faltan.map(esc).join(" y ")}.` : ""}` : "";
-    const nubesBajas = est === "sin señal" || est === "incompleta" ? `<div class="m" style="font-weight:700">No descarta lluvia fuerte de nubes bajas.${est === "incompleta" && (V.faltan || []).length ? ` Falta ${V.faltan.map(esc).join(" y ")}.` : ""}</div>` : "";
-    const tb = ult(z, "tb_min_k"), r = ult(z, "lluvia_sat_max_mmh"), r1 = suma3(z, "rayos_n"), r2 = suma3(z, "rayos_n_25km");
+    const hasta = est === "vigilancia" && V.ultimo_disparo ? `Último disparo a las ${hm(Date.parse(V.ultimo_disparo))}${V.vigilancia_hasta ? `; vigilancia hasta las ${hm(Date.parse(V.vigilancia_hasta))}` : ""}.${(V.faltan || []).length ? ` Falta ${faltaTxt(V)}.` : ""}` : "";
+    const nubesBajas = est === "sin señal" || est === "incompleta" ? `<div class="m" style="font-weight:700">No descarta lluvia fuerte de nubes bajas.${est === "incompleta" && (V.faltan || []).length ? ` Falta ${faltaTxt(V)}.` : ""}</div>` : "";
+    const tb = ult(z, "tb_min_k"), r = rrFresco() ? ult(z, "lluvia_sat_max_mmh") : null, r1 = suma3(z, "rayos_n"), r2 = suma3(z, "rayos_n_25km"), pz = r == null ? pdirZona(zid) : null;
+    const lluviaKv = r != null ? `<span>Lluvia estimada máx. (último / 3 h)</span><b>${num(r, 1)} / ${num(maxr(z, "lluvia_sat_max_mmh"), 1)} mm/h</b>`
+      : pz ? `<span>Lluvia estimada máx. (última hora / 3 h)<br><small style="color:var(--mut)">PDIR-Now, estimación por satélite</small></span><b>${num(pz.ult, 1)} / ${num(pz.max, 1)} mm/h</b>`
+      : `<span>Lluvia estimada máx. (último / 3 h)</span><b>sin dato</b>`;
     return `<div class="sz" style="--sc:${e[0]}${est === "sin_evaluar" || est === "sin datos" ? ";background:var(--soft)" : ""}"><div class="h"><span class="n">${esc(z.nombre)}</span><span class="e">${e[1]}</span></div>
       ${mot ? `<div class="m">${mot}</div>` : ""}${hasta ? `<div class="m">${hasta}</div>` : ""}${nubesBajas}
-      <div class="kv" style="margin-top:6px"><span>Tope de nube más frío</span><b>${tb == null ? "—" : num(tb - 273.15, 0) + " °C"}</b><span>Rayos en 30 min (zona / a 25 km)</span><b>${r1 == null && r2 == null ? "—" : `${r1 == null ? "—" : num(r1, 0)} / ${r2 == null ? "—" : num(r2, 0)}`}</b><span>Lluvia estimada máx. (último / 3 h)</span><b>${r == null ? "sin dato" : num(r, 1) + " / " + num(maxr(z, "lluvia_sat_max_mmh"), 1) + " mm/h"}</b></div>${chispaSat(z)}</div>`;
+      <div class="kv" style="margin-top:6px"><span>Tope de nube más frío</span><b>${tb == null ? "—" : num(tb - 273.15, 0) + " °C"}</b><span>Rayos en 30 min (zona / a 25 km)</span><b>${r1 == null && r2 == null ? "—" : `${r1 == null ? "—" : num(r1, 0)} / ${r2 == null ? "—" : num(r2, 0)}`}</b>${lluviaKv}</div>${chispaSat(z)}</div>`;
   }).join("") + `<p class="note">Línea: tope de nube más frío en la zona (más arriba = más frío; trazos: ${num((SAT.frio_k || 221) - 273.15, 0)} °C). Barras: rayos a menos de 25 km (solo información; la regla no los usa). Solo La Cascada y la parte alta de Santa Cruz tienen la señal evaluada.</p>`;
   const um = SAT.vigilancia_umbrales || {};
   $("satMetodo").innerHTML = `<p>Cada 10 minutos se toma, para cada zona (el rectángulo del mapa) y para la zona ampliada ${SAT.anillo_km ?? 25} km, la temperatura del tope de nube más fría (banda 13 del ABI), el porcentaje de la zona con topes por debajo de ${num((SAT.frio_k || 221) - 273.15, 0)} °C, la tasa de lluvia estimada por la NOAA (RRQPE) y, solo como información, los rayos del GLM.</p>
     <p>La zona pasa a «convección profunda cerca» si se cumple alguna de estas condiciones: ${Object.values(um).map(x => esc(Array.isArray(x) ? x[x.length - 1] : x)).join("; ") || "ver satelite/LEEME.md"}. El estado se mantiene ${SAT.vigilancia_persistencia_h ?? 3} h después del último disparo. Si falta un producto y no hubo disparo, el estado es «datos incompletos»: no se puede decir «sin señal».</p>
-    <p>Esta señal <b>no cambia el nivel de lluvia peligrosa</b>, que se calcula solo con la lluvia medida. Probado con un solo evento convectivo (30 de octubre), con reglas ajustadas a ese evento. Frente al nivel «medio» de la regla de lluvia medida, la vigilancia empezó unas 3,5 horas antes (con 3 horas de persistencia y descontando la latencia, ~20 min), y esa cifra incluye la lluvia estimada (RRQPE). Hoy la NOAA no produce RRQPE: solo con los topes de nube, el aviso habría sido sólido en la parte alta, pero en La Cascada habría dependido de un caso límite (dos imágenes). El 2 de noviembre avisó en La Cascada con 20 minutos, que la latencia anula; en la parte alta no avisó antes del episodio del 1 de noviembre (20:10). No vio las lluvias de nubes bajas del 3 y el 23 de octubre. <b>Que no haya señal no quiere decir que no vaya a llover fuerte.</b></p>`;
+    <p>Esta señal <b>no cambia el nivel de lluvia peligrosa</b>, que se calcula solo con la lluvia medida. Probado con un solo evento convectivo (30 de octubre), con reglas ajustadas a ese evento. Frente al nivel «medio» de la regla de lluvia medida, la vigilancia empezó unas 3,5 horas antes (con 3 horas de persistencia y descontando la latencia, ~20 min), y esa cifra incluye la lluvia estimada (RRQPE). Hoy la NOAA no produce RRQPE: solo con los topes de nube, el aviso habría sido sólido en la parte alta, pero en La Cascada habría dependido de un caso límite (dos imágenes). El 2 de noviembre avisó en La Cascada con 20 minutos, que la latencia anula; en la parte alta no avisó antes del episodio del 1 de noviembre (20:10). No vio las lluvias de nubes bajas del 3 y el 23 de octubre. <b>Que no haya señal no quiere decir que no vaya a llover fuerte.</b></p>
+    <p><b>Lluvia estimada de PDIR-Now.</b> Mientras la NOAA no produce el RRQPE, el mapa y las tarjetas muestran la lluvia que estima PDIR-Now (CHRS, Universidad de California, Irvine): una tasa por hora, en celdas de unos 4 km, que llega unos 20 minutos después de terminar la hora. Es una estimación por infrarrojo, como el RRQPE: <b>no ve la garúa ni la lluvia de nubes bajas</b> (el 22 de noviembre a las 22:00, hora de Galápagos, dio 0 en La Cascada mientras las estaciones medían 3,3 mm/h). Solo se muestra: <b>no entra en la señal satelital ni en el nivel de lluvia</b>. En la tarjeta, el máximo es el de las celdas que tocan la zona.</p>
+    <p><b>Fondo del mapa.</b> La imagen GeoColor de GOES-East (NOAA), servida por NASA GIBS: en color de día y en infrarrojo de noche, cada 10 minutos, con unos 60 minutos de retraso. Es la imagen del satélite, no un dato de lluvia.</p>`;
   mapaSat();
 }
 document.querySelectorAll("#satelite .capas input").forEach(i => i.onchange = () => { VIS[i.dataset.c] = i.checked; if (SAT) mapaSat(); });
@@ -1696,6 +1784,7 @@ document.querySelectorAll("#satelite .capas input").forEach(i => i.onchange = ()
 // ── Estacionalidad
 const SER_KEY = {"puerto-ayora": "inamhi/M0191", junco: "gsc/junco", cerro_alto: "gsc/cerro_alto", mirador: "gsc/mirador", merceditas: "gsc/merceditas"};
 function estacionalidad() {
+  if (!D) return; // espera a diario.json
   const X = D.estacionalidad; if (!X || !X.series) { $("clima").hidden = true; return; }
   const series = X.series.filter(x => S.isla === "Todas" || x.isla === S.isla);
   if (!series.length) { $("clima").hidden = true; return; }
@@ -1805,7 +1894,7 @@ function fuentes() {
 // ═════════════ controles ═════════════
 $("bCom").onclick = () => { S.vista = "comunidad"; pintar(); scrollTo({top: 0}); };
 $("bSci").onclick = () => irCiencia(null);
-$("verRed").onclick = ev => { ev.preventDefault(); irCiencia("red"); };
+$("verNino").onclick = ev => { ev.preventDefault(); irCiencia("oceano"); };
 // Sin modo oscuro: la identidad del sitio es de fondo blanco (igual que /riesgos/).
 const exSel = (id, fn) => document.querySelectorAll(`#${id} button`).forEach(b => b.onclick = () => { fn(b); explorador(); dibujar($("explorador")); escribirURL(); });
 exSel("periodo", b => { S.per = b.dataset.h === "todo" ? "todo" : +b.dataset.h; S.desde = S.hasta = null; const h = S.per === "todo" ? 1e9 : S.per; S.g = h <= 72 ? 1 : h <= 168 ? S.g : h <= 720 ? Math.max(S.g, 6) : 24; });
@@ -1827,7 +1916,7 @@ cargar().then(() => { if (S.vista === "ciencia" && location.hash) setTimeout(() 
 setInterval(cargar, 5 * 60 * 1000);
 </script>
 <script>
-// Avisos oficiales (arriba) y «Hoy en cada isla» (pronóstico del INAMHI, mareas del INOCAR, oleaje).
+// Boletines oficiales, la línea de la advertencia del INAMHI y «Hoy en cada isla» (pronóstico del INAMHI, mareas del INOCAR, oleaje).
 // Los datos los sirve la plataforma (Django). Si no responde, estas secciones no aparecen.
 (async () => {
   const x = v => String(v ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -1838,9 +1927,12 @@ setInterval(cargar, 5 * 60 * 1000);
   const [o, m] = await Promise.all(["oficial", "mar"].map(n => fetch("/riesgos/api/clima/" + n).then(r => r.ok ? r.json() : null).catch(() => null)));
   const ahora = Date.now();
 
-  // ── Avisos oficiales vigentes ──────────────────────────────────────────────
-  const TIPO = { advertencia: "Advertencia meteorológica", oleaje: "Oleaje", erfen: "El Niño · ERFEN" };
-  const boletines = (o && o.boletines || []).filter(b => b.resumen);
+  // ── Boletines oficiales vigentes ───────────────────────────────────────────
+  // Orden: advertencias del INAMHI, oleaje del INOCAR y el boletín del Comité ERFEN (la API lo da como «INOCAR»).
+  const TIPO = { advertencia: "Advertencia meteorológica", oleaje: "Oleaje", erfen: "El Niño" };
+  const ORDEN = ["advertencia", "oleaje", "erfen"], orden = t => ORDEN.includes(t) ? ORDEN.indexOf(t) : ORDEN.length;
+  const institucion = b => b.tipo === "erfen" ? "Comité ERFEN" : b.fuente;
+  const boletines = (o && o.boletines || []).filter(b => b.resumen).sort((a, b) => orden(a.tipo) - orden(b.tipo));
   if (boletines.length) {
     document.getElementById("cAvisos").innerHTML = boletines.map(b => {
       const d = b.datos || {}, cifras = [];
@@ -1850,15 +1942,31 @@ setInterval(cargar, 5 * 60 * 1000);
       if (b.vigente_hasta) {
         const fin = new Date(b.vigente_hasta).getTime(), ini = b.vigente_desde ? new Date(b.vigente_desde).getTime() : fin - 4 * 864e5;
         const pct = Math.max(4, Math.min(100, 100 * (ahora - ini) / (fin - ini))), faltan = (fin - ahora) / 36e5;
-        vig = `<div class="vig"><div class="barra"><i style="width:${pct.toFixed(0)}%"></i></div><small>Vigente hasta el ${x(fecha(fin, { weekday: "long", day: "numeric", month: "short" }))}, ${x(hhmm(fin))} · ${faltan < 48 ? "quedan " + Math.max(1, Math.round(faltan)) + " h" : "quedan " + Math.round(faltan / 24) + " días"}</small></div>`;
+        vig = `<div class="vig"><div class="barra"><i style="width:${pct.toFixed(0)}%"></i></div><small>Vigente hasta el ${x(fecha(fin, { weekday: "long", day: "numeric", month: "short" }))}, ${x(hhmm(fin))} (hora de Galápagos) · ${faltan < 48 ? "quedan " + Math.max(1, Math.round(faltan)) + " h" : "quedan " + Math.round(faltan / 24) + " días"}</small></div>`;
       }
       return `<article class="av${b.afecta_galapagos ? " gal" : ""}">
-        <div class="cab"><span class="inst">${x(b.fuente)}</span><span class="tipo">${x(TIPO[b.tipo] || b.tipo)}${b.numero ? " · n.º " + x(String(b.numero).replace(/^N[°º.]*\s*/i, "")) : ""}</span>${b.nivel ? `<span class="niv">${x(b.nivel)}</span>` : ""}</div>
+        <div class="cab"><span class="inst">${x(institucion(b))}</span><span class="tipo">${x(TIPO[b.tipo] || b.tipo)}${b.numero ? " · n.º " + x(String(b.numero).replace(/^N[°º.]*\s*/i, "")) : ""}</span>${b.nivel ? `<span class="niv">${x(b.nivel)}</span>` : ""}</div>
         ${cifras.length ? `<div class="cifras">${cifras.map(([v, t]) => `<div class="cif"><b>${x(v)}</b><span>${x(t)}</span></div>`).join("")}</div>` : ""}
         <p>${x(b.resumen)}</p>${vig}
-        <div class="pie"><span>Resumen automático${b.revisado ? ", revisado" : ""}</span>${b.enlace ? `<a href="${x(b.enlace)}" target="_blank" rel="noopener">Documento oficial →</a>` : ""}</div></article>`;
+        ${b.enlace ? `<div class="pie"><span></span><a href="${x(b.enlace)}" target="_blank" rel="noopener">Documento oficial →</a></div>` : ""}</article>`;
     }).join("");
-    document.getElementById("cAvisos").hidden = false;
+    document.getElementById("boletines").hidden = false;
+  }
+
+  // ── Advertencia del INAMHI vigente: una línea neutra bajo el aviso general ─
+  const adv = boletines.find(b => b.fuente === "INAMHI" && b.tipo === "advertencia" && b.afecta_galapagos && b.vigente_hasta && new Date(b.vigente_hasta).getTime() > ahora);
+  if (adv) {
+    const fin = new Date(adv.vigente_hasta).getTime(), dia = fecha(fin, { weekday: "short" }).replace(".", "");
+    const FEM = { "muy alto": "muy alta", alto: "alta", medio: "media", moderado: "moderada", bajo: "baja" };
+    const nivel = (adv.nivel || "").toLowerCase(), que = nivel ? `lluvia ${FEM[nivel] || nivel}` : (adv.datos && adv.datos.fenomeno) || "lluvias";
+    const p = document.getElementById("advInamhi");
+    p.innerHTML = `Advertencia del INAMHI vigente hasta el ${x(dia)} ${x(fecha(fin, { day: "numeric" }))}, ${x(hhmm(fin))}: ${x(que)} en la región insular <a href="#boletines">→ Boletines oficiales</a>`;
+    p.hidden = false;
+    p.querySelector("a").onclick = ev => {
+      ev.preventDefault();
+      if (S.vista !== "comunidad") { S.vista = "comunidad"; pintar(); }
+      requestAnimationFrame(() => { const el = document.getElementById("boletines"); scrollTo({ top: el.getBoundingClientRect().top + scrollY - 60, behavior: "smooth" }); });
+    };
   }
 
   // ── Hoy en cada isla ───────────────────────────────────────────────────────
@@ -1966,7 +2074,7 @@ setInterval(cargar, 5 * 60 * 1000);
     if (mm) {
       const vientos = (mm.horas || []).map(q => q[4]).filter(q => q != null), rachas = (mm.horas || []).map(q => q[5]).filter(q => q != null);
       const grafico = oleaje(mm.horas);
-      h += `<div><div class="sec">Oleaje <span>${x(mm.modelo || "modelo")} · próximas 72 h · modelo, no medición</span></div>${grafico}`
+      h += `<div><div class="sec">Oleaje <span>${x(mm.modelo || "modelo")} · próximas 72 h</span></div>${grafico}`
         + `<div class="mar"><span>Olas hasta <b>${num(mm.ola_max_m)} m</b>${mm.cuando ? ` <small>${fecha(new Date(mm.cuando).getTime(), { weekday: "short" })} ${hhmm(mm.cuando)}</small>` : ""}</span>`
         + `${mm.mar_de_fondo_m != null ? `<span>mar de fondo <b>${num(mm.mar_de_fondo_m)} m</b>${mm.periodo_s ? ` cada <b>${Math.round(mm.periodo_s)} s</b>` : ""}</span>` : ""}`
         + `${vientos.length ? `<span>viento hasta <b>${Math.round(Math.max(...vientos) * 3.6)} km/h</b>${rachas.length ? ` <small>rachas ${Math.round(Math.max(...rachas) * 3.6)}</small>` : ""}</span>` : ""}`
@@ -1978,14 +2086,15 @@ setInterval(cargar, 5 * 60 * 1000);
   if (tarjetas) { document.getElementById("islasB").innerHTML = tarjetas; document.getElementById("cIslas").hidden = false; }
 })().catch(() => {});
 </script>
-<script src="/riesgos/estaticos/mapa/lluvia-mapa.js?v=4" defer></script>
-<script src="/riesgos/estaticos/mapa/nino.js?v=1" defer></script>
+<script src="/riesgos/estaticos/mapa/lluvia-mapa.js?v=5" defer></script>
+<script src="/riesgos/estaticos/mapa/nino.js?v=2" defer></script>
 <script>
-// El Niño: se monta cuando su tarjeta se acerca a la pantalla, con el mismo Leaflet del panel.
+// El Niño en Comunidad: la tarjeta corta (sin mapa ni Leaflet), cuando se acerca a la pantalla.
+// En Ciencia, «El Niño y el océano» monta el panel completo (oceano()).
 addEventListener("DOMContentLoaded", () => {
   const caja = document.getElementById("nino");
   if (!caja || !window.NinoPanel) return;
-  const montar = () => obtenerLeaflet().catch(() => null).then(() => NinoPanel.montar(caja));
+  const montar = () => NinoPanel.montar(caja, {modo: "comunidad"});
   if (!("IntersectionObserver" in window)) return montar();
   const ob = new IntersectionObserver((es) => { if (es.some(e => e.isIntersecting)) { ob.disconnect(); montar(); } }, {rootMargin: "300px"});
   ob.observe(caja);
