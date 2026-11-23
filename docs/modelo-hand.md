@@ -87,7 +87,7 @@ En algunas zonas la coordinación de SOS Galápagos sabe que el agua no llega, a
 - **Archivo**: `geodatos/estudios/santa-cruz/datos/correcciones_locales.geojson`, redactado a mano. Cada zona lleva su motivo, su fecha y quién lo afirma. Un punto con `radio_m` es un círculo de ese radio. Los bordes se trazan sobre las vías de OSM.
 - **Aplicación**: `10_publicar_web.py` (`susceptibilidad_ajustada`) recorta la capa al publicar. No se modifican la HAND ni el ajuste. Si el archivo falta, falla.
 - **22-nov-2026, Tomás de Berlanga**:
-  - `k01`: entre el camino viejo y el camino a SX Gardens y al hotel Tortuga Bay, incluida la escuela Mangle ALC. La HAND marca ahí el paso de una quebrada, pero nunca se ha inundado.
+  - `k01` (**retirada el 23-nov-2026**): borraba la quebrada entre el camino viejo y la vía al hotel Tortuga Bay. El informe de campo del barrio Tomás de Berlanga (recorrido del 10-nov, informe del 13-nov y oficio al COE del 18-nov) la contradice: sus cinco puntos críticos están sobre esa quebrada, cuatro en susceptibilidad alta. En el lindero norte del punto crítico 3 la encañada inundó cerca de 1 ha, con unos 2 m de agua, y hubo que evacuar viviendas. La vía al hotel Tortuga Bay se desbordó en 2016 y el 2-nov-2026. Antes de quitar una quebrada, hay que contrastarla con lo observado en campo.
   - `k02`: el centro del barrio, alrededor del reporte `r31`. El ajuste rellenaba ahí un círculo de 60 m, pero el reporte habla de daños en las vías, no de una inundación. El `r31` también se sacó de los puntos de control y del área afectada `c07`.
 - **Límite**: es conocimiento local sin verificar en campo. Tampoco es una delimitación oficial.
 

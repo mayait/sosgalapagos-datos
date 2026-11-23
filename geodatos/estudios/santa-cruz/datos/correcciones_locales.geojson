@@ -4,15 +4,6 @@
  "nota": "Redactado a mano. Zonas donde la coordinación de SOS Galápagos, por conocimiento local, dice que no se inunda: 10_publicar_web.py QUITA de ellas la susceptibilidad publicada (HAND y ajuste del 21-nov). Un punto con «radio_m» se toma como círculo de ese radio. Sin verificar en campo: es una corrección propia, no una delimitación oficial. Bordes trazados sobre las vías de OSM (31-oct-2026).",
  "features": [
   {"type": "Feature",
-   "properties": {"id": "k01", "isla": "Santa Cruz", "fecha": "2026-11-22",
-    "nombre": "Tomás de Berlanga: entre el camino viejo y el camino a SX Gardens y al hotel Tortuga Bay (incluye la escuela Mangle ALC)",
-    "motivo": "El modelo HAND marca aquí el paso de una quebrada, pero la zona no se ha inundado nunca, tampoco el 21-nov. El colegio Mangle ALC, junto a la avenida, está en un lugar seguro.",
-    "fuente": "Conocimiento local de la coordinación de SOS Galápagos (22-nov-2026), sin verificar en campo."},
-   "geometry": {"type": "Polygon", "coordinates": [[
-    [-90.3228, -0.70822], [-90.32275, -0.70821], [-90.32191, -0.70808], [-90.3212, -0.70752], [-90.31942, -0.70644],
-    [-90.3185, -0.70644], [-90.3185, -0.70873], [-90.31933, -0.709], [-90.3215, -0.7098], [-90.3228, -0.7098],
-    [-90.3228, -0.70822]]]}},
-  {"type": "Feature",
    "properties": {"id": "k02", "isla": "Santa Cruz", "fecha": "2026-11-22", "radio_m": 65,
     "nombre": "Tomás de Berlanga: centro del barrio (Casita de Chocolate)",
     "motivo": "El ajuste del 21-nov llenó un círculo de 60 m alrededor del reporte r31, ubicado en el centro del barrio porque el reporte solo daba el nombre del barrio. Ese lugar es seguro y no se ha inundado. En Tomás de Berlanga el 21-nov hubo daños en las vías, no inundación.",
