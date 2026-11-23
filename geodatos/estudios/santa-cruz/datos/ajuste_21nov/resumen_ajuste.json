@@ -104,18 +104,18 @@
  "hectareas_por_clase_ventana": {
   "Alta": {
    "antes_ha": 215.94,
-   "despues_ha": 251.88,
-   "anadido_ha": 35.94
+   "despues_ha": 254.22,
+   "anadido_ha": 38.28
   },
   "Media": {
    "antes_ha": 423.04,
-   "despues_ha": 465.91,
-   "anadido_ha": 42.87
+   "despues_ha": 467.04,
+   "anadido_ha": 44.0
   },
   "Baja": {
    "antes_ha": 715.01,
-   "despues_ha": 741.59,
-   "anadido_ha": 26.57
+   "despues_ha": 742.31,
+   "anadido_ha": 27.3
   }
  },
  "hectareas_anadidas_por_zona": {
@@ -125,14 +125,14 @@
    "Baja": 18.35
   },
   "corredor": {
-   "Alta": 5.04,
-   "Media": 5.19,
-   "Baja": 3.77
+   "Alta": 10.23,
+   "Media": 8.01,
+   "Baja": 5.5
   },
   "depresiones": {
-   "Alta": 2.21,
-   "Media": 2.1,
-   "Baja": 2.03
+   "Alta": 2.42,
+   "Media": 2.31,
+   "Baja": 2.24
   },
   "r10": {
    "Alta": 0.13,
