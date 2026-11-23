@@ -10,6 +10,7 @@
   "llega_primera_planta":  {"central": 2.0,  "min": 1.5, "max": 2.5, "texto": "el agua llega a la primera planta / a su altura, se circula en kayak"},
   "casi_segunda_planta":   {"central": 2.4,  "min": 2.0, "max": 2.7, "texto": "casi llega al segundo piso"},
   "cubre_primera_planta":  {"central": 2.75, "min": 2.5, "max": 3.0, "texto": "primera planta cubierta; techos de casas bajas"},
+  "informe_dos_metros": {"central": 2.0, "min": 1.0, "max": 2.5, "texto": "informe de campo: un área inundada «a unos 2 m de altura» (sin medir)"},
   "alcanza_segunda_planta":{"central": 3.0,  "min": 2.7, "max": 3.5, "texto": "el agua llega o alcanza la segunda planta / segundo piso"}
  },
  "radio_por_precision_m": {"exacta": 15, "cruce": 20, "calle": 30, "aproximada": 50, "barrio": 60},
@@ -45,6 +46,6 @@
   "r22": "vía a Baltra km 4½: ubicación por confirmar",
   "r24": "El Bosque: árbol caído que cierra la vía; no describe altura de agua",
   "r29": "cabeza de Darwin: sin ubicar en el mapa",
-  "r31": "Tomás de Berlanga: daños en las vías, no inundación; el punto está en el centro del barrio, que según la coordinación es seguro (22-nov-2026)"
+  "r31": "Tomás de Berlanga: mal ubicado (en el centro del barrio). La inundación que describe es la de la encañada en el camino viejo, que entra como punto de control btb-pc1 desde las observaciones de campo del barrio (23-nov-2026)"
  }
 }
