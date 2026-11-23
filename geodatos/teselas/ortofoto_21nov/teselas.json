@@ -1,0 +1,21 @@
+{
+ "titulo": "Foto aérea rectificada del 21-nov-2026, Puerto Ayora",
+ "atribucion": "Foto: Tui De Roy",
+ "fuente": "Foto aérea oblicua del 21-nov-2026. Crédito: Tui De Roy. Rectificada por SOS Galápagos sobre el DTM 1 m: SGIAR (Vricon/Maxar). No es una ortofoto oficial.",
+ "limites": [
+  [
+   -0.747841,
+   -90.321369
+  ],
+  [
+   -0.728402,
+   -90.305646
+  ]
+ ],
+ "relieve": {
+  "url": "relieve/{z}/{x}/{y}.webp",
+  "zoom_min": 13,
+  "zoom_max": 18
+ },
+ "script": "geodatos/scripts/est_21nov_foto_teselas.py"
+}

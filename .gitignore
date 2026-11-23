@@ -42,8 +42,9 @@ geodatos/estudios/tormentas/cache/
 # Curvas IDF: lluvia horaria de GAR por días (se regenera con 34_curvas_idf.py descargar)
 geodatos/estudios/idf/cache/
 
-# Teselas del DTM SGIAR para /mapas (36_teselas_dtm.py; las copia 10_publicar_web.py)
-geodatos/teselas/
+# geodatos/teselas/ SÍ se versiona desde el 22-nov-2026 (36_teselas_dtm.py, est_21nov_foto_teselas.py): sin ellas
+# 10_publicar_web.py publica /mapas sin el relieve y el rsync --delete lo borra del servidor. 43 MB, sin datos personales.
+# Los recortes del relieve van en geodatos/datos/dem_recortes/ (ver geodatos/LEEME.md); geodatos/descargas/ sigue fuera.
 
 # Informes técnicos y textos de los estudios: solo en local, no se suben ni se publican (decisión del 5-nov-2026).
 # Los datos de los estudios (geodatos/estudios/*/datos/) sí se versionan: alimentan las capas de /mapas.
