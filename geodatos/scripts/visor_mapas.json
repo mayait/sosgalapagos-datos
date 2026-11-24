@@ -3,10 +3,10 @@
  "_colores": "Riesgo de inundación por lluvia: la susceptibilidad va en azules (oscuro = alta, medio = media, claro = baja); los puntos potenciales y los cruces quebrada–vía, en rojo y naranja. Sin verde: «baja» sigue siendo zona susceptible. El modelo 2D también va en azul (profundidad).",
 
  "fusionar": [
-  {"id": "cruces_alta", "de": ["sc_cruces_alta", "sx_cruces_alta"], "archivo": "cruces_quebrada_via_alta.geojson",
+  {"id": "cruces_via_alta", "de": ["sc_cruces_alta", "sx_cruces_alta"], "archivo": "cruces_quebrada_via_alta.geojson",
    "titulo": "Cruces de quebradas con vías: prioridad alta",
    "fuente": "Estudios SOS Galápagos (Santa Cruz y San Cristóbal)"},
-  {"id": "cruces_media", "de": ["sc_cruces_media", "sx_cruces_media"], "archivo": "cruces_quebrada_via_media.geojson",
+  {"id": "cruces_via_media", "de": ["sc_cruces_media", "sx_cruces_media"], "archivo": "cruces_quebrada_via_media.geojson",
    "titulo": "Cruces de quebradas con vías: prioridad media",
    "fuente": "Estudios SOS Galápagos (Santa Cruz y San Cristóbal)"}
  ],
@@ -25,7 +25,7 @@
   {"id": "emergencia", "titulo": "Emergencia en curso", "capas": ["reportes_21nov", "buenas_21nov", "flujo_21nov", "areas_afectadas", "estimacion_foto_21nov", "zona_foto_21nov", "edificios_foto_21nov", "ortofoto_21nov"]},
   {"id": "lluvia", "titulo": "Riesgo de inundación por lluvia",
    "descripcion": "Lo que conviene mirar ahora. La susceptibilidad, los puntos y los cruces salen de modelos propios sobre un relieve de 30 m (de 5 m con el DTM de la SGIAR en Puerto Ayora, el escarpe y Bellavista): sirven para priorizar inspecciones, no son delimitaciones oficiales.",
-   "capas": ["susceptibilidad", "sc_vaso_21nov", "sc_control_21nov", "sc_puntos", "sx_puntos", "cruces_alta", "cruces_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
+   "capas": ["susceptibilidad", "sc_vaso_21nov", "sc_control_21nov", "sc_puntos", "sx_puntos", "cruces_via_alta", "cruces_via_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
   {"id": "hidrografia", "titulo": "Quebradas y drenaje", "capas": ["quebradas", "sx_canadas"]},
   {"id": "puntos", "titulo": "Puntos clave: refugios, salud y servicios"},
   {"id": "vias", "titulo": "Vías y calles", "capas": ["vias", "nombres_vias"]},
@@ -106,9 +106,9 @@
    "titulo": "Puntos potenciales de inundación · San Cristóbal",
    "descripcion": "Llegadas de quebradas, vasos y salidas al mar en zonas pobladas. El estudio los ordena por puntuación (ver el ranking en cada punto) y no les asigna prioridad alta o media. Sirven para priorizar inspecciones.",
    "clasificar": {"propiedad": "_", "valores": {}, "otro": {"etiqueta": "Punto ordenado por puntuación (sin prioridad asignada)", "fillColor": "#7c2d12", "simbolo": "!"}}},
-  "cruces_alta": {"corto": "Cruce quebrada–vía (alta)", "visible": true, "pane": "riesgo_pt",
+  "cruces_via_alta": {"corto": "Cruce quebrada–vía (alta)", "visible": false, "pane": "riesgo_pt",
    "estilo": {"fillColor": "#bd0026", "color": "#ffffff", "radius": 6}},
-  "cruces_media": {"corto": "Cruce quebrada–vía (media)", "visible": false, "pane": "riesgo_pt",
+  "cruces_via_media": {"corto": "Cruce quebrada–vía (media)", "visible": false, "pane": "riesgo_pt",
    "estilo": {"fillColor": "#ea580c", "color": "#ffffff", "radius": 4.5}},
   "sc_vasos": {"titulo": "Vasos (depresiones donde se acumula el agua) · Santa Cruz"},
   "sx_vasos": {"titulo": "Vasos (depresiones donde se acumula el agua) · San Cristóbal"},
