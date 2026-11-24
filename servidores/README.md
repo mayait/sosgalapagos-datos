@@ -11,9 +11,9 @@ Esta carpeta es el **índice de la parte de servidor**. El código de cada servi
                                 │
                      sosgalapagos.org  ·  152.44.45.89 (Debian 13)
   ┌─────────────────────────────┴──────────────────────────────────────────┐
-  │  Docker compose (repo mayait/sosgalapagos → deploy/sosgalapagos/)       │
-  │   caddy ─┬─ /            → app ResponseGrid (web + API /backend)        │
-  │          ├─ /riesgos/    → plataforma:8000 (repo sosgalapagos-plataforma) │
+  │  Compose «sosgalapagos» (repo sosgalapagos-plataforma → despliegue/sitio/) │
+  │   caddy ─┬─ / /riesgos/ /privacidad → plataforma:8000                    │
+  │          ├─ /backend/*   → 410 (ResponseGrid retirado el 24-nov-2026)    │
   │          ├─ /mapas/…     → /srv/sosgalapagos-mapas     (datos; la página redirige a /riesgos/) │
   │          ├─ /estudios/   → /srv/sosgalapagos-estudios  (estático)       │
   │          ├─ /descargas/  → /srv/sosgalapagos-descargas (PDF de la portada) │
@@ -39,17 +39,17 @@ Esta carpeta es el **índice de la parte de servidor**. El código de cada servi
 | **Mapa de riesgos** | `/riesgos/` | El mapa único del sitio: reportes ciudadanos, capas, buscador, descargas e informe | repo `mayait/sosgalapagos-plataforma` | código en `/opt/sosgalapagos-plataforma`, Compose aparte `sosgalapagos-plataforma` | `despliegue/produccion/desplegar.sh` de ese repo |
 | **Estudios / Informes** | `/estudios/` (alias `/informes`) | **Retirado el 5-nov-2026**: los informes y los textos de los estudios son solo locales. La ruta redirige a la portada | — | `/srv/sosgalapagos-estudios` (solo una redirección; la copia anterior quedó en `/root/respaldo-estudios-2026-11-05/`) | no se publica |
 | **Informes descargables** | `/descargas/` y la sección «Informes y mapas para descargar» de la portada | Mapas e informes en PDF que Julián decide publicar (desde el 21-nov-2026). Los archivos no están en git: viven en `~/dev/sosgalapagos-informes/publicar/` con su `indice.json` | `servidores/publicar_descargas.sh` | `/srv/sosgalapagos-descargas`, montado en Caddy (sirve solo `.pdf`, `.jpg` y `.png`) y en la web (lee `indice.json`) | `servidores/publicar.sh descargas` |
-| **Comentarios** | `/estudios/api/*` | API de comentarios del antiguo sitio de estudios (sin uso desde el 4-nov-2026; el contenedor y el volumen se conservan) | repo `mayait/sosgalapagos`: `deploy/sosgalapagos/comentarios/servidor.py` | contenedor `comentarios`, volumen `comentariosdata` | despliegue de la app |
+| **Portada** | `/`, `/privacidad` | La portada (Ahora, boletines oficiales, ayuda) y la privacidad del sitio. **Desde el 24-nov-2026 en la plataforma**; el fork de ResponseGrid (`mayait/sosgalapagos`) está archivado y sus contenedores detenidos, sin borrar (respaldo en `/root/respaldo-responsegrid/`) | repo `mayait/sosgalapagos-plataforma`, app `portada/` | Compose `sosgalapagos-plataforma` | `despliegue/produccion/desplegar.sh` de ese repo |
+| **Comentarios** | `/estudios/api/*` | API de comentarios del antiguo sitio de estudios (sin uso desde el 4-nov-2026; el contenedor y el volumen se conservan) | repo `mayait/sosgalapagos-plataforma`: `despliegue/sitio/comentarios/servidor.py` | contenedor `comentarios`, volumen `comentariosdata` | `despliegue/sitio/desplegar.sh` de la plataforma |
 | **Clima en vivo** | `/clima/` | Panel con el nivel de lluvia peligrosa, lluvia, pronóstico, mareas, oleaje, satélite y lo oficial (INAMHI, INOCAR). **Desde el 22-nov-2026 todo corre en la plataforma, en un solo stack y sobre PostgreSQL** | Panel: `clima/web/index.html` (este repo). Todo lo demás: repo `mayait/sosgalapagos-plataforma`, app `clima/` (`docs/plan-clima.md`) | Datos en PostgreSQL (contenedor `postgis`); JSON del panel y descargas en `/srv/sosgalapagos-clima/datos`. **Sin uso, sin borrar:** `/var/lib/sosgalapagos-clima/clima.db`, `/opt/sosgalapagos-clima/` y los timers `sosgalapagos-clima*.timer` (detenidos y deshabilitados) | Panel: `servidores/publicar.sh clima`. Lo demás: `despliegue/produccion/desplegar.sh` de la plataforma |
 | **Relevo de IERSE** | — | IERSE solo responde desde Ecuador: una máquina allá pide lo que la plataforma le indica y devuelve las respuestas. Sin base ni SSH | repo `mayait/sosgalapagos-plataforma`: `despliegue/relevo/` | puerta `/riesgos/api/clima/relevo/ierse`, con la llave `CLIMA_RELEVO_LLAVE` | `sh despliegue/relevo/instalar.sh` en la máquina de Ecuador. El puente anterior está en `Archivo/clima-servicio-anterior/` |
-| **Capas de la app** | `/capas/galapagos-2026/` | Las capas que muestra el mapa de ResponseGrid | `geodatos/export/galapagos/` + `geodatos/export/integracion/` | dentro de la imagen web de la app | `09_entregable.py` / `copiar-a-app.sh` + despliegue de la app |
 | **GeoServer (demo)** | `http://127.0.0.1:8085/geoserver` | WMS/WFS **local** para probar en QGIS. No está en producción | `geodatos/scripts/11_geoserver_local.py` | — | — |
 | **Visor local** | `http://127.0.0.1:8765/visor/` | Revisar capas antes de publicar | `geodatos/scripts/servir.sh`, `mapas-galapagos/ver-mapa.sh` | — | — |
 
-La configuración de Caddy y de Docker (`Caddyfile`, `docker-compose.yml`) está en el repositorio de la app (`mayait/sosgalapagos`, carpeta `deploy/sosgalapagos/`). Para añadir una ruta nueva hay que cambiarla allí y desplegar la app:
+La configuración de Caddy (`Caddyfile`, `docker-compose.yml` del frente) está desde el 24-nov-2026 en `mayait/sosgalapagos-plataforma`, carpeta `despliegue/sitio/`. Para añadir una ruta nueva hay que cambiarla allí y desplegar el frente (nunca con `--remove-orphans`: los contenedores de ResponseGrid quedan detenidos, no borrados):
 
 ```bash
-ssh root@152.44.45.89 /opt/sosgalapagos/deploy/sosgalapagos/deploy.sh
+ssh root@152.44.45.89 /opt/sosgalapagos-plataforma/despliegue/sitio/desplegar.sh
 ```
 
 ## Reglas
