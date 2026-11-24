@@ -88,14 +88,15 @@
    "popup": {"titulo": "nombre", "campos": {"detalle": "Qué se observó", "reportes": "Reportes", "fuente": "Fuente"}}},
 
   "susceptibilidad": {"visible": true, "pane": "riesgo",
-   "titulo": "Susceptibilidad a inundación por quebradas (modelo ajustado con lo observado)",
+   "corto": "Zona baja junto a una quebrada (cálculo, no es agua)",
+   "titulo": "Dónde podría bajar el agua si llueve fuerte (cálculo, no es agua)",
    "fuente": "Modelo HAND propio (DTM 1 m: SGIAR (Vricon/Maxar) en Puerto Ayora, el escarpe y Bellavista; Copernicus GLO-30 y quebradas IGM en el resto), ajustado con lo observado el 21-nov-2026 (reportes sin verificar) y con el informe de campo del barrio Tomás de Berlanga (13-nov-2026), y corregido con conocimiento local de la coordinación de SOS Galápagos. Modelo propio, no es una delimitación oficial.",
-   "descripcion": "Altura del terreno sobre la quebrada más cercana, ajustada con lo observado el 21-nov-2026 (reportes sin verificar): en Puerto Ayora, el escarpe y Bellavista sube de clase donde el agua se vio y el modelo decía baja o nada (La Cascada llena hasta ≈17 m, bajada por Seymour y salida al mar por Pelican Bay, Arrayanes, cementerio). En Tomás de Berlanga suma los cinco puntos críticos del informe de campo del barrio (desbordes del 30-oct, del 2-nov y de 2016). Se quita donde la coordinación sabe por conocimiento local que no se inunda (en el centro del barrio Tomás de Berlanga). Modelo propio, no es una delimitación oficial: sirve para priorizar. En terreno muy plano (Puerto Villamil) sobrestima.",
+   "descripcion": "Lo azul no es agua ni nada bajo tierra: son las partes bajas junto a las quebradas, por donde podría correr el agua si llueve fuerte. Más oscuro, más cerca del cauce. Es un cálculo con el relieve, no un aviso de que esté inundado. Detalle técnico: altura del terreno sobre la quebrada más cercana, ajustada con lo observado el 21-nov-2026 (reportes sin verificar): en Puerto Ayora, el escarpe y Bellavista sube de clase donde el agua se vio y el modelo decía baja o nada (La Cascada llena hasta ≈17 m, bajada por Seymour y salida al mar por Pelican Bay, Arrayanes, cementerio). En Tomás de Berlanga suma los cinco puntos críticos del informe de campo del barrio (desbordes del 30-oct, del 2-nov y de 2016). Se quita donde la coordinación sabe por conocimiento local que no se inunda (en el centro del barrio Tomás de Berlanga). Modelo propio, no es una delimitación oficial: sirve para priorizar. En terreno muy plano (Puerto Villamil) sobrestima.",
    "estilo": {"weight": 0.4, "fillOpacity": 0.3},
    "clasificar": {"propiedad": "nivel", "valores": {
-    "3": {"etiqueta": "Alta: hasta 1 m sobre el cauce", "color": "#173f8a", "fillColor": "#1d4a9e", "fillOpacity": 0.5},
-    "2": {"etiqueta": "Media: hasta 2,5 m", "color": "#3b7fd0", "fillColor": "#4f8fdb", "fillOpacity": 0.42},
-    "1": {"etiqueta": "Baja: hasta 5 m (sigue siendo susceptible)", "color": "#7fb3e6", "fillColor": "#a9cdf0", "fillOpacity": 0.38}}}},
+    "3": {"etiqueta": "Muy cerca del cauce (hasta 1 m más alto)", "color": "#173f8a", "fillColor": "#1d4a9e", "fillOpacity": 0.5},
+    "2": {"etiqueta": "Cerca del cauce (hasta 2,5 m más alto)", "color": "#3b7fd0", "fillColor": "#4f8fdb", "fillOpacity": 0.42},
+    "1": {"etiqueta": "Algo más lejos (hasta 5 m más alto)", "color": "#7fb3e6", "fillColor": "#a9cdf0", "fillOpacity": 0.38}}}},
 
   "sc_puntos": {"corto": "Punto de inundación", "visible": true, "pane": "riesgo_pt",
    "titulo": "Puntos potenciales de inundación · Santa Cruz",
