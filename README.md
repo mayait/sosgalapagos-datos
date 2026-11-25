@@ -108,6 +108,7 @@ docs/              explicaciones transversales (modelo HAND)
 | Cómo se hacen las capas | [`geodatos/LEEME.md`](geodatos/LEEME.md) |
 | Las mediciones del clima, el pronóstico y el satélite | [`clima/LEEME.md`](clima/LEEME.md) |
 | Bajar todos los datos del clima y reproducir el nivel de lluvia (agentes de IA) | [`clima/PARA-AGENTES.md`](clima/PARA-AGENTES.md) · [`clima/replicar/`](clima/replicar/) |
+| Hacer un reel del pronóstico del clima para redes | [`clima/reel/`](clima/reel/LEEME.md) y el skill [`reel-clima`](.claude/skills/reel-clima/SKILL.md) |
 | De dónde sale cada dato | [`geodatos/docs/fuentes-oficiales.md`](geodatos/docs/fuentes-oficiales.md) y [`03-fuentes-y-licencias.md`](mapas-galapagos/documentacion/03-fuentes-y-licencias.md) |
 | Rehacer los estudios tras un dato nuevo | [`geodatos/flujo.toml`](geodatos/flujo.toml) + `geodatos/scripts/flujo.py --seco` |
 | Publicar o tocar un servidor | [`servidores/README.md`](servidores/README.md) |

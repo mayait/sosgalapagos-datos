@@ -9,6 +9,7 @@
 > - `datos/`: los crudos históricos, que nunca se modifican. Se cargan a la plataforma con `manage.py clima_importar`;
 > - `scripts/05_mareas.py`: genera la predicción de mareas. Su salida (`recolector/mareas_prediccion.json`) se copia a `clima/datos/` de la plataforma;
 > - `pronostico/` y `satelite/` (evaluaciones `fase0` y `s0`): análisis y calibración fuera de línea. La calibración que producen (`recolector/pronostico_calibracion.json`) también se copia a la plataforma.
+> - `reel/`: el reel del clima para redes, un video vertical por día hecho con los datos públicos del panel. Ver [`reel/LEEME.md`](reel/LEEME.md) y el skill `reel-clima`.
 >
 > **Ya no corre nada de:** `recolector/` y `satelite/colector.py` (quedan como referencia: los scripts de evaluación los importan) ni lo archivado en `Archivo/clima-servicio-anterior/` (instalación, timers y el puente de IERSE). IERSE entra ahora por un relevo mínimo (`despliegue/relevo/` de la plataforma). Lo que sigue de este documento describe el diseño original y se conserva como historia.
 >

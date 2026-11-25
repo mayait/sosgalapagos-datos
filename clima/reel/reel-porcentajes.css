@@ -1,0 +1,17 @@
+/* SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+   Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
+   Medidas de la versión con porcentajes (reel.py --porcentajes): la tira de horas es más baja para que
+   quepa el bloque «Probabilidad de lluvia fuerte». Se carga después de reel.css. */
+#tira{height:160px}
+#barras{top:26px;height:104px}
+.fila{height:30px;margin-bottom:4px}
+.fila b{bottom:0}
+#cab{height:268px}
+#fr{top:134px}
+#marea{top:1344px}
+.tit{top:1506px}
+.isl{top:1540px}
+.pc{font-size:74px}
+.pc i{font-size:32px}
+.ya{font-size:21px;margin-top:8px}
+.f{top:1750px}
