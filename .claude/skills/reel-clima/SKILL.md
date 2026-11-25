@@ -19,7 +19,14 @@ Para `--dias 2026-11-25 2026-11-26`, en la carpeta de salida:
 
 La carpeta de salida es `~/Downloads/sosgalapagos-reel-<primer día>/` si no se indica otra con `--salida`.
 
-Cada pieza tiene, de arriba abajo: la dirección del sitio, una etiqueta («HOY»), el día, una frase, el mapa animado con el reloj, «¿A qué hora llueve más en cada isla?», la marea, «Ya llovió en 7 días» y el aviso de que no es un pronóstico oficial. Es la versión que aprobó Julián el 23-nov-2026: en dos dimensiones, **sin porcentajes**, y la marea se titula solo «MAREA».
+Cada pieza tiene, de arriba abajo: la dirección del sitio, la etiqueta del día («HOY») con **qué tan fuerte viene la lluvia** («LLUVIA MUY FUERTE»), el día, una frase, el mapa animado con el reloj, «¿A qué hora llueve más en cada isla?», la marea, el bloque «¿Qué tan fuerte y cuánta agua?» y el aviso de que no es un pronóstico oficial.
+
+Es la versión en dos dimensiones que aprobó Julián el 23-nov-2026 (**sin porcentajes**, marea titulada solo «MAREA»), más lo que pidió el 25-nov-2026: que se sienta la severidad y el volumen. Por eso el bloque de abajo dice, por isla:
+
+- **qué tan fuerte puede llover ese día**, con un medidor de cuatro barras y una frase: LEVE («sin señal de lluvia fuerte»), MODERADA («podría llegar a 20 mm»), FUERTE («puede pasar de 20 mm») o MUY FUERTE («puede pasar de 50 mm»);
+- **cuánta agua ya cayó**: los milímetros de los últimos 7 días, en grande, y los de las últimas 24 horas.
+
+El nivel no se escribe a mano: `reel.py` lo saca de la probabilidad que publica el panel de pasar de 20 y de 50 mm en la parte alta, con los mismos cortes de su «señal» (35 % y 15 %). La etiqueta de arriba es el nivel más alto de las tres islas.
 
 ## Qué necesita
 
@@ -51,10 +58,11 @@ Imprime de qué hora es el pronóstico, la corrida del modelo, la señal de lluv
 
 Copia [`clima/reel/textos.ejemplo.json`](../../../clima/reel/textos.ejemplo.json) a la carpeta de trabajo y cámbialo. Si no pasas `--textos`, `reel.py` pone una etiqueta («HOY», «MAÑANA» o «PRONÓSTICO») y una frase sacada de la señal del panel. Casi siempre conviene escribirlas.
 
-- **Etiqueta** (`chip`): dos o tres palabras en mayúsculas. «HOY», «MAÑANA», «SIGUE LA LLUVIA», «DÍA PICO». En rojo (`"rojo": true`) solo el día que pide más cuidado, y como mucho uno por reel.
+- **Etiqueta** (`chip`): dos o tres palabras en mayúsculas. «HOY», «MAÑANA», «SIGUE LA LLUVIA», «DÍA PICO». Déjala en negro: al lado sale sola la etiqueta de qué tan fuerte viene la lluvia, que ya va en rojo cuando toca. `"rojo": true` la pone en rojo, solo si te lo piden.
 - **Frase** (`frase`): una línea de hasta unos 55 caracteres, en español llano, que diga qué trae el día. Sale del resumen del paso 1, no de la intuición.
-- **No pongas** porcentajes, «riesgo alto» ni «alerta» (Julián lo pidió: preocupa más de lo que informa). Tampoco nada que suene a aviso oficial.
-- `nota_lluvia` cambia la nota del bloque «Ya llovió en 7 días». Por defecto dice «suelo saturado» cuando alguna estación pasa de 200 mm en 7 días, y nada si no.
+- **No pongas** porcentajes, «riesgo alto» ni «alerta» (Julián lo pidió: preocupa más de lo que informa). Tampoco nada que suene a aviso oficial. La gravedad se dice con lo que puede llover: «lluvia muy fuerte», «puede pasar de 50 mm».
+- La frase tiene que ir con el nivel que sale en el resumen. Si el día es MUY FUERTE en una isla, dilo y nombra la isla.
+- `nota_lluvia` cambia la nota del bloque de abajo. Por defecto dice «suelo saturado» cuando alguna estación pasa de 200 mm en 7 días, y nada si no.
 
 ### 3. Mira una imagen de prueba
 
@@ -75,8 +83,9 @@ Abre los `.jpg` de `revision/` (tres por día y uno del reel completo por cada d
 - **Día y fecha:** el título dice el día de la semana y el número correctos. `reel_dia1.jpg`, `reel_dia2.jpg`… muestran los días en orden.
 - **Reloj:** empieza en 00:00 (madrugada) y termina en 24:00 (noche).
 - **Sin porcentajes** en ninguna parte (salvo que hayas pedido `--porcentajes`).
+- **Severidad:** la etiqueta de arriba y el medidor de cada isla dicen el nivel del resumen del paso 1, y la frase de cada isla corresponde a ese nivel. La frase del día no dice más ni menos que eso.
 - **Marea:** se titula «MAREA», y sus horas y alturas son las del resumen del paso 1.
-- **Lluvia medida:** los milímetros coinciden con el resumen, e Isabela dice «sin estaciones».
+- **Lluvia medida:** los milímetros de 7 días y de 24 horas coinciden con el resumen, e Isabela dice «sin estaciones que midan la lluvia».
 - **Textos:** en español, con tildes, sin nada cortado ni montado. La frase cabe en su sitio y no toca el mapa.
 - **Pie:** está el aviso «No es un pronóstico oficial ni una alerta», y la línea pequeña dice la fecha y la hora del pronóstico.
 - **Mapa:** se ven las tres islas con su contorno, la lluvia en color, las rayas del viento y los puntos rojos de los puertos.
@@ -94,7 +103,7 @@ Di dónde quedó cada archivo, de qué fecha y hora es el pronóstico (`Pronóst
 - **Los videos y los cuadros no van al repositorio.** Tampoco los datos bajados. La carpeta de trabajo va fuera del repositorio.
 - **Marca:** USFQ Galápagos «We Want More»: solo rojo, negro y blanco, Zalando Sans Expanded y Helvetica Neue. No añadas colores. Nada de morado en textos, marcos ni fondos. Los colores de la lluvia son los del mapa del sitio, salvo la lluvia extrema, que aquí va en rojo oscuro.
 - **No inventes datos.** Si una estación no transmite, el bloque dice «sin dato». Si el sitio no trae un día, no se hace ese día.
-- Los milímetros del modelo sirven para ver **cuándo** llueve, no **cuánto**: en las islas se quedan muy cortos. Por eso el reel muestra horas y barras, no milímetros de pronóstico.
+- Los milímetros del modelo sirven para ver **cuándo** llueve, no **cuánto**: en las islas se quedan muy cortos. Por eso el reel no muestra los milímetros del modelo: muestra horas, barras y el nivel de lluvia, que sale del pronóstico calibrado con la lluvia medida.
 
 ## Opciones
 
@@ -102,7 +111,8 @@ Di dónde quedó cada archivo, de qué fecha y hora es el pronóstico (`Pronóst
 |---|---|
 | `--salida <carpeta>` | Dónde dejar los videos y las imágenes |
 | `--textos <archivo>` | Etiqueta y frase de cada día |
-| `--porcentajes` | La versión anterior, con la probabilidad de 20 mm o más por isla. Solo si la piden |
+| `--sin-severidad` | La versión del 23-nov-2026: sin el nivel por isla ni la lluvia de 24 horas. Solo si la piden |
+| `--porcentajes` | Una versión anterior, con la probabilidad de 20 mm o más por isla en números. Solo si la piden |
 | `--datos <carpeta>` | Usa datos ya bajados (`estado.json`, `mar.json`, `lluvia-mapa.json`) |
 | `--trabajo <carpeta>` | Carpeta de trabajo. Sin ella, crea una temporal y dice cuál |
 | `--conservar-cuadros` | No borra los cuadros sueltos (unos 300 MB por día) |
@@ -114,7 +124,8 @@ Di dónde quedó cada archivo, de qué fecha y hora es el pronóstico (`Pronóst
 | Mapa, puntos rojos y barras por isla | `lluvia-mapa.json`: lluvia y viento cada 3 horas, ECMWF IFS de 9 km | Open-Meteo (CC BY 4.0) |
 | Marea | Curva de `estado.json` ajustada a las pleamares y bajamares de `mar.json` | Tabla del INOCAR para Puerto Ayora; UHSLC |
 | «El mar viene N cm más alto» | Anomalía del mareógrafo de Puerto Ayora, últimas 6 horas | `estado.json` |
-| Ya llovió en 7 días | Estación de la parte alta: Miconia en Santa Cruz y El Junco en San Cristóbal. En Isabela no hay | `estado.json` |
+| Qué tan fuerte puede llover (etiqueta del día y medidor por isla) | Probabilidad de pasar de 20 y de 50 mm en la parte alta, del pronóstico del panel | `estado.json`; calibrado con estaciones de IERSE (CC BY-NC-ND 4.0), GSC-USFQ y FCD |
+| Ya llovió en 7 días y en 24 horas | Estación de la parte alta: Miconia en Santa Cruz y El Junco en San Cristóbal. En Isabela no hay | `estado.json` |
 | Contorno de las islas | `clima/reel/islas.js`, generado por `islas.py` | IGM |
 
 Los tres JSON son los del panel público de `/clima/`. Cambian de forma sin aviso: si `reel.py` falla al leerlos, mira primero si cambió su estructura.

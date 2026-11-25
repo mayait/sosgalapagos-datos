@@ -1,0 +1,38 @@
+/* SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+   Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
+   Versión por defecto del reel: dice qué tan fuerte puede llover (medidor de cuatro barras por isla y etiqueta
+   del día) y cuánta agua ya cayó (7 días y 24 horas). Se carga después de reel.css y le cambia las medidas:
+   la tira de horas baja un poco para que quepa el bloque de abajo. */
+
+/* Etiqueta de severidad del día, junto a «HOY» */
+.sev{display:inline-block;font-family:Z;font-size:17px;font-weight:800;letter-spacing:.08em;padding:8px 16px;margin:34px 0 0 10px}
+.sev.n3{background:#B5161C;color:#fff}
+.sev.n2{box-shadow:inset 0 0 0 3px #B5161C;color:#B5161C}
+.sev.n1{box-shadow:inset 0 0 0 3px #000}
+.sev.n0{background:#E3E3E3;color:#3D3D3D}
+
+/* Tira de horas y marea, un poco más juntas */
+#tira{height:181px}
+#barras{height:123px}
+.fila{height:36px;margin-bottom:5px}
+#cab{height:287px}
+#fr{top:155px}
+#marea{top:1363px}
+
+/* Bloque de abajo: por isla, el medidor, su frase y la lluvia medida */
+.tit{top:1522px}
+.isl{top:1556px}
+.med{display:flex;align-items:center;margin-top:9px;height:16px}
+.med i{width:26px;height:14px;background:#E3E3E3;margin-right:4px}
+.med i.on{background:#B5161C}
+.med.n1 i.on{background:#000}
+.med.n0 i.on{background:#8a8a8a}
+.med b{font-family:Z;font-weight:800;font-size:15px;letter-spacing:.04em;margin-left:6px;white-space:nowrap}
+.med.n3 b,.med.n2 b{color:#B5161C}
+.med.n0 b{color:#6b6b6b}
+.pue{font-size:19px;line-height:1.2;margin-top:5px;color:#000;font-weight:500}
+.pc{font-size:50px;margin-top:12px}
+.pc i{font-size:22px}
+.ya{font-size:18.5px;line-height:1.28;margin-top:3px}
+.nd2{font-size:19px;margin-top:16px}
+.f{top:1764px}

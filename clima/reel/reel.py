@@ -2,7 +2,8 @@
 # SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
 # Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Reel del clima de Galápagos: un video vertical (1080 × 1920) por día, con el mapa de lluvia y viento
-animado hora a hora, la hora de más lluvia en cada isla, la marea y la lluvia ya medida.
+animado hora a hora, la hora de más lluvia en cada isla, la marea, qué tan fuerte puede llover y cuánta
+agua ya cayó.
 
     python3 -I clima/reel/reel.py --dias 2026-11-25 2026-11-26 --solo-datos    # baja los datos y los resume
     python3 -I clima/reel/reel.py --dias 2026-11-25 2026-11-26 --prueba        # una imagen por día, rápido
@@ -55,6 +56,15 @@ ISLAS = [
 # Con 200 mm o más en 7 días el suelo ya no absorbe: es el umbral de saturación de la regla de inundación
 # (clima/recolector/umbrales_inundacion.json, zona alta de Santa Cruz).
 SATURADO_MM = 200
+# Qué tan fuerte puede llover en el día en la parte alta de cada isla. Sale de la probabilidad que publica el
+# panel de pasar de 20 y de 50 mm, con los mismos cortes de su «señal» (35 % alta, 15 % moderada). Cada nivel
+# llena una barra más del medidor. Es una estimación propia, como todo el pronóstico: el pie lo dice.
+NIVELES = [
+    ("LEVE", "sin señal de lluvia fuerte"),      # menos del 15 % de pasar de 20 mm
+    ("MODERADA", "podría llegar a 20 mm"),       # del 15 al 35 % de pasar de 20 mm
+    ("FUERTE", "puede pasar de 20 mm"),          # 35 % o más de pasar de 20 mm
+    ("MUY FUERTE", "puede pasar de 50 mm"),      # 35 % o más de pasar de 50 mm
+]
 CUADROS_POR_DIA = 321      # 15 quietos + 270 de animación + 36 quietos (reel.js), a 30 por segundo: 10,7 s
 
 
@@ -76,6 +86,16 @@ def slug_dia(fecha):
 
 def fecha_corta(fecha):
     return "%s %d-%s" % (ABREV[fecha.weekday()], fecha.day, MESES[fecha.month - 1])
+
+
+def nivel_de(prob, cortes):
+    """Nivel 0–3 de NIVELES con las probabilidades del panel, o None si el día no tiene pronóstico."""
+    if not prob or prob.get("20") is None:
+        return None
+    alta, moderada = cortes
+    if prob.get("50") is not None and prob["50"] >= alta:
+        return 3
+    return 2 if prob["20"] >= alta else 1 if prob["20"] >= moderada else 0
 
 
 def lista(nombres):
@@ -165,7 +185,9 @@ def lluvia_medida(estado):
                 continue
             if generado - hora_utc(e["ultimo"]) > dt.timedelta(hours=6):   # dejó de transmitir: la suma no vale
                 continue
-            dato = {"mm": round(e["lluvia"]["7d"]), "estacion": e["nombre"], "credito": credito}
+            h24 = e["lluvia"].get("24h")
+            dato = {"mm": round(e["lluvia"]["7d"]), "mm_24h": None if h24 is None else round(h24),
+                    "estacion": e["nombre"], "credito": credito}
             break
         salida.append(dato)
     return salida
@@ -177,6 +199,8 @@ def resumir(dias, datos):
     pron = estado["pronostico"]
     hoy = dt.date.fromisoformat(pron["hoy_local"])
     puntos = {p["id"]: p for z in pron["zonas"].values() for p in z["puntos"]}
+    desde = {n["id"]: n.get("desde") for n in pron.get("reglas", {}).get("niveles", [])}
+    cortes = (desde.get("alta") or 0.35, desde.get("moderada") or 0.15)
     problemas, por_dia = [], []
     for fecha in dias:
         i0 = mapa.inicio(fecha)
@@ -200,11 +224,14 @@ def resumir(dias, datos):
                 "modelo_mm_cada_3h": bloques,
                 "hora_de_mas_lluvia": "%02d–%02d h" % (pico * 3, pico * 3 + 3) if max(bloques) >= 0.3 else None,
                 "prob_20mm": pr and pr["prob"].get("20"),
+                "prob_50mm": pr and pr["prob"].get("50"),
                 "senal": pr and pr.get("nivel"),
+                "nivel": nivel_de(pr and pr["prob"], cortes),
             })
+        niveles = [i["nivel"] for i in islas if i["nivel"] is not None]
         por_dia.append({
             "fecha": fecha.isoformat(), "dia": nombre_dia(fecha), "slug": slug_dia(fecha),
-            "es_hoy": fecha == hoy, "pasado": fecha < hoy, "islas": islas,
+            "es_hoy": fecha == hoy, "pasado": fecha < hoy, "islas": islas, "nivel": max(niveles) if niveles else None,
             "mareas": [{"hora": x["local"].split(" ")[-1], "tipo": x["tipo"], "altura_m": x["altura_m"]} for x in extremos],
         })
         if fecha < hoy:
@@ -222,15 +249,21 @@ def resumir(dias, datos):
 def imprimir_resumen(r):
     print("Pronóstico emitido: %s (hora de Galápagos). Modelo del mapa: %s, corrida %s; mapa generado %s."
           % (r["emitido_local"].replace("T", " "), r["modelo"], r["corrida_modelo_utc"], r["mapa_generado_utc"]))
-    medida = ["%s %s" % (i["nombre"], ("%d mm (%s)" % (d["mm"], d["estacion"])) if d else "sin estación")
+    medida = ["%s %s" % (i["nombre"], ("%d mm en 7 días y %s mm en 24 h (%s)" % (d["mm"], "?" if d["mm_24h"] is None else d["mm_24h"], d["estacion"])) if d else "sin estación")
               for i, d in zip(ISLAS, r["lluvia_7d"])]
-    print("Ya llovió en 7 días, parte alta: " + "; ".join(medida) + ".")
+    print("Ya llovió, parte alta: " + "; ".join(medida) + ".")
     if r["mar_anomalia_cm"] is not None:
         print("Nivel del mar: %+.0f cm frente a lo normal (mareógrafo de Puerto Ayora, últimas 6 h)." % r["mar_anomalia_cm"])
     for d in r["dias"]:
-        print("\n%s (%s)%s" % (d["dia"], d["fecha"], " · HOY" if d["es_hoy"] else ""))
+        print("\n%s (%s)%s · nivel del día: %s" % (d["dia"], d["fecha"], " · HOY" if d["es_hoy"] else "",
+                                                 "sin pronóstico" if d["nivel"] is None else NIVELES[d["nivel"]][0]))
         for i in d["islas"]:
-            prob = "sin pronóstico" if i["prob_20mm"] is None else "prob. de 20 mm o más: %d %% (señal %s)" % (round(i["prob_20mm"] * 100), i["senal"])
+            if i["nivel"] is None:
+                prob = "sin pronóstico"
+            else:
+                p50 = "sin calibrar" if i["prob_50mm"] is None else "%d %%" % round(i["prob_50mm"] * 100)
+                prob = "%s (%s; prob. de 20 mm o más: %d %%, de 50 mm o más: %s)" % (
+                    NIVELES[i["nivel"]][0], NIVELES[i["nivel"]][1], round(i["prob_20mm"] * 100), p50)
             print("  %-14s %s · más lluvia: %s · modelo, mm cada 3 h: %s"
                   % (i["isla"], prob, i["hora_de_mas_lluvia"] or "casi sin lluvia", " ".join("%g" % b for b in i["modelo_mm_cada_3h"])))
         print("  Marea (Puerto Ayora, INOCAR): " + ", ".join("%s %s %.2f m" % (m["hora"], m["tipo"], m["altura_m"]) for m in d["mareas"]))
@@ -245,20 +278,28 @@ def textos_por_defecto(d, hoy):
     """Etiqueta y frase si no vienen en --textos. La frase sale de la señal publicada en el panel."""
     fecha = dt.date.fromisoformat(d["fecha"])
     chip = "HOY" if fecha == hoy else "MAÑANA" if fecha == hoy + dt.timedelta(days=1) else "PRONÓSTICO"
-    altas = [i["isla"] for i in d["islas"] if i["senal"] == "alta"]
-    moderadas = [i["isla"] for i in d["islas"] if i["senal"] == "moderada"]
-    if altas:
-        frase = "Lluvia fuerte probable en la parte alta de %s." % lista(altas)
-    elif moderadas:
-        frase = "Puede llover fuerte en la parte alta de %s." % lista(moderadas)
-    elif any(i["senal"] for i in d["islas"]):
+    por_nivel = {n: [i["isla"] for i in d["islas"] if i["nivel"] == n] for n in (3, 2, 1)}
+    if por_nivel[3]:
+        frase = "Lluvia muy fuerte en %s: puede pasar de 50 mm." % lista(por_nivel[3])
+    elif por_nivel[2]:
+        frase = "Lluvia fuerte en la parte alta de %s." % lista(por_nivel[2])
+    elif por_nivel[1]:
+        frase = "Podría llover fuerte en la parte alta de %s." % lista(por_nivel[1])
+    elif d["nivel"] is not None:
         frase = "Sin señal de lluvia fuerte en las islas."
     else:
         frase = "Lluvia y viento de los modelos, hora a hora."
     return {"chip": chip, "rojo": False, "frase": frase}
 
 
-def pagina(d, resumen, textos, porcentajes):
+def medidor(nivel):
+    """Cuatro barras, una más llena por cada nivel, y la palabra del nivel."""
+    barras = "".join('<i class="on"></i>' if k <= nivel else "<i></i>" for k in range(4))
+    return '<div class="med n%d">%s<b>%s</b></div><div class="pue">%s</div>' % (nivel, barras, NIVELES[nivel][0], NIVELES[nivel][1])
+
+
+def pagina(d, resumen, textos, variante):
+    porcentajes, severidad = variante == "porcentajes", variante == "severidad"
     hoy = dt.date.fromisoformat(resumen["hoy_local"])
     t = dict(textos_por_defecto(d, hoy), **textos.get(d["fecha"], {}))
     emitido = dt.datetime.fromisoformat(resumen["emitido_local"])
@@ -276,24 +317,38 @@ def pagina(d, resumen, textos, porcentajes):
             ya = ("Ya llovió <b>%d mm</b><br>en 7 días" % dato["mm"]) if dato else "Sin estaciones:<br>no hay lluvia medida"
             columnas += '<div class="i"><h2>%s</h2><div class="pc">%d<i>%%</i></div><div class="ya">%s</div></div>' % (
                 isla["nombre"], int(round(pr["prob_20mm"] * 20) * 5), ya)   # redondeada de 5 en 5
+        elif severidad:
+            pron = medidor(pr["nivel"]) if pr["nivel"] is not None else '<div class="pue">sin pronóstico para este día</div>'
+            if dato:
+                h24 = "" if dato["mm_24h"] is None else "<br><b>%d mm</b> en las últimas 24 h" % dato["mm_24h"]
+                ya = '<div class="pc">%d<i>mm</i></div><div class="ya">ya llovió en 7 días%s</div>' % (dato["mm"], h24)
+            else:
+                ya = '<div class="nd2">%s</div>' % ("sin dato de lluvia" if isla["estaciones"] else "sin estaciones<br>que midan la lluvia")
+            columnas += '<div class="i"><h2>%s</h2>%s%s</div>' % (isla["nombre"], pron, ya)
         elif dato:
             columnas += '<div class="i"><h2>%s</h2><div class="pc">%d<i>mm</i></div><div class="ya">en la parte alta</div></div>' % (isla["nombre"], dato["mm"])
         else:
             columnas += '<div class="i"><h2>%s</h2><div class="nd2">sin<br>%s</div></div>' % (isla["nombre"], "dato" if isla["estaciones"] else "estaciones")
 
+    nota = textos.get("nota_lluvia")
+    if nota is None:
+        nota = "suelo saturado" if any(x and x["mm"] >= SATURADO_MM for x in medida) else ""
     if porcentajes:
         titulo = "PROBABILIDAD DE LLUVIA FUERTE <span>20 mm o más en el día, parte alta</span>"
+    elif severidad:
+        titulo = "¿QUÉ TAN FUERTE Y CUÁNTA AGUA? <span>parte alta%s · 1 mm = 1 litro por m²</span>" % (" · " + html.escape(nota) if nota else "")
     else:
-        nota = textos.get("nota_lluvia")
-        if nota is None:
-            nota = "suelo saturado" if any(x and x["mm"] >= SATURADO_MM for x in medida) else ""
         titulo = "YA LLOVIÓ EN 7 DÍAS <span>medido en estaciones%s</span>" % (" · " + html.escape(nota) if nota else "")
+    # La etiqueta de severidad del día, junto a «HOY»: el nivel más alto de las tres islas
+    sev = ""
+    if severidad and d["nivel"] is not None:
+        sev = '<span class="sev n%d">LLUVIA %s</span>' % (d["nivel"], NIVELES[d["nivel"]][0])
 
     creditos = []
     for x in medida:
         if x and x["credito"] not in creditos:
             creditos.append(x["credito"])
-    if porcentajes and "IERSE (CC BY-NC-ND 4.0)" not in creditos:
+    if (porcentajes or severidad) and "IERSE (CC BY-NC-ND 4.0)" not in creditos:
         creditos.insert(0, "IERSE (CC BY-NC-ND 4.0)")     # el pronóstico se calibró con sus estaciones
     corrida = hora_utc(resumen["corrida_modelo_utc"]) if resumen["corrida_modelo_utc"] else None
     pie = "Emitido el %s, %s%s. Datos: Open-Meteo (CC BY 4.0) con ECMWF%s. Marea: tabla de Puerto Ayora (INOCAR) y UHSLC. Islas: IGM." % (
@@ -307,14 +362,14 @@ def pagina(d, resumen, textos, porcentajes):
             "marea": {k: mr[k] for k in ("t0", "paso_min", "pred_cm", "desfase_m", "extremos")}}
     base = AQUI.as_uri() + "/"
     hojas = '<link rel="stylesheet" href="%sreel.css">' % base
-    if porcentajes:
-        hojas += '<link rel="stylesheet" href="%sreel-porcentajes.css">' % base
+    if variante != "clasico":
+        hojas += '<link rel="stylesheet" href="%sreel-%s.css">' % (base, variante)
     return """<!doctype html><html lang="es"><meta charset="utf-8"><title>Reel del clima · %(dia)s</title>
 <script>window.ERRORES=[];addEventListener("error",e=>window.ERRORES.push(String(e.message||e.type)+" "+(e.filename||(e.target&&(e.target.src||e.target.href))||"")));</script>
 %(hojas)s
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <div class="top"><div class="k"><span>sosgalapagos.org/clima</span></div>
-<span class="chip%(rojo)s">%(chip)s</span>
+<span class="chip%(rojo)s">%(chip)s</span>%(sev)s
 <h1>%(dia)s</h1>
 <div class="hook">%(frase)s</div></div>
 <div id="mapa"><div id="reloj"><b>00:00</b><span>MADRUGADA</span></div>
@@ -331,7 +386,7 @@ def pagina(d, resumen, textos, porcentajes):
 <script>window.REEL=%(reel)s;</script><script src="datos.js"></script><script src="%(base)sislas.js"></script><script src="%(base)sreel.js"></script>
 </html>
 """ % dict(dia=html.escape(d["dia"]), hojas=hojas, rojo=" rojo" if t.get("rojo") else "", chip=html.escape(t["chip"]),
-           frase=html.escape(t["frase"]), modelo=html.escape(resumen["modelo"]), nota_marea=nota_marea, titulo=titulo,
+           sev=sev, frase=html.escape(t["frase"]), modelo=html.escape(resumen["modelo"]), nota_marea=nota_marea, titulo=titulo,
            columnas=columnas, pie=html.escape(pie), reel=json.dumps(reel, ensure_ascii=False), base=base)
 
 
@@ -410,7 +465,8 @@ def main():
     ap.add_argument("--dias", nargs="+", required=True, metavar="AAAA-MM-DD", help="días del reel, en orden; también «hoy» y «mañana» (hora de Galápagos)")
     ap.add_argument("--salida", type=Path, help="carpeta de los videos e imágenes (por defecto, ~/Downloads/sosgalapagos-reel-<primer día>)")
     ap.add_argument("--textos", type=Path, help="JSON con la etiqueta y la frase de cada día (ver textos.ejemplo.json)")
-    ap.add_argument("--porcentajes", action="store_true", help="versión con la probabilidad de lluvia fuerte por isla (por defecto no se muestran)")
+    ap.add_argument("--sin-severidad", action="store_true", help="versión del 23-nov-2026: sin el nivel de lluvia por isla ni la lluvia de 24 h")
+    ap.add_argument("--porcentajes", action="store_true", help="versión anterior, con la probabilidad de lluvia fuerte por isla en números")
     ap.add_argument("--solo-datos", action="store_true", help="baja los datos, imprime el resumen y termina")
     ap.add_argument("--prueba", action="store_true", help="una sola imagen por día, a la hora de más lluvia (para revisar antes de grabar)")
     ap.add_argument("--datos", type=Path, help="usa los datos ya bajados en esta carpeta en vez de pedirlos al sitio")
@@ -418,6 +474,9 @@ def main():
     ap.add_argument("--conservar-cuadros", action="store_true", help="no borra los cuadros sueltos al terminar (pesan ≈ 300 MB por día)")
     a = ap.parse_args()
 
+    if a.sin_severidad and a.porcentajes:
+        fallar("--sin-severidad y --porcentajes son versiones distintas: elige una")
+    variante = "porcentajes" if a.porcentajes else "clasico" if a.sin_severidad else "severidad"
     hoy = dt.datetime.now(GAL).date()
     palabras = {"hoy": hoy, "mañana": hoy + dt.timedelta(days=1), "manana": hoy + dt.timedelta(days=1)}
     try:
@@ -454,7 +513,7 @@ def main():
     chrome = requisitos()
     (trabajo / "pagina" / "datos.js").write_text("window.LM=" + json.dumps(datos["lluvia-mapa.json"], ensure_ascii=False) + ";", encoding="utf-8")
     for d in resumen["dias"]:
-        (trabajo / "pagina" / (d["slug"] + ".html")).write_text(pagina(d, resumen, textos, a.porcentajes), encoding="utf-8")
+        (trabajo / "pagina" / (d["slug"] + ".html")).write_text(pagina(d, resumen, textos, variante), encoding="utf-8")
 
     salida = (a.salida or Path.home() / "Downloads" / ("sosgalapagos-reel-" + dias[0].isoformat())).expanduser().resolve()
     revision = trabajo / "revision"

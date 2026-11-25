@@ -1,8 +1,9 @@
 /* SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
    Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
    Hoja del reel del clima (1080 × 1920). Marca: USFQ Galápagos «We Want More»: solo rojo, negro y blanco,
-   Zalando Sans Expanded (SIL OFL 1.1, en fuentes/) y Helvetica Neue. Esta es la versión por defecto
-   (2D, sin porcentajes); reel-porcentajes.css cambia las medidas para la versión con porcentajes. */
+   Zalando Sans Expanded (SIL OFL 1.1, en fuentes/) y Helvetica Neue. Estas son las medidas de la versión del
+   23-nov-2026 (--sin-severidad). La versión por defecto les suma reel-severidad.css, y la de porcentajes,
+   reel-porcentajes.css. */
 @font-face{font-family:Z;src:url(fuentes/ZalandoSansExpanded-Black.ttf);font-weight:900}
 @font-face{font-family:Z;src:url(fuentes/ZalandoSansExpanded-ExtraBold.ttf);font-weight:800}
 @font-face{font-family:Z;src:url(fuentes/ZalandoSansExpanded-Regular.ttf);font-weight:400}
