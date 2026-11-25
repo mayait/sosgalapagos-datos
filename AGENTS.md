@@ -43,6 +43,7 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 | Bajar los datos del clima o reproducir sus cálculos | `clima/PARA-AGENTES.md` (ZIP con todo, formato, trampas) y `clima/replicar/nivel.py` (sin dependencias) |
 | Tocar el clima | El que corre en vivo: repo `sosgalapagos-plataforma`, app `clima/`. Aquí: el panel (`clima/web/`) y los análisis (`clima/LEEME.md`) |
 | Tocar el pronóstico de lluvia | `clima/pronostico/LEEME.md` (evaluación en `fase0/informe.md`) |
+| Hacer un reel o un video del pronóstico del clima | Skill `reel-clima`: [`.claude/skills/reel-clima/SKILL.md`](.claude/skills/reel-clima/SKILL.md) (los scripts están en `clima/reel/`) |
 
 ## Árbol de repositorios de SOS Galápagos
 
