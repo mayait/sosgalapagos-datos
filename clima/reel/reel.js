@@ -19,10 +19,11 @@
     const x0 = Math.min(Math.floor(x), g.nlon - 2), y0 = Math.min(Math.floor(y), g.nlat - 2), fx = x - x0, fy = y - y0, i = y0 * g.nlon + x0;
     return (campo[i] * (1 - fx) + campo[i + 1] * fx) * (1 - fy) + (campo[i + g.nlon] * (1 - fx) + campo[i + g.nlon + 1] * fx) * fy;
   }
-  // Paleta «por hora» del panel
+  // Paleta «por hora» del panel (mm por hora → color). El tramo de lluvia extrema (más de 20 mm/h) va en rojo
+  // oscuro: en el panel es morado, y en las piezas de la marca no se usa morado.
   const P = {max: 60, paradas: [[0.1, [95, 155, 230, 0]], [0.3, [95, 155, 230, 140]], [0.7, [60, 120, 220, 185]], [1.5, [40, 90, 205, 210]],
     [3, [40, 175, 205, 210]], [5, [55, 190, 95, 220]], [8, [235, 220, 55, 230]], [13, [245, 150, 40, 235]],
-    [20, [230, 55, 45, 240]], [32, [205, 40, 150, 245]], [50, [130, 50, 200, 250]], [60, [70, 20, 110, 250]]]};
+    [20, [230, 55, 45, 240]], [32, [181, 22, 28, 245]], [50, [130, 14, 20, 250]], [60, [90, 8, 14, 250]]]};
   const NL = 512, lut = new Uint8ClampedArray(NL * 4);
   for (let i = 0; i < NL; i++) { const v = Math.pow(i / (NL - 1), 2) * P.max; let k = 0;
     while (k < P.paradas.length - 1 && P.paradas[k + 1][0] < v) k++;

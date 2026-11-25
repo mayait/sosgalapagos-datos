@@ -92,7 +92,7 @@ Di dónde quedó cada archivo, de qué fecha y hora es el pronóstico (`Pronóst
 - **El reel sale de la página, así que siempre dice que no es oficial.** El aviso del pie no se quita ni se achica (AGENTS.md, regla 3).
 - **No se publica nada.** El skill deja archivos en la carpeta de salida. Subirlos a redes o al sitio lo decide Julián.
 - **Los videos y los cuadros no van al repositorio.** Tampoco los datos bajados. La carpeta de trabajo va fuera del repositorio.
-- **Marca:** USFQ Galápagos «We Want More»: solo rojo, negro y blanco, Zalando Sans Expanded y Helvetica Neue. No añadas colores. Nada de morado en textos, marcos ni fondos. Los colores de la lluvia son los del mapa del sitio.
+- **Marca:** USFQ Galápagos «We Want More»: solo rojo, negro y blanco, Zalando Sans Expanded y Helvetica Neue. No añadas colores. Nada de morado en textos, marcos ni fondos. Los colores de la lluvia son los del mapa del sitio, salvo la lluvia extrema, que aquí va en rojo oscuro.
 - **No inventes datos.** Si una estación no transmite, el bloque dice «sin dato». Si el sitio no trae un día, no se hace ese día.
 - Los milímetros del modelo sirven para ver **cuándo** llueve, no **cuánto**: en las islas se quedan muy cortos. Por eso el reel muestra horas y barras, no milímetros de pronóstico.
 
