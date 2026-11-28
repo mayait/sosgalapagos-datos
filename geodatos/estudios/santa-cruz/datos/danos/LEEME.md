@@ -12,7 +12,17 @@ Inventario de lo que dejaron las lluvias de octubre y noviembre de 2026 entre Be
 
 Las hojas para marcar quedan en `estudios/santa-cruz/figuras/danos/`, solo en local. La cuadrícula tiene un origen fijo (UTM 15S, E 796 000, N 9 917 000): los id de los bloques no cambian.
 
-**Tipos:** `escombros`, `lodo_sedimento`, `erosion` (cárcavas y cauces lavados), `rocas_arrastradas`, `vegetacion_tumbada`, `vivienda_destruida`, `vivienda_danada`, `via_danada` y `muro_caido`.
+**Infraestructura (28-nov-2026).** Además del recorrido, se buscaron objetos lineales azules (tuberías de PVC) con un filtro de color y forma a 5–9 cm por píxel, a 30 m o menos de vías y cauces: salieron 23 candidatos. Se revisaron uno por uno con zoom, junto con los cruces de cauces con vías y los puntos de daño junto a carreteras. Casi todos los candidatos eran techos, lonas o mallas; quedaron 12 daños en infraestructura, ubicados con ±3 m (columnas `x_utm` y `y_utm`):
+- **Tuberías rotas (2):** tuberías azules de agua arrancadas y arrastradas junto a la Troncal en la Curva Brava, al lado de un poste caído, y restos de tubería entre los escombros de un flujo en Bellavista.
+- **Tuberías expuestas (4):** al descubierto sobre el lodo o a lo largo de cárcavas en Bellavista y Tomas de Berlanga. Una es dudosa.
+- **Postes caídos o inclinados (2):** en la Curva Brava.
+- **Bordes de vía rotos o socavados (4):** Av. Padre Julio Herrera (socavón en el borde), Troncal Insular y la berma de la Curva Brava.
+
+Sirven para avisar a la empresa de agua, a la eléctrica y a obras públicas. **El filtro solo ve tuberías azules a la vista**: no ve las enterradas ni las negras o grises, que se confunden con el suelo. Falta la red de agua potable de Santa Cruz para cruzarla con los cauces.
+
+**Posición.** Las ortofotos del GAD están corridas de 1,4 a 5 m (sobre todo hacia el norte), medido contra el DSM de la SGIAR por la sesión de `45_edificios_ortofotos.py`. `44 capa` y `43` corrigen cada punto con `datos/gad_santa_cruz/registro_ortofotos.json` si existe. Mientras ese archivo no esté en `main`, las posiciones quedan sin corregir (campo `posicion_corregida`).
+
+**Tipos:** `escombros`, `lodo_sedimento`, `erosion` (cárcavas y cauces lavados), `rocas_arrastradas`, `vegetacion_tumbada`, `vivienda_destruida`, `vivienda_danada`, `via_danada`, `muro_caido` y, de infraestructura, `tuberia_rota`, `tuberia_expuesta`, `poste_caido`, `cerca_caida` y `estructura_arrastrada`.
 
 ## Primera pasada (28-nov-2026)
 

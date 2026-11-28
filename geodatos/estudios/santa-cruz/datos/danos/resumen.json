@@ -1,25 +1,36 @@
 {
- "danos": 142,
+ "danos": 156,
  "por_tipo": {
   "erosion": 38,
-  "lodo_sedimento": 65,
+  "lodo_sedimento": 66,
   "vegetacion_tumbada": 14,
   "escombros": 22,
-  "rocas_arrastradas": 3
+  "rocas_arrastradas": 3,
+  "tuberia_rota": 2,
+  "poste_caido": 2,
+  "via_danada": 4,
+  "tuberia_expuesta": 4,
+  "vivienda_danada": 1
  },
  "por_gravedad": {
-  "media": 86,
-  "alta": 55,
-  "baja": 1
+  "media": 94,
+  "alta": 60,
+  "baja": 2
+ },
+ "infraestructura": {
+  "tuberia_rota": 2,
+  "poste_caido": 2,
+  "via_danada": 4,
+  "tuberia_expuesta": 4
  },
  "por_clase_hand": {
-  "baja": 21,
-  "fuera": 54,
-  "alta": 44,
-  "media": 23
+  "baja": 23,
+  "fuera": 59,
+  "alta": 49,
+  "media": 25
  },
  "distancia_al_cauce_m": {
-  "mediana": 11.0,
+  "mediana": 10.5,
   "a_50m_o_menos": 0.87,
   "mas_de_150m": 0.04
  },

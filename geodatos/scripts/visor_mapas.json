@@ -152,7 +152,12 @@
    "lodo_sedimento": {"etiqueta": "Lodo y sedimento", "fillColor": "#92400e"},
    "erosion": {"etiqueta": "Erosión y cárcavas", "fillColor": "#ea580c"},
    "rocas_arrastradas": {"etiqueta": "Rocas arrastradas", "fillColor": "#57534e"},
-   "vegetacion_tumbada": {"etiqueta": "Vegetación arrasada", "fillColor": "#4d7c0f"}}}},
+   "vegetacion_tumbada": {"etiqueta": "Vegetación arrasada", "fillColor": "#4d7c0f"},
+   "tuberia_rota": {"etiqueta": "Tubería rota", "fillColor": "#0284c7"},
+   "tuberia_expuesta": {"etiqueta": "Tubería expuesta", "fillColor": "#7dd3fc"},
+   "poste_caido": {"etiqueta": "Poste caído o inclinado", "fillColor": "#facc15"},
+   "via_danada": {"etiqueta": "Vía dañada (borde roto, socavón)", "fillColor": "#18181b"},
+   "vivienda_danada": {"etiqueta": "Casa afectada", "fillColor": "#be185d"}}}},
   "usfq_drenaje": {"visible": false, "visible_movil": false, "corto": "Cauce (10 m)", "clasificar": {"propiedad": "jerarquia", "valores": {
    "Orden 4 (cauce principal)": {"etiqueta": "Orden 4 (cauce principal)", "color": "#0c4a6e", "weight": 3.2},
    "Orden 3": {"etiqueta": "Orden 3", "color": "#0369a1", "weight": 2.3},

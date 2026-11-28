@@ -51,7 +51,10 @@ B, C = 240, 80              # bloque y celda (m); un bloque son 3 × 3 celdas
 ORIGEN = (796000, 9917000)  # origen fijo de la cuadrícula (UTM 15S), para que los id no cambien
 SUB = "abcdefghi"           # subceldas de una celda, de arriba a la izquierda a abajo a la derecha
 TIPOS = {"escombros", "vivienda_destruida", "vivienda_danada", "lodo_sedimento", "erosion", "rocas_arrastradas",
-         "vegetacion_tumbada", "via_danada", "muro_caido"}
+         "vegetacion_tumbada", "via_danada", "muro_caido",
+         # infraestructura: lo que sirve para avisar a la empresa de agua, a la eléctrica o a obras públicas
+         "tuberia_rota", "tuberia_expuesta", "poste_caido", "cerca_caida", "estructura_arrastrada"}
+INFRA = {"tuberia_rota", "tuberia_expuesta", "poste_caido", "via_danada", "muro_caido", "cerca_caida"}
 
 
 def leer(p, cond=lambda q: True):
@@ -163,8 +166,32 @@ def celdas():
     print(f"{len(marcados)} bloques con daño en {k} hojas")
 
 
+REGISTRO = ROOT / "datos/gad_santa_cruz/registro_ortofotos.json"
+
+
+def corrector():
+    """Corrección de posición de las ortofotos (registro contra el DSM de la SGIAR, 45_edificios_ortofotos.py).
+
+    Las marcas se leyeron sobre las ortofotos tal como las entregó el GAD, que están corridas de 1,4 a 5 m. Cada punto se
+    lleva a su posición real con la afín de la ortofoto que se veía encima (la más reciente que lo cubre). Sin registro,
+    no corrige y lo dice."""
+    if not REGISTRO.exists():
+        print("  sin registro_ortofotos.json: las posiciones quedan sin corregir (corrimiento de 1,4 a 5 m)")
+        return None
+    reg = json.loads(REGISTRO.read_text())["ortofotos"]
+    hs = [(p, h) for p, h in huellas()][::-1]           # más reciente primero
+    def f(x, y):
+        for p, h in hs:
+            if h.contains(Point(x, y)) and "afin" in reg.get(p.name, {}):
+                a, b, c, d, e, ff = reg[p.name]["afin"]
+                return a * x + b * y + c, d * x + e * y + ff, p.name
+        return x, y, None
+    return f
+
+
 def capa():
     filas = list(csv.DictReader(open(DAT / "danos_marcas.csv", encoding="utf-8")))
+    corr = corrector()
     susc = leer(ROOT / "capas/dem/santa_cruz_susc_inundacion.geojson", lambda p: p.get("isla") == "Santa Cruz")
     ts = STRtree([g for g, _ in susc])
     can = unary_union([g for g, _ in leer(ROOT / "datos/gad_santa_cruz/canadas_santa_cruz.geojson")] +
@@ -174,17 +201,25 @@ def capa():
     for r in filas:
         if r["tipo"] not in TIPOS:
             raise SystemExit(f"Tipo desconocido en {r}: usa uno de {sorted(TIPOS)}")
-        x0, y0, _, _ = caja_bloque(r["bloque"])
-        k = int(r["celda"]) - 1; s = SUB.index(r["subcelda"])
-        x = x0 + (k % 3) * C + (s % 3 + 0.5) * C / 3
-        y = y0 + (2 - k // 3) * C + (2 - s // 3 + 0.5) * C / 3
+        if r.get("x_utm"):          # ubicado con zoom a resolución completa: ± 3 m
+            x, y, prec = float(r["x_utm"]), float(r["y_utm"]), 3
+        else:                       # por subcelda: ± 15 m
+            x0, y0, _, _ = caja_bloque(r["bloque"])
+            k = int(r["celda"]) - 1; s = SUB.index(r["subcelda"])
+            x = x0 + (k % 3) * C + (s % 3 + 0.5) * C / 3
+            y = y0 + (2 - k // 3) * C + (2 - s // 3 + 0.5) * C / 3
+            prec = 15
+        ortofoto = None
+        if corr:
+            x, y, ortofoto = corr(x, y)
         pt = Point(x, y)
         niv = max([susc[i][1]["nivel"] for i in ts.query(pt, predicate="intersects")], default=0)
         lon, lat = GEO(x, y)
         feats.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [round(lon, 7), round(lat, 7)]},
                       "properties": {"isla": "Santa Cruz", "tipo": r["tipo"], "gravedad": r["gravedad"], "descripcion": r["descripcion"],
+                                     "infraestructura": r["tipo"] in INFRA,
                                      "clase_hand": nombres[niv], "dist_cauce_m": round(can.distance(pt)),
-                                     "precision_m": 15, "marcado_por": r["marcado_por"],
+                                     "precision_m": prec, "posicion_corregida": ortofoto is not None, "marcado_por": r["marcado_por"],
                                      "fuente": "Ortofotos de dron del GAD Municipal de Santa Cruz (3 al 22-nov-2026, CC BY 4.0); marcas de SOS Galápagos"}})
     DAT.mkdir(parents=True, exist_ok=True)
     (DAT / "danos_observados.geojson").write_text(json.dumps({"type": "FeatureCollection", "name": "danos_observados", "features": feats},
@@ -192,6 +227,7 @@ def capa():
     d = np.array([f["properties"]["dist_cauce_m"] for f in feats]) if feats else np.array([0])
     res = {"danos": len(feats), "por_tipo": dict(Counter(f["properties"]["tipo"] for f in feats)),
            "por_gravedad": dict(Counter(f["properties"]["gravedad"] for f in feats)),
+           "infraestructura": dict(Counter(f["properties"]["tipo"] for f in feats if f["properties"]["infraestructura"])),
            "por_clase_hand": dict(Counter(f["properties"]["clase_hand"] for f in feats)),
            "distancia_al_cauce_m": {"mediana": float(np.median(d)), "a_50m_o_menos": round(float((d <= 50).mean()), 2), "mas_de_150m": round(float((d > 150).mean()), 2)},
            "bloques_recorridos": len((DAT / "bloques_recorridos.txt").read_text().split()),

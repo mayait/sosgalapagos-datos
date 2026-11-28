@@ -1,143 +1,157 @@
-bloque,celda,subcelda,tipo,gravedad,descripcion,marcado_por
-B001-026,8,e,erosion,media,"cárcava con sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B001-026,8,h,lodo_sedimento,media,"sedimento junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-025,4,e,lodo_sedimento,media,"flujo de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-025,4,f,lodo_sedimento,alta,"abanico de lodo junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-025,5,d,lodo_sedimento,media,"lodo y restos junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-025,8,f,lodo_sedimento,media,"abanico de sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-025,8,i,lodo_sedimento,media,"abanico de sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B015-025,2,e,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B015-025,3,b,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-025,1,e,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-025,4,c,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-025,8,d,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-025,6,f,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-025,9,b,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,2,c,lodo_sedimento,alta,"lodo junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,2,f,lodo_sedimento,alta,"casas con lodo alrededor",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,2,i,erosion,alta,"cárcava",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,3,a,erosion,alta,"cárcava",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,3,b,vegetacion_tumbada,alta,"troncos y vegetación arrastrados",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,3,g,erosion,alta,"cárcava y abanico",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,5,c,erosion,media,"cárcava",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,6,d,erosion,alta,"cárcava",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,6,f,lodo_sedimento,media,"abanico de sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,9,b,lodo_sedimento,media,"sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,9,e,lodo_sedimento,media,"sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B002-024,9,h,lodo_sedimento,media,"sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,2,d,lodo_sedimento,media,"sedimento en el lote",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,4,c,lodo_sedimento,media,"sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,4,h,lodo_sedimento,alta,"casa rodeada de sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,5,f,lodo_sedimento,alta,"casas con lodo en el patio",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,5,h,lodo_sedimento,media,"lodo junto a las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,7,b,lodo_sedimento,media,"sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,7,f,lodo_sedimento,media,"sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,8,a,lodo_sedimento,alta,"terreno cubierto de sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,8,e,lodo_sedimento,alta,"terreno cubierto de sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B003-024,8,i,lodo_sedimento,media,"sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-024,3,a,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-024,3,e,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-024,6,b,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-024,6,h,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B016-024,9,b,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B017-024,4,a,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B017-024,7,b,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B017-024,6,e,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B017-024,9,a,erosion,media,"cauce de roca lavado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-023,6,d,lodo_sedimento,media,"sedimento en el claro",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-023,8,e,erosion,media,"cauce con lodo junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-023,8,h,lodo_sedimento,media,"lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,1,g,lodo_sedimento,alta,"flujo de lodo bajo las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,1,h,lodo_sedimento,alta,"flujo de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,4,b,lodo_sedimento,alta,"flujo de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,4,e,lodo_sedimento,media,"flujo de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,4,f,lodo_sedimento,media,"lodo junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,5,d,lodo_sedimento,media,"lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,6,d,lodo_sedimento,media,"lodo junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,7,b,erosion,media,"cárcava",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,7,h,erosion,media,"cárcava",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-022,9,d,erosion,media,"cárcava",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-021,3,c,lodo_sedimento,media,"sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-021,3,g,erosion,media,"cauce con sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-021,5,b,erosion,media,"cauce con sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-021,6,a,erosion,media,"cauce con sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-021,4,h,lodo_sedimento,media,"abanico de sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B004-021,7,b,erosion,media,"cauce con sedimento",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-021,1,h,erosion,media,"cauce",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-021,5,c,lodo_sedimento,media,"lodo en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-021,6,d,lodo_sedimento,alta,"cauce con lodo hacia las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-021,6,h,lodo_sedimento,alta,"lodo alrededor de las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B007-021,4,g,lodo_sedimento,media,"lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B007-021,6,h,escombros,media,"restos arrastrados en el cauce",Claude (recorrido de las ortofotos, 28-nov-2026)
-B007-021,7,c,escombros,alta,"escombros y lodo junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B007-021,7,d,lodo_sedimento,alta,"lodo junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B007-021,7,f,escombros,alta,"escombros",Claude (recorrido de las ortofotos, 28-nov-2026)
-B007-021,8,a,lodo_sedimento,alta,"flujo de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-019,1,f,lodo_sedimento,media,"franja de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-019,2,g,vegetacion_tumbada,alta,"franja de pasto tumbado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-019,5,b,vegetacion_tumbada,alta,"franja de pasto tumbado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-019,5,c,lodo_sedimento,alta,"lodo junto a las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-019,3,h,lodo_sedimento,media,"suelo removido",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-019,6,i,lodo_sedimento,media,"lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-019,8,i,lodo_sedimento,media,"lodo junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B011-019,2,e,lodo_sedimento,alta,"canal de lodo con restos",Claude (recorrido de las ortofotos, 28-nov-2026)
-B011-019,2,h,escombros,alta,"restos junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B011-019,5,h,lodo_sedimento,media,"lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B011-019,8,b,lodo_sedimento,media,"lote con lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B011-019,8,e,escombros,baja,"estructura y restos (puede ser una obra)",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-018,2,b,lodo_sedimento,media,"cauce de lodo por el lote",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-018,2,h,escombros,media,"escombros",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-018,5,b,escombros,media,"escombros en el lote",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-018,8,e,escombros,media,"escombros",Claude (recorrido de las ortofotos, 28-nov-2026)
-B005-018,8,g,rocas_arrastradas,media,"rocas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-018,2,i,escombros,media,"estructura con escombros",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-018,3,a,lodo_sedimento,media,"lodo en la calle",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-018,3,f,escombros,media,"restos",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-018,6,b,vegetacion_tumbada,media,"franja de flujo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B009-018,7,a,lodo_sedimento,media,"lodo en la curva del camino",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-018,1,h,escombros,media,"restos junto a la casa",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-018,4,b,escombros,alta,"flujo con troncos y restos",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-018,4,e,rocas_arrastradas,alta,"rocas arrastradas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-018,4,i,vegetacion_tumbada,alta,"vegetación arrasada",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-018,7,c,vegetacion_tumbada,alta,"franja arrasada junto a las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-018,8,a,vegetacion_tumbada,alta,"franja arrasada",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-018,8,e,escombros,alta,"troncos arrastrados",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-018,9,g,vegetacion_tumbada,media,"vegetación tumbada",Claude (recorrido de las ortofotos, 28-nov-2026)
-B011-018,3,h,vegetacion_tumbada,media,"árboles caídos",Claude (recorrido de las ortofotos, 28-nov-2026)
-B011-018,6,b,vegetacion_tumbada,media,"árboles caídos",Claude (recorrido de las ortofotos, 28-nov-2026)
-B011-018,6,e,vegetacion_tumbada,media,"árboles caídos",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-017,3,b,vegetacion_tumbada,media,"franja de vegetación tumbada",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-017,3,f,vegetacion_tumbada,media,"franja de vegetación tumbada",Claude (recorrido de las ortofotos, 28-nov-2026)
-B010-017,9,e,vegetacion_tumbada,media,"vegetación tumbada",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-014,2,c,lodo_sedimento,alta,"lodo en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-014,2,h,erosion,media,"cauce que llega a la vía",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-014,3,a,escombros,alta,"escombros en la carretera",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-014,3,d,escombros,alta,"rocas y restos en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-014,5,d,erosion,media,"cauce",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-014,8,c,lodo_sedimento,media,"lodo en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-013,3,a,escombros,alta,"escombros en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-013,3,g,rocas_arrastradas,media,"rocas en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-013,5,d,erosion,media,"cauce",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-013,6,d,lodo_sedimento,alta,"depósito de lodo y rocas junto a la vía",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-013,6,g,lodo_sedimento,media,"lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-013,9,a,lodo_sedimento,media,"lodo en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-012,3,e,lodo_sedimento,alta,"lodo en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-012,3,h,lodo_sedimento,alta,"lodo en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-012,6,e,lodo_sedimento,alta,"lodo en la berma, con maquinaria",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-012,6,h,lodo_sedimento,alta,"lodo en la berma",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-012,8,f,escombros,alta,"escombros y poste caído",Claude (recorrido de las ortofotos, 28-nov-2026)
-B006-012,8,i,lodo_sedimento,alta,"lodo en la vía",Claude (recorrido de las ortofotos, 28-nov-2026)
-B014-010,2,c,lodo_sedimento,alta,"depósito de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B014-010,3,a,lodo_sedimento,alta,"depósito de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B014-010,3,e,lodo_sedimento,alta,"depósito de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B014-010,3,h,lodo_sedimento,media,"depósito de lodo",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-008,3,b,escombros,alta,"flujo de escombros por el cauce",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-008,3,e,erosion,alta,"cauce erosionado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-008,4,e,erosion,alta,"cauce erosionado",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-008,4,g,escombros,alta,"flujo de escombros",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-008,7,a,escombros,alta,"flujo de escombros",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-007,1,d,erosion,alta,"cicatriz en el escarpe sobre las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-007,1,e,erosion,alta,"cicatriz en el escarpe",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-007,2,g,lodo_sedimento,alta,"lodo al pie del escarpe sobre las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-007,6,c,escombros,alta,"escombros al pie del escarpe",Claude (recorrido de las ortofotos, 28-nov-2026)
-B013-007,6,f,escombros,media,"restos y lodo junto a las casas",Claude (recorrido de las ortofotos, 28-nov-2026)
+bloque,celda,subcelda,x_utm,y_utm,tipo,gravedad,descripcion,marcado_por
+B001-026,8,e,,,erosion,media,cárcava con sedimento,Claude (recorrido de las ortofotos
+B001-026,8,h,,,lodo_sedimento,media,sedimento junto a la casa,Claude (recorrido de las ortofotos
+B002-025,4,e,,,lodo_sedimento,media,flujo de lodo,Claude (recorrido de las ortofotos
+B002-025,4,f,,,lodo_sedimento,alta,abanico de lodo junto a la casa,Claude (recorrido de las ortofotos
+B002-025,5,d,,,lodo_sedimento,media,lodo y restos junto a la casa,Claude (recorrido de las ortofotos
+B002-025,8,f,,,lodo_sedimento,media,abanico de sedimento,Claude (recorrido de las ortofotos
+B002-025,8,i,,,lodo_sedimento,media,abanico de sedimento,Claude (recorrido de las ortofotos
+B015-025,2,e,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B015-025,3,b,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-025,1,e,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-025,4,c,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-025,8,d,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-025,6,f,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-025,9,b,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B002-024,2,c,,,lodo_sedimento,alta,lodo junto a la casa,Claude (recorrido de las ortofotos
+B002-024,2,f,,,lodo_sedimento,alta,casas con lodo alrededor,Claude (recorrido de las ortofotos
+B002-024,2,i,,,erosion,alta,cárcava,Claude (recorrido de las ortofotos
+B002-024,3,a,,,erosion,alta,cárcava,Claude (recorrido de las ortofotos
+B002-024,3,b,,,vegetacion_tumbada,alta,troncos y vegetación arrastrados,Claude (recorrido de las ortofotos
+B002-024,3,g,,,erosion,alta,cárcava y abanico,Claude (recorrido de las ortofotos
+B002-024,5,c,,,erosion,media,cárcava,Claude (recorrido de las ortofotos
+B002-024,6,d,,,erosion,alta,cárcava,Claude (recorrido de las ortofotos
+B002-024,6,f,,,lodo_sedimento,media,abanico de sedimento,Claude (recorrido de las ortofotos
+B002-024,9,b,,,lodo_sedimento,media,sedimento,Claude (recorrido de las ortofotos
+B002-024,9,e,,,lodo_sedimento,media,sedimento,Claude (recorrido de las ortofotos
+B002-024,9,h,,,lodo_sedimento,media,sedimento,Claude (recorrido de las ortofotos
+B003-024,2,d,,,lodo_sedimento,media,sedimento en el lote,Claude (recorrido de las ortofotos
+B003-024,4,c,,,lodo_sedimento,media,sedimento,Claude (recorrido de las ortofotos
+B003-024,4,h,,,lodo_sedimento,alta,casa rodeada de sedimento,Claude (recorrido de las ortofotos
+B003-024,5,f,,,lodo_sedimento,alta,casas con lodo en el patio,Claude (recorrido de las ortofotos
+B003-024,5,h,,,lodo_sedimento,media,lodo junto a las casas,Claude (recorrido de las ortofotos
+B003-024,7,b,,,lodo_sedimento,media,sedimento,Claude (recorrido de las ortofotos
+B003-024,7,f,,,lodo_sedimento,media,sedimento,Claude (recorrido de las ortofotos
+B003-024,8,a,,,lodo_sedimento,alta,terreno cubierto de sedimento,Claude (recorrido de las ortofotos
+B003-024,8,e,,,lodo_sedimento,alta,terreno cubierto de sedimento,Claude (recorrido de las ortofotos
+B003-024,8,i,,,lodo_sedimento,media,sedimento,Claude (recorrido de las ortofotos
+B016-024,3,a,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-024,3,e,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-024,6,b,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-024,6,h,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B016-024,9,b,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B017-024,4,a,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B017-024,7,b,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B017-024,6,e,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B017-024,9,a,,,erosion,media,cauce de roca lavado,Claude (recorrido de las ortofotos
+B004-023,6,d,,,lodo_sedimento,media,sedimento en el claro,Claude (recorrido de las ortofotos
+B004-023,8,e,,,erosion,media,cauce con lodo junto a la casa,Claude (recorrido de las ortofotos
+B004-023,8,h,,,lodo_sedimento,media,lodo,Claude (recorrido de las ortofotos
+B005-022,1,g,,,lodo_sedimento,alta,flujo de lodo bajo las casas,Claude (recorrido de las ortofotos
+B005-022,1,h,,,lodo_sedimento,alta,flujo de lodo,Claude (recorrido de las ortofotos
+B005-022,4,b,,,lodo_sedimento,alta,flujo de lodo,Claude (recorrido de las ortofotos
+B005-022,4,e,,,lodo_sedimento,media,flujo de lodo,Claude (recorrido de las ortofotos
+B005-022,4,f,,,lodo_sedimento,media,lodo junto a la casa,Claude (recorrido de las ortofotos
+B005-022,5,d,,,lodo_sedimento,media,lodo,Claude (recorrido de las ortofotos
+B005-022,6,d,,,lodo_sedimento,media,lodo junto a la casa,Claude (recorrido de las ortofotos
+B005-022,7,b,,,erosion,media,cárcava,Claude (recorrido de las ortofotos
+B005-022,7,h,,,erosion,media,cárcava,Claude (recorrido de las ortofotos
+B005-022,9,d,,,erosion,media,cárcava,Claude (recorrido de las ortofotos
+B004-021,3,c,,,lodo_sedimento,media,sedimento,Claude (recorrido de las ortofotos
+B004-021,3,g,,,erosion,media,cauce con sedimento,Claude (recorrido de las ortofotos
+B004-021,5,b,,,erosion,media,cauce con sedimento,Claude (recorrido de las ortofotos
+B004-021,6,a,,,erosion,media,cauce con sedimento,Claude (recorrido de las ortofotos
+B004-021,4,h,,,lodo_sedimento,media,abanico de sedimento,Claude (recorrido de las ortofotos
+B004-021,7,b,,,erosion,media,cauce con sedimento,Claude (recorrido de las ortofotos
+B006-021,1,h,,,erosion,media,cauce,Claude (recorrido de las ortofotos
+B006-021,5,c,,,lodo_sedimento,media,lodo en la berma,Claude (recorrido de las ortofotos
+B006-021,6,d,,,lodo_sedimento,alta,cauce con lodo hacia las casas,Claude (recorrido de las ortofotos
+B006-021,6,h,,,lodo_sedimento,alta,lodo alrededor de las casas,Claude (recorrido de las ortofotos
+B007-021,4,g,,,lodo_sedimento,media,lodo,Claude (recorrido de las ortofotos
+B007-021,6,h,,,escombros,media,restos arrastrados en el cauce,Claude (recorrido de las ortofotos
+B007-021,7,c,,,escombros,alta,escombros y lodo junto a la casa,Claude (recorrido de las ortofotos
+B007-021,7,d,,,lodo_sedimento,alta,lodo junto a la casa,Claude (recorrido de las ortofotos
+B007-021,7,f,,,escombros,alta,escombros,Claude (recorrido de las ortofotos
+B007-021,8,a,,,lodo_sedimento,alta,flujo de lodo,Claude (recorrido de las ortofotos
+B009-019,1,f,,,lodo_sedimento,media,franja de lodo,Claude (recorrido de las ortofotos
+B009-019,2,g,,,vegetacion_tumbada,alta,franja de pasto tumbado,Claude (recorrido de las ortofotos
+B009-019,5,b,,,vegetacion_tumbada,alta,franja de pasto tumbado,Claude (recorrido de las ortofotos
+B009-019,5,c,,,lodo_sedimento,alta,lodo junto a las casas,Claude (recorrido de las ortofotos
+B009-019,3,h,,,lodo_sedimento,media,suelo removido,Claude (recorrido de las ortofotos
+B009-019,6,i,,,lodo_sedimento,media,lodo,Claude (recorrido de las ortofotos
+B009-019,8,i,,,lodo_sedimento,media,lodo junto a la casa,Claude (recorrido de las ortofotos
+B011-019,2,e,,,lodo_sedimento,alta,canal de lodo con restos,Claude (recorrido de las ortofotos
+B011-019,2,h,,,escombros,alta,restos junto a la casa,Claude (recorrido de las ortofotos
+B011-019,5,h,,,lodo_sedimento,media,lodo,Claude (recorrido de las ortofotos
+B011-019,8,b,,,lodo_sedimento,media,lote con lodo,Claude (recorrido de las ortofotos
+B011-019,8,e,,,escombros,baja,estructura y restos (puede ser una obra),Claude (recorrido de las ortofotos
+B005-018,2,b,,,lodo_sedimento,media,cauce de lodo por el lote,Claude (recorrido de las ortofotos
+B005-018,2,h,,,escombros,media,escombros,Claude (recorrido de las ortofotos
+B005-018,5,b,,,escombros,media,escombros en el lote,Claude (recorrido de las ortofotos
+B005-018,8,e,,,escombros,media,escombros,Claude (recorrido de las ortofotos
+B005-018,8,g,,,rocas_arrastradas,media,rocas,Claude (recorrido de las ortofotos
+B009-018,2,i,,,escombros,media,estructura con escombros,Claude (recorrido de las ortofotos
+B009-018,3,a,,,lodo_sedimento,media,lodo en la calle,Claude (recorrido de las ortofotos
+B009-018,3,f,,,escombros,media,restos,Claude (recorrido de las ortofotos
+B009-018,6,b,,,vegetacion_tumbada,media,franja de flujo,Claude (recorrido de las ortofotos
+B009-018,7,a,,,lodo_sedimento,media,lodo en la curva del camino,Claude (recorrido de las ortofotos
+B010-018,1,h,,,escombros,media,restos junto a la casa,Claude (recorrido de las ortofotos
+B010-018,4,b,,,escombros,alta,flujo con troncos y restos,Claude (recorrido de las ortofotos
+B010-018,4,e,,,rocas_arrastradas,alta,rocas arrastradas,Claude (recorrido de las ortofotos
+B010-018,4,i,,,vegetacion_tumbada,alta,vegetación arrasada,Claude (recorrido de las ortofotos
+B010-018,7,c,,,vegetacion_tumbada,alta,franja arrasada junto a las casas,Claude (recorrido de las ortofotos
+B010-018,8,a,,,vegetacion_tumbada,alta,franja arrasada,Claude (recorrido de las ortofotos
+B010-018,8,e,,,escombros,alta,troncos arrastrados,Claude (recorrido de las ortofotos
+B010-018,9,g,,,vegetacion_tumbada,media,vegetación tumbada,Claude (recorrido de las ortofotos
+B011-018,3,h,,,vegetacion_tumbada,media,árboles caídos,Claude (recorrido de las ortofotos
+B011-018,6,b,,,vegetacion_tumbada,media,árboles caídos,Claude (recorrido de las ortofotos
+B011-018,6,e,,,vegetacion_tumbada,media,árboles caídos,Claude (recorrido de las ortofotos
+B010-017,3,b,,,vegetacion_tumbada,media,franja de vegetación tumbada,Claude (recorrido de las ortofotos
+B010-017,3,f,,,vegetacion_tumbada,media,franja de vegetación tumbada,Claude (recorrido de las ortofotos
+B010-017,9,e,,,vegetacion_tumbada,media,vegetación tumbada,Claude (recorrido de las ortofotos
+B006-014,2,c,,,lodo_sedimento,alta,lodo en la berma,Claude (recorrido de las ortofotos
+B006-014,2,h,,,erosion,media,cauce que llega a la vía,Claude (recorrido de las ortofotos
+B006-014,3,a,,,escombros,alta,escombros en la carretera,Claude (recorrido de las ortofotos
+B006-014,3,d,,,escombros,alta,rocas y restos en la berma,Claude (recorrido de las ortofotos
+B006-014,5,d,,,erosion,media,cauce,Claude (recorrido de las ortofotos
+B006-014,8,c,,,lodo_sedimento,media,lodo en la berma,Claude (recorrido de las ortofotos
+B006-013,3,a,,,escombros,alta,escombros en la berma,Claude (recorrido de las ortofotos
+B006-013,3,g,,,rocas_arrastradas,media,rocas en la berma,Claude (recorrido de las ortofotos
+B006-013,5,d,,,erosion,media,cauce,Claude (recorrido de las ortofotos
+B006-013,6,d,,,lodo_sedimento,alta,depósito de lodo y rocas junto a la vía,Claude (recorrido de las ortofotos
+B006-013,6,g,,,lodo_sedimento,media,lodo,Claude (recorrido de las ortofotos
+B006-013,9,a,,,lodo_sedimento,media,lodo en la berma,Claude (recorrido de las ortofotos
+B006-012,3,e,,,lodo_sedimento,alta,lodo en la berma,Claude (recorrido de las ortofotos
+B006-012,3,h,,,lodo_sedimento,alta,lodo en la berma,Claude (recorrido de las ortofotos
+B006-012,6,e,,,lodo_sedimento,alta,"lodo en la berma, con maquinaria",Claude (recorrido de las ortofotos
+B006-012,6,h,,,lodo_sedimento,alta,lodo en la berma,Claude (recorrido de las ortofotos
+B006-012,8,f,,,escombros,alta,escombros y poste caído,Claude (recorrido de las ortofotos
+B006-012,8,i,,,lodo_sedimento,alta,lodo en la vía,Claude (recorrido de las ortofotos
+B014-010,2,c,,,lodo_sedimento,alta,depósito de lodo,Claude (recorrido de las ortofotos
+B014-010,3,a,,,lodo_sedimento,alta,depósito de lodo,Claude (recorrido de las ortofotos
+B014-010,3,e,,,lodo_sedimento,alta,depósito de lodo,Claude (recorrido de las ortofotos
+B014-010,3,h,,,lodo_sedimento,media,depósito de lodo,Claude (recorrido de las ortofotos
+B013-008,3,b,,,escombros,alta,flujo de escombros por el cauce,Claude (recorrido de las ortofotos
+B013-008,3,e,,,erosion,alta,cauce erosionado,Claude (recorrido de las ortofotos
+B013-008,4,e,,,erosion,alta,cauce erosionado,Claude (recorrido de las ortofotos
+B013-008,4,g,,,escombros,alta,flujo de escombros,Claude (recorrido de las ortofotos
+B013-008,7,a,,,escombros,alta,flujo de escombros,Claude (recorrido de las ortofotos
+B013-007,1,d,,,erosion,alta,cicatriz en el escarpe sobre las casas,Claude (recorrido de las ortofotos
+B013-007,1,e,,,erosion,alta,cicatriz en el escarpe,Claude (recorrido de las ortofotos
+B013-007,2,g,,,lodo_sedimento,alta,lodo al pie del escarpe sobre las casas,Claude (recorrido de las ortofotos
+B013-007,6,c,,,escombros,alta,escombros al pie del escarpe,Claude (recorrido de las ortofotos
+B013-007,6,f,,,escombros,media,restos y lodo junto a las casas,Claude (recorrido de las ortofotos
+,,,797583,9919918,tuberia_rota,alta,"tuberías azules de agua rotas y arrastradas junto a la Troncal (Curva Brava)",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797583,9919910,poste_caido,alta,"poste de luz caído sobre el lodo, junto a las tuberías rotas",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797616,9920590,poste_caido,alta,"poste inclinado en la berma con rocas y escombros",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797610,9920577,via_danada,media,"borde de la calzada roto, con pedazos de asfalto",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797596,9922170,via_danada,alta,"socavón en el borde de la Av. Padre Julio Herrera",Claude (zoom a resolución completa, 28-nov-2026)
+,,,796830,9923204,via_danada,media,"borde de la Troncal Insular roto, con rocas",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797663,9921370,via_danada,media,"borde de la vía erosionado",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797066,9922923,tuberia_expuesta,media,"tubería azul expuesta sobre el lodo",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797174,9923036,tuberia_expuesta,media,"tubería azul expuesta a lo largo de una cárcava",Claude (zoom a resolución completa, 28-nov-2026)
+,,,798535,9921354,tuberia_expuesta,media,"manguera o tubería negra expuesta en el cauce, entre troncos",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797218,9922464,tuberia_rota,media,"restos de tubería azul entre escombros del flujo",Claude (zoom a resolución completa, 28-nov-2026)
+,,,798444,9921456,tuberia_expuesta,baja,"posible tubo blanco dentro del cauce (por confirmar)",Claude (zoom a resolución completa, 28-nov-2026)
+,,,797623,9921476,vivienda_danada,media,"enseres de la casa sacados a la calle (casa inundada)",Claude (zoom a resolución completa, 28-nov-2026)
+,,,798844,9918639,lodo_sedimento,alta,"cancha cubierta de lodo (La Cascada)",Claude (zoom a resolución completa, 28-nov-2026)

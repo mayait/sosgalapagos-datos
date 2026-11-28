@@ -37,7 +37,7 @@ from rasterio.features import rasterize
 from rasterio.transform import from_origin
 from rasterio.warp import Resampling, reproject
 from shapely import STRtree
-from shapely.geometry import shape
+from shapely.geometry import Point, shape
 from shapely.ops import transform, unary_union
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -110,11 +110,16 @@ def main():
     for m in marcas:
         por_quien.setdefault(m["marcado_por"], {})[m["id"]] = m
     principal = next(iter(por_quien))
+    reg_p = ROOT / "datos/gad_santa_cruz/registro_ortofotos.json"
+    registro = json.loads(reg_p.read_text())["ortofotos"] if reg_p.exists() else {}
     m2d = unary_union([g for g, p in leer(M2D) if p.get("calado_min_m", 0) >= 0.1])
     dominio_2d = unary_union([g for g, _ in leer(ROOT / "estudios/la-cascada/datos/cuenca_cascada.geojson")]).buffer(150)
     filas = []
     for i, m in por_quien[principal].items():
         f = muestra[i]; pt = transform(UTM, shape(f["geometry"]))
+        af = registro.get(f["properties"]["ortofoto"], {}).get("afin")
+        if af:   # lo que se vio en la hoja está, en el terreno, donde dice la afín de esa ortofoto
+            pt = Point(af[0] * pt.x + af[1] * pt.y + af[2], af[3] * pt.x + af[4] * pt.y + af[5])
         filas.append({"id": i, "uso": f["properties"]["uso"], "estado": m["estado"], "confianza": m["confianza"],
                       "nivel": clase(pt), "m2d": m2d.contains(pt), "en_2d": dominio_2d.contains(pt)})
     def tabla(fs, pred):
@@ -122,6 +127,7 @@ def main():
         c = sum(1 for x in fs if not pred(x) and x["estado"] == "mojado"); d = sum(1 for x in fs if not pred(x) and x["estado"] == "seco")
         return metricas(a, b, c, d)
     C = {"observado": "huellas del 30-oct y el 2-nov en las ortofotos del GAD del 3 y el 5-nov-2026", "marcado_por": principal,
+         "posicion_corregida": bool(registro),
          "estados": dict(Counter(x["estado"] for x in filas)),
          "estados_por_clase_hand": {str(n): dict(Counter(x["estado"] for x in filas if x["nivel"] == n)) for n in (3, 2, 1, 0)},
          "fraccion_mojado_por_clase_hand": {nombre: (lambda xs: {"vistos": len(xs), "mojado": round(sum(x["estado"] == "mojado" for x in xs) / len(xs), 2) if xs else None})(
