@@ -65,6 +65,26 @@ nota = "Cañadas de Santa Cruz trazadas por el GAD Municipal de Santa Cruz (nov-
 entradas = ["descargas/gad_santa_cruz/canadas_gad_2026-11.gpx", "capas/osm/vias.geojson"]
 salidas = ["datos/gad_santa_cruz/canadas_santa_cruz.geojson", "datos/gad_santa_cruz/resumen.json", "datos/gad_santa_cruz/vias_con_canada.geojson"]
 
+[pasos.gad_registro_ortofotos]
+script = "45_edificios_ortofotos.py"
+manual = true
+nota = "Corrige la posición de las ortofotos del GAD contra el DSM de la SGIAR (afín por ortofoto)"
+cmd = ["{py} scripts/45_edificios_ortofotos.py registro"]
+entradas = ["descargas/gad_santa_cruz/ortofotos/*.tif", "descargas/sgiar/*.zip"]
+salidas = ["datos/gad_santa_cruz/registro_ortofotos.json"]
+
+[pasos.edificios_ortofotos]
+script = "45_edificios_ortofotos.py"
+manual = true
+pesado = true
+nota = "Edificios de la zona afectada del 21-nov redibujados sobre las ortofotos del GAD (SAM 2.1: necesita torch y ultralytics, ver el script)"
+cmd = ["{py} scripts/45_edificios_ortofotos.py mosaico",
+       "uv run --python 3.12 --with torch --with ultralytics==8.4.220 --with rasterio --with shapely --with scipy --with pyproj python -I scripts/45_edificios_ortofotos.py sam",
+       "{py} scripts/45_edificios_ortofotos.py capa"]
+entradas = ["datos/gad_santa_cruz/registro_ortofotos.json", "datos/foto_aerea_21nov/zona_inundada_foto_21nov.geojson",
+            "datos/foto_aerea_21nov/resumen_estimacion.json", "capas/final/edificios_exposicion.geojson"]
+salidas = ["datos/foto_aerea_21nov/edificios_afectados_foto_21nov.geojson", "datos/foto_aerea_21nov/resumen_edificios_ortofotos.json"]
+
 # ------------------------------------------------------------------ lluvia
 [pasos.lluvia_ierse]
 script = "21_lluvia_ierse_estudios.py"
