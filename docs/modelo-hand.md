@@ -56,7 +56,28 @@ El estudio de **La Cascada** no se apoya en HAND: allí el barrio es un **vaso c
 
 - La clase alta coincide con el polígono oficial **«Riesgo de inundación – Puerto Ayora»** del CGREG.
 - El polígono de **flujos de lodo por El Niño** del CGREG cae sobre la quebrada encima de **La Cascada**, el barrio más afectado el 30–31-oct-2026.
-- **Falta** compararlo con la delimitación real de lo inundado y con marcas de agua (ver los [issues](https://github.com/mayait/sosgalapagos-datos/issues)).
+- **Tabla de contingencia completa con lo observado (28-nov-2026).** Lo hace `geodatos/scripts/43_validacion_contraste.py`; método, datos y límites en `geodatos/estudios/santa-cruz/datos/validacion/LEEME.md`. Se compara el HAND **sin** el ajuste del 21-nov, porque ese ajuste se calibró con la foto y los reportes de ese día.
+
+  **A. Foto aérea del 21-nov, 14:00 (Tui De Roy).** Hay 28 ha mojadas dentro de 177 ha fotografiadas; lo demás es seco observado. Se compara en una malla de 5 m:
+
+  | Zona inundable | Detecta lo mojado (POD) | Falsas alarmas (FAR) | CSI | Sesgo de área | Acierta lo seco |
+  |---|---|---|---|---|---|
+  | Solo alta (HAND ≤ 1 m) | 0,52 | 0,47 | 0,35 | 0,99 | 0,91 |
+  | Alta + media (≤ 2,5 m) | 0,79 | 0,61 | 0,35 | 2,0 | 0,77 |
+  | Las tres clases (≤ 5 m) | 0,84 | 0,75 | 0,24 | 3,3 | 0,53 |
+
+  La clase alta tiene el tamaño correcto (sesgo ≈ 1), pero falla la mitad de los lugares. Sumar la media recoge casi 4 de cada 5 zonas mojadas, a costa de marcar el doble de área.
+
+  **B. Reportes ciudadanos del 21-nov.** De los 15 con ubicación exacta, de calle o de cruce, 8 caen en la clase alta y **6 fuera de toda clase**.
+
+  **C. Huellas del 30-oct y el 2-nov en las ortofotos del GAD (3 y 5-nov).** Son 120 puntos al azar, 30 por clase, cerca de vías y edificios, marcados a ciegas. En 55 se ve el suelo. Fracción con huellas (sedimento, lodo, erosión, pasto tumbado): alta, 17 de 17; media, 62 %; baja, 64 %; fuera, 36 %.
+
+  **Lectura conjunta:** donde el HAND marca alto, casi siempre hubo agua. Pero **el agua llegó también lejos de los cauces**: por calles, laderas y zonas fuera de toda clase. Es lo que el HAND no ve, porque mide la altura sobre el cauce y no el agua que corre por la superficie.
+
+  **Límites:**
+  - Las huellas de C son una primera pasada de Claude; 24 puntos esperan revisión humana.
+  - La muestra de C es estratificada: las métricas por punto no equivalen a las de área.
+  - La foto de A es oblicua y no ve lo que tapan techos y árboles.
 
 ## Santa Cruz: DTM de 1 m de la SGIAR
 
@@ -131,8 +152,9 @@ En algunas zonas la coordinación de SOS Galápagos sabe que el agua no llega, a
 ## Cómo mejorarlo
 
 1. ~~Recalcular con un **DTM ≤ 1 m** en los poblados~~. Hecho en Santa Cruz con el DTM de la SGIAR (ver «Santa Cruz: DTM de 1 m de la SGIAR»). Falta en San Cristóbal e Isabela.
-2. Ajustar las clases con **marcas de agua** y la delimitación oficial del evento.
-3. Pasar de susceptibilidad a **amenaza** con un modelo hidrológico (HEC-HMS) e hidráulico 2D (HEC-RAS, ANUGA o SFINCS) por período de retorno.
+2. Ajustar las clases con **marcas de agua** y la delimitación oficial del evento. Ya hay con qué medir: ver «Cómo se validó». Falta confirmar en campo las huellas y separar los eventos por fecha.
+3. Sumar la **escorrentía superficial lejos de los cauces**: los reportes y las huellas fuera de toda clase muestran agua que corre por calles y laderas. Ahí sirven el modelo 2D y las «calles por donde corre una cañada».
+4. Pasar de susceptibilidad a **amenaza** con un modelo hidrológico (HEC-HMS) e hidráulico 2D (HEC-RAS, ANUGA o SFINCS) por período de retorno.
 
 ## Referencias
 

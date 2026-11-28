@@ -78,6 +78,15 @@ Se usa el índice **HAND** (Height Above Nearest Drainage), que mide la altura d
 - La susceptibilidad alta coincide con el polígono de «Riesgo de inundación – Puerto Ayora» del CGREG.
 - El polígono de «flujos de lodo por El Niño» del CGREG está sobre la quebrada encima de **La Cascada**, el barrio más afectado en el evento del 30–31 de octubre.
 
+**Contraste con lo observado (desde el 28-nov-2026).** Hay una tabla de contingencia completa: aciertos, falsas alarmas, fallos y secos bien clasificados. Se compara contra tres fuentes:
+- la foto aérea del 21-nov, que da zonas mojadas y secas;
+- los reportes ciudadanos;
+- las huellas marcadas sobre las ortofotos de dron del GAD.
+
+Scripts: `42_validacion_muestra.py` y `43_validacion_contraste.py`. Resultados en `docs/modelo-hand.md` («Cómo se validó»).
+
+En resumen: la clase alta acierta en tamaño pero falla la mitad de los lugares, y una parte del agua corre lejos de los cauces, donde el HAND no la ve. Contra las huellas del 30-oct, el modelo 2D de ese evento acierta más (POD 0,84; FAR 0,11 en los puntos de validación).
+
 ## 7. Costa baja
 
 Celdas del DEM con cota de 0–3 m, de 3–5 m y de 5–10 m, suavizadas. Sirven para la inundación costera por oleaje o marea alta. Para tsunami se usa la capa oficial del INOCAR.

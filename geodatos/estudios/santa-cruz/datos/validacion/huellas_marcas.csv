@@ -1,0 +1,121 @@
+id,estado,evidencia,confianza,marcado_por,fecha_marca
+HU-078,dudoso,"copa de árboles; lodo en la vía cercana",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-049,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-027,dudoso,"camino de tierra junto a la calle",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-018,mojado,"rocas arrastradas y sedimento cerca",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-011,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-046,mojado,"calle con lodo",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-036,seco,"calzada limpia",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-067,mojado,"pasto alto tumbado en la dirección del flujo",alta,Claude (primera pasada, a ciegas),2026-11-28
+HU-038,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-002,mojado,"cauce con rocas y erosión que cruza el camino",alta,Claude (primera pasada, a ciegas),2026-11-28
+HU-060,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-070,dudoso,"techos y patio arbolado",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-041,seco,"cancha sintética sin sedimento",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-007,mojado,"escombros dispersos en la ladera junto a la casa",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-003,mojado,"sedimento en los bordes de la calle",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-044,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-090,dudoso,"techos (imagen borrosa)",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-056,dudoso,"copa de árbol",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-081,mojado,"lodo con surcos en el camino",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-113,seco,"jardín sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-075,mojado,"ladera con rocas, troncos y pasto tumbado",alta,Claude (primera pasada, a ciegas),2026-11-28
+HU-114,seco,"huerto sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-053,mojado,"escombros y rocas al pie del escarpe",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-086,dudoso,"techos y patios",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-039,dudoso,"techos y árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-050,seco,"jardín y piscina limpios",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-057,mojado,"escombros apilados en la calle",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-062,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-107,dudoso,"árboles y techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-095,dudoso,"lote con suelo oscuro junto a camino con charcos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-100,seco,"calle limpia; techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-015,mojado,"sedimento cubriendo la cancha; escombros en la vereda",alta,Claude (primera pasada, a ciegas),2026-11-28
+HU-080,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-094,seco,"platanera sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-116,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-010,mojado,"escombros y lodo en la calle vecina",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-085,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-035,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-006,mojado,"charcos y lodo en el patio",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-013,mojado,"surco de erosión a lo largo del camino; restos arrastrados",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-024,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-089,seco,"camino de tierra sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-016,mojado,"charcos y lodo en el patio",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-097,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-072,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-022,mojado,"calle de tierra con lodo; suelo removido",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-112,dudoso,"vegetación densa",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-066,seco,"césped intacto",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-118,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-061,dudoso,"cruce de calles; poca mancha de sedimento",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-102,mojado,"lote cubierto de tierra suelta",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-054,seco,"pasto intacto",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-115,seco,"lote con pasto sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-009,dudoso,"copa de árboles (borrosa)",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-071,dudoso,"vegetación densa",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-020,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-104,mojado,"pasto tumbado y suelo desnudo en la ladera",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-008,mojado,"grieta con escombros arrastrados sobre las casas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-088,mojado,"escombros dispersos y lodo alrededor de la casa",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-073,mojado,"pasto tumbado en la dirección del flujo y charco",alta,Claude (primera pasada, a ciegas),2026-11-28
+HU-040,mojado,"lodo en la calle y el patio",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-064,dudoso,"vegetación",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-004,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-052,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-058,seco,"camino y casa sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-096,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-109,mojado,"lodo y restos a lo largo del borde de la vía",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-076,mojado,"árboles quebrados y troncos sueltos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-023,mojado,"sedimento en la berma de la vía",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-005,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-108,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-034,dudoso,"obra con tierra removida",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-042,mojado,"lodo, charcos y restos en el patio",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-017,mojado,"charco y lodo en el cruce",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-028,mojado,"casas destruidas, escombros y lodo",alta,Claude (primera pasada, a ciegas),2026-11-28
+HU-055,dudoso,"esquina con algo de lodo",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-030,mojado,"lodo en las calles; rocas apiladas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-091,seco,"jardín sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-037,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-012,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-032,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-045,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-026,dudoso,"calle oscura sin huellas claras",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-014,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-117,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-101,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-103,seco,"caminos de tierra limpios",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-084,dudoso,"calle con manchas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-069,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-083,seco,"huerta recién sembrada sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-111,mojado,"patios con escombros y estructuras caídas",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-110,seco,"camino de lastre sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-106,mojado,"banco de lodo en la berma y cuneta erosionada con rocas",alta,Claude (primera pasada, a ciegas),2026-11-28
+HU-082,mojado,"abanico de sedimento en el camino",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-092,dudoso,"techos y patio",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-051,mojado,"lodo y charcos junto a la cancha",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-093,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-079,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-105,dudoso,"vegetación",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-098,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-048,mojado,"depósito de troncos, lodo y vegetación tumbada",alta,Claude (primera pasada, a ciegas),2026-11-28
+HU-033,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-001,mojado,"lodo en la calle y el patio",media,Claude (primera pasada, a ciegas),2026-11-28
+HU-068,dudoso,"piscinas o tanques con agua y lodo (obra)",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-099,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-021,mojado,"lote con lodo y ramas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-074,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-029,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-065,seco,"pasto erguido",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-120,dudoso,"vegetación",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-047,mojado,"camino con lodo, restos y charcos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-043,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-087,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-059,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-031,dudoso,"techos",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-025,dudoso,"lote con ramas cortadas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-019,dudoso,"pasto y árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-063,dudoso,"copa de árboles",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-119,seco,"vegetación sin huellas",baja,Claude (primera pasada, a ciegas),2026-11-28
+HU-077,dudoso,"terreno nivelado de tierra",baja,Claude (primera pasada, a ciegas),2026-11-28

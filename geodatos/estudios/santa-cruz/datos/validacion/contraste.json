@@ -1,0 +1,261 @@
+{
+ "nota": "HAND sin el ajuste del 21-nov. Lo observado no se usó para hacer el HAND. Ver el encabezado de 43_validacion_contraste.py.",
+ "hand": "capas/dem/santa_cruz_susc_inundacion.geojson",
+ "A_foto_21nov": {
+  "observado": "foto aérea del 21-nov-2026, 14:00 (Tui De Roy), malla de 5 m",
+  "fotografiado_ha": 176.9,
+  "mojado_ha": 28.1,
+  "limites": "foto oblicua: no ve lo que tapan techos y árboles; zona suavizada y con áreas marcadas a mano",
+  "por_umbral": {
+   "alta (HAND ≤ 1 m)": {
+    "aciertos": 5859,
+    "falsas_alarmas": 5283,
+    "fallos": 5381,
+    "secos_bien": 54218,
+    "POD": 0.521,
+    "FAR": 0.474,
+    "CSI": 0.355,
+    "sesgo": 0.991,
+    "acierto_seco": 0.911
+   },
+   "alta + media (HAND ≤ 2,5 m)": {
+    "aciertos": 8851,
+    "falsas_alarmas": 13839,
+    "fallos": 2389,
+    "secos_bien": 45662,
+    "POD": 0.787,
+    "FAR": 0.61,
+    "CSI": 0.353,
+    "sesgo": 2.019,
+    "acierto_seco": 0.767
+   },
+   "las tres clases (HAND ≤ 5 m)": {
+    "aciertos": 9457,
+    "falsas_alarmas": 28136,
+    "fallos": 1783,
+    "secos_bien": 31365,
+    "POD": 0.841,
+    "FAR": 0.748,
+    "CSI": 0.24,
+    "sesgo": 3.345,
+    "acierto_seco": 0.527
+   }
+  }
+ },
+ "B_reportes_21nov": {
+  "reportes": 36,
+  "todos_por_clase": {
+   "alta": 15,
+   "fuera": 16,
+   "baja": 3,
+   "media": 2
+  },
+  "precisos": 15,
+  "precisos_por_clase": {
+   "alta": 8,
+   "fuera": 6,
+   "baja": 1
+  },
+  "limites": "solo positivos; la mayoría ubicados por barrio o de forma aproximada"
+ },
+ "C_huellas_ortofotos_gad": {
+  "observado": "huellas del 30-oct y el 2-nov en las ortofotos del GAD del 3 y el 5-nov-2026",
+  "marcado_por": "Claude (primera pasada",
+  "estados": {
+   "dudoso": 65,
+   "mojado": 37,
+   "seco": 18
+  },
+  "estados_por_clase_hand": {
+   "3": {
+    "dudoso": 13,
+    "mojado": 17
+   },
+   "2": {
+    "dudoso": 17,
+    "mojado": 8,
+    "seco": 5
+   },
+   "1": {
+    "dudoso": 19,
+    "mojado": 7,
+    "seco": 4
+   },
+   "0": {
+    "seco": 9,
+    "dudoso": 16,
+    "mojado": 5
+   }
+  },
+  "fraccion_mojado_por_clase_hand": {
+   "alta": {
+    "vistos": 17,
+    "mojado": 1.0
+   },
+   "media": {
+    "vistos": 13,
+    "mojado": 0.62
+   },
+   "baja": {
+    "vistos": 11,
+    "mojado": 0.64
+   },
+   "fuera": {
+    "vistos": 14,
+    "mojado": 0.36
+   }
+  },
+  "ojo_muestra_estratificada": "la muestra tiene el mismo número de puntos por clase HAND, no proporcional al área: POD, FAR, CSI y sesgo por punto no equivalen a los de área. La fracción mojada por clase sí es directa.",
+  "limites": "muestra solo cerca de vías y edificios; bajo árboles y techos queda «dudoso»; marcas de una persona hasta que haya revisión",
+  "validacion": {
+   "puntos": 27,
+   "hand": {
+    "alta (HAND ≤ 1 m)": {
+     "aciertos": 7,
+     "falsas_alarmas": 0,
+     "fallos": 12,
+     "secos_bien": 8,
+     "POD": 0.368,
+     "FAR": 0.0,
+     "CSI": 0.368,
+     "sesgo": 0.368,
+     "acierto_seco": 1.0
+    },
+    "alta + media (HAND ≤ 2,5 m)": {
+     "aciertos": 12,
+     "falsas_alarmas": 2,
+     "fallos": 7,
+     "secos_bien": 6,
+     "POD": 0.632,
+     "FAR": 0.143,
+     "CSI": 0.571,
+     "sesgo": 0.737,
+     "acierto_seco": 0.75
+    },
+    "las tres clases (HAND ≤ 5 m)": {
+     "aciertos": 16,
+     "falsas_alarmas": 4,
+     "fallos": 3,
+     "secos_bien": 4,
+     "POD": 0.842,
+     "FAR": 0.2,
+     "CSI": 0.696,
+     "sesgo": 1.053,
+     "acierto_seco": 0.5
+    }
+   },
+   "modelo2d_30oct": {
+    "puntos": 27,
+    "aciertos": 16,
+    "falsas_alarmas": 2,
+    "fallos": 3,
+    "secos_bien": 6,
+    "POD": 0.842,
+    "FAR": 0.111,
+    "CSI": 0.762,
+    "sesgo": 0.947,
+    "acierto_seco": 0.75
+   }
+  },
+  "calibracion": {
+   "puntos": 28,
+   "hand": {
+    "alta (HAND ≤ 1 m)": {
+     "aciertos": 10,
+     "falsas_alarmas": 0,
+     "fallos": 8,
+     "secos_bien": 10,
+     "POD": 0.556,
+     "FAR": 0.0,
+     "CSI": 0.556,
+     "sesgo": 0.556,
+     "acierto_seco": 1.0
+    },
+    "alta + media (HAND ≤ 2,5 m)": {
+     "aciertos": 13,
+     "falsas_alarmas": 3,
+     "fallos": 5,
+     "secos_bien": 7,
+     "POD": 0.722,
+     "FAR": 0.188,
+     "CSI": 0.619,
+     "sesgo": 0.889,
+     "acierto_seco": 0.7
+    },
+    "las tres clases (HAND ≤ 5 m)": {
+     "aciertos": 16,
+     "falsas_alarmas": 5,
+     "fallos": 2,
+     "secos_bien": 5,
+     "POD": 0.889,
+     "FAR": 0.238,
+     "CSI": 0.696,
+     "sesgo": 1.167,
+     "acierto_seco": 0.5
+    }
+   },
+   "modelo2d_30oct": {
+    "puntos": 26,
+    "aciertos": 14,
+    "falsas_alarmas": 1,
+    "fallos": 2,
+    "secos_bien": 9,
+    "POD": 0.875,
+    "FAR": 0.067,
+    "CSI": 0.824,
+    "sesgo": 0.938,
+    "acierto_seco": 0.9
+   }
+  },
+  "todas": {
+   "puntos": 55,
+   "hand": {
+    "alta (HAND ≤ 1 m)": {
+     "aciertos": 17,
+     "falsas_alarmas": 0,
+     "fallos": 20,
+     "secos_bien": 18,
+     "POD": 0.459,
+     "FAR": 0.0,
+     "CSI": 0.459,
+     "sesgo": 0.459,
+     "acierto_seco": 1.0
+    },
+    "alta + media (HAND ≤ 2,5 m)": {
+     "aciertos": 25,
+     "falsas_alarmas": 5,
+     "fallos": 12,
+     "secos_bien": 13,
+     "POD": 0.676,
+     "FAR": 0.167,
+     "CSI": 0.595,
+     "sesgo": 0.811,
+     "acierto_seco": 0.722
+    },
+    "las tres clases (HAND ≤ 5 m)": {
+     "aciertos": 32,
+     "falsas_alarmas": 9,
+     "fallos": 5,
+     "secos_bien": 9,
+     "POD": 0.865,
+     "FAR": 0.22,
+     "CSI": 0.696,
+     "sesgo": 1.108,
+     "acierto_seco": 0.5
+    }
+   },
+   "modelo2d_30oct": {
+    "puntos": 53,
+    "aciertos": 30,
+    "falsas_alarmas": 3,
+    "fallos": 5,
+    "secos_bien": 15,
+    "POD": 0.857,
+    "FAR": 0.091,
+    "CSI": 0.789,
+    "sesgo": 0.943,
+    "acierto_seco": 0.833
+   }
+  }
+ }
+}
