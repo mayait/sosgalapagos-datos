@@ -144,6 +144,15 @@ Capas `galapagos50k:*` descargadas (con el bbox de las tres islas):
 - **En el repositorio:** `geodatos/datos/dtm_sgiar/`, generado por `35_dtm_sgiar.py` a partir del zip en `descargas/sgiar/`. Ficha, cita y control de calidad en su `LEEME.md`.
 - **Licencia:** EULA de Vricon/Maxar. La SGIAR autorizó publicarlo en este repositorio. Cita obligatoria a la SGIAR.
 
+### 3.1c SIGTIERRAS e Instituto de Geografía USFQ: DEM de 10 m, cuencas y drenaje de Santa Cruz ✅ (entregado el 24-nov-2026)
+
+- **Fuente:** el Instituto de Geografía de la USFQ procesó en SAGA GIS el DEM de 10 m de SIGTIERRAS (Ministerio de Agricultura y Ganadería) y entregó a SOS Galápagos el DEM, las cuencas (186), las subcuencas (1 186) y la red de drenaje (1 222 tramos) de toda Santa Cruz.
+- **Formato:** shapefiles y GeoTIFF en WGS 84 / UTM 15 S (EPSG:32715), dato de la autora; los `.prj` lo confirman.
+- **Calidad del DEM:** frente a 7 859 puntos acotados del IGM 1:25 000, error absoluto medio de 0,52 m (Copernicus: 2,70 m). Es de terreno: en Puerto Ayora queda 1,1 m (mediana) bajo el DTM de la SGIAR. Ese acuerdo con el IGM sugiere que se hizo en parte con su cartografía, así que no es un control independiente.
+- **En el repositorio:** `geodatos/datos/usfq_geografia/` (capas en EPSG:4326 y `LEEME.md`), generado por `38_usfq_cuencas_sigtierras.py` a partir del zip en `descargas/usfq_geografia/`. El DEM queda en `descargas/` (fuera de git) hasta confirmar si se puede redistribuir.
+- **Uso:** desde el 28-nov-2026 es el relieve de Santa Cruz fuera de la cobertura del DTM de la SGIAR (`relieve_sigtierras.py`, `03_dem.py`).
+- **Licencia:** DEM de SIGTIERRAS, información pública con cita a la institución. Cuencas, subcuencas y drenaje: Instituto de Geografía USFQ, con crédito.
+
 ### 3.2 Límites administrativos y suelo urbano
 
 | Fuente | Endpoint | Entidades | Archivo |
