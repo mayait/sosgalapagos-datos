@@ -1,0 +1,27 @@
+{
+ "fuente": "GAD Municipal de Santa Cruz (nov-2026), CC BY 4.0",
+ "gpx": "canadas_gad_2026-11.gpx",
+ "gpx_sha256": "6ea110c5ae9781e8bf53227d7b5197c4025398036ee8bffea1f25eaf25c2d5ca",
+ "rutas_en_gpx": 26,
+ "canadas": 25,
+ "longitud_km": 48.97,
+ "comparacion_con_drenaje": {
+  "drenaje_usfq_10m": {
+   "archivo": "datos/usfq_geografia/drenaje_santa_cruz.geojson",
+   "mediana_m": 36.1,
+   "a_30m_o_menos": 0.456,
+   "a_60m_o_menos": 0.627
+  },
+  "drenaje_sos": {
+   "archivo": "capas/dem/santa_cruz_drenaje_derivado.geojson",
+   "mediana_m": 19.3,
+   "a_30m_o_menos": 0.615,
+   "a_60m_o_menos": 0.773
+  }
+ },
+ "vias_con_canada": {
+  "tramos": 17,
+  "largo_km": 4.92,
+  "criterio": "más de 80 m de cañada a 10 m o menos de la vía"
+ }
+}
