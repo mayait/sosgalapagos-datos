@@ -64,6 +64,7 @@
      "tipo": "punto",
      "visible": false,
      "fuente": "MSP, SNGR, MINEDUC, IGM y OSM",
+     "creditos": ["msp", "sngr", "mineduc", "igm", "osm"],
      "filtro": {
       "propiedad": "categoria",
       "en": [
@@ -136,6 +137,7 @@
      "tipo": "punto",
      "visible": false,
      "fuente": "IGM y OSM",
+     "creditos": ["igm", "osm"],
      "filtro": {
       "propiedad": "categoria",
       "en": [
@@ -198,6 +200,7 @@
      "visible": false,
      "zoom_min": 14,
      "fuente": "IGM y OSM",
+     "creditos": ["igm", "osm"],
      "filtro": {
       "propiedad": "categoria",
       "en": [
@@ -248,7 +251,8 @@
      "archivo": "areas_afectadas.geojson",
      "tipo": "poligono",
      "visible": false,
-     "fuente": "Reportes ciudadanos por WhatsApp y avisos del COE reenviados. Trazo aproximado de SOS Galápagos; no es un dato oficial.",
+     "fuente": "Reportes ciudadanos por WhatsApp y avisos del COE reenviados; trazo aproximado de SOS Galápagos.",
+     "creditos": ["sos_usfq", "comunidad_reportes", "coe_santa_cruz"],
      "descripcion": "Zonas inundadas, corredores por donde bajó el agua y zona de evacuación del 21 de noviembre, dibujadas a partir de reportes de vecinos sin verificar. Todo está por validar (línea discontinua).",
      "estilo": {
       "weight": 2.5,
@@ -319,6 +323,7 @@
      "tipo": "poligono",
      "visible": true,
      "fuente": "Zonificación PNG 2017 (CGREG/FCD)",
+     "creditos": ["cgreg", "fcd"],
      "descripcion": "Área protegida. Todo lo rayado en verde está fuera de la zona colonizada.",
      "estilo": {
       "color": "#166534",
@@ -358,6 +363,7 @@
      "tipo": "linea",
      "visible": false,
      "fuente": "Zonificación PNG 2017 (CGREG/FCD)",
+     "creditos": ["cgreg", "fcd"],
      "estilo": {
       "color": "#14532d",
       "weight": 3.2,
@@ -386,6 +392,7 @@
      "tipo": "poligono",
      "visible": true,
      "fuente": "Zonificación PNG 2017 (CGREG/FCD)",
+     "creditos": ["cgreg", "fcd"],
      "estilo": {
       "color": "#a16207",
       "weight": 1.2,
@@ -413,6 +420,7 @@
      "tipo": "poligono",
      "visible": true,
      "fuente": "Modelo HAND sobre Copernicus GLO-30 y quebradas IGM; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
+     "creditos": ["sos_usfq", "@relieve_santa_cruz", "comunidad_reportes", "experto_eden", "barrio_tomas_de_berlanga"],
      "descripcion": "Altura del terreno sobre la quebrada más cercana. Sirve para priorizar; no es una delimitación oficial. En terreno muy plano (Puerto Villamil) sobrestima.",
      "estilo": {
       "weight": 0.6,
@@ -455,6 +463,7 @@
      "tipo": "poligono",
      "visible": true,
      "fuente": "IGM 1:25 000 y CGREG",
+     "creditos": ["igm", "cgreg"],
      "estilo": {
       "weight": 2,
       "fillOpacity": 0.28
@@ -516,6 +525,7 @@
      "tipo": "poligono",
      "visible": false,
      "fuente": "Modelo sobre Copernicus GLO-30; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
+     "creditos": ["sos_usfq", "@relieve_santa_cruz"],
      "estilo": {
       "weight": 0.5,
       "fillOpacity": 0.35
@@ -554,6 +564,7 @@
      "tipo": "poligono",
      "visible": false,
      "fuente": "SNGR / INOCAR",
+     "creditos": ["sngr", "inocar"],
      "estilo": {
       "color": "#6d28d9",
       "weight": 0.5,
@@ -581,6 +592,7 @@
      "tipo": "poligono",
      "visible": true,
      "fuente": "Modelo D8 (Copernicus GLO-30 + quebradas IGM; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar))",
+     "creditos": ["sos_usfq", "@relieve_santa_cruz", "inec"],
      "descripcion": "Todo el terreno cuya agua termina pasando por el poblado, desde la parte alta (aunque esté en el parque).",
      "estilo": {
       "color": "#0c4a6e",
@@ -616,6 +628,7 @@
      "tipo": "linea",
      "visible": true,
      "fuente": "IGM 1:25 000 y OSM",
+     "creditos": ["igm", "osm"],
      "estilo": {
       "color": "#1849a9",
       "weight": 2.4,
@@ -659,6 +672,7 @@
      "tipo": "linea",
      "visible": true,
      "fuente": "Modelo sobre Copernicus GLO-30; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
+     "creditos": ["sos_usfq", "@relieve_santa_cruz"],
      "descripcion": "Cauces que el IGM no tiene mapeados. Revisar en terreno.",
      "estilo": {
       "color": "#38bdf8",
@@ -683,6 +697,7 @@
      "tipo": "poligono",
      "visible": false,
      "fuente": "CGREG",
+     "creditos": ["cgreg", "fcd"],
      "estilo": {
       "color": "#0284c7",
       "weight": 0.5,
@@ -703,6 +718,7 @@
      "tipo": "poligono",
      "visible": false,
      "fuente": "Modelo D8 (Copernicus GLO-30 + quebradas IGM; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar))",
+     "creditos": ["sos_usfq", "@relieve_santa_cruz"],
      "descripcion": "Cada subcuenca es el área que entra a un poblado por un mismo cauce.",
      "estilo": {
       "weight": 1.2,
@@ -753,6 +769,7 @@
      "tipo": "poligono",
      "visible": false,
      "fuente": "IGM 1:25 000",
+     "creditos": ["igm"],
      "estilo": {
       "color": "#111827",
       "weight": 2.2,
@@ -773,6 +790,7 @@
      "tipo": "poligono",
      "visible": true,
      "fuente": "CGREG",
+     "creditos": ["cgreg", "fcd"],
      "estilo": {
       "color": "#9a3412",
       "weight": 1,
@@ -799,6 +817,7 @@
      "tipo": "poligono",
      "visible": false,
      "fuente": "INEC MGN 2026 y viviendas SNGR",
+     "creditos": ["inec", "sngr", "sos_usfq"],
      "estilo": {
       "color": "#78350f",
       "weight": 0.4,
@@ -858,6 +877,7 @@
      "tipo": "linea",
      "visible": false,
      "fuente": "OpenStreetMap, 31-oct-2026",
+     "creditos": ["osm"],
      "estilo": {
       "opacity": 0.95
      },
@@ -914,6 +934,7 @@
       "permanente": true
      },
      "fuente": "OpenStreetMap, 31-oct-2026",
+     "creditos": ["osm"],
      "descripcion": "Rótulos propios de calles; útiles sobre el mapa satelital o topográfico."
     },
     {
@@ -923,6 +944,7 @@
      "tipo": "linea",
      "visible": false,
      "fuente": "SNGR",
+     "creditos": ["sngr"],
      "estilo": {
       "color": "#15803d",
       "weight": 4,
@@ -963,7 +985,8 @@
      "raster": "relieve",
      "visible": false,
      "opacidad": 0.5,
-     "fuente": "Copernicus GLO-30"
+     "fuente": "Copernicus GLO-30",
+     "creditos": ["sos_usfq", "copernicus"]
     },
     {
      "id": "curvas",
@@ -973,6 +996,7 @@
      "visible": false,
      "zoom_min": 14,
      "fuente": "Derivadas de Copernicus GLO-30; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
+     "creditos": ["sos_usfq", "@relieve_santa_cruz"],
      "estilo": {
       "color": "#92400e",
       "weight": 0.6,
@@ -1009,6 +1033,7 @@
      "visible": false,
      "opacidad": 0.75,
      "fuente": "Copernicus GLO-30",
+     "creditos": ["sos_usfq", "copernicus"],
      "leyenda": [
       [
        "#facc15",

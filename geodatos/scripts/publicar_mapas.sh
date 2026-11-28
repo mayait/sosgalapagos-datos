@@ -10,6 +10,7 @@ set -eu
 cd "$(dirname "$0")/.."
 SERVIDOR=${SERVIDOR:-root@152.44.45.89}
 .venv/bin/python -I scripts/10_publicar_web.py
+.venv/bin/python -I scripts/revisar_creditos.py      # créditos, consentimiento y regla 3; si falla, no se publica
 ssh "$SERVIDOR" 'mkdir -p /srv/sosgalapagos-mapas'
 rsync -az --delete --exclude /index.html publicar/mapas/ "$SERVIDOR":/srv/sosgalapagos-mapas/
 echo "Publicado: los datos de /mapas/. Se ven en https://sosgalapagos.org/riesgos/"
