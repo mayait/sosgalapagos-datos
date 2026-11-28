@@ -33,7 +33,7 @@
   {"id": "emergencia", "titulo": "Emergencia en curso", "capas": ["reportes_21nov", "buenas_21nov", "flujo_21nov", "areas_afectadas", "estimacion_foto_21nov", "zona_foto_21nov", "edificios_foto_21nov", "ortofoto_21nov"]},
   {"id": "lluvia", "titulo": "Riesgo de inundación por lluvia",
    "descripcion": "Lo que conviene mirar ahora. La susceptibilidad, los puntos y los cruces salen de modelos propios sobre un relieve de 30 m (en Santa Cruz, de 10 m con el DEM de SIGTIERRAS y de 5 m con el DTM de la SGIAR en Puerto Ayora, el escarpe y Bellavista): sirven para priorizar inspecciones.",
-   "capas": ["susceptibilidad", "sc_vaso_21nov", "sc_control_21nov", "sc_puntos", "sx_puntos", "cruces_via_alta", "cruces_via_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
+   "capas": ["susceptibilidad", "sc_vaso_21nov", "sc_control_21nov", "sc_puntos", "sx_puntos", "cruces_via_alta", "cruces_via_media", "gad_vias_cauce", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
   {"id": "hidrografia", "titulo": "Quebradas y drenaje", "capas": ["espol_cuencas", "quebradas", "sx_canadas", "gad_canadas", "usfq_drenaje", "usfq_cuencas", "usfq_subcuencas"]},
   {"id": "puntos", "titulo": "Puntos clave: refugios, salud y servicios"},
   {"id": "vias", "titulo": "Vías y calles", "capas": ["vias", "nombres_vias"]},
@@ -148,6 +148,7 @@
   "cuencas_localidad": {"visible": false},
   "drenaje": {"visible": false},
   "gad_canadas": {"visible": true, "corto": "Cañada (GAD)"},
+  "gad_vias_cauce": {"visible": true, "corto": "Calle con cañada"},
   "usfq_drenaje": {"visible": false, "visible_movil": false, "corto": "Cauce (10 m)", "clasificar": {"propiedad": "jerarquia", "valores": {
    "Orden 4 (cauce principal)": {"etiqueta": "Orden 4 (cauce principal)", "color": "#0c4a6e", "weight": 3.2},
    "Orden 3": {"etiqueta": "Orden 3", "color": "#0369a1", "weight": 2.3},

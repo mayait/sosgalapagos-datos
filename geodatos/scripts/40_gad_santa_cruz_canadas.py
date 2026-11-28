@@ -9,6 +9,8 @@ Salida:  datos/gad_santa_cruz/canadas_santa_cruz.geojson, con 25 líneas en EPSG
          longitud_m (medida en UTM 15S) y fuente.
          datos/gad_santa_cruz/resumen.json, con la huella SHA-256 del GPX, el recuento y la comparación con el drenaje
          derivado del relieve.
+         datos/gad_santa_cruz/vias_con_canada.geojson, con los tramos de vía (OSM) por donde corre una cañada del GAD:
+         más de 80 m seguidos de cañada a 10 m o menos de la vía. Son calles que funcionaron como cauce.
 
 Uso, desde geodatos/:
   .venv/bin/python -I scripts/40_gad_santa_cruz_canadas.py
@@ -21,13 +23,16 @@ import re
 import numpy as np
 from pyproj import Transformer
 from shapely import STRtree
-from shapely.geometry import LineString, shape
+from shapely.geometry import LineString, mapping, shape
+from shapely.ops import unary_union
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 GPX = ROOT / "descargas" / "gad_santa_cruz" / "canadas_gad_2026-11.gpx"
 OUT = ROOT / "datos" / "gad_santa_cruz"
 FUENTE = "GAD Municipal de Santa Cruz (nov-2026), CC BY 4.0"
 UTM = Transformer.from_crs(4326, 32715, always_xy=True)
+GEO = Transformer.from_crs(32715, 4326, always_xy=True)
+FRANJA_M, LARGO_MIN_M = 10, 80
 # Contra qué drenaje se compara: el de la USFQ (DEM de 10 m) y el derivado por SOS (DTM de la SGIAR, 5 m, y GLO-30).
 COMPARAR = {"drenaje_usfq_10m": "datos/usfq_geografia/drenaje_santa_cruz.geojson",
             "drenaje_sos": "capas/dem/santa_cruz_drenaje_derivado.geojson"}
@@ -77,9 +82,44 @@ def main():
         comparacion[clave] = {"archivo": ruta, "mediana_m": round(float(np.median(d)), 1),
                               "a_30m_o_menos": round(float((d <= 30).mean()), 3), "a_60m_o_menos": round(float((d <= 60).mean()), 3)}
 
+    # Vías por donde corre una cañada: tramo de cañada dentro de la franja de cada vía, si suma más de LARGO_MIN_M.
+    vias_cauce = []
+    vias = []
+    for f in json.loads((ROOT / "capas/osm/vias.geojson").read_text())["features"]:
+        if not f["geometry"] or f["properties"].get("isla") != "Santa Cruz":
+            continue
+        g = shape(f["geometry"])
+        for q in getattr(g, "geoms", [g]):
+            if len(q.coords) > 1:
+                vias.append((utm(list(q.coords)), f["properties"]))
+    arbol_v = STRtree([v for v, _ in vias])
+    canadas = unary_union(lineas)
+    por_via = {}
+    for k in arbol_v.query(canadas.buffer(FRANJA_M), predicate="intersects"):
+        v, p = vias[k]
+        tramo = canadas.intersection(v.buffer(FRANJA_M))
+        if tramo.length > 0:
+            clave = p.get("name") or p.get("osm_id") or k
+            prev = por_via.get(clave)
+            por_via[clave] = (unary_union([prev[0], tramo]) if prev else tramo, p)
+    for clave, (tramo, p) in por_via.items():
+        partes = [q for q in getattr(tramo, "geoms", [tramo]) if q.geom_type == "LineString" and q.length > 0]
+        largo = sum(q.length for q in partes)
+        if largo <= LARGO_MIN_M:
+            continue
+        geo = [[[round(c, 7) for c in GEO.transform(x, y)] for x, y in q.coords] for q in partes]
+        vias_cauce.append({"type": "Feature", "properties": {"isla": "Santa Cruz", "via": p.get("name") or "(sin nombre)",
+                           "tipo_via": p.get("highway") or "", "largo_m": round(largo), "fuente": FUENTE + "; vías de OpenStreetMap"},
+                           "geometry": {"type": "MultiLineString", "coordinates": geo}})
+    vias_cauce.sort(key=lambda f: -f["properties"]["largo_m"])
+    (OUT / "vias_con_canada.geojson").write_text(json.dumps(
+        {"type": "FeatureCollection", "name": "vias_con_canada_gad", "features": vias_cauce}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
     resumen = {"fuente": FUENTE, "gpx": GPX.name, "gpx_sha256": hashlib.sha256(GPX.read_bytes()).hexdigest(),
                "rutas_en_gpx": len(rutas), "canadas": len(feats), "longitud_km": round(sum(l.length for l in lineas) / 1000, 2),
-               "comparacion_con_drenaje": comparacion}
+               "comparacion_con_drenaje": comparacion,
+               "vias_con_canada": {"tramos": len(vias_cauce), "largo_km": round(sum(f["properties"]["largo_m"] for f in vias_cauce) / 1000, 2),
+                                   "criterio": f"más de {LARGO_MIN_M} m de cañada a {FRANJA_M} m o menos de la vía"}}
     (OUT / "resumen.json").write_text(json.dumps(resumen, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(json.dumps(resumen, ensure_ascii=False, indent=1))
 

@@ -18,5 +18,10 @@
    "a_30m_o_menos": 0.615,
    "a_60m_o_menos": 0.773
   }
+ },
+ "vias_con_canada": {
+  "tramos": 17,
+  "largo_km": 4.92,
+  "criterio": "más de 80 m de cañada a 10 m o menos de la vía"
  }
 }
