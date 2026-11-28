@@ -77,9 +77,9 @@ CAPA_ORTOS_GAD = {"id": "ortofotos_gad", "titulo": "Ortofotos de dron del GAD, 3
 CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona afectada el 21-nov y gravedad aparente, según la foto aérea", "archivo": "zona_inundada_foto_21nov.geojson",
                   "tipo": "poligono", "visible": False, "creditos": ["sos_usfq", "tui_de_roy", "comunidad_reportes", "sgiar"]}
                   # estilo, ficha y descripción: visor_mapas.json
-CAPA_EDIFICIOS_FOTO = {"id": "edificios_foto_21nov", "titulo": "Edificios en la zona afectada del 21-nov: pisos, familias y personas",
+CAPA_EDIFICIOS_FOTO = {"id": "edificios_foto_21nov", "titulo": "Edificios en la zona afectada del 21-nov: altura, pisos, familias y personas",
                        "archivo": "edificios_afectados_foto_21nov.geojson", "tipo": "poligono", "visible": False,
-                       "creditos": ["sos_usfq", "tui_de_roy", "osm", "google_open_buildings"]}
+                       "creditos": ["sos_usfq", "gad_santa_cruz", "sgiar", "tui_de_roy", "osm", "google_open_buildings"]}
 # La estimación de familias afectadas que sale de esa foto: un punto con hora, para que salga en la línea del tiempo
 # de /riesgos/informe/ (que lee las capas con «marcador: reporte» y la fecha de `fotos_base`). No es un reporte ciudadano.
 ARCHIVO_ESTIMACION = "estimacion_foto_21nov.geojson"

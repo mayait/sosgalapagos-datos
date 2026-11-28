@@ -1,0 +1,33 @@
+{
+ "edificios": 1009,
+ "de_la_ortofoto": 840,
+ "huella_vieja_sin_ortofoto": 97,
+ "huella_vieja_que_sam_no_recorta": 72,
+ "huellas_viejas_sin_techo_en_la_foto": 51,
+ "huellas_viejas_en_la_zona": 745,
+ "umbral_area_m2": {
+  "pequeno_menor_que": 30,
+  "grande_desde": 98
+ },
+ "por_gravedad": {
+  "Leve": 442,
+  "Moderada": 190,
+  "Grave": 58,
+  "Muy grave": 319
+ },
+ "altura_medida": 899,
+ "escala_familias": 0.768,
+ "suma_familias": 1308,
+ "suma_personas": 4246,
+ "area_techada_m2": 81321,
+ "registro": {
+  "orto_barrio-la-cascada_2026-11-03.tif": [
+   -0.84,
+   -2.24
+  ],
+  "orto_curva-brava_la-cascada_2026-11-05.tif": [
+   -0.27,
+   -3.3
+  ]
+ }
+}
