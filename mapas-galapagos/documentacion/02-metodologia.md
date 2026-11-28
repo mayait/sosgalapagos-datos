@@ -36,6 +36,7 @@ Salen de la **zonificación del PNG de 2017** (CGREG/FCD):
   - Se dibuja un cauce cuando drena al menos 0,2 km².
   - Solo se conservan los tramos que **no coinciden** (a 45 m) con una quebrada ya mapeada. Son candidatos a revisar en terreno.
 - **Franja de 20 m:** la capa oficial del CGREG («encañadas» con buffer de 20 m).
+- **Cañadas del GAD de Santa Cruz** (desde el 28-nov-2026): 25 cañadas trazadas por el GAD Municipal entre Bellavista y La Cascada. Van como capa propia y se suman al drenaje del Instituto de Geografía USFQ, sin reemplazarlo, porque solo cubren ese corredor. No se marcan en el relieve (ver §11).
 
 ## 5. Cuencas que drenan a los poblados
 
@@ -106,4 +107,26 @@ Celdas del DEM con cota de 0–3 m, de 3–5 m y de 5–10 m, suavizadas. Sirven
 5. **Edificios, familias y personas.** Huellas del mapa dentro de la zona, corregidas con una muestra inventariada sobre la foto. Pisos y viviendas salen del promedio por tamaño en esa muestra; 3,25 personas por hogar. Se publica el rango entre el censo y el cálculo sobre la foto.
 
 Detalle, archivos y límites: `geodatos/datos/foto_aerea_21nov/LEEME.md`.
+
+## 11. Cañadas del GAD, cruces con vías y calles con cañada (Santa Cruz, desde el 28-nov-2026)
+
+**Cruces de cañadas con vías** (`16_cruces_quebradas_vias.py`):
+- **Fuentes de cauce.** A las quebradas del IGM y OSM y al cauce D8 se suman las cañadas del GAD, con prioridad sobre las quebradas sin nombre y el D8 al agrupar cruces cercanos (40 m).
+- **Una cañada que corre por la vía no la cruza.** Si en 150 m alrededor del punto hay más de 80 m de cañada a 10 m o menos de la vía, o el ángulo entre las dos es menor de 25°, no se cuenta como cruce. Así se descartan 45 intersecciones.
+- **Resultado frente a la versión anterior:** 20 cruces nuevos (1 de prioridad alta, 11 media, 8 baja) y uno que sube de media a alta.
+- **Los id ya no se renumeran.** Cada cruce hereda el id del cruce anterior más cercano a 60 m o menos (pareja uno a uno). Los nuevos toman números a partir del mayor anterior. El modelo 2D, las tormentas sintéticas y `estudios/pendientes.json` citan cruces por id.
+- **Ojo con el área drenada.** Donde la cañada del GAD no coincide con el cauce del relieve, el área drenada del cruce sale casi nula y subestima el caudal.
+
+**Calles por donde corre una cañada** (`40_gad_santa_cruz_canadas.py` → `vias_con_canada.geojson`):
+- Son tramos de vía de OSM con más de 80 m de cañada del GAD a 10 m o menos. Hay 17 tramos y 4,9 km en total; el más largo, 1,7 km de la Av. Padre Julio Herrera.
+- Con lluvia fuerte, el agua y el lodo bajan por la calzada.
+
+**Por qué no se marcan en el relieve.** Revisamos sobre las ortofotos los tramos que se alejan más de 60 m de nuestro drenaje, y el trazado es desigual. Algunas cañadas siguen cicatrices de erosión con precisión; otras son tramos rectos sobre bosque, sin cauce visible ni en la foto ni en el DTM. Bajar 3 m el DTM de 5 m a lo largo de una línea corrida inventaría un cauce que no existe, y lo heredarían el HAND y el modelo 2D.
+
+## 12. Ortofotos de dron del GAD (Santa Cruz)
+
+- **Mosaico de los cinco vuelos posteriores al evento**, del 3 al 22-nov-2026. Donde dos se solapan queda encima el más reciente.
+- **Teselas webp de 256 px** en EPSG:3857, de los zooms 14 a 19 (≈ 30 cm por píxel, 90 MB en git). Las hace `41_teselas_ortofotos_gad.py`, que lee de cada COG la vista reducida más cercana a la resolución de cada zoom.
+- **Pueden estar corridas 2 a 4 m** respecto de otras capas. Los vuelos se hicieron sin puntos de control conocidos.
+- **El detalle completo** (2 a 7,5 cm) está en los GeoTIFF originales, que van a Zenodo.
 

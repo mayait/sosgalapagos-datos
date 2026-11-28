@@ -162,6 +162,38 @@ Capas `galapagos50k:*` descargadas (con el bbox de las tres islas):
 - **En el repositorio:** `geodatos/datos/espol_cuencas/`, generado por `39_espol_cuencas_interes.py` a partir de `descargas/espol/secciones_cuenca.kmz`.
 - **Coherencia:** SCW01 cae en un 94–99 % dentro de la cuenca de Puerto Ayora de la USFQ y de la de SOS; SCW02, en la cuenca 10 de la USFQ. La divisoria de SCW24 con Puerto Ayora difiere en la parte alta.
 
+### 3.1e GAD Municipal de Santa Cruz: ortofotos de dron y cañadas ✅ (entregado el 28-nov-2026)
+
+- **Fuente:** GAD Municipal de Santa Cruz. Se cita como institución, a pedido: «GAD Municipal de Santa Cruz». Crédito `gad_santa_cruz` en `geodatos/creditos.json`.
+- **Licencia:** **CC BY 4.0**, autorizada por el GAD el 28-nov-2026 para el repositorio, el mapa y Zenodo.
+- **Qué llegó y qué sirve:**
+
+| Producto | Detalle | Uso |
+|---|---|---|
+| 7 ortomosaicos de dron (PIX4Dmatic, RGBA, EPSG:32715) | De 2 a 7,5 cm por píxel. Después del evento: Tomas de Berlanga y Mira Mar (3-nov), barrio La Cascada (3-nov, procesado el 9), Curva Brava a La Cascada (5-nov), Bellavista (20-nov) y vía al Cascajo (22-nov). Antes del evento: Parque Artesanal (mar-2026) y Patio de carga (jul-2025). Unos 20 km² en total | Teselas en el mapa (`41_teselas_ortofotos_gad.py`); validación de modelos (`42`, `43`); originales a Zenodo |
+| `Cañadas.gpx` | 26 rutas, una vacía: 25 cañadas, ≈ 49 km, de Bellavista a La Cascada | Capa propia, cruces con vías y «calles con cañada» (`40_gad_santa_cruz_canadas.py`) |
+| Malla 3D de Bellavista (OBJ con textura) | Vértices locales; se suma `offset.xyz` (E 797 069, N 9 922 657, Z 307, UTM 15S) | Solo en Zenodo, por ahora |
+| Fotos y videos de dron (4 GB; fotos DNG con GPS del 4-nov y JPG del 25-nov) | Escarpe y La Cascada | Sin publicar: hay que revisar que no aparezcan personas |
+| DEM y curvas de 2 y 5 m | **Son el Copernicus GLO-30** recortado: el 83 % de los píxeles es idéntico al nuestro. Las curvas de 2 m salen de un DEM de 30 m y no tienen esa precisión | No se usan |
+| Copias en JPG de las ortofotos y polígonos de trabajo sin atributos | Las JPG están a un cuarto de resolución y sin georreferencia | No se usan |
+
+- **Calidad:**
+  - No hay reporte de procesamiento (puntos de control, RMSE).
+  - Entre ortofotos que se solapan hay corrimientos aparentes de 2 a 4 m. Contra los edificios de OSM, de 1 a 3 m.
+  - El trazado de las cañadas es desigual. Algunas siguen cicatrices de erosión con precisión; otras corren por la calzada, por donde bajó el agua; otras son tramos rectos sobre bosque, sin cauce visible. Por eso **no se marcan en el relieve** (ver `geodatos/datos/gad_santa_cruz/LEEME.md`).
+- **En el repositorio:**
+  - `geodatos/datos/gad_santa_cruz/`: cañadas y calles con cañada.
+  - `geodatos/teselas/ortofotos_gad/`: teselas hasta el zoom 19.
+  - Los GeoTIFF originales quedan en `descargas/gad_santa_cruz/`, fuera de git.
+- **Zenodo:**
+  - El paquete para la comunidad «SOS Galápagos» se prepara en `~/dev/sosgalapagos-zenodo/gad-santa-cruz-2026-11/`.
+  - Contiene las 7 ortofotos en COG sin pérdida (25 GB; píxeles idénticos a los originales), las cañadas, la malla 3D y el README con la cita.
+  - Falta crear la cuenta de SOS Galápagos.
+- **Pedido pendiente al GAD:**
+  1. Los **DSM de Pix4D** de estos vuelos: topografía después del evento, a unos 5 cm.
+  2. El **LiDAR de G3M S.A.**: nube de puntos, DTM y DSM del vuelo para el catastro (Matrice 400 RTK + Zenmuse L2, ≈ 11 900 ha, feb-2026). Viene descrito en el informe «Productos de cartografía» que llegó con la entrega, pero los datos no venían. Es la topografía **antes** del evento; junto con los DSM permitiría medir erosión y depósito.
+  3. Los reportes de calidad de Pix4D.
+
 ### 3.2 Límites administrativos y suelo urbano
 
 | Fuente | Endpoint | Entidades | Archivo |
@@ -178,7 +210,7 @@ Capas `galapagos50k:*` descargadas (con el bbox de las tres islas):
 
 ### 3.3 Catastro urbano municipal 🔒 / ❌
 
-- **GAD Santa Cruz:** `https://www.gadsantacruz.gob.ec/` responde, pero no ofrece geoportal ni catastro descargable.
+- **GAD Santa Cruz:** `https://www.gadsantacruz.gob.ec/` responde, pero no ofrece geoportal ni catastro descargable. En 2026 contrató a G3M S.A. una ortofoto catastral con LiDAR de todo el cantón (ver 3.1e): es el insumo que conviene pedir.
 - **GAD San Cristóbal e Isabela:** los dominios probados (`municipiosancristobal.gob.ec`, `isabela.gob.ec`, `gadmisabela.gob.ec`) **no responden**.
 - **CGREG SIIG:** `https://siig.gobiernogalapagos.gob.ec/` no responde. La versión interna (`siig-intra.gobiernogalapagos.gob.ec`) exige **login Keycloak** 🔒.
 - **Recomendación:** pedir el catastro (predios y construcciones) directamente a las Direcciones de Avalúos y Catastros de cada GAD o al CGREG. Mientras tanto, se pueden usar como sustitutos las manzanas y edificios censales de INEC (sección 4), los edificios de Google Open Buildings y los edificios IGM.
