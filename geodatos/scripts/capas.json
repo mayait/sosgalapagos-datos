@@ -421,7 +421,7 @@
      "visible": true,
      "fuente": "Modelo HAND sobre Copernicus GLO-30 y quebradas IGM; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
      "creditos": ["sos_usfq", "@relieve_santa_cruz", "comunidad_reportes", "experto_eden", "barrio_tomas_de_berlanga"],
-     "descripcion": "Altura del terreno sobre la quebrada más cercana. Sirve para priorizar; no es una delimitación oficial. En terreno muy plano (Puerto Villamil) sobrestima.",
+     "descripcion": "Altura del terreno sobre la quebrada más cercana. Sirve para priorizar. En terreno muy plano (Puerto Villamil) sobrestima.",
      "estilo": {
       "weight": 0.6,
       "fillOpacity": 0.38

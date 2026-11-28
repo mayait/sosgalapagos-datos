@@ -19,6 +19,7 @@ OUT = ROOT / "publicar" / "mapas"
 DESC = OUT / "descargas" / "completo"
 DATOS = OUT / "datos" / "completo"
 REGLA3 = re.compile(r"\bno\b[^.;:]{0,40}\boficial|estimaci[oó]n|experimental", re.I)
+NO_OFICIAL = re.compile(r"\bno\b[^.;:]{0,40}\boficial", re.I)
 TEXTO = {".json", ".geojson", ".txt", ".cff", ".md", ".html", ".csv", ".dbf", ".js"}
 
 errores = []
@@ -116,6 +117,11 @@ def main():
             for k in ("fuente", "atribucion"):
                 m = REGLA3.search(c.get(k) or "")
                 if m: error(f"{donde}: la {k} dice «{m.group(0)}» (regla 3: va en la descripción o en el aviso general)")
+            # En la tarjeta (título y descripción) tampoco va «no oficial»: lo dice el aviso general de la página.
+            m = REGLA3.search(c.get("titulo") or "")
+            if m: error(f"{donde}: el título dice «{m.group(0)}» (regla 3: lo dice el aviso general)")
+            m = NO_OFICIAL.search(c.get("descripcion") or "")
+            if m: error(f"{donde}: la descripción dice «{m.group(0)}» (regla 3: lo dice el aviso general)")
             if c.get("archivo"):
                 gj = DATOS / c["archivo"]
                 if not gj.exists(): error(f"{donde}: no se publica {c['archivo']}")

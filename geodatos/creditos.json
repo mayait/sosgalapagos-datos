@@ -257,7 +257,7 @@
    "cita_corta": "ESPOL (Mulas, Garcés, Larreta, Rosado, Vaca)",
    "cita_larga": "Cuencas hidrográficas de interés de Santa Cruz: Maurizio Mulas, Daniel Garcés, Erwin Larreta, Victoria Rosado y Valeria Vaca (ESPOL), entregadas el 28-nov-2026.",
    "cita_obligatoria": true,
-   "licencia": "Derechos de sus autores",
+   "licencia": "CC-BY-4.0",
    "url": "https://www.espol.edu.ec",
    "ficha": "geodatos/datos/espol_cuencas/LEEME.md",
    "consentimiento": {"estado": "no_aplica"}
@@ -269,7 +269,7 @@
    "rol": "autoria",
    "cita_corta": "Maurizio Mulas (ESPOL)",
    "cita_obligatoria": true,
-   "licencia": "Derechos de sus autores",
+   "licencia": "CC-BY-4.0",
    "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
   },
   "garces_d": {
@@ -279,7 +279,7 @@
    "rol": "autoria",
    "cita_corta": "Daniel Garcés (ESPOL)",
    "cita_obligatoria": true,
-   "licencia": "Derechos de sus autores",
+   "licencia": "CC-BY-4.0",
    "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
   },
   "larreta_e": {
@@ -289,7 +289,7 @@
    "rol": "autoria",
    "cita_corta": "Erwin Larreta (ESPOL)",
    "cita_obligatoria": true,
-   "licencia": "Derechos de sus autores",
+   "licencia": "CC-BY-4.0",
    "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
   },
   "rosado_v": {
@@ -299,7 +299,7 @@
    "rol": "autoria",
    "cita_corta": "Victoria Rosado (ESPOL)",
    "cita_obligatoria": true,
-   "licencia": "Derechos de sus autores",
+   "licencia": "CC-BY-4.0",
    "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
   },
   "vaca_v": {
@@ -309,7 +309,7 @@
    "rol": "autoria",
    "cita_corta": "Valeria Vaca (ESPOL)",
    "cita_obligatoria": true,
-   "licencia": "Derechos de sus autores",
+   "licencia": "CC-BY-4.0",
    "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
   },
   "experto_eden": {
