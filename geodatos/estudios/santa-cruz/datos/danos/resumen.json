@@ -1,0 +1,28 @@
+{
+ "danos": 142,
+ "por_tipo": {
+  "erosion": 38,
+  "lodo_sedimento": 65,
+  "vegetacion_tumbada": 14,
+  "escombros": 22,
+  "rocas_arrastradas": 3
+ },
+ "por_gravedad": {
+  "media": 86,
+  "alta": 55,
+  "baja": 1
+ },
+ "por_clase_hand": {
+  "baja": 21,
+  "fuera": 54,
+  "alta": 44,
+  "media": 23
+ },
+ "distancia_al_cauce_m": {
+  "mediana": 11.0,
+  "a_50m_o_menos": 0.87,
+  "mas_de_150m": 0.04
+ },
+ "bloques_recorridos": 220,
+ "nota": "recorrido dirigido de la zona poblada y las orillas de las cañadas: no es una muestra al azar"
+}

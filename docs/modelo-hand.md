@@ -72,6 +72,8 @@ El estudio de **La Cascada** no se apoya en HAND: allí el barrio es un **vaso c
 
   **C. Huellas del 30-oct y el 2-nov en las ortofotos del GAD (3 y 5-nov).** Son 120 puntos al azar, 30 por clase, cerca de vías y edificios, marcados a ciegas. En 55 se ve el suelo. Fracción con huellas (sedimento, lodo, erosión, pasto tumbado): alta, 17 de 17; media, 62 %; baja, 64 %; fuera, 36 %.
 
+  **D. Daños vistos en las ortofotos del GAD** (`geodatos/estudios/santa-cruz/datos/danos/`). Es un recorrido dirigido de 220 bloques de 240 m: hay 142 daños (lodo, cárcavas, escombros, vegetación arrasada). El 87 % está a 50 m o menos de un cauce, pero el **38 % cae fuera de toda clase HAND**: el daño sigue a los cauces, pero sube más de 5 m sobre ellos, como lo hace un flujo de lodo y escombros.
+
   **Lectura conjunta:** donde el HAND marca alto, casi siempre hubo agua. Pero **el agua llegó también lejos de los cauces**: por calles, laderas y zonas fuera de toda clase. Es lo que el HAND no ve, porque mide la altura sobre el cauce y no el agua que corre por la superficie.
 
   **Límites:**

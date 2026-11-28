@@ -387,6 +387,13 @@ entradas = ["capas/dem/santa_cruz_susc_inundacion.geojson", "estudios/santa-cruz
             "estudios/santa-cruz/datos/modelo2d/b_central/calado_max_clases.geojson"]
 salidas = ["estudios/santa-cruz/datos/validacion/contraste.json"]
 
+[pasos.danos_observados]
+script = "44_danos_observados.py"
+manual = true
+nota = "Daños vistos en las ortofotos del GAD (marcas a mano en danos_marcas.csv): se corre con «capa»"
+entradas = ["estudios/santa-cruz/datos/danos/danos_marcas.csv", "capas/dem/santa_cruz_susc_inundacion.geojson"]
+salidas = ["estudios/santa-cruz/datos/danos/danos_observados.geojson", "estudios/santa-cruz/datos/danos/resumen.json"]
+
 [pasos.sitio]
 script = "19_estudios_web.py"
 nota = "Genera publicar/estudios (no publica)"

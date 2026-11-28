@@ -87,6 +87,11 @@ Scripts: `42_validacion_muestra.py` y `43_validacion_contraste.py`. Resultados e
 
 En resumen: la clase alta acierta en tamaño pero falla la mitad de los lugares, y una parte del agua corre lejos de los cauces, donde el HAND no la ve. Contra las huellas del 30-oct, el modelo 2D de ese evento acierta más (POD 0,84; FAR 0,11 en los puntos de validación).
 
+**Daños vistos en las fotos de dron** (`44_danos_observados.py`, capa «Daños vistos en las fotos de dron» en Emergencia en curso):
+- Se recorrió en una cuadrícula fija toda la zona poblada y las orillas de las cañadas.
+- Cada daño se ubica en una subcelda de 27 m, con ±15 m de margen: escombros, lodo, erosión, rocas y vegetación arrasada.
+- Detalle y resultados en `geodatos/estudios/santa-cruz/datos/danos/LEEME.md`.
+
 ## 7. Costa baja
 
 Celdas del DEM con cota de 0–3 m, de 3–5 m y de 5–10 m, suavizadas. Sirven para la inundación costera por oleaje o marea alta. Para tsunami se usa la capa oficial del INOCAR.
