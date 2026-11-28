@@ -5,10 +5,12 @@ cuencas, HAND (susceptibilidad a inundación), zonas costeras bajas y pendientes
 
 Relieve:
   - San Cristóbal e Isabela: Copernicus GLO-30 (DSM, 30 m).
-  - Santa Cruz: relieve FUSIONADO (relieve_sgiar.py): DTM de 1 m de la SGIAR en Puerto Ayora, el escarpe y Bellavista y
-    Copernicus fuera, con una transición de 300 m. Además, dentro de la cobertura del DTM se repiten HAND, drenaje,
-    costa baja y curvas en una malla de 5 m («alta resolución») y se empalman con las capas de 30 m: dentro de la
-    cobertura (menos la franja de transición) mandan las de 5 m; fuera, las de 30 m. Cada entidad dice su relieve.
+  - Santa Cruz: relieve FUSIONADO. Prioridad: DTM de 1 m de la SGIAR (Puerto Ayora, el escarpe y Bellavista;
+    relieve_sgiar.py) > DEM de 10 m de SIGTIERRAS (toda la isla, desde el 28-nov-2026; relieve_sigtierras.py) >
+    Copernicus (solo donde no hay ninguno de los dos). Entre el DTM y lo de fuera hay una transición de 300 m.
+    HAND, drenaje, costa baja y curvas se calculan en tres mallas y se empalman: 5 m dentro de la cobertura del DTM
+    («alta resolución»), 10 m en el resto de la cobertura de SIGTIERRAS («media resolución») y 30 m fuera.
+    Cada entidad dice en «relieve» con qué se calculó.
 Uso: .venv/bin/python -I scripts/03_dem.py
 """
 import json, glob, pathlib, math
@@ -31,6 +33,8 @@ import importlib.util
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 _spec = importlib.util.spec_from_file_location("relieve_sgiar", ROOT / "scripts/relieve_sgiar.py")
 relieve_sgiar = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(relieve_sgiar)
+_spec = importlib.util.spec_from_file_location("relieve_sigtierras", ROOT / "scripts/relieve_sigtierras.py")
+relieve_sigtierras = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(relieve_sigtierras)
 DEM = sorted(glob.glob(str(ROOT / "descargas/dem/*.tif")))
 OUT = ROOT / "capas" / "dem"; OUT.mkdir(parents=True, exist_ok=True)
 RAS = ROOT / "capas" / "raster"; RAS.mkdir(parents=True, exist_ok=True)
@@ -47,8 +51,11 @@ UMBRAL_KM2 = 0.10            # área drenada mínima para dibujar un cauce
 ALTA_RES_GRADOS = 1 / 3600 / 6
 ALTA_MARGEN_GRADOS = 0.02    # ≈ 2,2 km alrededor de la cobertura, para que el área drenada que entra por los bordes cuente
 FUENTE_COP = "Copernicus GLO-30"
-FUENTE_FUSION = "Copernicus GLO-30 + DTM 1 m SGIAR (30 m)"
+FUENTE_FUSION = "DEM 10 m SIGTIERRAS + DTM 1 m SGIAR (malla de 30 m)"
+FUENTE_MEDIA = "DEM 10 m SIGTIERRAS + DTM 1 m SGIAR (malla de 10 m)"
 FUENTE_ALTA = "DTM 1 m SGIAR (malla de 5 m)"
+# Media resolución sobre el DEM de SIGTIERRAS (solo Santa Cruz): malla de 1/3 de arcosegundo (≈ 10,3 m) en EPSG:4326
+MEDIA_RES_GRADOS = 1 / 3600 / 3
 
 def fc(feats): return {"type": "FeatureCollection", "features": feats}
 def save(name, feats):
@@ -213,6 +220,34 @@ def empalmar(gruesas, finas, nucleo):
     return out
 
 
+def media_resolucion(key, isla, z30, tr30, region):
+    """HAND, drenaje, costa baja y curvas en ≈ 10 m sobre toda la cobertura del DEM de SIGTIERRAS (y el DTM dentro)."""
+    w, s, e, n = region
+    cw, cs, ce, cn = relieve_sigtierras.cobertura("EPSG:4326").bounds
+    w, s, e, n = max(w, cw), max(s, cs), min(e, ce), min(n, cn)
+    r = MEDIA_RES_GRADOS
+    W = int(math.ceil((e - w) / r)); H = int(math.ceil((n - s) / r))
+    tr = from_origin(w, n, r, r)
+    zc = np.full((H, W), np.nan, "float32")    # Copernicus (mar en −9999) a 10 m, para lo que SIGTIERRAS no cubre
+    reproject(z30, zc, src_transform=tr30, src_crs="EPSG:4326", dst_transform=tr, dst_crs="EPSG:4326",
+              src_nodata=-9999, dst_nodata=np.nan, resampling=Resampling.bilinear)
+    zc = np.where(np.isfinite(zc), zc, -9999).astype("float32")
+    z, _ = relieve_sigtierras.fusionar(zc, tr, "EPSG:4326")
+    z, _, _ = relieve_sgiar.fusionar(z, tr, "EPSG:4326")
+    sea = z <= 0.5
+    z[sea] = -9999
+    prof = dict(driver="GTiff", height=H, width=W, count=1, dtype="float32", crs="EPSG:4326", transform=tr,
+                nodata=-9999, compress="deflate", predictor=3, tiled=True)
+    with rasterio.open(TMP / f"{key}_sig10_dem.tif", "w", **prof) as d: d.write(z, 1)
+    print(f"   malla de 10 m: {W}×{H}")
+    celda = r * 111320
+    dren, _, susc, _ = hidrologia(z, sea, tr, prof, isla, key, "_sig10", celda, FUENTE_MEDIA,
+                                  simp_dren=0.00003, simp_hand=0.00003, cuencas=False)
+    cb = costa_baja(z, sea, tr, isla, simp=0.00003, fuente=FUENTE_MEDIA)
+    cv = curvas(z, sea, tr, isla, simp=0.00003, fuente=FUENTE_MEDIA)
+    return {"drenaje": dren, "susc": susc, "costa": cb, "curvas": cv}
+
+
 def alta_resolucion(key, isla, z30, tr30):
     """HAND, drenaje, costa baja y curvas en ≈ 5 m sobre la cobertura del DTM SGIAR (más un margen con Copernicus)."""
     cub = relieve_sgiar.cobertura("EPSG:4326")
@@ -225,6 +260,7 @@ def alta_resolucion(key, isla, z30, tr30):
     reproject(z30, zc, src_transform=tr30, src_crs="EPSG:4326", dst_transform=tr, dst_crs="EPSG:4326",
               src_nodata=-9999, dst_nodata=np.nan, resampling=Resampling.bilinear)
     zc = np.where(np.isfinite(zc), zc, -9999).astype("float32")
+    zc, _ = relieve_sigtierras.fusionar(zc, tr, "EPSG:4326")    # el margen fuera del DTM, con SIGTIERRAS
     z, peso, _ = relieve_sgiar.fusionar(zc, tr, "EPSG:4326")
     # máscara de mar del DTM (5 m, UTM): la usan 36_teselas_dtm.py y 37_cascada_dtm.py
     _, tr5, crs5, mar5, _ = relieve_sgiar._dtm_5m()
@@ -256,7 +292,10 @@ for key, (isla, (w, s, e, n)) in REGIONES.items():
     fusion = key == "santa_cruz" and relieve_sgiar.disponible()
     fuente = FUENTE_COP
     if fusion:
+        relieve_sigtierras.exigir()
         z_cop = z.copy()
+        z, de_sig = relieve_sigtierras.fusionar(z, tr, "EPSG:4326")
+        print(f"   relieve con SIGTIERRAS 10 m en {de_sig.mean():.0%} de la malla")
         z, _, _ = relieve_sgiar.fusionar(z, tr, "EPSG:4326")
         sea = z <= 0.5
         z[sea] = -9999
@@ -303,6 +342,12 @@ for key, (isla, (w, s, e, n)) in REGIONES.items():
 
     # --- Alta resolución dentro de la cobertura del DTM SGIAR ---
     if fusion:
+        media = media_resolucion(key, isla, z_cop, tr, (w, s, e, n))
+        nucleo10 = relieve_sigtierras.cobertura("EPSG:4326", recorte_m=300)
+        cv = empalmar(cv, media["curvas"], nucleo10)
+        cb = empalmar(cb, media["costa"], nucleo10)
+        dren = empalmar(dren, media["drenaje"], nucleo10)
+        susc = empalmar(susc, media["susc"], nucleo10)
         alta = alta_resolucion(key, isla, z_cop, tr)
         nucleo = relieve_sgiar.cobertura("EPSG:4326", recorte_m=relieve_sgiar.TRANSICION_M)
         cv = empalmar(cv, alta["curvas"], nucleo)
