@@ -66,6 +66,14 @@ CAPA_ORTOFOTO = {"id": "ortofoto_21nov", "titulo": "Foto aérea del 21-nov, Puer
                  "descripcion": "Foto aérea oblicua de Puerto Ayora inundado el 21 de noviembre de 2026, tomada a las 14:00 y puesta sobre el mapa. " + CREDITO_FOTO + ". "
                                 "Sale de una sola foto tomada de lado, así que los edificios se ven inclinados hacia el sur "
                                 "y lo que tapan no aparece. Sirve para ubicar el agua calle por calle, no para medir. Tiene más detalle cerca de La Cascada."}
+# Ortofotos de dron del GAD Municipal de Santa Cruz (3 al 22-nov-2026, CC BY 4.0): teselas de 41_teselas_ortofotos_gad.py.
+# Los GeoTIFF completos no se publican aquí: van a Zenodo (ver datos/gad_santa_cruz/LEEME.md).
+TESELAS_GAD = ROOT / "teselas" / "ortofotos_gad"
+CAPA_ORTOS_GAD = {"id": "ortofotos_gad", "titulo": "Ortofotos de dron del GAD, 3 al 22-nov (Bellavista a La Cascada)", "tipo": "teselas", "teselas": "ortofotos_gad",
+                  "visible": False, "opacidad": 1, "creditos": ["gad_santa_cruz"],
+                  "descripcion": "Fotos de dron del GAD Municipal de Santa Cruz, de 2 a 7,5 cm por píxel, tomadas entre el 3 y el 22 de noviembre de 2026, "
+                                 "después de las lluvias: Tomas de Berlanga y Mira Mar, el barrio La Cascada, la Curva Brava, Bellavista y la vía al Cascajo. "
+                                 "Donde dos vuelos se solapan se ve el más reciente. Pueden estar corridas 2 a 4 m respecto de otras capas."}
 CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona afectada el 21-nov y gravedad aparente, según la foto aérea", "archivo": "zona_inundada_foto_21nov.geojson",
                   "tipo": "poligono", "visible": False, "creditos": ["sos_usfq", "tui_de_roy", "comunidad_reportes", "sgiar"]}
                   # estilo, ficha y descripción: visor_mapas.json
@@ -790,9 +798,12 @@ def main():
     if not (TESELAS_FOTO / "teselas.json").exists():
         raise SystemExit("Faltan las teselas de la foto del 21-nov. Corre antes: .venv/bin/python -I scripts/est_21nov_foto_teselas.py")
     shutil.copytree(TESELAS_FOTO, OUT / "teselas" / "ortofoto_21nov")
+    if not (TESELAS_GAD / "teselas.json").exists():
+        raise SystemExit("Faltan las teselas de las ortofotos del GAD. Corre antes: .venv/bin/python -I scripts/41_teselas_ortofotos_gad.py")
+    shutil.copytree(TESELAS_GAD, OUT / "teselas" / "ortofotos_gad")
     for c in (CAPA_ZONA_FOTO, CAPA_EDIFICIOS_FOTO):
         shutil.copy(FOTO_DIR / c["archivo"], TMP_ESTUDIOS / c["archivo"])
-    g_em["capas"] += [json.loads(json.dumps(c)) for c in (CAPA_ESTIMACION, CAPA_ORTOFOTO, CAPA_ZONA_FOTO, CAPA_EDIFICIOS_FOTO)]
+    g_em["capas"] += [json.loads(json.dumps(c)) for c in (CAPA_ESTIMACION, CAPA_ORTOFOTO, CAPA_ORTOS_GAD, CAPA_ZONA_FOTO, CAPA_EDIFICIOS_FOTO)]
     man = aplicar_visor(man)
     filtrar = aplicar_reemplazos(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
