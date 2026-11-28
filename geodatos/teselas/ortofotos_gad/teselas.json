@@ -1,7 +1,7 @@
 {
  "titulo": "Ortofotos de dron del GAD Municipal de Santa Cruz, 3 al 22-nov-2026",
  "atribucion": "Ortofotos: GAD Municipal de Santa Cruz (CC BY 4.0)",
- "fuente": "Ortomosaicos de dron del GAD Municipal de Santa Cruz (PIX4Dmatic), de 2 a 7,5 cm por píxel, del 3 al 22 de noviembre de 2026. Licencia CC BY 4.0. Teselas de SOS Galápagos; donde dos vuelos se solapan queda el más reciente.",
+ "fuente": "Ortomosaicos de dron del GAD Municipal de Santa Cruz (PIX4Dmatic), de 2 a 7,5 cm por píxel, del 3 al 22 de noviembre de 2026. Licencia CC BY 4.0. Teselas de SOS Galápagos, con la posición corregida contra el DSM 1 m de la SGIAR (Vricon/Maxar); donde dos vuelos se solapan queda el más reciente.",
  "vuelos": [
   "orto_barrio-la-cascada_2026-11-03",
   "orto_tomas-berlanga_mira-mar_2026-11-03",
@@ -11,12 +11,12 @@
  ],
  "limites": [
   [
-   -0.740088,
-   -90.341218
+   -0.740134,
+   -90.34124
   ],
   [
-   -0.690731,
-   -90.287925
+   -0.690764,
+   -90.287939
   ]
  ],
  "relieve": {
@@ -42,12 +42,12 @@
    "mb": 4.9
   },
   "18": {
-   "teselas": 937,
+   "teselas": 936,
    "mb": 17.5
   },
   "19": {
-   "teselas": 3570,
-   "mb": 65.4
+   "teselas": 3566,
+   "mb": 65.3
   }
  },
  "script": "geodatos/scripts/41_teselas_ortofotos_gad.py"

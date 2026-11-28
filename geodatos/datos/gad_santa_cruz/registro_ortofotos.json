@@ -1,0 +1,203 @@
+{
+ "descripcion": "Corrección de posición de las ortofotos de dron del GAD de Santa Cruz (Pix4D, sin puntos de control) contra el DSM de 1 m de la SGIAR (Vricon/Maxar), por correlación de bordes en bloques de 100 m a 0.5 m por píxel. La afín se aplica a la georreferencia de cada ortofoto.",
+ "referencia": "DSM 1 m: SGIAR (Vricon/Maxar)",
+ "crs": "EPSG:32715",
+ "ortofotos": {
+  "orto_barrio-la-cascada_2026-11-03.tif": {
+   "bloques": 209,
+   "bloques_usados": 206,
+   "desplazamiento_en_el_centro_m": [
+    -0.84,
+    -2.24
+   ],
+   "desplazamiento_min_max_m": [
+    [
+     -2.19,
+     0.06
+    ],
+    [
+     -4.06,
+     -0.58
+    ]
+   ],
+   "residuo_mediano_m": 0.23,
+   "afin": [
+    0.9988397447062315,
+    0.00027569656939405136,
+    -1808.2216001439065,
+    0.0027844788833240766,
+    1.0025457633331383,
+    -27477.571638509333
+   ],
+   "nota": "X' = a·X + b·Y + c ; Y' = d·X + e·Y + f (UTM 15S). Coordenadas de la ortofoto → las del DSM de la SGIAR."
+  },
+  "orto_bellavista_2026-11-20.tif": {
+   "bloques": 224,
+   "bloques_usados": 123,
+   "desplazamiento_en_el_centro_m": [
+    -2.11,
+    -4.99
+   ],
+   "desplazamiento_min_max_m": [
+    [
+     -2.94,
+     -1.13
+    ],
+    [
+     -6.34,
+     -3.7
+    ]
+   ],
+   "residuo_mediano_m": 0.34,
+   "afin": [
+    0.9999856753720918,
+    0.00033201522997860773,
+    -3285.1247252844832,
+    0.0004232602888141404,
+    1.0009914067148022,
+    -10179.688841602667
+   ],
+   "nota": "X' = a·X + b·Y + c ; Y' = d·X + e·Y + f (UTM 15S). Coordenadas de la ortofoto → las del DSM de la SGIAR."
+  },
+  "orto_curva-brava_la-cascada_2026-11-05.tif": {
+   "bloques": 1149,
+   "bloques_usados": 1035,
+   "desplazamiento_en_el_centro_m": [
+    -0.27,
+    -3.3
+   ],
+   "desplazamiento_min_max_m": [
+    [
+     -2.61,
+     1.66
+    ],
+    [
+     -6.2,
+     -0.49
+    ]
+   ],
+   "residuo_mediano_m": 0.33,
+   "afin": [
+    0.9994974086024542,
+    -0.000886418641739015,
+    9194.725898425633,
+    0.00020750541035269537,
+    1.0017178640091358,
+    -17210.544271940013
+   ],
+   "nota": "X' = a·X + b·Y + c ; Y' = d·X + e·Y + f (UTM 15S). Coordenadas de la ortofoto → las del DSM de la SGIAR."
+  },
+  "orto_parque-artesanal_2026-03.tif": {
+   "bloques": 62,
+   "bloques_usados": 61,
+   "desplazamiento_en_el_centro_m": [
+    0.05,
+    -2.39
+   ],
+   "desplazamiento_min_max_m": [
+    [
+     -0.86,
+     0.93
+    ],
+    [
+     -2.81,
+     -1.63
+    ]
+   ],
+   "residuo_mediano_m": 0.24,
+   "afin": [
+    0.9997492873838155,
+    -0.00173895685945515,
+    17451.302966048024,
+    0.0006701658686451598,
+    1.000396577704357,
+    -4470.859782035264
+   ],
+   "nota": "X' = a·X + b·Y + c ; Y' = d·X + e·Y + f (UTM 15S). Coordenadas de la ortofoto → las del DSM de la SGIAR."
+  },
+  "orto_patio-de-carga_2025-07.tif": {
+   "bloques": 53,
+   "bloques_usados": 45,
+   "desplazamiento_en_el_centro_m": [
+    -1.14,
+    -1.44
+   ],
+   "desplazamiento_min_max_m": [
+    [
+     -2.06,
+     -0.07
+    ],
+    [
+     -2.7,
+     -0.07
+    ]
+   ],
+   "residuo_mediano_m": 0.39,
+   "afin": [
+    1.0010124517648478,
+    -0.0024532074891041957,
+    23521.332716203022,
+    0.003502889960374423,
+    0.9995783752602329,
+    1384.4356166940315
+   ],
+   "nota": "X' = a·X + b·Y + c ; Y' = d·X + e·Y + f (UTM 15S). Coordenadas de la ortofoto → las del DSM de la SGIAR."
+  },
+  "orto_tomas-berlanga_mira-mar_2026-11-03.tif": {
+   "bloques": 988,
+   "bloques_usados": 907,
+   "desplazamiento_en_el_centro_m": [
+    -0.1,
+    -3.46
+   ],
+   "desplazamiento_min_max_m": [
+    [
+     -2.7,
+     2.03
+    ],
+    [
+     -5.15,
+     -0.2
+    ]
+   ],
+   "residuo_mediano_m": 0.86,
+   "afin": [
+    0.999151920817472,
+    0.000522966202514466,
+    -4511.763961088042,
+    0.00045956521122258504,
+    1.0009491261900196,
+    -9786.30668274394
+   ],
+   "nota": "X' = a·X + b·Y + c ; Y' = d·X + e·Y + f (UTM 15S). Coordenadas de la ortofoto → las del DSM de la SGIAR."
+  },
+  "orto_via-al-cascajo_2026-11-22.tif": {
+   "bloques": 1548,
+   "bloques_usados": 1324,
+   "desplazamiento_en_el_centro_m": [
+    -0.52,
+    -3.05
+   ],
+   "desplazamiento_min_max_m": [
+    [
+     -3.45,
+     2.69
+    ],
+    [
+     -8.21,
+     0.62
+    ]
+   ],
+   "residuo_mediano_m": 0.91,
+   "afin": [
+    0.9992090602802123,
+    5.9801635862707335e-05,
+    39.16140115534324,
+    0.0016997317538158857,
+    0.9994432343774313,
+    4160.861447256837
+   ],
+   "nota": "X' = a·X + b·Y + c ; Y' = d·X + e·Y + f (UTM 15S). Coordenadas de la ortofoto → las del DSM de la SGIAR."
+  }
+ }
+}

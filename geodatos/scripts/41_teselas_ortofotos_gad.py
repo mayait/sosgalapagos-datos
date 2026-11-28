@@ -8,6 +8,9 @@ Entrada: descargas/gad_santa_cruz/ortofotos/orto_*_2026-11-*.tif. Son las cinco 
 Salida:  teselas/ortofotos_gad/relieve/{z}/{x}/{y}.webp (EPSG:3857, 256 px, esquema XYZ, transparente fuera del vuelo)
          y teselas.json con la cobertura, los zooms y la atribución.
 
+Posición: las ortofotos vienen de Pix4D sin puntos de control y están corridas de 1,4 a 5 m. Se corrigen con la afín de
+datos/gad_santa_cruz/registro_ortofotos.json (registro contra el DSM de la SGIAR; lo calcula 45_edificios_ortofotos.py).
+
 Mosaico: donde dos vuelos se solapan queda encima el más reciente. Cada zoom lee la vista reducida (overview) del COG
 más cercana a su resolución, así que el zoom 14 no lee los 25 GB.
 
@@ -37,6 +40,14 @@ ZOOM_MIN = 14
 MUNDO = 2 * math.pi * 6378137.0
 META = 8                    # metatesela de 8 × 8 teselas (2048 px)
 CREDITO = "Ortofotos: GAD Municipal de Santa Cruz (CC BY 4.0)"
+REGISTRO = ROOT / "datos" / "gad_santa_cruz" / "registro_ortofotos.json"
+
+
+def corregir(p, t):
+    """Georreferencia corregida (registro contra el DSM de la SGIAR) de la ortofoto `p` con transformación `t`."""
+    from affine import Affine
+    reg = json.loads(REGISTRO.read_text())["ortofotos"].get(p.name, {}) if REGISTRO.exists() else {}
+    return Affine(*reg["afin"]) * t if "afin" in reg else t
 
 
 def fuentes():
@@ -71,6 +82,7 @@ def metatesela(args):
         if cj[0] > caja[2] or cj[2] < caja[0] or cj[1] > caja[3] or cj[3] < caja[1]:
             continue
         with abrir(p, res_m) as src, WarpedVRT(src, crs="EPSG:3857", transform=tr, width=n, height=n,
+                                                src_transform=corregir(p, src.transform),
                                                 resampling=Resampling.bilinear, src_nodata=None, add_alpha=False) as v:
             a = v.read([1, 2, 3, 4])
         m = a[3] > 127
@@ -97,7 +109,9 @@ def main():
     cajas = []
     for p in tifs:
         with rasterio.open(p) as r:
-            cajas.append(transform_bounds(r.crs, "EPSG:3857", *r.bounds))
+            t = corregir(p, r.transform)
+            xs, ys = zip(*[t * (c, f) for c in (0, r.width) for f in (0, r.height)])
+            cajas.append(transform_bounds(r.crs, "EPSG:3857", min(xs), min(ys), max(xs), max(ys)))
     w3, s3 = min(c[0] for c in cajas), min(c[1] for c in cajas)
     e3, n3 = max(c[2] for c in cajas), max(c[3] for c in cajas)
     if OUT.exists():
@@ -119,7 +133,8 @@ def main():
         "titulo": "Ortofotos de dron del GAD Municipal de Santa Cruz, 3 al 22-nov-2026",
         "atribucion": CREDITO,
         "fuente": "Ortomosaicos de dron del GAD Municipal de Santa Cruz (PIX4Dmatic), de 2 a 7,5 cm por píxel, del 3 al 22 de noviembre de 2026. "
-                  "Licencia CC BY 4.0. Teselas de SOS Galápagos; donde dos vuelos se solapan queda el más reciente.",
+                  "Licencia CC BY 4.0. Teselas de SOS Galápagos, con la posición corregida contra el DSM 1 m de la SGIAR (Vricon/Maxar); "
+                  "donde dos vuelos se solapan queda el más reciente.",
         "vuelos": [p.stem for p in tifs],
         "limites": [[round(s, 6), round(o, 6)], [round(nn, 6), round(e, 6)]],
         "relieve": {"url": "relieve/{z}/{x}/{y}.webp", "zoom_min": ZOOM_MIN, "zoom_max": a.zoom_max},
