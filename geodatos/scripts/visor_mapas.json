@@ -2,6 +2,14 @@
  "_nota": "Ajustes del visor público sosgalapagos.org/mapas/ (10_publicar_web.py los aplica sobre el manifiesto de la app y las capas de los estudios). No cambian el mapa de la app ResponseGrid. Orden de los grupos, qué se ve al abrir, colores de riesgo, capas fusionadas o divididas, plano de dibujo («pane») e índice del buscador. Si un id no existe, el script falla: así un cambio de nombre no borra un ajuste sin avisar.",
  "_colores": "Riesgo de inundación por lluvia: la susceptibilidad va en azules (oscuro = alta, medio = media, claro = baja); los puntos potenciales y los cruces quebrada–vía, en rojo y naranja. Sin verde: «baja» sigue siendo zona susceptible. El modelo 2D también va en azul (profundidad).",
 
+ "reemplazos": {
+  "_nota": "Regla del proyecto (Julián, 28-nov-2026): si aparece una versión de algo mejor hecha por científicos, reemplaza a la hecha por SOS Galápagos. Solo si se puede mejorar uniendo lo de los científicos se crean capas nuevas. Con «islas», la capa de SOS pierde solo esas islas; sin «islas», sale entera. No cambia los cálculos internos (HAND, área de interés, estudios).",
+  "cuencas_localidad": {"islas": ["Santa Cruz"], "por": ["espol_cuencas", "usfq_cuencas"], "motivo": "Cuencas de la ESPOL y del Instituto de Geografía USFQ"},
+  "subcuencas": {"islas": ["Santa Cruz"], "por": ["usfq_subcuencas"], "motivo": "Subcuencas del Instituto de Geografía USFQ"},
+  "sc_cuenca_cascada": {"islas": null, "por": ["espol_cuencas", "usfq_cuencas"], "motivo": "La cuenca de La Cascada es SCW01 (ESPOL) y la cuenca 29 (USFQ)"},
+  "drenaje": {"islas": ["Santa Cruz"], "por": ["usfq_drenaje"], "motivo": "Red de drenaje del Instituto de Geografía USFQ"}
+ },
+
  "fusionar": [
   {"id": "cruces_via_alta", "de": ["sc_cruces_alta", "sx_cruces_alta"], "archivo": "cruces_quebrada_via_alta.geojson",
    "titulo": "Cruces de quebradas con vías: prioridad alta",
