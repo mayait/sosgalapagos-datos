@@ -2,6 +2,14 @@
  "_nota": "Ajustes del visor público sosgalapagos.org/mapas/ (10_publicar_web.py los aplica sobre el manifiesto de la app y las capas de los estudios). No cambian el mapa de la app ResponseGrid. Orden de los grupos, qué se ve al abrir, colores de riesgo, capas fusionadas o divididas, plano de dibujo («pane») e índice del buscador. Si un id no existe, el script falla: así un cambio de nombre no borra un ajuste sin avisar.",
  "_colores": "Riesgo de inundación por lluvia: la susceptibilidad va en azules (oscuro = alta, medio = media, claro = baja); los puntos potenciales y los cruces quebrada–vía, en rojo y naranja. Sin verde: «baja» sigue siendo zona susceptible. El modelo 2D también va en azul (profundidad).",
 
+ "reemplazos": {
+  "_nota": "Regla del proyecto (Julián, 28-nov-2026): si aparece una versión de algo mejor hecha por científicos, reemplaza a la hecha por SOS Galápagos. Solo si se puede mejorar uniendo lo de los científicos se crean capas nuevas. Con «islas», la capa de SOS pierde solo esas islas; sin «islas», sale entera. No cambia los cálculos internos (HAND, área de interés, estudios).",
+  "cuencas_localidad": {"islas": ["Santa Cruz"], "por": ["espol_cuencas", "usfq_cuencas"], "motivo": "Cuencas de la ESPOL y del Instituto de Geografía USFQ"},
+  "subcuencas": {"islas": ["Santa Cruz"], "por": ["usfq_subcuencas"], "motivo": "Subcuencas del Instituto de Geografía USFQ"},
+  "sc_cuenca_cascada": {"islas": null, "por": ["espol_cuencas", "usfq_cuencas"], "motivo": "La cuenca de La Cascada es SCW01 (ESPOL) y la cuenca 29 (USFQ)"},
+  "drenaje": {"islas": ["Santa Cruz"], "por": ["usfq_drenaje"], "motivo": "Red de drenaje del Instituto de Geografía USFQ"}
+ },
+
  "fusionar": [
   {"id": "cruces_via_alta", "de": ["sc_cruces_alta", "sx_cruces_alta"], "archivo": "cruces_quebrada_via_alta.geojson",
    "titulo": "Cruces de quebradas con vías: prioridad alta",
@@ -26,7 +34,7 @@
   {"id": "lluvia", "titulo": "Riesgo de inundación por lluvia",
    "descripcion": "Lo que conviene mirar ahora. La susceptibilidad, los puntos y los cruces salen de modelos propios sobre un relieve de 30 m (en Santa Cruz, de 10 m con el DEM de SIGTIERRAS y de 5 m con el DTM de la SGIAR en Puerto Ayora, el escarpe y Bellavista): sirven para priorizar inspecciones, no son delimitaciones oficiales.",
    "capas": ["susceptibilidad", "sc_vaso_21nov", "sc_control_21nov", "sc_puntos", "sx_puntos", "cruces_via_alta", "cruces_via_media", "sc_vasos", "sx_vasos", "oficiales_lluvia", "franja", "sc_modelo2d", "sx_modelo2d_guayabillos", "sx_modelo2d_100mm"]},
-  {"id": "hidrografia", "titulo": "Quebradas y drenaje", "capas": ["quebradas", "sx_canadas", "usfq_drenaje", "usfq_cuencas", "usfq_subcuencas"]},
+  {"id": "hidrografia", "titulo": "Quebradas y drenaje", "capas": ["espol_cuencas", "quebradas", "sx_canadas", "usfq_drenaje", "usfq_cuencas", "usfq_subcuencas"]},
   {"id": "puntos", "titulo": "Puntos clave: refugios, salud y servicios"},
   {"id": "vias", "titulo": "Vías y calles", "capas": ["vias", "nombres_vias"]},
   {"id": "poblacion", "titulo": "Zonas pobladas", "capas": ["barrios", "limite_urbano", "manzanas"]},
@@ -145,6 +153,7 @@
    "Orden 2": {"etiqueta": "Orden 2", "color": "#0284c7", "weight": 1.5},
    "Orden 1 (cabecera)": {"etiqueta": "Orden 1 (cabecera)", "color": "#38bdf8", "weight": 0.9}}}},
   "usfq_cuencas": {"visible": false, "corto": "Cuenca", "rotulo": {"propiedad": "id"}},
+  "espol_cuencas": {"visible": true, "corto": "Cuenca de interés", "rotulo": {"propiedad": "titulo"}},
   "usfq_subcuencas": {"visible": false, "visible_movil": false, "corto": "Subcuenca"},
   "barrios": {"visible": true, "estilo": {"color": "#1f2937", "weight": 1, "opacity": 0.6, "fill": true, "fillOpacity": 0}},
   "parque": {"visible": false},

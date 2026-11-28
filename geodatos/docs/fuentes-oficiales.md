@@ -146,12 +146,19 @@ Capas `galapagos50k:*` descargadas (con el bbox de las tres islas):
 
 ### 3.1c SIGTIERRAS e Instituto de Geografía USFQ: DEM de 10 m, cuencas y drenaje de Santa Cruz ✅ (entregado el 24-nov-2026)
 
-- **Fuente:** el Instituto de Geografía de la USFQ procesó en SAGA GIS el DEM de 10 m de SIGTIERRAS (Ministerio de Agricultura y Ganadería) y entregó a SOS Galápagos el DEM, las cuencas (186), las subcuencas (1 186) y la red de drenaje (1 222 tramos) de toda Santa Cruz.
+- **Fuente:** el Instituto de Geografía de la USFQ (María Belén Zapata) procesó en SAGA GIS el DEM de 10 m de SIGTIERRAS (Ministerio de Agricultura y Ganadería) y entregó a SOS Galápagos el DEM, las cuencas (186), las subcuencas (1 186) y la red de drenaje (1 222 tramos) de toda Santa Cruz.
 - **Formato:** shapefiles y GeoTIFF en WGS 84 / UTM 15 S (EPSG:32715), dato de la autora; los `.prj` lo confirman.
 - **Calidad del DEM:** frente a 7 859 puntos acotados del IGM 1:25 000, error absoluto medio de 0,52 m (Copernicus: 2,70 m). Es de terreno: en Puerto Ayora queda 1,1 m (mediana) bajo el DTM de la SGIAR. Ese acuerdo con el IGM sugiere que se hizo en parte con su cartografía, así que no es un control independiente.
 - **En el repositorio:** `geodatos/datos/usfq_geografia/` (capas en EPSG:4326 y `LEEME.md`), generado por `38_usfq_cuencas_sigtierras.py` a partir del zip en `descargas/usfq_geografia/`. El DEM queda en `descargas/` (fuera de git) hasta confirmar si se puede redistribuir.
 - **Uso:** desde el 28-nov-2026 es el relieve de Santa Cruz fuera de la cobertura del DTM de la SGIAR (`relieve_sigtierras.py`, `03_dem.py`).
 - **Licencia:** DEM de SIGTIERRAS, información pública con cita a la institución. Cuencas, subcuencas y drenaje: Instituto de Geografía USFQ, con crédito.
+
+### 3.1d ESPOL: cuencas hidrográficas de interés de Santa Cruz ✅ (entregado el 28-nov-2026)
+
+- **Autores:** Maurizio Mulas, Daniel Garcés, Erwin Larreta, Victoria Rosado y Valeria Vaca (ESPOL). Se citan siempre con nombre.
+- **Qué es:** las cuencas de interés con las que trabaja la mesa técnica alrededor de Puerto Ayora: secciones alta y baja de las subcuencas SCW01, SCW02 y SCW24, y dos microcuencas. La franja intermedia del mapa original no viene en el archivo.
+- **En el repositorio:** `geodatos/datos/espol_cuencas/`, generado por `39_espol_cuencas_interes.py` a partir de `descargas/espol/secciones_cuenca.kmz`.
+- **Coherencia:** SCW01 cae en un 94–99 % dentro de la cuenca de Puerto Ayora de la USFQ y de la de SOS; SCW02, en la cuenca 10 de la USFQ. La divisoria de SCW24 con Puerto Ayora difiere en la parte alta.
 
 ### 3.2 Límites administrativos y suelo urbano
 

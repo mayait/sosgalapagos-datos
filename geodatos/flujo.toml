@@ -51,6 +51,13 @@ salidas = ["datos/usfq_geografia/cuencas_santa_cruz.geojson", "datos/usfq_geogra
            "datos/usfq_geografia/drenaje_santa_cruz.geojson", "datos/usfq_geografia/resumen.json",
            "descargas/usfq_geografia/santa_cruz_sigtierras_10m.tif"]
 
+[pasos.espol_cuencas]
+script = "39_espol_cuencas_interes.py"
+manual = true
+nota = "Cuencas hidrográficas de interés de Santa Cruz (ESPOL: Mulas, Garcés, Larreta, Rosado y Vaca)"
+entradas = ["descargas/espol/secciones_cuenca.kmz"]
+salidas = ["datos/espol_cuencas/cuencas_interes_santa_cruz.geojson", "datos/espol_cuencas/resumen.json"]
+
 # ------------------------------------------------------------------ lluvia
 [pasos.lluvia_ierse]
 script = "21_lluvia_ierse_estudios.py"

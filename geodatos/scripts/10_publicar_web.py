@@ -46,7 +46,10 @@ Información y Análisis de Riesgo; producto Vricon/Maxar).
 - En Santa Cruz, el relieve y los modelos usan además el DTM de 1 m de la SGIAR: cite a la SGIAR
   como fuente del relieve («DTM 1 m: SGIAR (Vricon/Maxar)»).
 - En el resto de Santa Cruz, el relieve es el DEM de 10 m de SIGTIERRAS (cite «DEM 10 m: SIGTIERRAS»).
-  Las cuencas, subcuencas y red de drenaje de 10 m son del Instituto de Geografía de la USFQ (SAGA GIS).
+  Las cuencas, subcuencas y red de drenaje de 10 m son del Instituto de Geografía de la USFQ
+  (María Belén Zapata; SAGA GIS).
+- Cuencas hidrográficas de interés de Santa Cruz: ESPOL, de Maurizio Mulas, Daniel Garcés, Erwin Larreta,
+  Victoria Rosado y Valeria Vaca.
 - La susceptibilidad a inundación, la costa baja y los cauces adicionales son un MODELO (sobre el DSM
   de 30 m y, en Santa Cruz, sobre el DEM de SIGTIERRAS a 10 m y el DTM de la SGIAR a 5 m): sirven para priorizar, no son
   delimitaciones oficiales.
@@ -341,6 +344,32 @@ def preparar_buenas(destino):
 VISOR = ROOT / "scripts" / "visor_mapas.json"
 
 
+def aplicar_reemplazos(man):
+    """Regla del proyecto: si hay una versión hecha por científicos, reemplaza a la de SOS Galápagos.
+    visor_mapas.json → «reemplazos»: {id_capa_sos: {"islas": [...] o null (todas), "por": [ids], "motivo": "..."}}.
+    Con «islas», se quitan de la capa (y de sus descargas) las entidades de esas islas; sin «islas», la capa sale entera.
+    Devuelve {archivo: islas a quitar}. Falla si una capa no existe (un reemplazo nunca se pierde en silencio)."""
+    cfg = json.loads(VISOR.read_text()).get("reemplazos", {})
+    capas = {c["id"]: c for g in man["grupos"] for c in g["capas"]}
+    filtrar = {}
+    for i, r in cfg.items():
+        if i.startswith("_"): continue
+        for j in [i] + r["por"]:
+            if j not in capas: raise SystemExit(f"visor_mapas.json: reemplazos: la capa «{j}» no existe en el manifiesto")
+        por = " y ".join(f"«{capas[j]['titulo']}»" for j in r["por"])
+        if r.get("islas"):
+            c = capas[i]
+            c["descripcion"] = (c.get("descripcion", "") + f" En {', '.join(r['islas'])} se usa {por} en su lugar.").strip()
+            filtrar[c["archivo"]] = set(r["islas"])
+        else:
+            for g in man["grupos"]: g["capas"] = [c for c in g["capas"] if c["id"] != i]
+            f = TMP_ESTUDIOS / capas[i]["archivo"]
+            if f.exists(): f.unlink()
+        print(f"   reemplazo: {i} → {', '.join(r['por'])} ({', '.join(r['islas']) if r.get('islas') else 'entera'})")
+    man["grupos"] = [g for g in man["grupos"] if g["capas"]]
+    return filtrar
+
+
 def aplicar_visor(man):
     """Aplica scripts/visor_mapas.json: fusiona y divide capas, reordena grupos, cambia visibilidad, estilos y plano
     de dibujo, y deja el índice del buscador. Falla si un id no existe (un ajuste nunca se pierde en silencio)."""
@@ -536,6 +565,7 @@ def main():
         shutil.copy(FOTO_DIR / c["archivo"], TMP_ESTUDIOS / c["archivo"])
     g_em["capas"] += [json.loads(json.dumps(c)) for c in (CAPA_ESTIMACION, CAPA_ORTOFOTO, CAPA_ZONA_FOTO, CAPA_EDIFICIOS_FOTO)]
     man = aplicar_visor(man)
+    filtrar = aplicar_reemplazos(man)
     f_est = sorted(TMP_ESTUDIOS.glob("*.geojson"))
     publicados = {p.name for p in f_est} | {p.name for src in VARIANTES.values() for p in src.glob("*.geojson")}
     for b in man["buscar"]:
@@ -564,6 +594,13 @@ def main():
                 gj = ROOT / "export" / "galapagos-completo" / gj.name   # sin recorte también en «Zona poblada»
             if gj.name == "susceptibilidad_inundacion.geojson":
                 gj = susceptibilidad_ajustada(gj.parent)
+            if gj.name in filtrar:            # reemplazada por una versión de científicos en esas islas
+                fl = ROOT / "publicar" / "_reemplazos" / var / gj.name
+                fl.parent.mkdir(parents=True, exist_ok=True)
+                dd = json.loads(gj.read_text())
+                dd["features"] = [f for f in dd["features"] if f["properties"].get("isla") not in filtrar[gj.name]]
+                fl.write_text(json.dumps(dd, ensure_ascii=False, separators=(",", ":")))
+                gj = fl
             data = json.loads(gj.read_text())
             feats = [f for f in data["features"] if f.get("geometry")]
             shutil.copy(gj, d_datos / gj.name)

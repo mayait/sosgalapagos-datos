@@ -6,7 +6,7 @@
   "sha256": "442ba66f90ad991d684907b3f6e0f194f7025059875bfe2688315c24ca4746f6"
  },
  "crs_origen": "EPSG:32715",
- "fuente": "Instituto de Geografía USFQ (SAGA GIS sobre DEM 10 m SIGTIERRAS)",
+ "fuente": "Instituto de Geografía USFQ, María Belén Zapata (SAGA GIS sobre DEM 10 m SIGTIERRAS)",
  "cuencas": {
   "n": 186,
   "area_total_km2": 911.8,

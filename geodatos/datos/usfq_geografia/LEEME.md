@@ -1,8 +1,8 @@
 # Cuencas, subcuencas y drenaje de Santa Cruz (Instituto de Geografía USFQ, DEM de 10 m de SIGTIERRAS)
 
-Entrega del **Instituto de Geografía de la USFQ** a SOS Galápagos, el 24-nov-2026. Se procesó en **SAGA GIS** sobre el **DEM de 10 m de SIGTIERRAS** y se exportó desde ArcGIS Pro.
+Entrega del **Instituto de Geografía de la USFQ** (María Belén Zapata) a SOS Galápagos, el 24-nov-2026. Se procesó en **SAGA GIS** sobre el **DEM de 10 m de SIGTIERRAS** y se exportó desde ArcGIS Pro.
 
-> **Crédito:** «Cuencas y drenaje: Instituto de Geografía USFQ, sobre el DEM 10 m de SIGTIERRAS».
+> **Crédito:** «Cuencas y drenaje: Instituto de Geografía USFQ (María Belén Zapata), sobre el DEM 10 m de SIGTIERRAS».
 
 ## Archivos
 

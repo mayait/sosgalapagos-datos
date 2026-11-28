@@ -20,6 +20,8 @@ Lee primero [README.md](README.md) (qué hay) y [CONTRIBUIR.md](CONTRIBUIR.md) (
 
 8. **Licencia (desde el 23-nov-2026).** El código va bajo Apache 2.0 ([`LICENSE`](LICENSE) y [`NOTICE`](NOTICE)); lo propio que no es código va bajo CC BY 4.0 y lo de terceros conserva su licencia, que prevalece ([`LICENCIA-DATOS.md`](LICENCIA-DATOS.md)). Crédito: «SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya <jamaya@usfq.edu.ec>». Del 22 al 23-nov-2026 rigieron derechos reservados y CC BY-NC-ND 4.0. Cada archivo de código propio (`.py`, `.sh`, páginas) empieza con el aviso de autoría de dos líneas (USFQ · SOS Galápagos · Julián Maya): ponlo en los archivos nuevos y no lo quites. Donde se muestre o se descargue un dato de terceros, se nombra su licencia.
 
+9. **Lo de los científicos reemplaza a lo de SOS (desde el 28-nov-2026).** Si aparece una versión de algo mejor hecha por científicos (universidades, institutos), reemplaza en la web a la que hizo SOS Galápagos; la nuestra queda solo donde no hay otra (por ejemplo, otras islas). Solo si uniendo lo de los científicos se puede mejorar algo se crea una capa nueva. Se hace con «reemplazos» en `geodatos/scripts/visor_mapas.json` (lo aplica `10_publicar_web.py`), sin tocar los cálculos internos. Los autores se citan con nombre.
+
 ## Convenciones
 
 - Idioma: español claro. En SOS Galápagos se dice **«refugio»**, nunca «albergue».
