@@ -46,7 +46,10 @@ Información y Análisis de Riesgo; producto Vricon/Maxar).
 - En Santa Cruz, el relieve y los modelos usan además el DTM de 1 m de la SGIAR: cite a la SGIAR
   como fuente del relieve («DTM 1 m: SGIAR (Vricon/Maxar)»).
 - En el resto de Santa Cruz, el relieve es el DEM de 10 m de SIGTIERRAS (cite «DEM 10 m: SIGTIERRAS»).
-  Las cuencas, subcuencas y red de drenaje de 10 m son del Instituto de Geografía de la USFQ (SAGA GIS).
+  Las cuencas, subcuencas y red de drenaje de 10 m son del Instituto de Geografía de la USFQ
+  (María Belén Zapata; SAGA GIS).
+- Cuencas hidrográficas de interés de Santa Cruz: ESPOL, de Maurizio Mulas, Daniel Garcés, Erwin Larreta,
+  Victoria Rosado y Valeria Vaca.
 - La susceptibilidad a inundación, la costa baja y los cauces adicionales son un MODELO (sobre el DSM
   de 30 m y, en Santa Cruz, sobre el DEM de SIGTIERRAS a 10 m y el DTM de la SGIAR a 5 m): sirven para priorizar, no son
   delimitaciones oficiales.

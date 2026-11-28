@@ -1,0 +1,28 @@
+{
+ "generado": "2026-11-28",
+ "autores": [
+  "Maurizio Mulas",
+  "Daniel Garcés",
+  "Erwin Larreta",
+  "Victoria Rosado",
+  "Valeria Vaca"
+ ],
+ "institucion": "ESPOL",
+ "kmz": {
+  "archivo": "descargas/espol/secciones_cuenca.kmz",
+  "sha256": "52f914ac27d607665dfed25d944772732d61f93cd8e8f5f40318e62e9a98b52b"
+ },
+ "poligonos": 9,
+ "descartados_por_area": 1,
+ "areas_km2": {
+  "Microcuenca de 6,77 km²": 6.765,
+  "Microcuenca de 2,84 km²": 2.844,
+  "SCW01, sección baja": 11.553,
+  "SCW01, sección alta": 7.052,
+  "SCW01, fragmento de la sección baja": 0.064,
+  "SCW02, sección baja": 15.235,
+  "SCW02, sección alta": 5.516,
+  "SCW24, sección baja": 20.29,
+  "SCW24, sección alta": 1.171
+ }
+}
