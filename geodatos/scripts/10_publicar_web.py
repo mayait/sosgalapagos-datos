@@ -64,18 +64,18 @@ CAPA_ORTOFOTO = {"id": "ortofoto_21nov", "titulo": "Foto aérea del 21-nov, Puer
                  "visible": False, "opacidad": 1, "fuente": CREDITO_FOTO + ". Rectificada por SOS Galápagos sobre el DTM 1 m: SGIAR (Vricon/Maxar).",
                  "creditos": ["tui_de_roy", "sos_usfq", "sgiar"],
                  "descripcion": "Foto aérea oblicua de Puerto Ayora inundado el 21 de noviembre de 2026, tomada a las 14:00 y puesta sobre el mapa. " + CREDITO_FOTO + ". "
-                                "No es una ortofoto oficial: sale de una sola foto tomada de lado, así que los edificios se ven inclinados hacia el sur "
+                                "Sale de una sola foto tomada de lado, así que los edificios se ven inclinados hacia el sur "
                                 "y lo que tapan no aparece. Sirve para ubicar el agua calle por calle, no para medir. Tiene más detalle cerca de La Cascada."}
-CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona afectada el 21-nov y gravedad aparente, según la foto aérea (estimación)", "archivo": "zona_inundada_foto_21nov.geojson",
+CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona afectada el 21-nov y gravedad aparente, según la foto aérea", "archivo": "zona_inundada_foto_21nov.geojson",
                   "tipo": "poligono", "visible": False, "creditos": ["sos_usfq", "tui_de_roy", "comunidad_reportes", "sgiar"]}
                   # estilo, ficha y descripción: visor_mapas.json
-CAPA_EDIFICIOS_FOTO = {"id": "edificios_foto_21nov", "titulo": "Edificios en la zona afectada del 21-nov: pisos, familias y personas (estimación)",
+CAPA_EDIFICIOS_FOTO = {"id": "edificios_foto_21nov", "titulo": "Edificios en la zona afectada del 21-nov: pisos, familias y personas",
                        "archivo": "edificios_afectados_foto_21nov.geojson", "tipo": "poligono", "visible": False,
                        "creditos": ["sos_usfq", "tui_de_roy", "osm", "google_open_buildings"]}
 # La estimación de familias afectadas que sale de esa foto: un punto con hora, para que salga en la línea del tiempo
 # de /riesgos/informe/ (que lee las capas con «marcador: reporte» y la fecha de `fotos_base`). No es un reporte ciudadano.
 ARCHIVO_ESTIMACION = "estimacion_foto_21nov.geojson"
-CAPA_ESTIMACION = {"id": "estimacion_foto_21nov", "titulo": "Estimación de familias afectadas el 21-nov (SOS Galápagos)", "archivo": ARCHIVO_ESTIMACION,
+CAPA_ESTIMACION = {"id": "estimacion_foto_21nov", "titulo": "Familias afectadas el 21-nov según la foto aérea (SOS Galápagos)", "archivo": ARCHIVO_ESTIMACION,
                    "tipo": "punto", "visible": False, "fotos_base": f"estimaciones/{EVENTO}/",
                    "creditos": ["sos_usfq", "tui_de_roy"]}    # estilo, ficha y descripción: visor_mapas.json
 
@@ -202,7 +202,7 @@ GRAVEDAD = {1: "1 · Leve", 2: "2 · Moderada", 3: "3 · Grave", 4: "4 · Muy gr
 CAPA_REPORTES = {"id": "reportes_21nov", "titulo": "Reportes ciudadanos del 21-nov (sin verificar)", "archivo": ARCHIVO_REPORTES,
                  "tipo": "punto", "visible": True, "fotos_base": f"reportes/{EVENTO}/",
                  "fuente": "Reportes de vecinos por WhatsApp, sin verificar.", "creditos": ["comunidad_reportes", "coe_santa_cruz"],
-                 "descripcion": "Reportes de vecinos por WhatsApp, sin verificar. No es información oficial. "
+                 "descripcion": "Reportes de vecinos por WhatsApp, sin verificar. "
                                 "Cada punto resume varios mensajes y fotos; la ubicación puede ser aproximada."}
 
 # Buenas noticias y ayuda del 21-nov (reportes/scripts/06_buenas.py): capa aparte, con corazón, sin gravedad
