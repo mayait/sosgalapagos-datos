@@ -1,14 +1,14 @@
 {
  "Santa Cruz": {
   "edificios": 10350,
-  "susc_alta": 1295,
-  "susc_media": 1131,
-  "susc_baja": 1275,
+  "susc_alta": 1314,
+  "susc_media": 1103,
+  "susc_baja": 1264,
   "franja_quebrada_20m": 31,
   "zona_tsunami": 1081,
-  "costa_0_3m": 77,
+  "costa_0_3m": 72,
   "pob_total": 16880,
-  "pob_susc_alta_media": 5392,
+  "pob_susc_alta_media": 5394,
   "pob_franja_quebrada": 4,
   "pob_zona_tsunami": 917
  },

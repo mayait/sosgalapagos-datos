@@ -45,8 +45,10 @@ Información y Análisis de Riesgo; producto Vricon/Maxar).
   proporcionados por la Comisión Europea).
 - En Santa Cruz, el relieve y los modelos usan además el DTM de 1 m de la SGIAR: cite a la SGIAR
   como fuente del relieve («DTM 1 m: SGIAR (Vricon/Maxar)»).
+- En el resto de Santa Cruz, el relieve es el DEM de 10 m de SIGTIERRAS (cite «DEM 10 m: SIGTIERRAS»).
+  Las cuencas, subcuencas y red de drenaje de 10 m son del Instituto de Geografía de la USFQ (SAGA GIS).
 - La susceptibilidad a inundación, la costa baja y los cauces adicionales son un MODELO (sobre el DSM
-  de 30 m y, en Santa Cruz, sobre el DTM de la SGIAR a 5 m): sirven para priorizar, no son
+  de 30 m y, en Santa Cruz, sobre el DEM de SIGTIERRAS a 10 m y el DTM de la SGIAR a 5 m): sirven para priorizar, no son
   delimitaciones oficiales.
 - La población por manzana es una estimación (viviendas SNGR), no el censo.
 - Foto aérea del 21-nov-2026 en Puerto Ayora, y la zona afectada y los edificios que salen de ella:

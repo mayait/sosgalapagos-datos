@@ -71,7 +71,25 @@
     "estilo": {"radius": 5, "color": "#ffffff", "weight": 1.5, "fillColor": "#0c4a6e", "fillOpacity": 1},
     "popup": {"titulo": "lugar", "campos": {"hora": "Hora", "lectura": "Lectura de las fotos", "prof_obs_txt": "Profundidad observada",
               "cota_terreno_m": "Cota del terreno (m, DTM SGIAR)", "espejo_m": "Cota del agua observada (m)",
-              "prof_mod_rebose_m": "Modelo anterior: profundidad hasta el rebose (m)", "prof_mod_ajuste_m": "Modelo ajustado: profundidad (m)"}}}
+              "prof_mod_rebose_m": "Modelo anterior: profundidad hasta el rebose (m)", "prof_mod_ajuste_m": "Modelo ajustado: profundidad (m)"}}},
+   {"despues_de": "Modelo 2D: calado máximo el 30-oct", "archivo": "datos/usfq_geografia/drenaje_santa_cruz.geojson",
+    "id": "usfq_drenaje", "titulo": "Red de drenaje de Santa Cruz, DEM de 10 m (Geografía USFQ)", "tipo": "linea",
+    "fuente": "Instituto de Geografía USFQ: SAGA GIS sobre el DEM de 10 m de SIGTIERRAS (24-nov-2026)",
+    "descripcion": "Cauces de toda la isla trazados sobre el DEM de 10 m de SIGTIERRAS, por orden de Strahler. Siguen el relieve: no ven alcantarillas, muros ni canales construidos.",
+    "estilo": {"color": "#0369a1", "weight": 1.5, "opacity": 0.9},
+    "popup": {"titulo": "jerarquia", "titulo_defecto": "Cauce", "campos": {"orden_strahler": "Orden de Strahler", "magnitud_shreve": "Cabeceras aguas arriba (Shreve)", "longitud_m": "Longitud del tramo (m)", "fuente": "Fuente"}}},
+   {"despues_de": "Modelo 2D: calado máximo el 30-oct", "archivo": "datos/usfq_geografia/cuencas_santa_cruz.geojson",
+    "id": "usfq_cuencas", "titulo": "Cuencas de Santa Cruz, DEM de 10 m (Geografía USFQ)", "tipo": "poligono",
+    "fuente": "Instituto de Geografía USFQ: SAGA GIS sobre el DEM de 10 m de SIGTIERRAS (24-nov-2026)",
+    "descripcion": "Las 186 cuencas que desembocan al mar en Santa Cruz. El tiempo de concentración y los coeficientes de forma los calculó SAGA.",
+    "estilo": {"color": "#0c4a6e", "weight": 2, "fillColor": "#0ea5e9", "fillOpacity": 0.04},
+    "popup": {"titulo_defecto": "Cuenca", "campos": {"id": "Cuenca n.º", "area_km2": "Área (km²)", "cota_media_m": "Cota media (m)", "desnivel_m": "Desnivel (m)", "longitud_flujo_max_km": "Recorrido más largo del agua (km)", "tiempo_concentracion_h": "Tiempo de concentración (h)", "forma": "Forma", "fuente": "Fuente"}}},
+   {"despues_de": "Modelo 2D: calado máximo el 30-oct", "archivo": "datos/usfq_geografia/subcuencas_santa_cruz.geojson",
+    "id": "usfq_subcuencas", "titulo": "Subcuencas de Santa Cruz, DEM de 10 m (Geografía USFQ)", "tipo": "poligono",
+    "fuente": "Instituto de Geografía USFQ: SAGA GIS sobre el DEM de 10 m de SIGTIERRAS (24-nov-2026)",
+    "descripcion": "Las 1 186 subcuencas en que se dividen las cuencas de la isla (mediana de 0,6 km²).",
+    "estilo": {"color": "#0284c7", "weight": 0.8, "dashArray": "4 3", "fillColor": "#7dd3fc", "fillOpacity": 0.03},
+    "popup": {"titulo_defecto": "Subcuenca", "campos": {"id": "Subcuenca n.º", "cuenca_principal": "Cuenca n.º", "area_km2": "Área (km²)", "cota_media_m": "Cota media (m)", "desnivel_m": "Desnivel (m)", "longitud_flujo_max_km": "Recorrido más largo del agua (km)", "tiempo_concentracion_h": "Tiempo de concentración (h)", "forma": "Forma", "fuente": "Fuente"}}}
   ]
  },
  "san-cristobal": {

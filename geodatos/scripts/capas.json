@@ -412,7 +412,7 @@
      "archivo": "susceptibilidad_inundacion.geojson",
      "tipo": "poligono",
      "visible": true,
-     "fuente": "Modelo HAND sobre Copernicus GLO-30 y quebradas IGM",
+     "fuente": "Modelo HAND sobre Copernicus GLO-30 y quebradas IGM; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
      "descripcion": "Altura del terreno sobre la quebrada más cercana. Sirve para priorizar; no es una delimitación oficial. En terreno muy plano (Puerto Villamil) sobrestima.",
      "estilo": {
       "weight": 0.6,
@@ -515,7 +515,7 @@
      "archivo": "costa_baja.geojson",
      "tipo": "poligono",
      "visible": false,
-     "fuente": "Modelo sobre Copernicus GLO-30",
+     "fuente": "Modelo sobre Copernicus GLO-30; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
      "estilo": {
       "weight": 0.5,
       "fillOpacity": 0.35
@@ -580,7 +580,7 @@
      "archivo": "cuencas_localidad.geojson",
      "tipo": "poligono",
      "visible": true,
-     "fuente": "Modelo D8 (Copernicus GLO-30 + quebradas IGM)",
+     "fuente": "Modelo D8 (Copernicus GLO-30 + quebradas IGM; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar))",
      "descripcion": "Todo el terreno cuya agua termina pasando por el poblado, desde la parte alta (aunque esté en el parque).",
      "estilo": {
       "color": "#0c4a6e",
@@ -658,7 +658,7 @@
      "archivo": "drenaje_adicional.geojson",
      "tipo": "linea",
      "visible": true,
-     "fuente": "Modelo sobre Copernicus GLO-30",
+     "fuente": "Modelo sobre Copernicus GLO-30; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
      "descripcion": "Cauces que el IGM no tiene mapeados. Revisar en terreno.",
      "estilo": {
       "color": "#38bdf8",
@@ -702,7 +702,7 @@
      "archivo": "cuencas_aportantes.geojson",
      "tipo": "poligono",
      "visible": false,
-     "fuente": "Modelo D8 (Copernicus GLO-30 + quebradas IGM)",
+     "fuente": "Modelo D8 (Copernicus GLO-30 + quebradas IGM; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar))",
      "descripcion": "Cada subcuenca es el área que entra a un poblado por un mismo cauce.",
      "estilo": {
       "weight": 1.2,
@@ -972,7 +972,7 @@
      "tipo": "linea",
      "visible": false,
      "zoom_min": 14,
-     "fuente": "Derivadas de Copernicus GLO-30",
+     "fuente": "Derivadas de Copernicus GLO-30; en Santa Cruz, DEM 10 m: SIGTIERRAS y DTM 1 m: SGIAR (Vricon/Maxar)",
      "estilo": {
       "color": "#92400e",
       "weight": 0.6,

@@ -69,6 +69,16 @@ Efecto en la exposición de Santa Cruz (`resumen_exposicion.json`): los edificio
 
 Frente a los puntos acotados del IGM, el DTM queda en mediana 1,0 m más bajo y el Copernicus 1,8 m más bajo; por encima de 100 m de altura el DTM se acerca al IGM 1,3 a 2 m más que el Copernicus. El DTM es de terreno, pero **no ve alcantarillas ni muros**, y las imágenes son de 2020–2024.
 
+## Santa Cruz: DEM de 10 m de SIGTIERRAS (desde el 28-nov-2026)
+
+Fuera de la cobertura del DTM de la SGIAR, el relieve de Santa Cruz ya no es el Copernicus sino el **DEM de 10 m de SIGTIERRAS**, que entregó el Instituto de Geografía de la USFQ junto con sus cuencas, subcuencas y drenaje (`geodatos/datos/usfq_geografia/LEEME.md`).
+
+- **Prioridad del relieve**: DTM 1 m SGIAR > SIGTIERRAS 10 m > Copernicus (solo donde no hay ninguno de los dos, ≈ 3 % de la tierra). Lo hace `relieve_sigtierras.py` antes de `relieve_sgiar.py`.
+- **Tres mallas empalmadas**: 5 m dentro del DTM, 10 m (1/3 de segundo de arco) en el resto de la cobertura de SIGTIERRAS y 30 m fuera. Cada polígono dice en `metodo` y cada línea en `relieve` con qué malla se calculó.
+- **Calidad**: frente a 7 859 puntos acotados del IGM, error absoluto medio de 0,52 m (Copernicus: 2,70 m). Es de terreno, no de superficie. El acuerdo es tan alto que probablemente se hizo en parte con la cartografía del IGM: no es un control independiente.
+- **Efecto** (toda la isla, fuera del DTM): la clase alta pasa de 4 671 a 5 889 ha, la media de 6 770 a 4 203 ha y la baja de 8 525 a 6 159 ha. Los cauces de ≥ 0,5 km² que quedan a 30 m o menos de un cauce de la USFQ pasan del 25 % al 61 %. En los poblados casi no cambia, porque ya estaban en el DTM: edificios en alta de 1 295 a 1 314, población en alta o media de 5 392 a 5 394, costa baja de 0 a 3 m de 77 a 72 edificios.
+- **Cotas**: SIGTIERRAS queda ≈ 1,1 m bajo el DTM de la SGIAR en la costa y 1,6 a 2,9 m sobre él por encima de 30 m. No mezcles umbrales de un relieve con los de otro.
+
 ## Ajuste con lo observado el 21-nov-2026 (Puerto Ayora, el escarpe y Bellavista)
 
 La susceptibilidad publicada en `/mapas/` es la HAND **más** un ajuste calibrado con la inundación del 21-nov. Es un **modelo propio ajustado con reportes sin verificar, no una delimitación oficial**. El ajuste solo **sube** de clase y las demás islas no cambian. Lo único que baja son las **correcciones por conocimiento local** (ver abajo).
@@ -112,8 +122,8 @@ En algunas zonas la coordinación de SOS Galápagos sabe que el agua no llega, a
 
 ## Límites (decirlos siempre que se muestre el mapa)
 
-1. **Fuera del DTM de la SGIAR, el DEM es de superficie (DSM)**: incluye techos y copas de árboles. En la ciudad y el bosque la cota está sesgada; frente al IGM hay un sesgo de −2 a −3 m. No usar cotas absolutas como umbrales normativos.
-2. **30 m de resolución** (5 m en la cobertura del DTM): no ve alcantarillas ni pasos bajo vías; a 30 m tampoco cauces estrechos.
+1. **Fuera de Santa Cruz, el DEM es de superficie (DSM)**: incluye techos y copas de árboles. En la ciudad y el bosque la cota está sesgada; frente al IGM hay un sesgo de −2 a −3 m. No usar cotas absolutas como umbrales normativos.
+2. **30 m de resolución** (en Santa Cruz, 10 m con SIGTIERRAS y 5 m en la cobertura del DTM): no ve alcantarillas ni pasos bajo vías; a 30 m tampoco cauces estrechos.
 3. **Terreno muy plano** (Puerto Villamil): HAND marca casi todo como susceptible.
 4. **No hay caudal ni período de retorno**: es posición topográfica, no simulación.
 5. **Vasos cerrados** (como La Cascada): el relleno de depresiones del paso 2 los «borra»; hay que analizarlos aparte.

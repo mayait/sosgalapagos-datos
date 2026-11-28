@@ -42,6 +42,15 @@ entradas = ["descargas/sgiar/7032308101286995205.zip", "capas/igm/punto_acotado_
 salidas = ["datos/dtm_sgiar/dtm_sgiar_1m_*.tif", "datos/dtm_sgiar/dtm_sgiar_1m.vrt", "datos/dtm_sgiar/dtm_sgiar_5m.tif",
            "datos/dtm_sgiar/cobertura.geojson", "datos/dtm_sgiar/resumen.json", "datos/dtm_sgiar/SHA256SUMS"]
 
+[pasos.usfq_geografia]
+script = "38_usfq_cuencas_sigtierras.py"
+manual = true
+nota = "Cuencas, subcuencas y drenaje de Santa Cruz (Geografía USFQ, SAGA) y el DEM de 10 m de SIGTIERRAS que usa 03_dem.py"
+entradas = ["descargas/usfq_geografia/GALAPAGOS-SCRUZ.zip"]
+salidas = ["datos/usfq_geografia/cuencas_santa_cruz.geojson", "datos/usfq_geografia/subcuencas_santa_cruz.geojson",
+           "datos/usfq_geografia/drenaje_santa_cruz.geojson", "datos/usfq_geografia/resumen.json",
+           "descargas/usfq_geografia/santa_cruz_sigtierras_10m.tif"]
+
 # ------------------------------------------------------------------ lluvia
 [pasos.lluvia_ierse]
 script = "21_lluvia_ierse_estudios.py"
