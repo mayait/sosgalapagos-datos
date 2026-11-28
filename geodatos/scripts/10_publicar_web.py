@@ -1,3 +1,5 @@
+# SOS Galápagos · © 2026 Universidad San Francisco de Quito (USFQ) · Autor: Julián Maya <jamaya@usfq.edu.ec>
+# Licencia Apache 2.0 (ver LICENSE y NOTICE): puede reutilizarse dando crédito.
 """Arma la página pública de mapas con descargas (sosgalapagos.org/mapas/).
 
 Toma los dos paquetes exportados por 08_exportar.py:
@@ -9,6 +11,12 @@ y genera en publicar/mapas/:
   descargas/<variante>/*.geojson   GeoJSON por capa (enlace directo a datos/)
   descargas/<variante>/todo-*.zip  todas las capas juntas
   descargas.json                   índice que usa /riesgos/ (rutas y tamaños)
+  creditos.json                    quién hizo qué, filtrado por consentimiento (creditos.json del repositorio)
+
+Créditos: cada capa trae «creditos» (ids de geodatos/creditos.json o recetas «@…»). Aquí se resuelven (insumos y
+recetas en cierre transitivo, filtro de consentimiento) y cada capa publicada lleva «creditos», «atribucion» y
+«licencia». Cada zip trae su LEEME.txt (sus créditos y su licencia) y su CITATION.cff. Falla si una capa no tiene
+créditos. Lo revisa después scripts/revisar_creditos.py.
 
 Uso: .venv/bin/python -I scripts/10_publicar_web.py
 Publicar: scripts/publicar_mapas.sh
@@ -32,34 +40,8 @@ TITULO_VAR = {"zona": "Zona poblada (recortado al área de interés)", "completo
 HOY = datetime.date.today().isoformat()
 PRJ = ('GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],'
        'PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]')
-LICENCIA = """Fuentes: IGM 1:25 000, CGREG, Zonificación PNG 2017 (CGREG/FCD), SNGR/INOCAR, MSP, MINEDUC,
-INEC MGN 2026, OpenStreetMap (31-oct-2026), Google Open Buildings, Copernicus GLO-30 y, en Santa Cruz
-(Puerto Ayora, el escarpe y Bellavista), el DTM de 1 m de la SGIAR (Subsecretaría de Gestión de la
-Información y Análisis de Riesgo; producto Vricon/Maxar).
-
-- Vías, nombres de calles y parte de los puntos clave: © colaboradores de OpenStreetMap,
-  licencia ODbL 1.0 (https://www.openstreetmap.org/copyright). Si redistribuyes estos datos,
-  mantén la atribución y la misma licencia.
-- Relieve, pendientes, curvas, cauces adicionales, cuencas, costa baja y susceptibilidad:
-  contienen datos modificados de Copernicus DEM GLO-30 (© DLR e.V. 2010-2014 y © Airbus 2014-2018,
-  proporcionados por la Comisión Europea).
-- En Santa Cruz, el relieve y los modelos usan además el DTM de 1 m de la SGIAR: cite a la SGIAR
-  como fuente del relieve («DTM 1 m: SGIAR (Vricon/Maxar)»).
-- En el resto de Santa Cruz, el relieve es el DEM de 10 m de SIGTIERRAS (cite «DEM 10 m: SIGTIERRAS»).
-  Las cuencas, subcuencas y red de drenaje de 10 m son del Instituto de Geografía de la USFQ
-  (María Belén Zapata; SAGA GIS).
-- Cuencas hidrográficas de interés de Santa Cruz: ESPOL, de Maurizio Mulas, Daniel Garcés, Erwin Larreta,
-  Victoria Rosado y Valeria Vaca.
-- La susceptibilidad a inundación, la costa baja y los cauces adicionales son un MODELO (sobre el DSM
-  de 30 m y, en Santa Cruz, sobre el DEM de SIGTIERRAS a 10 m y el DTM de la SGIAR a 5 m): sirven para priorizar, no son
-  delimitaciones oficiales.
-- La población por manzana es una estimación (viviendas SNGR), no el censo.
-- Foto aérea del 21-nov-2026 en Puerto Ayora, y la zona afectada y los edificios que salen de ella:
-  Foto: Tui De Roy. La foto y su versión rectificada son de su autora (no quedan bajo CC BY 4.0).
-  La zona, su gravedad aparente y los pisos, familias y personas por edificio son una ESTIMACIÓN por visión
-  artificial y muestreo, no un dato oficial ni un censo de daños.
-
-Preparado por SOS Galápagos (https://sosgalapagos.org) para la respuesta a las inundaciones
+CREDITOS = ROOT / "creditos.json"          # registro único de créditos (se edita a mano)
+PIE = """Preparado por SOS Galápagos (https://sosgalapagos.org) para la respuesta a las inundaciones
 de El Niño, oct-nov 2026. Responsable: Julián Maya.
 """
 # Teselas del DTM de 1 m de la SGIAR (36_teselas_dtm.py) y su descarga (mosaico de 5 m del repositorio)
@@ -67,7 +49,7 @@ TESELAS_DTM = ROOT / "teselas" / "dtm_sgiar"
 DTM_DIR = ROOT / "datos" / "dtm_sgiar"
 DTM_REPO = "https://github.com/mayait/sosgalapagos-datos/tree/main/geodatos/datos/dtm_sgiar"
 CAPA_DTM = {"id": "dtm_sgiar", "titulo": "Relieve del terreno, DTM de 1 m (Santa Cruz)", "tipo": "teselas", "teselas": "dtm_sgiar",
-            "visible": False, "opacidad": 0.85, "fuente": "SGIAR (Vricon/Maxar)",
+            "visible": False, "opacidad": 0.85, "fuente": "SGIAR (Vricon/Maxar)", "creditos": ["sgiar"],
             "descripcion": "Modelo digital del terreno de 1 m (sin edificios ni vegetación) de Puerto Ayora, el escarpe y Bellavista. "
                            "Dato de la SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo; imágenes de 2020 a 2024. "
                            "Con la capa encendida, abajo se ve la cota del terreno bajo el cursor (m sobre el nivel del mar, EGM2008).",
@@ -80,18 +62,22 @@ TESELAS_FOTO = ROOT / "teselas" / "ortofoto_21nov"
 CREDITO_FOTO = "Foto: Tui De Roy"
 CAPA_ORTOFOTO = {"id": "ortofoto_21nov", "titulo": "Foto aérea del 21-nov, Puerto Ayora (rectificada)", "tipo": "teselas", "teselas": "ortofoto_21nov",
                  "visible": False, "opacidad": 1, "fuente": CREDITO_FOTO + ". Rectificada por SOS Galápagos sobre el DTM 1 m: SGIAR (Vricon/Maxar).",
+                 "creditos": ["tui_de_roy", "sos_usfq", "sgiar"],
                  "descripcion": "Foto aérea oblicua de Puerto Ayora inundado el 21 de noviembre de 2026, tomada a las 14:00 y puesta sobre el mapa. " + CREDITO_FOTO + ". "
                                 "No es una ortofoto oficial: sale de una sola foto tomada de lado, así que los edificios se ven inclinados hacia el sur "
                                 "y lo que tapan no aparece. Sirve para ubicar el agua calle por calle, no para medir. Tiene más detalle cerca de La Cascada."}
 CAPA_ZONA_FOTO = {"id": "zona_foto_21nov", "titulo": "Zona afectada el 21-nov y gravedad aparente, según la foto aérea (estimación)", "archivo": "zona_inundada_foto_21nov.geojson",
-                  "tipo": "poligono", "visible": False}    # estilo, ficha y descripción: visor_mapas.json
+                  "tipo": "poligono", "visible": False, "creditos": ["sos_usfq", "tui_de_roy", "comunidad_reportes", "sgiar"]}
+                  # estilo, ficha y descripción: visor_mapas.json
 CAPA_EDIFICIOS_FOTO = {"id": "edificios_foto_21nov", "titulo": "Edificios en la zona afectada del 21-nov: pisos, familias y personas (estimación)",
-                       "archivo": "edificios_afectados_foto_21nov.geojson", "tipo": "poligono", "visible": False}
+                       "archivo": "edificios_afectados_foto_21nov.geojson", "tipo": "poligono", "visible": False,
+                       "creditos": ["sos_usfq", "tui_de_roy", "osm", "google_open_buildings"]}
 # La estimación de familias afectadas que sale de esa foto: un punto con hora, para que salga en la línea del tiempo
 # de /riesgos/informe/ (que lee las capas con «marcador: reporte» y la fecha de `fotos_base`). No es un reporte ciudadano.
 ARCHIVO_ESTIMACION = "estimacion_foto_21nov.geojson"
 CAPA_ESTIMACION = {"id": "estimacion_foto_21nov", "titulo": "Estimación de familias afectadas el 21-nov (SOS Galápagos)", "archivo": ARCHIVO_ESTIMACION,
-                   "tipo": "punto", "visible": False, "fotos_base": f"estimaciones/{EVENTO}/"}    # estilo, ficha y descripción: visor_mapas.json
+                   "tipo": "punto", "visible": False, "fotos_base": f"estimaciones/{EVENTO}/",
+                   "creditos": ["sos_usfq", "tui_de_roy"]}    # estilo, ficha y descripción: visor_mapas.json
 
 
 def preparar_estimacion(destino):
@@ -118,12 +104,12 @@ EXTRA = {
     "id": "otras", "titulo": "Otras capas",
     "capas": [
         {"id": "area_interes", "titulo": "Área de interés (recorte de la zona poblada)", "archivo": "area_interes.geojson", "tipo": "poligono",
-         "visible": False, "fuente": "Elaboración propia",
+         "visible": False, "fuente": "Elaboración propia", "creditos": ["sos_usfq", "cgreg", "fcd", "inec", "osm", "@relieve_santa_cruz"],
          "descripcion": "Zona agrícola y urbana, cuencas que drenan a los poblados, 500 m alrededor de zonas pobladas y 300 m alrededor de vías.",
          "estilo": {"color": "#7c3aed", "weight": 2, "dashArray": "6 4", "fillOpacity": 0.03},
          "popup": {"titulo": "isla", "campos": {"area_km2": "Área (km²)", "criterio": "Criterio"}}},
         {"id": "parque_zonificacion", "titulo": "Zonificación del Parque Nacional", "archivo": "parque_zonificacion.geojson", "tipo": "poligono",
-         "visible": False, "fuente": "Zonificación PNG 2017 (CGREG/FCD)",
+         "visible": False, "fuente": "Zonificación PNG 2017 (CGREG/FCD)", "creditos": ["cgreg", "fcd"],
          "estilo": {"weight": 0.6, "fillOpacity": 0.35},
          "clasificar": {"propiedad": "zona", "valores": {
              "Intangible": {"etiqueta": "Intangible", "color": "#14532d", "fillColor": "#14532d"},
@@ -135,6 +121,7 @@ EXTRA = {
          "popup": {"titulo": "zona", "campos": {"isla": "Isla", "fuente": "Fuente"}}},
         {"id": "edificios_expuestos", "titulo": "Edificios expuestos", "archivo": "edificios_expuestos.geojson", "tipo": "poligono",
          "visible": False, "zoom_min": 15, "fuente": "OSM + Google Open Buildings",
+         "creditos": ["sos_usfq", "osm", "google_open_buildings", "@relieve_santa_cruz", "sngr", "inocar", "cgreg"],
          "descripcion": "Edificios en susceptibilidad de inundación, zona de tsunami, franja de quebrada o costa de 0 a 3 m.",
          "estilo": {"color": "#9a3412", "weight": 0.8, "fillColor": "#f97316", "fillOpacity": 0.55},
          "popup": {"titulo": "nombre", "titulo_defecto": "Edificio", "campos": {"susc_inundacion": "Susceptibilidad (0-3)",
@@ -168,7 +155,7 @@ def capa_de_estudio(c, cfg, destino):
         "fillOpacity": c.get("relleno", 0.3), "radius": c.get("radio", 6),
         "dashArray": "6 4" if c.get("discontinua") else None}.items() if v is not None}
     capa = {"id": cfg["id"], "titulo": cfg.get("titulo", c.get("nombre")), "archivo": archivo, "tipo": tipo,
-            "visible": False, "fuente": cfg.get("fuente", "Estudio SOS Galápagos"), "descripcion": cfg.get("descripcion", ""),
+            "visible": False, "fuente": cfg.get("fuente"), "creditos": cfg.get("creditos"), "descripcion": cfg.get("descripcion", ""),
             "estilo": estilo, "popup": cfg.get("popup", {})}
     col = c.get("colores")
     if col:
@@ -214,7 +201,7 @@ ARCHIVO_REPORTES = "reportes_21nov.geojson"
 GRAVEDAD = {1: "1 · Leve", 2: "2 · Moderada", 3: "3 · Grave", 4: "4 · Muy grave"}
 CAPA_REPORTES = {"id": "reportes_21nov", "titulo": "Reportes ciudadanos del 21-nov (sin verificar)", "archivo": ARCHIVO_REPORTES,
                  "tipo": "punto", "visible": True, "fotos_base": f"reportes/{EVENTO}/",
-                 "fuente": "Reportes de vecinos por WhatsApp, sin verificar. No es información oficial.",
+                 "fuente": "Reportes de vecinos por WhatsApp, sin verificar.", "creditos": ["comunidad_reportes", "coe_santa_cruz"],
                  "descripcion": "Reportes de vecinos por WhatsApp, sin verificar. No es información oficial. "
                                 "Cada punto resume varios mensajes y fotos; la ubicación puede ser aproximada."}
 
@@ -224,7 +211,7 @@ ARCHIVO_BUENAS = "buenas_noticias_21nov.geojson"
 ESTADO_ACCION = {"anunciado": "Anunciado, sin confirmar", "en_curso": "En curso", "realizado": "Realizado"}
 CAPA_BUENAS = {"id": "buenas_21nov", "titulo": "Buenas noticias y ayuda del 21-nov (sin verificar)", "archivo": ARCHIVO_BUENAS,
                "tipo": "punto", "visible": True, "fotos_base": f"buenas/{EVENTO}/",
-               "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar. No es información oficial.",
+               "fuente": "Mensajes de vecinos y organizaciones por WhatsApp, sin verificar.", "creditos": ["comunidad_reportes"],
                "descripcion": "Entregas de comida, cocinas comunitarias, donaciones, rescates de voluntarios y vías rehabilitadas, "
                               "según mensajes de vecinos y organizaciones, sin verificar. Cada punto dice quién lo hace y si está "
                               "anunciado o ya se hizo; la ubicación puede ser aproximada."}
@@ -234,7 +221,7 @@ CAPA_BUENAS = {"id": "buenas_21nov", "titulo": "Buenas noticias y ayuda del 21-n
 FLUJO = ROOT.parent / "reportes" / "eventos" / EVENTO / "flujo_observado.geojson"
 ARCHIVO_FLUJO = "flujo_observado_21nov.geojson"
 CAPA_FLUJO = {"id": "flujo_21nov", "titulo": "Por dónde bajó el agua el 21-nov (observado)", "archivo": ARCHIVO_FLUJO,
-              "tipo": "linea", "visible": True}   # estilo, ficha y descripción: visor_mapas.json
+              "tipo": "linea", "visible": True, "creditos": ["sos_usfq", "comunidad_reportes"]}   # estilo, ficha y descripción: visor_mapas.json
 
 # Susceptibilidad ajustada con lo observado el 21-nov (scripts/est_21nov_ajuste.py): se SUMA a la publicada (solo sube de
 # clase, en Puerto Ayora, el escarpe y Bellavista). Mismo archivo, id, clases y colores; el resto de islas no cambia.
@@ -391,7 +378,8 @@ def aplicar_visor(man):
             feats += json.loads(src.read_text())["features"]
             src.unlink()
         (TMP_ESTUDIOS / fu["archivo"]).write_text(json.dumps({"type": "FeatureCollection", "features": feats}, ensure_ascii=False, separators=(",", ":")))
-        nueva = {**base, "id": fu["id"], "archivo": fu["archivo"], "titulo": fu["titulo"], "fuente": fu.get("fuente", base.get("fuente"))}
+        nueva = {**base, "id": fu["id"], "archivo": fu["archivo"], "titulo": fu["titulo"], "fuente": fu.get("fuente", base.get("fuente")),
+                 "creditos": fu.get("creditos") or unir(capas[i].get("creditos") for i in fu["de"])}
         g = grupos[donde[fu["de"][0]]]
         g["capas"][g["capas"].index(base)] = nueva
         for i in fu["de"]:
@@ -439,6 +427,222 @@ def aplicar_visor(man):
     # 5. Índice del buscador (solo archivos que se publican)
     man["buscar"] = cfg.get("buscar", [])
     return man
+
+
+# ---------------------------------------------------------------- créditos (creditos.json, contrato v1)
+TIPOS = {"persona", "institucion", "comunidad"}
+ROLES = {"autoria", "fuente", "foto", "modelo", "insumo"}
+# Licencias «comparte igual»: pasan a todo lo que se deriva (si entra OSM, la capa es ODbL). Las demás de terceros
+# (EULA, información pública, sin obras derivadas…) rigen la capa solo cuando su dueño es la autoría principal; en lo
+# derivado se cita la fuente (LICENCIA-DATOS.md: el HAND sobre el DTM de la SGIAR sigue bajo CC BY 4.0 y cita a la SGIAR).
+LIC_HEREDADAS = ("ODbL-1.0", "CC-BY-SA-4.0", "CC-BY-NC-SA-4.0")
+MAX_ATRIBUCION = 240        # si la línea se pasa, salen primero las citas no obligatorias (siguen en «creditos»)
+LIC_TEXTO = {
+    "CC-BY-4.0": "Creative Commons Atribución 4.0 (https://creativecommons.org/licenses/by/4.0/deed.es): se puede copiar y "
+                 "adaptar, también con fines comerciales, dando crédito con la atribución de arriba.",
+    "ODbL-1.0": "Open Database License 1.0 (https://opendatacommons.org/licenses/odbl/1-0/): contiene datos de OpenStreetMap. "
+                "Si redistribuyes estos datos, mantén la atribución «© colaboradores de OpenStreetMap» y la misma licencia.",
+    "EULA Vricon/Maxar": "EULA de Vricon/Maxar: producto de terceros entregado por la SGIAR, que autorizó publicarlo. No queda bajo "
+                         "CC BY 4.0. Cita obligatoria: «DTM 1 m: SGIAR (Vricon/Maxar)».",
+    "Derechos de su autora": "La foto y su versión rectificada son de su autora: no quedan bajo CC BY 4.0. Cita siempre «Foto: Tui De Roy».",
+    "Derechos de sus autores": "De sus autores, publicada con su permiso y su crédito con nombre: cítalos con nombre en todo mapa, "
+                               "descarga o documento que la use.",
+    "Información pública": "Información pública de las instituciones citadas: cítalas. Para usos formales, confirma con ellas.",
+    "CC-BY-NC-ND-4.0": "Creative Commons Atribución-NoComercial-SinDerivadas 4.0: sin uso comercial y sin obras derivadas para "
+                       "terceros. Publicado con permiso de su dueño; cita obligatoria.",
+}
+SPDX = {"CC-BY-4.0", "ODbL-1.0", "CC-BY-NC-ND-4.0", "CC-BY-SA-4.0", "CC-BY-NC-SA-4.0"}
+# Notas que deben acompañar a una descarga (regla 3: lo que sale de la página dice siempre qué es modelo y qué no)
+NOTA_MODELO = ("Lo que calcula SOS Galápagos en esta capa (modelos, trazos y estimaciones) es una estimación propia, no un dato "
+               "oficial: sirve para priorizar, no para delimitar zonas, normar ni diseñar obras.")
+NOTA_REPORTES = "Los reportes ciudadanos no están verificados y la ubicación puede ser aproximada."
+NOTAS_ARCHIVO = {
+    "manzanas_poblacion.geojson": "La población por manzana es una estimación (viviendas SNGR), no el censo.",
+    "zona_inundada_foto_21nov.geojson": "La zona y su gravedad aparente son una estimación por visión artificial sobre una sola foto, no un dato oficial.",
+    "edificios_afectados_foto_21nov.geojson": "Los pisos, familias y personas por edificio son una estimación por muestreo, no un censo de daños.",
+    "estimacion_foto_21nov.geojson": "La cifra de familias afectadas es una estimación sobre la foto aérea, no un reporte ciudadano ni un dato oficial.",
+}
+
+
+def unir(listas):
+    """Une listas de créditos sin repetir, en orden de aparición."""
+    out = []
+    for l in listas:
+        for x in l or []:
+            if x not in out: out.append(x)
+    return out
+
+
+def con_permiso(e):
+    c = e.get("consentimiento") or {}
+    return c.get("estado") == "si" and c.get("alcance") == "nombre"
+
+
+def cargar_creditos():
+    """Lee y valida creditos.json. Falla con cualquier referencia rota o con un nombre sin consentimiento a la vista."""
+    reg = json.loads(CREDITOS.read_text())
+    E, R = reg["entradas"], reg.get("recetas", {})
+    for i, e in E.items():
+        donde = f"creditos.json: «{i}»"
+        if e.get("tipo") not in TIPOS: raise SystemExit(f"{donde}: tipo «{e.get('tipo')}» no válido")
+        if e.get("rol") not in ROLES: raise SystemExit(f"{donde}: rol «{e.get('rol')}» no válido")
+        for k in ("cita_corta", "licencia"):
+            if not e.get(k): raise SystemExit(f"{donde}: le falta «{k}»")
+        if len(e["cita_corta"]) > 60: raise SystemExit(f"{donde}: la cita corta pasa de 60 caracteres")
+        for k in ("insumos", "personas"):
+            for j in e.get(k, []):
+                if j not in E and j not in R: raise SystemExit(f"{donde}: {k} «{j}» no existe")
+        if e.get("institucion") and e["institucion"] not in E: raise SystemExit(f"{donde}: institución «{e['institucion']}» no existe")
+        if e["tipo"] == "persona" and not con_permiso(e) and not e.get("mostrar_como"):
+            raise SystemExit(f"{donde}: persona sin consentimiento para su nombre y sin «mostrar_como»")
+        if e["tipo"] != "persona" and not e.get("nombre"): raise SystemExit(f"{donde}: le falta «nombre»")
+    for r, l in R.items():
+        if not r.startswith("@"): raise SystemExit(f"creditos.json: la receta «{r}» debe empezar por @")
+        for j in l:
+            if j not in E: raise SystemExit(f"creditos.json: la receta «{r}» usa «{j}», que no existe")
+    ocultos = [e["nombre"] for e in E.values() if e["tipo"] == "persona" and e.get("nombre") and not con_permiso(e)]
+    for i, e in E.items():
+        for k in ("cita_corta", "cita_larga", "mostrar_como") + (() if e["tipo"] == "persona" else ("nombre",)):
+            for n in ocultos:
+                if n in (e.get(k) or ""): raise SystemExit(f"creditos.json: «{i}».{k} nombra a una persona sin consentimiento")
+    return reg
+
+
+def nombre_visible(e):
+    return e.get("nombre") if e["tipo"] != "persona" or con_permiso(e) else e["mostrar_como"]
+
+
+def resolver(lista, reg, donde):
+    """[ids y recetas] → [(id, rol en la capa)]: primero lo que nombra la capa (el primero es la autoría principal),
+    luego lo heredado (recetas e insumos, en cierre transitivo), que entra con rol «insumo»."""
+    E, R = reg["entradas"], reg.get("recetas", {})
+    if not lista: raise SystemExit(f"{donde}: la capa no tiene «creditos» (ver geodatos/creditos.json)")
+    out, cola = [], []
+    for x in lista:
+        if x.startswith("@"):
+            if x not in R: raise SystemExit(f"{donde}: la receta «{x}» no existe en creditos.json")
+            cola += R[x]
+        elif x not in E: raise SystemExit(f"{donde}: el crédito «{x}» no existe en creditos.json")
+        elif x not in [i for i, _ in out]: out.append((x, E[x]["rol"])); cola += E[x].get("insumos", [])
+    while cola:
+        x = cola.pop(0)
+        if x.startswith("@"): cola = R[x] + cola; continue
+        if x in [i for i, _ in out]: continue
+        out.append((x, "insumo")); cola += E[x].get("insumos", [])
+    return out
+
+
+def bloque_creditos(lista, reg, donde):
+    """Lo que se publica en cada capa: {"creditos": [...], "atribucion": "...", "licencia": "..."}."""
+    E = reg["entradas"]
+    res = resolver(lista, reg, donde)
+    items = []
+    for i, rol in res:
+        e = E[i]
+        it = {"id": i, "nombre": nombre_visible(e), "rol": rol, "cita_corta": e["cita_corta"], "licencia": e["licencia"]}
+        if e.get("url"): it["url"] = e["url"]
+        items.append(it)
+    citas = [(E[i]["cita_corta"], bool(E[i].get("cita_obligatoria"))) for i, _ in res]
+    while len(" · ".join(c for c, _ in citas)) > MAX_ATRIBUCION and any(not o for _, o in citas):
+        k = max(n for n, (_, o) in enumerate(citas) if not o); del citas[k]
+    heredadas = sorted({E[i]["licencia"] for i, _ in res if E[i]["licencia"] in LIC_HEREDADAS}, key=LIC_HEREDADAS.index)
+    lic = heredadas[0] if heredadas else E[res[0][0]]["licencia"]
+    return {"creditos": items, "atribucion": " · ".join(c for c, _ in citas), "licencia": lic}
+
+
+def aplicar_creditos(man, reg):
+    """Resuelve los créditos de cada capa del manifiesto (falla si una no tiene) y devuelve, por archivo publicado
+    (GeoJSON, «raster:…» o «teselas:…»), la unión de los créditos de las capas que lo usan."""
+    por_archivo = {}
+    for g in man["grupos"]:
+        for c in g["capas"]:
+            bruto = c.get("creditos")
+            b = bloque_creditos(bruto, reg, f"capa «{c['id']}»")
+            for k in ([c["archivo"]] if c.get("archivo") else []) + (["raster:" + c["raster"]] if c.get("raster") else []) \
+                     + (["teselas:" + c["teselas"]] if c.get("teselas") else []):
+                por_archivo[k] = unir([por_archivo.get(k), bruto])
+            c.update(b)
+            if not c.get("fuente"): c["fuente"] = b["atribucion"]
+    return {k: bloque_creditos(v, reg, f"archivo «{k}»") for k, v in por_archivo.items()}
+
+
+def texto_creditos(b, reg, archivo=None):
+    """Créditos y licencia de una descarga, para su LEEME.txt."""
+    E = reg["entradas"]
+    lin = ["Créditos", "--------"]
+    for it in b["creditos"]:
+        e = E[it["id"]]
+        extra = [nombre_visible(E[p]) for p in e.get("personas", []) if con_permiso(E[p])]
+        txt = it["cita_corta"] + (f": {e['cita_larga']}" if e.get("cita_larga") else "")
+        if extra and not all(n in txt for n in extra): txt += f" Autoría: {', '.join(extra)}."
+        lin.append(f"- {txt} [{it['rol']}; licencia: {it['licencia']}]" + (f" {it['url']}" if it.get("url") else ""))
+    lin += ["", f"Atribución: {b['atribucion']}", "",
+            f"Licencia de esta descarga: {b['licencia']}. {LIC_TEXTO.get(b['licencia'], '')}".rstrip(),
+            "Los datos de terceros conservan su licencia (ver https://github.com/mayait/sosgalapagos-datos/blob/main/LICENCIA-DATOS.md)."]
+    ids = {it["id"] for it in b["creditos"]}
+    notas = ([NOTA_MODELO] if "sos_usfq" in ids else []) + ([NOTA_REPORTES] if "comunidad_reportes" in ids else []) \
+            + ([NOTAS_ARCHIVO[archivo]] if archivo in NOTAS_ARCHIVO else [])
+    if notas: lin += [""] + notas
+    return "\n".join(lin) + "\n\n" + PIE
+
+
+def citation_cff(titulo, b, reg):
+    """CITATION.cff de una descarga: autoría = lo que la capa nombra; referencias = lo heredado."""
+    E = reg["entradas"]
+    q = lambda s: json.dumps(s, ensure_ascii=False)
+    autores, refs = [], []
+    for it in b["creditos"]:
+        (refs if it["rol"] == "insumo" else autores).append(it["nombre"])
+        if it["rol"] != "insumo":
+            autores += [nombre_visible(E[p]) for p in E[it["id"]].get("personas", []) if con_permiso(E[p])]
+    lin = ["cff-version: 1.2.0",
+           f"message: {q('Si usa estos datos, cítelos así. Atribución: ' + b['atribucion'] + '. Licencia: ' + b['licencia'] + '.')}",
+           f"title: {q(titulo + ' (SOS Galápagos)')}", "type: dataset", "authors:"]
+    lin += [f"  - name: {q(a)}" for a in unir([autores])]
+    lin += [f"date-released: {q(HOY)}", 'url: "https://sosgalapagos.org/mapas/"',
+            'repository-code: "https://github.com/mayait/sosgalapagos-datos"']
+    if b["licencia"] in SPDX: lin.append(f"license: {b['licencia']}")
+    else: lin.append(f"license-url: {q('https://github.com/mayait/sosgalapagos-datos/blob/main/LICENCIA-DATOS.md')}")
+    lin.append(f"abstract: {q('Créditos: ' + b['atribucion'] + '. Licencia: ' + b['licencia'] + '.')}")
+    if refs:
+        lin.append("references:")
+        for it in b["creditos"]:
+            if it["rol"] != "insumo": continue
+            e = E[it["id"]]
+            lin += ["  - type: data", f"    title: {q(e.get('cita_larga') or it['cita_corta'])}", "    authors:", f"      - name: {q(it['nombre'])}"]
+            if it.get("url"): lin.append(f"    url: {q(it['url'])}")
+    return "\n".join(lin) + "\n"
+
+
+def creditos_publicos(man, reg):
+    """/mapas/creditos.json: las entradas que usa alguna capa (y las personas de sus instituciones), con sus capas,
+    filtradas por consentimiento y sin rutas internas."""
+    E = reg["entradas"]
+    capas = {}
+    for g in man["grupos"]:
+        for c in g["capas"]:
+            for it in c["creditos"]:
+                ids = [it["id"]] + E[it["id"]].get("personas", [])
+                for i in ids:
+                    l = capas.setdefault(i, [])
+                    if c["id"] not in [x["id"] for x in l]: l.append({"id": c["id"], "titulo": c["titulo"]})
+    entradas = []
+    for i, e in E.items():
+        if i not in capas: continue
+        d = {"id": i, "tipo": e["tipo"], "nombre": nombre_visible(e), "rol": e["rol"], "cita_corta": e["cita_corta"]}
+        if e.get("cita_larga"): d["cita_larga"] = e["cita_larga"]
+        d["licencia"] = e["licencia"]
+        if e.get("url"): d["url"] = e["url"]
+        d["capas"] = capas[i]
+        entradas.append(d)
+    return {"version": 1, "generado": HOY, "entradas": entradas, "comunidad": reg.get("comunidad", "")}
+
+
+def geojson_con_creditos(path, b):
+    """Añade «creditos», «atribucion» y «licencia» como miembros del FeatureCollection (no toca la «fuente» de cada entidad)."""
+    d = json.loads(path.read_text())
+    d.update(b)
+    path.write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")))
 
 
 def tam(n):
@@ -531,16 +735,41 @@ def escribir_shp(feats, base: pathlib.Path):
     return rutas, mapa
 
 
-def leeme(capa_titulo, archivo, var, n, extra=""):
+def leeme(capa_titulo, archivo, var, n, creditos, extra=""):
+    """LEEME.txt de una descarga: datos del archivo y SUS créditos y licencia (texto_creditos)."""
     return (f"{capa_titulo}\n{'=' * len(capa_titulo)}\n\nArchivo de origen: {archivo}\nVersión: {TITULO_VAR[var]}\n"
             f"Elementos: {n}\nSistema de coordenadas: WGS 84 (EPSG:4326)\nCodificación de atributos: UTF-8\nGenerado: {HOY}\n"
-            f"{extra}\n{LICENCIA}")
+            f"{extra}\n{creditos}")
+
+
+def leeme_todo(man, reg, var):
+    """LEEME.txt de los zip con todas las capas: la atribución y la licencia de cada capa, y la ficha de cada fuente."""
+    E = reg["entradas"]
+    lin, vistos = ["Créditos y licencia de cada capa", "--------------------------------"], []
+    for g in man["grupos"]:
+        for c in g["capas"]:
+            lin.append(f"- {c['titulo']}: {c['atribucion']} [licencia: {c['licencia']}]")
+            vistos = unir([vistos, [it["id"] for it in c["creditos"]]])
+    lin += ["", "Fuentes y autores", "-----------------"]
+    for i in vistos:
+        e = E[i]
+        lin.append(f"- {e['cita_corta']}" + (f": {e['cita_larga']}" if e.get("cita_larga") else "") + f" [licencia: {e['licencia']}]")
+    lin += ["", "Cada capa conserva la licencia que se indica arriba; los datos de terceros conservan la suya "
+            "(https://github.com/mayait/sosgalapagos-datos/blob/main/LICENCIA-DATOS.md).", "", NOTA_MODELO, NOTA_REPORTES]
+    titulo = f"Capas de la emergencia — Galápagos ({TITULO_VAR[var]})"
+    return leeme(titulo, "todas", var, "—", "\n".join(lin) + "\n\n" + PIE)
 
 
 def main():
     if OUT.exists(): shutil.rmtree(OUT)
     (OUT / "datos").mkdir(parents=True); (OUT / "descargas").mkdir()
+    reg = cargar_creditos()
     man = json.loads(MANIFIESTO.read_text())
+    # Los créditos se leen siempre del manifiesto fuente (scripts/capas.json), aunque export/ venga de antes
+    fuente_man = {c["id"]: c for g in json.loads((ROOT / "scripts" / "capas.json").read_text())["grupos"] for c in g["capas"]}
+    for g in man["grupos"]:
+        for c in g["capas"]:
+            if fuente_man.get(c["id"], {}).get("creditos"): c["creditos"] = fuente_man[c["id"]]["creditos"]
     g_est, f_est = grupos_estudios()
     # Los estudios van justo después de «Emergencia en curso» (o al principio si no existe ese grupo)
     i = next((n + 1 for n, g in enumerate(man["grupos"]) if g.get("id") == "emergencia"), 0)
@@ -571,6 +800,10 @@ def main():
     for b in man["buscar"]:
         if b["archivo"] not in publicados: raise SystemExit(f"visor_mapas.json: el buscador usa {b['archivo']}, que no se publica")
     man["mapas_base"] = [b for b in man.get("mapas_base", []) if b["id"] != "claro"]
+    cred = aplicar_creditos(man, reg)          # falla si una capa queda sin créditos
+    # Paquete con todas las capas: autoría = SOS Galápagos y lo que nombra cada capa (sin lo heredado)
+    b_todo = bloque_creditos(unir([["sos_usfq"]] + [[it["id"] for it in c["creditos"] if it["rol"] != "insumo"]
+                                                   for g in man["grupos"] for c in g["capas"]]), reg, "todas las capas")
     titulos = {}
     for g in man["grupos"]:
         for c in g["capas"]:
@@ -586,6 +819,8 @@ def main():
         reportes = preparar_reportes(d_datos)
         buenas = preparar_buenas(d_datos)
         estimacion = preparar_estimacion(d_datos)
+        for nm in (ARCHIVO_REPORTES, ARCHIVO_BUENAS, ARCHIVO_ESTIMACION):
+            geojson_con_creditos(d_datos / nm, cred[nm])
         info = {"titulo": TITULO_VAR[var], "archivos": {}}
         todo_shp = zipfile.ZipFile(d_desc / f"todo-{var}-shp.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
         todo_gj = zipfile.ZipFile(d_desc / f"todo-{var}-geojson.zip", "w", zipfile.ZIP_DEFLATED, compresslevel=9)
@@ -601,9 +836,12 @@ def main():
                 dd["features"] = [f for f in dd["features"] if f["properties"].get("isla") not in filtrar[gj.name]]
                 fl.write_text(json.dumps(dd, ensure_ascii=False, separators=(",", ":")))
                 gj = fl
+            if gj.name not in cred: raise SystemExit(f"{gj.name}: ninguna capa lo usa, así que no tiene créditos")
+            b = cred[gj.name]
             data = json.loads(gj.read_text())
             feats = [f for f in data["features"] if f.get("geometry")]
-            shutil.copy(gj, d_datos / gj.name)
+            data.update(b)                      # miembros extra del FeatureCollection; la «fuente» de cada entidad no se toca
+            (d_datos / gj.name).write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
             titulo = titulos.get(gj.name, gj.stem.replace("_", " ").capitalize())
             if not feats: continue
             # Shapefile: un .shp por tipo de geometría
@@ -623,12 +861,13 @@ def main():
                 extra = ("\nNombres de campo acortados (límite de 10 caracteres del formato Shapefile):\n" + "\n".join(mapas) + "\n") if mapas else ""
                 if var == "zona" and gj.name in SIEMPRE_COMPLETAS:
                     extra = "\nEsta capa va completa (todas las islas, sin recorte) también en la cobertura «Zona poblada».\n" + extra
-                txt = leeme(titulo, gj.name, var, len(feats), extra)
+                txt = leeme(titulo, gj.name, var, len(feats), texto_creditos(b, reg, gj.name), extra)
                 z.writestr("LEEME.txt", txt)
-            todo_gj.write(gj, f"{var}/{gj.name}")
+                z.writestr("CITATION.cff", citation_cff(titulo, b, reg))
+            todo_gj.write(d_datos / gj.name, f"{var}/{gj.name}")
             info["archivos"][gj.name] = {"titulo": titulo, "elementos": len(feats),
                                          "shp": {"url": f"descargas/{var}/{zpath.name}", "tam": tam(zpath.stat().st_size)},
-                                         "geojson": {"url": f"datos/{var}/{gj.name}", "tam": tam(gj.stat().st_size)}}
+                                         "geojson": {"url": f"datos/{var}/{gj.name}", "tam": tam((d_datos / gj.name).stat().st_size)}}
         info["archivos"][ARCHIVO_REPORTES] = {"titulo": CAPA_REPORTES["titulo"], "elementos": len(reportes["features"]),
             "geojson": {"url": f"datos/{var}/{ARCHIVO_REPORTES}", "tam": tam((d_datos / ARCHIVO_REPORTES).stat().st_size)}}
         info["archivos"][ARCHIVO_BUENAS] = {"titulo": CAPA_BUENAS["titulo"], "elementos": len(buenas["features"]),
@@ -650,8 +889,12 @@ def main():
                     for zz in (z, todo_shp):
                         pre = "" if zz is z else f"{var}/raster/"
                         zz.write(png, pre + png.name); zz.writestr(pre + png.with_suffix(".pgw").name, pgw); zz.writestr(pre + png.with_suffix(".prj").name, PRJ)
+                if "raster:" + kind not in cred: raise SystemExit(f"raster «{kind}»: ninguna capa lo usa, así que no tiene créditos")
+                b = cred["raster:" + kind]
                 z.writestr("LEEME.txt", leeme(titulos.get("raster:" + kind, kind), f"raster/*_{kind}.png", var, len(lim),
+                                              texto_creditos(b, reg),
                                               "\nImagen PNG georreferenciada con archivo de mundo (.pgw). QGIS y ArcGIS la abren directamente.\n"))
+                z.writestr("CITATION.cff", citation_cff(titulos.get("raster:" + kind, kind), b, reg))
             info["archivos"]["raster:" + kind] = {"titulo": titulos.get("raster:" + kind, kind), "shp": {"url": f"descargas/{var}/{zpath.name}",
                                                   "tam": tam(zpath.stat().st_size), "formato": "PNG"}}
         # DTM SGIAR: mosaico de 5 m (GeoTIFF) con su ficha; el de 1 m se descarga del repositorio
@@ -660,6 +903,10 @@ def main():
             with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
                 for nm in ("dtm_sgiar_5m.tif", "LEEME.md", "cobertura.geojson", "resumen.json"):
                     z.write(DTM_DIR / nm, nm)
+                b = cred["teselas:dtm_sgiar"]
+                z.writestr("LEEME.txt", leeme(CAPA_DTM["titulo"], "dtm_sgiar_5m.tif", var, 1, texto_creditos(b, reg),
+                                              "\nGeoTIFF de 5 m (el de 1 m está en el repositorio). Ficha completa en LEEME.md.\n"))
+                z.writestr("CITATION.cff", citation_cff(CAPA_DTM["titulo"], b, reg))
             info["archivos"]["teselas:dtm_sgiar"] = {"titulo": CAPA_DTM["titulo"],
                 "shp": {"url": f"descargas/{var}/{zpath.name}", "tam": tam(zpath.stat().st_size), "formato": "GeoTIFF 5 m"},
                 "extra": {"url": DTM_REPO, "texto": "1 m (repositorio)"}}
@@ -668,10 +915,15 @@ def main():
         with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
             for nm in ("ortofoto_21nov.tif", "LEEME.md", "camara.json"):
                 z.write(FOTO_DIR / nm, nm)
+            b = cred["teselas:ortofoto_21nov"]
+            z.writestr("LEEME.txt", leeme(titulos["teselas:ortofoto_21nov"], "ortofoto_21nov.tif", var, 1, texto_creditos(b, reg),
+                                          "\nGeoTIFF de 0,5 m. Método y límites en LEEME.md.\n"))
+            z.writestr("CITATION.cff", citation_cff(titulos["teselas:ortofoto_21nov"], b, reg))
         info["archivos"]["teselas:ortofoto_21nov"] = {"titulo": titulos["teselas:ortofoto_21nov"],
             "shp": {"url": f"descargas/{var}/{zpath.name}", "tam": tam(zpath.stat().st_size), "formato": "GeoTIFF 0,5 m"}}
         for z in (todo_shp, todo_gj):
-            z.writestr(f"{var}/LEEME.txt", leeme(f"Capas de la emergencia — Galápagos ({TITULO_VAR[var]})", "todas", var, "—"))
+            z.writestr(f"{var}/LEEME.txt", leeme_todo(man, reg, var))
+            z.writestr(f"{var}/CITATION.cff", citation_cff(f"Capas de la emergencia — Galápagos ({TITULO_VAR[var]})", b_todo, reg))
             z.writestr(f"{var}/capas.json", json.dumps(man, ensure_ascii=False, indent=1))
             z.close()
         info["todo"] = {"shp": {"url": f"descargas/{var}/todo-{var}-shp.zip", "tam": tam((d_desc / f"todo-{var}-shp.zip").stat().st_size)},
@@ -683,6 +935,7 @@ def main():
     if TMP_AJUSTE.exists(): shutil.rmtree(TMP_AJUSTE)
     (OUT / "capas.json").write_text(json.dumps(man, ensure_ascii=False, separators=(",", ":")))
     (OUT / "descargas.json").write_text(json.dumps(indice, ensure_ascii=False, separators=(",", ":")))
+    (OUT / "creditos.json").write_text(json.dumps(creditos_publicos(man, reg), ensure_ascii=False, separators=(",", ":")))
     # El visor de /mapas se retiró el 21-nov-2026: el mapa único es /riesgos/ (repo sosgalapagos-plataforma),
     # que lee este manifiesto, las capas y las descargas. Aquí ya no se escribe ningún index.html
     # (el visor anterior está en Archivo/visor-mapas/).

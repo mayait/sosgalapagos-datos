@@ -7,6 +7,8 @@ No incluye OpenStreetMap ni Copernicus GLO-30, que se obtienen por separado.
 **Recorte espacial usado en todas las descargas:** lon −91.3 a −89.2, lat −1.1 a −0.4 (EPSG:4326).
 **Carpeta de descargas:** `geodatos/descargas/oficiales/` (72 GeoJSON, unos 126 MB en total, todos en EPSG:4326).
 
+> **Créditos (desde el 28-nov-2026).** Este catálogo dice de dónde sale cada dato; el crédito que se publica sale de un solo registro, [`geodatos/creditos.json`](../creditos.json): quién es cada fuente, su cita corta (la del mapa), su cita larga, su licencia y, para las personas, su consentimiento. Cada capa de los manifiestos lo nombra en `"creditos"`, y `10_publicar_web.py` lo publica en `/mapas/capas.json`, en `/mapas/creditos.json` y en el `LEEME.txt` y el `CITATION.cff` de cada descarga. Si añades una fuente aquí, añade también su entrada allí.
+
 Leyenda: ✅ responde y descarga sin login · 🔒 requiere token o registro · ❌ no responde · ⚠️ responde, pero no cubre Galápagos
 
 ---

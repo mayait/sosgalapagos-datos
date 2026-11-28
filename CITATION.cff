@@ -37,3 +37,48 @@ preferred-citation:
   year: 2026
   url: "https://github.com/mayait/sosgalapagos-datos"
   notes: "Datos, textos, figuras y modelos bajo CC BY 4.0; código bajo Apache-2.0."
+references:
+  - type: data
+    title: "Modelo digital del terreno (DTM) de 1 m de Santa Cruz, Galápagos: Puerto Ayora y Bellavista. Producto Vricon DTM (Maxar), imágenes de 2020 a 2024"
+    authors:
+      - name: "SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo"
+    year: 2026
+    url: "https://github.com/mayait/sosgalapagos-datos/tree/main/geodatos/datos/dtm_sgiar"
+    notes: "Cita obligatoria: «DTM 1 m: SGIAR (Vricon/Maxar)». EULA de Vricon/Maxar."
+  - type: data
+    title: "Cuencas, subcuencas y red de drenaje de Santa Cruz sobre el DEM de 10 m de SIGTIERRAS (SAGA GIS)"
+    authors:
+      - family-names: Zapata
+        given-names: María Belén
+        affiliation: "Instituto de Geografía, Universidad San Francisco de Quito (USFQ)"
+      - name: "Instituto de Geografía USFQ"
+    year: 2026
+    notes: "DEM de 10 m: SIGTIERRAS (MAG)."
+  - type: data
+    title: "Cuencas hidrográficas de interés de Santa Cruz"
+    authors:
+      - family-names: Mulas
+        given-names: Maurizio
+        affiliation: ESPOL
+      - family-names: Garcés
+        given-names: Daniel
+        affiliation: ESPOL
+      - family-names: Larreta
+        given-names: Erwin
+        affiliation: ESPOL
+      - family-names: Rosado
+        given-names: Victoria
+        affiliation: ESPOL
+      - family-names: Vaca
+        given-names: Valeria
+        affiliation: ESPOL
+    institution:
+      name: "ESPOL, Escuela Superior Politécnica del Litoral"
+    year: 2026
+  - type: art
+    title: "Foto aérea oblicua de Puerto Ayora inundado, 21-nov-2026"
+    authors:
+      - family-names: De Roy
+        given-names: Tui
+    year: 2026
+    notes: "Foto: Tui De Roy. La foto y su versión rectificada son de su autora: no quedan bajo CC BY 4.0."

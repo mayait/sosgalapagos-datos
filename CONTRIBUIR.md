@@ -76,9 +76,10 @@ ln -s ~/dev/sosgalapagos-datos/clima/.venv        clima/.venv
 1. Script que la descarga o la calcula. Para el proceso base, usa el siguiente número libre. Para un tema concreto, usa un nombre propio (`grd_*.py`, `est_<estudio>_*.py`). No reutilices un número que ya existe.
 2. La salida va a `geodatos/capas/<fuente>/`, en **EPSG:4326** y con propiedades en español `snake_case`.
 3. Regístrala en el manifiesto `geodatos/scripts/capas.json` (grupo, estilo, fuente, `visible`).
-4. Documenta la fuente, la fecha y la licencia en `geodatos/docs/fuentes-oficiales.md`. Si es un modelo propio, explica el método en `mapas-galapagos/documentacion/02-metodologia.md`.
-5. **Datos personales:** quita nombres, teléfonos y cédulas antes de guardar en `capas/`. Lo crudo se queda en `descargas/`.
-6. Cierra o abre el issue que corresponda (menciónalo en el PR con `Cierra #N`).
+4. **Créditos (obligatorio).** Cada capa lleva `"creditos"`: ids de [`geodatos/creditos.json`](geodatos/creditos.json) o recetas (`@relieve_santa_cruz`, `@relieve`). El primero es la autoría principal; lo que se hereda (insumos y recetas) lo resuelve `10_publicar_web.py`. Si la fuente no está, añade su entrada en `creditos.json`. El nombre de una persona solo entra con su consentimiento (`"estado": "si"`, `"alcance": "nombre"`); si no, `mostrar_como`. Quien envía reportes o sufrió daños no tiene entrada: se cita como comunidad. `10_publicar_web.py` falla si una capa no tiene créditos, y `scripts/revisar_creditos.py` lo revisa antes de publicar. La `fuente` no lleva «no oficial», «estimación» ni «experimental» (regla 3 de `AGENTS.md`).
+5. Documenta la fuente, la fecha y la licencia en `geodatos/docs/fuentes-oficiales.md`. Si es un modelo propio, explica el método en `mapas-galapagos/documentacion/02-metodologia.md`.
+6. **Datos personales:** quita nombres, teléfonos y cédulas antes de guardar en `capas/`. Lo crudo se queda en `descargas/`.
+7. Cierra o abre el issue que corresponda (menciónalo en el PR con `Cierra #N`).
 
 ### Actualizar las áreas afectadas (lo más frecuente)
 Ver `geodatos/docs/05-como-actualizar.md`, apartado A. Se reemplaza `geodatos/capas/operativas/areas_afectadas.geojson` y se publica.

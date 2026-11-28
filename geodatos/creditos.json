@@ -1,0 +1,351 @@
+{
+ "_nota": "Registro único de créditos de SOS Galápagos (contrato v1, 28-nov-2026). Se edita a mano. Cada capa de los manifiestos (scripts/capas.json, capas_estudios.json, visor_mapas.json y las constantes de 10_publicar_web.py) lleva «creditos»: ids de esta lista o recetas «@…»; el primero es la autoría principal. 10_publicar_web.py los resuelve (insumos y recetas, en cierre transitivo), aplica el filtro de consentimiento y publica /mapas/creditos.json. El nombre de una persona solo se publica con consentimiento «si» y alcance «nombre»; si no, se usa «mostrar_como». Las personas afectadas y quienes envían reportes no tienen entrada: se citan como comunidad, sin nombres.",
+ "version": 1,
+ "entradas": {
+  "sos_usfq": {
+   "tipo": "institucion",
+   "nombre": "SOS Galápagos · USFQ (Julián Maya)",
+   "rol": "autoria",
+   "cita_corta": "SOS Galápagos · USFQ (Julián Maya)",
+   "cita_larga": "SOS Galápagos · Universidad San Francisco de Quito (USFQ) · Julián Maya <jamaya@usfq.edu.ec>",
+   "cita_obligatoria": true,
+   "licencia": "CC-BY-4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by/4.0/deed.es",
+   "url": "https://sosgalapagos.org",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "sgiar": {
+   "tipo": "institucion",
+   "nombre": "SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo",
+   "rol": "fuente",
+   "cita_corta": "DTM 1 m: SGIAR (Vricon/Maxar)",
+   "cita_larga": "SGIAR, Subsecretaría de Gestión de la Información y Análisis de Riesgo (2026). Modelo digital del terreno (DTM) de 1 m de Santa Cruz, Galápagos: Puerto Ayora y Bellavista. Producto Vricon DTM (Maxar), imágenes de 2020 a 2024. Recomprimido por SOS Galápagos (USFQ).",
+   "cita_obligatoria": true,
+   "licencia": "EULA Vricon/Maxar",
+   "url": "https://github.com/mayait/sosgalapagos-datos/tree/main/geodatos/datos/dtm_sgiar",
+   "ficha": "geodatos/datos/dtm_sgiar/LEEME.md",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "sigtierras": {
+   "tipo": "institucion",
+   "nombre": "SIGTIERRAS, Ministerio de Agricultura y Ganadería (MAG)",
+   "rol": "fuente",
+   "cita_corta": "DEM 10 m: SIGTIERRAS",
+   "cita_larga": "DEM de 10 m de Santa Cruz: SIGTIERRAS, Ministerio de Agricultura y Ganadería (MAG), entregado por el Instituto de Geografía USFQ.",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "ficha": "geodatos/datos/usfq_geografia/LEEME.md",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "copernicus": {
+   "tipo": "institucion",
+   "nombre": "Copernicus DEM GLO-30 (Comisión Europea)",
+   "rol": "fuente",
+   "cita_corta": "Copernicus GLO-30 © DLR, Airbus",
+   "cita_larga": "Contiene datos modificados de Copernicus DEM GLO-30 (© DLR e.V. 2010-2014 y © Airbus 2014-2018, proporcionados por la Comisión Europea en el marco de Copernicus).",
+   "cita_obligatoria": true,
+   "licencia": "Licencia Copernicus DEM",
+   "url": "https://registry.opendata.aws/copernicus-dem/",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "osm": {
+   "tipo": "comunidad",
+   "nombre": "OpenStreetMap",
+   "rol": "fuente",
+   "cita_corta": "© colaboradores de OpenStreetMap",
+   "cita_larga": "© colaboradores de OpenStreetMap (extracto del 31-oct-2026). Base de datos bajo la licencia ODbL 1.0: lo que se redistribuya mantiene la atribución y la misma licencia.",
+   "cita_obligatoria": true,
+   "licencia": "ODbL-1.0",
+   "licencia_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+   "url": "https://www.openstreetmap.org/copyright",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "google_open_buildings": {
+   "tipo": "institucion",
+   "nombre": "Google Open Buildings v3",
+   "rol": "fuente",
+   "cita_corta": "Google Open Buildings",
+   "cita_larga": "Huellas de edificios: Google Open Buildings v3 (Google Research), licencia CC BY 4.0.",
+   "cita_obligatoria": true,
+   "licencia": "CC-BY-4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by/4.0/deed.es",
+   "url": "https://sites.research.google/open-buildings/",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "igm": {
+   "tipo": "institucion",
+   "nombre": "Instituto Geográfico Militar (IGM)",
+   "rol": "fuente",
+   "cita_corta": "IGM",
+   "cita_larga": "Instituto Geográfico Militar (IGM), cartografía de Galápagos 1:25 000 y 1:50 000.",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "url": "https://www.geoportaligm.gob.ec",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "cgreg": {
+   "tipo": "institucion",
+   "nombre": "Consejo de Gobierno del Régimen Especial de Galápagos (CGREG)",
+   "rol": "fuente",
+   "cita_corta": "CGREG",
+   "cita_larga": "Consejo de Gobierno del Régimen Especial de Galápagos (CGREG): barrios, encañadas, riesgos y zonificación del Parque Nacional (2017).",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "url": "https://www.gobiernogalapagos.gob.ec",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "fcd": {
+   "tipo": "institucion",
+   "nombre": "Fundación Charles Darwin (FCD)",
+   "rol": "fuente",
+   "cita_corta": "FCD",
+   "cita_larga": "Fundación Charles Darwin (FCD): GeoNode donde se publican las capas del CGREG (zonificación del Parque Nacional 2017, encañadas, barrios).",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "url": "https://www.darwinfoundation.org",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "sngr": {
+   "tipo": "institucion",
+   "nombre": "Secretaría Nacional de Gestión de Riesgos (SNGR)",
+   "rol": "fuente",
+   "cita_corta": "SNGR",
+   "cita_larga": "Secretaría Nacional de Gestión de Riesgos (SNGR): tsunami, rutas de evacuación, zonas seguras, refugios y viviendas.",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "url": "https://www.gestionderiesgos.gob.ec",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "inocar": {
+   "tipo": "institucion",
+   "nombre": "Instituto Oceanográfico y Antártico de la Armada (INOCAR)",
+   "rol": "fuente",
+   "cita_corta": "INOCAR",
+   "cita_larga": "Instituto Oceanográfico y Antártico de la Armada (INOCAR): cartas de inundación por tsunami, publicadas por la SNGR.",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "url": "https://www.inocar.mil.ec",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "inec": {
+   "tipo": "institucion",
+   "nombre": "Instituto Nacional de Estadística y Censos (INEC)",
+   "rol": "fuente",
+   "cita_corta": "INEC",
+   "cita_larga": "Instituto Nacional de Estadística y Censos (INEC): Marco Geoestadístico Nacional 2026.",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "url": "https://www.ecuadorencifras.gob.ec",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "msp": {
+   "tipo": "institucion",
+   "nombre": "Ministerio de Salud Pública (MSP)",
+   "rol": "fuente",
+   "cita_corta": "MSP",
+   "cita_larga": "Ministerio de Salud Pública (MSP): establecimientos de salud 2023, publicados por la SNGR.",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "url": "https://www.salud.gob.ec",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "mineduc": {
+   "tipo": "institucion",
+   "nombre": "Ministerio de Educación (MINEDUC)",
+   "rol": "fuente",
+   "cita_corta": "MINEDUC",
+   "cita_larga": "Ministerio de Educación (MINEDUC): instituciones educativas 2021, publicadas por la SNGR.",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "url": "https://educacion.gob.ec",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "conali": {
+   "tipo": "institucion",
+   "nombre": "Comité Nacional de Límites Internos (CONALI)",
+   "rol": "fuente",
+   "cita_corta": "CONALI",
+   "cita_larga": "Comité Nacional de Límites Internos (CONALI): límites parroquiales y cantonales 2026, publicados por la SNGR.",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "ierse": {
+   "tipo": "institucion",
+   "nombre": "IERSE, Universidad del Azuay (red WSN)",
+   "rol": "fuente",
+   "cita_corta": "Lluvia: IERSE (Universidad del Azuay)",
+   "cita_larga": "Orellana-Samaniego, M.L., Cabrera-Lituma, A., Omar, D., Célleri, R., Bendix, J., y Ballari, D. 2023. Proyecto DARWIN. Versión 2023.1. IERSE, Universidad del Azuay. Publicado con su permiso; sin uso comercial ni obras derivadas para terceros.",
+   "cita_obligatoria": true,
+   "licencia": "CC-BY-NC-ND-4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "gad_santa_cruz": {
+   "tipo": "institucion",
+   "nombre": "GAD Municipal de Santa Cruz",
+   "rol": "fuente",
+   "cita_corta": "GAD Municipal de Santa Cruz",
+   "cita_larga": "Gobierno Autónomo Descentralizado (GAD) Municipal de Santa Cruz, Galápagos.",
+   "cita_obligatoria": true,
+   "licencia": "CC-BY-4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by/4.0/deed.es",
+   "url": "https://www.gadsantacruz.gob.ec",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "gad_san_cristobal": {
+   "tipo": "institucion",
+   "nombre": "Unidad de Gestión de Riesgos (UGR) del GAD Municipal de San Cristóbal",
+   "rol": "fuente",
+   "cita_corta": "UGR del GAD San Cristóbal",
+   "cita_larga": "Unidad de Gestión de Riesgos (UGR) del GAD Municipal de San Cristóbal: Plan de Acción SC-4-09-2026 (lugares, cañadas y medidas que cita el plan).",
+   "cita_obligatoria": true,
+   "licencia": "Información pública",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "coe_santa_cruz": {
+   "tipo": "institucion",
+   "nombre": "COE cantonal de Santa Cruz",
+   "rol": "fuente",
+   "cita_corta": "Avisos del COE cantonal",
+   "cita_larga": "Avisos del Comité de Operaciones de Emergencia (COE) cantonal de Santa Cruz reenviados en los grupos de WhatsApp del 21-nov-2026.",
+   "cita_obligatoria": false,
+   "licencia": "Información pública",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "tui_de_roy": {
+   "tipo": "persona",
+   "nombre": "Tui De Roy",
+   "rol": "foto",
+   "cita_corta": "Foto: Tui De Roy",
+   "cita_larga": "Foto aérea oblicua de Puerto Ayora inundado, 21-nov-2026, 14:00. Foto: Tui De Roy. La foto y su versión rectificada son de su autora: no quedan bajo CC BY 4.0.",
+   "cita_obligatoria": true,
+   "licencia": "Derechos de su autora",
+   "ficha": "geodatos/datos/foto_aerea_21nov/LEEME.md",
+   "consentimiento": {"estado": "si", "fecha": "2026-11-21", "alcance": "nombre"}
+  },
+  "usfq_geografia": {
+   "tipo": "institucion",
+   "nombre": "Instituto de Geografía USFQ",
+   "personas": ["zapata_mb"],
+   "rol": "autoria",
+   "cita_corta": "Instituto de Geografía USFQ (María Belén Zapata)",
+   "cita_larga": "Cuencas, subcuencas y drenaje de Santa Cruz: Instituto de Geografía de la Universidad San Francisco de Quito (María Belén Zapata), SAGA GIS sobre el DEM de 10 m de SIGTIERRAS (24-nov-2026).",
+   "cita_obligatoria": true,
+   "licencia": "CC-BY-4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by/4.0/deed.es",
+   "url": "https://www.usfq.edu.ec",
+   "ficha": "geodatos/datos/usfq_geografia/LEEME.md",
+   "insumos": ["sigtierras"],
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "zapata_mb": {
+   "tipo": "persona",
+   "nombre": "María Belén Zapata",
+   "institucion": "usfq_geografia",
+   "rol": "autoria",
+   "cita_corta": "María Belén Zapata (Instituto de Geografía USFQ)",
+   "cita_obligatoria": true,
+   "licencia": "CC-BY-4.0",
+   "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
+  },
+  "espol": {
+   "tipo": "institucion",
+   "nombre": "ESPOL, Escuela Superior Politécnica del Litoral",
+   "personas": ["mulas_m", "garces_d", "larreta_e", "rosado_v", "vaca_v"],
+   "rol": "autoria",
+   "cita_corta": "ESPOL (Mulas, Garcés, Larreta, Rosado, Vaca)",
+   "cita_larga": "Cuencas hidrográficas de interés de Santa Cruz: Maurizio Mulas, Daniel Garcés, Erwin Larreta, Victoria Rosado y Valeria Vaca (ESPOL), entregadas el 28-nov-2026.",
+   "cita_obligatoria": true,
+   "licencia": "Derechos de sus autores",
+   "url": "https://www.espol.edu.ec",
+   "ficha": "geodatos/datos/espol_cuencas/LEEME.md",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "mulas_m": {
+   "tipo": "persona",
+   "nombre": "Maurizio Mulas",
+   "institucion": "espol",
+   "rol": "autoria",
+   "cita_corta": "Maurizio Mulas (ESPOL)",
+   "cita_obligatoria": true,
+   "licencia": "Derechos de sus autores",
+   "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
+  },
+  "garces_d": {
+   "tipo": "persona",
+   "nombre": "Daniel Garcés",
+   "institucion": "espol",
+   "rol": "autoria",
+   "cita_corta": "Daniel Garcés (ESPOL)",
+   "cita_obligatoria": true,
+   "licencia": "Derechos de sus autores",
+   "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
+  },
+  "larreta_e": {
+   "tipo": "persona",
+   "nombre": "Erwin Larreta",
+   "institucion": "espol",
+   "rol": "autoria",
+   "cita_corta": "Erwin Larreta (ESPOL)",
+   "cita_obligatoria": true,
+   "licencia": "Derechos de sus autores",
+   "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
+  },
+  "rosado_v": {
+   "tipo": "persona",
+   "nombre": "Victoria Rosado",
+   "institucion": "espol",
+   "rol": "autoria",
+   "cita_corta": "Victoria Rosado (ESPOL)",
+   "cita_obligatoria": true,
+   "licencia": "Derechos de sus autores",
+   "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
+  },
+  "vaca_v": {
+   "tipo": "persona",
+   "nombre": "Valeria Vaca",
+   "institucion": "espol",
+   "rol": "autoria",
+   "cita_corta": "Valeria Vaca (ESPOL)",
+   "cita_obligatoria": true,
+   "licencia": "Derechos de sus autores",
+   "consentimiento": {"estado": "si", "fecha": "2026-11-28", "alcance": "nombre"}
+  },
+  "experto_eden": {
+   "tipo": "persona",
+   "mostrar_como": "Un experto local de El Edén",
+   "rol": "insumo",
+   "cita_corta": "Trazos de un experto local de El Edén",
+   "cita_larga": "Trazos a mano de un experto local de El Edén (22-nov-2026) sobre por dónde corrió el agua el 21-nov en El Edén y Matazarnos. Calibran la susceptibilidad ajustada.",
+   "cita_obligatoria": false,
+   "licencia": "CC-BY-4.0",
+   "consentimiento": {"estado": "no_aplica", "alcance": "anonimo"}
+  },
+  "barrio_tomas_de_berlanga": {
+   "tipo": "comunidad",
+   "nombre": "Comisión de Vías y Encañadas del barrio Tomás de Berlanga",
+   "rol": "insumo",
+   "cita_corta": "Barrio Tomás de Berlanga",
+   "cita_larga": "Informe de campo de la Comisión de Vías y Encañadas del barrio Tomás de Berlanga (13-nov-2026) sobre los desbordes del 30-oct, del 2-nov y de 2016.",
+   "cita_obligatoria": false,
+   "licencia": "CC-BY-4.0",
+   "consentimiento": {"estado": "no_aplica"}
+  },
+  "comunidad_reportes": {
+   "tipo": "comunidad",
+   "nombre": "Vecinos de Galápagos (reportes ciudadanos)",
+   "rol": "fuente",
+   "cita_corta": "Reportes ciudadanos (WhatsApp)",
+   "cita_larga": "Reportes, fotos y videos que los vecinos enviaron por WhatsApp, sin verificar. Se publican sin nombres, sin teléfonos y sin metadatos.",
+   "cita_obligatoria": false,
+   "licencia": "CC-BY-4.0",
+   "consentimiento": {"estado": "no_aplica"}
+  }
+ },
+ "recetas": {
+  "@relieve_santa_cruz": ["sgiar", "sigtierras", "copernicus", "igm"],
+  "@relieve": ["copernicus", "igm"]
+ },
+ "comunidad": "Buena parte de lo que muestra el mapa de la emergencia sale de la gente de las islas: los vecinos que enviaron reportes, fotos y videos por WhatsApp, la Comisión de Vías y Encañadas del barrio Tomás de Berlanga con su informe de campo, y un experto local de El Edén que dibujó por dónde corrió el agua. Se publican sin nombres ni datos personales. Gracias a todos."
+}
