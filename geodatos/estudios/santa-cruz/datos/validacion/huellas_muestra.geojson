@@ -1,0 +1,2535 @@
+{
+"type": "FeatureCollection",
+"name": "huellas_muestra",
+"metadata": {
+"semilla": 20261128,
+"n_por_estrato": 30,
+"separacion_m": 40,
+"dominio": "ortofotos del GAD del 3 y el 5-nov-2026, suelo a 40 m o menos de una vía o un edificio del mapa",
+"sesgo": "solo zonas pobladas o con vías: bajo el bosque no se ve el suelo",
+"clases_hand": "capas/dem/santa_cruz_susc_inundacion.geojson (sin el ajuste del 21-nov)",
+"script": "geodatos/scripts/42_validacion_muestra.py"
+},
+"features": [
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3118767,
+-0.7345525
+]
+},
+"properties": {
+"id": "HU-001",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3283161,
+-0.7135732
+]
+},
+"properties": {
+"id": "HU-002",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3147099,
+-0.7348436
+]
+},
+"properties": {
+"id": "HU-003",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3266002,
+-0.7082963
+]
+},
+"properties": {
+"id": "HU-004",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3282617,
+-0.7302601
+]
+},
+"properties": {
+"id": "HU-005",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3133409,
+-0.7363975
+]
+},
+"properties": {
+"id": "HU-006",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3261666,
+-0.7095067
+]
+},
+"properties": {
+"id": "HU-007",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3121041,
+-0.7331704
+]
+},
+"properties": {
+"id": "HU-008",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3278925,
+-0.7273094
+]
+},
+"properties": {
+"id": "HU-009",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3137035,
+-0.7351647
+]
+},
+"properties": {
+"id": "HU-010",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3188116,
+-0.7054483
+]
+},
+"properties": {
+"id": "HU-011",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3221737,
+-0.7059881
+]
+},
+"properties": {
+"id": "HU-012",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3197407,
+-0.7091201
+]
+},
+"properties": {
+"id": "HU-013",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3279258,
+-0.7282372
+]
+},
+"properties": {
+"id": "HU-014",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3142422,
+-0.7341442
+]
+},
+"properties": {
+"id": "HU-015",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3270203,
+-0.7084702
+]
+},
+"properties": {
+"id": "HU-016",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3119801,
+-0.7357783
+]
+},
+"properties": {
+"id": "HU-017",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3213901,
+-0.7067278
+]
+},
+"properties": {
+"id": "HU-018",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3176615,
+-0.7104645
+]
+},
+"properties": {
+"id": "HU-019",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3128356,
+-0.7370499
+]
+},
+"properties": {
+"id": "HU-020",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.313146,
+-0.7334155
+]
+},
+"properties": {
+"id": "HU-021",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3119069,
+-0.7362292
+]
+},
+"properties": {
+"id": "HU-022",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3259326,
+-0.7143096
+]
+},
+"properties": {
+"id": "HU-023",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3159311,
+-0.7333903
+]
+},
+"properties": {
+"id": "HU-024",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3122135,
+-0.7369618
+]
+},
+"properties": {
+"id": "HU-025",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.312138,
+-0.7384873
+]
+},
+"properties": {
+"id": "HU-026",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3152659,
+-0.7325012
+]
+},
+"properties": {
+"id": "HU-027",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3105063,
+-0.7339098
+]
+},
+"properties": {
+"id": "HU-028",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3282535,
+-0.7289406
+]
+},
+"properties": {
+"id": "HU-029",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3120509,
+-0.737772
+]
+},
+"properties": {
+"id": "HU-030",
+"isla": "Santa Cruz",
+"estrato_hand": "alta",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3134948,
+-0.7378411
+]
+},
+"properties": {
+"id": "HU-031",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.316564,
+-0.7375159
+]
+},
+"properties": {
+"id": "HU-032",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3169824,
+-0.7371087
+]
+},
+"properties": {
+"id": "HU-033",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3266687,
+-0.7096901
+]
+},
+"properties": {
+"id": "HU-034",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3196376,
+-0.7078767
+]
+},
+"properties": {
+"id": "HU-035",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3132512,
+-0.7372569
+]
+},
+"properties": {
+"id": "HU-036",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3163672,
+-0.7342829
+]
+},
+"properties": {
+"id": "HU-037",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3278986,
+-0.7262812
+]
+},
+"properties": {
+"id": "HU-038",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3182316,
+-0.708211
+]
+},
+"properties": {
+"id": "HU-039",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3111855,
+-0.736333
+]
+},
+"properties": {
+"id": "HU-040",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3125954,
+-0.735071
+]
+},
+"properties": {
+"id": "HU-041",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.32674,
+-0.7140438
+]
+},
+"properties": {
+"id": "HU-042",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3212811,
+-0.7086766
+]
+},
+"properties": {
+"id": "HU-043",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.315271,
+-0.734899
+]
+},
+"properties": {
+"id": "HU-044",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3110406,
+-0.7344603
+]
+},
+"properties": {
+"id": "HU-045",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3130586,
+-0.7356881
+]
+},
+"properties": {
+"id": "HU-046",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3263512,
+-0.7087524
+]
+},
+"properties": {
+"id": "HU-047",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3180185,
+-0.710628
+]
+},
+"properties": {
+"id": "HU-048",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3178073,
+-0.7099344
+]
+},
+"properties": {
+"id": "HU-049",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3166398,
+-0.7074978
+]
+},
+"properties": {
+"id": "HU-050",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3145287,
+-0.7377167
+]
+},
+"properties": {
+"id": "HU-051",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3181332,
+-0.7072182
+]
+},
+"properties": {
+"id": "HU-052",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3098626,
+-0.7340697
+]
+},
+"properties": {
+"id": "HU-053",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3299759,
+-0.7106423
+]
+},
+"properties": {
+"id": "HU-054",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3325565,
+-0.7179809
+]
+},
+"properties": {
+"id": "HU-055",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3205039,
+-0.7093162
+]
+},
+"properties": {
+"id": "HU-056",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3131389,
+-0.7351214
+]
+},
+"properties": {
+"id": "HU-057",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3268301,
+-0.7091544
+]
+},
+"properties": {
+"id": "HU-058",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3137103,
+-0.7347859
+]
+},
+"properties": {
+"id": "HU-059",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3321059,
+-0.7194949
+]
+},
+"properties": {
+"id": "HU-060",
+"isla": "Santa Cruz",
+"estrato_hand": "media",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3138912,
+-0.7372035
+]
+},
+"properties": {
+"id": "HU-061",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3281726,
+-0.7043715
+]
+},
+"properties": {
+"id": "HU-062",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3323152,
+-0.7174266
+]
+},
+"properties": {
+"id": "HU-063",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3200801,
+-0.7043055
+]
+},
+"properties": {
+"id": "HU-064",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3316235,
+-0.7110458
+]
+},
+"properties": {
+"id": "HU-065",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3205497,
+-0.7061979
+]
+},
+"properties": {
+"id": "HU-066",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3184235,
+-0.7105259
+]
+},
+"properties": {
+"id": "HU-067",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3237611,
+-0.7176015
+]
+},
+"properties": {
+"id": "HU-068",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3222975,
+-0.7047103
+]
+},
+"properties": {
+"id": "HU-069",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3098445,
+-0.7346771
+]
+},
+"properties": {
+"id": "HU-070",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3171312,
+-0.7067735
+]
+},
+"properties": {
+"id": "HU-071",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3263563,
+-0.7244648
+]
+},
+"properties": {
+"id": "HU-072",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3186652,
+-0.7101296
+]
+},
+"properties": {
+"id": "HU-073",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3247336,
+-0.7100363
+]
+},
+"properties": {
+"id": "HU-074",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3207768,
+-0.7068646
+]
+},
+"properties": {
+"id": "HU-075",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3293555,
+-0.7037614
+]
+},
+"properties": {
+"id": "HU-076",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3279433,
+-0.7308698
+]
+},
+"properties": {
+"id": "HU-077",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3268398,
+-0.7242705
+]
+},
+"properties": {
+"id": "HU-078",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3185841,
+-0.7058578
+]
+},
+"properties": {
+"id": "HU-079",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3260328,
+-0.7240367
+]
+},
+"properties": {
+"id": "HU-080",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3255974,
+-0.7043067
+]
+},
+"properties": {
+"id": "HU-081",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3284642,
+-0.7117237
+]
+},
+"properties": {
+"id": "HU-082",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3214205,
+-0.7057526
+]
+},
+"properties": {
+"id": "HU-083",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3141157,
+-0.7364478
+]
+},
+"properties": {
+"id": "HU-084",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3302166,
+-0.7037806
+]
+},
+"properties": {
+"id": "HU-085",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3152195,
+-0.7342481
+]
+},
+"properties": {
+"id": "HU-086",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3148809,
+-0.7331143
+]
+},
+"properties": {
+"id": "HU-087",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.328455,
+-0.7063275
+]
+},
+"properties": {
+"id": "HU-088",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.321204,
+-0.709674
+]
+},
+"properties": {
+"id": "HU-089",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3155346,
+-0.7332707
+]
+},
+"properties": {
+"id": "HU-090",
+"isla": "Santa Cruz",
+"estrato_hand": "baja",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3248108,
+-0.7068192
+]
+},
+"properties": {
+"id": "HU-091",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3101246,
+-0.7389605
+]
+},
+"properties": {
+"id": "HU-092",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3221884,
+-0.7037118
+]
+},
+"properties": {
+"id": "HU-093",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3222545,
+-0.7112639
+]
+},
+"properties": {
+"id": "HU-094",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3219714,
+-0.7082205
+]
+},
+"properties": {
+"id": "HU-095",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3301575,
+-0.7052748
+]
+},
+"properties": {
+"id": "HU-096",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3292653,
+-0.7175807
+]
+},
+"properties": {
+"id": "HU-097",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3141384,
+-0.7078438
+]
+},
+"properties": {
+"id": "HU-098",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3289113,
+-0.7156308
+]
+},
+"properties": {
+"id": "HU-099",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3104996,
+-0.7357065
+]
+},
+"properties": {
+"id": "HU-100",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3202038,
+-0.7101949
+]
+},
+"properties": {
+"id": "HU-101",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3101045,
+-0.7376078
+]
+},
+"properties": {
+"id": "HU-102",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_barrio-la-cascada_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3193895,
+-0.7022232
+]
+},
+"properties": {
+"id": "HU-103",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3190033,
+-0.7092898
+]
+},
+"properties": {
+"id": "HU-104",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3302381,
+-0.7164008
+]
+},
+"properties": {
+"id": "HU-105",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3260229,
+-0.7223197
+]
+},
+"properties": {
+"id": "HU-106",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3293143,
+-0.7168917
+]
+},
+"properties": {
+"id": "HU-107",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3232963,
+-0.7085787
+]
+},
+"properties": {
+"id": "HU-108",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3257817,
+-0.7108561
+]
+},
+"properties": {
+"id": "HU-109",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3267501,
+-0.7024767
+]
+},
+"properties": {
+"id": "HU-110",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3137268,
+-0.7334921
+]
+},
+"properties": {
+"id": "HU-111",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-05",
+"ortofoto": "orto_curva-brava_la-cascada_2026-11-05.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3222289,
+-0.7067851
+]
+},
+"properties": {
+"id": "HU-112",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3121735,
+-0.7065685
+]
+},
+"properties": {
+"id": "HU-113",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3276619,
+-0.713189
+]
+},
+"properties": {
+"id": "HU-114",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3245786,
+-0.7072702
+]
+},
+"properties": {
+"id": "HU-115",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.316317,
+-0.7090991
+]
+},
+"properties": {
+"id": "HU-116",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3232009,
+-0.712286
+]
+},
+"properties": {
+"id": "HU-117",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3229201,
+-0.7116834
+]
+},
+"properties": {
+"id": "HU-118",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "calibracion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3271271,
+-0.7172986
+]
+},
+"properties": {
+"id": "HU-119",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": true,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+},
+{
+"type": "Feature",
+"geometry": {
+"type": "Point",
+"coordinates": [
+-90.3126619,
+-0.7061895
+]
+},
+"properties": {
+"id": "HU-120",
+"isla": "Santa Cruz",
+"estrato_hand": "fuera",
+"uso": "validacion",
+"revisar_humano": false,
+"fecha_vuelo": "2026-11-03",
+"ortofoto": "orto_tomas-berlanga_mira-mar_2026-11-03.tif",
+"fecha_evento": "30-oct o 2-nov-2026",
+"precision_m": 3
+}
+}
+]
+}
