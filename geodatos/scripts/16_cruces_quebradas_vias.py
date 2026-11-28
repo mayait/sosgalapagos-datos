@@ -9,7 +9,8 @@ Qué hace
      tunnel=culvert) y puentes IGM (capas/igm/puente_p, puente_l). Los nodos sueltos man_made=culvert o ford no
      están en el extracto y no se consideran.
   2. Cauces: quebradas IGM 1:25 000 + OSM (capas/final/quebradas.geojson) y cauces D8 derivados del DSM con
-     área drenada ≥ 0,1 km² (capas/final/drenaje_derivado.geojson, generados por 03_dem.py).
+     área drenada ≥ 0,1 km² (capas/final/drenaje_derivado.geojson, generados por 03_dem.py). En Santa Cruz se suman
+     las cañadas trazadas por el GAD Municipal (datos/gad_santa_cruz/canadas_santa_cruz.geojson, CC BY 4.0).
   3. Calcula todas las intersecciones vía × cauce y las deduplica: los cruces a menos de DEDUP_M metros se
      agrupan en uno solo (unión-búsqueda). Del grupo se conserva la vía OSM (tiene etiquetas) antes que la IGM y
      la quebrada con nombre / IGM / OSM antes que el cauce D8; se guardan todas las fuentes.
@@ -199,6 +200,38 @@ def puntaje(r):
     p += 2 if r["zona_poblada"] else 0
     return p, ("alta" if p >= 7 else "media" if p >= 4 else "baja")
 
+def ids_estables(filas, previo, cfg, T, radio_m=60):
+    """Asigna los id sin renumerar los cruces que ya existían.
+
+    Los resultados del modelo 2D, las tormentas sintéticas y estudios/pendientes.json citan cruces por su id. Si el
+    cruces.csv anterior existe, cada cruce nuevo hereda el id del cruce anterior más cercano a radio_m metros o menos
+    (emparejamiento uno a uno, de menor a mayor distancia). Los que no tienen pareja reciben números a partir del mayor
+    id anterior. Sin archivo previo, se numera por prioridad como siempre.
+    """
+    pref = f"CR-{cfg['pref']}-"
+    viejos = []
+    if previo.exists():
+        for r in csv.DictReader(open(previo, encoding="utf-8")):
+            x, y = T(float(r["lon"]), float(r["lat"])); viejos.append((r["id"], x, y))
+    if not viejos:
+        for i, r in enumerate(filas, 1): r["id"] = f"{pref}{i:04d}"
+        return
+    pares = []
+    for i, r in enumerate(filas):
+        x, y = T(r["lon"], r["lat"])
+        for vid, vx, vy in viejos:
+            d = math.hypot(x - vx, y - vy)
+            if d <= radio_m: pares.append((d, i, vid))
+    usados_f, usados_v = set(), set()
+    for d, i, vid in sorted(pares):
+        if i in usados_f or vid in usados_v: continue
+        filas[i]["id"] = vid; usados_f.add(i); usados_v.add(vid)
+    sig = max(int(v[0].rsplit("-", 1)[1]) for v in viejos)
+    for i, r in enumerate(filas):
+        if i not in usados_f:
+            sig += 1; r["id"] = f"{pref}{sig:04d}"
+    print(f"  id: {len(usados_f)} heredados, {len(filas) - len(usados_f)} nuevos, {len(viejos) - len(usados_v)} cruces anteriores sin pareja")
+
 # ---------------------------------------------------------------- principal
 def cargar(rel, isla, cond=lambda p: True):
     return [(shape(f["geometry"]), f["properties"]) for f in json.loads((ROOT / rel).read_text())["features"]
@@ -218,6 +251,12 @@ def main():
         cauces = []
         for g, p in cargar("capas/final/quebradas.geojson", isla):
             cauces.append((g, dict(nombre=p.get("nombre"), fuente=p.get("fuente"), rank=0 if p.get("nombre") else 1 if "IGM" in p.get("fuente", "") else 2)))
+        # Cañadas trazadas por el GAD Municipal de Santa Cruz (datos/gad_santa_cruz/, 40_gad_santa_cruz_canadas.py):
+        # trazado real, con prioridad sobre las quebradas sin nombre y el cauce D8 al deduplicar.
+        gad = ROOT / "datos/gad_santa_cruz/canadas_santa_cruz.geojson"
+        if gad.exists():
+            for g, p in cargar("datos/gad_santa_cruz/canadas_santa_cruz.geojson", isla):
+                cauces.append((g, dict(nombre=None, fuente="Cañada GAD Santa Cruz", rank=1)))
         for g, p in cargar("capas/final/drenaje_derivado.geojson", isla):
             cauces.append((g, dict(nombre=None, fuente="D8 GLO-30 (≥0,1 km²)", rank=3)))
         tq = STRtree([g for g, _ in cauces])
@@ -320,8 +359,8 @@ def main():
             fila["puntaje"], fila["prioridad"] = puntaje(fila)
             filas.append(fila)
         filas.sort(key=lambda r: (-r["puntaje"], -r["q100"], -r["area_km2"]))
-        for i, r in enumerate(filas, 1): r["id"] = f"CR-{cfg['pref']}-{i:04d}"
         out = ROOT / f"estudios/{cfg['est']}/datos"; out.mkdir(parents=True, exist_ok=True)
+        ids_estables(filas, out / "cruces.csv", cfg, T)
         cols = ["id"] + [k for k in filas[0] if k != "id"]
         with open(out / "cruces.csv", "w", newline="", encoding="utf-8") as fh:
             w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore"); w.writeheader(); [w.writerow(r) for r in filas]
